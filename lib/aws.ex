@@ -1,0 +1,2 @@
+defmodule Aws do
+end

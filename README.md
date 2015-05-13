@@ -1,0 +1,1 @@
+AWS clients for Elixir.

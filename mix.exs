@@ -1,4 +1,4 @@
-defmodule Aws.Mixfile do
+defmodule AWS.Mixfile do
   use Mix.Project
 
   def project do

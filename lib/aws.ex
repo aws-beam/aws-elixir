@@ -1,2 +1,2 @@
-defmodule Aws do
+defmodule AWS do
 end

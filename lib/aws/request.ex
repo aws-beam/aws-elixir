@@ -1,14 +1,12 @@
 defmodule AWS.Request do
   alias AWS.Request.Internal
   alias AWS.Util
-  alias Timex.Date
-  alias Timex.DateFormat
 
   @doc """
   Generate headers with an AWS signature version 4 for the specified request.
   """
   def sign_v4(client, method, url, headers, body) do
-    sign_v4(client, Date.universal, method, url, headers, body)
+    sign_v4(client, Timex.Date.universal, method, url, headers, body)
   end
 
   @doc """
@@ -16,8 +14,8 @@ defmodule AWS.Request do
   using the specified time.
   """
   def sign_v4(client, now, method, url, headers, body) do
-    {:ok, long_date} = DateFormat.format(now, "{YYYY}{0M}{0D}T{0h24}{0m}{0s}Z")
-    {:ok, short_date} = DateFormat.format(now, "{YYYY}{0M}{0D}")
+    {:ok, long_date} = Timex.DateFormat.format(now, "{YYYY}{0M}{0D}T{0h24}{0m}{0s}Z")
+    {:ok, short_date} = Timex.DateFormat.format(now, "{YYYY}{0M}{0D}")
     headers = Internal.add_date_header(headers, long_date)
     canonical_request = Internal.canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)

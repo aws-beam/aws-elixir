@@ -2,7 +2,6 @@ defmodule AWS.RequestTest do
   use ExUnit.Case
   alias AWS.Client
   alias AWS.Request
-  alias Timex.Date
 
   test "sign_request/6 extracts credentials, service and region information from a Client map, generates an AWS signature version 4 for a request, and returns a new set of HTTP headers with Authorization and X-Aws-Date headers" do
     client = %Client{access_key_id: "access-key-id",
@@ -10,7 +9,7 @@ defmodule AWS.RequestTest do
                      session_token: nil,
                      region: "us-east-1",
                      service: "ec2"}
-    now = Date.from({{2015, 5, 14}, {16, 50, 5}})
+    now = Timex.Date.from({{2015, 5, 14}, {16, 50, 5}})
     method = "GET"
     url = "https://ec2.us-east-1.amazonaws.com?Action=DescribeInstances&Version=2014-10-01"
     headers = [{"Host", "ec2.us-east-1.amazonaws.com"}, {"Header", "Value"}]

@@ -18,7 +18,7 @@ defmodule AWS.RequestTest do
                 {"X-Amz-Date", "20150514T165005Z"},
                 {"Host", "ec2.us-east-1.amazonaws.com"},
                 {"Header", "Value"}]
-    assert ^expected = actual
+    assert expected == actual
   end
 end
 
@@ -28,30 +28,30 @@ defmodule AWS.Request.InternalTest do
 
   test "add_authorization_header/2 add an Authorization header to a list of HTTP headers" do
     expected = [{"Authorization", "AWS4-HMAX-SHA256"}, {"Host", "example.com"}]
-    assert ^expected = Internal.add_authorization_header(
+    assert expected == Internal.add_authorization_header(
       [{"Host", "example.com"}], "AWS4-HMAX-SHA256")
   end
 
   test "add_date_header/2 adds an X-Amz-Date header to a list of HTTP headers" do
     expected = [{"X-Amz-Date", "20150326T221217Z"},
                 {"Host", "example.com"}]
-    assert ^expected = Internal.add_date_header([{"Host", "example.com"}],
+    assert expected == Internal.add_date_header([{"Host", "example.com"}],
                                                 "20150326T221217Z")
   end
 
   test "canonical_header/1 lowercases and colon-joins a header name and value and adds a trailing newline" do
     expected = "host:example.com\n"
-    assert ^expected = Internal.canonical_header({"host", "example.com"})
+    assert expected == Internal.canonical_header({"host", "example.com"})
   end
 
   test "canonical_header/1 strips leading and trailing whitespace from the header name and value" do
     expected = "host:example.com\n"
-    assert ^expected = Internal.canonical_header({" host ", " example.com "})
+    assert expected == Internal.canonical_header({" host ", " example.com "})
   end
 
   test "canonical_headers/1 returns a newline-delimited list of trimmed and lowecase headers, sorted in alphabetical order, and with a trailing newline" do
     expected = "host:example.com\nx-amz-date:20150325T105958Z\n"
-    assert ^expected = Internal.canonical_headers(
+    assert expected == Internal.canonical_headers(
       [{"X-Amz-Date", "20150325T105958Z"}, {"Host", "example.com"}])
   end
 
@@ -65,7 +65,7 @@ defmodule AWS.Request.InternalTest do
                                         [{"Host", "example.com"},
                                          {"X-Amz-Date", "20150325T105958Z"}],
                                         "")
-    assert ^expected = actual
+    assert expected == actual
   end
 
   test "canonical_request/4 converts an HTTP method, represented as an atom, into a string before generating a canonical request for AWS signature version 4" do
@@ -78,12 +78,12 @@ defmodule AWS.Request.InternalTest do
                                         [{"Host", "example.com"},
                                          {"X-Amz-Date", "20150325T105958Z"}],
                                         "")
-    assert ^expected = actual
+    assert expected == actual
   end
 
   test "credential_scope/3 combines a short date, region and service name and signature identifier into a slash-joined binary value" do
     expected = "20150325/us-east-1/iam/aws4_request"
-    assert ^expected = Internal.credential_scope("20150325", "us-east-1", "iam")
+    assert expected == Internal.credential_scope("20150325", "us-east-1", "iam")
   end
 
   test "signed_header/1 lowercases the header name" do
@@ -99,7 +99,7 @@ defmodule AWS.Request.InternalTest do
     actual = Internal.signed_headers([{"X-Amz-Date", "20150325T105958Z"},
                                       {"Host", "example.com"},
                                       {"Header", "Value"}])
-    assert ^expected = actual
+    assert expected == actual
   end
 
   test "signing_key/4 creates a signing key from a secret access key, short date, region identifier and service identifier" do
@@ -107,14 +107,14 @@ defmodule AWS.Request.InternalTest do
                   60,  200, 152, 110,  95, 108, 195, 104,
                   208, 222,  84, 216, 129,  34, 102, 127,
                   208,  93,  22,  61,  71,  54, 199, 206>>
-    assert ^expected = Internal.signing_key("secret-access-key", "20150326",
+    assert expected == Internal.signing_key("secret-access-key", "20150326",
                                             "us-east-1", "s3")
   end
 
   test "split_url/1 splits a URL from its query string, URL encodes the query string, and returns the URL and query string as separate values" do
     expected = {"/index", "one=1&two=2"}
     actual = Internal.split_url("https://example.com/index?one=1&two=2")
-    assert ^expected = actual
+    assert expected == actual
   end
 
   test "split_url/1 returns an empty binary if no query string is present" do
@@ -130,7 +130,7 @@ defmodule AWS.Request.InternalTest do
     hashed_canonical_request = AWS.Util.sha256_hexdigest(canonical_request)
     expected = Enum.join(["AWS4-HMAC-SHA256", long_date,
                           credential_scope, hashed_canonical_request], "\n")
-    assert ^expected = Internal.string_to_sign(long_date, credential_scope,
+    assert expected == Internal.string_to_sign(long_date, credential_scope,
                                                hashed_canonical_request)
   end
 end

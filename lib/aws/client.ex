@@ -3,5 +3,6 @@ defmodule AWS.Client do
             secret_access_key: nil,
             session_token: nil,
             region: nil,
+            endpoint: nil,
             service: nil
 end

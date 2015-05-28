@@ -83,11 +83,11 @@ defmodule AWS.EMR do
   If no parameters are supplied, then job flows matching either of the
   following criteria are returned:
 
-  * Job flows created and completed in the last two weeks * Job flows created
-  within the last two months that are in one of the following states:
-  `RUNNING`, `WAITING`, `SHUTTING_DOWN`, `STARTING`
-
-  Amazon Elastic MapReduce can return a maximum of 512 job flow descriptions.
+  <ul> <li>Job flows created and completed in the last two weeks</li> <li>
+  Job flows created within the last two months that are in one of the
+  following states: `RUNNING`, `WAITING`, `SHUTTING_DOWN`, `STARTING` </li>
+  </ul> Amazon Elastic MapReduce can return a maximum of 512 job flow
+  descriptions.
   """
   def describe_job_flows(client, input, options \\ []) do
     request(client, "DescribeJobFlows", input, options)

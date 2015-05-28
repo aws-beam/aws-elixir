@@ -50,9 +50,10 @@ defmodule AWS.Config do
   sends following notifications using an Amazon SNS topic that you have
   specified.
 
-  * Notification of starting the delivery. * Notification of delivery
-  completed, if the delivery was successfully completed. * Notification of
-  delivery failure, if the delivery failed to complete.
+  <ul> <li>Notification of starting the delivery.</li> <li>Notification of
+  delivery completed, if the delivery was successfully completed.</li>
+  <li>Notification of delivery failure, if the delivery failed to
+  complete.</li> </ul>
   """
   def deliver_config_snapshot(client, input, options \\ []) do
     request(client, "DeliverConfigSnapshot", input, options)

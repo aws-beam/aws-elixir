@@ -11,8 +11,8 @@ defmodule AWS.CodeDeploy do
   **Using the APIs** You can use the AWS CodeDeploy APIs to work with the
   following items:
 
-  * *Applications*, which are unique identifiers that AWS CodeDeploy uses to
-  ensure that the correct combinations of revisions, deployment
+  <ul> <li> *Applications*, which are unique identifiers that AWS CodeDeploy
+  uses to ensure that the correct combinations of revisions, deployment
   configurations, and deployment groups are being referenced during
   deployments.
 
@@ -22,17 +22,17 @@ defmodule AWS.CodeDeploy do
   information about applications, and to change information about an
   application, respectively.
 
-  * *Deployment configurations*, which are sets of deployment rules and
-  deployment success and failure conditions that AWS CodeDeploy uses during
-  deployments.
+  </li> <li> *Deployment configurations*, which are sets of deployment rules
+  and deployment success and failure conditions that AWS CodeDeploy uses
+  during deployments.
 
   You can work with deployment configurations by calling
   `CreateDeploymentConfig`, `DeleteDeploymentConfig`, `GetDeploymentConfig`,
   and `ListDeploymentConfigs` to create, delete, and get information about
   deployment configurations, respectively.
 
-  * *Deployment groups*, which represent groups of Amazon EC2 instances to
-  which application revisions can be deployed.
+  </li> <li> *Deployment groups*, which represent groups of Amazon EC2
+  instances to which application revisions can be deployed.
 
   You can work with deployment groups by calling `CreateDeploymentGroup`,
   `DeleteDeploymentGroup`, `GetDeploymentGroup`, `ListDeploymentGroups`, and
@@ -40,7 +40,7 @@ defmodule AWS.CodeDeploy do
   and multiple deployment groups, and to change information about a
   deployment group, respectively.
 
-  * *Deployment instances* (also known simply as *instances*), which
+  </li> <li> *Deployment instances* (also known simply as *instances*), which
   represent Amazon EC2 instances to which application revisions are deployed.
   Deployment instances are identified by their Amazon EC2 tags or Auto
   Scaling group names. Deployment instances belong to deployment groups.
@@ -49,29 +49,31 @@ defmodule AWS.CodeDeploy do
   and `ListDeploymentInstances` to get information about single and multiple
   deployment instances, respectively.
 
-  * *Deployments*, which represent the process of deploying revisions to
-  deployment groups.
+  </li> <li> *Deployments*, which represent the process of deploying
+  revisions to deployment groups.
 
   You can work with deployments by calling `CreateDeployment`,
   `GetDeployment`, `ListDeployments`, `BatchGetDeployments`, and
   `StopDeployment` to create and get information about deployments, and to
   stop a deployment, respectively.
 
-  * *Application revisions* (also known simply as *revisions*), which are
-  archive files that are stored in Amazon S3 buckets or GitHub repositories.
-  These revisions contain source content (such as source code, web pages,
-  executable files, any deployment scripts, and similar) along with an
-  Application Specification file (AppSpec file). (The AppSpec file is unique
-  to AWS CodeDeploy; it defines a series of deployment actions that you want
-  AWS CodeDeploy to execute.) An application revision is uniquely identified
-  by its Amazon S3 object key and its ETag, version, or both. Application
-  revisions are deployed to deployment groups.
+  </li> <li> *Application revisions* (also known simply as *revisions*),
+  which are archive files that are stored in Amazon S3 buckets or GitHub
+  repositories. These revisions contain source content (such as source code,
+  web pages, executable files, any deployment scripts, and similar) along
+  with an Application Specification file (AppSpec file). (The AppSpec file is
+  unique to AWS CodeDeploy; it defines a series of deployment actions that
+  you want AWS CodeDeploy to execute.) An application revision is uniquely
+  identified by its Amazon S3 object key and its ETag, version, or both.
+  Application revisions are deployed to deployment groups.
 
   You can work with application revisions by calling
   `GetApplicationRevision`, `ListApplicationRevisions`, and
   `RegisterApplicationRevision` to get information about application
   revisions and to inform AWS CodeDeploy about an application revision,
   respectively.
+
+  </li> </ul>
   """
 
   @doc """

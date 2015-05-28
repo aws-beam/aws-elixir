@@ -14,37 +14,39 @@ defmodule AWS.Logs do
   Use the following links to get started using the *Amazon CloudWatch Logs
   API Reference*:
 
-  *
+  <ul> <li>
   [Actions](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Operations.html):
-  An alphabetical list of all Amazon CloudWatch Logs actions. * [Data
+  An alphabetical list of all Amazon CloudWatch Logs actions.</li> <li> [Data
   Types](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Types.html):
-  An alphabetical list of all Amazon CloudWatch Logs data types. * [Common
+  An alphabetical list of all Amazon CloudWatch Logs data types.</li> <li>
+  [Common
   Parameters](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonParameters.html):
-  Parameters that all Query actions can use. * [Common
+  Parameters that all Query actions can use.</li> <li> [Common
   Errors](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonErrors.html):
-  Client and server errors that all actions can return. * [Regions and
+  Client and server errors that all actions can return.</li> <li> [Regions
+  and
   Endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html):
-  Itemized regions and endpoints for all AWS products.
-
-  In addition to using the Amazon CloudWatch Logs API, you can also use the
-  following SDKs and third-party libraries to access Amazon CloudWatch Logs
+  Itemized regions and endpoints for all AWS products.</li> </ul> In addition
+  to using the Amazon CloudWatch Logs API, you can also use the following
+  SDKs and third-party libraries to access Amazon CloudWatch Logs
   programmatically.
 
-  * [AWS SDK for Java
-  Documentation](http://aws.amazon.com/documentation/sdkforjava/) * [AWS SDK
-  for .NET Documentation](http://aws.amazon.com/documentation/sdkfornet/) *
-  [AWS SDK for PHP
-  Documentation](http://aws.amazon.com/documentation/sdkforphp/) * [AWS SDK
-  for Ruby Documentation](http://aws.amazon.com/documentation/sdkforruby/)
-
+  <ul> <li>[AWS SDK for Java
+  Documentation](http://aws.amazon.com/documentation/sdkforjava/)</li>
+  <li>[AWS SDK for .NET
+  Documentation](http://aws.amazon.com/documentation/sdkfornet/)</li>
+  <li>[AWS SDK for PHP
+  Documentation](http://aws.amazon.com/documentation/sdkforphp/)</li>
+  <li>[AWS SDK for Ruby
+  Documentation](http://aws.amazon.com/documentation/sdkforruby/)</li> </ul>
   Developers in the AWS developer community also provide their own libraries,
   which you can find at the following AWS developer centers:
 
-  * [AWS Java Developer Center](http://aws.amazon.com/java/) * [AWS PHP
-  Developer Center](http://aws.amazon.com/php/) * [AWS Python Developer
-  Center](http://aws.amazon.com/python/) * [AWS Ruby Developer
-  Center](http://aws.amazon.com/ruby/) * [AWS Windows and .NET Developer
-  Center](http://aws.amazon.com/net/)
+  <ul> <li>[AWS Java Developer Center](http://aws.amazon.com/java/)</li>
+  <li>[AWS PHP Developer Center](http://aws.amazon.com/php/)</li> <li>[AWS
+  Python Developer Center](http://aws.amazon.com/python/)</li> <li>[AWS Ruby
+  Developer Center](http://aws.amazon.com/ruby/)</li> <li>[AWS Windows and
+  .NET Developer Center](http://aws.amazon.com/net/)</li> </ul>
   """
 
   @doc """
@@ -52,10 +54,10 @@ defmodule AWS.Logs do
   must be unique within a region for an AWS account. You can create up to 500
   log groups per account.
 
-  You must use the following guidelines when naming a log group: * Log group
-  names can be between 1 and 512 characters long. * Allowed characters are
-  a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.'
-  (period).
+  You must use the following guidelines when naming a log group: <ul> <li>Log
+  group names can be between 1 and 512 characters long.</li> <li>Allowed
+  characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward
+  slash), and '.' (period).</li> </ul>
   """
   def create_log_group(client, input, options \\ []) do
     request(client, "CreateLogGroup", input, options)
@@ -66,9 +68,9 @@ defmodule AWS.Logs do
   stream must be unique within the log group. There is no limit on the number
   of log streams that can exist in a log group.
 
-  You must use the following guidelines when naming a log stream: * Log
-  stream names can be between 1 and 512 characters long. * The ':' colon
-  character is not allowed.
+  You must use the following guidelines when naming a log stream: <ul>
+  <li>Log stream names can be between 1 and 512 characters long.</li> <li>The
+  ':' colon character is not allowed.</li> </ul>
   """
   def create_log_stream(client, input, options \\ []) do
     request(client, "CreateLogStream", input, options)
@@ -176,14 +178,15 @@ defmodule AWS.Logs do
   request. An upload in a newly created log stream does not require a <code
   class="code">sequenceToken`.
 
-  The batch of events must satisfy the following constraints: * The maximum
-  batch size is 1,048,576 bytes, and this size is calculated as the sum of
-  all event messages in UTF-8, plus 26 bytes for each log event. * None of
-  the log events in the batch can be more than 2 hours in the future. * None
-  of the log events in the batch can be older than 14 days or the retention
-  period of the log group. * The log events in the batch must be in
-  chronological ordered by their <code class="code">timestamp`. * The maximum
-  number of log events in a batch is 10,000.
+  The batch of events must satisfy the following constraints: <ul> <li>The
+  maximum batch size is 1,048,576 bytes, and this size is calculated as the
+  sum of all event messages in UTF-8, plus 26 bytes for each log event.</li>
+  <li>None of the log events in the batch can be more than 2 hours in the
+  future.</li> <li>None of the log events in the batch can be older than 14
+  days or the retention period of the log group.</li> <li>The log events in
+  the batch must be in chronological ordered by their <code
+  class="code">timestamp`.</li> <li>The maximum number of log events in a
+  batch is 10,000.</li> </ul>
   """
   def put_log_events(client, input, options \\ []) do
     request(client, "PutLogEvents", input, options)

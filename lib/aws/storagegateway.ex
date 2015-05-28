@@ -12,23 +12,23 @@ defmodule AWS.StorageGateway do
   Use the following links to get started using the *AWS Storage Gateway
   Service API Reference*:
 
-  * [AWS Storage Gateway Required Request
+  <ul> <li> [AWS Storage Gateway Required Request
   Headers](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayHTTPRequestsHeaders.html):
   Describes the required headers that you must send with every POST request
-  to AWS Storage Gateway. * [Signing
+  to AWS Storage Gateway.</li> <li> [Signing
   Requests](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewaySigningRequests.html):
   AWS Storage Gateway requires that you authenticate every request you send;
-  this topic describes how sign such a request. * [Error
+  this topic describes how sign such a request.</li> <li> [Error
   Responses](http://docs.aws.amazon.com/storagegateway/latest/userguide/APIErrorResponses.html):
-  Provides reference information about AWS Storage Gateway errors. *
+  Provides reference information about AWS Storage Gateway errors.</li> <li>
   [Operations in AWS Storage
   Gateway](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPIOperations.html):
   Contains detailed descriptions of all AWS Storage Gateway operations, their
   request parameters, response elements, possible errors, and examples of
-  requests and responses. * [AWS Storage Gateway Regions and
+  requests and responses.</li> <li> [AWS Storage Gateway Regions and
   Endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html):
   Provides a list of each of the regions and endpoints available for use with
-  AWS Storage Gateway.
+  AWS Storage Gateway. </li> </ul>
   """
 
   @doc """
@@ -123,7 +123,7 @@ defmodule AWS.StorageGateway do
   Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
   initiators can use to connect to the volume target.
   """
-  def create_cachedi_s_c_s_i_volume(client, input, options \\ []) do
+  def create_cached_iscsi_volume(client, input, options \\ []) do
     request(client, "CreateCachediSCSIVolume", input, options)
   end
 
@@ -196,7 +196,7 @@ defmodule AWS.StorageGateway do
   Resource Name (ARN), its size, and the iSCSI target ARN that initiators can
   use to connect to the volume target.
   """
-  def create_storedi_s_c_s_i_volume(client, input, options \\ []) do
+  def create_stored_iscsi_volume(client, input, options \\ []) do
     request(client, "CreateStorediSCSIVolume", input, options)
   end
 
@@ -345,7 +345,7 @@ defmodule AWS.StorageGateway do
   response Amazon Storage Gateway returns volume information sorted by volume
   Amazon Resource Name (ARN).
   """
-  def describe_cachedi_s_c_s_i_volumes(client, input, options \\ []) do
+  def describe_cached_iscsi_volumes(client, input, options \\ []) do
     request(client, "DescribeCachediSCSIVolumes", input, options)
   end
 
@@ -392,7 +392,7 @@ defmodule AWS.StorageGateway do
   gateway. In the response Amazon Storage Gateway returns volume information
   sorted by volume ARNs.
   """
-  def describe_storedi_s_c_s_i_volumes(client, input, options \\ []) do
+  def describe_stored_iscsi_volumes(client, input, options \\ []) do
     request(client, "DescribeStorediSCSIVolumes", input, options)
   end
 
@@ -448,7 +448,7 @@ defmodule AWS.StorageGateway do
 
   The list of VTL devices must be from one gateway.
   """
-  def describe_v_t_l_devices(client, input, options \\ []) do
+  def describe_vtl_devices(client, input, options \\ []) do
     request(client, "DescribeVTLDevices", input, options)
   end
 
@@ -723,7 +723,7 @@ defmodule AWS.StorageGateway do
   gateway-VTL. This operation enables you to select a different type of
   medium changer after a gateway-VTL is activated.
   """
-  def update_v_t_l_device_type(client, input, options \\ []) do
+  def update_vtl_device_type(client, input, options \\ []) do
     request(client, "UpdateVTLDeviceType", input, options)
   end
 

@@ -52,24 +52,23 @@ defmodule AWS.KMS do
   For more information about credentials and request signing, see the
   following:
 
-  * [AWS Security
+  <ul> <li> [AWS Security
   Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html).
   This topic provides general information about the types of credentials used
-  for accessing AWS. * [AWS Security Token
+  for accessing AWS. </li> <li> [AWS Security Token
   Service](http://docs.aws.amazon.com/STS/latest/UsingSTS/). This guide
-  describes how to create and use temporary security credentials. * [Signing
-  AWS API
+  describes how to create and use temporary security credentials. </li> <li>
+  [Signing AWS API
   Requests](http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html).
   This set of topics walks you through the process of signing a request using
-  an access key ID and a secret access key.
-
-  **Commonly Used APIs**
+  an access key ID and a secret access key. </li> </ul> **Commonly Used
+  APIs**
 
   Of the APIs discussed in this guide, the following will prove the most
   useful for most applications. You will likely perform actions other than
   these, such as creating keys and assigning policies, by using the console.
-  * `Encrypt` * `Decrypt` * `GenerateDataKey` *
-  `GenerateDataKeyWithoutPlaintext`
+  <ul> <li>`Encrypt`</li> <li>`Decrypt`</li> <li>`GenerateDataKey`</li>
+  <li>`GenerateDataKeyWithoutPlaintext`</li> </ul>
   """
 
   @doc """
@@ -91,8 +90,8 @@ defmodule AWS.KMS do
   more information about grants, see
   [Grants](http://docs.aws.amazon.com/kms/latest/developerguide/grants.html)
   in the developer guide. If a grant is absent, access to the key is
-  evaluated based on IAM policies attached to the user. <ol> * `ListGrants` *
-  `RetireGrant` * `RevokeGrant` </ol>
+  evaluated based on IAM policies attached to the user. <ol>
+  <li>`ListGrants`</li> <li>`RetireGrant`</li> <li>`RevokeGrant`</li> </ol>
   """
   def create_grant(client, input, options \\ []) do
     request(client, "CreateGrant", input, options)
@@ -111,8 +110,9 @@ defmodule AWS.KMS do
 
   @doc """
   Decrypts ciphertext. Ciphertext is plaintext that has been previously
-  encrypted by using any of the following functions: * `GenerateDataKey` *
-  `GenerateDataKeyWithoutPlaintext` * `Encrypt`
+  encrypted by using any of the following functions: <ul>
+  <li>`GenerateDataKey`</li> <li>`GenerateDataKeyWithoutPlaintext`</li>
+  <li>`Encrypt`</li> </ul>
 
   Note that if a caller has been granted access permissions to all keys
   (through, for example, IAM user policies that grant `Decrypt` permission on
@@ -172,14 +172,14 @@ defmodule AWS.KMS do
 
   @doc """
   Encrypts plaintext into ciphertext by using a customer master key. The
-  `Encrypt` function has two primary use cases: * You can encrypt up to 4 KB
-  of arbitrary data such as an RSA key, a database password, or other
-  sensitive customer information. * If you are moving encrypted data from one
-  region to another, you can use this API to encrypt in the new region the
-  plaintext data key that was used to encrypt the data in the original
-  region. This provides you with an encrypted copy of the data key that can
-  be decrypted in the new region and used there to decrypt the encrypted
-  data.
+  `Encrypt` function has two primary use cases: <ul> <li>You can encrypt up
+  to 4 KB of arbitrary data such as an RSA key, a database password, or other
+  sensitive customer information.</li> <li>If you are moving encrypted data
+  from one region to another, you can use this API to encrypt in the new
+  region the plaintext data key that was used to encrypt the data in the
+  original region. This provides you with an encrypted copy of the data key
+  that can be decrypted in the new region and used there to decrypt the
+  encrypted data. </li> </ul>
 
   Unless you are moving encrypted data from one region to another, you don't
   use this function to encrypt a generated data key within a region. You
@@ -315,9 +315,10 @@ defmodule AWS.KMS do
   @doc """
   Retires a grant. You can retire a grant when you're done using it to clean
   up. You should revoke a grant when you intend to actively deny operations
-  that depend on it. The following are permitted to call this API: * The
-  account that created the grant * The `RetiringPrincipal`, if present * The
-  `GranteePrincipal`, if `RetireGrant` is a grantee operation
+  that depend on it. The following are permitted to call this API: <ul>
+  <li>The account that created the grant</li> <li>The `RetiringPrincipal`, if
+  present</li> <li>The `GranteePrincipal`, if `RetireGrant` is a grantee
+  operation</li> </ul>
   """
   def retire_grant(client, input, options \\ []) do
     request(client, "RetireGrant", input, options)

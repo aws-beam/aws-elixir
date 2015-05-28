@@ -18,21 +18,21 @@ defmodule AWS.OpsWorks do
   Line Interface (CLI) or by using one of the AWS SDKs to implement
   applications in your preferred language. For more information, see:
 
-  * [AWS
-  CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
-  * [AWS SDK for
-  Java](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)
-  * [AWS SDK for
-  .NET](http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm)
-  * [AWS SDK for PHP
-  2](http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html)
-  * [AWS SDK for
-  Ruby](http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/OpsWorks/Client.html)
-  * [AWS SDK for
-  Node.js](http://aws.amazon.com/documentation/sdkforjavascript/) * [AWS SDK
-  for Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html)
-
-  **Endpoints**
+  <ul> <li>[AWS
+  CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)</li>
+  <li>[AWS SDK for
+  Java](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)</li>
+  <li>[AWS SDK for
+  .NET](http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm)</li>
+  <li>[AWS SDK for PHP
+  2](http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html)</li>
+  <li>[AWS SDK for
+  Ruby](http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/OpsWorks/Client.html)</li>
+  <li>[AWS SDK for
+  Node.js](http://aws.amazon.com/documentation/sdkforjavascript/)</li>
+  <li>[AWS SDK for
+  Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html)</li>
+  </ul> **Endpoints**
 
   AWS OpsWorks supports only one endpoint, opsworks.us-east-1.amazonaws.com
   (HTTPS), so you must connect to that endpoint. You can then use the API to

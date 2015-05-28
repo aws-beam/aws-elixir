@@ -15,32 +15,29 @@ defmodule AWS.Support do
 
   The following list describes the AWS Support case management operations:
 
-  * **Service names, issue categories, and available severity levels. **The
-  `DescribeServices` and `DescribeSeverityLevels` operations return AWS
+  <ul> <li> **Service names, issue categories, and available severity levels.
+  **The `DescribeServices` and `DescribeSeverityLevels` operations return AWS
   service names, service codes, service categories, and problem severity
-  levels. You use these values when you call the `CreateCase` operation. *
-  **Case creation, case details, and case resolution.** The `CreateCase`,
-  `DescribeCases`, `DescribeAttachment`, and `ResolveCase` operations create
-  AWS Support cases, retrieve information about cases, and resolve cases. *
-  **Case communication.** The `DescribeCommunications`,
-  `AddCommunicationToCase`, and `AddAttachmentsToSet` operations retrieve and
-  add communications and attachments to AWS Support cases.
+  levels. You use these values when you call the `CreateCase` operation.
+  </li> <li> **Case creation, case details, and case resolution.** The
+  `CreateCase`, `DescribeCases`, `DescribeAttachment`, and `ResolveCase`
+  operations create AWS Support cases, retrieve information about cases, and
+  resolve cases.</li> <li> **Case communication.** The
+  `DescribeCommunications`, `AddCommunicationToCase`, and
+  `AddAttachmentsToSet` operations retrieve and add communications and
+  attachments to AWS Support cases. </li> </ul> The following list describes
+  the operations available from the AWS Support service for Trusted Advisor:
 
-  The following list describes the operations available from the AWS Support
-  service for Trusted Advisor:
-
-  * `DescribeTrustedAdvisorChecks` returns the list of checks that run
-  against your AWS resources. * Using the `CheckId` for a specific check
-  returned by `DescribeTrustedAdvisorChecks`, you can call
+  <ul> <li> `DescribeTrustedAdvisorChecks` returns the list of checks that
+  run against your AWS resources.</li> <li>Using the `CheckId` for a specific
+  check returned by `DescribeTrustedAdvisorChecks`, you can call
   `DescribeTrustedAdvisorCheckResult` to obtain the results for the check you
-  specified. * `DescribeTrustedAdvisorCheckSummaries` returns summarized
-  results for one or more Trusted Advisor checks. *
+  specified.</li> <li> `DescribeTrustedAdvisorCheckSummaries` returns
+  summarized results for one or more Trusted Advisor checks.</li> <li>
   `RefreshTrustedAdvisorCheck` requests that Trusted Advisor rerun a
-  specified check. * `DescribeTrustedAdvisorCheckRefreshStatuses` reports the
-  refresh status of one or more checks.
-
-  For authentication of requests, AWS Support uses [Signature Version 4
-  Signing
+  specified check. </li> <li> `DescribeTrustedAdvisorCheckRefreshStatuses`
+  reports the refresh status of one or more checks. </li> </ul> For
+  authentication of requests, AWS Support uses [Signature Version 4 Signing
   Process](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
   See [About the AWS Support
@@ -88,31 +85,33 @@ defmodule AWS.Support do
   Case](https://console.aws.amazon.com/support/home#/case/create) page. Its
   parameters require you to specify the following information:
 
-  <ol> * **IssueType.** The type of issue for the case. You can specify
+  <ol> <li> **IssueType.** The type of issue for the case. You can specify
   either "customer-service" or "technical." If you do not indicate a value,
-  the default is "technical." * **ServiceCode.** The code for an AWS service.
-  You obtain the `ServiceCode` by calling `DescribeServices`. *
-  **CategoryCode.** The category for the service defined for the
+  the default is "technical." </li> <li> **ServiceCode.** The code for an AWS
+  service. You obtain the `ServiceCode` by calling `DescribeServices`. </li>
+  <li> **CategoryCode.** The category for the service defined for the
   `ServiceCode` value. You also obtain the category code for a service by
   calling `DescribeServices`. Each AWS service defines its own set of
-  category codes. * **SeverityCode.** A value that indicates the urgency of
-  the case, which in turn determines the response time according to your
-  service level agreement with AWS Support. You obtain the SeverityCode by
-  calling `DescribeSeverityLevels`. * **Subject.** The **Subject** field on
-  the AWS Support Center [Create
-  Case](https://console.aws.amazon.com/support/home#/case/create) page. *
-  **CommunicationBody.** The **Description** field on the AWS Support Center
-  [Create Case](https://console.aws.amazon.com/support/home#/case/create)
-  page. * **AttachmentSetId.** The ID of a set of attachments that has been
-  created by using `AddAttachmentsToSet`. * **Language.** The human language
-  in which AWS Support handles the case. English and Japanese are currently
-  supported. * **CcEmailAddresses.** The AWS Support Center **CC** field on
-  the [Create Case](https://console.aws.amazon.com/support/home#/case/create)
-  page. You can list email addresses to be copied on any correspondence about
-  the case. The account that opens the case is already identified by passing
-  the AWS Credentials in the HTTP POST method or in a method or function call
-  from one of the programming languages supported by an [AWS
-  SDK](http://aws.amazon.com/tools/). </ol> <note>To add additional
+  category codes. </li> <li> **SeverityCode.** A value that indicates the
+  urgency of the case, which in turn determines the response time according
+  to your service level agreement with AWS Support. You obtain the
+  SeverityCode by calling `DescribeSeverityLevels`.</li> <li> **Subject.**
+  The **Subject** field on the AWS Support Center [Create
+  Case](https://console.aws.amazon.com/support/home#/case/create) page.</li>
+  <li> **CommunicationBody.** The **Description** field on the AWS Support
+  Center [Create
+  Case](https://console.aws.amazon.com/support/home#/case/create) page.</li>
+  <li> **AttachmentSetId.** The ID of a set of attachments that has been
+  created by using `AddAttachmentsToSet`.</li> <li> **Language.** The human
+  language in which AWS Support handles the case. English and Japanese are
+  currently supported.</li> <li> **CcEmailAddresses.** The AWS Support Center
+  **CC** field on the [Create
+  Case](https://console.aws.amazon.com/support/home#/case/create) page. You
+  can list email addresses to be copied on any correspondence about the case.
+  The account that opens the case is already identified by passing the AWS
+  Credentials in the HTTP POST method or in a method or function call from
+  one of the programming languages supported by an [AWS
+  SDK](http://aws.amazon.com/tools/). </li> </ol> <note>To add additional
   communication or attachments to an existing case, use
   `AddCommunicationToCase`.
 
@@ -147,9 +146,9 @@ defmodule AWS.Support do
 
   The response returns the following in JSON format:
 
-  <ol> * One or more `CaseDetails` data types. * One or more `NextToken`
-  values, which specify where to paginate the returned records represented by
-  the `CaseDetails` objects. </ol>
+  <ol> <li>One or more `CaseDetails` data types. </li> <li>One or more
+  `NextToken` values, which specify where to paginate the returned records
+  represented by the `CaseDetails` objects.</li> </ol>
   """
   def describe_cases(client, input, options \\ []) do
     request(client, "DescribeCases", input, options)
@@ -218,15 +217,15 @@ defmodule AWS.Support do
   The response contains a `TrustedAdvisorCheckResult` object, which contains
   these three objects:
 
-  * `TrustedAdvisorCategorySpecificSummary` * `TrustedAdvisorResourceDetail`
-  * `TrustedAdvisorResourcesSummary`
+  <ul> <li>`TrustedAdvisorCategorySpecificSummary`</li>
+  <li>`TrustedAdvisorResourceDetail`</li>
+  <li>`TrustedAdvisorResourcesSummary`</li> </ul> In addition, the response
+  contains these fields:
 
-  In addition, the response contains these fields:
-
-  * **Status.** The alert status of the check: "ok" (green), "warning"
-  (yellow), "error" (red), or "not_available". * **Timestamp.** The time of
-  the last refresh of the check. * **CheckId.** The unique identifier for the
-  check.
+  <ul> <li> **Status.** The alert status of the check: "ok" (green),
+  "warning" (yellow), "error" (red), or "not_available".</li> <li>
+  **Timestamp.** The time of the last refresh of the check.</li> <li>
+  **CheckId.** The unique identifier for the check.</li> </ul>
   """
   def describe_trusted_advisor_check_result(client, input, options \\ []) do
     request(client, "DescribeTrustedAdvisorCheckResult", input, options)
@@ -261,10 +260,11 @@ defmodule AWS.Support do
   The response contains a `TrustedAdvisorCheckRefreshStatus` object, which
   contains these fields:
 
-  * **Status.** The refresh status of the check: "none", "enqueued",
-  "processing", "success", or "abandoned". * **MillisUntilNextRefreshable.**
-  The amount of time, in milliseconds, until the check is eligible for
-  refresh. * **CheckId.** The unique identifier for the check.
+  <ul> <li> **Status.** The refresh status of the check: "none", "enqueued",
+  "processing", "success", or "abandoned".</li> <li>
+  **MillisUntilNextRefreshable.** The amount of time, in milliseconds, until
+  the check is eligible for refresh.</li> <li> **CheckId.** The unique
+  identifier for the check.</li> </ul>
   """
   def refresh_trusted_advisor_check(client, input, options \\ []) do
     request(client, "RefreshTrustedAdvisorCheck", input, options)

@@ -151,10 +151,10 @@ defmodule AWS.DataPipeline do
 
   `PutPipelineDefinition` also validates the configuration as it adds it to
   the pipeline. Changes to the pipeline are saved unless one of the following
-  three validation errors exists in the pipeline. <ol> * An object is missing
-  a name or identifier field. * A string or reference field is empty. * The
-  number of objects in the pipeline exceeds the maximum allowed objects. *
-  The pipeline is in a FINISHED state. </ol>
+  three validation errors exists in the pipeline. <ol> <li>An object is
+  missing a name or identifier field.</li> <li>A string or reference field is
+  empty.</li> <li>The number of objects in the pipeline exceeds the maximum
+  allowed objects.</li> <li>The pipeline is in a FINISHED state.</li> </ol>
 
   Pipeline object definitions are passed to the `PutPipelineDefinition`
   action and returned by the `GetPipelineDefinition` action.

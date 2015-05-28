@@ -3,6 +3,8 @@
 
 defmodule AWS.Kinesis do
   @moduledoc """
+  Amazon Kinesis Service API Reference
+
   Amazon Kinesis is a managed service that scales elastically for real time
   processing of streaming big data.
   """

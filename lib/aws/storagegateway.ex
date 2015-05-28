@@ -3,6 +3,8 @@
 
 defmodule AWS.StorageGateway do
   @moduledoc """
+  AWS Storage Gateway Service
+
   AWS Storage Gateway is the service that connects an on-premises software
   appliance with cloud-based storage to provide seamless and secure
   integration between an organization's on-premises IT environment and AWS's

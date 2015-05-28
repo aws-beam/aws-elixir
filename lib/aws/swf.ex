@@ -3,6 +3,8 @@
 
 defmodule AWS.SWF do
   @moduledoc """
+  Amazon Simple Workflow Service
+
   The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
   applications that use Amazon's cloud to coordinate work across distributed
   components. In Amazon SWF, a *task* represents a logical unit of work that

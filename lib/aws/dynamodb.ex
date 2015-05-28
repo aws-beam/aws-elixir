@@ -3,6 +3,8 @@
 
 defmodule AWS.DynamoDB do
   @moduledoc """
+  Amazon DynamoDB
+
   **Overview**
 
   This is the Amazon DynamoDB API Reference. This guide provides descriptions

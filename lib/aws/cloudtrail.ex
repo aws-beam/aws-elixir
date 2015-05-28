@@ -3,6 +3,8 @@
 
 defmodule AWS.CloudTrail do
   @moduledoc """
+  AWS CloudTrail
+
   This is the CloudTrail API Reference. It provides descriptions of actions,
   data types, common parameters, and common errors for CloudTrail.
 

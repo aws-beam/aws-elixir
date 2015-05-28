@@ -3,6 +3,8 @@
 
 defmodule AWS.KMS do
   @moduledoc """
+  AWS Key Management Service
+
   AWS Key Management Service (KMS) is an encryption and key management web
   service. This guide describes the KMS actions that you can call
   programmatically. For general information about KMS, see the [ AWS Key

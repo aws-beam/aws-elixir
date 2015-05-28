@@ -3,7 +3,7 @@
 
 defmodule AWS.CloudHSM do
   @moduledoc """
-
+  AWS CloudHSM Service
   """
 
   @doc """

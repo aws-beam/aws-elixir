@@ -3,6 +3,8 @@
 
 defmodule AWS.OpsWorks do
   @moduledoc """
+  AWS OpsWorks
+
   Welcome to the *AWS OpsWorks API Reference*. This guide provides
   descriptions, syntax, and usage examples about AWS OpsWorks actions and
   data types, including common parameters and error codes.

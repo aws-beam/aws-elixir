@@ -1,0 +1,2 @@
+defmodule AWS do
+end

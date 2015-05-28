@@ -30,56 +30,58 @@ defmodule AWS.DynamoDB do
 
   **Managing Tables**
 
-  * *CreateTable* - Creates a table with user-specified provisioned
+  <ul> <li> *CreateTable* - Creates a table with user-specified provisioned
   throughput settings. You must designate one attribute as the hash primary
   key for the table; you can optionally designate a second attribute as the
   range primary key. DynamoDB creates indexes on these key attributes for
   fast data access. Optionally, you can create one or more secondary indexes,
   which provide fast data access using non-key attributes.
 
-  * *DescribeTable* - Returns metadata for a table, such as table size,
-  status, and index information.
+  </li> <li> *DescribeTable* - Returns metadata for a table, such as table
+  size, status, and index information.
 
-  * *UpdateTable* - Modifies the provisioned throughput settings for a table.
-  Optionally, you can modify the provisioned throughput settings for global
-  secondary indexes on the table.
+  </li> <li> *UpdateTable* - Modifies the provisioned throughput settings for
+  a table. Optionally, you can modify the provisioned throughput settings for
+  global secondary indexes on the table.
 
-  * *ListTables* - Returns a list of all tables associated with the current
-  AWS account and endpoint.
+  </li> <li> *ListTables* - Returns a list of all tables associated with the
+  current AWS account and endpoint.
 
-  * *DeleteTable* - Deletes a table and all of its indexes.
+  </li> <li> *DeleteTable* - Deletes a table and all of its indexes.
 
-  For conceptual information about managing tables, go to [Working with
+  </li> </ul> For conceptual information about managing tables, go to
+  [Working with
   Tables](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html)
   in the *Amazon DynamoDB Developer Guide*.
 
   **Reading Data**
 
-  * *GetItem* - Returns a set of attributes for the item that has a given
-  primary key. By default, *GetItem* performs an eventually consistent read;
-  however, applications can request a strongly consistent read instead.
+  <ul> <li> *GetItem* - Returns a set of attributes for the item that has a
+  given primary key. By default, *GetItem* performs an eventually consistent
+  read; however, applications can request a strongly consistent read instead.
 
-  * *BatchGetItem* - Performs multiple *GetItem* requests for data items
-  using their primary keys, from one table or multiple tables. The response
-  from *BatchGetItem* has a size limit of 16 MB and returns a maximum of 100
-  items. Both eventually consistent and strongly consistent reads can be
-  used.
+  </li> <li> *BatchGetItem* - Performs multiple *GetItem* requests for data
+  items using their primary keys, from one table or multiple tables. The
+  response from *BatchGetItem* has a size limit of 16 MB and returns a
+  maximum of 100 items. Both eventually consistent and strongly consistent
+  reads can be used.
 
-  * *Query* - Returns one or more items from a table or a secondary index.
-  You must provide a specific hash key value. You can narrow the scope of the
-  query using comparison operators against a range key value, or on the index
-  key. *Query* supports either eventual or strong consistency. A single
-  response has a size limit of 1 MB.
+  </li> <li> *Query* - Returns one or more items from a table or a secondary
+  index. You must provide a specific hash key value. You can narrow the scope
+  of the query using comparison operators against a range key value, or on
+  the index key. *Query* supports either eventual or strong consistency. A
+  single response has a size limit of 1 MB.
 
-  * *Scan* - Reads every item in a table; the result set is eventually
-  consistent. You can limit the number of items returned by filtering the
-  data attributes, using conditional expressions. *Scan* can be used to
-  enable ad-hoc querying of a table against non-key attributes; however,
-  since this is a full table scan without using an index, *Scan* should not
-  be used for any application query use case that requires predictable
-  performance.
+  </li> <li> *Scan* - Reads every item in a table; the result set is
+  eventually consistent. You can limit the number of items returned by
+  filtering the data attributes, using conditional expressions. *Scan* can be
+  used to enable ad-hoc querying of a table against non-key attributes;
+  however, since this is a full table scan without using an index, *Scan*
+  should not be used for any application query use case that requires
+  predictable performance.
 
-  For conceptual information about reading data, go to [Working with
+  </li> </ul> For conceptual information about reading data, go to [Working
+  with
   Items](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
   and [Query and Scan
   Operations](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html)
@@ -87,28 +89,29 @@ defmodule AWS.DynamoDB do
 
   **Modifying Data**
 
-  * *PutItem* - Creates a new item, or replaces an existing item with a new
-  item (including all the attributes). By default, if an item in the table
-  already exists with the same primary key, the new item completely replaces
-  the existing item. You can use conditional operators to replace an item
-  only if its attribute values match certain conditions, or to insert a new
-  item only if that item doesn't already exist.
+  <ul> <li> *PutItem* - Creates a new item, or replaces an existing item with
+  a new item (including all the attributes). By default, if an item in the
+  table already exists with the same primary key, the new item completely
+  replaces the existing item. You can use conditional operators to replace an
+  item only if its attribute values match certain conditions, or to insert a
+  new item only if that item doesn't already exist.
 
-  * *UpdateItem* - Modifies the attributes of an existing item. You can also
-  use conditional operators to perform an update only if the item's attribute
-  values match certain conditions.
-
-  * *DeleteItem* - Deletes an item in a table by primary key. You can use
-  conditional operators to perform a delete an item only if the item's
+  </li> <li> *UpdateItem* - Modifies the attributes of an existing item. You
+  can also use conditional operators to perform an update only if the item's
   attribute values match certain conditions.
 
-  * *BatchWriteItem* - Performs multiple *PutItem* and *DeleteItem* requests
-  across multiple tables in a single request. A failure of any request(s) in
-  the batch will not cause the entire *BatchWriteItem* operation to fail.
-  Supports batches of up to 25 items to put or delete, with a maximum total
-  request size of 16 MB.
+  </li> <li> *DeleteItem* - Deletes an item in a table by primary key. You
+  can use conditional operators to perform a delete an item only if the
+  item's attribute values match certain conditions.
 
-  For conceptual information about modifying data, go to [Working with
+  </li> <li> *BatchWriteItem* - Performs multiple *PutItem* and *DeleteItem*
+  requests across multiple tables in a single request. A failure of any
+  request(s) in the batch will not cause the entire *BatchWriteItem*
+  operation to fail. Supports batches of up to 25 items to put or delete,
+  with a maximum total request size of 16 MB.
+
+  </li> </ul> For conceptual information about modifying data, go to [Working
+  with
   Items](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
   and [Query and Scan
   Operations](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html)
@@ -232,21 +235,23 @@ defmodule AWS.DynamoDB do
   If one or more of the following is true, DynamoDB rejects the entire batch
   write operation:
 
-  * One or more tables specified in the *BatchWriteItem* request does not
-  exist.
+  <ul> <li> One or more tables specified in the *BatchWriteItem* request does
+  not exist.
 
-  * Primary key attributes specified on an item in the request do not match
-  those in the corresponding table's primary key schema.
+  </li> <li> Primary key attributes specified on an item in the request do
+  not match those in the corresponding table's primary key schema.
 
-  * You try to perform multiple operations on the same item in the same
-  *BatchWriteItem* request. For example, you cannot put and delete the same
-  item in the same *BatchWriteItem* request.
+  </li> <li> You try to perform multiple operations on the same item in the
+  same *BatchWriteItem* request. For example, you cannot put and delete the
+  same item in the same *BatchWriteItem* request.
 
-  * There are more than 25 requests in the batch.
+  </li> <li> There are more than 25 requests in the batch.
 
-  * Any individual item in a batch exceeds 400 KB.
+  </li> <li> Any individual item in a batch exceeds 400 KB.
 
-  * The total request size exceeds 16 MB.
+  </li> <li> The total request size exceeds 16 MB.
+
+  </li> </ul>
   """
   def batch_write_item(client, input, options \\ []) do
     request(client, "BatchWriteItem", input, options)

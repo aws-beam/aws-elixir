@@ -10,15 +10,16 @@ defmodule AWS.SSM do
   You can use a configuration document to automate the following tasks for
   your Windows instances:
 
-  * Install, repair, or uninstall software using an MSI package
+  <ul> <li>Install, repair, or uninstall software using an MSI package
 
-  * Run PowerShell scripts
+  </li> <li>Run PowerShell scripts
 
-  * Join an AWS Directory
+  </li> <li>Join an AWS Directory
 
-  * Configure CloudWatch Logs to monitor applications and systems
+  </li> <li>Configure CloudWatch Logs to monitor applications and systems
 
-  Note that configuration documents are not supported on Linux instances.
+  </li> </ul> Note that configuration documents are not supported on Linux
+  instances.
   """
 
   @doc """

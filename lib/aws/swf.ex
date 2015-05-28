@@ -30,17 +30,17 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `tagFilter.tag`: String
-  constraint. The key is `swf:tagFilter.tag`. * `typeFilter.name`: String
-  constraint. The key is `swf:typeFilter.name`. * `typeFilter.version`:
-  String constraint. The key is `swf:typeFilter.version`.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li>`tagFilter.tag`: String constraint. The key is
+  `swf:tagFilter.tag`.</li> <li>`typeFilter.name`: String constraint. The key
+  is `swf:typeFilter.name`.</li> <li>`typeFilter.version`: String constraint.
+  The key is `swf:typeFilter.version`.</li> </ul> </li> </ul> If the caller
+  does not have sufficient permissions to invoke the action, or the parameter
+  values fall outside the specified constraints, the action fails. The
+  associated event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -60,17 +60,17 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `tagFilter.tag`: String
-  constraint. The key is `swf:tagFilter.tag`. * `typeFilter.name`: String
-  constraint. The key is `swf:typeFilter.name`. * `typeFilter.version`:
-  String constraint. The key is `swf:typeFilter.version`.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li>`tagFilter.tag`: String constraint. The key is
+  `swf:tagFilter.tag`.</li> <li>`typeFilter.name`: String constraint. The key
+  is `swf:typeFilter.name`.</li> <li>`typeFilter.version`: String constraint.
+  The key is `swf:typeFilter.version`.</li> </ul> </li> </ul> If the caller
+  does not have sufficient permissions to invoke the action, or the parameter
+  values fall outside the specified constraints, the action fails. The
+  associated event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -90,15 +90,14 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the `taskList.name` parameter by using a
-  **Condition** element with the `swf:taskList.name` key to allow the action
-  to access only certain task lists.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the `taskList.name`
+  parameter by using a **Condition** element with the `swf:taskList.name` key
+  to allow the action to access only certain task lists.</li> </ul> If the
+  caller does not have sufficient permissions to invoke the action, or the
+  parameter values fall outside the specified constraints, the action fails.
+  The associated event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -118,15 +117,14 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the `taskList.name` parameter by using a
-  **Condition** element with the `swf:taskList.name` key to allow the action
-  to access only certain task lists.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the `taskList.name`
+  parameter by using a **Condition** element with the `swf:taskList.name` key
+  to allow the action to access only certain task lists.</li> </ul> If the
+  caller does not have sufficient permissions to invoke the action, or the
+  parameter values fall outside the specified constraints, the action fails.
+  The associated event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -148,14 +146,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `activityType.name`:
-  String constraint. The key is `swf:activityType.name`. *
-  `activityType.version`: String constraint. The key is
-  `swf:activityType.version`.
-
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li>`activityType.name`: String constraint. The key is
+  `swf:activityType.name`.</li> <li>`activityType.version`: String
+  constraint. The key is `swf:activityType.version`.</li> </ul> </li> </ul>
   If the caller does not have sufficient permissions to invoke the action, or
   the parameter values fall outside the specified constraints, the action
   fails. The associated event attribute's **cause** parameter will be set to
@@ -182,14 +179,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -211,14 +207,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `workflowType.name`:
-  String constraint. The key is `swf:workflowType.name`. *
-  `workflowType.version`: String constraint. The key is
-  `swf:workflowType.version`.
-
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li>`workflowType.name`: String constraint. The key is
+  `swf:workflowType.name`.</li> <li>`workflowType.version`: String
+  constraint. The key is `swf:workflowType.version`.</li> </ul> </li> </ul>
   If the caller does not have sufficient permissions to invoke the action, or
   the parameter values fall outside the specified constraints, the action
   fails. The associated event attribute's **cause** parameter will be set to
@@ -240,14 +235,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `activityType.name`:
-  String constraint. The key is `swf:activityType.name`. *
-  `activityType.version`: String constraint. The key is
-  `swf:activityType.version`.
-
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li>`activityType.name`: String constraint. The key is
+  `swf:activityType.name`.</li> <li>`activityType.version`: String
+  constraint. The key is `swf:activityType.version`.</li> </ul> </li> </ul>
   If the caller does not have sufficient permissions to invoke the action, or
   the parameter values fall outside the specified constraints, the action
   fails. The associated event attribute's **cause** parameter will be set to
@@ -268,14 +262,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -295,14 +288,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -321,14 +313,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `workflowType.name`:
-  String constraint. The key is `swf:workflowType.name`. *
-  `workflowType.version`: String constraint. The key is
-  `swf:workflowType.version`.
-
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li>`workflowType.name`: String constraint. The key is
+  `swf:workflowType.name`.</li> <li>`workflowType.version`: String
+  constraint. The key is `swf:workflowType.version`.</li> </ul> </li> </ul>
   If the caller does not have sufficient permissions to invoke the action, or
   the parameter values fall outside the specified constraints, the action
   fails. The associated event attribute's **cause** parameter will be set to
@@ -352,14 +343,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -380,14 +370,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -409,17 +398,17 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `tagFilter.tag`: String
-  constraint. The key is `swf:tagFilter.tag`. * `typeFilter.name`: String
-  constraint. The key is `swf:typeFilter.name`. * `typeFilter.version`:
-  String constraint. The key is `swf:typeFilter.version`.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li>`tagFilter.tag`: String constraint. The key is
+  `swf:tagFilter.tag`.</li> <li>`typeFilter.name`: String constraint. The key
+  is `swf:typeFilter.name`.</li> <li>`typeFilter.version`: String constraint.
+  The key is `swf:typeFilter.version`.</li> </ul> </li> </ul> If the caller
+  does not have sufficient permissions to invoke the action, or the parameter
+  values fall outside the specified constraints, the action fails. The
+  associated event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -440,18 +429,17 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. The element must be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains. The element must be set to
   `arn:aws:swf::AccountID:domain/*`, where *AccountID* is the account ID,
-  with no dashes. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
-  OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
-  IAM to Manage Access to Amazon SWF
+  with no dashes.</li> <li>Use an `Action` element to allow or deny
+  permission to call this action.</li> <li>You cannot use an IAM policy to
+  constrain this action's parameters.</li> </ul> If the caller does not have
+  sufficient permissions to invoke the action, or the parameter values fall
+  outside the specified constraints, the action fails. The associated event
+  attribute's **cause** parameter will be set to OPERATION_NOT_PERMITTED. For
+  details and example IAM policies, see [Using IAM to Manage Access to Amazon
+  SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
   def list_domains(client, input, options \\ []) do
@@ -471,17 +459,17 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `tagFilter.tag`: String
-  constraint. The key is `swf:tagFilter.tag`. * `typeFilter.name`: String
-  constraint. The key is `swf:typeFilter.name`. * `typeFilter.version`:
-  String constraint. The key is `swf:typeFilter.version`.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li>`tagFilter.tag`: String constraint. The key is
+  `swf:tagFilter.tag`.</li> <li>`typeFilter.name`: String constraint. The key
+  is `swf:typeFilter.name`.</li> <li>`typeFilter.version`: String constraint.
+  The key is `swf:typeFilter.version`.</li> </ul> </li> </ul> If the caller
+  does not have sufficient permissions to invoke the action, or the parameter
+  values fall outside the specified constraints, the action fails. The
+  associated event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -500,14 +488,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -534,15 +521,14 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the `taskList.name` parameter by using a
-  **Condition** element with the `swf:taskList.name` key to allow the action
-  to access only certain task lists.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the `taskList.name`
+  parameter by using a **Condition** element with the `swf:taskList.name` key
+  to allow the action to access only certain task lists.</li> </ul> If the
+  caller does not have sufficient permissions to invoke the action, or the
+  parameter values fall outside the specified constraints, the action fails.
+  The associated event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -578,15 +564,14 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the `taskList.name` parameter by using a
-  **Condition** element with the `swf:taskList.name` key to allow the action
-  to access only certain task lists.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the `taskList.name`
+  parameter by using a **Condition** element with the `swf:taskList.name` key
+  to allow the action to access only certain task lists.</li> </ul> If the
+  caller does not have sufficient permissions to invoke the action, or the
+  parameter values fall outside the specified constraints, the action fails.
+  The associated event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -628,14 +613,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -656,19 +640,19 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `defaultTaskList.name`:
-  String constraint. The key is `swf:defaultTaskList.name`. * `name`: String
-  constraint. The key is `swf:name`. * `version`: String constraint. The key
-  is `swf:version`.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
-  OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
-  IAM to Manage Access to Amazon SWF
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li> `defaultTaskList.name`: String constraint. The key is
+  `swf:defaultTaskList.name`.</li> <li> `name`: String constraint. The key is
+  `swf:name`.</li> <li> `version`: String constraint. The key is
+  `swf:version`.</li> </ul> </li> </ul> If the caller does not have
+  sufficient permissions to invoke the action, or the parameter values fall
+  outside the specified constraints, the action fails. The associated event
+  attribute's **cause** parameter will be set to OPERATION_NOT_PERMITTED. For
+  details and example IAM policies, see [Using IAM to Manage Access to Amazon
+  SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
   def register_activity_type(client, input, options \\ []) do
@@ -683,17 +667,16 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * You cannot use an IAM policy to control domain access for this action.
-  The name of the domain being registered is available as the resource of
-  this action. * Use an `Action` element to allow or deny permission to call
-  this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
-  OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
-  IAM to Manage Access to Amazon SWF
+  <ul> <li>You cannot use an IAM policy to control domain access for this
+  action. The name of the domain being registered is available as the
+  resource of this action.</li> <li>Use an `Action` element to allow or deny
+  permission to call this action.</li> <li>You cannot use an IAM policy to
+  constrain this action's parameters.</li> </ul> If the caller does not have
+  sufficient permissions to invoke the action, or the parameter values fall
+  outside the specified constraints, the action fails. The associated event
+  attribute's **cause** parameter will be set to OPERATION_NOT_PERMITTED. For
+  details and example IAM policies, see [Using IAM to Manage Access to Amazon
+  SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
   def register_domain(client, input, options \\ []) do
@@ -715,19 +698,19 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `defaultTaskList.name`:
-  String constraint. The key is `swf:defaultTaskList.name`. * `name`: String
-  constraint. The key is `swf:name`. * `version`: String constraint. The key
-  is `swf:version`.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
-  OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
-  IAM to Manage Access to Amazon SWF
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li> `defaultTaskList.name`: String constraint. The key is
+  `swf:defaultTaskList.name`.</li> <li> `name`: String constraint. The key is
+  `swf:name`.</li> <li> `version`: String constraint. The key is
+  `swf:version`.</li> </ul> </li> </ul> If the caller does not have
+  sufficient permissions to invoke the action, or the parameter values fall
+  outside the specified constraints, the action fails. The associated event
+  attribute's **cause** parameter will be set to OPERATION_NOT_PERMITTED. For
+  details and example IAM policies, see [Using IAM to Manage Access to Amazon
+  SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
   def register_workflow_type(client, input, options \\ []) do
@@ -751,14 +734,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -790,14 +772,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -829,14 +810,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -863,14 +843,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -918,14 +897,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
@@ -945,19 +923,19 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * Constrain the following parameters by using a
-  `Condition` element with the appropriate keys. * `tagList.member.0`: The
-  key is `swf:tagList.member.0`. * `tagList.member.1`: The key is
-  `swf:tagList.member.1`. * `tagList.member.2`: The key is
-  `swf:tagList.member.2`. * `tagList.member.3`: The key is
-  `swf:tagList.member.3`. * `tagList.member.4`: The key is
-  `swf:tagList.member.4`. * `taskList`: String constraint. The key is
-  `swf:taskList.name`. * `workflowType.name`: String constraint. The key is
-  `swf:workflowType.name`. * `workflowType.version`: String constraint. The
-  key is `swf:workflowType.version`.
-
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>Constrain the following
+  parameters by using a `Condition` element with the appropriate keys. <ul>
+  <li> `tagList.member.0`: The key is `swf:tagList.member.0`.</li> <li>
+  `tagList.member.1`: The key is `swf:tagList.member.1`.</li> <li>
+  `tagList.member.2`: The key is `swf:tagList.member.2`.</li> <li>
+  `tagList.member.3`: The key is `swf:tagList.member.3`.</li> <li>
+  `tagList.member.4`: The key is `swf:tagList.member.4`.</li> <li>`taskList`:
+  String constraint. The key is `swf:taskList.name`.</li>
+  <li>`workflowType.name`: String constraint. The key is
+  `swf:workflowType.name`.</li> <li>`workflowType.version`: String
+  constraint. The key is `swf:workflowType.version`.</li> </ul> </li> </ul>
   If the caller does not have sufficient permissions to invoke the action, or
   the parameter values fall outside the specified constraints, the action
   fails. The associated event attribute's **cause** parameter will be set to
@@ -988,14 +966,13 @@ defmodule AWS.SWF do
   You can use IAM policies to control this action's access to Amazon SWF
   resources as follows:
 
-  * Use a `Resource` element with the domain name to limit the action to only
-  specified domains. * Use an `Action` element to allow or deny permission to
-  call this action. * You cannot use an IAM policy to constrain this action's
-  parameters.
-
-  If the caller does not have sufficient permissions to invoke the action, or
-  the parameter values fall outside the specified constraints, the action
-  fails. The associated event attribute's **cause** parameter will be set to
+  <ul> <li>Use a `Resource` element with the domain name to limit the action
+  to only specified domains.</li> <li>Use an `Action` element to allow or
+  deny permission to call this action.</li> <li>You cannot use an IAM policy
+  to constrain this action's parameters.</li> </ul> If the caller does not
+  have sufficient permissions to invoke the action, or the parameter values
+  fall outside the specified constraints, the action fails. The associated
+  event attribute's **cause** parameter will be set to
   OPERATION_NOT_PERMITTED. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).

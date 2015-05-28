@@ -3,6 +3,8 @@
 
 defmodule AWS.Config do
   @moduledoc """
+  AWS Config
+
   AWS Config provides a way to keep track of the configurations of all the
   AWS resources associated with your AWS account. You can use AWS Config to
   get the current and historical configurations of each AWS resource and also

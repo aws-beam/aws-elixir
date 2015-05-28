@@ -3,6 +3,8 @@
 
 defmodule AWS.Logs do
   @moduledoc """
+  Amazon CloudWatch Logs API Reference
+
   This is the *Amazon CloudWatch Logs API Reference*. Amazon CloudWatch Logs
   enables you to monitor, store, and access your system, application, and
   custom log files. This guide provides detailed information about Amazon

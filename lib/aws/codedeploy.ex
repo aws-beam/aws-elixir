@@ -3,6 +3,8 @@
 
 defmodule AWS.CodeDeploy do
   @moduledoc """
+  AWS CodeDeploy
+
   **Overview** This is the AWS CodeDeploy API Reference. This guide provides
   descriptions of the AWS CodeDeploy APIs. For additional information, see
   the [AWS CodeDeploy User

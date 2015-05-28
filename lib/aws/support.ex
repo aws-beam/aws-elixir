@@ -3,6 +3,8 @@
 
 defmodule AWS.Support do
   @moduledoc """
+  AWS Support
+
   The AWS Support API reference is intended for programmers who need detailed
   information about the AWS Support operations and data types. This service
   enables you to manage your AWS Support cases programmatically. It uses HTTP

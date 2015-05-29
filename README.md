@@ -1,6 +1,8 @@
+# AWS clients for Elixir
+
 [![Build Status](https://travis-ci.org/jkakar/aws-elixir.svg?branch=master)](https://travis-ci.org/jkakar/aws-elixir)
 
-AWS clients for Elixir.  Here is an example:
+Here is an example:
 
 ```elixir
 client = %AWS.Client{access_key_id: "<access-key-id>",

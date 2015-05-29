@@ -6,7 +6,6 @@ defmodule AWS.RequestTest do
   test "sign_request/6 extracts credentials, service and region information from a Client map, generates an AWS signature version 4 for a request, and returns a new set of HTTP headers with Authorization and X-Aws-Date headers" do
     client = %Client{access_key_id: "access-key-id",
                      secret_access_key: "secret-access-key",
-                     session_token: nil,
                      region: "us-east-1",
                      service: "ec2"}
     now = Timex.Date.from({{2015, 5, 14}, {16, 50, 5}})

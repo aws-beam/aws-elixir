@@ -3,6 +3,8 @@ defmodule AWS.Mixfile do
 
   def project do
     [app: :aws,
+     description: "AWS clients for Elixir",
+     package: package,
      version: "0.0.1",
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
@@ -31,5 +33,12 @@ defmodule AWS.Mixfile do
      {:poison, "~> 1.4.0"},
      {:httpoison, "~> 0.6"},
      {:timex, "~> 0.13.4"}]
+  end
+
+  defp package do
+    [contributors: ["Jamu Kakar"],
+     licenses: ["Apache 2.0"],
+     links: %{"GitHub" => "https://github.com/jkakar/aws-elixir",
+              "Docs" => "http://hexdocs.pm/aws/0.1.0/"}]
   end
 end

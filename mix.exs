@@ -39,6 +39,6 @@ defmodule AWS.Mixfile do
     [contributors: ["Jamu Kakar"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/jkakar/aws-elixir",
-              "Docs" => "http://hexdocs.pm/aws/0.1.0/"}]
+              "Docs" => "http://hexdocs.pm/aws/0.0.1/"}]
   end
 end

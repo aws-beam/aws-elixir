@@ -37,11 +37,11 @@ To use AWS clients for Elixir in your Mix projects add it as a dependency:
 
 ```elixir
 def deps do
-  [{:aws_elixir, "~> 0.0.1"}]
+  [{:aws, "~> 0.0.1"}]
 end
 ```
 
-After adding `aws_elixir` as a dependency, run `mix deps.get` to install it.
+After adding `aws` as a dependency, run `mix deps.get` to install it.
 
 ## License
 

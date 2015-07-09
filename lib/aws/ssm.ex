@@ -3,18 +3,18 @@
 
 defmodule AWS.SSM do
   @moduledoc """
-  AWS Simple Systems Management enables you to configure and manage your EC2
-  instances. You can create a configuration document and then associate it
-  with one or more running instances.
+  Amazon EC2 Simple Systems Manager (SSM) enables you to configure and manage
+  your EC2 instances. You can create a configuration document and then
+  associate it with one or more running instances.
 
   You can use a configuration document to automate the following tasks for
   your Windows instances:
 
-  <ul> <li>Install, repair, or uninstall software using an MSI package
+  <ul> <li>Join an AWS Directory
+
+  </li> <li>Install, repair, or uninstall software using an MSI package
 
   </li> <li>Run PowerShell scripts
-
-  </li> <li>Join an AWS Directory
 
   </li> <li>Configure CloudWatch Logs to monitor applications and systems
 

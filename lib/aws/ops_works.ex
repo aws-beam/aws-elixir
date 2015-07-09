@@ -20,20 +20,20 @@ defmodule AWS.OpsWorks do
   Line Interface (CLI) or by using one of the AWS SDKs to implement
   applications in your preferred language. For more information, see:
 
-  <ul> <li>[AWS
-  CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)</li>
-  <li>[AWS SDK for
-  Java](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)</li>
-  <li>[AWS SDK for
-  .NET](http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm)</li>
-  <li>[AWS SDK for PHP
-  2](http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html)</li>
-  <li>[AWS SDK for
-  Ruby](http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/OpsWorks/Client.html)</li>
-  <li>[AWS SDK for
-  Node.js](http://aws.amazon.com/documentation/sdkforjavascript/)</li>
-  <li>[AWS SDK for
-  Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html)</li>
+  <ul> <li> [AWS
+  CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+  </li> <li> [AWS SDK for
+  Java](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)
+  </li> <li> [AWS SDK for
+  .NET](http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm)
+  </li> <li> [AWS SDK for PHP
+  2](http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html)
+  </li> <li> [AWS SDK for
+  Ruby](http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/OpsWorks/Client.html)
+  </li> <li> [AWS SDK for
+  Node.js](http://aws.amazon.com/documentation/sdkforjavascript/) </li> <li>
+  [AWS SDK for
+  Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html) </li>
   </ul> **Endpoints**
 
   AWS OpsWorks supports only one endpoint, opsworks.us-east-1.amazonaws.com
@@ -56,13 +56,15 @@ defmodule AWS.OpsWorks do
   """
 
   @doc """
-  Assign a registered instance to a custom layer. You cannot use this action
-  with instances that were created with AWS OpsWorks.
+  Assign a registered instance to a layer.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
+  <ul> <li>You can assign registered on-premises instances to any layer
+  type.</li> <li>You can assign registered Amazon EC2 instances only to
+  custom layers.</li> <li>You cannot use this action with instances that were
+  created with AWS OpsWorks.</li> </ul> **Required Permissions**: To use this
+  action, an IAM user must have a Manage permissions level for the stack or
+  an attached policy that explicitly grants permissions. For more information
+  on user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def assign_instance(client, input, options \\ []) do
@@ -72,7 +74,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Assigns one of the stack's registered Amazon EBS volumes to a specified
   instance. The volume must first be registered with the stack by calling
-  `RegisterVolume`. For more information, see [Resource
+  `RegisterVolume`. After you register the volume, you must call
+  `UpdateVolume` to specify a mount point before calling `AssignVolume`. For
+  more information, see [Resource
   Management](http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
 
   **Required Permissions**: To use this action, an IAM user must have a
@@ -124,6 +128,7 @@ defmodule AWS.OpsWorks do
   @doc """
   Creates a clone of a specified stack. For more information, see [Clone a
   Stack](http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html).
+  By default, all parameters are set to the values used by the parent stack.
 
   **Required Permissions**: To use this action, an IAM user must have an
   attached policy that explicitly grants permissions. For more information on
@@ -355,6 +360,16 @@ defmodule AWS.OpsWorks do
   """
   def deregister_volume(client, input, options \\ []) do
     request(client, "DeregisterVolume", input, options)
+  end
+
+  @doc """
+  Describes the available AWS OpsWorks agent versions. You must specify a
+  stack ID or a configuration manager. `DescribeAgentVersions` returns a list
+  of available agent versions for the specified stack or configuration
+  manager.
+  """
+  def describe_agent_versions(client, input, options \\ []) do
+    request(client, "DescribeAgentVersions", input, options)
   end
 
   @doc """
@@ -669,6 +684,14 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+  <note>This action can be used only with Windows stacks.</note> Grants RDP
+  access to a Windows instance for a specified time period.
+  """
+  def grant_access(client, input, options \\ []) do
+    request(client, "GrantAccess", input, options)
+  end
+
+  @doc """
   Reboots a specified instance. For more information, see [Starting,
   Stopping, and Rebooting
   Instances](http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html).
@@ -709,10 +732,13 @@ defmodule AWS.OpsWorks do
   OpsWorks agent on the instance and registering the instance with the stack.
   `RegisterInstance` handles only the second step. You should instead use the
   AWS CLI `register` command, which performs the entire registration
-  operation.</note> **Required Permissions**: To use this action, an IAM user
-  must have a Manage permissions level for the stack or an attached policy
-  that explicitly grants permissions. For more information on user
-  permissions, see [Managing User
+  operation. For more information, see [ Registering an Instance with an AWS
+  OpsWorks
+  Stack](http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html).</note>
+  **Required Permissions**: To use this action, an IAM user must have a
+  Manage permissions level for the stack or an attached policy that
+  explicitly grants permissions. For more information on user permissions,
+  see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_instance(client, input, options \\ []) do

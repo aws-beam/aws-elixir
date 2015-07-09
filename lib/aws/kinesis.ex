@@ -50,11 +50,11 @@ defmodule AWS.Kinesis do
 
   <ul> <li>Have more than five streams in the `CREATING` state at any point
   in time.</li> <li>Create more shards than are authorized for your
-  account.</li> </ul> The default limit for an AWS account is 10 shards per
-  stream. If you need to create a stream with more than 10 shards, [contact
-  AWS
+  account.</li> </ul> For the default shard limit for an AWS account, see
+  [Amazon Kinesis
+  Limits](http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html).
+  If you need to increase this limit, [contact AWS
   Support](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
-  to increase the limit on your account.
 
   You can use `DescribeStream` to check the stream status, which is returned
   in `StreamStatus`.
@@ -152,20 +152,20 @@ defmodule AWS.Kinesis do
 
   The size of the data returned by `GetRecords` will vary depending on the
   utilization of the shard. The maximum size of data that `GetRecords` can
-  return is 10 MB. If a call returns 10 MB of data, subsequent calls made
-  within the next 5 seconds throw `ProvisionedThroughputExceededException`.
-  If there is insufficient provisioned throughput on the shard, subsequent
-  calls made within the next 1 second throw
-  `ProvisionedThroughputExceededException`. Note that `GetRecords` won't
-  return any data when it throws an exception. For this reason, we recommend
-  that you wait one second between calls to `GetRecords`; however, it's
-  possible that the application will get exceptions for longer than 1 second.
+  return is 10 MB. If a call returns this amount of data, subsequent calls
+  made within the next 5 seconds throw
+  `ProvisionedThroughputExceededException`. If there is insufficient
+  provisioned throughput on the shard, subsequent calls made within the next
+  1 second throw `ProvisionedThroughputExceededException`. Note that
+  `GetRecords` won't return any data when it throws an exception. For this
+  reason, we recommend that you wait one second between calls to
+  `GetRecords`; however, it's possible that the application will get
+  exceptions for longer than 1 second.
 
-  To detect whether the application is falling behind in processing, add a
-  timestamp to your records and note how long it takes to process them. You
-  can also monitor how much data is in a stream using the CloudWatch metrics
-  for write operations (`PutRecord` and `PutRecords`). For more information,
-  see [Monitoring Amazon Kinesis with Amazon
+  To detect whether the application is falling behind in processing, you can
+  use the `MillisBehindLatest` response attribute. You can also monitor the
+  amount of data in a stream using the CloudWatch metrics. For more
+  information, see [Monitoring Amazon Kinesis with Amazon
   CloudWatch](http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html)
   in the *Amazon Kinesis Developer Guide*.
   """
@@ -198,9 +198,9 @@ defmodule AWS.Kinesis do
   recent data in the shard.
 
   When you repeatedly read from an Amazon Kinesis stream use a
-  `GetShardIterator` request to get the first shard iterator to to use in
-  your first `GetRecords` request and then use the shard iterator returned by
-  the `GetRecords` request in `NextShardIterator` for subsequent reads. A new
+  `GetShardIterator` request to get the first shard iterator for use in your
+  first `GetRecords` request and then use the shard iterator returned by the
+  `GetRecords` request in `NextShardIterator` for subsequent reads. A new
   shard iterator is returned by every `GetRecords` request in
   `NextShardIterator`, which you use in the `ShardIterator` parameter of the
   next `GetRecords` request.
@@ -265,7 +265,7 @@ defmodule AWS.Kinesis do
   of a stream because of excess capacity that is not being used. You must
   specify the shard to be merged and the adjacent shard for a stream. For
   more information about merging shards, see [Merge Two
-  Shards](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-merge)
+  Shards](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html)
   in the *Amazon Kinesis Developer Guide*.
 
   If the stream is in the `ACTIVE` state, you can call `MergeShards`. If a
@@ -314,12 +314,13 @@ defmodule AWS.Kinesis do
   data record to determine which shard a given data record belongs to.
 
   Partition keys are Unicode strings, with a maximum length limit of 256
-  bytes. An MD5 hash function is used to map partition keys to 128-bit
-  integer values and to map associated data records to shards using the hash
-  key ranges of the shards. You can override hashing the partition key to
-  determine the shard by explicitly specifying a hash value using the
-  `ExplicitHashKey` parameter. For more information, see [Partition
-  Key](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key)
+  characters for each key. An MD5 hash function is used to map partition keys
+  to 128-bit integer values and to map associated data records to shards
+  using the hash key ranges of the shards. You can override hashing the
+  partition key to determine the shard by explicitly specifying a hash value
+  using the `ExplicitHashKey` parameter. For more information, see [Adding
+  Data to a
+  Stream](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html)
   in the *Amazon Kinesis Developer Guide*.
 
   `PutRecord` returns the shard ID of where the data record was placed and
@@ -327,8 +328,8 @@ defmodule AWS.Kinesis do
 
   Sequence numbers generally increase over time. To guarantee strictly
   increasing ordering, use the `SequenceNumberForOrdering` parameter. For
-  more information, see [Sequence
-  Number](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-sequence-number)
+  more information, see [Adding Data to a
+  Stream](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html)
   in the *Amazon Kinesis Developer Guide*.
 
   If a `PutRecord` request cannot be processed because of insufficient
@@ -362,8 +363,8 @@ defmodule AWS.Kinesis do
   hash function is used to map partition keys to 128-bit integer values and
   to map associated data records to shards. As a result of this hashing
   mechanism, all data records with the same partition key map to the same
-  shard within the stream. For more information, see [Partition
-  Key](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key)
+  shard within the stream. For more information, see [Adding Data to a
+  Stream](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html)
   in the *Amazon Kinesis Developer Guide*.
 
   Each record in the `Records` array may include an optional parameter,
@@ -371,7 +372,7 @@ defmodule AWS.Kinesis do
   parameter allows a data producer to determine explicitly the shard where
   the record is stored. For more information, see [Adding Multiple Records
   with
-  PutRecords](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-putrecords)
+  PutRecords](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords)
   in the *Amazon Kinesis Developer Guide*.
 
   The `PutRecords` response includes an array of response `Records`. Each
@@ -395,7 +396,11 @@ defmodule AWS.Kinesis do
   following values: `ProvisionedThroughputExceededException` or
   `InternalFailure`. `ErrorMessage` provides more detailed information about
   the `ProvisionedThroughputExceededException` exception including the
-  account ID, stream name, and shard ID of the record that was throttled.
+  account ID, stream name, and shard ID of the record that was throttled. For
+  more information about partially successful responses, see [Adding Multiple
+  Records with
+  PutRecords](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords)
+  in the *Amazon Kinesis Developer Guide*.
 
   Data records are accessible for only 24 hours from the time that they are
   added to an Amazon Kinesis stream.
@@ -431,7 +436,7 @@ defmodule AWS.Kinesis do
   new hash key might simply be the average of the beginning and ending hash
   key, but it can be any hash key value in the range being mapped into the
   shard. For more information about splitting shards, see [Split a
-  Shard](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-split)
+  Shard](http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-split.html)
   in the *Amazon Kinesis Developer Guide*.
 
   You can use `DescribeStream` to determine the shard ID and hash key values
@@ -453,10 +458,10 @@ defmodule AWS.Kinesis do
   `ResourceNotFoundException`. If you try to create more shards than are
   authorized for your account, you receive a `LimitExceededException`.
 
-  The default limit for an AWS account is 10 shards per stream. If you need
-  to create a stream with more than 10 shards, [contact AWS
+  For the default shard limit for an AWS account, see [Amazon Kinesis
+  Limits](http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html).
+  If you need to increase this limit, [contact AWS
   Support](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
-  to increase the limit on your account.
 
   If you try to operate on too many streams in parallel using `CreateStream`,
   `DeleteStream`, `MergeShards` or `SplitShard`, you receive a

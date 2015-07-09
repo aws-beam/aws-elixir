@@ -155,7 +155,7 @@ defmodule AWS.CloudHSM do
     url = "https://#{host}/"
     headers = [{"Host", host},
                {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "CloudHsmFrontendService.#{action}"}]
+               {"X-Amz-Target", "cloudhsm.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do

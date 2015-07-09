@@ -13,70 +13,63 @@ defmodule AWS.CodeDeploy do
   **Using the APIs** You can use the AWS CodeDeploy APIs to work with the
   following items:
 
-  <ul> <li> *Applications*, which are unique identifiers that AWS CodeDeploy
-  uses to ensure that the correct combinations of revisions, deployment
+  <ul> <li> Applications are unique identifiers that AWS CodeDeploy uses to
+  ensure that the correct combinations of revisions, deployment
   configurations, and deployment groups are being referenced during
   deployments.
 
-  You can work with applications by calling `CreateApplication`,
-  `DeleteApplication`, `GetApplication`, `ListApplications`,
-  `BatchGetApplications`, and `UpdateApplication` to create, delete, and get
-  information about applications, and to change information about an
-  application, respectively.
+  You can use the AWS CodeDeploy APIs to create, delete, get, list, and
+  update applications.
 
-  </li> <li> *Deployment configurations*, which are sets of deployment rules
-  and deployment success and failure conditions that AWS CodeDeploy uses
-  during deployments.
+  </li> <li> Deployment configurations are sets of deployment rules and
+  deployment success and failure conditions that AWS CodeDeploy uses during
+  deployments.
 
-  You can work with deployment configurations by calling
-  `CreateDeploymentConfig`, `DeleteDeploymentConfig`, `GetDeploymentConfig`,
-  and `ListDeploymentConfigs` to create, delete, and get information about
-  deployment configurations, respectively.
+  You can use the AWS CodeDeploy APIs to create, delete, get, and list
+  deployment configurations.
 
-  </li> <li> *Deployment groups*, which represent groups of Amazon EC2
-  instances to which application revisions can be deployed.
+  </li> <li> Deployment groups are groups of instances to which application
+  revisions can be deployed.
 
-  You can work with deployment groups by calling `CreateDeploymentGroup`,
-  `DeleteDeploymentGroup`, `GetDeploymentGroup`, `ListDeploymentGroups`, and
-  `UpdateDeploymentGroup` to create, delete, and get information about single
-  and multiple deployment groups, and to change information about a
-  deployment group, respectively.
+  You can use the AWS CodeDeploy APIs to create, delete, get, list, and
+  update deployment groups.
 
-  </li> <li> *Deployment instances* (also known simply as *instances*), which
-  represent Amazon EC2 instances to which application revisions are deployed.
-  Deployment instances are identified by their Amazon EC2 tags or Auto
-  Scaling group names. Deployment instances belong to deployment groups.
+  </li> <li> Instances represent Amazon EC2 instances to which application
+  revisions are deployed. Instances are identified by their Amazon EC2 tags
+  or Auto Scaling group names. Instances belong to deployment groups.
 
-  You can work with deployment instances by calling `GetDeploymentInstance`
-  and `ListDeploymentInstances` to get information about single and multiple
-  deployment instances, respectively.
+  You can use the AWS CodeDeploy APIs to get and list instances.
 
-  </li> <li> *Deployments*, which represent the process of deploying
-  revisions to deployment groups.
+  </li> <li> Deployments represent the process of deploying revisions to
+  instances.
 
-  You can work with deployments by calling `CreateDeployment`,
-  `GetDeployment`, `ListDeployments`, `BatchGetDeployments`, and
-  `StopDeployment` to create and get information about deployments, and to
-  stop a deployment, respectively.
+  You can use the AWS CodeDeploy APIs to create, get, list, and stop
+  deployments.
 
-  </li> <li> *Application revisions* (also known simply as *revisions*),
-  which are archive files that are stored in Amazon S3 buckets or GitHub
-  repositories. These revisions contain source content (such as source code,
-  web pages, executable files, any deployment scripts, and similar) along
-  with an Application Specification file (AppSpec file). (The AppSpec file is
-  unique to AWS CodeDeploy; it defines a series of deployment actions that
-  you want AWS CodeDeploy to execute.) An application revision is uniquely
-  identified by its Amazon S3 object key and its ETag, version, or both.
-  Application revisions are deployed to deployment groups.
+  </li> <li> Application revisions are archive files that are stored in
+  Amazon S3 buckets or GitHub repositories. These revisions contain source
+  content (such as source code, web pages, executable files, any deployment
+  scripts, and similar) along with an Application Specification file (AppSpec
+  file). (The AppSpec file is unique to AWS CodeDeploy; it defines a series
+  of deployment actions that you want AWS CodeDeploy to execute.) An
+  application revision is uniquely identified by its Amazon S3 object key and
+  its ETag, version, or both (for application revisions that are stored in
+  Amazon S3 buckets) or by its repository name and commit ID (for
+  applications revisions that are stored in GitHub repositories). Application
+  revisions are deployed through deployment groups.
 
-  You can work with application revisions by calling
-  `GetApplicationRevision`, `ListApplicationRevisions`, and
-  `RegisterApplicationRevision` to get information about application
-  revisions and to inform AWS CodeDeploy about an application revision,
-  respectively.
+  You can use the AWS CodeDeploy APIs to get, list, and register application
+  revisions.
 
   </li> </ul>
   """
+
+  @doc """
+  Adds tags to on-premises instances.
+  """
+  def add_tags_to_on_premises_instances(client, input, options \\ []) do
+    request(client, "AddTagsToOnPremisesInstances", input, options)
+  end
 
   @doc """
   Gets information about one or more applications.
@@ -93,6 +86,13 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
+  Gets information about one or more on-premises instances.
+  """
+  def batch_get_on_premises_instances(client, input, options \\ []) do
+    request(client, "BatchGetOnPremisesInstances", input, options)
+  end
+
+  @doc """
   Creates a new application.
   """
   def create_application(client, input, options \\ []) do
@@ -100,7 +100,7 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Deploys an application revision to the specified deployment group.
+  Deploys an application revision through the specified deployment group.
   """
   def create_deployment(client, input, options \\ []) do
     request(client, "CreateDeployment", input, options)
@@ -145,6 +145,13 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
+  Deregisters an on-premises instance.
+  """
+  def deregister_on_premises_instance(client, input, options \\ []) do
+    request(client, "DeregisterOnPremisesInstance", input, options)
+  end
+
+  @doc """
   Gets information about an application.
   """
   def get_application(client, input, options \\ []) do
@@ -180,10 +187,17 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Gets information about an Amazon EC2 instance as part of a deployment.
+  Gets information about an instance as part of a deployment.
   """
   def get_deployment_instance(client, input, options \\ []) do
     request(client, "GetDeploymentInstance", input, options)
+  end
+
+  @doc """
+  Gets information about an on-premises instance.
+  """
+  def get_on_premises_instance(client, input, options \\ []) do
+    request(client, "GetOnPremisesInstance", input, options)
   end
 
   @doc """
@@ -194,41 +208,54 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Lists the applications registered within the AWS user account.
+  Lists the applications registered with the applicable IAM user or AWS
+  account.
   """
   def list_applications(client, input, options \\ []) do
     request(client, "ListApplications", input, options)
   end
 
   @doc """
-  Lists the deployment configurations within the AWS user account.
+  Lists the deployment configurations with the applicable IAM user or AWS
+  account.
   """
   def list_deployment_configs(client, input, options \\ []) do
     request(client, "ListDeploymentConfigs", input, options)
   end
 
   @doc """
-  Lists the deployment groups for an application registered within the AWS
-  user account.
+  Lists the deployment groups for an application registered with the
+  applicable IAM user or AWS account.
   """
   def list_deployment_groups(client, input, options \\ []) do
     request(client, "ListDeploymentGroups", input, options)
   end
 
   @doc """
-  Lists the Amazon EC2 instances for a deployment within the AWS user
-  account.
+  Lists the instances for a deployment associated with the applicable IAM
+  user or AWS account.
   """
   def list_deployment_instances(client, input, options \\ []) do
     request(client, "ListDeploymentInstances", input, options)
   end
 
   @doc """
-  Lists the deployments under a deployment group for an application
-  registered within the AWS user account.
+  Lists the deployments within a deployment group for an application
+  registered with the applicable IAM user or AWS account.
   """
   def list_deployments(client, input, options \\ []) do
     request(client, "ListDeployments", input, options)
+  end
+
+  @doc """
+  Gets a list of one or more on-premises instance names.
+
+  Unless otherwise specified, both registered and deregistered on-premises
+  instance names will be listed. To list only registered or deregistered
+  on-premises instance names, use the registration status parameter.
+  """
+  def list_on_premises_instances(client, input, options \\ []) do
+    request(client, "ListOnPremisesInstances", input, options)
   end
 
   @doc """
@@ -236,6 +263,20 @@ defmodule AWS.CodeDeploy do
   """
   def register_application_revision(client, input, options \\ []) do
     request(client, "RegisterApplicationRevision", input, options)
+  end
+
+  @doc """
+  Registers an on-premises instance.
+  """
+  def register_on_premises_instance(client, input, options \\ []) do
+    request(client, "RegisterOnPremisesInstance", input, options)
+  end
+
+  @doc """
+  Removes one or more tags from one or more on-premises instances.
+  """
+  def remove_tags_from_on_premises_instances(client, input, options \\ []) do
+    request(client, "RemoveTagsFromOnPremisesInstances", input, options)
   end
 
   @doc """

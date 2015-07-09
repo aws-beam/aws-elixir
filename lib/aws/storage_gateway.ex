@@ -150,7 +150,8 @@ defmodule AWS.StorageGateway do
   create a volume from a snapshot.
 
   <note>To list or delete a snapshot, you must use the Amazon EC2 API. For
-  more information, .</note>
+  more information, see DescribeSnapshots or DeleteSnapshot in the [EC2 API
+  reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html).</note>
   """
   def create_snapshot(client, input, options \\ []) do
     request(client, "CreateSnapshot", input, options)
@@ -389,8 +390,8 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation returns description of the gateway volumes specified in the
-  request. The list of gateway volumes in the request must be from one
+  This operation returns the description of the gateway volumes specified in
+  the request. The list of gateway volumes in the request must be from one
   gateway. In the response Amazon Storage Gateway returns volume information
   sorted by volume ARNs.
   """
@@ -511,12 +512,20 @@ defmodule AWS.StorageGateway do
   The request returns a list of all disks, specifying which are configured as
   working storage, cache storage, or stored volume or not configured at all.
   The response includes a `DiskStatus` field. This field can have a value of
-  present (the disk is availble to use), missing (the disk is no longer
+  present (the disk is available to use), missing (the disk is no longer
   connected to the gateway), or mismatch (the disk node is occupied by a disk
   that has incorrect metadata or the disk content is corrupted).
   """
   def list_local_disks(client, input, options \\ []) do
     request(client, "ListLocalDisks", input, options)
+  end
+
+  @doc """
+  This operation lists iSCSI initiators that are connected to a volume. You
+  can use this operation to determine whether a volume is being used or not.
+  """
+  def list_volume_initiators(client, input, options \\ []) do
+    request(client, "ListVolumeInitiators", input, options)
   end
 
   @doc """
@@ -550,10 +559,21 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation resets all cache disks and makes the disks available for
-  reconfiguration as cache storage. When a cache is reset, the gateway loses
-  its cache storage. At this point you can reconfigure the disks as cache
-  disks.
+  This operation resets all cache disks that have encountered a error and
+  makes the disks available for reconfiguration as cache storage. If your
+  cache disk encounters a error, the gateway prevents read and write
+  operations on virtual tapes in the gateway. For example, an error can occur
+  when a disk is corrupted or removed from the gateway. When a cache is
+  reset, the gateway loses its cache storage. At this point you can
+  reconfigure the disks as cache disks.
+
+  <important> If the cache disk you are resetting contains data that has not
+  been uploaded to Amazon S3 yet, that data can be lost. After you reset
+  cache disks, there will be no configured cache disks left in the gateway,
+  so you must configure at least one new cache disk for your gateway to
+  function properly.
+
+  </important>
   """
   def reset_cache(client, input, options \\ []) do
     request(client, "ResetCache", input, options)

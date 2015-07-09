@@ -110,6 +110,13 @@ defmodule AWS.Logs do
   end
 
   @doc """
+  Deletes a subscription filter associated with the specified log group.
+  """
+  def delete_subscription_filter(client, input, options \\ []) do
+    request(client, "DeleteSubscriptionFilter", input, options)
+  end
+
+  @doc """
   Returns all the log groups that are associated with the AWS account making
   the request. The list returned in the response is ASCII-sorted by log group
   name.
@@ -152,6 +159,41 @@ defmodule AWS.Logs do
   """
   def describe_metric_filters(client, input, options \\ []) do
     request(client, "DescribeMetricFilters", input, options)
+  end
+
+  @doc """
+  Returns all the subscription filters associated with the specified log
+  group. The list returned in the response is ASCII-sorted by filter name.
+
+  By default, this operation returns up to 50 subscription filters. If there
+  are more subscription filters to list, the response would contain a <code
+  class="code">nextToken` value in the response body. You can also limit the
+  number of subscription filters returned in the response by specifying the
+  <code class="code">limit` parameter in the request.
+  """
+  def describe_subscription_filters(client, input, options \\ []) do
+    request(client, "DescribeSubscriptionFilters", input, options)
+  end
+
+  @doc """
+  Retrieves log events, optionally filtered by a filter pattern from the
+  specified log group. You can provide an optional time range to filter the
+  results on the event <code class="code">timestamp`. You can limit the
+  streams searched to an explicit list of <code class="code">logStreamNames`.
+
+  By default, this operation returns as much matching log events as can fit
+  in a response size of 1MB, up to 10,000 log events, or all the events found
+  within a time-bounded scan window. If the response includes a <code
+  class="code">nextToken`, then there is more data to search, and the search
+  can be resumed with a new request providing the nextToken. The response
+  will contain a list of <code class="code">searchedLogStreams` that contains
+  information about which streams were searched in the request and whether
+  they have been searched completely or require further pagination. The <code
+  class="code">limit` parameter in the request. can be used to specify the
+  maximum number of events to return in a page.
+  """
+  def filter_log_events(client, input, options \\ []) do
+    request(client, "FilterLogEvents", input, options)
   end
 
   @doc """
@@ -198,6 +240,9 @@ defmodule AWS.Logs do
   Creates or updates a metric filter and associates it with the specified log
   group. Metric filters allow you to configure rules to extract metric data
   from log events ingested through <code class="code">PutLogEvents` requests.
+
+  The maximum number of metric filters that can be associated with a log
+  group is 100.
   """
   def put_metric_filter(client, input, options \\ []) do
     request(client, "PutMetricFilter", input, options)
@@ -210,6 +255,21 @@ defmodule AWS.Logs do
   """
   def put_retention_policy(client, input, options \\ []) do
     request(client, "PutRetentionPolicy", input, options)
+  end
+
+  @doc """
+  Creates or updates a subscription filter and associates it with the
+  specified log group. Subscription filters allow you to subscribe to a
+  real-time stream of log events ingested through <code
+  class="code">PutLogEvents` requests and have them delivered to a specific
+  destination. Currently the only supported destination is an Amazon Kinesis
+  stream belonging to the same account as the subscription filter.
+
+  Currently there can only be one subscription filter associated with a log
+  group.
+  """
+  def put_subscription_filter(client, input, options \\ []) do
+    request(client, "PutSubscriptionFilter", input, options)
   end
 
   @doc """

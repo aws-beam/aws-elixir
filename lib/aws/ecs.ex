@@ -64,10 +64,18 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  NOT YET IMPLEMENTED.
+  Deregisters the specified task definition by family and revision. Upon
+  deregistration, the task definition is marked as `INACTIVE`. Existing tasks
+  and services that reference an `INACTIVE` task definition continue to run
+  without disruption. Existing services that reference an `INACTIVE` task
+  definition can still scale up or down by modifying the service's desired
+  count.
 
-  Deregisters the specified task definition. You will no longer be able to
-  run tasks from this definition after deregistration.
+  You cannot use an `INACTIVE` task definition to run new tasks or create new
+  services, and you cannot update an existing service to reference an
+  `INACTIVE` task definition (although there may be up to a 10 minute window
+  following deregistration where these restrictions have not yet taken
+  effect).
   """
   def deregister_task_definition(client, input, options \\ []) do
     request(client, "DeregisterTaskDefinition", input, options)
@@ -99,7 +107,12 @@ defmodule AWS.ECS do
   @doc """
   Describes a task definition. You can specify a `family` and `revision` to
   find information on a specific task definition, or you can simply specify
-  the family to find the latest revision in that family.
+  the family to find the latest `ACTIVE` revision in that family.
+
+  <note> You can only describe `INACTIVE` task definitions while an active
+  task or service references them.
+
+  </note>
   """
   def describe_task_definition(client, input, options \\ []) do
     request(client, "DescribeTaskDefinition", input, options)
@@ -146,7 +159,9 @@ defmodule AWS.ECS do
 
   @doc """
   Returns a list of task definition families that are registered to your
-  account. You can filter the results with the `familyPrefix` parameter.
+  account (which may include task definition families that no longer have any
+  `ACTIVE` task definitions). You can filter the results with the
+  `familyPrefix` parameter.
   """
   def list_task_definition_families(client, input, options \\ []) do
     request(client, "ListTaskDefinitionFamilies", input, options)
@@ -154,7 +169,8 @@ defmodule AWS.ECS do
 
   @doc """
   Returns a list of task definitions that are registered to your account. You
-  can filter the results by family name with the `familyPrefix` parameter.
+  can filter the results by family name with the `familyPrefix` parameter or
+  by status with the `status` parameter.
   """
   def list_task_definitions(client, input, options \\ []) do
     request(client, "ListTaskDefinitions", input, options)
@@ -162,8 +178,9 @@ defmodule AWS.ECS do
 
   @doc """
   Returns a list of tasks for a specified cluster. You can filter the results
-  by family name or by a particular container instance with the `family` and
-  `containerInstance` parameters.
+  by family name, by a particular container instance, or by the desired
+  status of the task with the `family`, `containerInstance`, and
+  `desiredStatus` parameters.
   """
   def list_tasks(client, input, options \\ []) do
     request(client, "ListTasks", input, options)
@@ -244,6 +261,13 @@ defmodule AWS.ECS do
   """
   def submit_task_state_change(client, input, options \\ []) do
     request(client, "SubmitTaskStateChange", input, options)
+  end
+
+  @doc """
+  Updates the Amazon ECS container agent on a specified container instance.
+  """
+  def update_container_agent(client, input, options \\ []) do
+    request(client, "UpdateContainerAgent", input, options)
   end
 
   @doc """

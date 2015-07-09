@@ -81,6 +81,11 @@ defmodule AWS.KMS do
   (-). An alias must start with the word "alias" followed by a forward slash
   (alias/). An alias that begins with "aws" after the forward slash
   (alias/aws...) is reserved by Amazon Web Services (AWS).
+
+  To associate an alias with a different key, call `UpdateAlias`.
+
+  Note that you cannot create or update an alias that represents a key in
+  another account.
   """
   def create_alias(client, input, options \\ []) do
     request(client, "CreateAlias", input, options)
@@ -130,7 +135,8 @@ defmodule AWS.KMS do
   end
 
   @doc """
-  Deletes the specified alias.
+  Deletes the specified alias. To associate an alias with a different key,
+  call `UpdateAlias`.
   """
   def delete_alias(client, input, options \\ []) do
     request(client, "DeleteAlias", input, options)
@@ -309,6 +315,14 @@ defmodule AWS.KMS do
   exposing the plaintext of the data on the client side. The data is first
   decrypted and then encrypted. This operation can also be used to change the
   encryption context of a ciphertext.
+
+  Unlike other actions, `ReEncrypt` is authorized twice - once as
+  `ReEncryptFrom` on the source key and once as `ReEncryptTo` on the
+  destination key. We therefore recommend that you include the
+  `"action":"kms:ReEncrypt*"` statement in your key policies to permit
+  re-encryption from or to the key. The statement is included automatically
+  when you authorize use of the key through the console but must be included
+  manually when you set a policy by using the `PutKeyPolicy` function.
   """
   def re_encrypt(client, input, options \\ []) do
     request(client, "ReEncrypt", input, options)
@@ -320,7 +334,11 @@ defmodule AWS.KMS do
   that depend on it. The following are permitted to call this API: <ul>
   <li>The account that created the grant</li> <li>The `RetiringPrincipal`, if
   present</li> <li>The `GranteePrincipal`, if `RetireGrant` is a grantee
-  operation</li> </ul>
+  operation</li> </ul> The grant to retire must be identified by its grant
+  token or by a combination of the key ARN and the grant ID. A grant token is
+  a unique variable-length base64-encoded string. A grant ID is a 64
+  character unique identifier of a grant. Both are returned by the
+  `CreateGrant` function.
   """
   def retire_grant(client, input, options \\ []) do
     request(client, "RetireGrant", input, options)
@@ -332,6 +350,26 @@ defmodule AWS.KMS do
   """
   def revoke_grant(client, input, options \\ []) do
     request(client, "RevokeGrant", input, options)
+  end
+
+  @doc """
+  Updates an alias to associate it with a different key.
+
+  An alias name can contain only alphanumeric characters, forward slashes
+  (/), underscores (_), and dashes (-). An alias must start with the word
+  "alias" followed by a forward slash (alias/). An alias that begins with
+  "aws" after the forward slash (alias/aws...) is reserved by Amazon Web
+  Services (AWS).
+
+  An alias is not a property of a key. Therefore, an alias can be associated
+  with and disassociated from an existing key without changing the properties
+  of the key.
+
+  Note that you cannot create or update an alias that represents a key in
+  another account.
+  """
+  def update_alias(client, input, options \\ []) do
+    request(client, "UpdateAlias", input, options)
   end
 
   @doc """

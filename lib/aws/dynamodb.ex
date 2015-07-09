@@ -9,7 +9,7 @@ defmodule AWS.DynamoDB do
 
   This is the Amazon DynamoDB API Reference. This guide provides descriptions
   and samples of the low-level DynamoDB API. For information about DynamoDB
-  application development, go to the [Amazon DynamoDB Developer
+  application development, see the [Amazon DynamoDB Developer
   Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/).
 
   Instead of making the requests to the low-level DynamoDB API directly from
@@ -17,13 +17,13 @@ defmodule AWS.DynamoDB do
   Kits (SDKs). The easy-to-use libraries in the AWS SDKs make it unnecessary
   to call the low-level DynamoDB API directly from your application. The
   libraries take care of request authentication, serialization, and
-  connection management. For more information, go to [Using the AWS SDKs with
+  connection management. For more information, see [Using the AWS SDKs with
   DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html)
   in the *Amazon DynamoDB Developer Guide*.
 
   If you decide to code against the low-level DynamoDB API directly, you will
   need to write the necessary code to authenticate your requests. For more
-  information on signing your requests, go to [Using the DynamoDB
+  information on signing your requests, see [Using the DynamoDB
   API](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/API.html)
   in the *Amazon DynamoDB Developer Guide*.
 
@@ -51,8 +51,8 @@ defmodule AWS.DynamoDB do
 
   </li> <li> *DeleteTable* - Deletes a table and all of its indexes.
 
-  </li> </ul> For conceptual information about managing tables, go to
-  [Working with
+  </li> </ul> For conceptual information about managing tables, see [Working
+  with
   Tables](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html)
   in the *Amazon DynamoDB Developer Guide*.
 
@@ -82,7 +82,7 @@ defmodule AWS.DynamoDB do
   should not be used for any application query use case that requires
   predictable performance.
 
-  </li> </ul> For conceptual information about reading data, go to [Working
+  </li> </ul> For conceptual information about reading data, see [Working
   with
   Items](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
   and [Query and Scan
@@ -112,7 +112,7 @@ defmodule AWS.DynamoDB do
   operation to fail. Supports batches of up to 25 items to put or delete,
   with a maximum total request size of 16 MB.
 
-  </li> </ul> For conceptual information about modifying data, go to [Working
+  </li> </ul> For conceptual information about modifying data, see [Working
   with
   Items](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
   and [Query and Scan
@@ -152,7 +152,7 @@ defmodule AWS.DynamoDB do
   exponential backoff, the individual requests in the batch are much more
   likely to succeed.
 
-  For more information, go to [Batch Operations and Error
+  For more information, see [Batch Operations and Error
   Handling](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations)
   in the *Amazon DynamoDB Developer Guide*.
 
@@ -209,7 +209,7 @@ defmodule AWS.DynamoDB do
   exponential backoff, the individual requests in the batch are much more
   likely to succeed.
 
-  For more information, go to [Batch Operations and Error
+  For more information, see [Batch Operations and Error
   Handling](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations)
   in the *Amazon DynamoDB Developer Guide*.
 
@@ -224,10 +224,11 @@ defmodule AWS.DynamoDB do
   If you use a programming language that supports concurrency, such as Java,
   you can use threads to write items in parallel. Your application must
   include the necessary logic to manage the threads. With languages that
-  don't support threading, such as PHP, you must update provides an
-  alternative where the API performs the specified put and delete operations
-  in parallel, giving you the power of the thread pool approach without
-  having to introduce complexity into your application.
+  don't support threading, such as PHP, you must update or delete the
+  specified items one at a time. In both situations, *BatchWriteItem*
+  provides an alternative where the API performs the specified put and delete
+  operations in parallel, giving you the power of the thread pool approach
+  without having to introduce complexity into your application.
 
   Parallel processing reduces latency, but each specified put and delete
   request consumes the same number of write capacity units whether it is
@@ -399,12 +400,15 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  A *Query* operation directly accesses items from a table using the table
-  primary key, or from an index using the index key. You must provide a
-  specific hash key value. You can narrow the scope of the query by using
-  comparison operators on the range key value, or on the index key. You can
-  use the *ScanIndexForward* parameter to get results in forward or reverse
-  order, by range key or by index key.
+  A *Query* operation uses the primary key of a table or a secondary index to
+  directly access items from that table or index.
+
+  Use the *KeyConditionExpression* parameter to provide a specific hash key
+  value. The *Query* operation will return all of the items from the table or
+  index with that hash key value. You can optionally narrow the scope of the
+  *Query* by specifying a range key value and a comparison operator in the
+  *KeyConditionExpression*. You can use the *ScanIndexForward* parameter to
+  get results in forward or reverse order, by range key or by index key.
 
   Queries that do not return results consume the minimum number of read
   capacity units for that type of read operation.

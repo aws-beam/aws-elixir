@@ -5,7 +5,7 @@ defmodule AWS.Mixfile do
     [app: :aws,
      description: "AWS clients for Elixir",
      package: package,
-     version: "0.0.2",
+     version: version,
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -35,10 +35,14 @@ defmodule AWS.Mixfile do
      {:timex, "~> 0.13.4"}]
   end
 
+  defp version do
+    "0.0.3"
+  end
+
   defp package do
     [contributors: ["Jamu Kakar"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/jkakar/aws-elixir",
-              "Docs" => "http://hexdocs.pm/aws/0.0.2/"}]
+              "Docs" => "http://hexdocs.pm/aws/#{version}/"}]
   end
 end

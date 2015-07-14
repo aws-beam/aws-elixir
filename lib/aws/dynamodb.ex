@@ -131,11 +131,16 @@ defmodule AWS.DynamoDB do
   returned, the operation returns a value for *UnprocessedKeys*. You can use
   this value to retry the operation starting with the next item to get.
 
-  For example, if you ask to retrieve 100 items, but each individual item is
-  300 KB in size, the system returns 52 items (so as not to exceed the 16 MB
-  limit). It also returns an appropriate *UnprocessedKeys* value so you can
-  get the next page of results. If desired, your application can include its
-  own logic to assemble the pages of results into one data set.
+  <important>If you request more than 100 items *BatchGetItem* will return a
+  *ValidationException* with the message "Too many items requested for the
+  BatchGetItem call".
+
+  </important> For example, if you ask to retrieve 100 items, but each
+  individual item is 300 KB in size, the system returns 52 items (so as not
+  to exceed the 16 MB limit). It also returns an appropriate
+  *UnprocessedKeys* value so you can get the next page of results. If
+  desired, your application can include its own logic to assemble the pages
+  of results into one data set.
 
   If *none* of the items can be processed due to insufficient provisioned
   throughput on all of the tables in the request, then *BatchGetItem* will
@@ -221,14 +226,14 @@ defmodule AWS.DynamoDB do
   you cannot specify conditions on individual put and delete requests, and
   *BatchWriteItem* does not return deleted items in the response.
 
-  If you use a programming language that supports concurrency, such as Java,
-  you can use threads to write items in parallel. Your application must
-  include the necessary logic to manage the threads. With languages that
-  don't support threading, such as PHP, you must update or delete the
-  specified items one at a time. In both situations, *BatchWriteItem*
-  provides an alternative where the API performs the specified put and delete
-  operations in parallel, giving you the power of the thread pool approach
-  without having to introduce complexity into your application.
+  If you use a programming language that supports concurrency, you can use
+  threads to write items in parallel. Your application must include the
+  necessary logic to manage the threads. With languages that don't support
+  threading, you must update or delete the specified items one at a time. In
+  both situations, *BatchWriteItem* provides an alternative where the API
+  performs the specified put and delete operations in parallel, giving you
+  the power of the thread pool approach without having to introduce
+  complexity into your application.
 
   Parallel processing reduces latency, but each specified put and delete
   request consumes the same number of write capacity units whether it is
@@ -320,6 +325,10 @@ defmodule AWS.DynamoDB do
   </note> When you delete a table, any indexes on that table are also
   deleted.
 
+  If you have DynamoDB Streams enabled on the table, then the corresponding
+  stream on that table goes into the `DISABLED` state, and the stream is
+  automatically deleted after 24 hours.
+
   Use the *DescribeTable* API to check the status of the table.
   """
   def delete_table(client, input, options \\ []) do
@@ -406,25 +415,26 @@ defmodule AWS.DynamoDB do
   Use the *KeyConditionExpression* parameter to provide a specific hash key
   value. The *Query* operation will return all of the items from the table or
   index with that hash key value. You can optionally narrow the scope of the
-  *Query* by specifying a range key value and a comparison operator in the
-  *KeyConditionExpression*. You can use the *ScanIndexForward* parameter to
-  get results in forward or reverse order, by range key or by index key.
+  *Query* operation by specifying a range key value and a comparison operator
+  in *KeyConditionExpression*. You can use the *ScanIndexForward* parameter
+  to get results in forward or reverse order, by range key or by index key.
 
   Queries that do not return results consume the minimum number of read
   capacity units for that type of read operation.
 
   If the total number of items meeting the query criteria exceeds the result
   set size limit of 1 MB, the query stops and results are returned to the
-  user with *LastEvaluatedKey* to continue the query in a subsequent
-  operation. Unlike a *Scan* operation, a *Query* operation never returns
-  both an empty result set and a *LastEvaluatedKey*. The *LastEvaluatedKey*
-  is only provided if the results exceed 1 MB, or if you have used *Limit*.
+  user with the *LastEvaluatedKey* element to continue the query in a
+  subsequent operation. Unlike a *Scan* operation, a *Query* operation never
+  returns both an empty result set and a *LastEvaluatedKey* value.
+  *LastEvaluatedKey* is only provided if the results exceed 1 MB, or if you
+  have used the *Limit* parameter.
 
   You can query a table, a local secondary index, or a global secondary
   index. For a query on a table or on a local secondary index, you can set
-  *ConsistentRead* to true and obtain a strongly consistent result. Global
-  secondary indexes support eventually consistent reads only, so do not
-  specify *ConsistentRead* when querying a global secondary index.
+  the *ConsistentRead* parameter to `true` and obtain a strongly consistent
+  result. Global secondary indexes support eventually consistent reads only,
+  so do not specify *ConsistentRead* when querying a global secondary index.
   """
   def query(client, input, options \\ []) do
     request(client, "Query", input, options)
@@ -441,14 +451,17 @@ defmodule AWS.DynamoDB do
   The results also include the number of items exceeding the limit. A scan
   can result in no table data meeting the filter criteria.
 
-  The result set is eventually consistent.
-
   By default, *Scan* operations proceed sequentially; however, for faster
   performance on a large table or secondary index, applications can request a
   parallel *Scan* operation by providing the *Segment* and *TotalSegments*
   parameters. For more information, see [Parallel
   Scan](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#QueryAndScanParallelScan)
   in the *Amazon DynamoDB Developer Guide*.
+
+  By default, *Scan* uses eventually consistent reads when acessing the data
+  in the table or local secondary index. However, you can use strongly
+  consistent reads instead by setting the *ConsistentRead* parameter to
+  *true*.
   """
   def scan(client, input, options \\ []) do
     request(client, "Scan", input, options)
@@ -471,27 +484,25 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  Updates the provisioned throughput for the given table, or manages the
-  global secondary indexes on the table.
+  Modifies the provisioned throughput settings, global secondary indexes, or
+  DynamoDB Streams settings for a given table.
 
-  You can increase or decrease the table's provisioned throughput values
-  within the maximums and minimums listed in the
-  [Limits](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
-  section in the *Amazon DynamoDB Developer Guide*.
+  You can only perform one of the following operations at once:
 
-  In addition, you can use *UpdateTable* to add, modify or delete global
-  secondary indexes on the table. For more information, see [Managing Global
-  Secondary
-  Indexes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html)
-  in the *Amazon DynamoDB Developer Guide*.
+  <ul> <li>Modify the provisioned throughput settings of the table.
 
-  The table must be in the `ACTIVE` state for *UpdateTable* to succeed.
-  *UpdateTable* is an asynchronous operation; while executing the operation,
-  the table is in the `UPDATING` state. While the table is in the `UPDATING`
-  state, the table still has the provisioned throughput from before the call.
-  The table's new provisioned throughput settings go into effect when the
-  table returns to the `ACTIVE` state; at that point, the *UpdateTable*
-  operation is complete.
+  </li> <li>Enable or disable Streams on the table.
+
+  </li> <li>Remove a global secondary index from the table.
+
+  </li> <li> Create a new global secondary index on the table. Once the index
+  begins backfilling, you can use *UpdateTable* to perform other operations.
+
+  </li> </ul> *UpdateTable* is an asynchronous operation; while it is
+  executing, the table status changes from `ACTIVE` to `UPDATING`. While it
+  is `UPDATING`, you cannot issue another *UpdateTable* request. When the
+  table returns to the `ACTIVE` state, the *UpdateTable* operation is
+  complete.
   """
   def update_table(client, input, options \\ []) do
     request(client, "UpdateTable", input, options)

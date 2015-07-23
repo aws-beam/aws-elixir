@@ -1,7 +1,7 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
 # See https://github.com/jkakar/aws-codegen for more details.
 
-defmodule AWS.CognitoIdentity do
+defmodule AWS.Cognito do
   @moduledoc """
   Amazon Cognito
 

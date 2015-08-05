@@ -2,15 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.0.3](https://github.com/jkakar/aws-elixir/tree/v0.0.3) - 2015-07-14
-### Added
+## [v0.0.3](https://github.com/jkakar/aws-elixir/tree/v0.0.3) - 2015-07-14
+#### Added
 - `AWS.DynamoDB.Streams` module for DynamoDB Streams Service.
 
-### Changed
+#### Changed
 - `AWS.DynamoDB` module has updated documentation.
 
-## [0.0.2](https://github.com/jkakar/aws-elixir/tree/v0.0.2) - 2015-07-09
-### Added
+## [v0.0.2](https://github.com/jkakar/aws-elixir/tree/v0.0.2) - 2015-07-09
+#### Added
 - `AWS.CodeCommit` module for CodeCommit Service.
 - `AWS.CodePipeline` module for CodePipeline Service.
 - `AWS.CognitoIdentity` module for Cognito Service.
@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file.
 - `AWS.Route53Domains` module for Route53 Domains Service.
 - `AWS.Workspaces` module for Workspaces Service.
 
-### Changed
+#### Changed
 - `AWS.CodeDeploy` module has new functionality for managing on premises
   instances.
 - `AWS.Config` module has updated documentation.
@@ -36,8 +36,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module has updated documentation and new support for
   the `ListVolumeInitiators` action.
 
-## [0.0.1](https://github.com/jkakar/aws-elixir/tree/v0.0.1) - 2015-05-29
-### Added
+## [v0.0.1](https://github.com/jkakar/aws-elixir/tree/v0.0.1) - 2015-05-29
+#### Added
 - `AWS.CloudHSM` module for CloudHSM Service.
 - `AWS.CloudTrail` module for CloudTrail Service.
 - `AWS.CodeDeploy` module for CodeDeploy Service.

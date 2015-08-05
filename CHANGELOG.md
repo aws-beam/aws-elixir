@@ -58,6 +58,6 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[master]: https://github.com/jkakar/aws-elixir/compare/v0.0.3...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.3...HEAD
 [v0.0.3]: https://github.com/jkakar/aws-elixir/compare/v0.0.2...v0.0.3
 [v0.0.2]: https://github.com/jkakar/aws-elixir/compare/v0.0.1...v0.0.2

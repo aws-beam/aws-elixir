@@ -3,16 +3,36 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+### Added
+- `AWS.CloudSearch.Domain` module for Cloud Search Service.
+- `AWS.Cognito.Sync` module for Cognito Sync Service.
+- `AWS.DeviceFarm` module for DeviceFarm Service.
+- `AWS.EFS` module for Elastic File System Service.
+- `AWS.Glacier` module for Glacier Service.
+- `AWS.Lambda` module for Lambda Service.
+- `AWS.MobileAnalytics` module for Mobile Analytics Service.
+- `AWS.Transcoder` module for Elastic Transcoder Service.
+
+### Changed
+- `AWS.CloudHSM` module has updated documentation.
+- `AWS.Logs` module has support for new `DeleteDestination`,
+  `DescribeDestinations`, `PutDestination` and `PutDestinationPolicy` actions.
+- `AWS.OpsWorks` module has updated documentation.
+- `AWS.StorageGateway` module has updated documentation.
+
+### Removed
+- `AWS.CognitoIdentity` module has been renamed to `AWS.Cognito`.
+- `AWS.Route53Domains` module has been renamed to `AWS.Route53.Domains`.
 
 ## [v0.0.3] - 2015-07-14
-#### Added
+### Added
 - `AWS.DynamoDB.Streams` module for DynamoDB Streams Service.
 
-#### Changed
+### Changed
 - `AWS.DynamoDB` module has updated documentation.
 
 ## [v0.0.2] - 2015-07-09
-#### Added
+### Added
 - `AWS.CodeCommit` module for CodeCommit Service.
 - `AWS.CodePipeline` module for CodePipeline Service.
 - `AWS.CognitoIdentity` module for Cognito Service.
@@ -20,7 +40,7 @@ All notable changes to this project will be documented in this file.
 - `AWS.Route53Domains` module for Route53 Domains Service.
 - `AWS.Workspaces` module for Workspaces Service.
 
-#### Changed
+### Changed
 - `AWS.CodeDeploy` module has new functionality for managing on premises
   instances.
 - `AWS.Config` module has updated documentation.
@@ -39,7 +59,7 @@ All notable changes to this project will be documented in this file.
   the `ListVolumeInitiators` action.
 
 ## [v0.0.1](https://github.com/jkakar/aws-elixir/tree/v0.0.1) - 2015-05-29
-#### Added
+### Added
 - `AWS.CloudHSM` module for CloudHSM Service.
 - `AWS.CloudTrail` module for CloudTrail Service.
 - `AWS.CodeDeploy` module for CodeDeploy Service.

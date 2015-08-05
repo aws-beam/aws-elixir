@@ -15,8 +15,19 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  Creates an uninitialized HSM instance. Running this command provisions an
-  HSM appliance and will result in charges to your AWS account for the HSM.
+  Creates an uninitialized HSM instance.
+
+  There is an upfront fee charged for each HSM instance that you create with
+  the `CreateHsm` operation. If you accidentally provision an HSM and want to
+  request a refund, delete the instance using the `DeleteHsm` operation, go
+  to the [AWS Support Center](https://console.aws.amazon.com/support/home#/),
+  create a new case, and select **Account and Billing Support**.
+
+  <important> It can take up to 20 minutes to create and provision an HSM.
+  You can monitor the status of the HSM with the `DescribeHsm` operation. The
+  HSM is ready to be initialized when the status changes to `RUNNING`.
+
+  </important>
   """
   def create_hsm(client, input, options \\ []) do
     request(client, "CreateHsm", input, options)
@@ -37,8 +48,8 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  Deletes an HSM. Once complete, this operation cannot be undone and your key
-  material cannot be recovered.
+  Deletes an HSM. After completion, this operation cannot be undone and your
+  key material cannot be recovered.
   """
   def delete_hsm(client, input, options \\ []) do
     request(client, "DeleteHsm", input, options)
@@ -134,6 +145,14 @@ defmodule AWS.CloudHSM do
 
   @doc """
   Modifies an HSM.
+
+  <important> This operation can result in the HSM being offline for up to 15
+  minutes while the AWS CloudHSM service is reconfigured. If you are
+  modifying a production HSM, you should ensure that your AWS CloudHSM
+  service is configured for high availability, and consider executing this
+  operation during a maintenance window.
+
+  </important>
   """
   def modify_hsm(client, input, options \\ []) do
     request(client, "ModifyHsm", input, options)
@@ -155,7 +174,7 @@ defmodule AWS.CloudHSM do
     url = "https://#{host}/"
     headers = [{"Host", host},
                {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "cloudhsm.#{action}"}]
+               {"X-Amz-Target", "CloudHsmFrontendService.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do

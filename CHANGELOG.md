@@ -15,14 +15,12 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - `AWS.CloudHSM` module has updated documentation.
+- `AWS.CognitoIdentity` module has been renamed to `AWS.Cognito`.
 - `AWS.Logs` module has support for new `DeleteDestination`,
   `DescribeDestinations`, `PutDestination` and `PutDestinationPolicy` actions.
 - `AWS.OpsWorks` module has updated documentation.
-- `AWS.StorageGateway` module has updated documentation.
-
-### Removed
-- `AWS.CognitoIdentity` module has been renamed to `AWS.Cognito`.
 - `AWS.Route53Domains` module has been renamed to `AWS.Route53.Domains`.
+- `AWS.StorageGateway` module has updated documentation.
 
 ## [v0.0.3] - 2015-07-14
 ### Added

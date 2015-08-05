@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased][unreleased]
+
 ## [v0.0.3](https://github.com/jkakar/aws-elixir/tree/v0.0.3) - 2015-07-14
 #### Added
 - `AWS.DynamoDB.Streams` module for DynamoDB Streams Service.

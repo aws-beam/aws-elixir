@@ -2,16 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-## [master](https://github.com/jkakar/aws-elixir)
+## [unreleased]
 
-## [v0.0.3](https://github.com/jkakar/aws-elixir/tree/v0.0.3) - 2015-07-14
+## [v0.0.3] - 2015-07-14
 #### Added
 - `AWS.DynamoDB.Streams` module for DynamoDB Streams Service.
 
 #### Changed
 - `AWS.DynamoDB` module has updated documentation.
 
-## [v0.0.2](https://github.com/jkakar/aws-elixir/tree/v0.0.2) - 2015-07-09
+## [v0.0.2] - 2015-07-09
 #### Added
 - `AWS.CodeCommit` module for CodeCommit Service.
 - `AWS.CodePipeline` module for CodePipeline Service.
@@ -57,3 +57,7 @@ All notable changes to this project will be documented in this file.
 - `AWS.SWF` module for Simple Workflow Service.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
+
+[master]: https://github.com/jkakar/aws-elixir/compare/v0.0.3...HEAD
+[v0.0.3]: https://github.com/jkakar/aws-elixir/compare/v0.0.2...v0.0.3
+[v0.0.2]: https://github.com/jkakar/aws-elixir/compare/v0.0.1...v0.0.2

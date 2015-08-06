@@ -18,7 +18,9 @@ All notable changes to this project will be documented in this file.
 - `AWS.CognitoIdentity` module has been renamed to `AWS.Cognito`.
 - `AWS.Logs` module has support for new `DeleteDestination`,
   `DescribeDestinations`, `PutDestination` and `PutDestinationPolicy` actions.
-- `AWS.OpsWorks` module has updated documentation.
+- `AWS.OpsWorks` module has updated documentation and new support for the
+  `DeregisterEcsCluster`, `DescribeEcsClusters` and `RegisterEcsCluster`
+  actions.
 - `AWS.Route53Domains` module has been renamed to `AWS.Route53.Domains`.
 - `AWS.StorageGateway` module has updated documentation.
 

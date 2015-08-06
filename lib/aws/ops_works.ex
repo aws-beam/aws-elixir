@@ -43,16 +43,16 @@ defmodule AWS.OpsWorks do
   **Chef Versions**
 
   When you call `CreateStack`, `CloneStack`, or `UpdateStack` we recommend
-  you use the `ConfigurationManager` parameter to specify the Chef version,
-  0.9, 11.4, or 11.10. The default value is currently 11.10. For more
-  information, see [Chef
+  you use the `ConfigurationManager` parameter to specify the Chef version.
+  The recommended value for Linux stacks, which is also the default value, is
+  currently 11.10. Windows stacks use Chef 12.2. For more information, see
+  [Chef
   Versions](http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html).
 
-  <note>You can still specify Chef 0.9 for your stack, but new features are
-  not available for Chef 0.9 stacks, and support is scheduled to end on July
-  24, 2014. We do not recommend using Chef 0.9 for new stacks, and we
-  recommend migrating your existing Chef 0.9 stacks to Chef 11.10 as soon as
-  possible.</note>
+  <note>You can also specify Chef 11.4 or Chef 0.9 for your Linux stack.
+  However, Chef 0.9 has been deprecated. We do not recommend using Chef 0.9
+  for new stacks, and we recommend migrating your existing Chef 0.9 stacks to
+  Chef 11.10 as soon as possible.</note>
   """
 
   @doc """
@@ -62,9 +62,10 @@ defmodule AWS.OpsWorks do
   type.</li> <li>You can assign registered Amazon EC2 instances only to
   custom layers.</li> <li>You cannot use this action with instances that were
   created with AWS OpsWorks.</li> </ul> **Required Permissions**: To use this
-  action, an IAM user must have a Manage permissions level for the stack or
-  an attached policy that explicitly grants permissions. For more information
-  on user permissions, see [Managing User
+  action, an AWS Identity and Access Management (IAM) user must have a Manage
+  permissions level for the stack or an attached policy that explicitly
+  grants permissions. For more information on user permissions, see [Managing
+  User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def assign_instance(client, input, options \\ []) do
@@ -305,6 +306,21 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
+  Deregisters a specified Amazon ECS cluster from a stack. For more
+  information, see [ Resource
+  Management](http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete).
+
+  **Required Permissions**: To use this action, an IAM user must have a
+  Manage permissions level for the stack or an attached policy that
+  explicitly grants permissions. For more information on user permissions,
+  see <a
+  href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">`.
+  """
+  def deregister_ecs_cluster(client, input, options \\ []) do
+    request(client, "DeregisterEcsCluster", input, options)
+  end
+
+  @doc """
   Deregisters a specified Elastic IP address. The address can then be
   registered by another stack. For more information, see [Resource
   Management](http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
@@ -415,6 +431,23 @@ defmodule AWS.OpsWorks do
   """
   def describe_deployments(client, input, options \\ []) do
     request(client, "DescribeDeployments", input, options)
+  end
+
+  @doc """
+  Describes Amazon ECS clusters that are registered with a stack. If you
+  specify only a stack ID, you can use the `MaxResults` and `NextToken`
+  parameters to paginate the response. However, AWS OpsWorks currently
+  supports only one cluster per layer, so the result set has a maximum of one
+  element.
+
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack or an attached policy
+  that explicitly grants permission. For more information on user
+  permissions, see [Managing User
+  Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  """
+  def describe_ecs_clusters(client, input, options \\ []) do
+    request(client, "DescribeEcsClusters", input, options)
   end
 
   @doc """
@@ -704,6 +737,22 @@ defmodule AWS.OpsWorks do
   """
   def reboot_instance(client, input, options \\ []) do
     request(client, "RebootInstance", input, options)
+  end
+
+  @doc """
+  Registers a specified Amazon ECS cluster with a stack. You can register
+  only one cluster with a stack. A cluster can be registered with only one
+  stack. For more information, see [ Resource
+  Management](http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a
+  Manage permissions level for the stack or an attached policy that
+  explicitly grants permissions. For more information on user permissions,
+  see [ Managing User
+  Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  """
+  def register_ecs_cluster(client, input, options \\ []) do
+    request(client, "RegisterEcsCluster", input, options)
   end
 
   @doc """

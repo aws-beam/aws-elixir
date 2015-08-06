@@ -24,7 +24,7 @@ This outputs:
 * Code is generated using the JSON descriptions of AWS services used to build
   the [AWS SDK for the Go programming language](https://github.com/awslabs/aws-sdk-go/tree/master/apis) library by [aws-codegen](https://github.com/jkakar/aws-codegen).
 * Code is readable with fairly complete documentation.
-* Support for most AWS services that use the `json` protocol.
+* Support for AWS services that use the `json` and `rest-json` protocols.
 * Request data is encoded from maps to JSON and response data is decoded from
   JSON to maps.  The data you work with is almost exactly what's expected by
   remote APIs and what's returned by them.

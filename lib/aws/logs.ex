@@ -79,6 +79,15 @@ defmodule AWS.Logs do
   end
 
   @doc """
+  Deletes the destination with the specified name and eventually disables all
+  the subscription filters that publish to it. This will not delete the
+  physical resource encapsulated by the destination.
+  """
+  def delete_destination(client, input, options \\ []) do
+    request(client, "DeleteDestination", input, options)
+  end
+
+  @doc """
   Deletes the log group with the specified name and permanently deletes all
   the archived log events associated with it.
   """
@@ -114,6 +123,21 @@ defmodule AWS.Logs do
   """
   def delete_subscription_filter(client, input, options \\ []) do
     request(client, "DeleteSubscriptionFilter", input, options)
+  end
+
+  @doc """
+  Returns all the destinations that are associated with the AWS account
+  making the request. The list returned in the response is ASCII-sorted by
+  destination name.
+
+  By default, this operation returns up to 50 destinations. If there are more
+  destinations to list, the response would contain a <code
+  class="code">nextToken` value in the response body. You can also limit the
+  number of destinations returned in the response by specifying the <code
+  class="code">limit` parameter in the request.
+  """
+  def describe_destinations(client, input, options \\ []) do
+    request(client, "DescribeDestinations", input, options)
   end
 
   @doc """
@@ -215,6 +239,35 @@ defmodule AWS.Logs do
   end
 
   @doc """
+  Creates or updates a `Destination`. A destination encapsulates a physical
+  resource (such as a Kinesis stream) and allows you to subscribe to a
+  real-time stream of log events of a different account, ingested through
+  <code class="code">PutLogEvents` requests. Currently, the only supported
+  physical resource is a Amazon Kinesis stream belonging to the same account
+  as the destination.
+
+  A destination controls what is written to its Amazon Kinesis stream through
+  an access policy. By default, PutDestination does not set any access policy
+  with the destination, which means a cross-account user will not be able to
+  call `PutSubscriptionFilter` against this destination. To enable that, the
+  destination owner must call `PutDestinationPolicy` after PutDestination.
+  """
+  def put_destination(client, input, options \\ []) do
+    request(client, "PutDestination", input, options)
+  end
+
+  @doc """
+  Creates or updates an access policy associated with an existing
+  `Destination`. An access policy is an [IAM policy
+  document](http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html)
+  that is used to authorize claims to register a subscription filter against
+  a given destination.
+  """
+  def put_destination_policy(client, input, options \\ []) do
+    request(client, "PutDestinationPolicy", input, options)
+  end
+
+  @doc """
   Uploads a batch of log events to the specified log stream.
 
   Every PutLogEvents request must include the <code
@@ -262,8 +315,11 @@ defmodule AWS.Logs do
   specified log group. Subscription filters allow you to subscribe to a
   real-time stream of log events ingested through <code
   class="code">PutLogEvents` requests and have them delivered to a specific
-  destination. Currently the only supported destination is an Amazon Kinesis
-  stream belonging to the same account as the subscription filter.
+  destination. Currently, the supported destinations are: <ul> <li> A Amazon
+  Kinesis stream belonging to the same account as the subscription filter,
+  for same-account delivery. </li> <li> A logical destination (used via an
+  ARN of `Destination`) belonging to a different account, for cross-account
+  delivery. </li> </ul>
 
   Currently there can only be one subscription filter associated with a log
   group.

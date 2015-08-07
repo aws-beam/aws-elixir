@@ -267,4 +267,3 @@ defmodule AWS.DataPipeline do
     end
   end
 end
-

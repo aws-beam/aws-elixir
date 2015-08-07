@@ -357,4 +357,3 @@ defmodule AWS.Logs do
     end
   end
 end
-

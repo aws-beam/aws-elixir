@@ -207,4 +207,3 @@ defmodule AWS.Config do
     end
   end
 end
-

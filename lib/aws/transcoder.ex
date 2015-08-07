@@ -276,4 +276,3 @@ defmodule AWS.Transcoder do
     end
   end
 end
-

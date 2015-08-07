@@ -344,4 +344,3 @@ defmodule AWS.Lambda do
     end
   end
 end
-

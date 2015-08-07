@@ -146,4 +146,3 @@ defmodule AWS.Workspaces do
     end
   end
 end
-

@@ -320,4 +320,3 @@ defmodule AWS.CodeDeploy do
     end
   end
 end
-

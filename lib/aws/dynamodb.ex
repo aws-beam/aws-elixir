@@ -528,4 +528,3 @@ defmodule AWS.DynamoDB do
     end
   end
 end
-

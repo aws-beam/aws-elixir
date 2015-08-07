@@ -272,4 +272,3 @@ defmodule AWS.EMR do
     end
   end
 end
-

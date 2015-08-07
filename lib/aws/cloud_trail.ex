@@ -131,4 +131,3 @@ defmodule AWS.CloudTrail do
     end
   end
 end
-

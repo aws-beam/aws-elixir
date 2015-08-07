@@ -308,7 +308,7 @@ defmodule AWS.SWF do
   @doc """
   Returns information about the specified *workflow type*. This includes
   configuration settings specified when the type was registered and other
-  information such as creation date, current status, etc.
+  information such as creation date, current status, and so on.
 
   **Access Control**
 
@@ -551,9 +551,9 @@ defmodule AWS.SWF do
   decision task is available in the specified task list before the timeout of
   60 seconds expires, an empty result is returned. An empty result, in this
   context, means that a DecisionTask is returned, but that the value of
-  taskToken is an empty string.
+  `taskToken` is an empty string.
 
-  <important>Deciders should set their client side socket timeout to at least
+  <important>Deciders should set their client-side socket timeout to at least
   70 seconds (10 seconds higher than the timeout).</important>
   <important>Because the number of workflow history events for a single
   workflow execution might be very large, the result returned might be split
@@ -1003,4 +1003,3 @@ defmodule AWS.SWF do
     end
   end
 end
-

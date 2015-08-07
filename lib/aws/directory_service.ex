@@ -193,4 +193,3 @@ defmodule AWS.DirectoryService do
     end
   end
 end
-

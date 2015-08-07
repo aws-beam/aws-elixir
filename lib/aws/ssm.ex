@@ -153,4 +153,3 @@ defmodule AWS.SSM do
     end
   end
 end
-

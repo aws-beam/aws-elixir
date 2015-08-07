@@ -769,4 +769,3 @@ defmodule AWS.StorageGateway do
     end
   end
 end
-

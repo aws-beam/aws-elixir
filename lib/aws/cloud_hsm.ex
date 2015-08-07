@@ -188,4 +188,3 @@ defmodule AWS.CloudHSM do
     end
   end
 end
-

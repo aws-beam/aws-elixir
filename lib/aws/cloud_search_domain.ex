@@ -156,4 +156,3 @@ defmodule AWS.CloudSearch.Domain do
     end
   end
 end
-

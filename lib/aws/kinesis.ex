@@ -493,4 +493,3 @@ defmodule AWS.Kinesis do
     end
   end
 end
-

@@ -325,4 +325,3 @@ defmodule AWS.Cognito.Sync do
     end
   end
 end
-

@@ -274,4 +274,3 @@ defmodule AWS.Cognito do
     end
   end
 end
-

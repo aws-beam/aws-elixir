@@ -399,4 +399,3 @@ defmodule AWS.KMS do
     end
   end
 end
-

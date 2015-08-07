@@ -273,4 +273,3 @@ defmodule AWS.DirectConnect do
     end
   end
 end
-

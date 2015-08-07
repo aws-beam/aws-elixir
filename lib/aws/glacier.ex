@@ -1335,4 +1335,3 @@ defmodule AWS.Glacier do
     end
   end
 end
-

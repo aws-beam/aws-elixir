@@ -204,4 +204,3 @@ defmodule AWS.DeviceFarm do
     end
   end
 end
-

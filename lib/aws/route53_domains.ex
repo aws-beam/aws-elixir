@@ -265,4 +265,3 @@ defmodule AWS.Route53.Domains do
     end
   end
 end
-

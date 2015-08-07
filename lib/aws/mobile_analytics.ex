@@ -74,4 +74,3 @@ defmodule AWS.MobileAnalytics do
     end
   end
 end
-

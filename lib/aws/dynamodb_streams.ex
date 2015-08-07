@@ -123,4 +123,3 @@ defmodule AWS.DynamoDB.Streams do
     end
   end
 end
-

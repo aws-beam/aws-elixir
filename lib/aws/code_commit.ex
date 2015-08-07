@@ -153,4 +153,3 @@ defmodule AWS.CodeCommit do
     end
   end
 end
-

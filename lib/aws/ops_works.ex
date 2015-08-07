@@ -1101,4 +1101,3 @@ defmodule AWS.OpsWorks do
     end
   end
 end
-

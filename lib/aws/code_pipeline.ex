@@ -326,4 +326,3 @@ defmodule AWS.CodePipeline do
     end
   end
 end
-

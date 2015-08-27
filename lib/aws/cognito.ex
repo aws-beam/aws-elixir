@@ -48,8 +48,8 @@ defmodule AWS.Cognito do
   pools is 60 per account. You must use AWS Developer credentials to call
   this API.
   """
-  def create_identity_pool(client, input, options \\ []) do
-    request(client, "CreateIdentityPool", input, options)
+  def create_identity_pool(client, input, http_options \\ []) do
+    request(client, "CreateIdentityPool", input, http_options)
   end
 
   @doc """
@@ -58,8 +58,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def delete_identities(client, input, options \\ []) do
-    request(client, "DeleteIdentities", input, options)
+  def delete_identities(client, input, http_options \\ []) do
+    request(client, "DeleteIdentities", input, http_options)
   end
 
   @doc """
@@ -68,8 +68,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def delete_identity_pool(client, input, options \\ []) do
-    request(client, "DeleteIdentityPool", input, options)
+  def delete_identity_pool(client, input, http_options \\ []) do
+    request(client, "DeleteIdentityPool", input, http_options)
   end
 
   @doc """
@@ -78,8 +78,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def describe_identity(client, input, options \\ []) do
-    request(client, "DescribeIdentity", input, options)
+  def describe_identity(client, input, http_options \\ []) do
+    request(client, "DescribeIdentity", input, http_options)
   end
 
   @doc """
@@ -88,8 +88,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def describe_identity_pool(client, input, options \\ []) do
-    request(client, "DescribeIdentityPool", input, options)
+  def describe_identity_pool(client, input, http_options \\ []) do
+    request(client, "DescribeIdentityPool", input, http_options)
   end
 
   @doc """
@@ -100,8 +100,8 @@ defmodule AWS.Cognito do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def get_credentials_for_identity(client, input, options \\ []) do
-    request(client, "GetCredentialsForIdentity", input, options)
+  def get_credentials_for_identity(client, input, http_options \\ []) do
+    request(client, "GetCredentialsForIdentity", input, http_options)
   end
 
   @doc """
@@ -112,8 +112,8 @@ defmodule AWS.Cognito do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def get_id(client, input, options \\ []) do
-    request(client, "GetId", input, options)
+  def get_id(client, input, http_options \\ []) do
+    request(client, "GetId", input, http_options)
   end
 
   @doc """
@@ -121,8 +121,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def get_identity_pool_roles(client, input, options \\ []) do
-    request(client, "GetIdentityPoolRoles", input, options)
+  def get_identity_pool_roles(client, input, http_options \\ []) do
+    request(client, "GetIdentityPoolRoles", input, http_options)
   end
 
   @doc """
@@ -134,8 +134,8 @@ defmodule AWS.Cognito do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def get_open_id_token(client, input, options \\ []) do
-    request(client, "GetOpenIdToken", input, options)
+  def get_open_id_token(client, input, http_options \\ []) do
+    request(client, "GetOpenIdToken", input, http_options)
   end
 
   @doc """
@@ -156,8 +156,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def get_open_id_token_for_developer_identity(client, input, options \\ []) do
-    request(client, "GetOpenIdTokenForDeveloperIdentity", input, options)
+  def get_open_id_token_for_developer_identity(client, input, http_options \\ []) do
+    request(client, "GetOpenIdTokenForDeveloperIdentity", input, http_options)
   end
 
   @doc """
@@ -165,8 +165,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def list_identities(client, input, options \\ []) do
-    request(client, "ListIdentities", input, options)
+  def list_identities(client, input, http_options \\ []) do
+    request(client, "ListIdentities", input, http_options)
   end
 
   @doc """
@@ -174,8 +174,8 @@ defmodule AWS.Cognito do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def list_identity_pools(client, input, options \\ []) do
-    request(client, "ListIdentityPools", input, options)
+  def list_identity_pools(client, input, http_options \\ []) do
+    request(client, "ListIdentityPools", input, http_options)
   end
 
   @doc """
@@ -191,8 +191,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def lookup_developer_identity(client, input, options \\ []) do
-    request(client, "LookupDeveloperIdentity", input, options)
+  def lookup_developer_identity(client, input, http_options \\ []) do
+    request(client, "LookupDeveloperIdentity", input, http_options)
   end
 
   @doc """
@@ -207,8 +207,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def merge_developer_identities(client, input, options \\ []) do
-    request(client, "MergeDeveloperIdentities", input, options)
+  def merge_developer_identities(client, input, http_options \\ []) do
+    request(client, "MergeDeveloperIdentities", input, http_options)
   end
 
   @doc """
@@ -217,8 +217,8 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def set_identity_pool_roles(client, input, options \\ []) do
-    request(client, "SetIdentityPoolRoles", input, options)
+  def set_identity_pool_roles(client, input, http_options \\ []) do
+    request(client, "SetIdentityPoolRoles", input, http_options)
   end
 
   @doc """
@@ -230,8 +230,8 @@ defmodule AWS.Cognito do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def unlink_developer_identity(client, input, options \\ []) do
-    request(client, "UnlinkDeveloperIdentity", input, options)
+  def unlink_developer_identity(client, input, http_options \\ []) do
+    request(client, "UnlinkDeveloperIdentity", input, http_options)
   end
 
   @doc """
@@ -241,8 +241,8 @@ defmodule AWS.Cognito do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def unlink_identity(client, input, options \\ []) do
-    request(client, "UnlinkIdentity", input, options)
+  def unlink_identity(client, input, http_options \\ []) do
+    request(client, "UnlinkIdentity", input, http_options)
   end
 
   @doc """
@@ -250,11 +250,11 @@ defmodule AWS.Cognito do
 
   You must use AWS Developer credentials to call this API.
   """
-  def update_identity_pool(client, input, options \\ []) do
-    request(client, "UpdateIdentityPool", input, options)
+  def update_identity_pool(client, input, http_options \\ []) do
+    request(client, "UpdateIdentityPool", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "cognito-identity"}
     host = "cognito-identity.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -263,12 +263,12 @@ defmodule AWS.Cognito do
                {"X-Amz-Target", "AWSCognitoIdentityService.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

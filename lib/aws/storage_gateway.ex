@@ -46,8 +46,8 @@ defmodule AWS.StorageGateway do
   <note>You must turn on the gateway VM before you can activate your
   gateway.</note>
   """
-  def activate_gateway(client, input, options \\ []) do
-    request(client, "ActivateGateway", input, options)
+  def activate_gateway(client, input, http_options \\ []) do
+    request(client, "ActivateGateway", input, http_options)
   end
 
   @doc """
@@ -60,8 +60,8 @@ defmodule AWS.StorageGateway do
   you want to add cache, and one or more disk IDs that you want to configure
   as cache.
   """
-  def add_cache(client, input, options \\ []) do
-    request(client, "AddCache", input, options)
+  def add_cache(client, input, http_options \\ []) do
+    request(client, "AddCache", input, http_options)
   end
 
   @doc """
@@ -73,8 +73,8 @@ defmodule AWS.StorageGateway do
   you want to add upload buffer, and one or more disk IDs that you want to
   configure as upload buffer.
   """
-  def add_upload_buffer(client, input, options \\ []) do
-    request(client, "AddUploadBuffer", input, options)
+  def add_upload_buffer(client, input, http_options \\ []) do
+    request(client, "AddUploadBuffer", input, http_options)
   end
 
   @doc """
@@ -91,16 +91,16 @@ defmodule AWS.StorageGateway do
   to which you want to add working storage, and one or more disk IDs that you
   want to configure as working storage.
   """
-  def add_working_storage(client, input, options \\ []) do
-    request(client, "AddWorkingStorage", input, options)
+  def add_working_storage(client, input, http_options \\ []) do
+    request(client, "AddWorkingStorage", input, http_options)
   end
 
   @doc """
   Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after
   the archiving process is initiated.
   """
-  def cancel_archival(client, input, options \\ []) do
-    request(client, "CancelArchival", input, options)
+  def cancel_archival(client, input, http_options \\ []) do
+    request(client, "CancelArchival", input, http_options)
   end
 
   @doc """
@@ -108,8 +108,8 @@ defmodule AWS.StorageGateway do
   gateway after the retrieval process is initiated. The virtual tape is
   returned to the VTS.
   """
-  def cancel_retrieval(client, input, options \\ []) do
-    request(client, "CancelRetrieval", input, options)
+  def cancel_retrieval(client, input, http_options \\ []) do
+    request(client, "CancelRetrieval", input, http_options)
   end
 
   @doc """
@@ -125,8 +125,8 @@ defmodule AWS.StorageGateway do
   Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
   initiators can use to connect to the volume target.
   """
-  def create_cached_iscsi_volume(client, input, options \\ []) do
-    request(client, "CreateCachediSCSIVolume", input, options)
+  def create_cached_iscsi_volume(client, input, http_options \\ []) do
+    request(client, "CreateCachediSCSIVolume", input, http_options)
   end
 
   @doc """
@@ -153,8 +153,8 @@ defmodule AWS.StorageGateway do
   more information, see DescribeSnapshots or DeleteSnapshot in the [EC2 API
   reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html).</note>
   """
-  def create_snapshot(client, input, options \\ []) do
-    request(client, "CreateSnapshot", input, options)
+  def create_snapshot(client, input, http_options \\ []) do
+    request(client, "CreateSnapshot", input, http_options)
   end
 
   @doc """
@@ -180,8 +180,8 @@ defmodule AWS.StorageGateway do
 
   </note>
   """
-  def create_snapshot_from_volume_recovery_point(client, input, options \\ []) do
-    request(client, "CreateSnapshotFromVolumeRecoveryPoint", input, options)
+  def create_snapshot_from_volume_recovery_point(client, input, http_options \\ []) do
+    request(client, "CreateSnapshotFromVolumeRecoveryPoint", input, http_options)
   end
 
   @doc """
@@ -199,8 +199,8 @@ defmodule AWS.StorageGateway do
   Resource Name (ARN), its size, and the iSCSI target ARN that initiators can
   use to connect to the volume target.
   """
-  def create_stored_iscsi_volume(client, input, options \\ []) do
-    request(client, "CreateStorediSCSIVolume", input, options)
+  def create_stored_iscsi_volume(client, input, http_options \\ []) do
+    request(client, "CreateStorediSCSIVolume", input, http_options)
   end
 
   @doc """
@@ -211,8 +211,8 @@ defmodule AWS.StorageGateway do
   virtual tapes. Use the `AddCache` operation to add cache storage to a
   gateway. </note>
   """
-  def create_tapes(client, input, options \\ []) do
-    request(client, "CreateTapes", input, options)
+  def create_tapes(client, input, http_options \\ []) do
+    request(client, "CreateTapes", input, http_options)
   end
 
   @doc """
@@ -222,16 +222,16 @@ defmodule AWS.StorageGateway do
   unchanged. To specify which gateway to work with, use the Amazon Resource
   Name (ARN) of the gateway in your request.
   """
-  def delete_bandwidth_rate_limit(client, input, options \\ []) do
-    request(client, "DeleteBandwidthRateLimit", input, options)
+  def delete_bandwidth_rate_limit(client, input, http_options \\ []) do
+    request(client, "DeleteBandwidthRateLimit", input, http_options)
   end
 
   @doc """
   This operation deletes Challenge-Handshake Authentication Protocol (CHAP)
   credentials for a specified iSCSI target and initiator pair.
   """
-  def delete_chap_credentials(client, input, options \\ []) do
-    request(client, "DeleteChapCredentials", input, options)
+  def delete_chap_credentials(client, input, http_options \\ []) do
+    request(client, "DeleteChapCredentials", input, http_options)
   end
 
   @doc """
@@ -255,8 +255,8 @@ defmodule AWS.StorageGateway do
 
   </important>
   """
-  def delete_gateway(client, input, options \\ []) do
-    request(client, "DeleteGateway", input, options)
+  def delete_gateway(client, input, http_options \\ []) do
+    request(client, "DeleteGateway", input, http_options)
   end
 
   @doc """
@@ -274,22 +274,22 @@ defmodule AWS.StorageGateway do
 
   </note>
   """
-  def delete_snapshot_schedule(client, input, options \\ []) do
-    request(client, "DeleteSnapshotSchedule", input, options)
+  def delete_snapshot_schedule(client, input, http_options \\ []) do
+    request(client, "DeleteSnapshotSchedule", input, http_options)
   end
 
   @doc """
   Deletes the specified virtual tape.
   """
-  def delete_tape(client, input, options \\ []) do
-    request(client, "DeleteTape", input, options)
+  def delete_tape(client, input, http_options \\ []) do
+    request(client, "DeleteTape", input, http_options)
   end
 
   @doc """
   Deletes the specified virtual tape from the virtual tape shelf (VTS).
   """
-  def delete_tape_archive(client, input, options \\ []) do
-    request(client, "DeleteTapeArchive", input, options)
+  def delete_tape_archive(client, input, http_options \\ []) do
+    request(client, "DeleteTapeArchive", input, http_options)
   end
 
   @doc """
@@ -309,8 +309,8 @@ defmodule AWS.StorageGateway do
   In the request, you must provide the Amazon Resource Name (ARN) of the
   storage volume you want to delete.
   """
-  def delete_volume(client, input, options \\ []) do
-    request(client, "DeleteVolume", input, options)
+  def delete_volume(client, input, http_options \\ []) do
+    request(client, "DeleteVolume", input, http_options)
   end
 
   @doc """
@@ -324,8 +324,8 @@ defmodule AWS.StorageGateway do
   to describe, use the Amazon Resource Name (ARN) of the gateway in your
   request.
   """
-  def describe_bandwidth_rate_limit(client, input, options \\ []) do
-    request(client, "DescribeBandwidthRateLimit", input, options)
+  def describe_bandwidth_rate_limit(client, input, http_options \\ []) do
+    request(client, "DescribeBandwidthRateLimit", input, http_options)
   end
 
   @doc """
@@ -335,8 +335,8 @@ defmodule AWS.StorageGateway do
   The response includes disk IDs that are configured as cache, and it
   includes the amount of cache allocated and used.
   """
-  def describe_cache(client, input, options \\ []) do
-    request(client, "DescribeCache", input, options)
+  def describe_cache(client, input, http_options \\ []) do
+    request(client, "DescribeCache", input, http_options)
   end
 
   @doc """
@@ -348,8 +348,8 @@ defmodule AWS.StorageGateway do
   response Amazon Storage Gateway returns volume information sorted by volume
   Amazon Resource Name (ARN).
   """
-  def describe_cached_iscsi_volumes(client, input, options \\ []) do
-    request(client, "DescribeCachediSCSIVolumes", input, options)
+  def describe_cached_iscsi_volumes(client, input, http_options \\ []) do
+    request(client, "DescribeCachediSCSIVolumes", input, http_options)
   end
 
   @doc """
@@ -357,8 +357,8 @@ defmodule AWS.StorageGateway do
   Protocol (CHAP) credentials information for a specified iSCSI target, one
   for each target-initiator pair.
   """
-  def describe_chap_credentials(client, input, options \\ []) do
-    request(client, "DescribeChapCredentials", input, options)
+  def describe_chap_credentials(client, input, http_options \\ []) do
+    request(client, "DescribeChapCredentials", input, http_options)
   end
 
   @doc """
@@ -367,8 +367,8 @@ defmodule AWS.StorageGateway do
   running or not). To specify which gateway to describe, use the Amazon
   Resource Name (ARN) of the gateway in your request.
   """
-  def describe_gateway_information(client, input, options \\ []) do
-    request(client, "DescribeGatewayInformation", input, options)
+  def describe_gateway_information(client, input, http_options \\ []) do
+    request(client, "DescribeGatewayInformation", input, http_options)
   end
 
   @doc """
@@ -376,8 +376,8 @@ defmodule AWS.StorageGateway do
   including the day and time of the week. Note that values are in terms of
   the gateway's time zone.
   """
-  def describe_maintenance_start_time(client, input, options \\ []) do
-    request(client, "DescribeMaintenanceStartTime", input, options)
+  def describe_maintenance_start_time(client, input, http_options \\ []) do
+    request(client, "DescribeMaintenanceStartTime", input, http_options)
   end
 
   @doc """
@@ -385,8 +385,8 @@ defmodule AWS.StorageGateway do
   volume. The snapshot schedule information includes intervals at which
   snapshots are automatically initiated on the volume.
   """
-  def describe_snapshot_schedule(client, input, options \\ []) do
-    request(client, "DescribeSnapshotSchedule", input, options)
+  def describe_snapshot_schedule(client, input, http_options \\ []) do
+    request(client, "DescribeSnapshotSchedule", input, http_options)
   end
 
   @doc """
@@ -395,8 +395,8 @@ defmodule AWS.StorageGateway do
   gateway. In the response Amazon Storage Gateway returns volume information
   sorted by volume ARNs.
   """
-  def describe_stored_iscsi_volumes(client, input, options \\ []) do
-    request(client, "DescribeStorediSCSIVolumes", input, options)
+  def describe_stored_iscsi_volumes(client, input, http_options \\ []) do
+    request(client, "DescribeStorediSCSIVolumes", input, http_options)
   end
 
   @doc """
@@ -407,8 +407,8 @@ defmodule AWS.StorageGateway do
   description of all virtual tapes found in the VTS associated with your
   account.
   """
-  def describe_tape_archives(client, input, options \\ []) do
-    request(client, "DescribeTapeArchives", input, options)
+  def describe_tape_archives(client, input, http_options \\ []) do
+    request(client, "DescribeTapeArchives", input, http_options)
   end
 
   @doc """
@@ -419,8 +419,8 @@ defmodule AWS.StorageGateway do
   data on the virtual tape is consistent. If your gateway crashes, virtual
   tapes that have recovery points can be recovered to a new gateway.
   """
-  def describe_tape_recovery_points(client, input, options \\ []) do
-    request(client, "DescribeTapeRecoveryPoints", input, options)
+  def describe_tape_recovery_points(client, input, http_options \\ []) do
+    request(client, "DescribeTapeRecoveryPoints", input, http_options)
   end
 
   @doc """
@@ -428,8 +428,8 @@ defmodule AWS.StorageGateway do
   virtual tapes. If a `TapeARN` is not specified, returns a description of
   all virtual tapes associated with the specified gateway.
   """
-  def describe_tapes(client, input, options \\ []) do
-    request(client, "DescribeTapes", input, options)
+  def describe_tapes(client, input, http_options \\ []) do
+    request(client, "DescribeTapes", input, http_options)
   end
 
   @doc """
@@ -440,8 +440,8 @@ defmodule AWS.StorageGateway do
   The response includes disk IDs that are configured as upload buffer space,
   and it includes the amount of upload buffer space allocated and used.
   """
-  def describe_upload_buffer(client, input, options \\ []) do
-    request(client, "DescribeUploadBuffer", input, options)
+  def describe_upload_buffer(client, input, http_options \\ []) do
+    request(client, "DescribeUploadBuffer", input, http_options)
   end
 
   @doc """
@@ -451,8 +451,8 @@ defmodule AWS.StorageGateway do
 
   The list of VTL devices must be from one gateway.
   """
-  def describe_vtl_devices(client, input, options \\ []) do
-    request(client, "DescribeVTLDevices", input, options)
+  def describe_vtl_devices(client, input, http_options \\ []) do
+    request(client, "DescribeVTLDevices", input, http_options)
   end
 
   @doc """
@@ -468,8 +468,8 @@ defmodule AWS.StorageGateway do
   </note> The response includes disk IDs that are configured as working
   storage, and it includes the amount of working storage allocated and used.
   """
-  def describe_working_storage(client, input, options \\ []) do
-    request(client, "DescribeWorkingStorage", input, options)
+  def describe_working_storage(client, input, http_options \\ []) do
+    request(client, "DescribeWorkingStorage", input, http_options)
   end
 
   @doc """
@@ -482,8 +482,8 @@ defmodule AWS.StorageGateway do
 
   <important>Once a gateway is disabled it cannot be enabled.</important>
   """
-  def disable_gateway(client, input, options \\ []) do
-    request(client, "DisableGateway", input, options)
+  def disable_gateway(client, input, http_options \\ []) do
+    request(client, "DisableGateway", input, http_options)
   end
 
   @doc """
@@ -500,8 +500,8 @@ defmodule AWS.StorageGateway do
   contains a marker that you can specify in your next request to fetch the
   next page of gateways.
   """
-  def list_gateways(client, input, options \\ []) do
-    request(client, "ListGateways", input, options)
+  def list_gateways(client, input, http_options \\ []) do
+    request(client, "ListGateways", input, http_options)
   end
 
   @doc """
@@ -516,16 +516,16 @@ defmodule AWS.StorageGateway do
   connected to the gateway), or mismatch (the disk node is occupied by a disk
   that has incorrect metadata or the disk content is corrupted).
   """
-  def list_local_disks(client, input, options \\ []) do
-    request(client, "ListLocalDisks", input, options)
+  def list_local_disks(client, input, http_options \\ []) do
+    request(client, "ListLocalDisks", input, http_options)
   end
 
   @doc """
   This operation lists iSCSI initiators that are connected to a volume. You
   can use this operation to determine whether a volume is being used or not.
   """
-  def list_volume_initiators(client, input, options \\ []) do
-    request(client, "ListVolumeInitiators", input, options)
+  def list_volume_initiators(client, input, http_options \\ []) do
+    request(client, "ListVolumeInitiators", input, http_options)
   end
 
   @doc """
@@ -537,8 +537,8 @@ defmodule AWS.StorageGateway do
   which you can create a snapshot. To create a snapshot from a volume
   recovery point use the `CreateSnapshotFromVolumeRecoveryPoint` operation.
   """
-  def list_volume_recovery_points(client, input, options \\ []) do
-    request(client, "ListVolumeRecoveryPoints", input, options)
+  def list_volume_recovery_points(client, input, http_options \\ []) do
+    request(client, "ListVolumeRecoveryPoints", input, http_options)
   end
 
   @doc """
@@ -554,8 +554,8 @@ defmodule AWS.StorageGateway do
   Marker field. You can use this Marker value in your subsequent request to
   retrieve the next set of volumes.
   """
-  def list_volumes(client, input, options \\ []) do
-    request(client, "ListVolumes", input, options)
+  def list_volumes(client, input, http_options \\ []) do
+    request(client, "ListVolumes", input, http_options)
   end
 
   @doc """
@@ -575,8 +575,8 @@ defmodule AWS.StorageGateway do
 
   </important>
   """
-  def reset_cache(client, input, options \\ []) do
-    request(client, "ResetCache", input, options)
+  def reset_cache(client, input, http_options \\ []) do
+    request(client, "ResetCache", input, http_options)
   end
 
   @doc """
@@ -589,8 +589,8 @@ defmodule AWS.StorageGateway do
   again to another gateway. You must archive the tape again before you can
   retrieve it to another gateway.
   """
-  def retrieve_tape_archive(client, input, options \\ []) do
-    request(client, "RetrieveTapeArchive", input, options)
+  def retrieve_tape_archive(client, input, http_options \\ []) do
+    request(client, "RetrieveTapeArchive", input, http_options)
   end
 
   @doc """
@@ -604,8 +604,8 @@ defmodule AWS.StorageGateway do
   tape is read-only. The virtual tape can be retrieved to only a gateway-VTL.
   There is no charge for retrieving recovery points.</note>
   """
-  def retrieve_tape_recovery_point(client, input, options \\ []) do
-    request(client, "RetrieveTapeRecoveryPoint", input, options)
+  def retrieve_tape_recovery_point(client, input, http_options \\ []) do
+    request(client, "RetrieveTapeRecoveryPoint", input, http_options)
   end
 
   @doc """
@@ -632,8 +632,8 @@ defmodule AWS.StorageGateway do
   `DeleteGateway`) to no longer pay software charges associated with the
   gateway.
   """
-  def shutdown_gateway(client, input, options \\ []) do
-    request(client, "ShutdownGateway", input, options)
+  def shutdown_gateway(client, input, http_options \\ []) do
+    request(client, "ShutdownGateway", input, http_options)
   end
 
   @doc """
@@ -649,8 +649,8 @@ defmodule AWS.StorageGateway do
   `ActivateGateway`.</note> To specify which gateway to start, use the Amazon
   Resource Name (ARN) of the gateway in your request.
   """
-  def start_gateway(client, input, options \\ []) do
-    request(client, "StartGateway", input, options)
+  def start_gateway(client, input, http_options \\ []) do
+    request(client, "StartGateway", input, http_options)
   end
 
   @doc """
@@ -666,8 +666,8 @@ defmodule AWS.StorageGateway do
   To specify which gateway to update, use the Amazon Resource Name (ARN) of
   the gateway in your request.
   """
-  def update_bandwidth_rate_limit(client, input, options \\ []) do
-    request(client, "UpdateBandwidthRateLimit", input, options)
+  def update_bandwidth_rate_limit(client, input, http_options \\ []) do
+    request(client, "UpdateBandwidthRateLimit", input, http_options)
   end
 
   @doc """
@@ -681,8 +681,8 @@ defmodule AWS.StorageGateway do
 
   </important>
   """
-  def update_chap_credentials(client, input, options \\ []) do
-    request(client, "UpdateChapCredentials", input, options)
+  def update_chap_credentials(client, input, http_options \\ []) do
+    request(client, "UpdateChapCredentials", input, http_options)
   end
 
   @doc """
@@ -690,8 +690,8 @@ defmodule AWS.StorageGateway do
   name and time zone. To specify which gateway to update, use the Amazon
   Resource Name (ARN) of the gateway in your request.
   """
-  def update_gateway_information(client, input, options \\ []) do
-    request(client, "UpdateGatewayInformation", input, options)
+  def update_gateway_information(client, input, http_options \\ []) do
+    request(client, "UpdateGatewayInformation", input, http_options)
   end
 
   @doc """
@@ -711,8 +711,8 @@ defmodule AWS.StorageGateway do
   Settings](http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings),
   respectively.</important>
   """
-  def update_gateway_software_now(client, input, options \\ []) do
-    request(client, "UpdateGatewaySoftwareNow", input, options)
+  def update_gateway_software_now(client, input, http_options \\ []) do
+    request(client, "UpdateGatewaySoftwareNow", input, http_options)
   end
 
   @doc """
@@ -720,8 +720,8 @@ defmodule AWS.StorageGateway do
   information, including day and time of the week. The maintenance time is
   the time in your gateway's time zone.
   """
-  def update_maintenance_start_time(client, input, options \\ []) do
-    request(client, "UpdateMaintenanceStartTime", input, options)
+  def update_maintenance_start_time(client, input, http_options \\ []) do
+    request(client, "UpdateMaintenanceStartTime", input, http_options)
   end
 
   @doc """
@@ -735,8 +735,8 @@ defmodule AWS.StorageGateway do
   you want to update, and the schedule information, including when you want
   the snapshot to begin on a day and the frequency (in hours) of snapshots.
   """
-  def update_snapshot_schedule(client, input, options \\ []) do
-    request(client, "UpdateSnapshotSchedule", input, options)
+  def update_snapshot_schedule(client, input, http_options \\ []) do
+    request(client, "UpdateSnapshotSchedule", input, http_options)
   end
 
   @doc """
@@ -745,11 +745,11 @@ defmodule AWS.StorageGateway do
   gateway-VTL. This operation enables you to select a different type of
   medium changer after a gateway-VTL is activated.
   """
-  def update_vtl_device_type(client, input, options \\ []) do
-    request(client, "UpdateVTLDeviceType", input, options)
+  def update_vtl_device_type(client, input, http_options \\ []) do
+    request(client, "UpdateVTLDeviceType", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "storagegateway"}
     host = "storagegateway.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -758,12 +758,12 @@ defmodule AWS.StorageGateway do
                {"X-Amz-Target", "StorageGateway_20130630.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

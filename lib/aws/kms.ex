@@ -87,8 +87,8 @@ defmodule AWS.KMS do
   Note that you cannot create or update an alias that represents a key in
   another account.
   """
-  def create_alias(client, input, options \\ []) do
-    request(client, "CreateAlias", input, options)
+  def create_alias(client, input, http_options \\ []) do
+    request(client, "CreateAlias", input, http_options)
   end
 
   @doc """
@@ -100,8 +100,8 @@ defmodule AWS.KMS do
   evaluated based on IAM policies attached to the user. <ol>
   <li>`ListGrants`</li> <li>`RetireGrant`</li> <li>`RevokeGrant`</li> </ol>
   """
-  def create_grant(client, input, options \\ []) do
-    request(client, "CreateGrant", input, options)
+  def create_grant(client, input, http_options \\ []) do
+    request(client, "CreateGrant", input, http_options)
   end
 
   @doc """
@@ -111,8 +111,8 @@ defmodule AWS.KMS do
   customer data. For more information about data keys, see `GenerateDataKey`
   and `GenerateDataKeyWithoutPlaintext`.
   """
-  def create_key(client, input, options \\ []) do
-    request(client, "CreateKey", input, options)
+  def create_key(client, input, http_options \\ []) do
+    request(client, "CreateKey", input, http_options)
   end
 
   @doc """
@@ -130,52 +130,52 @@ defmodule AWS.KMS do
   `Decrypt` access in an IAM user policy, you should scope the resource to
   specific keys or to specific trusted accounts.
   """
-  def decrypt(client, input, options \\ []) do
-    request(client, "Decrypt", input, options)
+  def decrypt(client, input, http_options \\ []) do
+    request(client, "Decrypt", input, http_options)
   end
 
   @doc """
   Deletes the specified alias. To associate an alias with a different key,
   call `UpdateAlias`.
   """
-  def delete_alias(client, input, options \\ []) do
-    request(client, "DeleteAlias", input, options)
+  def delete_alias(client, input, http_options \\ []) do
+    request(client, "DeleteAlias", input, http_options)
   end
 
   @doc """
   Provides detailed information about the specified customer master key.
   """
-  def describe_key(client, input, options \\ []) do
-    request(client, "DescribeKey", input, options)
+  def describe_key(client, input, http_options \\ []) do
+    request(client, "DescribeKey", input, http_options)
   end
 
   @doc """
   Marks a key as disabled, thereby preventing its use.
   """
-  def disable_key(client, input, options \\ []) do
-    request(client, "DisableKey", input, options)
+  def disable_key(client, input, http_options \\ []) do
+    request(client, "DisableKey", input, http_options)
   end
 
   @doc """
   Disables rotation of the specified key.
   """
-  def disable_key_rotation(client, input, options \\ []) do
-    request(client, "DisableKeyRotation", input, options)
+  def disable_key_rotation(client, input, http_options \\ []) do
+    request(client, "DisableKeyRotation", input, http_options)
   end
 
   @doc """
   Marks a key as enabled, thereby permitting its use. You can have up to 25
   enabled keys at one time.
   """
-  def enable_key(client, input, options \\ []) do
-    request(client, "EnableKey", input, options)
+  def enable_key(client, input, http_options \\ []) do
+    request(client, "EnableKey", input, http_options)
   end
 
   @doc """
   Enables rotation of the specified customer master key.
   """
-  def enable_key_rotation(client, input, options \\ []) do
-    request(client, "EnableKeyRotation", input, options)
+  def enable_key_rotation(client, input, http_options \\ []) do
+    request(client, "EnableKeyRotation", input, http_options)
   end
 
   @doc """
@@ -200,8 +200,8 @@ defmodule AWS.KMS do
   copy of the key encrypted under the customer master key (CMK) of your
   choosing.
   """
-  def encrypt(client, input, options \\ []) do
-    request(client, "Encrypt", input, options)
+  def encrypt(client, input, http_options \\ []) do
+    request(client, "Encrypt", input, http_options)
   end
 
   @doc """
@@ -238,8 +238,8 @@ defmodule AWS.KMS do
   The encryption context is logged by CloudTrail, and you can use this log to
   help track the use of particular data.
   """
-  def generate_data_key(client, input, options \\ []) do
-    request(client, "GenerateDataKey", input, options)
+  def generate_data_key(client, input, http_options \\ []) do
+    request(client, "GenerateDataKey", input, http_options)
   end
 
   @doc """
@@ -249,65 +249,65 @@ defmodule AWS.KMS do
   requirement that an encrypted key be made available without exposing the
   plaintext copy of that key.
   """
-  def generate_data_key_without_plaintext(client, input, options \\ []) do
-    request(client, "GenerateDataKeyWithoutPlaintext", input, options)
+  def generate_data_key_without_plaintext(client, input, http_options \\ []) do
+    request(client, "GenerateDataKeyWithoutPlaintext", input, http_options)
   end
 
   @doc """
   Generates an unpredictable byte string.
   """
-  def generate_random(client, input, options \\ []) do
-    request(client, "GenerateRandom", input, options)
+  def generate_random(client, input, http_options \\ []) do
+    request(client, "GenerateRandom", input, http_options)
   end
 
   @doc """
   Retrieves a policy attached to the specified key.
   """
-  def get_key_policy(client, input, options \\ []) do
-    request(client, "GetKeyPolicy", input, options)
+  def get_key_policy(client, input, http_options \\ []) do
+    request(client, "GetKeyPolicy", input, http_options)
   end
 
   @doc """
   Retrieves a Boolean value that indicates whether key rotation is enabled
   for the specified key.
   """
-  def get_key_rotation_status(client, input, options \\ []) do
-    request(client, "GetKeyRotationStatus", input, options)
+  def get_key_rotation_status(client, input, http_options \\ []) do
+    request(client, "GetKeyRotationStatus", input, http_options)
   end
 
   @doc """
   Lists all of the key aliases in the account.
   """
-  def list_aliases(client, input, options \\ []) do
-    request(client, "ListAliases", input, options)
+  def list_aliases(client, input, http_options \\ []) do
+    request(client, "ListAliases", input, http_options)
   end
 
   @doc """
   List the grants for a specified key.
   """
-  def list_grants(client, input, options \\ []) do
-    request(client, "ListGrants", input, options)
+  def list_grants(client, input, http_options \\ []) do
+    request(client, "ListGrants", input, http_options)
   end
 
   @doc """
   Retrieves a list of policies attached to a key.
   """
-  def list_key_policies(client, input, options \\ []) do
-    request(client, "ListKeyPolicies", input, options)
+  def list_key_policies(client, input, http_options \\ []) do
+    request(client, "ListKeyPolicies", input, http_options)
   end
 
   @doc """
   Lists the customer master keys.
   """
-  def list_keys(client, input, options \\ []) do
-    request(client, "ListKeys", input, options)
+  def list_keys(client, input, http_options \\ []) do
+    request(client, "ListKeys", input, http_options)
   end
 
   @doc """
   Attaches a policy to the specified key.
   """
-  def put_key_policy(client, input, options \\ []) do
-    request(client, "PutKeyPolicy", input, options)
+  def put_key_policy(client, input, http_options \\ []) do
+    request(client, "PutKeyPolicy", input, http_options)
   end
 
   @doc """
@@ -324,8 +324,8 @@ defmodule AWS.KMS do
   when you authorize use of the key through the console but must be included
   manually when you set a policy by using the `PutKeyPolicy` function.
   """
-  def re_encrypt(client, input, options \\ []) do
-    request(client, "ReEncrypt", input, options)
+  def re_encrypt(client, input, http_options \\ []) do
+    request(client, "ReEncrypt", input, http_options)
   end
 
   @doc """
@@ -340,16 +340,16 @@ defmodule AWS.KMS do
   character unique identifier of a grant. Both are returned by the
   `CreateGrant` function.
   """
-  def retire_grant(client, input, options \\ []) do
-    request(client, "RetireGrant", input, options)
+  def retire_grant(client, input, http_options \\ []) do
+    request(client, "RetireGrant", input, http_options)
   end
 
   @doc """
   Revokes a grant. You can revoke a grant to actively deny operations that
   depend on it.
   """
-  def revoke_grant(client, input, options \\ []) do
-    request(client, "RevokeGrant", input, options)
+  def revoke_grant(client, input, http_options \\ []) do
+    request(client, "RevokeGrant", input, http_options)
   end
 
   @doc """
@@ -368,18 +368,18 @@ defmodule AWS.KMS do
   Note that you cannot create or update an alias that represents a key in
   another account.
   """
-  def update_alias(client, input, options \\ []) do
-    request(client, "UpdateAlias", input, options)
+  def update_alias(client, input, http_options \\ []) do
+    request(client, "UpdateAlias", input, http_options)
   end
 
   @doc """
   Updates the description of a key.
   """
-  def update_key_description(client, input, options \\ []) do
-    request(client, "UpdateKeyDescription", input, options)
+  def update_key_description(client, input, http_options \\ []) do
+    request(client, "UpdateKeyDescription", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "kms"}
     host = "kms.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -388,12 +388,12 @@ defmodule AWS.KMS do
                {"X-Amz-Target", "TrentService.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

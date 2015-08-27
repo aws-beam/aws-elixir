@@ -12,8 +12,8 @@ defmodule AWS.Route53.Domains do
   domain is pending, you must submit another request to determine the
   availability of the domain name.
   """
-  def check_domain_availability(client, input, options \\ []) do
-    request(client, "CheckDomainAvailability", input, options)
+  def check_domain_availability(client, input, http_options \\ []) do
+    request(client, "CheckDomainAvailability", input, http_options)
   end
 
   @doc """
@@ -22,8 +22,8 @@ defmodule AWS.Route53.Domains do
   All tag operations are eventually consistent; subsequent operations may not
   immediately represent all issued operations.
   """
-  def delete_tags_for_domain(client, input, options \\ []) do
-    request(client, "DeleteTagsForDomain", input, options)
+  def delete_tags_for_domain(client, input, http_options \\ []) do
+    request(client, "DeleteTagsForDomain", input, http_options)
   end
 
   @doc """
@@ -35,8 +35,8 @@ defmodule AWS.Route53.Domains do
   renewed when the expiration date passes, and you will lose control of the
   domain name.</note>
   """
-  def disable_domain_auto_renew(client, input, options \\ []) do
-    request(client, "DisableDomainAutoRenew", input, options)
+  def disable_domain_auto_renew(client, input, http_options \\ []) do
+    request(client, "DisableDomainAutoRenew", input, http_options)
   end
 
   @doc """
@@ -48,8 +48,8 @@ defmodule AWS.Route53.Domains do
   the request is not completed successfully, the domain registrant will be
   notified by email.
   """
-  def disable_domain_transfer_lock(client, input, options \\ []) do
-    request(client, "DisableDomainTransferLock", input, options)
+  def disable_domain_transfer_lock(client, input, http_options \\ []) do
+    request(client, "DisableDomainTransferLock", input, http_options)
   end
 
   @doc """
@@ -65,8 +65,8 @@ defmodule AWS.Route53.Domains do
   renew before the end of the renewal period that is listed on the Gandi
   website so we can complete processing before the deadline.
   """
-  def enable_domain_auto_renew(client, input, options \\ []) do
-    request(client, "EnableDomainAutoRenew", input, options)
+  def enable_domain_auto_renew(client, input, http_options \\ []) do
+    request(client, "EnableDomainAutoRenew", input, http_options)
   end
 
   @doc """
@@ -76,40 +76,40 @@ defmodule AWS.Route53.Domains do
   and completion of the action. If the request is not completed successfully,
   the domain registrant will be notified by email.
   """
-  def enable_domain_transfer_lock(client, input, options \\ []) do
-    request(client, "EnableDomainTransferLock", input, options)
+  def enable_domain_transfer_lock(client, input, http_options \\ []) do
+    request(client, "EnableDomainTransferLock", input, http_options)
   end
 
   @doc """
   This operation returns detailed information about the domain. The domain's
   contact information is also returned as part of the output.
   """
-  def get_domain_detail(client, input, options \\ []) do
-    request(client, "GetDomainDetail", input, options)
+  def get_domain_detail(client, input, http_options \\ []) do
+    request(client, "GetDomainDetail", input, http_options)
   end
 
   @doc """
   This operation returns the current status of an operation that is not
   completed.
   """
-  def get_operation_detail(client, input, options \\ []) do
-    request(client, "GetOperationDetail", input, options)
+  def get_operation_detail(client, input, http_options \\ []) do
+    request(client, "GetOperationDetail", input, http_options)
   end
 
   @doc """
   This operation returns all the domain names registered with Amazon Route 53
   for the current AWS account.
   """
-  def list_domains(client, input, options \\ []) do
-    request(client, "ListDomains", input, options)
+  def list_domains(client, input, http_options \\ []) do
+    request(client, "ListDomains", input, http_options)
   end
 
   @doc """
   This operation returns the operation IDs of operations that are not yet
   complete.
   """
-  def list_operations(client, input, options \\ []) do
-    request(client, "ListOperations", input, options)
+  def list_operations(client, input, http_options \\ []) do
+    request(client, "ListOperations", input, http_options)
   end
 
   @doc """
@@ -119,8 +119,8 @@ defmodule AWS.Route53.Domains do
   All tag operations are eventually consistent; subsequent operations may not
   immediately represent all issued operations.
   """
-  def list_tags_for_domain(client, input, options \\ []) do
-    request(client, "ListTagsForDomain", input, options)
+  def list_tags_for_domain(client, input, http_options \\ []) do
+    request(client, "ListTagsForDomain", input, http_options)
   end
 
   @doc """
@@ -146,16 +146,16 @@ defmodule AWS.Route53.Domains do
   more information, see [Amazon Route 53
   Pricing](http://aws.amazon.com/route53/pricing/).</li> </ul>
   """
-  def register_domain(client, input, options \\ []) do
-    request(client, "RegisterDomain", input, options)
+  def register_domain(client, input, http_options \\ []) do
+    request(client, "RegisterDomain", input, http_options)
   end
 
   @doc """
   This operation returns the AuthCode for the domain. To transfer a domain to
   another registrar, you provide this value to the new registrar.
   """
-  def retrieve_domain_auth_code(client, input, options \\ []) do
-    request(client, "RetrieveDomainAuthCode", input, options)
+  def retrieve_domain_auth_code(client, input, http_options \\ []) do
+    request(client, "RetrieveDomainAuthCode", input, http_options)
   end
 
   @doc """
@@ -185,8 +185,8 @@ defmodule AWS.Route53.Domains do
   completion of the action. If the transfer doesn't complete successfully,
   the domain registrant will be notified by email.
   """
-  def transfer_domain(client, input, options \\ []) do
-    request(client, "TransferDomain", input, options)
+  def transfer_domain(client, input, http_options \\ []) do
+    request(client, "TransferDomain", input, http_options)
   end
 
   @doc """
@@ -199,8 +199,8 @@ defmodule AWS.Route53.Domains do
   is not completed successfully, the domain registrant will be notified by
   email.
   """
-  def update_domain_contact(client, input, options \\ []) do
-    request(client, "UpdateDomainContact", input, options)
+  def update_domain_contact(client, input, http_options \\ []) do
+    request(client, "UpdateDomainContact", input, http_options)
   end
 
   @doc """
@@ -217,8 +217,8 @@ defmodule AWS.Route53.Domains do
   and completion of the action. If the request is not completed successfully,
   the domain registrant will be notified by email.
   """
-  def update_domain_contact_privacy(client, input, options \\ []) do
-    request(client, "UpdateDomainContactPrivacy", input, options)
+  def update_domain_contact_privacy(client, input, http_options \\ []) do
+    request(client, "UpdateDomainContactPrivacy", input, http_options)
   end
 
   @doc """
@@ -231,8 +231,8 @@ defmodule AWS.Route53.Domains do
   track the progress and completion of the action. If the request is not
   completed successfully, the domain registrant will be notified by email.
   """
-  def update_domain_nameservers(client, input, options \\ []) do
-    request(client, "UpdateDomainNameservers", input, options)
+  def update_domain_nameservers(client, input, http_options \\ []) do
+    request(client, "UpdateDomainNameservers", input, http_options)
   end
 
   @doc """
@@ -241,11 +241,11 @@ defmodule AWS.Route53.Domains do
   All tag operations are eventually consistent; subsequent operations may not
   immediately represent all issued operations.
   """
-  def update_tags_for_domain(client, input, options \\ []) do
-    request(client, "UpdateTagsForDomain", input, options)
+  def update_tags_for_domain(client, input, http_options \\ []) do
+    request(client, "UpdateTagsForDomain", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "route53domains"}
     host = "route53domains.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -254,12 +254,12 @@ defmodule AWS.Route53.Domains do
                {"X-Amz-Target", "Route53Domains_v20140515.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

@@ -32,23 +32,23 @@ defmodule AWS.CloudTrail do
   Creates a trail that specifies the settings for delivery of log data to an
   Amazon S3 bucket.
   """
-  def create_trail(client, input, options \\ []) do
-    request(client, "CreateTrail", input, options)
+  def create_trail(client, input, http_options \\ []) do
+    request(client, "CreateTrail", input, http_options)
   end
 
   @doc """
   Deletes a trail.
   """
-  def delete_trail(client, input, options \\ []) do
-    request(client, "DeleteTrail", input, options)
+  def delete_trail(client, input, http_options \\ []) do
+    request(client, "DeleteTrail", input, http_options)
   end
 
   @doc """
   Retrieves settings for the trail associated with the current region for
   your account.
   """
-  def describe_trails(client, input, options \\ []) do
-    request(client, "DescribeTrails", input, options)
+  def describe_trails(client, input, http_options \\ []) do
+    request(client, "DescribeTrails", input, http_options)
   end
 
   @doc """
@@ -56,8 +56,8 @@ defmodule AWS.CloudTrail do
   Fields include information on delivery errors, Amazon SNS and Amazon S3
   errors, and start and stop logging times for each trail.
   """
-  def get_trail_status(client, input, options \\ []) do
-    request(client, "GetTrailStatus", input, options)
+  def get_trail_status(client, input, http_options \\ []) do
+    request(client, "GetTrailStatus", input, http_options)
   end
 
   @doc """
@@ -77,15 +77,15 @@ defmodule AWS.CloudTrail do
   available for lookup if CloudTrail logging was not enabled when the events
   occurred.</important>
   """
-  def lookup_events(client, input, options \\ []) do
-    request(client, "LookupEvents", input, options)
+  def lookup_events(client, input, http_options \\ []) do
+    request(client, "LookupEvents", input, http_options)
   end
 
   @doc """
   Starts the recording of AWS API calls and log file delivery for a trail.
   """
-  def start_logging(client, input, options \\ []) do
-    request(client, "StartLogging", input, options)
+  def start_logging(client, input, http_options \\ []) do
+    request(client, "StartLogging", input, http_options)
   end
 
   @doc """
@@ -94,8 +94,8 @@ defmodule AWS.CloudTrail do
   action. You can update a trail without stopping it first. This action is
   the only way to stop recording.
   """
-  def stop_logging(client, input, options \\ []) do
-    request(client, "StopLogging", input, options)
+  def stop_logging(client, input, http_options \\ []) do
+    request(client, "StopLogging", input, http_options)
   end
 
   @doc """
@@ -107,11 +107,11 @@ defmodule AWS.CloudTrail do
   previously been a target for CloudTrail log files, an IAM policy exists for
   the bucket.
   """
-  def update_trail(client, input, options \\ []) do
-    request(client, "UpdateTrail", input, options)
+  def update_trail(client, input, http_options \\ []) do
+    request(client, "UpdateTrail", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "cloudtrail"}
     host = "cloudtrail.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -120,12 +120,12 @@ defmodule AWS.CloudTrail do
                {"X-Amz-Target", "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

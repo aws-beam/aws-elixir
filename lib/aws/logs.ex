@@ -61,8 +61,8 @@ defmodule AWS.Logs do
   characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward
   slash), and '.' (period).</li> </ul>
   """
-  def create_log_group(client, input, options \\ []) do
-    request(client, "CreateLogGroup", input, options)
+  def create_log_group(client, input, http_options \\ []) do
+    request(client, "CreateLogGroup", input, http_options)
   end
 
   @doc """
@@ -74,8 +74,8 @@ defmodule AWS.Logs do
   <li>Log stream names can be between 1 and 512 characters long.</li> <li>The
   ':' colon character is not allowed.</li> </ul>
   """
-  def create_log_stream(client, input, options \\ []) do
-    request(client, "CreateLogStream", input, options)
+  def create_log_stream(client, input, http_options \\ []) do
+    request(client, "CreateLogStream", input, http_options)
   end
 
   @doc """
@@ -83,46 +83,46 @@ defmodule AWS.Logs do
   the subscription filters that publish to it. This will not delete the
   physical resource encapsulated by the destination.
   """
-  def delete_destination(client, input, options \\ []) do
-    request(client, "DeleteDestination", input, options)
+  def delete_destination(client, input, http_options \\ []) do
+    request(client, "DeleteDestination", input, http_options)
   end
 
   @doc """
   Deletes the log group with the specified name and permanently deletes all
   the archived log events associated with it.
   """
-  def delete_log_group(client, input, options \\ []) do
-    request(client, "DeleteLogGroup", input, options)
+  def delete_log_group(client, input, http_options \\ []) do
+    request(client, "DeleteLogGroup", input, http_options)
   end
 
   @doc """
   Deletes a log stream and permanently deletes all the archived log events
   associated with it.
   """
-  def delete_log_stream(client, input, options \\ []) do
-    request(client, "DeleteLogStream", input, options)
+  def delete_log_stream(client, input, http_options \\ []) do
+    request(client, "DeleteLogStream", input, http_options)
   end
 
   @doc """
   Deletes a metric filter associated with the specified log group.
   """
-  def delete_metric_filter(client, input, options \\ []) do
-    request(client, "DeleteMetricFilter", input, options)
+  def delete_metric_filter(client, input, http_options \\ []) do
+    request(client, "DeleteMetricFilter", input, http_options)
   end
 
   @doc """
   Deletes the retention policy of the specified log group. Log events would
   not expire if they belong to log groups without a retention policy.
   """
-  def delete_retention_policy(client, input, options \\ []) do
-    request(client, "DeleteRetentionPolicy", input, options)
+  def delete_retention_policy(client, input, http_options \\ []) do
+    request(client, "DeleteRetentionPolicy", input, http_options)
   end
 
   @doc """
   Deletes a subscription filter associated with the specified log group.
   """
-  def delete_subscription_filter(client, input, options \\ []) do
-    request(client, "DeleteSubscriptionFilter", input, options)
+  def delete_subscription_filter(client, input, http_options \\ []) do
+    request(client, "DeleteSubscriptionFilter", input, http_options)
   end
 
   @doc """
@@ -136,8 +136,8 @@ defmodule AWS.Logs do
   number of destinations returned in the response by specifying the <code
   class="code">limit` parameter in the request.
   """
-  def describe_destinations(client, input, options \\ []) do
-    request(client, "DescribeDestinations", input, options)
+  def describe_destinations(client, input, http_options \\ []) do
+    request(client, "DescribeDestinations", input, http_options)
   end
 
   @doc """
@@ -151,8 +151,8 @@ defmodule AWS.Logs do
   number of log groups returned in the response by specifying the <code
   class="code">limit` parameter in the request.
   """
-  def describe_log_groups(client, input, options \\ []) do
-    request(client, "DescribeLogGroups", input, options)
+  def describe_log_groups(client, input, http_options \\ []) do
+    request(client, "DescribeLogGroups", input, http_options)
   end
 
   @doc """
@@ -167,8 +167,8 @@ defmodule AWS.Logs do
   class="code">limit` parameter in the request. This operation has a limit of
   five transactions per second, after which transactions are throttled.
   """
-  def describe_log_streams(client, input, options \\ []) do
-    request(client, "DescribeLogStreams", input, options)
+  def describe_log_streams(client, input, http_options \\ []) do
+    request(client, "DescribeLogStreams", input, http_options)
   end
 
   @doc """
@@ -181,8 +181,8 @@ defmodule AWS.Logs do
   number of metric filters returned in the response by specifying the <code
   class="code">limit` parameter in the request.
   """
-  def describe_metric_filters(client, input, options \\ []) do
-    request(client, "DescribeMetricFilters", input, options)
+  def describe_metric_filters(client, input, http_options \\ []) do
+    request(client, "DescribeMetricFilters", input, http_options)
   end
 
   @doc """
@@ -195,8 +195,8 @@ defmodule AWS.Logs do
   number of subscription filters returned in the response by specifying the
   <code class="code">limit` parameter in the request.
   """
-  def describe_subscription_filters(client, input, options \\ []) do
-    request(client, "DescribeSubscriptionFilters", input, options)
+  def describe_subscription_filters(client, input, http_options \\ []) do
+    request(client, "DescribeSubscriptionFilters", input, http_options)
   end
 
   @doc """
@@ -216,8 +216,8 @@ defmodule AWS.Logs do
   class="code">limit` parameter in the request. can be used to specify the
   maximum number of events to return in a page.
   """
-  def filter_log_events(client, input, options \\ []) do
-    request(client, "FilterLogEvents", input, options)
+  def filter_log_events(client, input, http_options \\ []) do
+    request(client, "FilterLogEvents", input, http_options)
   end
 
   @doc """
@@ -234,8 +234,8 @@ defmodule AWS.Logs do
   also limit the number of log events returned in the response by specifying
   the <code class="code">limit` parameter in the request.
   """
-  def get_log_events(client, input, options \\ []) do
-    request(client, "GetLogEvents", input, options)
+  def get_log_events(client, input, http_options \\ []) do
+    request(client, "GetLogEvents", input, http_options)
   end
 
   @doc """
@@ -252,8 +252,8 @@ defmodule AWS.Logs do
   call `PutSubscriptionFilter` against this destination. To enable that, the
   destination owner must call `PutDestinationPolicy` after PutDestination.
   """
-  def put_destination(client, input, options \\ []) do
-    request(client, "PutDestination", input, options)
+  def put_destination(client, input, http_options \\ []) do
+    request(client, "PutDestination", input, http_options)
   end
 
   @doc """
@@ -263,8 +263,8 @@ defmodule AWS.Logs do
   that is used to authorize claims to register a subscription filter against
   a given destination.
   """
-  def put_destination_policy(client, input, options \\ []) do
-    request(client, "PutDestinationPolicy", input, options)
+  def put_destination_policy(client, input, http_options \\ []) do
+    request(client, "PutDestinationPolicy", input, http_options)
   end
 
   @doc """
@@ -285,8 +285,8 @@ defmodule AWS.Logs do
   class="code">timestamp`.</li> <li>The maximum number of log events in a
   batch is 10,000.</li> </ul>
   """
-  def put_log_events(client, input, options \\ []) do
-    request(client, "PutLogEvents", input, options)
+  def put_log_events(client, input, http_options \\ []) do
+    request(client, "PutLogEvents", input, http_options)
   end
 
   @doc """
@@ -297,8 +297,8 @@ defmodule AWS.Logs do
   The maximum number of metric filters that can be associated with a log
   group is 100.
   """
-  def put_metric_filter(client, input, options \\ []) do
-    request(client, "PutMetricFilter", input, options)
+  def put_metric_filter(client, input, http_options \\ []) do
+    request(client, "PutMetricFilter", input, http_options)
   end
 
   @doc """
@@ -306,8 +306,8 @@ defmodule AWS.Logs do
   you to configure the number of days you want to retain log events in the
   specified log group.
   """
-  def put_retention_policy(client, input, options \\ []) do
-    request(client, "PutRetentionPolicy", input, options)
+  def put_retention_policy(client, input, http_options \\ []) do
+    request(client, "PutRetentionPolicy", input, http_options)
   end
 
   @doc """
@@ -324,8 +324,8 @@ defmodule AWS.Logs do
   Currently there can only be one subscription filter associated with a log
   group.
   """
-  def put_subscription_filter(client, input, options \\ []) do
-    request(client, "PutSubscriptionFilter", input, options)
+  def put_subscription_filter(client, input, http_options \\ []) do
+    request(client, "PutSubscriptionFilter", input, http_options)
   end
 
   @doc """
@@ -333,11 +333,11 @@ defmodule AWS.Logs do
   messages. You can use this operation to validate the correctness of a
   metric filter pattern.
   """
-  def test_metric_filter(client, input, options \\ []) do
-    request(client, "TestMetricFilter", input, options)
+  def test_metric_filter(client, input, http_options \\ []) do
+    request(client, "TestMetricFilter", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "logs"}
     host = "logs.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -346,12 +346,12 @@ defmodule AWS.Logs do
                {"X-Amz-Target", "Logs_20140328.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

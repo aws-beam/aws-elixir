@@ -39,10 +39,10 @@ defmodule AWS.CloudSearch.Domain do
   `DescribeDomains` action. A domain's endpoints are also displayed on the
   domain dashboard in the Amazon CloudSearch console.
   """
-  def search(client, options \\ []) do
+  def search(client, http_options \\ []) do
     url = "/2013-01-01/search?format=sdk&pretty=true"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -65,10 +65,10 @@ defmodule AWS.CloudSearch.Domain do
   `DescribeDomains` action. A domain's endpoints are also displayed on the
   domain dashboard in the Amazon CloudSearch console.
   """
-  def suggest(client, options \\ []) do
+  def suggest(client, http_options \\ []) do
     url = "/2013-01-01/suggest?format=sdk&pretty=true"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -98,17 +98,17 @@ defmodule AWS.CloudSearch.Domain do
   Data](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def upload_documents(client, input, options \\ []) do
+  def upload_documents(client, input, http_options \\ []) do
     url = "/2013-01-01/documents/batch?format=sdk"
     headers = []
     if Dict.has_key?(input, "contentType") do
       headers = [{"contentType", input["contentType"]}|headers]
       input = Dict.delete(input, "contentType")
     end
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, url, headers, input, http_options, nil)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  defp request(client, method, url, headers, input, http_options, success_status_code) do
     client = %{client | service: "cloudsearchdomain"}
     host = "cloudsearchdomain.#{client.region}.#{client.endpoint}"
     url = "https://#{host}#{url}"
@@ -117,32 +117,32 @@ defmodule AWS.CloudSearch.Domain do
                           headers)
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
+    perform_request(method, url, payload, headers, http_options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, nil) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
 
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, success_status_code) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

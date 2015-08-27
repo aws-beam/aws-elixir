@@ -13,8 +13,8 @@ defmodule AWS.EMR do
   @doc """
   AddInstanceGroups adds an instance group to a running cluster.
   """
-  def add_instance_groups(client, input, options \\ []) do
-    request(client, "AddInstanceGroups", input, options)
+  def add_instance_groups(client, input, http_options \\ []) do
+    request(client, "AddInstanceGroups", input, http_options)
   end
 
   @doc """
@@ -44,8 +44,8 @@ defmodule AWS.EMR do
   You can only add steps to a job flow that is in one of the following
   states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
   """
-  def add_job_flow_steps(client, input, options \\ []) do
-    request(client, "AddJobFlowSteps", input, options)
+  def add_job_flow_steps(client, input, http_options \\ []) do
+    request(client, "AddJobFlowSteps", input, http_options)
   end
 
   @doc """
@@ -55,8 +55,8 @@ defmodule AWS.EMR do
   EMR
   Resources](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html).
   """
-  def add_tags(client, input, options \\ []) do
-    request(client, "AddTags", input, options)
+  def add_tags(client, input, http_options \\ []) do
+    request(client, "AddTags", input, http_options)
   end
 
   @doc """
@@ -64,8 +64,8 @@ defmodule AWS.EMR do
   configuration, VPC settings, and so on. For information about the cluster
   steps, see `ListSteps`.
   """
-  def describe_cluster(client, input, options \\ []) do
-    request(client, "DescribeCluster", input, options)
+  def describe_cluster(client, input, http_options \\ []) do
+    request(client, "DescribeCluster", input, http_options)
   end
 
   @doc """
@@ -89,22 +89,22 @@ defmodule AWS.EMR do
   </ul> Amazon Elastic MapReduce can return a maximum of 512 job flow
   descriptions.
   """
-  def describe_job_flows(client, input, options \\ []) do
-    request(client, "DescribeJobFlows", input, options)
+  def describe_job_flows(client, input, http_options \\ []) do
+    request(client, "DescribeJobFlows", input, http_options)
   end
 
   @doc """
   Provides more detail about the cluster step.
   """
-  def describe_step(client, input, options \\ []) do
-    request(client, "DescribeStep", input, options)
+  def describe_step(client, input, http_options \\ []) do
+    request(client, "DescribeStep", input, http_options)
   end
 
   @doc """
   Provides information about the bootstrap actions associated with a cluster.
   """
-  def list_bootstrap_actions(client, input, options \\ []) do
-    request(client, "ListBootstrapActions", input, options)
+  def list_bootstrap_actions(client, input, http_options \\ []) do
+    request(client, "ListBootstrapActions", input, http_options)
   end
 
   @doc """
@@ -114,15 +114,15 @@ defmodule AWS.EMR do
   a maximum of 50 clusters per call, but returns a marker to track the paging
   of the cluster list across multiple ListClusters calls.
   """
-  def list_clusters(client, input, options \\ []) do
-    request(client, "ListClusters", input, options)
+  def list_clusters(client, input, http_options \\ []) do
+    request(client, "ListClusters", input, http_options)
   end
 
   @doc """
   Provides all available details about the instance groups in a cluster.
   """
-  def list_instance_groups(client, input, options \\ []) do
-    request(client, "ListInstanceGroups", input, options)
+  def list_instance_groups(client, input, http_options \\ []) do
+    request(client, "ListInstanceGroups", input, http_options)
   end
 
   @doc """
@@ -132,15 +132,15 @@ defmodule AWS.EMR do
   instances become available to Amazon EMR to use for jobs, and the IP
   addresses for cluster instances, etc.
   """
-  def list_instances(client, input, options \\ []) do
-    request(client, "ListInstances", input, options)
+  def list_instances(client, input, http_options \\ []) do
+    request(client, "ListInstances", input, http_options)
   end
 
   @doc """
   Provides a list of steps for the cluster.
   """
-  def list_steps(client, input, options \\ []) do
-    request(client, "ListSteps", input, options)
+  def list_steps(client, input, http_options \\ []) do
+    request(client, "ListSteps", input, http_options)
   end
 
   @doc """
@@ -149,8 +149,8 @@ defmodule AWS.EMR do
   instance count for the group and the instance group ID. The call will
   either succeed or fail atomically.
   """
-  def modify_instance_groups(client, input, options \\ []) do
-    request(client, "ModifyInstanceGroups", input, options)
+  def modify_instance_groups(client, input, http_options \\ []) do
+    request(client, "ModifyInstanceGroups", input, http_options)
   end
 
   @doc """
@@ -162,8 +162,8 @@ defmodule AWS.EMR do
 
   The following example removes the stack tag with value Prod from a cluster:
   """
-  def remove_tags(client, input, options \\ []) do
-    request(client, "RemoveTags", input, options)
+  def remove_tags(client, input, http_options \\ []) do
+    request(client, "RemoveTags", input, http_options)
   end
 
   @doc """
@@ -194,8 +194,8 @@ defmodule AWS.EMR do
   For long running job flows, we recommend that you periodically store your
   results.
   """
-  def run_job_flow(client, input, options \\ []) do
-    request(client, "RunJobFlow", input, options)
+  def run_job_flow(client, input, http_options \\ []) do
+    request(client, "RunJobFlow", input, http_options)
   end
 
   @doc """
@@ -220,8 +220,8 @@ defmodule AWS.EMR do
   Termination](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html)
   in the *Amazon Elastic MapReduce Developer's Guide.*
   """
-  def set_termination_protection(client, input, options \\ []) do
-    request(client, "SetTerminationProtection", input, options)
+  def set_termination_protection(client, input, http_options \\ []) do
+    request(client, "SetTerminationProtection", input, http_options)
   end
 
   @doc """
@@ -232,8 +232,8 @@ defmodule AWS.EMR do
   SetVisibleToAllUsers action can be called only by an IAM user who created
   the job flow or the AWS account that owns the job flow.
   """
-  def set_visible_to_all_users(client, input, options \\ []) do
-    request(client, "SetVisibleToAllUsers", input, options)
+  def set_visible_to_all_users(client, input, http_options \\ []) do
+    request(client, "SetVisibleToAllUsers", input, http_options)
   end
 
   @doc """
@@ -248,11 +248,11 @@ defmodule AWS.EMR do
   take up to 5-20 minutes for the job flow to completely terminate and
   release allocated resources, such as Amazon EC2 instances.
   """
-  def terminate_job_flows(client, input, options \\ []) do
-    request(client, "TerminateJobFlows", input, options)
+  def terminate_job_flows(client, input, http_options \\ []) do
+    request(client, "TerminateJobFlows", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "elasticmapreduce"}
     host = "elasticmapreduce.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -261,12 +261,12 @@ defmodule AWS.EMR do
                {"X-Amz-Target", "ElasticMapReduce.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

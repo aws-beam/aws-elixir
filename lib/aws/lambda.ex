@@ -28,10 +28,10 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:AddPermission` action.
   """
-  def add_permission(client, function_name, input, options \\ []) do
+  def add_permission(client, function_name, input, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/policy"
     headers = []
-    request(client, :post, url, headers, input, options, 201)
+    request(client, :post, url, headers, input, http_options, 201)
   end
 
   @doc """
@@ -56,10 +56,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:CreateEventSourceMapping` action.
   """
-  def create_event_source_mapping(client, input, options \\ []) do
+  def create_event_source_mapping(client, input, http_options \\ []) do
     url = "/2015-03-31/event-source-mappings/"
     headers = []
-    request(client, :post, url, headers, input, options, 202)
+    request(client, :post, url, headers, input, http_options, 202)
   end
 
   @doc """
@@ -70,10 +70,10 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:CreateFunction` action.
   """
-  def create_function(client, input, options \\ []) do
+  def create_function(client, input, http_options \\ []) do
     url = "/2015-03-31/functions"
     headers = []
-    request(client, :post, url, headers, input, options, 201)
+    request(client, :post, url, headers, input, http_options, 201)
   end
 
   @doc """
@@ -83,10 +83,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:DeleteEventSourceMapping` action.
   """
-  def delete_event_source_mapping(client, uuid, input, options \\ []) do
+  def delete_event_source_mapping(client, uuid, input, http_options \\ []) do
     url = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 202)
+    request(client, :delete, url, headers, input, http_options, 202)
   end
 
   @doc """
@@ -97,10 +97,10 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:DeleteFunction` action.
   """
-  def delete_function(client, function_name, input, options \\ []) do
+  def delete_function(client, function_name, input, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -110,10 +110,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the `lambda:GetEventSourceMapping`
   action.
   """
-  def get_event_source_mapping(client, uuid, options \\ []) do
+  def get_event_source_mapping(client, uuid, http_options \\ []) do
     url = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -125,10 +125,10 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:GetFunction` action.
   """
-  def get_function(client, function_name, options \\ []) do
+  def get_function(client, function_name, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -139,10 +139,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:GetFunctionConfiguration` operation.
   """
-  def get_function_configuration(client, function_name, options \\ []) do
+  def get_function_configuration(client, function_name, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/configuration"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -151,10 +151,10 @@ defmodule AWS.Lambda do
 
   You need permission for the `lambda:GetPolicy action.`
   """
-  def get_policy(client, function_name, options \\ []) do
+  def get_policy(client, function_name, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/policy"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -162,7 +162,7 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:InvokeFunction` action.
   """
-  def invoke(client, function_name, input, options \\ []) do
+  def invoke(client, function_name, input, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/invocations"
     headers = []
     if Dict.has_key?(input, "ClientContext") do
@@ -177,7 +177,7 @@ defmodule AWS.Lambda do
       headers = [{"LogType", input["LogType"]}|headers]
       input = Dict.delete(input, "LogType")
     end
-    case request(client, :post, url, headers, input, options, nil) do
+    case request(client, :post, url, headers, input, http_options, nil) do
       {:ok, body, response} ->
         if !is_nil(response.headers["FunctionError"]) do
           body = %{body | "FunctionError" => response.headers["FunctionError"]}
@@ -200,10 +200,10 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:InvokeFunction` action.
   """
-  def invoke_async(client, function_name, input, options \\ []) do
+  def invoke_async(client, function_name, input, http_options \\ []) do
     url = "/2014-11-13/functions/#{URI.encode(function_name)}/invoke-async/"
     headers = []
-    request(client, :post, url, headers, input, options, 202)
+    request(client, :post, url, headers, input, http_options, 202)
   end
 
   @doc """
@@ -218,10 +218,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the `lambda:ListEventSourceMappings`
   action.
   """
-  def list_event_source_mappings(client, options \\ []) do
+  def list_event_source_mappings(client, http_options \\ []) do
     url = "/2015-03-31/event-source-mappings/"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -231,10 +231,10 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:ListFunctions` action.
   """
-  def list_functions(client, options \\ []) do
+  def list_functions(client, http_options \\ []) do
     url = "/2015-03-31/functions/"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -246,10 +246,10 @@ defmodule AWS.Lambda do
 
   You need permission for the `lambda:RemovePermission` action.
   """
-  def remove_permission(client, function_name, statement_id, input, options \\ []) do
+  def remove_permission(client, function_name, statement_id, input, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/policy/#{URI.encode(statement_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -261,10 +261,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:UpdateEventSourceMapping` action.
   """
-  def update_event_source_mapping(client, uuid, input, options \\ []) do
+  def update_event_source_mapping(client, uuid, input, http_options \\ []) do
     url = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :put, url, headers, input, options, 202)
+    request(client, :put, url, headers, input, http_options, 202)
   end
 
   @doc """
@@ -275,10 +275,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the `lambda:UpdateFunctionCode`
   action.
   """
-  def update_function_code(client, function_name, input, options \\ []) do
+  def update_function_code(client, function_name, input, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/code"
     headers = []
-    request(client, :put, url, headers, input, options, 200)
+    request(client, :put, url, headers, input, http_options, 200)
   end
 
   @doc """
@@ -290,13 +290,13 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:UpdateFunctionConfiguration` action.
   """
-  def update_function_configuration(client, function_name, input, options \\ []) do
+  def update_function_configuration(client, function_name, input, http_options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/configuration"
     headers = []
-    request(client, :put, url, headers, input, options, 200)
+    request(client, :put, url, headers, input, http_options, 200)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  defp request(client, method, url, headers, input, http_options, success_status_code) do
     client = %{client | service: "lambda"}
     host = "lambda.#{client.region}.#{client.endpoint}"
     url = "https://#{host}#{url}"
@@ -305,32 +305,32 @@ defmodule AWS.Lambda do
                           headers)
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
+    perform_request(method, url, payload, headers, http_options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, nil) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
 
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, success_status_code) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

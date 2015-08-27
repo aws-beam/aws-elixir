@@ -47,8 +47,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def count_closed_workflow_executions(client, input, options \\ []) do
-    request(client, "CountClosedWorkflowExecutions", input, options)
+  def count_closed_workflow_executions(client, input, http_options \\ []) do
+    request(client, "CountClosedWorkflowExecutions", input, http_options)
   end
 
   @doc """
@@ -77,8 +77,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def count_open_workflow_executions(client, input, options \\ []) do
-    request(client, "CountOpenWorkflowExecutions", input, options)
+  def count_open_workflow_executions(client, input, http_options \\ []) do
+    request(client, "CountOpenWorkflowExecutions", input, http_options)
   end
 
   @doc """
@@ -104,8 +104,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def count_pending_activity_tasks(client, input, options \\ []) do
-    request(client, "CountPendingActivityTasks", input, options)
+  def count_pending_activity_tasks(client, input, http_options \\ []) do
+    request(client, "CountPendingActivityTasks", input, http_options)
   end
 
   @doc """
@@ -131,8 +131,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def count_pending_decision_tasks(client, input, options \\ []) do
-    request(client, "CountPendingDecisionTasks", input, options)
+  def count_pending_decision_tasks(client, input, http_options \\ []) do
+    request(client, "CountPendingDecisionTasks", input, http_options)
   end
 
   @doc """
@@ -162,8 +162,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def deprecate_activity_type(client, input, options \\ []) do
-    request(client, "DeprecateActivityType", input, options)
+  def deprecate_activity_type(client, input, http_options \\ []) do
+    request(client, "DeprecateActivityType", input, http_options)
   end
 
   @doc """
@@ -192,8 +192,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def deprecate_domain(client, input, options \\ []) do
-    request(client, "DeprecateDomain", input, options)
+  def deprecate_domain(client, input, http_options \\ []) do
+    request(client, "DeprecateDomain", input, http_options)
   end
 
   @doc """
@@ -223,8 +223,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def deprecate_workflow_type(client, input, options \\ []) do
-    request(client, "DeprecateWorkflowType", input, options)
+  def deprecate_workflow_type(client, input, http_options \\ []) do
+    request(client, "DeprecateWorkflowType", input, http_options)
   end
 
   @doc """
@@ -251,8 +251,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def describe_activity_type(client, input, options \\ []) do
-    request(client, "DescribeActivityType", input, options)
+  def describe_activity_type(client, input, http_options \\ []) do
+    request(client, "DescribeActivityType", input, http_options)
   end
 
   @doc """
@@ -275,8 +275,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def describe_domain(client, input, options \\ []) do
-    request(client, "DescribeDomain", input, options)
+  def describe_domain(client, input, http_options \\ []) do
+    request(client, "DescribeDomain", input, http_options)
   end
 
   @doc """
@@ -301,8 +301,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def describe_workflow_execution(client, input, options \\ []) do
-    request(client, "DescribeWorkflowExecution", input, options)
+  def describe_workflow_execution(client, input, http_options \\ []) do
+    request(client, "DescribeWorkflowExecution", input, http_options)
   end
 
   @doc """
@@ -329,8 +329,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def describe_workflow_type(client, input, options \\ []) do
-    request(client, "DescribeWorkflowType", input, options)
+  def describe_workflow_type(client, input, http_options \\ []) do
+    request(client, "DescribeWorkflowType", input, http_options)
   end
 
   @doc """
@@ -356,8 +356,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def get_workflow_execution_history(client, input, options \\ []) do
-    request(client, "GetWorkflowExecutionHistory", input, options)
+  def get_workflow_execution_history(client, input, http_options \\ []) do
+    request(client, "GetWorkflowExecutionHistory", input, http_options)
   end
 
   @doc """
@@ -383,8 +383,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def list_activity_types(client, input, options \\ []) do
-    request(client, "ListActivityTypes", input, options)
+  def list_activity_types(client, input, http_options \\ []) do
+    request(client, "ListActivityTypes", input, http_options)
   end
 
   @doc """
@@ -415,8 +415,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def list_closed_workflow_executions(client, input, options \\ []) do
-    request(client, "ListClosedWorkflowExecutions", input, options)
+  def list_closed_workflow_executions(client, input, http_options \\ []) do
+    request(client, "ListClosedWorkflowExecutions", input, http_options)
   end
 
   @doc """
@@ -444,8 +444,8 @@ defmodule AWS.SWF do
   SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def list_domains(client, input, options \\ []) do
-    request(client, "ListDomains", input, options)
+  def list_domains(client, input, http_options \\ []) do
+    request(client, "ListDomains", input, http_options)
   end
 
   @doc """
@@ -476,8 +476,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def list_open_workflow_executions(client, input, options \\ []) do
-    request(client, "ListOpenWorkflowExecutions", input, options)
+  def list_open_workflow_executions(client, input, http_options \\ []) do
+    request(client, "ListOpenWorkflowExecutions", input, http_options)
   end
 
   @doc """
@@ -501,8 +501,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def list_workflow_types(client, input, options \\ []) do
-    request(client, "ListWorkflowTypes", input, options)
+  def list_workflow_types(client, input, http_options \\ []) do
+    request(client, "ListWorkflowTypes", input, http_options)
   end
 
   @doc """
@@ -535,8 +535,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def poll_for_activity_task(client, input, options \\ []) do
-    request(client, "PollForActivityTask", input, options)
+  def poll_for_activity_task(client, input, http_options \\ []) do
+    request(client, "PollForActivityTask", input, http_options)
   end
 
   @doc """
@@ -578,8 +578,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def poll_for_decision_task(client, input, options \\ []) do
-    request(client, "PollForDecisionTask", input, options)
+  def poll_for_decision_task(client, input, http_options \\ []) do
+    request(client, "PollForDecisionTask", input, http_options)
   end
 
   @doc """
@@ -626,8 +626,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def record_activity_task_heartbeat(client, input, options \\ []) do
-    request(client, "RecordActivityTaskHeartbeat", input, options)
+  def record_activity_task_heartbeat(client, input, http_options \\ []) do
+    request(client, "RecordActivityTaskHeartbeat", input, http_options)
   end
 
   @doc """
@@ -657,8 +657,8 @@ defmodule AWS.SWF do
   SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def register_activity_type(client, input, options \\ []) do
-    request(client, "RegisterActivityType", input, options)
+  def register_activity_type(client, input, http_options \\ []) do
+    request(client, "RegisterActivityType", input, http_options)
   end
 
   @doc """
@@ -681,8 +681,8 @@ defmodule AWS.SWF do
   SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def register_domain(client, input, options \\ []) do
-    request(client, "RegisterDomain", input, options)
+  def register_domain(client, input, http_options \\ []) do
+    request(client, "RegisterDomain", input, http_options)
   end
 
   @doc """
@@ -715,8 +715,8 @@ defmodule AWS.SWF do
   SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def register_workflow_type(client, input, options \\ []) do
-    request(client, "RegisterWorkflowType", input, options)
+  def register_workflow_type(client, input, http_options \\ []) do
+    request(client, "RegisterWorkflowType", input, http_options)
   end
 
   @doc """
@@ -747,8 +747,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def request_cancel_workflow_execution(client, input, options \\ []) do
-    request(client, "RequestCancelWorkflowExecution", input, options)
+  def request_cancel_workflow_execution(client, input, http_options \\ []) do
+    request(client, "RequestCancelWorkflowExecution", input, http_options)
   end
 
   @doc """
@@ -785,8 +785,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def respond_activity_task_canceled(client, input, options \\ []) do
-    request(client, "RespondActivityTaskCanceled", input, options)
+  def respond_activity_task_canceled(client, input, http_options \\ []) do
+    request(client, "RespondActivityTaskCanceled", input, http_options)
   end
 
   @doc """
@@ -823,8 +823,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def respond_activity_task_completed(client, input, options \\ []) do
-    request(client, "RespondActivityTaskCompleted", input, options)
+  def respond_activity_task_completed(client, input, http_options \\ []) do
+    request(client, "RespondActivityTaskCompleted", input, http_options)
   end
 
   @doc """
@@ -856,8 +856,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def respond_activity_task_failed(client, input, options \\ []) do
-    request(client, "RespondActivityTaskFailed", input, options)
+  def respond_activity_task_failed(client, input, http_options \\ []) do
+    request(client, "RespondActivityTaskFailed", input, http_options)
   end
 
   @doc """
@@ -880,8 +880,8 @@ defmodule AWS.SWF do
   [Using IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def respond_decision_task_completed(client, input, options \\ []) do
-    request(client, "RespondDecisionTaskCompleted", input, options)
+  def respond_decision_task_completed(client, input, http_options \\ []) do
+    request(client, "RespondDecisionTaskCompleted", input, http_options)
   end
 
   @doc """
@@ -910,8 +910,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def signal_workflow_execution(client, input, options \\ []) do
-    request(client, "SignalWorkflowExecution", input, options)
+  def signal_workflow_execution(client, input, http_options \\ []) do
+    request(client, "SignalWorkflowExecution", input, http_options)
   end
 
   @doc """
@@ -945,8 +945,8 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def start_workflow_execution(client, input, options \\ []) do
-    request(client, "StartWorkflowExecution", input, options)
+  def start_workflow_execution(client, input, http_options \\ []) do
+    request(client, "StartWorkflowExecution", input, http_options)
   end
 
   @doc """
@@ -979,11 +979,11 @@ defmodule AWS.SWF do
   IAM to Manage Access to Amazon SWF
   Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html).
   """
-  def terminate_workflow_execution(client, input, options \\ []) do
-    request(client, "TerminateWorkflowExecution", input, options)
+  def terminate_workflow_execution(client, input, http_options \\ []) do
+    request(client, "TerminateWorkflowExecution", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "swf"}
     host = "swf.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -992,12 +992,12 @@ defmodule AWS.SWF do
                {"X-Amz-Target", "SimpleWorkflowService.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

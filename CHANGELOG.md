@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+### Changed
+- All services return a `{:error, reason, response}` tuple when an
+  unsuccessful HTTP status code is returned (previously the `response` was not
+  included).
 
 ## [v0.0.4] - 2015-08-05
 ### Added

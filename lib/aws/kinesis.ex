@@ -16,8 +16,8 @@ defmodule AWS.Kinesis do
   If tags have already been assigned to the stream, `AddTagsToStream`
   overwrites any existing tags that correspond to the specified tag keys.
   """
-  def add_tags_to_stream(client, input, options \\ []) do
-    request(client, "AddTagsToStream", input, options)
+  def add_tags_to_stream(client, input, http_options \\ []) do
+    request(client, "AddTagsToStream", input, http_options)
   end
 
   @doc """
@@ -61,8 +61,8 @@ defmodule AWS.Kinesis do
 
   `CreateStream` has a limit of 5 transactions per second per account.
   """
-  def create_stream(client, input, options \\ []) do
-    request(client, "CreateStream", input, options)
+  def create_stream(client, input, http_options \\ []) do
+    request(client, "CreateStream", input, http_options)
   end
 
   @doc """
@@ -87,8 +87,8 @@ defmodule AWS.Kinesis do
 
   `DeleteStream` has a limit of 5 transactions per second per account.
   """
-  def delete_stream(client, input, options \\ []) do
-    request(client, "DeleteStream", input, options)
+  def delete_stream(client, input, http_options \\ []) do
+    request(client, "DeleteStream", input, http_options)
   end
 
   @doc """
@@ -115,8 +115,8 @@ defmodule AWS.Kinesis do
 
   `DescribeStream` has a limit of 10 transactions per second per account.
   """
-  def describe_stream(client, input, options \\ []) do
-    request(client, "DescribeStream", input, options)
+  def describe_stream(client, input, http_options \\ []) do
+    request(client, "DescribeStream", input, http_options)
   end
 
   @doc """
@@ -169,8 +169,8 @@ defmodule AWS.Kinesis do
   CloudWatch](http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html)
   in the *Amazon Kinesis Developer Guide*.
   """
-  def get_records(client, input, options \\ []) do
-    request(client, "GetRecords", input, options)
+  def get_records(client, input, http_options \\ []) do
+    request(client, "GetRecords", input, http_options)
   end
 
   @doc """
@@ -216,8 +216,8 @@ defmodule AWS.Kinesis do
   `GetShardIterator` has a limit of 5 transactions per second per account per
   open shard.
   """
-  def get_shard_iterator(client, input, options \\ []) do
-    request(client, "GetShardIterator", input, options)
+  def get_shard_iterator(client, input, http_options \\ []) do
+    request(client, "GetShardIterator", input, http_options)
   end
 
   @doc """
@@ -239,15 +239,15 @@ defmodule AWS.Kinesis do
 
   `ListStreams` has a limit of 5 transactions per second per account.
   """
-  def list_streams(client, input, options \\ []) do
-    request(client, "ListStreams", input, options)
+  def list_streams(client, input, http_options \\ []) do
+    request(client, "ListStreams", input, http_options)
   end
 
   @doc """
   Lists the tags for the specified Amazon Kinesis stream.
   """
-  def list_tags_for_stream(client, input, options \\ []) do
-    request(client, "ListTagsForStream", input, options)
+  def list_tags_for_stream(client, input, http_options \\ []) do
+    request(client, "ListTagsForStream", input, http_options)
   end
 
   @doc """
@@ -291,8 +291,8 @@ defmodule AWS.Kinesis do
 
   `MergeShards` has limit of 5 transactions per second per account.
   """
-  def merge_shards(client, input, options \\ []) do
-    request(client, "MergeShards", input, options)
+  def merge_shards(client, input, http_options \\ []) do
+    request(client, "MergeShards", input, http_options)
   end
 
   @doc """
@@ -339,8 +339,8 @@ defmodule AWS.Kinesis do
   Data records are accessible for only 24 hours from the time that they are
   added to an Amazon Kinesis stream.
   """
-  def put_record(client, input, options \\ []) do
-    request(client, "PutRecord", input, options)
+  def put_record(client, input, http_options \\ []) do
+    request(client, "PutRecord", input, http_options)
   end
 
   @doc """
@@ -405,8 +405,8 @@ defmodule AWS.Kinesis do
   Data records are accessible for only 24 hours from the time that they are
   added to an Amazon Kinesis stream.
   """
-  def put_records(client, input, options \\ []) do
-    request(client, "PutRecords", input, options)
+  def put_records(client, input, http_options \\ []) do
+    request(client, "PutRecords", input, http_options)
   end
 
   @doc """
@@ -414,8 +414,8 @@ defmodule AWS.Kinesis do
 
   If you specify a tag that does not exist, it is ignored.
   """
-  def remove_tags_from_stream(client, input, options \\ []) do
-    request(client, "RemoveTagsFromStream", input, options)
+  def remove_tags_from_stream(client, input, http_options \\ []) do
+    request(client, "RemoveTagsFromStream", input, http_options)
   end
 
   @doc """
@@ -469,11 +469,11 @@ defmodule AWS.Kinesis do
 
   `SplitShard` has limit of 5 transactions per second per account.
   """
-  def split_shard(client, input, options \\ []) do
-    request(client, "SplitShard", input, options)
+  def split_shard(client, input, http_options \\ []) do
+    request(client, "SplitShard", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "kinesis"}
     host = "kinesis.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -482,12 +482,12 @@ defmodule AWS.Kinesis do
                {"X-Amz-Target", "Kinesis_20131202.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

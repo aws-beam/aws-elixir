@@ -12,7 +12,7 @@ defmodule AWS.MobileAnalytics do
   1,500 unique custom events per app, any combination of up to 40 attributes
   and metrics per custom event, and any number of attribute or metric values.
   """
-  def put_events(client, input, options \\ []) do
+  def put_events(client, input, http_options \\ []) do
     url = "/2014-06-05/events"
     headers = []
     if Dict.has_key?(input, "clientContext") do
@@ -23,10 +23,10 @@ defmodule AWS.MobileAnalytics do
       headers = [{"clientContextEncoding", input["clientContextEncoding"]}|headers]
       input = Dict.delete(input, "clientContextEncoding")
     end
-    request(client, :post, url, headers, input, options, 202)
+    request(client, :post, url, headers, input, http_options, 202)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  defp request(client, method, url, headers, input, http_options, success_status_code) do
     client = %{client | service: "mobileanalytics"}
     host = "mobileanalytics.#{client.region}.#{client.endpoint}"
     url = "https://#{host}#{url}"
@@ -35,32 +35,32 @@ defmodule AWS.MobileAnalytics do
                           headers)
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
+    perform_request(method, url, payload, headers, http_options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, nil) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
 
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, success_status_code) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

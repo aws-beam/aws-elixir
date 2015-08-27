@@ -34,8 +34,8 @@ defmodule AWS.SSM do
   an associated configuration document, we replace the current configuration
   document with the new configuration document.
   """
-  def create_association(client, input, options \\ []) do
-    request(client, "CreateAssociation", input, options)
+  def create_association(client, input, http_options \\ []) do
+    request(client, "CreateAssociation", input, http_options)
   end
 
   @doc """
@@ -50,8 +50,8 @@ defmodule AWS.SSM do
   an associated configuration document, we replace the current configuration
   document with the new configuration document.
   """
-  def create_association_batch(client, input, options \\ []) do
-    request(client, "CreateAssociationBatch", input, options)
+  def create_association_batch(client, input, http_options \\ []) do
+    request(client, "CreateAssociationBatch", input, http_options)
   end
 
   @doc """
@@ -60,8 +60,8 @@ defmodule AWS.SSM do
   After you create a configuration document, you can use `CreateAssociation`
   to associate it with one or more running instances.
   """
-  def create_document(client, input, options \\ []) do
-    request(client, "CreateDocument", input, options)
+  def create_document(client, input, http_options \\ []) do
+    request(client, "CreateDocument", input, http_options)
   end
 
   @doc """
@@ -74,8 +74,8 @@ defmodule AWS.SSM do
   must create a new configuration document with the desired configuration and
   associate it with the instance.
   """
-  def delete_association(client, input, options \\ []) do
-    request(client, "DeleteAssociation", input, options)
+  def delete_association(client, input, http_options \\ []) do
+    request(client, "DeleteAssociation", input, http_options)
   end
 
   @doc """
@@ -84,56 +84,56 @@ defmodule AWS.SSM do
   You must use `DeleteAssociation` to disassociate all instances that are
   associated with the configuration document before you can delete it.
   """
-  def delete_document(client, input, options \\ []) do
-    request(client, "DeleteDocument", input, options)
+  def delete_document(client, input, http_options \\ []) do
+    request(client, "DeleteDocument", input, http_options)
   end
 
   @doc """
   Describes the associations for the specified configuration document or
   instance.
   """
-  def describe_association(client, input, options \\ []) do
-    request(client, "DescribeAssociation", input, options)
+  def describe_association(client, input, http_options \\ []) do
+    request(client, "DescribeAssociation", input, http_options)
   end
 
   @doc """
   Describes the specified configuration document.
   """
-  def describe_document(client, input, options \\ []) do
-    request(client, "DescribeDocument", input, options)
+  def describe_document(client, input, http_options \\ []) do
+    request(client, "DescribeDocument", input, http_options)
   end
 
   @doc """
   Gets the contents of the specified configuration document.
   """
-  def get_document(client, input, options \\ []) do
-    request(client, "GetDocument", input, options)
+  def get_document(client, input, http_options \\ []) do
+    request(client, "GetDocument", input, http_options)
   end
 
   @doc """
   Lists the associations for the specified configuration document or
   instance.
   """
-  def list_associations(client, input, options \\ []) do
-    request(client, "ListAssociations", input, options)
+  def list_associations(client, input, http_options \\ []) do
+    request(client, "ListAssociations", input, http_options)
   end
 
   @doc """
   Describes one or more of your configuration documents.
   """
-  def list_documents(client, input, options \\ []) do
-    request(client, "ListDocuments", input, options)
+  def list_documents(client, input, http_options \\ []) do
+    request(client, "ListDocuments", input, http_options)
   end
 
   @doc """
   Updates the status of the configuration document associated with the
   specified instance.
   """
-  def update_association_status(client, input, options \\ []) do
-    request(client, "UpdateAssociationStatus", input, options)
+  def update_association_status(client, input, http_options \\ []) do
+    request(client, "UpdateAssociationStatus", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "ssm"}
     host = "ssm.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -142,12 +142,12 @@ defmodule AWS.SSM do
                {"X-Amz-Target", "AmazonSSM.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

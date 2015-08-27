@@ -52,8 +52,8 @@ defmodule AWS.DynamoDB.Streams do
   `EndingSequenceNumber` are present, the that shared is closed and can no
   longer receive more data.
   """
-  def describe_stream(client, input, options \\ []) do
-    request(client, "DescribeStream", input, options)
+  def describe_stream(client, input, http_options \\ []) do
+    request(client, "DescribeStream", input, http_options)
   end
 
   @doc """
@@ -71,8 +71,8 @@ defmodule AWS.DynamoDB.Streams do
 
   </note>
   """
-  def get_records(client, input, options \\ []) do
-    request(client, "GetRecords", input, options)
+  def get_records(client, input, http_options \\ []) do
+    request(client, "GetRecords", input, http_options)
   end
 
   @doc """
@@ -86,8 +86,8 @@ defmodule AWS.DynamoDB.Streams do
 
   </note>
   """
-  def get_shard_iterator(client, input, options \\ []) do
-    request(client, "GetShardIterator", input, options)
+  def get_shard_iterator(client, input, http_options \\ []) do
+    request(client, "GetShardIterator", input, http_options)
   end
 
   @doc """
@@ -99,11 +99,11 @@ defmodule AWS.DynamoDB.Streams do
 
   </note>
   """
-  def list_streams(client, input, options \\ []) do
-    request(client, "ListStreams", input, options)
+  def list_streams(client, input, http_options \\ []) do
+    request(client, "ListStreams", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "streams.dynamodb"}
     host = "streams.dynamodb.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -112,12 +112,12 @@ defmodule AWS.DynamoDB.Streams do
                {"X-Amz-Target", "DynamoDBStreams_20120810.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

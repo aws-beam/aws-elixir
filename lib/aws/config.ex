@@ -42,8 +42,8 @@ defmodule AWS.Config do
   channel, stop the running configuration recorder using the
   `StopConfigurationRecorder` action.
   """
-  def delete_delivery_channel(client, input, options \\ []) do
-    request(client, "DeleteDeliveryChannel", input, options)
+  def delete_delivery_channel(client, input, http_options \\ []) do
+    request(client, "DeleteDeliveryChannel", input, http_options)
   end
 
   @doc """
@@ -57,8 +57,8 @@ defmodule AWS.Config do
   <li>Notification of delivery failure, if the delivery failed to
   complete.</li> </ul>
   """
-  def deliver_config_snapshot(client, input, options \\ []) do
-    request(client, "DeliverConfigSnapshot", input, options)
+  def deliver_config_snapshot(client, input, http_options \\ []) do
+    request(client, "DeliverConfigSnapshot", input, http_options)
   end
 
   @doc """
@@ -69,8 +69,8 @@ defmodule AWS.Config do
   <note>Currently, you can specify only one configuration recorder per
   account.</note>
   """
-  def describe_configuration_recorder_status(client, input, options \\ []) do
-    request(client, "DescribeConfigurationRecorderStatus", input, options)
+  def describe_configuration_recorder_status(client, input, http_options \\ []) do
+    request(client, "DescribeConfigurationRecorderStatus", input, http_options)
   end
 
   @doc """
@@ -83,8 +83,8 @@ defmodule AWS.Config do
 
   </note>
   """
-  def describe_configuration_recorders(client, input, options \\ []) do
-    request(client, "DescribeConfigurationRecorders", input, options)
+  def describe_configuration_recorders(client, input, http_options \\ []) do
+    request(client, "DescribeConfigurationRecorders", input, http_options)
   end
 
   @doc """
@@ -95,8 +95,8 @@ defmodule AWS.Config do
   <note>Currently, you can specify only one delivery channel per
   account.</note>
   """
-  def describe_delivery_channel_status(client, input, options \\ []) do
-    request(client, "DescribeDeliveryChannelStatus", input, options)
+  def describe_delivery_channel_status(client, input, http_options \\ []) do
+    request(client, "DescribeDeliveryChannelStatus", input, http_options)
   end
 
   @doc """
@@ -108,8 +108,8 @@ defmodule AWS.Config do
 
   </note>
   """
-  def describe_delivery_channels(client, input, options \\ []) do
-    request(client, "DescribeDeliveryChannels", input, options)
+  def describe_delivery_channels(client, input, http_options \\ []) do
+    request(client, "DescribeDeliveryChannels", input, http_options)
   end
 
   @doc """
@@ -125,8 +125,8 @@ defmodule AWS.Config do
 
   </note>
   """
-  def get_resource_config_history(client, input, options \\ []) do
-    request(client, "GetResourceConfigHistory", input, options)
+  def get_resource_config_history(client, input, http_options \\ []) do
+    request(client, "GetResourceConfigHistory", input, http_options)
   end
 
   @doc """
@@ -145,8 +145,8 @@ defmodule AWS.Config do
 
   </note>
   """
-  def put_configuration_recorder(client, input, options \\ []) do
-    request(client, "PutConfigurationRecorder", input, options)
+  def put_configuration_recorder(client, input, http_options \\ []) do
+    request(client, "PutConfigurationRecorder", input, http_options)
   end
 
   @doc """
@@ -164,8 +164,8 @@ defmodule AWS.Config do
 
   </note>
   """
-  def put_delivery_channel(client, input, options \\ []) do
-    request(client, "PutDeliveryChannel", input, options)
+  def put_delivery_channel(client, input, http_options \\ []) do
+    request(client, "PutDeliveryChannel", input, http_options)
   end
 
   @doc """
@@ -175,19 +175,19 @@ defmodule AWS.Config do
   You must have created at least one delivery channel to successfully start
   the configuration recorder.
   """
-  def start_configuration_recorder(client, input, options \\ []) do
-    request(client, "StartConfigurationRecorder", input, options)
+  def start_configuration_recorder(client, input, http_options \\ []) do
+    request(client, "StartConfigurationRecorder", input, http_options)
   end
 
   @doc """
   Stops recording configurations of the AWS resources you have selected to
   record in your AWS account.
   """
-  def stop_configuration_recorder(client, input, options \\ []) do
-    request(client, "StopConfigurationRecorder", input, options)
+  def stop_configuration_recorder(client, input, http_options \\ []) do
+    request(client, "StopConfigurationRecorder", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "config"}
     host = "config.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -196,12 +196,12 @@ defmodule AWS.Config do
                {"X-Amz-Target", "StarlingDoveService.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

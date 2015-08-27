@@ -42,10 +42,10 @@ defmodule AWS.EFS do
   This operation requires permission for the
   `elasticfilesystem:CreateFileSystem` action.
   """
-  def create_file_system(client, input, options \\ []) do
+  def create_file_system(client, input, http_options \\ []) do
     url = "/2015-02-01/file-systems"
     headers = []
-    request(client, :post, url, headers, input, options, 201)
+    request(client, :post, url, headers, input, http_options, 201)
   end
 
   @doc """
@@ -136,10 +136,10 @@ defmodule AWS.EFS do
   <li>`ec2:DescribeNetworkInterfaces`</li>
   <li>`ec2:CreateNetworkInterface`</li> </ul>
   """
-  def create_mount_target(client, input, options \\ []) do
+  def create_mount_target(client, input, http_options \\ []) do
     url = "/2015-02-01/mount-targets"
     headers = []
-    request(client, :post, url, headers, input, options, 200)
+    request(client, :post, url, headers, input, http_options, 200)
   end
 
   @doc """
@@ -152,10 +152,10 @@ defmodule AWS.EFS do
   This operation requires permission for the `elasticfilesystem:CreateTags`
   action.
   """
-  def create_tags(client, file_system_id, input, options \\ []) do
+  def create_tags(client, file_system_id, input, http_options \\ []) do
     url = "/2015-02-01/create-tags/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :post, url, headers, input, options, 204)
+    request(client, :post, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -175,10 +175,10 @@ defmodule AWS.EFS do
   error.</note> This operation requires permission for the
   `elasticfilesystem:DeleteFileSystem` action.
   """
-  def delete_file_system(client, file_system_id, input, options \\ []) do
+  def delete_file_system(client, file_system_id, input, http_options \\ []) do
     url = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -206,10 +206,10 @@ defmodule AWS.EFS do
 
   <ul> <li>`ec2:DeleteNetworkInterface`</li> </ul>
   """
-  def delete_mount_target(client, mount_target_id, input, options \\ []) do
+  def delete_mount_target(client, mount_target_id, input, http_options \\ []) do
     url = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -222,10 +222,10 @@ defmodule AWS.EFS do
   This operation requires permission for the `elasticfilesystem:DeleteTags`
   action.
   """
-  def delete_tags(client, file_system_id, input, options \\ []) do
+  def delete_tags(client, file_system_id, input, http_options \\ []) do
     url = "/2015-02-01/delete-tags/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :post, url, headers, input, options, 204)
+    request(client, :post, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -257,10 +257,10 @@ defmodule AWS.EFS do
   This operation requires permission for the
   `elasticfilesystem:DescribeFileSystems` action.
   """
-  def describe_file_systems(client, options \\ []) do
+  def describe_file_systems(client, http_options \\ []) do
     url = "/2015-02-01/file-systems"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -275,10 +275,10 @@ defmodule AWS.EFS do
   `ec2:DescribeNetworkInterfaceAttribute` action on the mount target's
   network interface. </li> </ul>
   """
-  def describe_mount_target_security_groups(client, mount_target_id, options \\ []) do
+  def describe_mount_target_security_groups(client, mount_target_id, http_options \\ []) do
     url = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -289,10 +289,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeMountTargets` action on the file system
   `FileSystemId`.
   """
-  def describe_mount_targets(client, options \\ []) do
+  def describe_mount_targets(client, http_options \\ []) do
     url = "/2015-02-01/mount-targets"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -304,10 +304,10 @@ defmodule AWS.EFS do
   This operation requires permission for the `elasticfilesystem:DescribeTags`
   action.
   """
-  def describe_tags(client, file_system_id, options \\ []) do
+  def describe_tags(client, file_system_id, http_options \\ []) do
     url = "/2015-02-01/tags/#{URI.encode(file_system_id)}/"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, url, headers, nil, http_options, 200)
   end
 
   @doc """
@@ -327,13 +327,13 @@ defmodule AWS.EFS do
   `ec2:ModifyNetworkInterfaceAttribute` action on the mount target's network
   interface. </li> </ul>
   """
-  def modify_mount_target_security_groups(client, mount_target_id, input, options \\ []) do
+  def modify_mount_target_security_groups(client, mount_target_id, input, http_options \\ []) do
     url = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
-    request(client, :put, url, headers, input, options, 204)
+    request(client, :put, url, headers, input, http_options, 204)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  defp request(client, method, url, headers, input, http_options, success_status_code) do
     client = %{client | service: "elasticfilesystem"}
     host = "elasticfilesystem.#{client.region}.#{client.endpoint}"
     url = "https://#{host}#{url}"
@@ -342,32 +342,32 @@ defmodule AWS.EFS do
                           headers)
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
+    perform_request(method, url, payload, headers, http_options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, nil) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
 
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, success_status_code) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

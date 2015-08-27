@@ -24,8 +24,8 @@ defmodule AWS.ECS do
   you can create your own cluster with a unique name with the `CreateCluster`
   action.
   """
-  def create_cluster(client, input, options \\ []) do
-    request(client, "CreateCluster", input, options)
+  def create_cluster(client, input, http_options \\ []) do
+    request(client, "CreateCluster", input, http_options)
   end
 
   @doc """
@@ -34,8 +34,8 @@ defmodule AWS.ECS do
   `desiredCount`, Amazon ECS will spawn another instantiation of the task in
   the specified cluster.
   """
-  def create_service(client, input, options \\ []) do
-    request(client, "CreateService", input, options)
+  def create_service(client, input, http_options \\ []) do
+    request(client, "CreateService", input, http_options)
   end
 
   @doc """
@@ -44,15 +44,15 @@ defmodule AWS.ECS do
   instances in a cluster with `ListContainerInstances` and deregister them
   with `DeregisterContainerInstance`.
   """
-  def delete_cluster(client, input, options \\ []) do
-    request(client, "DeleteCluster", input, options)
+  def delete_cluster(client, input, http_options \\ []) do
+    request(client, "DeleteCluster", input, http_options)
   end
 
   @doc """
   Deletes a specified service within a cluster.
   """
-  def delete_service(client, input, options \\ []) do
-    request(client, "DeleteService", input, options)
+  def delete_service(client, input, http_options \\ []) do
+    request(client, "DeleteService", input, http_options)
   end
 
   @doc """
@@ -74,8 +74,8 @@ defmodule AWS.ECS do
 
   </note>
   """
-  def deregister_container_instance(client, input, options \\ []) do
-    request(client, "DeregisterContainerInstance", input, options)
+  def deregister_container_instance(client, input, http_options \\ []) do
+    request(client, "DeregisterContainerInstance", input, http_options)
   end
 
   @doc """
@@ -92,15 +92,15 @@ defmodule AWS.ECS do
   following deregistration where these restrictions have not yet taken
   effect).
   """
-  def deregister_task_definition(client, input, options \\ []) do
-    request(client, "DeregisterTaskDefinition", input, options)
+  def deregister_task_definition(client, input, http_options \\ []) do
+    request(client, "DeregisterTaskDefinition", input, http_options)
   end
 
   @doc """
   Describes one or more of your clusters.
   """
-  def describe_clusters(client, input, options \\ []) do
-    request(client, "DescribeClusters", input, options)
+  def describe_clusters(client, input, http_options \\ []) do
+    request(client, "DescribeClusters", input, http_options)
   end
 
   @doc """
@@ -108,15 +108,15 @@ defmodule AWS.ECS do
   metadata about registered and remaining resources on each container
   instance requested.
   """
-  def describe_container_instances(client, input, options \\ []) do
-    request(client, "DescribeContainerInstances", input, options)
+  def describe_container_instances(client, input, http_options \\ []) do
+    request(client, "DescribeContainerInstances", input, http_options)
   end
 
   @doc """
   Describes the specified services running in your cluster.
   """
-  def describe_services(client, input, options \\ []) do
-    request(client, "DescribeServices", input, options)
+  def describe_services(client, input, http_options \\ []) do
+    request(client, "DescribeServices", input, http_options)
   end
 
   @doc """
@@ -129,15 +129,15 @@ defmodule AWS.ECS do
 
   </note>
   """
-  def describe_task_definition(client, input, options \\ []) do
-    request(client, "DescribeTaskDefinition", input, options)
+  def describe_task_definition(client, input, http_options \\ []) do
+    request(client, "DescribeTaskDefinition", input, http_options)
   end
 
   @doc """
   Describes a specified task or tasks.
   """
-  def describe_tasks(client, input, options \\ []) do
-    request(client, "DescribeTasks", input, options)
+  def describe_tasks(client, input, http_options \\ []) do
+    request(client, "DescribeTasks", input, http_options)
   end
 
   @doc """
@@ -147,29 +147,29 @@ defmodule AWS.ECS do
   </note> Returns an endpoint for the Amazon EC2 Container Service agent to
   poll for updates.
   """
-  def discover_poll_endpoint(client, input, options \\ []) do
-    request(client, "DiscoverPollEndpoint", input, options)
+  def discover_poll_endpoint(client, input, http_options \\ []) do
+    request(client, "DiscoverPollEndpoint", input, http_options)
   end
 
   @doc """
   Returns a list of existing clusters.
   """
-  def list_clusters(client, input, options \\ []) do
-    request(client, "ListClusters", input, options)
+  def list_clusters(client, input, http_options \\ []) do
+    request(client, "ListClusters", input, http_options)
   end
 
   @doc """
   Returns a list of container instances in a specified cluster.
   """
-  def list_container_instances(client, input, options \\ []) do
-    request(client, "ListContainerInstances", input, options)
+  def list_container_instances(client, input, http_options \\ []) do
+    request(client, "ListContainerInstances", input, http_options)
   end
 
   @doc """
   Lists the services that are running in a specified cluster.
   """
-  def list_services(client, input, options \\ []) do
-    request(client, "ListServices", input, options)
+  def list_services(client, input, http_options \\ []) do
+    request(client, "ListServices", input, http_options)
   end
 
   @doc """
@@ -178,8 +178,8 @@ defmodule AWS.ECS do
   `ACTIVE` task definitions). You can filter the results with the
   `familyPrefix` parameter.
   """
-  def list_task_definition_families(client, input, options \\ []) do
-    request(client, "ListTaskDefinitionFamilies", input, options)
+  def list_task_definition_families(client, input, http_options \\ []) do
+    request(client, "ListTaskDefinitionFamilies", input, http_options)
   end
 
   @doc """
@@ -187,8 +187,8 @@ defmodule AWS.ECS do
   can filter the results by family name with the `familyPrefix` parameter or
   by status with the `status` parameter.
   """
-  def list_task_definitions(client, input, options \\ []) do
-    request(client, "ListTaskDefinitions", input, options)
+  def list_task_definitions(client, input, http_options \\ []) do
+    request(client, "ListTaskDefinitions", input, http_options)
   end
 
   @doc """
@@ -197,8 +197,8 @@ defmodule AWS.ECS do
   status of the task with the `family`, `containerInstance`, and
   `desiredStatus` parameters.
   """
-  def list_tasks(client, input, options \\ []) do
-    request(client, "ListTasks", input, options)
+  def list_tasks(client, input, http_options \\ []) do
+    request(client, "ListTasks", input, http_options)
   end
 
   @doc """
@@ -208,8 +208,8 @@ defmodule AWS.ECS do
   </note> Registers an Amazon EC2 instance into the specified cluster. This
   instance will become available to place containers on.
   """
-  def register_container_instance(client, input, options \\ []) do
-    request(client, "RegisterContainerInstance", input, options)
+  def register_container_instance(client, input, http_options \\ []) do
+    request(client, "RegisterContainerInstance", input, http_options)
   end
 
   @doc """
@@ -220,8 +220,8 @@ defmodule AWS.ECS do
   Definitions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html)
   in the *Amazon EC2 Container Service Developer Guide*.
   """
-  def register_task_definition(client, input, options \\ []) do
-    request(client, "RegisterTaskDefinition", input, options)
+  def register_task_definition(client, input, http_options \\ []) do
+    request(client, "RegisterTaskDefinition", input, http_options)
   end
 
   @doc """
@@ -233,8 +233,8 @@ defmodule AWS.ECS do
 
   </important>
   """
-  def run_task(client, input, options \\ []) do
-    request(client, "RunTask", input, options)
+  def run_task(client, input, http_options \\ []) do
+    request(client, "RunTask", input, http_options)
   end
 
   @doc """
@@ -247,15 +247,15 @@ defmodule AWS.ECS do
 
   </important>
   """
-  def start_task(client, input, options \\ []) do
-    request(client, "StartTask", input, options)
+  def start_task(client, input, http_options \\ []) do
+    request(client, "StartTask", input, http_options)
   end
 
   @doc """
   Stops a running task.
   """
-  def stop_task(client, input, options \\ []) do
-    request(client, "StopTask", input, options)
+  def stop_task(client, input, http_options \\ []) do
+    request(client, "StopTask", input, http_options)
   end
 
   @doc """
@@ -264,8 +264,8 @@ defmodule AWS.ECS do
 
   </note> Sent to acknowledge that a container changed states.
   """
-  def submit_container_state_change(client, input, options \\ []) do
-    request(client, "SubmitContainerStateChange", input, options)
+  def submit_container_state_change(client, input, http_options \\ []) do
+    request(client, "SubmitContainerStateChange", input, http_options)
   end
 
   @doc """
@@ -274,8 +274,8 @@ defmodule AWS.ECS do
 
   </note> Sent to acknowledge that a task changed states.
   """
-  def submit_task_state_change(client, input, options \\ []) do
-    request(client, "SubmitTaskStateChange", input, options)
+  def submit_task_state_change(client, input, http_options \\ []) do
+    request(client, "SubmitTaskStateChange", input, http_options)
   end
 
   @doc """
@@ -292,8 +292,8 @@ defmodule AWS.ECS do
   Agent](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent)
   in the *Amazon EC2 Container Service Developer Guide*.
   """
-  def update_container_agent(client, input, options \\ []) do
-    request(client, "UpdateContainerAgent", input, options)
+  def update_container_agent(client, input, http_options \\ []) do
+    request(client, "UpdateContainerAgent", input, http_options)
   end
 
   @doc """
@@ -314,11 +314,11 @@ defmodule AWS.ECS do
   service, you can reduce the desired count of your service by one before
   modifying the task definition.
   """
-  def update_service(client, input, options \\ []) do
-    request(client, "UpdateService", input, options)
+  def update_service(client, input, http_options \\ []) do
+    request(client, "UpdateService", input, http_options)
   end
 
-  defp request(client, action, input, options) do
+  defp request(client, action, input, http_options) do
     client = %{client | service: "ecs"}
     host = "ecs.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -327,12 +327,12 @@ defmodule AWS.ECS do
                {"X-Amz-Target", "AmazonEC2ContainerServiceV20141113.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, options) do
+    case HTTPoison.post(url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

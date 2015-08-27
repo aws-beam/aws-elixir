@@ -67,10 +67,10 @@ defmodule AWS.Glacier do
   Upload](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def abort_multipart_upload(client, account_id, upload_id, vault_name, input, options \\ []) do
+  def abort_multipart_upload(client, account_id, upload_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -94,10 +94,10 @@ defmodule AWS.Glacier do
   multiple times, if the vault lock is in the `InProgress` state or if there
   is no policy associated with the vault.
   """
-  def abort_vault_lock(client, account_id, vault_name, input, options \\ []) do
+  def abort_vault_lock(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -109,10 +109,10 @@ defmodule AWS.Glacier do
   information about tags, see [Tagging Amazon Glacier
   Resources](http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
-  def add_tags_to_vault(client, account_id, vault_name, input, options \\ []) do
+  def add_tags_to_vault(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags?operation=add"
     headers = []
-    request(client, :post, url, headers, input, options, 204)
+    request(client, :post, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -165,7 +165,7 @@ defmodule AWS.Glacier do
   Upload](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def complete_multipart_upload(client, account_id, upload_id, vault_name, input, options \\ []) do
+  def complete_multipart_upload(client, account_id, upload_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
     if Dict.has_key?(input, "archiveSize") do
@@ -176,7 +176,7 @@ defmodule AWS.Glacier do
       headers = [{"checksum", input["checksum"]}|headers]
       input = Dict.delete(input, "checksum")
     end
-    case request(client, :post, url, headers, input, options, 201) do
+    case request(client, :post, url, headers, input, http_options, 201) do
       {:ok, body, response} ->
         if !is_nil(response.headers["archiveId"]) do
           body = %{body | "archiveId" => response.headers["archiveId"]}
@@ -211,10 +211,10 @@ defmodule AWS.Glacier do
   If an invalid lock ID is passed in the request when the vault lock is in
   the `InProgress` state, the operation throws an `InvalidParameter` error.
   """
-  def complete_vault_lock(client, account_id, lock_id, vault_name, input, options \\ []) do
+  def complete_vault_lock(client, account_id, lock_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy/#{URI.encode(lock_id)}"
     headers = []
-    request(client, :post, url, headers, input, options, 204)
+    request(client, :post, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -248,10 +248,10 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def create_vault(client, account_id, vault_name, input, options \\ []) do
+  def create_vault(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
     headers = []
-    case request(client, :put, url, headers, input, options, 201) do
+    case request(client, :put, url, headers, input, http_options, 201) do
       {:ok, body, response} ->
         if !is_nil(response.headers["location"]) do
           body = %{body | "location" => response.headers["location"]}
@@ -290,10 +290,10 @@ defmodule AWS.Glacier do
   Archive](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def delete_archive(client, account_id, archive_id, vault_name, input, options \\ []) do
+  def delete_archive(client, account_id, archive_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives/#{URI.encode(archive_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -325,10 +325,10 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def delete_vault(client, account_id, vault_name, input, options \\ []) do
+  def delete_vault(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -343,10 +343,10 @@ defmodule AWS.Glacier do
   vault access policies, see [Amazon Glacier Access Control with Vault Access
   Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
-  def delete_vault_access_policy(client, account_id, vault_name, input, options \\ []) do
+  def delete_vault_access_policy(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -370,10 +370,10 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html)
   in the Amazon Glacier Developer Guide.
   """
-  def delete_vault_notifications(client, account_id, vault_name, input, options \\ []) do
+  def delete_vault_notifications(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -403,10 +403,10 @@ defmodule AWS.Glacier do
   Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def describe_job(client, account_id, job_id, vault_name, options \\ []) do
+  def describe_job(client, account_id, job_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -436,10 +436,10 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def describe_vault(client, account_id, vault_name, options \\ []) do
+  def describe_vault(client, account_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -448,10 +448,10 @@ defmodule AWS.Glacier do
   retrieval policies, see [Amazon Glacier Data Retrieval
   Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
   """
-  def get_data_retrieval_policy(client, account_id, options \\ []) do
+  def get_data_retrieval_policy(client, account_id, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/policies/data-retrieval"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -505,13 +505,13 @@ defmodule AWS.Glacier do
   and [Get Job Output
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html)
   """
-  def get_job_output(client, account_id, job_id, vault_name, range \\ nil, options \\ []) do
+  def get_job_output(client, account_id, job_id, vault_name, range \\ nil, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}/output"
     headers = []
     if !is_nil(range) do
       headers = [{"range", range}|headers]
     end
-    case request(client, :get, url, headers, nil, options, nil) do
+    case request(client, :get, url, headers, nil, http_options, nil) do
       {:ok, body, response} ->
         if !is_nil(response.headers["acceptRanges"]) do
           body = %{body | "acceptRanges" => response.headers["acceptRanges"]}
@@ -544,10 +544,10 @@ defmodule AWS.Glacier do
   [Amazon Glacier Access Control with Vault Access
   Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
-  def get_vault_access_policy(client, account_id, vault_name, options \\ []) do
+  def get_vault_access_policy(client, account_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -578,10 +578,10 @@ defmodule AWS.Glacier do
   [Amazon Glacier Access Control with Vault Lock
   Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
   """
-  def get_vault_lock(client, account_id, vault_name, options \\ []) do
+  def get_vault_lock(client, account_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -609,10 +609,10 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def get_vault_notifications(client, account_id, vault_name, options \\ []) do
+  def get_vault_notifications(client, account_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -744,10 +744,10 @@ defmodule AWS.Glacier do
   and [Downloading a Vault
   Inventory](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html)
   """
-  def initiate_job(client, account_id, vault_name, input, options \\ []) do
+  def initiate_job(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
     headers = []
-    case request(client, :post, url, headers, input, options, 202) do
+    case request(client, :post, url, headers, input, http_options, 202) do
       {:ok, body, response} ->
         if !is_nil(response.headers["jobId"]) do
           body = %{body | "jobId" => response.headers["jobId"]}
@@ -802,7 +802,7 @@ defmodule AWS.Glacier do
   Upload](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def initiate_multipart_upload(client, account_id, vault_name, input, options \\ []) do
+  def initiate_multipart_upload(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
     headers = []
     if Dict.has_key?(input, "archiveDescription") do
@@ -813,7 +813,7 @@ defmodule AWS.Glacier do
       headers = [{"partSize", input["partSize"]}|headers]
       input = Dict.delete(input, "partSize")
     end
-    case request(client, :post, url, headers, input, options, 201) do
+    case request(client, :post, url, headers, input, http_options, 201) do
       {:ok, body, response} ->
         if !is_nil(response.headers["location"]) do
           body = %{body | "location" => response.headers["location"]}
@@ -863,10 +863,10 @@ defmodule AWS.Glacier do
   vault lock is in the `InProgress` state you must call `AbortVaultLock`
   before you can initiate a new vault lock policy.
   """
-  def initiate_vault_lock(client, account_id, vault_name, input, options \\ []) do
+  def initiate_vault_lock(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
     headers = []
-    case request(client, :post, url, headers, input, options, 201) do
+    case request(client, :post, url, headers, input, http_options, 201) do
       {:ok, body, response} ->
         if !is_nil(response.headers["lockId"]) do
           body = %{body | "lockId" => response.headers["lockId"]}
@@ -923,10 +923,10 @@ defmodule AWS.Glacier do
   For the underlying REST API, go to [List Jobs
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html)
   """
-  def list_jobs(client, account_id, vault_name, options \\ []) do
+  def list_jobs(client, account_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -965,10 +965,10 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def list_multipart_uploads(client, account_id, vault_name, options \\ []) do
+  def list_multipart_uploads(client, account_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -1003,10 +1003,10 @@ defmodule AWS.Glacier do
   Parts](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def list_parts(client, account_id, upload_id, vault_name, options \\ []) do
+  def list_parts(client, account_id, upload_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -1015,10 +1015,10 @@ defmodule AWS.Glacier do
   see [Tagging Amazon Glacier
   Resources](http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
-  def list_tags_for_vault(client, account_id, vault_name, options \\ []) do
+  def list_tags_for_vault(client, account_id, vault_name, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -1049,10 +1049,10 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def list_vaults(client, account_id, options \\ []) do
+  def list_vaults(client, account_id, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, url, headers, nil, http_options, nil)
   end
 
   @doc """
@@ -1062,10 +1062,10 @@ defmodule AWS.Glacier do
   This operation is idempotent. The operation will be successful, even if
   there are no tags attached to the vault.
   """
-  def remove_tags_from_vault(client, account_id, vault_name, input, options \\ []) do
+  def remove_tags_from_vault(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags?operation=remove"
     headers = []
-    request(client, :post, url, headers, input, options, 204)
+    request(client, :post, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -1079,10 +1079,10 @@ defmodule AWS.Glacier do
   retrieval policies, see [Amazon Glacier Data Retrieval
   Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
   """
-  def set_data_retrieval_policy(client, account_id, input, options \\ []) do
+  def set_data_retrieval_policy(client, account_id, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/policies/data-retrieval"
     headers = []
-    request(client, :put, url, headers, input, options, 204)
+    request(client, :put, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -1095,10 +1095,10 @@ defmodule AWS.Glacier do
   with Vault Access
   Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
-  def set_vault_access_policy(client, account_id, vault_name, input, options \\ []) do
+  def set_vault_access_policy(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
     headers = []
-    request(client, :put, url, headers, input, options, 204)
+    request(client, :put, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -1137,10 +1137,10 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def set_vault_notifications(client, account_id, vault_name, input, options \\ []) do
+  def set_vault_notifications(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
     headers = []
-    request(client, :put, url, headers, input, options, 204)
+    request(client, :put, url, headers, input, http_options, 204)
   end
 
   @doc """
@@ -1187,7 +1187,7 @@ defmodule AWS.Glacier do
   Archive](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def upload_archive(client, account_id, vault_name, input, options \\ []) do
+  def upload_archive(client, account_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives"
     headers = []
     if Dict.has_key?(input, "archiveDescription") do
@@ -1198,7 +1198,7 @@ defmodule AWS.Glacier do
       headers = [{"checksum", input["checksum"]}|headers]
       input = Dict.delete(input, "checksum")
     end
-    case request(client, :post, url, headers, input, options, 201) do
+    case request(client, :post, url, headers, input, http_options, 201) do
       {:ok, body, response} ->
         if !is_nil(response.headers["archiveId"]) do
           body = %{body | "archiveId" => response.headers["archiveId"]}
@@ -1265,7 +1265,7 @@ defmodule AWS.Glacier do
   ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def upload_multipart_part(client, account_id, upload_id, vault_name, input, options \\ []) do
+  def upload_multipart_part(client, account_id, upload_id, vault_name, input, http_options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
     if Dict.has_key?(input, "checksum") do
@@ -1276,7 +1276,7 @@ defmodule AWS.Glacier do
       headers = [{"range", input["range"]}|headers]
       input = Dict.delete(input, "range")
     end
-    case request(client, :put, url, headers, input, options, 204) do
+    case request(client, :put, url, headers, input, http_options, 204) do
       {:ok, body, response} ->
         if !is_nil(response.headers["checksum"]) do
           body = %{body | "checksum" => response.headers["checksum"]}
@@ -1287,7 +1287,7 @@ defmodule AWS.Glacier do
     end
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  defp request(client, method, url, headers, input, http_options, success_status_code) do
     client = %{client | service: "glacier"}
     host = "glacier.#{client.region}.#{client.endpoint}"
     url = "https://#{host}#{url}"
@@ -1296,32 +1296,32 @@ defmodule AWS.Glacier do
                           headers)
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
+    perform_request(method, url, payload, headers, http_options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, nil) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
 
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
+  defp perform_request(method, url, payload, headers, http_options, success_status_code) do
+    case HTTPoison.request(method, url, payload, headers, http_options) do
       {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
+      {:ok, response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason}
+        {:error, reason, response}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

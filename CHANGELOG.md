@@ -3,10 +3,17 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+
+## [v0.0.5] - 2015-11-06
 ### Changed
 - All services return a `{:error, reason, response}` tuple when an
   unsuccessful HTTP status code is returned (previously the `response` was not
   included).
+
+### Fixed
+- An empty body returned alongside an HTTP 200 from an AWS service isn't
+  parsed by Poison (which was causing exceptions to be raised).  Thanks Mike
+  Coleman aka @fivebats.
 
 ## [v0.0.4] - 2015-08-05
 ### Added
@@ -84,7 +91,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.4...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.5...HEAD
+[v0.0.4]: https://github.com/jkakar/aws-elixir/compare/v0.0.4...v0.0.5
 [v0.0.4]: https://github.com/jkakar/aws-elixir/compare/v0.0.3...v0.0.4
 [v0.0.3]: https://github.com/jkakar/aws-elixir/compare/v0.0.2...v0.0.3
 [v0.0.2]: https://github.com/jkakar/aws-elixir/compare/v0.0.1...v0.0.2

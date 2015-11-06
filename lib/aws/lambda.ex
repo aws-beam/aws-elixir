@@ -16,22 +16,42 @@ defmodule AWS.Lambda do
   """
 
   @doc """
-  Adds a permission to the access policy associated with the specified AWS
-  Lambda function. In a "push event" model, the access policy attached to the
-  Lambda function grants Amazon S3 or a user application permission for the
-  Lambda `lambda:Invoke` action. For information about the push model, see
-  [AWS Lambda: How it
+  Adds a permission to the resource policy associated with the specified AWS
+  Lambda function. You use resource policies to grant permissions to event
+  sources that use "push" model. In "push" model, event sources (such as
+  Amazon S3 and custom applications) invoke your Lambda function. Each
+  permission you add to the resource policy allows an event source,
+  permission to invoke the Lambda function.
+
+  For information about the push model, see [AWS Lambda: How it
   Works](http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html).
-  Each Lambda function has one access policy associated with it. You can use
-  the `AddPermission` API to add a permission to the policy. You have one
-  access policy but it can have multiple permission statements.
+
+  If you are using versioning feature (see [AWS Lambda Function Versioning
+  and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html)),
+  a Lambda function can have multiple ARNs that can be used to invoke the
+  function. Note that, each permission you add to resource policy using this
+  API is specific to an ARN, specified using the `Qualifier` parameter
 
   This operation requires permission for the `lambda:AddPermission` action.
   """
-  def add_permission(client, function_name, input, http_options \\ []) do
-    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/policy"
+  def add_permission(client, function_name, input, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/policy"
     headers = []
-    request(client, :post, url, headers, input, http_options, 201)
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Creates an alias to the specified Lambda function version. For more
+  information, see [Introduction to AWS Lambda
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+
+  This requires permission for the lambda:CreateAlias action.
+  """
+  def create_alias(client, function_name, input, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
   end
 
   @doc """
@@ -56,10 +76,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:CreateEventSourceMapping` action.
   """
-  def create_event_source_mapping(client, input, http_options \\ []) do
+  def create_event_source_mapping(client, input, options \\ []) do
     url = "/2015-03-31/event-source-mappings/"
     headers = []
-    request(client, :post, url, headers, input, http_options, 202)
+    request(client, :post, url, headers, input, options, 202)
   end
 
   @doc """
@@ -70,10 +90,23 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:CreateFunction` action.
   """
-  def create_function(client, input, http_options \\ []) do
+  def create_function(client, input, options \\ []) do
     url = "/2015-03-31/functions"
     headers = []
-    request(client, :post, url, headers, input, http_options, 201)
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Deletes specified Lambda function alias. For more information, see
+  [Introduction to AWS Lambda
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+
+  This requires permission for the lambda:DeleteAlias action.
+  """
+  def delete_alias(client, function_name, name, input, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 204)
   end
 
   @doc """
@@ -83,24 +116,46 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:DeleteEventSourceMapping` action.
   """
-  def delete_event_source_mapping(client, uuid, input, http_options \\ []) do
+  def delete_event_source_mapping(client, uuid, input, options \\ []) do
     url = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :delete, url, headers, input, http_options, 202)
+    request(client, :delete, url, headers, input, options, 202)
   end
 
   @doc """
   Deletes the specified Lambda function code and configuration.
 
-  When you delete a function the associated access policy is also deleted.
+  If you don't specify a function version, AWS Lambda will delete the
+  function, including all its versions, and any aliases pointing to the
+  function versions.
+
+  When you delete a function the associated resource policy is also deleted.
   You will need to delete the event source mappings explicitly.
+
+  For information about function versioning, see [AWS Lambda Function
+  Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html).
 
   This operation requires permission for the `lambda:DeleteFunction` action.
   """
-  def delete_function(client, function_name, input, http_options \\ []) do
+  def delete_function(client, function_name, input, options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}"
     headers = []
-    request(client, :delete, url, headers, input, http_options, 204)
+    request(client, :delete, url, headers, input, options, 204)
+  end
+
+  @doc """
+  Returns the specified alias information such as the alias ARN, description,
+  and function version it is pointing to. For more information, see
+  [Introduction to AWS Lambda
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+
+  This requires permission for the lambda:GetAlias action.
+  """
+  def get_alias(client, function_name, name, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, 200)
   end
 
   @doc """
@@ -110,10 +165,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the `lambda:GetEventSourceMapping`
   action.
   """
-  def get_event_source_mapping(client, uuid, http_options \\ []) do
+  def get_event_source_mapping(client, uuid, options \\ []) do
     url = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :get, url, headers, nil, http_options, 200)
+    request(client, :get, url, headers, nil, options, 200)
   end
 
   @doc """
@@ -123,12 +178,19 @@ defmodule AWS.Lambda do
   minutes. The configuration information is the same information you provided
   as parameters when uploading the function.
 
+  Using the optional `Qualifier` parameter, you can specify a specific
+  function version for which you want this information. If you don't specify
+  this parameter, the API uses unqualified function ARN which return
+  information about the $LATEST version of the Lambda function. For more
+  information, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html).
+
   This operation requires permission for the `lambda:GetFunction` action.
   """
-  def get_function(client, function_name, http_options \\ []) do
-    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD"
+  def get_function(client, function_name, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}"
     headers = []
-    request(client, :get, url, headers, nil, http_options, 200)
+    request(client, :get, url, headers, nil, options, 200)
   end
 
   @doc """
@@ -136,33 +198,57 @@ defmodule AWS.Lambda do
   information you provided as parameters when uploading the function by using
   `CreateFunction`.
 
+  You can use the optional `Qualifier` parameter to retrieve configuration
+  information for a specific Lambda function version. If you don't provide
+  it, the API returns information about the $LATEST version of the function.
+  For more information about versioning, see [AWS Lambda Function Versioning
+  and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html).
+
   This operation requires permission for the
   `lambda:GetFunctionConfiguration` operation.
   """
-  def get_function_configuration(client, function_name, http_options \\ []) do
-    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/configuration"
+  def get_function_configuration(client, function_name, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
     headers = []
-    request(client, :get, url, headers, nil, http_options, 200)
+    request(client, :get, url, headers, nil, options, 200)
   end
 
   @doc """
-  Returns the access policy, containing a list of permissions granted via the
-  `AddPermission` API, associated with the specified bucket.
+  Returns the resource policy, containing a list of permissions that apply to
+  a specific to an ARN that you specify via the `Qualifier` paramter.
+
+  For informration about adding permissions, see `AddPermission`.
 
   You need permission for the `lambda:GetPolicy action.`
   """
-  def get_policy(client, function_name, http_options \\ []) do
-    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/policy"
+  def get_policy(client, function_name, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/policy"
     headers = []
-    request(client, :get, url, headers, nil, http_options, 200)
+    request(client, :get, url, headers, nil, options, 200)
   end
 
   @doc """
-  Invokes a specified Lambda function.
+  Invokes a specific Lambda function version.
+
+  If you don't provide the `Qualifier` parameter, it uses the unqualified
+  function ARN which results in invocation of the $LATEST version of the
+  Lambda function (when you create a Lambda function, the $LATEST is the
+  version). The AWS Lambda versioning and aliases feature allows you to
+  publish multiple versions of a Lambda function and also create aliases for
+  each function version. So each your Lambda function version can be invoked
+  using multiple ARNs. For more information, see [AWS Lambda Function
+  Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html).
+  Using the `Qualifier` parameter, you can specify a function version or
+  alias name to invoke specific function version. If you specify function
+  version, the API uses the qualified function ARN to invoke a specific
+  function version. If you specify alias name, the API uses the alias ARN to
+  invoke the function version to which the alias points.
 
   This operation requires permission for the `lambda:InvokeFunction` action.
   """
-  def invoke(client, function_name, input, http_options \\ []) do
+  def invoke(client, function_name, input, options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/invocations"
     headers = []
     if Dict.has_key?(input, "ClientContext") do
@@ -177,7 +263,7 @@ defmodule AWS.Lambda do
       headers = [{"LogType", input["LogType"]}|headers]
       input = Dict.delete(input, "LogType")
     end
-    case request(client, :post, url, headers, input, http_options, nil) do
+    case request(client, :post, url, headers, input, options, nil) do
       {:ok, body, response} ->
         if !is_nil(response.headers["FunctionError"]) do
           body = %{body | "FunctionError" => response.headers["FunctionError"]}
@@ -200,10 +286,25 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:InvokeFunction` action.
   """
-  def invoke_async(client, function_name, input, http_options \\ []) do
+  def invoke_async(client, function_name, input, options \\ []) do
     url = "/2014-11-13/functions/#{URI.encode(function_name)}/invoke-async/"
     headers = []
-    request(client, :post, url, headers, input, http_options, 202)
+    request(client, :post, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Returns list of aliases created for a Lambda function. For each alias, the
+  response includes information such as the alias ARN, description, alias
+  name, and the function version to which it points. For more information,
+  see [Introduction to AWS Lambda
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+
+  This requires permission for the lambda:ListAliases action.
+  """
+  def list_aliases(client, function_name, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
+    headers = []
+    request(client, :get, url, headers, nil, options, 200)
   end
 
   @doc """
@@ -218,10 +319,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the `lambda:ListEventSourceMappings`
   action.
   """
-  def list_event_source_mappings(client, http_options \\ []) do
+  def list_event_source_mappings(client, options \\ []) do
     url = "/2015-03-31/event-source-mappings/"
     headers = []
-    request(client, :get, url, headers, nil, http_options, 200)
+    request(client, :get, url, headers, nil, options, 200)
   end
 
   @doc """
@@ -231,25 +332,63 @@ defmodule AWS.Lambda do
 
   This operation requires permission for the `lambda:ListFunctions` action.
   """
-  def list_functions(client, http_options \\ []) do
+  def list_functions(client, options \\ []) do
     url = "/2015-03-31/functions/"
     headers = []
-    request(client, :get, url, headers, nil, http_options, 200)
+    request(client, :get, url, headers, nil, options, 200)
   end
 
   @doc """
-  You can remove individual permissions from an access policy associated with
-  a Lambda function by providing a Statement ID.
+  List all versions of a function.
+  """
+  def list_versions_by_function(client, function_name, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
+    headers = []
+    request(client, :get, url, headers, nil, options, 200)
+  end
+
+  @doc """
+  Publishes a version of your function from the current snapshot of HEAD.
+  That is, AWS Lambda takes a snapshot of the function code and configuration
+  information from HEAD and publishes a new version. The code and `handler`
+  of this specific Lambda function version cannot be modified after
+  publication, but you can modify the configuration information.
+  """
+  def publish_version(client, function_name, input, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  You can remove individual permissions from an resource policy associated
+  with a Lambda function by providing a statement ID that you provided when
+  you addded the permission. The API removes corresponding permission that is
+  associated with the specific ARN identified by the `Qualifier` parameter.
 
   Note that removal of a permission will cause an active event source to lose
   permission to the function.
 
   You need permission for the `lambda:RemovePermission` action.
   """
-  def remove_permission(client, function_name, statement_id, input, http_options \\ []) do
-    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/policy/#{URI.encode(statement_id)}"
+  def remove_permission(client, function_name, statement_id, input, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/policy/#{URI.encode(statement_id)}"
     headers = []
-    request(client, :delete, url, headers, input, http_options, 204)
+    request(client, :delete, url, headers, input, options, 204)
+  end
+
+  @doc """
+  Using this API you can update function version to which the alias points to
+  and alias description. For more information, see [Introduction to AWS
+  Lambda
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+
+  This requires permission for the lambda:UpdateAlias action.
+  """
+  def update_alias(client, function_name, name, input, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
+    headers = []
+    request(client, :put, url, headers, input, options, 200)
   end
 
   @doc """
@@ -261,10 +400,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:UpdateEventSourceMapping` action.
   """
-  def update_event_source_mapping(client, uuid, input, http_options \\ []) do
+  def update_event_source_mapping(client, uuid, input, options \\ []) do
     url = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :put, url, headers, input, http_options, 202)
+    request(client, :put, url, headers, input, options, 202)
   end
 
   @doc """
@@ -275,10 +414,10 @@ defmodule AWS.Lambda do
   This operation requires permission for the `lambda:UpdateFunctionCode`
   action.
   """
-  def update_function_code(client, function_name, input, http_options \\ []) do
-    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/code"
+  def update_function_code(client, function_name, input, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/code"
     headers = []
-    request(client, :put, url, headers, input, http_options, 200)
+    request(client, :put, url, headers, input, options, 200)
   end
 
   @doc """
@@ -290,13 +429,13 @@ defmodule AWS.Lambda do
   This operation requires permission for the
   `lambda:UpdateFunctionConfiguration` action.
   """
-  def update_function_configuration(client, function_name, input, http_options \\ []) do
-    url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions/HEAD/configuration"
+  def update_function_configuration(client, function_name, input, options \\ []) do
+    url = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
     headers = []
-    request(client, :put, url, headers, input, http_options, 200)
+    request(client, :put, url, headers, input, options, 200)
   end
 
-  defp request(client, method, url, headers, input, http_options, success_status_code) do
+  defp request(client, method, url, headers, input, options, success_status_code) do
     client = %{client | service: "lambda"}
     host = "lambda.#{client.region}.#{client.endpoint}"
     url = "https://#{host}#{url}"
@@ -305,32 +444,34 @@ defmodule AWS.Lambda do
                           headers)
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, http_options, success_status_code)
+    perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, http_options, nil) do
-    case HTTPoison.request(method, url, payload, headers, http_options) do
+  defp perform_request(method, url, payload, headers, options, nil) do
+    case HTTPoison.request(method, url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
 
-  defp perform_request(method, url, payload, headers, http_options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, http_options) do
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    case HTTPoison.request(method, url, payload, headers, options) do
       {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["message"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

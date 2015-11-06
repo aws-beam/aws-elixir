@@ -68,8 +68,8 @@ defmodule AWS.OpsWorks do
   User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def assign_instance(client, input, http_options \\ []) do
-    request(client, "AssignInstance", input, http_options)
+  def assign_instance(client, input, options \\ []) do
+    request(client, "AssignInstance", input, options)
   end
 
   @doc """
@@ -86,8 +86,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def assign_volume(client, input, http_options \\ []) do
-    request(client, "AssignVolume", input, http_options)
+  def assign_volume(client, input, options \\ []) do
+    request(client, "AssignVolume", input, options)
   end
 
   @doc """
@@ -102,8 +102,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def associate_elastic_ip(client, input, http_options \\ []) do
-    request(client, "AssociateElasticIp", input, http_options)
+  def associate_elastic_ip(client, input, options \\ []) do
+    request(client, "AssociateElasticIp", input, options)
   end
 
   @doc """
@@ -122,8 +122,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def attach_elastic_load_balancer(client, input, http_options \\ []) do
-    request(client, "AttachElasticLoadBalancer", input, http_options)
+  def attach_elastic_load_balancer(client, input, options \\ []) do
+    request(client, "AttachElasticLoadBalancer", input, options)
   end
 
   @doc """
@@ -136,8 +136,8 @@ defmodule AWS.OpsWorks do
   user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def clone_stack(client, input, http_options \\ []) do
-    request(client, "CloneStack", input, http_options)
+  def clone_stack(client, input, options \\ []) do
+    request(client, "CloneStack", input, options)
   end
 
   @doc """
@@ -150,8 +150,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def create_app(client, input, http_options \\ []) do
-    request(client, "CreateApp", input, http_options)
+  def create_app(client, input, options \\ []) do
+    request(client, "CreateApp", input, options)
   end
 
   @doc """
@@ -166,8 +166,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def create_deployment(client, input, http_options \\ []) do
-    request(client, "CreateDeployment", input, http_options)
+  def create_deployment(client, input, options \\ []) do
+    request(client, "CreateDeployment", input, options)
   end
 
   @doc """
@@ -181,8 +181,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def create_instance(client, input, http_options \\ []) do
-    request(client, "CreateInstance", input, http_options)
+  def create_instance(client, input, options \\ []) do
+    request(client, "CreateInstance", input, options)
   end
 
   @doc """
@@ -202,8 +202,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def create_layer(client, input, http_options \\ []) do
-    request(client, "CreateLayer", input, http_options)
+  def create_layer(client, input, options \\ []) do
+    request(client, "CreateLayer", input, options)
   end
 
   @doc """
@@ -215,8 +215,8 @@ defmodule AWS.OpsWorks do
   user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def create_stack(client, input, http_options \\ []) do
-    request(client, "CreateStack", input, http_options)
+  def create_stack(client, input, options \\ []) do
+    request(client, "CreateStack", input, options)
   end
 
   @doc """
@@ -227,8 +227,8 @@ defmodule AWS.OpsWorks do
   user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def create_user_profile(client, input, http_options \\ []) do
-    request(client, "CreateUserProfile", input, http_options)
+  def create_user_profile(client, input, options \\ []) do
+    request(client, "CreateUserProfile", input, options)
   end
 
   @doc """
@@ -240,8 +240,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def delete_app(client, input, http_options \\ []) do
-    request(client, "DeleteApp", input, http_options)
+  def delete_app(client, input, options \\ []) do
+    request(client, "DeleteApp", input, options)
   end
 
   @doc """
@@ -257,8 +257,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def delete_instance(client, input, http_options \\ []) do
-    request(client, "DeleteInstance", input, http_options)
+  def delete_instance(client, input, options \\ []) do
+    request(client, "DeleteInstance", input, options)
   end
 
   @doc """
@@ -273,8 +273,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def delete_layer(client, input, http_options \\ []) do
-    request(client, "DeleteLayer", input, http_options)
+  def delete_layer(client, input, options \\ []) do
+    request(client, "DeleteLayer", input, options)
   end
 
   @doc """
@@ -289,8 +289,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def delete_stack(client, input, http_options \\ []) do
-    request(client, "DeleteStack", input, http_options)
+  def delete_stack(client, input, options \\ []) do
+    request(client, "DeleteStack", input, options)
   end
 
   @doc """
@@ -301,8 +301,8 @@ defmodule AWS.OpsWorks do
   user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def delete_user_profile(client, input, http_options \\ []) do
-    request(client, "DeleteUserProfile", input, http_options)
+  def delete_user_profile(client, input, options \\ []) do
+    request(client, "DeleteUserProfile", input, options)
   end
 
   @doc """
@@ -316,8 +316,8 @@ defmodule AWS.OpsWorks do
   see <a
   href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">`.
   """
-  def deregister_ecs_cluster(client, input, http_options \\ []) do
-    request(client, "DeregisterEcsCluster", input, http_options)
+  def deregister_ecs_cluster(client, input, options \\ []) do
+    request(client, "DeregisterEcsCluster", input, options)
   end
 
   @doc """
@@ -331,8 +331,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def deregister_elastic_ip(client, input, http_options \\ []) do
-    request(client, "DeregisterElasticIp", input, http_options)
+  def deregister_elastic_ip(client, input, options \\ []) do
+    request(client, "DeregisterElasticIp", input, options)
   end
 
   @doc """
@@ -346,8 +346,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def deregister_instance(client, input, http_options \\ []) do
-    request(client, "DeregisterInstance", input, http_options)
+  def deregister_instance(client, input, options \\ []) do
+    request(client, "DeregisterInstance", input, options)
   end
 
   @doc """
@@ -359,8 +359,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def deregister_rds_db_instance(client, input, http_options \\ []) do
-    request(client, "DeregisterRdsDbInstance", input, http_options)
+  def deregister_rds_db_instance(client, input, options \\ []) do
+    request(client, "DeregisterRdsDbInstance", input, options)
   end
 
   @doc """
@@ -374,8 +374,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def deregister_volume(client, input, http_options \\ []) do
-    request(client, "DeregisterVolume", input, http_options)
+  def deregister_volume(client, input, options \\ []) do
+    request(client, "DeregisterVolume", input, options)
   end
 
   @doc """
@@ -384,8 +384,8 @@ defmodule AWS.OpsWorks do
   of available agent versions for the specified stack or configuration
   manager.
   """
-  def describe_agent_versions(client, input, http_options \\ []) do
-    request(client, "DescribeAgentVersions", input, http_options)
+  def describe_agent_versions(client, input, options \\ []) do
+    request(client, "DescribeAgentVersions", input, options)
   end
 
   @doc """
@@ -399,8 +399,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_apps(client, input, http_options \\ []) do
-    request(client, "DescribeApps", input, http_options)
+  def describe_apps(client, input, options \\ []) do
+    request(client, "DescribeApps", input, options)
   end
 
   @doc """
@@ -414,8 +414,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_commands(client, input, http_options \\ []) do
-    request(client, "DescribeCommands", input, http_options)
+  def describe_commands(client, input, options \\ []) do
+    request(client, "DescribeCommands", input, options)
   end
 
   @doc """
@@ -429,8 +429,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_deployments(client, input, http_options \\ []) do
-    request(client, "DescribeDeployments", input, http_options)
+  def describe_deployments(client, input, options \\ []) do
+    request(client, "DescribeDeployments", input, options)
   end
 
   @doc """
@@ -446,8 +446,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_ecs_clusters(client, input, http_options \\ []) do
-    request(client, "DescribeEcsClusters", input, http_options)
+  def describe_ecs_clusters(client, input, options \\ []) do
+    request(client, "DescribeEcsClusters", input, options)
   end
 
   @doc """
@@ -462,8 +462,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_elastic_ips(client, input, http_options \\ []) do
-    request(client, "DescribeElasticIps", input, http_options)
+  def describe_elastic_ips(client, input, options \\ []) do
+    request(client, "DescribeElasticIps", input, options)
   end
 
   @doc """
@@ -477,8 +477,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_elastic_load_balancers(client, input, http_options \\ []) do
-    request(client, "DescribeElasticLoadBalancers", input, http_options)
+  def describe_elastic_load_balancers(client, input, options \\ []) do
+    request(client, "DescribeElasticLoadBalancers", input, options)
   end
 
   @doc """
@@ -492,8 +492,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_instances(client, input, http_options \\ []) do
-    request(client, "DescribeInstances", input, http_options)
+  def describe_instances(client, input, options \\ []) do
+    request(client, "DescribeInstances", input, options)
   end
 
   @doc """
@@ -507,8 +507,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_layers(client, input, http_options \\ []) do
-    request(client, "DescribeLayers", input, http_options)
+  def describe_layers(client, input, options \\ []) do
+    request(client, "DescribeLayers", input, options)
   end
 
   @doc """
@@ -522,8 +522,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_load_based_auto_scaling(client, input, http_options \\ []) do
-    request(client, "DescribeLoadBasedAutoScaling", input, http_options)
+  def describe_load_based_auto_scaling(client, input, options \\ []) do
+    request(client, "DescribeLoadBasedAutoScaling", input, options)
   end
 
   @doc """
@@ -534,8 +534,8 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_my_user_profile(client, input, http_options \\ []) do
-    request(client, "DescribeMyUserProfile", input, http_options)
+  def describe_my_user_profile(client, input, options \\ []) do
+    request(client, "DescribeMyUserProfile", input, options)
   end
 
   @doc """
@@ -547,8 +547,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_permissions(client, input, http_options \\ []) do
-    request(client, "DescribePermissions", input, http_options)
+  def describe_permissions(client, input, options \\ []) do
+    request(client, "DescribePermissions", input, options)
   end
 
   @doc """
@@ -562,8 +562,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_raid_arrays(client, input, http_options \\ []) do
-    request(client, "DescribeRaidArrays", input, http_options)
+  def describe_raid_arrays(client, input, options \\ []) do
+    request(client, "DescribeRaidArrays", input, options)
   end
 
   @doc """
@@ -575,8 +575,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_rds_db_instances(client, input, http_options \\ []) do
-    request(client, "DescribeRdsDbInstances", input, http_options)
+  def describe_rds_db_instances(client, input, options \\ []) do
+    request(client, "DescribeRdsDbInstances", input, options)
   end
 
   @doc """
@@ -588,8 +588,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_service_errors(client, input, http_options \\ []) do
-    request(client, "DescribeServiceErrors", input, http_options)
+  def describe_service_errors(client, input, options \\ []) do
+    request(client, "DescribeServiceErrors", input, options)
   end
 
   @doc """
@@ -601,8 +601,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_stack_provisioning_parameters(client, input, http_options \\ []) do
-    request(client, "DescribeStackProvisioningParameters", input, http_options)
+  def describe_stack_provisioning_parameters(client, input, options \\ []) do
+    request(client, "DescribeStackProvisioningParameters", input, options)
   end
 
   @doc """
@@ -615,8 +615,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_stack_summary(client, input, http_options \\ []) do
-    request(client, "DescribeStackSummary", input, http_options)
+  def describe_stack_summary(client, input, options \\ []) do
+    request(client, "DescribeStackSummary", input, options)
   end
 
   @doc """
@@ -628,8 +628,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_stacks(client, input, http_options \\ []) do
-    request(client, "DescribeStacks", input, http_options)
+  def describe_stacks(client, input, options \\ []) do
+    request(client, "DescribeStacks", input, options)
   end
 
   @doc """
@@ -643,8 +643,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_time_based_auto_scaling(client, input, http_options \\ []) do
-    request(client, "DescribeTimeBasedAutoScaling", input, http_options)
+  def describe_time_based_auto_scaling(client, input, options \\ []) do
+    request(client, "DescribeTimeBasedAutoScaling", input, options)
   end
 
   @doc """
@@ -655,8 +655,8 @@ defmodule AWS.OpsWorks do
   user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_user_profiles(client, input, http_options \\ []) do
-    request(client, "DescribeUserProfiles", input, http_options)
+  def describe_user_profiles(client, input, options \\ []) do
+    request(client, "DescribeUserProfiles", input, options)
   end
 
   @doc """
@@ -670,8 +670,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def describe_volumes(client, input, http_options \\ []) do
-    request(client, "DescribeVolumes", input, http_options)
+  def describe_volumes(client, input, options \\ []) do
+    request(client, "DescribeVolumes", input, options)
   end
 
   @doc """
@@ -683,8 +683,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def detach_elastic_load_balancer(client, input, http_options \\ []) do
-    request(client, "DetachElasticLoadBalancer", input, http_options)
+  def detach_elastic_load_balancer(client, input, options \\ []) do
+    request(client, "DetachElasticLoadBalancer", input, options)
   end
 
   @doc """
@@ -698,8 +698,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def disassociate_elastic_ip(client, input, http_options \\ []) do
-    request(client, "DisassociateElasticIp", input, http_options)
+  def disassociate_elastic_ip(client, input, options \\ []) do
+    request(client, "DisassociateElasticIp", input, options)
   end
 
   @doc """
@@ -712,16 +712,16 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def get_hostname_suggestion(client, input, http_options \\ []) do
-    request(client, "GetHostnameSuggestion", input, http_options)
+  def get_hostname_suggestion(client, input, options \\ []) do
+    request(client, "GetHostnameSuggestion", input, options)
   end
 
   @doc """
   <note>This action can be used only with Windows stacks.</note> Grants RDP
   access to a Windows instance for a specified time period.
   """
-  def grant_access(client, input, http_options \\ []) do
-    request(client, "GrantAccess", input, http_options)
+  def grant_access(client, input, options \\ []) do
+    request(client, "GrantAccess", input, options)
   end
 
   @doc """
@@ -735,8 +735,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def reboot_instance(client, input, http_options \\ []) do
-    request(client, "RebootInstance", input, http_options)
+  def reboot_instance(client, input, options \\ []) do
+    request(client, "RebootInstance", input, options)
   end
 
   @doc """
@@ -751,8 +751,8 @@ defmodule AWS.OpsWorks do
   see [ Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def register_ecs_cluster(client, input, http_options \\ []) do
-    request(client, "RegisterEcsCluster", input, http_options)
+  def register_ecs_cluster(client, input, options \\ []) do
+    request(client, "RegisterEcsCluster", input, options)
   end
 
   @doc """
@@ -768,8 +768,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def register_elastic_ip(client, input, http_options \\ []) do
-    request(client, "RegisterElasticIp", input, http_options)
+  def register_elastic_ip(client, input, options \\ []) do
+    request(client, "RegisterElasticIp", input, options)
   end
 
   @doc """
@@ -790,8 +790,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def register_instance(client, input, http_options \\ []) do
-    request(client, "RegisterInstance", input, http_options)
+  def register_instance(client, input, options \\ []) do
+    request(client, "RegisterInstance", input, options)
   end
 
   @doc """
@@ -803,8 +803,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def register_rds_db_instance(client, input, http_options \\ []) do
-    request(client, "RegisterRdsDbInstance", input, http_options)
+  def register_rds_db_instance(client, input, options \\ []) do
+    request(client, "RegisterRdsDbInstance", input, options)
   end
 
   @doc """
@@ -820,8 +820,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def register_volume(client, input, http_options \\ []) do
-    request(client, "RegisterVolume", input, http_options)
+  def register_volume(client, input, options \\ []) do
+    request(client, "RegisterVolume", input, options)
   end
 
   @doc """
@@ -840,8 +840,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def set_load_based_auto_scaling(client, input, http_options \\ []) do
-    request(client, "SetLoadBasedAutoScaling", input, http_options)
+  def set_load_based_auto_scaling(client, input, options \\ []) do
+    request(client, "SetLoadBasedAutoScaling", input, options)
   end
 
   @doc """
@@ -854,8 +854,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def set_permission(client, input, http_options \\ []) do
-    request(client, "SetPermission", input, http_options)
+  def set_permission(client, input, options \\ []) do
+    request(client, "SetPermission", input, options)
   end
 
   @doc """
@@ -869,8 +869,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def set_time_based_auto_scaling(client, input, http_options \\ []) do
-    request(client, "SetTimeBasedAutoScaling", input, http_options)
+  def set_time_based_auto_scaling(client, input, options \\ []) do
+    request(client, "SetTimeBasedAutoScaling", input, options)
   end
 
   @doc """
@@ -884,8 +884,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def start_instance(client, input, http_options \\ []) do
-    request(client, "StartInstance", input, http_options)
+  def start_instance(client, input, options \\ []) do
+    request(client, "StartInstance", input, options)
   end
 
   @doc """
@@ -897,8 +897,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def start_stack(client, input, http_options \\ []) do
-    request(client, "StartStack", input, http_options)
+  def start_stack(client, input, options \\ []) do
+    request(client, "StartStack", input, options)
   end
 
   @doc """
@@ -914,8 +914,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def stop_instance(client, input, http_options \\ []) do
-    request(client, "StopInstance", input, http_options)
+  def stop_instance(client, input, options \\ []) do
+    request(client, "StopInstance", input, options)
   end
 
   @doc """
@@ -927,8 +927,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def stop_stack(client, input, http_options \\ []) do
-    request(client, "StopStack", input, http_options)
+  def stop_stack(client, input, options \\ []) do
+    request(client, "StopStack", input, options)
   end
 
   @doc """
@@ -943,8 +943,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def unassign_instance(client, input, http_options \\ []) do
-    request(client, "UnassignInstance", input, http_options)
+  def unassign_instance(client, input, options \\ []) do
+    request(client, "UnassignInstance", input, options)
   end
 
   @doc """
@@ -958,8 +958,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def unassign_volume(client, input, http_options \\ []) do
-    request(client, "UnassignVolume", input, http_options)
+  def unassign_volume(client, input, options \\ []) do
+    request(client, "UnassignVolume", input, options)
   end
 
   @doc """
@@ -971,8 +971,8 @@ defmodule AWS.OpsWorks do
   permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_app(client, input, http_options \\ []) do
-    request(client, "UpdateApp", input, http_options)
+  def update_app(client, input, options \\ []) do
+    request(client, "UpdateApp", input, options)
   end
 
   @doc """
@@ -986,8 +986,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_elastic_ip(client, input, http_options \\ []) do
-    request(client, "UpdateElasticIp", input, http_options)
+  def update_elastic_ip(client, input, options \\ []) do
+    request(client, "UpdateElasticIp", input, options)
   end
 
   @doc """
@@ -999,8 +999,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_instance(client, input, http_options \\ []) do
-    request(client, "UpdateInstance", input, http_options)
+  def update_instance(client, input, options \\ []) do
+    request(client, "UpdateInstance", input, options)
   end
 
   @doc """
@@ -1012,8 +1012,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_layer(client, input, http_options \\ []) do
-    request(client, "UpdateLayer", input, http_options)
+  def update_layer(client, input, options \\ []) do
+    request(client, "UpdateLayer", input, options)
   end
 
   @doc """
@@ -1024,8 +1024,8 @@ defmodule AWS.OpsWorks do
   permissions. For more information on user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_my_user_profile(client, input, http_options \\ []) do
-    request(client, "UpdateMyUserProfile", input, http_options)
+  def update_my_user_profile(client, input, options \\ []) do
+    request(client, "UpdateMyUserProfile", input, options)
   end
 
   @doc """
@@ -1037,8 +1037,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_rds_db_instance(client, input, http_options \\ []) do
-    request(client, "UpdateRdsDbInstance", input, http_options)
+  def update_rds_db_instance(client, input, options \\ []) do
+    request(client, "UpdateRdsDbInstance", input, options)
   end
 
   @doc """
@@ -1050,8 +1050,8 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_stack(client, input, http_options \\ []) do
-    request(client, "UpdateStack", input, http_options)
+  def update_stack(client, input, options \\ []) do
+    request(client, "UpdateStack", input, options)
   end
 
   @doc """
@@ -1062,8 +1062,8 @@ defmodule AWS.OpsWorks do
   user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_user_profile(client, input, http_options \\ []) do
-    request(client, "UpdateUserProfile", input, http_options)
+  def update_user_profile(client, input, options \\ []) do
+    request(client, "UpdateUserProfile", input, options)
   end
 
   @doc """
@@ -1077,11 +1077,11 @@ defmodule AWS.OpsWorks do
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
-  def update_volume(client, input, http_options \\ []) do
-    request(client, "UpdateVolume", input, http_options)
+  def update_volume(client, input, options \\ []) do
+    request(client, "UpdateVolume", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "opsworks"}
     host = "opsworks.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -1090,12 +1090,14 @@ defmodule AWS.OpsWorks do
                {"X-Amz-Target", "OpsWorks_20130218.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

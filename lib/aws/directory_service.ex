@@ -13,8 +13,8 @@ defmodule AWS.DirectoryService do
   @doc """
   Creates an AD Connector to connect an on-premises directory.
   """
-  def connect_directory(client, input, http_options \\ []) do
-    request(client, "ConnectDirectory", input, http_options)
+  def connect_directory(client, input, options \\ []) do
+    request(client, "ConnectDirectory", input, options)
   end
 
   @doc """
@@ -27,23 +27,23 @@ defmodule AWS.DirectoryService do
 
   </important>
   """
-  def create_alias(client, input, http_options \\ []) do
-    request(client, "CreateAlias", input, http_options)
+  def create_alias(client, input, options \\ []) do
+    request(client, "CreateAlias", input, options)
   end
 
   @doc """
   Creates a computer account in the specified directory, and joins the
   computer to the directory.
   """
-  def create_computer(client, input, http_options \\ []) do
-    request(client, "CreateComputer", input, http_options)
+  def create_computer(client, input, options \\ []) do
+    request(client, "CreateComputer", input, options)
   end
 
   @doc """
   Creates a Simple AD directory.
   """
-  def create_directory(client, input, http_options \\ []) do
-    request(client, "CreateDirectory", input, http_options)
+  def create_directory(client, input, options \\ []) do
+    request(client, "CreateDirectory", input, options)
   end
 
   @doc """
@@ -51,22 +51,22 @@ defmodule AWS.DirectoryService do
 
   You cannot take snapshots of extended or connected directories.
   """
-  def create_snapshot(client, input, http_options \\ []) do
-    request(client, "CreateSnapshot", input, http_options)
+  def create_snapshot(client, input, options \\ []) do
+    request(client, "CreateSnapshot", input, options)
   end
 
   @doc """
   Deletes an AWS Directory Service directory.
   """
-  def delete_directory(client, input, http_options \\ []) do
-    request(client, "DeleteDirectory", input, http_options)
+  def delete_directory(client, input, options \\ []) do
+    request(client, "DeleteDirectory", input, options)
   end
 
   @doc """
   Deletes a directory snapshot.
   """
-  def delete_snapshot(client, input, http_options \\ []) do
-    request(client, "DeleteSnapshot", input, http_options)
+  def delete_snapshot(client, input, options \\ []) do
+    request(client, "DeleteSnapshot", input, options)
   end
 
   @doc """
@@ -85,8 +85,8 @@ defmodule AWS.DirectoryService do
   You can also specify a maximum number of return results with the *Limit*
   parameter.
   """
-  def describe_directories(client, input, http_options \\ []) do
-    request(client, "DescribeDirectories", input, http_options)
+  def describe_directories(client, input, options \\ []) do
+    request(client, "DescribeDirectories", input, options)
   end
 
   @doc """
@@ -101,52 +101,52 @@ defmodule AWS.DirectoryService do
   You can also specify a maximum number of return results with the *Limit*
   parameter.
   """
-  def describe_snapshots(client, input, http_options \\ []) do
-    request(client, "DescribeSnapshots", input, http_options)
+  def describe_snapshots(client, input, options \\ []) do
+    request(client, "DescribeSnapshots", input, options)
   end
 
   @doc """
   Disables multi-factor authentication (MFA) with Remote Authentication Dial
   In User Service (RADIUS) for an AD Connector directory.
   """
-  def disable_radius(client, input, http_options \\ []) do
-    request(client, "DisableRadius", input, http_options)
+  def disable_radius(client, input, options \\ []) do
+    request(client, "DisableRadius", input, options)
   end
 
   @doc """
   Disables single-sign on for a directory.
   """
-  def disable_sso(client, input, http_options \\ []) do
-    request(client, "DisableSso", input, http_options)
+  def disable_sso(client, input, options \\ []) do
+    request(client, "DisableSso", input, options)
   end
 
   @doc """
   Enables multi-factor authentication (MFA) with Remote Authentication Dial
   In User Service (RADIUS) for an AD Connector directory.
   """
-  def enable_radius(client, input, http_options \\ []) do
-    request(client, "EnableRadius", input, http_options)
+  def enable_radius(client, input, options \\ []) do
+    request(client, "EnableRadius", input, options)
   end
 
   @doc """
   Enables single-sign on for a directory.
   """
-  def enable_sso(client, input, http_options \\ []) do
-    request(client, "EnableSso", input, http_options)
+  def enable_sso(client, input, options \\ []) do
+    request(client, "EnableSso", input, options)
   end
 
   @doc """
   Obtains directory limit information for the current region.
   """
-  def get_directory_limits(client, input, http_options \\ []) do
-    request(client, "GetDirectoryLimits", input, http_options)
+  def get_directory_limits(client, input, options \\ []) do
+    request(client, "GetDirectoryLimits", input, options)
   end
 
   @doc """
   Obtains the manual snapshot limits for a directory.
   """
-  def get_snapshot_limits(client, input, http_options \\ []) do
-    request(client, "GetSnapshotLimits", input, http_options)
+  def get_snapshot_limits(client, input, options \\ []) do
+    request(client, "GetSnapshotLimits", input, options)
   end
 
   @doc """
@@ -161,19 +161,19 @@ defmodule AWS.DirectoryService do
   **DirectoryDescription.Stage** value changes to `Active`, the restore
   operation is complete.
   """
-  def restore_from_snapshot(client, input, http_options \\ []) do
-    request(client, "RestoreFromSnapshot", input, http_options)
+  def restore_from_snapshot(client, input, options \\ []) do
+    request(client, "RestoreFromSnapshot", input, options)
   end
 
   @doc """
   Updates the Remote Authentication Dial In User Service (RADIUS) server
   information for an AD Connector directory.
   """
-  def update_radius(client, input, http_options \\ []) do
-    request(client, "UpdateRadius", input, http_options)
+  def update_radius(client, input, options \\ []) do
+    request(client, "UpdateRadius", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "ds"}
     host = "ds.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -182,12 +182,14 @@ defmodule AWS.DirectoryService do
                {"X-Amz-Target", "DirectoryService_20150416.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

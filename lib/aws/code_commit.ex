@@ -27,8 +27,8 @@ defmodule AWS.CodeCommit do
 
   </note>
   """
-  def batch_get_repositories(client, input, http_options \\ []) do
-    request(client, "BatchGetRepositories", input, http_options)
+  def batch_get_repositories(client, input, options \\ []) do
+    request(client, "BatchGetRepositories", input, options)
   end
 
   @doc """
@@ -38,15 +38,15 @@ defmodule AWS.CodeCommit do
   default branch. To do this, call the update default branch
   operation.</note>
   """
-  def create_branch(client, input, http_options \\ []) do
-    request(client, "CreateBranch", input, http_options)
+  def create_branch(client, input, options \\ []) do
+    request(client, "CreateBranch", input, options)
   end
 
   @doc """
   Creates a new, empty repository.
   """
-  def create_repository(client, input, http_options \\ []) do
-    request(client, "CreateRepository", input, http_options)
+  def create_repository(client, input, options \\ []) do
+    request(client, "CreateRepository", input, options)
   end
 
   @doc """
@@ -57,16 +57,16 @@ defmodule AWS.CodeCommit do
   metadata. After a repository is deleted, all future push calls to the
   deleted repository will fail.</important>
   """
-  def delete_repository(client, input, http_options \\ []) do
-    request(client, "DeleteRepository", input, http_options)
+  def delete_repository(client, input, options \\ []) do
+    request(client, "DeleteRepository", input, options)
   end
 
   @doc """
   Retrieves information about a repository branch, including its name and the
   last commit ID.
   """
-  def get_branch(client, input, http_options \\ []) do
-    request(client, "GetBranch", input, http_options)
+  def get_branch(client, input, options \\ []) do
+    request(client, "GetBranch", input, options)
   end
 
   @doc """
@@ -81,22 +81,22 @@ defmodule AWS.CodeCommit do
 
   </note>
   """
-  def get_repository(client, input, http_options \\ []) do
-    request(client, "GetRepository", input, http_options)
+  def get_repository(client, input, options \\ []) do
+    request(client, "GetRepository", input, options)
   end
 
   @doc """
   Gets information about one or more branches in a repository.
   """
-  def list_branches(client, input, http_options \\ []) do
-    request(client, "ListBranches", input, http_options)
+  def list_branches(client, input, options \\ []) do
+    request(client, "ListBranches", input, options)
   end
 
   @doc """
   Gets information about one or more repositories.
   """
-  def list_repositories(client, input, http_options \\ []) do
-    request(client, "ListRepositories", input, http_options)
+  def list_repositories(client, input, options \\ []) do
+    request(client, "ListRepositories", input, options)
   end
 
   @doc """
@@ -106,8 +106,8 @@ defmodule AWS.CodeCommit do
   current default branch name, a success message is returned even though the
   default branch did not change.</note>
   """
-  def update_default_branch(client, input, http_options \\ []) do
-    request(client, "UpdateDefaultBranch", input, http_options)
+  def update_default_branch(client, input, options \\ []) do
+    request(client, "UpdateDefaultBranch", input, options)
   end
 
   @doc """
@@ -122,18 +122,18 @@ defmodule AWS.CodeCommit do
 
   </note>
   """
-  def update_repository_description(client, input, http_options \\ []) do
-    request(client, "UpdateRepositoryDescription", input, http_options)
+  def update_repository_description(client, input, options \\ []) do
+    request(client, "UpdateRepositoryDescription", input, options)
   end
 
   @doc """
   Renames a repository.
   """
-  def update_repository_name(client, input, http_options \\ []) do
-    request(client, "UpdateRepositoryName", input, http_options)
+  def update_repository_name(client, input, options \\ []) do
+    request(client, "UpdateRepositoryName", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "codecommit"}
     host = "codecommit.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -142,12 +142,14 @@ defmodule AWS.CodeCommit do
                {"X-Amz-Target", "CodeCommit_20150413.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

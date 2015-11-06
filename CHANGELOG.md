@@ -92,7 +92,7 @@ All notable changes to this project will be documented in this file.
 - `AWS.Support` module for Support Service.
 
 [unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.5...HEAD
-[v0.0.4]: https://github.com/jkakar/aws-elixir/compare/v0.0.4...v0.0.5
+[v0.0.5]: https://github.com/jkakar/aws-elixir/compare/v0.0.4...v0.0.5
 [v0.0.4]: https://github.com/jkakar/aws-elixir/compare/v0.0.3...v0.0.4
 [v0.0.3]: https://github.com/jkakar/aws-elixir/compare/v0.0.2...v0.0.3
 [v0.0.2]: https://github.com/jkakar/aws-elixir/compare/v0.0.1...v0.0.2

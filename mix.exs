@@ -6,6 +6,9 @@ defmodule AWS.Mixfile do
      description: "AWS clients for Elixir",
      package: package,
      version: version,
+     name: "aws-elixir",
+     source_url: "https://github.com/jkakar/aws-elixir",
+     homepage_url: "http://github.com/jkakar/aws-elixir",
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -29,7 +32,8 @@ defmodule AWS.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:ex_doc, "~> 0.7.3", only: :dev},
+    [{:earmark, "~> 0.1", only: :dev},
+     {:ex_doc, "~> 0.10", only: :dev},
      {:poison, "~> 1.4.0"},
      {:httpoison, "~> 0.6"},
      {:timex, "~> 1.0.0-rc1"}]

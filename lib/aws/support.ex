@@ -61,8 +61,8 @@ defmodule AWS.Support do
   when the set expires. The maximum number of attachments in a set is 3, and
   the maximum size of any attachment in the set is 5 MB.
   """
-  def add_attachments_to_set(client, input, http_options \\ []) do
-    request(client, "AddAttachmentsToSet", input, http_options)
+  def add_attachments_to_set(client, input, options \\ []) do
+    request(client, "AddAttachmentsToSet", input, options)
   end
 
   @doc """
@@ -77,8 +77,8 @@ defmodule AWS.Support do
   This operation implements a subset of the features of the AWS Support
   Center.
   """
-  def add_communication_to_case(client, input, http_options \\ []) do
-    request(client, "AddCommunicationToCase", input, http_options)
+  def add_communication_to_case(client, input, options \\ []) do
+    request(client, "AddCommunicationToCase", input, options)
   end
 
   @doc """
@@ -121,8 +121,8 @@ defmodule AWS.Support do
   number. Case numbers are used by the `DescribeCases` operation to retrieve
   existing AWS Support cases.
   """
-  def create_case(client, input, http_options \\ []) do
-    request(client, "CreateCase", input, http_options)
+  def create_case(client, input, options \\ []) do
+    request(client, "CreateCase", input, options)
   end
 
   @doc """
@@ -132,8 +132,8 @@ defmodule AWS.Support do
   `AttachmentDetails` objects that are returned by the
   `DescribeCommunications` operation.
   """
-  def describe_attachment(client, input, http_options \\ []) do
-    request(client, "DescribeAttachment", input, http_options)
+  def describe_attachment(client, input, options \\ []) do
+    request(client, "DescribeAttachment", input, options)
   end
 
   @doc """
@@ -152,8 +152,8 @@ defmodule AWS.Support do
   `NextToken` values, which specify where to paginate the returned records
   represented by the `CaseDetails` objects.</li> </ol>
   """
-  def describe_cases(client, input, http_options \\ []) do
-    request(client, "DescribeCases", input, http_options)
+  def describe_cases(client, input, options \\ []) do
+    request(client, "DescribeCases", input, options)
   end
 
   @doc """
@@ -170,8 +170,8 @@ defmodule AWS.Support do
   want displayed on each page, and use `NextToken` to specify the resumption
   of pagination.
   """
-  def describe_communications(client, input, http_options \\ []) do
-    request(client, "DescribeCommunications", input, http_options)
+  def describe_communications(client, input, options \\ []) do
+    request(client, "DescribeCommunications", input, options)
   end
 
   @doc """
@@ -189,8 +189,8 @@ defmodule AWS.Support do
   ensures that you always have the most recent set of service and category
   codes.
   """
-  def describe_services(client, input, http_options \\ []) do
-    request(client, "DescribeServices", input, http_options)
+  def describe_services(client, input, options \\ []) do
+    request(client, "DescribeServices", input, options)
   end
 
   @doc """
@@ -198,8 +198,8 @@ defmodule AWS.Support do
   case. The severity level for a case is also a field in the `CaseDetails`
   data type included in any `CreateCase` request.
   """
-  def describe_severity_levels(client, input, http_options \\ []) do
-    request(client, "DescribeSeverityLevels", input, http_options)
+  def describe_severity_levels(client, input, options \\ []) do
+    request(client, "DescribeSeverityLevels", input, options)
   end
 
   @doc """
@@ -207,8 +207,8 @@ defmodule AWS.Support do
   specified check IDs. Check IDs can be obtained by calling
   `DescribeTrustedAdvisorChecks`.
   """
-  def describe_trusted_advisor_check_refresh_statuses(client, input, http_options \\ []) do
-    request(client, "DescribeTrustedAdvisorCheckRefreshStatuses", input, http_options)
+  def describe_trusted_advisor_check_refresh_statuses(client, input, options \\ []) do
+    request(client, "DescribeTrustedAdvisorCheckRefreshStatuses", input, options)
   end
 
   @doc """
@@ -229,8 +229,8 @@ defmodule AWS.Support do
   **Timestamp.** The time of the last refresh of the check.</li> <li>
   **CheckId.** The unique identifier for the check.</li> </ul>
   """
-  def describe_trusted_advisor_check_result(client, input, http_options \\ []) do
-    request(client, "DescribeTrustedAdvisorCheckResult", input, http_options)
+  def describe_trusted_advisor_check_result(client, input, options \\ []) do
+    request(client, "DescribeTrustedAdvisorCheckResult", input, options)
   end
 
   @doc """
@@ -240,8 +240,8 @@ defmodule AWS.Support do
 
   The response contains an array of `TrustedAdvisorCheckSummary` objects.
   """
-  def describe_trusted_advisor_check_summaries(client, input, http_options \\ []) do
-    request(client, "DescribeTrustedAdvisorCheckSummaries", input, http_options)
+  def describe_trusted_advisor_check_summaries(client, input, options \\ []) do
+    request(client, "DescribeTrustedAdvisorCheckSummaries", input, options)
   end
 
   @doc """
@@ -250,8 +250,8 @@ defmodule AWS.Support do
   code; English ("en") and Japanese ("ja") are currently supported. The
   response contains a `TrustedAdvisorCheckDescription` for each check.
   """
-  def describe_trusted_advisor_checks(client, input, http_options \\ []) do
-    request(client, "DescribeTrustedAdvisorChecks", input, http_options)
+  def describe_trusted_advisor_checks(client, input, options \\ []) do
+    request(client, "DescribeTrustedAdvisorChecks", input, options)
   end
 
   @doc """
@@ -268,19 +268,19 @@ defmodule AWS.Support do
   the check is eligible for refresh.</li> <li> **CheckId.** The unique
   identifier for the check.</li> </ul>
   """
-  def refresh_trusted_advisor_check(client, input, http_options \\ []) do
-    request(client, "RefreshTrustedAdvisorCheck", input, http_options)
+  def refresh_trusted_advisor_check(client, input, options \\ []) do
+    request(client, "RefreshTrustedAdvisorCheck", input, options)
   end
 
   @doc """
   Takes a `CaseId` and returns the initial state of the case along with the
   state of the case after the call to `ResolveCase` completed.
   """
-  def resolve_case(client, input, http_options \\ []) do
-    request(client, "ResolveCase", input, http_options)
+  def resolve_case(client, input, options \\ []) do
+    request(client, "ResolveCase", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "support"}
     host = "support.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -289,12 +289,14 @@ defmodule AWS.Support do
                {"X-Amz-Target", "AWSSupport_20130415.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

@@ -5,21 +5,23 @@ defmodule AWS.KMS do
   @moduledoc """
   AWS Key Management Service
 
-  AWS Key Management Service (KMS) is an encryption and key management web
-  service. This guide describes the KMS actions that you can call
-  programmatically. For general information about KMS, see the [ AWS Key
-  Management Service Developer Guide
-  ](http://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
+  AWS Key Management Service (AWS KMS) is an encryption and key management
+  web service. This guide describes the AWS KMS operations that you can call
+  programmatically. For general information about AWS KMS, see the [AWS Key
+  Management Service Developer
+  Guide](http://docs.aws.amazon.com/kms/latest/developerguide/).
 
   <note> AWS provides SDKs that consist of libraries and sample code for
   various programming languages and platforms (Java, Ruby, .Net, iOS,
   Android, etc.). The SDKs provide a convenient way to create programmatic
-  access to KMS and AWS. For example, the SDKs take care of tasks such as
-  signing requests (see below), managing errors, and retrying requests
-  automatically. For more information about the AWS SDKs, including how to
-  download and install them, see [Tools for Amazon Web
-  Services](http://aws.amazon.com/tools/). </note> We recommend that you use
-  the AWS SDKs to make programmatic API calls to KMS.
+  access to AWS KMS and other AWS services. For example, the SDKs take care
+  of tasks such as signing requests (see below), managing errors, and
+  retrying requests automatically. For more information about the AWS SDKs,
+  including how to download and install them, see [Tools for Amazon Web
+  Services](http://aws.amazon.com/tools/).
+
+  </note> We recommend that you use the AWS SDKs to make programmatic API
+  calls to AWS KMS.
 
   Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS
   1.2. Clients must also support cipher suites with Perfect Forward Secrecy
@@ -30,24 +32,24 @@ defmodule AWS.KMS do
   **Signing Requests**
 
   Requests must be signed by using an access key ID and a secret access key.
-  We strongly recommend that you do not use your AWS account access key ID
-  and secret key for everyday work with KMS. Instead, use the access key ID
-  and secret access key for an IAM user, or you can use the AWS Security
+  We strongly recommend that you *do not* use your AWS account access key ID
+  and secret key for everyday work with AWS KMS. Instead, use the access key
+  ID and secret access key for an IAM user, or you can use the AWS Security
   Token Service to generate temporary security credentials that you can use
   to sign requests.
 
-  All KMS operations require [Signature Version
+  All AWS KMS operations require [Signature Version
   4](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
-  **Recording API Requests**
+  **Logging API Requests**
 
-  KMS supports AWS CloudTrail, a service that records AWS API calls and
+  AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and
   related events for your AWS account and delivers them to an Amazon S3
   bucket that you specify. By using the information collected by CloudTrail,
-  you can determine what requests were made to KMS, who made the request,
+  you can determine what requests were made to AWS KMS, who made the request,
   when it was made, and so on. To learn more about CloudTrail, including how
   to turn it on and find your log files, see the [AWS CloudTrail User
-  Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/whatiscloudtrail.html)
+  Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
   **Additional Resources**
 
@@ -55,23 +57,38 @@ defmodule AWS.KMS do
   following:
 
   <ul> <li> [AWS Security
-  Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html).
-  This topic provides general information about the types of credentials used
-  for accessing AWS. </li> <li> [AWS Security Token
-  Service](http://docs.aws.amazon.com/STS/latest/UsingSTS/). This guide
+  Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)
+  - This topic provides general information about the types of credentials
+  used for accessing AWS. </li> <li> [AWS Security Token
+  Service](http://docs.aws.amazon.com/STS/latest/UsingSTS/) - This guide
   describes how to create and use temporary security credentials. </li> <li>
   [Signing AWS API
-  Requests](http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html).
-  This set of topics walks you through the process of signing a request using
-  an access key ID and a secret access key. </li> </ul> **Commonly Used
+  Requests](http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
+  - This set of topics walks you through the process of signing a request
+  using an access key ID and a secret access key. </li> </ul> **Commonly Used
   APIs**
 
   Of the APIs discussed in this guide, the following will prove the most
   useful for most applications. You will likely perform actions other than
   these, such as creating keys and assigning policies, by using the console.
+
   <ul> <li>`Encrypt`</li> <li>`Decrypt`</li> <li>`GenerateDataKey`</li>
   <li>`GenerateDataKeyWithoutPlaintext`</li> </ul>
   """
+
+  @doc """
+  Cancels the deletion of a customer master key (CMK). When this operation is
+  successful, the CMK is set to the `Disabled` state. To enable a CMK, use
+  `EnableKey`.
+
+  For more information about scheduling and canceling deletion of a CMK, go
+  to [Deleting Customer Master
+  Keys](http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html)
+  in the *AWS Key Management Service Developer Guide*.
+  """
+  def cancel_key_deletion(client, input, options \\ []) do
+    request(client, "CancelKeyDeletion", input, options)
+  end
 
   @doc """
   Creates a display name for a customer master key. An alias can be used to
@@ -82,26 +99,25 @@ defmodule AWS.KMS do
   (alias/). An alias that begins with "aws" after the forward slash
   (alias/aws...) is reserved by Amazon Web Services (AWS).
 
-  To associate an alias with a different key, call `UpdateAlias`.
+  The alias and the key it is mapped to must be in the same AWS account and
+  the same region.
 
-  Note that you cannot create or update an alias that represents a key in
-  another account.
+  To map an alias to a different key, call `UpdateAlias`.
   """
-  def create_alias(client, input, http_options \\ []) do
-    request(client, "CreateAlias", input, http_options)
+  def create_alias(client, input, options \\ []) do
+    request(client, "CreateAlias", input, options)
   end
 
   @doc """
-  Adds a grant to a key to specify who can access the key and under what
-  conditions. Grants are alternate permission mechanisms to key policies. For
-  more information about grants, see
+  Adds a grant to a key to specify who can use the key and under what
+  conditions. Grants are alternate permission mechanisms to key policies.
+
+  For more information about grants, see
   [Grants](http://docs.aws.amazon.com/kms/latest/developerguide/grants.html)
-  in the developer guide. If a grant is absent, access to the key is
-  evaluated based on IAM policies attached to the user. <ol>
-  <li>`ListGrants`</li> <li>`RetireGrant`</li> <li>`RevokeGrant`</li> </ol>
+  in the *AWS Key Management Service Developer Guide*.
   """
-  def create_grant(client, input, http_options \\ []) do
-    request(client, "CreateGrant", input, http_options)
+  def create_grant(client, input, options \\ []) do
+    request(client, "CreateGrant", input, options)
   end
 
   @doc """
@@ -111,8 +127,8 @@ defmodule AWS.KMS do
   customer data. For more information about data keys, see `GenerateDataKey`
   and `GenerateDataKeyWithoutPlaintext`.
   """
-  def create_key(client, input, http_options \\ []) do
-    request(client, "CreateKey", input, http_options)
+  def create_key(client, input, options \\ []) do
+    request(client, "CreateKey", input, options)
   end
 
   @doc """
@@ -130,52 +146,56 @@ defmodule AWS.KMS do
   `Decrypt` access in an IAM user policy, you should scope the resource to
   specific keys or to specific trusted accounts.
   """
-  def decrypt(client, input, http_options \\ []) do
-    request(client, "Decrypt", input, http_options)
+  def decrypt(client, input, options \\ []) do
+    request(client, "Decrypt", input, options)
   end
 
   @doc """
-  Deletes the specified alias. To associate an alias with a different key,
-  call `UpdateAlias`.
+  Deletes the specified alias. To map an alias to a different key, call
+  `UpdateAlias`.
   """
-  def delete_alias(client, input, http_options \\ []) do
-    request(client, "DeleteAlias", input, http_options)
+  def delete_alias(client, input, options \\ []) do
+    request(client, "DeleteAlias", input, options)
   end
 
   @doc """
   Provides detailed information about the specified customer master key.
   """
-  def describe_key(client, input, http_options \\ []) do
-    request(client, "DescribeKey", input, http_options)
+  def describe_key(client, input, options \\ []) do
+    request(client, "DescribeKey", input, options)
   end
 
   @doc """
-  Marks a key as disabled, thereby preventing its use.
+  Sets the state of a master key to disabled, thereby preventing its use for
+  cryptographic operations. For more information about how key state affects
+  the use of a master key, go to [How Key State Affects the Use of a Customer
+  Master
+  Key](http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html)
+  in the *AWS Key Management Service Developer Guide*.
   """
-  def disable_key(client, input, http_options \\ []) do
-    request(client, "DisableKey", input, http_options)
+  def disable_key(client, input, options \\ []) do
+    request(client, "DisableKey", input, options)
   end
 
   @doc """
   Disables rotation of the specified key.
   """
-  def disable_key_rotation(client, input, http_options \\ []) do
-    request(client, "DisableKeyRotation", input, http_options)
+  def disable_key_rotation(client, input, options \\ []) do
+    request(client, "DisableKeyRotation", input, options)
   end
 
   @doc """
-  Marks a key as enabled, thereby permitting its use. You can have up to 25
-  enabled keys at one time.
+  Marks a key as enabled, thereby permitting its use.
   """
-  def enable_key(client, input, http_options \\ []) do
-    request(client, "EnableKey", input, http_options)
+  def enable_key(client, input, options \\ []) do
+    request(client, "EnableKey", input, options)
   end
 
   @doc """
   Enables rotation of the specified customer master key.
   """
-  def enable_key_rotation(client, input, http_options \\ []) do
-    request(client, "EnableKeyRotation", input, http_options)
+  def enable_key_rotation(client, input, options \\ []) do
+    request(client, "EnableKeyRotation", input, options)
   end
 
   @doc """
@@ -200,8 +220,8 @@ defmodule AWS.KMS do
   copy of the key encrypted under the customer master key (CMK) of your
   choosing.
   """
-  def encrypt(client, input, http_options \\ []) do
-    request(client, "Encrypt", input, http_options)
+  def encrypt(client, input, options \\ []) do
+    request(client, "Encrypt", input, options)
   end
 
   @doc """
@@ -238,8 +258,8 @@ defmodule AWS.KMS do
   The encryption context is logged by CloudTrail, and you can use this log to
   help track the use of particular data.
   """
-  def generate_data_key(client, input, http_options \\ []) do
-    request(client, "GenerateDataKey", input, http_options)
+  def generate_data_key(client, input, options \\ []) do
+    request(client, "GenerateDataKey", input, options)
   end
 
   @doc """
@@ -249,65 +269,76 @@ defmodule AWS.KMS do
   requirement that an encrypted key be made available without exposing the
   plaintext copy of that key.
   """
-  def generate_data_key_without_plaintext(client, input, http_options \\ []) do
-    request(client, "GenerateDataKeyWithoutPlaintext", input, http_options)
+  def generate_data_key_without_plaintext(client, input, options \\ []) do
+    request(client, "GenerateDataKeyWithoutPlaintext", input, options)
   end
 
   @doc """
   Generates an unpredictable byte string.
   """
-  def generate_random(client, input, http_options \\ []) do
-    request(client, "GenerateRandom", input, http_options)
+  def generate_random(client, input, options \\ []) do
+    request(client, "GenerateRandom", input, options)
   end
 
   @doc """
   Retrieves a policy attached to the specified key.
   """
-  def get_key_policy(client, input, http_options \\ []) do
-    request(client, "GetKeyPolicy", input, http_options)
+  def get_key_policy(client, input, options \\ []) do
+    request(client, "GetKeyPolicy", input, options)
   end
 
   @doc """
   Retrieves a Boolean value that indicates whether key rotation is enabled
   for the specified key.
   """
-  def get_key_rotation_status(client, input, http_options \\ []) do
-    request(client, "GetKeyRotationStatus", input, http_options)
+  def get_key_rotation_status(client, input, options \\ []) do
+    request(client, "GetKeyRotationStatus", input, options)
   end
 
   @doc """
   Lists all of the key aliases in the account.
   """
-  def list_aliases(client, input, http_options \\ []) do
-    request(client, "ListAliases", input, http_options)
+  def list_aliases(client, input, options \\ []) do
+    request(client, "ListAliases", input, options)
   end
 
   @doc """
   List the grants for a specified key.
   """
-  def list_grants(client, input, http_options \\ []) do
-    request(client, "ListGrants", input, http_options)
+  def list_grants(client, input, options \\ []) do
+    request(client, "ListGrants", input, options)
   end
 
   @doc """
   Retrieves a list of policies attached to a key.
   """
-  def list_key_policies(client, input, http_options \\ []) do
-    request(client, "ListKeyPolicies", input, http_options)
+  def list_key_policies(client, input, options \\ []) do
+    request(client, "ListKeyPolicies", input, options)
   end
 
   @doc """
   Lists the customer master keys.
   """
-  def list_keys(client, input, http_options \\ []) do
-    request(client, "ListKeys", input, http_options)
+  def list_keys(client, input, options \\ []) do
+    request(client, "ListKeys", input, options)
+  end
+
+  @doc """
+  Returns a list of all grants for which the grant's `RetiringPrincipal`
+  matches the one specified.
+
+  A typical use is to list all grants that you are able to retire. To retire
+  a grant, use `RetireGrant`.
+  """
+  def list_retirable_grants(client, input, options \\ []) do
+    request(client, "ListRetirableGrants", input, options)
   end
 
   @doc """
   Attaches a policy to the specified key.
   """
-  def put_key_policy(client, input, http_options \\ []) do
-    request(client, "PutKeyPolicy", input, http_options)
+  def put_key_policy(client, input, options \\ []) do
+    request(client, "PutKeyPolicy", input, options)
   end
 
   @doc """
@@ -324,8 +355,8 @@ defmodule AWS.KMS do
   when you authorize use of the key through the console but must be included
   manually when you set a policy by using the `PutKeyPolicy` function.
   """
-  def re_encrypt(client, input, http_options \\ []) do
-    request(client, "ReEncrypt", input, http_options)
+  def re_encrypt(client, input, options \\ []) do
+    request(client, "ReEncrypt", input, options)
   end
 
   @doc """
@@ -340,20 +371,48 @@ defmodule AWS.KMS do
   character unique identifier of a grant. Both are returned by the
   `CreateGrant` function.
   """
-  def retire_grant(client, input, http_options \\ []) do
-    request(client, "RetireGrant", input, http_options)
+  def retire_grant(client, input, options \\ []) do
+    request(client, "RetireGrant", input, options)
   end
 
   @doc """
   Revokes a grant. You can revoke a grant to actively deny operations that
   depend on it.
   """
-  def revoke_grant(client, input, http_options \\ []) do
-    request(client, "RevokeGrant", input, http_options)
+  def revoke_grant(client, input, options \\ []) do
+    request(client, "RevokeGrant", input, options)
   end
 
   @doc """
-  Updates an alias to associate it with a different key.
+  Schedules the deletion of a customer master key (CMK). You may provide a
+  waiting period, specified in days, before deletion occurs. If you do not
+  provide a waiting period, the default period of 30 days is used. When this
+  operation is successful, the state of the CMK changes to `PendingDeletion`.
+  Before the waiting period ends, you can use `CancelKeyDeletion` to cancel
+  the deletion of the CMK. After the waiting period ends, AWS KMS deletes the
+  CMK and all AWS KMS data associated with it, including all aliases that
+  point to it.
+
+  <important> Deleting a CMK is a destructive and potentially dangerous
+  operation. When a CMK is deleted, all data that was encrypted under the CMK
+  is rendered unrecoverable. To restrict the use of a CMK without deleting
+  it, use `DisableKey`.
+
+  </important> For more information about scheduling a CMK for deletion, go
+  to [Deleting Customer Master
+  Keys](http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html)
+  in the *AWS Key Management Service Developer Guide*.
+  """
+  def schedule_key_deletion(client, input, options \\ []) do
+    request(client, "ScheduleKeyDeletion", input, options)
+  end
+
+  @doc """
+  Updates an alias to map it to a different key.
+
+  An alias is not a property of a key. Therefore, an alias can be mapped to
+  and unmapped from an existing key without changing the properties of the
+  key.
 
   An alias name can contain only alphanumeric characters, forward slashes
   (/), underscores (_), and dashes (-). An alias must start with the word
@@ -361,25 +420,21 @@ defmodule AWS.KMS do
   "aws" after the forward slash (alias/aws...) is reserved by Amazon Web
   Services (AWS).
 
-  An alias is not a property of a key. Therefore, an alias can be associated
-  with and disassociated from an existing key without changing the properties
-  of the key.
-
-  Note that you cannot create or update an alias that represents a key in
-  another account.
+  The alias and the key it is mapped to must be in the same AWS account and
+  the same region.
   """
-  def update_alias(client, input, http_options \\ []) do
-    request(client, "UpdateAlias", input, http_options)
+  def update_alias(client, input, options \\ []) do
+    request(client, "UpdateAlias", input, options)
   end
 
   @doc """
   Updates the description of a key.
   """
-  def update_key_description(client, input, http_options \\ []) do
-    request(client, "UpdateKeyDescription", input, http_options)
+  def update_key_description(client, input, options \\ []) do
+    request(client, "UpdateKeyDescription", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "kms"}
     host = "kms.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -388,12 +443,14 @@ defmodule AWS.KMS do
                {"X-Amz-Target", "TrentService.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

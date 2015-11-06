@@ -27,37 +27,69 @@ defmodule AWS.CloudTrail do
   """
 
   @doc """
-  From the command line, use `create-subscription`.
-
-  Creates a trail that specifies the settings for delivery of log data to an
-  Amazon S3 bucket.
+  Adds one or more tags to a trail, up to a limit of 10. Tags must be unique
+  per trail. Overwrites an existing tag's value when a new value is specified
+  for an existing tag key. If you specify a key without a value, the tag will
+  be created with the specified key and a value of null.
   """
-  def create_trail(client, input, http_options \\ []) do
-    request(client, "CreateTrail", input, http_options)
+  def add_tags(client, input, options \\ []) do
+    request(client, "AddTags", input, options)
   end
 
   @doc """
-  Deletes a trail.
+  Creates a trail that specifies the settings for delivery of log data to an
+  Amazon S3 bucket.
   """
-  def delete_trail(client, input, http_options \\ []) do
-    request(client, "DeleteTrail", input, http_options)
+  def create_trail(client, input, options \\ []) do
+    request(client, "CreateTrail", input, options)
+  end
+
+  @doc """
+  Deletes a trail. This operation must be called from the region in which the
+  trail was created.
+  """
+  def delete_trail(client, input, options \\ []) do
+    request(client, "DeleteTrail", input, options)
   end
 
   @doc """
   Retrieves settings for the trail associated with the current region for
   your account.
   """
-  def describe_trails(client, input, http_options \\ []) do
-    request(client, "DescribeTrails", input, http_options)
+  def describe_trails(client, input, options \\ []) do
+    request(client, "DescribeTrails", input, options)
   end
 
   @doc """
   Returns a JSON-formatted list of information about the specified trail.
   Fields include information on delivery errors, Amazon SNS and Amazon S3
-  errors, and start and stop logging times for each trail.
+  errors, and start and stop logging times for each trail. This operation
+  returns trail status from a single region. To return trail status from all
+  regions, you must call the operation on each region.
   """
-  def get_trail_status(client, input, http_options \\ []) do
-    request(client, "GetTrailStatus", input, http_options)
+  def get_trail_status(client, input, options \\ []) do
+    request(client, "GetTrailStatus", input, options)
+  end
+
+  @doc """
+  Returns all public keys whose private keys were used to sign the digest
+  files within the specified time range. The public key is needed to validate
+  digest files that were signed with its corresponding private key.
+
+  <note>CloudTrail uses different private/public key pairs per region. Each
+  digest file is signed with a private key unique to its region. Therefore,
+  when you validate a digest file from a particular region, you must look in
+  the same region for its corresponding public key.</note>
+  """
+  def list_public_keys(client, input, options \\ []) do
+    request(client, "ListPublicKeys", input, options)
+  end
+
+  @doc """
+  Lists the tags for the trail in the current region.
+  """
+  def list_tags(client, input, options \\ []) do
+    request(client, "ListTags", input, options)
   end
 
   @doc """
@@ -70,22 +102,30 @@ defmodule AWS.CloudTrail do
   attributes that can be specified in any one lookup request are time range
   and one other attribute. The default number of results returned is 10, with
   a maximum of 50 possible. The response includes a token that you can use to
-  get the next page of results. The rate of lookup requests is limited to one
-  per second per account.
+  get the next page of results.
 
+  <important>The rate of lookup requests is limited to one per second per
+  account. If this limit is exceeded, a throttling error occurs. </important>
   <important>Events that occurred during the selected time range will not be
   available for lookup if CloudTrail logging was not enabled when the events
   occurred.</important>
   """
-  def lookup_events(client, input, http_options \\ []) do
-    request(client, "LookupEvents", input, http_options)
+  def lookup_events(client, input, options \\ []) do
+    request(client, "LookupEvents", input, options)
+  end
+
+  @doc """
+  Removes the specified tags from a trail.
+  """
+  def remove_tags(client, input, options \\ []) do
+    request(client, "RemoveTags", input, options)
   end
 
   @doc """
   Starts the recording of AWS API calls and log file delivery for a trail.
   """
-  def start_logging(client, input, http_options \\ []) do
-    request(client, "StartLogging", input, http_options)
+  def start_logging(client, input, options \\ []) do
+    request(client, "StartLogging", input, options)
   end
 
   @doc """
@@ -94,24 +134,22 @@ defmodule AWS.CloudTrail do
   action. You can update a trail without stopping it first. This action is
   the only way to stop recording.
   """
-  def stop_logging(client, input, http_options \\ []) do
-    request(client, "StopLogging", input, http_options)
+  def stop_logging(client, input, options \\ []) do
+    request(client, "StopLogging", input, options)
   end
 
   @doc """
-  From the command line, use `update-subscription`.
-
   Updates the settings that specify delivery of log files. Changes to a trail
   do not require stopping the CloudTrail service. Use this action to
   designate an existing bucket for log delivery. If the existing bucket has
   previously been a target for CloudTrail log files, an IAM policy exists for
   the bucket.
   """
-  def update_trail(client, input, http_options \\ []) do
-    request(client, "UpdateTrail", input, http_options)
+  def update_trail(client, input, options \\ []) do
+    request(client, "UpdateTrail", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "cloudtrail"}
     host = "cloudtrail.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -120,12 +158,14 @@ defmodule AWS.CloudTrail do
                {"X-Amz-Target", "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

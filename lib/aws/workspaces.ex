@@ -18,8 +18,8 @@ defmodule AWS.Workspaces do
 
   </note>
   """
-  def create_workspaces(client, input, http_options \\ []) do
-    request(client, "CreateWorkspaces", input, http_options)
+  def create_workspaces(client, input, options \\ []) do
+    request(client, "CreateWorkspaces", input, options)
   end
 
   @doc """
@@ -34,8 +34,8 @@ defmodule AWS.Workspaces do
   response member contains a token that you pass in the next call to this
   operation to retrieve the next set of items.
   """
-  def describe_workspace_bundles(client, input, http_options \\ []) do
-    request(client, "DescribeWorkspaceBundles", input, http_options)
+  def describe_workspace_bundles(client, input, options \\ []) do
+    request(client, "DescribeWorkspaceBundles", input, options)
   end
 
   @doc """
@@ -48,8 +48,8 @@ defmodule AWS.Workspaces do
   response member contains a token that you pass in the next call to this
   operation to retrieve the next set of items.
   """
-  def describe_workspace_directories(client, input, http_options \\ []) do
-    request(client, "DescribeWorkspaceDirectories", input, http_options)
+  def describe_workspace_directories(client, input, options \\ []) do
+    request(client, "DescribeWorkspaceDirectories", input, options)
   end
 
   @doc """
@@ -63,8 +63,8 @@ defmodule AWS.Workspaces do
   response member contains a token that you pass in the next call to this
   operation to retrieve the next set of items.
   """
-  def describe_workspaces(client, input, http_options \\ []) do
-    request(client, "DescribeWorkspaces", input, http_options)
+  def describe_workspaces(client, input, options \\ []) do
+    request(client, "DescribeWorkspaces", input, options)
   end
 
   @doc """
@@ -78,8 +78,8 @@ defmodule AWS.Workspaces do
 
   </note>
   """
-  def reboot_workspaces(client, input, http_options \\ []) do
-    request(client, "RebootWorkspaces", input, http_options)
+  def reboot_workspaces(client, input, options \\ []) do
+    request(client, "RebootWorkspaces", input, options)
   end
 
   @doc """
@@ -103,8 +103,8 @@ defmodule AWS.Workspaces do
 
   </note>
   """
-  def rebuild_workspaces(client, input, http_options \\ []) do
-    request(client, "RebuildWorkspaces", input, http_options)
+  def rebuild_workspaces(client, input, options \\ []) do
+    request(client, "RebuildWorkspaces", input, options)
   end
 
   @doc """
@@ -122,11 +122,11 @@ defmodule AWS.Workspaces do
 
   </note>
   """
-  def terminate_workspaces(client, input, http_options \\ []) do
-    request(client, "TerminateWorkspaces", input, http_options)
+  def terminate_workspaces(client, input, options \\ []) do
+    request(client, "TerminateWorkspaces", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "workspaces"}
     host = "workspaces.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -135,12 +135,14 @@ defmodule AWS.Workspaces do
                {"X-Amz-Target", "WorkspacesService.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

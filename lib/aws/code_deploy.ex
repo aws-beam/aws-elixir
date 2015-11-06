@@ -67,64 +67,64 @@ defmodule AWS.CodeDeploy do
   @doc """
   Adds tags to on-premises instances.
   """
-  def add_tags_to_on_premises_instances(client, input, http_options \\ []) do
-    request(client, "AddTagsToOnPremisesInstances", input, http_options)
+  def add_tags_to_on_premises_instances(client, input, options \\ []) do
+    request(client, "AddTagsToOnPremisesInstances", input, options)
   end
 
   @doc """
   Gets information about one or more applications.
   """
-  def batch_get_applications(client, input, http_options \\ []) do
-    request(client, "BatchGetApplications", input, http_options)
+  def batch_get_applications(client, input, options \\ []) do
+    request(client, "BatchGetApplications", input, options)
   end
 
   @doc """
   Gets information about one or more deployments.
   """
-  def batch_get_deployments(client, input, http_options \\ []) do
-    request(client, "BatchGetDeployments", input, http_options)
+  def batch_get_deployments(client, input, options \\ []) do
+    request(client, "BatchGetDeployments", input, options)
   end
 
   @doc """
   Gets information about one or more on-premises instances.
   """
-  def batch_get_on_premises_instances(client, input, http_options \\ []) do
-    request(client, "BatchGetOnPremisesInstances", input, http_options)
+  def batch_get_on_premises_instances(client, input, options \\ []) do
+    request(client, "BatchGetOnPremisesInstances", input, options)
   end
 
   @doc """
   Creates a new application.
   """
-  def create_application(client, input, http_options \\ []) do
-    request(client, "CreateApplication", input, http_options)
+  def create_application(client, input, options \\ []) do
+    request(client, "CreateApplication", input, options)
   end
 
   @doc """
   Deploys an application revision through the specified deployment group.
   """
-  def create_deployment(client, input, http_options \\ []) do
-    request(client, "CreateDeployment", input, http_options)
+  def create_deployment(client, input, options \\ []) do
+    request(client, "CreateDeployment", input, options)
   end
 
   @doc """
   Creates a new deployment configuration.
   """
-  def create_deployment_config(client, input, http_options \\ []) do
-    request(client, "CreateDeploymentConfig", input, http_options)
+  def create_deployment_config(client, input, options \\ []) do
+    request(client, "CreateDeploymentConfig", input, options)
   end
 
   @doc """
   Creates a new deployment group for application revisions to be deployed to.
   """
-  def create_deployment_group(client, input, http_options \\ []) do
-    request(client, "CreateDeploymentGroup", input, http_options)
+  def create_deployment_group(client, input, options \\ []) do
+    request(client, "CreateDeploymentGroup", input, options)
   end
 
   @doc """
   Deletes an application.
   """
-  def delete_application(client, input, http_options \\ []) do
-    request(client, "DeleteApplication", input, http_options)
+  def delete_application(client, input, options \\ []) do
+    request(client, "DeleteApplication", input, options)
   end
 
   @doc """
@@ -133,118 +133,118 @@ defmodule AWS.CodeDeploy do
   <note>A deployment configuration cannot be deleted if it is currently in
   use. Also, predefined configurations cannot be deleted.</note>
   """
-  def delete_deployment_config(client, input, http_options \\ []) do
-    request(client, "DeleteDeploymentConfig", input, http_options)
+  def delete_deployment_config(client, input, options \\ []) do
+    request(client, "DeleteDeploymentConfig", input, options)
   end
 
   @doc """
   Deletes a deployment group.
   """
-  def delete_deployment_group(client, input, http_options \\ []) do
-    request(client, "DeleteDeploymentGroup", input, http_options)
+  def delete_deployment_group(client, input, options \\ []) do
+    request(client, "DeleteDeploymentGroup", input, options)
   end
 
   @doc """
   Deregisters an on-premises instance.
   """
-  def deregister_on_premises_instance(client, input, http_options \\ []) do
-    request(client, "DeregisterOnPremisesInstance", input, http_options)
+  def deregister_on_premises_instance(client, input, options \\ []) do
+    request(client, "DeregisterOnPremisesInstance", input, options)
   end
 
   @doc """
   Gets information about an application.
   """
-  def get_application(client, input, http_options \\ []) do
-    request(client, "GetApplication", input, http_options)
+  def get_application(client, input, options \\ []) do
+    request(client, "GetApplication", input, options)
   end
 
   @doc """
   Gets information about an application revision.
   """
-  def get_application_revision(client, input, http_options \\ []) do
-    request(client, "GetApplicationRevision", input, http_options)
+  def get_application_revision(client, input, options \\ []) do
+    request(client, "GetApplicationRevision", input, options)
   end
 
   @doc """
   Gets information about a deployment.
   """
-  def get_deployment(client, input, http_options \\ []) do
-    request(client, "GetDeployment", input, http_options)
+  def get_deployment(client, input, options \\ []) do
+    request(client, "GetDeployment", input, options)
   end
 
   @doc """
   Gets information about a deployment configuration.
   """
-  def get_deployment_config(client, input, http_options \\ []) do
-    request(client, "GetDeploymentConfig", input, http_options)
+  def get_deployment_config(client, input, options \\ []) do
+    request(client, "GetDeploymentConfig", input, options)
   end
 
   @doc """
   Gets information about a deployment group.
   """
-  def get_deployment_group(client, input, http_options \\ []) do
-    request(client, "GetDeploymentGroup", input, http_options)
+  def get_deployment_group(client, input, options \\ []) do
+    request(client, "GetDeploymentGroup", input, options)
   end
 
   @doc """
   Gets information about an instance as part of a deployment.
   """
-  def get_deployment_instance(client, input, http_options \\ []) do
-    request(client, "GetDeploymentInstance", input, http_options)
+  def get_deployment_instance(client, input, options \\ []) do
+    request(client, "GetDeploymentInstance", input, options)
   end
 
   @doc """
   Gets information about an on-premises instance.
   """
-  def get_on_premises_instance(client, input, http_options \\ []) do
-    request(client, "GetOnPremisesInstance", input, http_options)
+  def get_on_premises_instance(client, input, options \\ []) do
+    request(client, "GetOnPremisesInstance", input, options)
   end
 
   @doc """
   Lists information about revisions for an application.
   """
-  def list_application_revisions(client, input, http_options \\ []) do
-    request(client, "ListApplicationRevisions", input, http_options)
+  def list_application_revisions(client, input, options \\ []) do
+    request(client, "ListApplicationRevisions", input, options)
   end
 
   @doc """
   Lists the applications registered with the applicable IAM user or AWS
   account.
   """
-  def list_applications(client, input, http_options \\ []) do
-    request(client, "ListApplications", input, http_options)
+  def list_applications(client, input, options \\ []) do
+    request(client, "ListApplications", input, options)
   end
 
   @doc """
   Lists the deployment configurations with the applicable IAM user or AWS
   account.
   """
-  def list_deployment_configs(client, input, http_options \\ []) do
-    request(client, "ListDeploymentConfigs", input, http_options)
+  def list_deployment_configs(client, input, options \\ []) do
+    request(client, "ListDeploymentConfigs", input, options)
   end
 
   @doc """
   Lists the deployment groups for an application registered with the
   applicable IAM user or AWS account.
   """
-  def list_deployment_groups(client, input, http_options \\ []) do
-    request(client, "ListDeploymentGroups", input, http_options)
+  def list_deployment_groups(client, input, options \\ []) do
+    request(client, "ListDeploymentGroups", input, options)
   end
 
   @doc """
   Lists the instances for a deployment associated with the applicable IAM
   user or AWS account.
   """
-  def list_deployment_instances(client, input, http_options \\ []) do
-    request(client, "ListDeploymentInstances", input, http_options)
+  def list_deployment_instances(client, input, options \\ []) do
+    request(client, "ListDeploymentInstances", input, options)
   end
 
   @doc """
   Lists the deployments within a deployment group for an application
   registered with the applicable IAM user or AWS account.
   """
-  def list_deployments(client, input, http_options \\ []) do
-    request(client, "ListDeployments", input, http_options)
+  def list_deployments(client, input, options \\ []) do
+    request(client, "ListDeployments", input, options)
   end
 
   @doc """
@@ -254,53 +254,53 @@ defmodule AWS.CodeDeploy do
   instance names will be listed. To list only registered or deregistered
   on-premises instance names, use the registration status parameter.
   """
-  def list_on_premises_instances(client, input, http_options \\ []) do
-    request(client, "ListOnPremisesInstances", input, http_options)
+  def list_on_premises_instances(client, input, options \\ []) do
+    request(client, "ListOnPremisesInstances", input, options)
   end
 
   @doc """
   Registers with AWS CodeDeploy a revision for the specified application.
   """
-  def register_application_revision(client, input, http_options \\ []) do
-    request(client, "RegisterApplicationRevision", input, http_options)
+  def register_application_revision(client, input, options \\ []) do
+    request(client, "RegisterApplicationRevision", input, options)
   end
 
   @doc """
   Registers an on-premises instance.
   """
-  def register_on_premises_instance(client, input, http_options \\ []) do
-    request(client, "RegisterOnPremisesInstance", input, http_options)
+  def register_on_premises_instance(client, input, options \\ []) do
+    request(client, "RegisterOnPremisesInstance", input, options)
   end
 
   @doc """
   Removes one or more tags from one or more on-premises instances.
   """
-  def remove_tags_from_on_premises_instances(client, input, http_options \\ []) do
-    request(client, "RemoveTagsFromOnPremisesInstances", input, http_options)
+  def remove_tags_from_on_premises_instances(client, input, options \\ []) do
+    request(client, "RemoveTagsFromOnPremisesInstances", input, options)
   end
 
   @doc """
   Attempts to stop an ongoing deployment.
   """
-  def stop_deployment(client, input, http_options \\ []) do
-    request(client, "StopDeployment", input, http_options)
+  def stop_deployment(client, input, options \\ []) do
+    request(client, "StopDeployment", input, options)
   end
 
   @doc """
   Changes an existing application's name.
   """
-  def update_application(client, input, http_options \\ []) do
-    request(client, "UpdateApplication", input, http_options)
+  def update_application(client, input, options \\ []) do
+    request(client, "UpdateApplication", input, options)
   end
 
   @doc """
   Changes information about an existing deployment group.
   """
-  def update_deployment_group(client, input, http_options \\ []) do
-    request(client, "UpdateDeploymentGroup", input, http_options)
+  def update_deployment_group(client, input, options \\ []) do
+    request(client, "UpdateDeploymentGroup", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "codedeploy"}
     host = "codedeploy.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -309,12 +309,14 @@ defmodule AWS.CodeDeploy do
                {"X-Amz-Target", "CodeDeploy_20141006.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

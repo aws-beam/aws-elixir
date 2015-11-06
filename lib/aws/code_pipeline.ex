@@ -93,31 +93,31 @@ defmodule AWS.CodePipeline do
   Returns information about a specified job and whether that job has been
   received by the job worker. Only used for custom actions.
   """
-  def acknowledge_job(client, input, http_options \\ []) do
-    request(client, "AcknowledgeJob", input, http_options)
+  def acknowledge_job(client, input, options \\ []) do
+    request(client, "AcknowledgeJob", input, options)
   end
 
   @doc """
   Confirms a job worker has received the specified job. Only used for partner
   actions.
   """
-  def acknowledge_third_party_job(client, input, http_options \\ []) do
-    request(client, "AcknowledgeThirdPartyJob", input, http_options)
+  def acknowledge_third_party_job(client, input, options \\ []) do
+    request(client, "AcknowledgeThirdPartyJob", input, options)
   end
 
   @doc """
   Creates a new custom action that can be used in all pipelines associated
   with the AWS account. Only used for custom actions.
   """
-  def create_custom_action_type(client, input, http_options \\ []) do
-    request(client, "CreateCustomActionType", input, http_options)
+  def create_custom_action_type(client, input, options \\ []) do
+    request(client, "CreateCustomActionType", input, options)
   end
 
   @doc """
   Creates a pipeline.
   """
-  def create_pipeline(client, input, http_options \\ []) do
-    request(client, "CreatePipeline", input, http_options)
+  def create_pipeline(client, input, options \\ []) do
+    request(client, "CreatePipeline", input, options)
   end
 
   @doc """
@@ -129,30 +129,30 @@ defmodule AWS.CodePipeline do
 
   </important>
   """
-  def delete_custom_action_type(client, input, http_options \\ []) do
-    request(client, "DeleteCustomActionType", input, http_options)
+  def delete_custom_action_type(client, input, options \\ []) do
+    request(client, "DeleteCustomActionType", input, options)
   end
 
   @doc """
   Deletes the specified pipeline.
   """
-  def delete_pipeline(client, input, http_options \\ []) do
-    request(client, "DeletePipeline", input, http_options)
+  def delete_pipeline(client, input, options \\ []) do
+    request(client, "DeletePipeline", input, options)
   end
 
   @doc """
   Prevents artifacts in a pipeline from transitioning to the next stage in
   the pipeline.
   """
-  def disable_stage_transition(client, input, http_options \\ []) do
-    request(client, "DisableStageTransition", input, http_options)
+  def disable_stage_transition(client, input, options \\ []) do
+    request(client, "DisableStageTransition", input, options)
   end
 
   @doc """
   Enables artifacts in a pipeline to transition to a stage in a pipeline.
   """
-  def enable_stage_transition(client, input, http_options \\ []) do
-    request(client, "EnableStageTransition", input, http_options)
+  def enable_stage_transition(client, input, options \\ []) do
+    request(client, "EnableStageTransition", input, options)
   end
 
   @doc """
@@ -166,8 +166,8 @@ defmodule AWS.CodePipeline do
 
   </important>
   """
-  def get_job_details(client, input, http_options \\ []) do
-    request(client, "GetJobDetails", input, http_options)
+  def get_job_details(client, input, options \\ []) do
+    request(client, "GetJobDetails", input, options)
   end
 
   @doc """
@@ -176,16 +176,16 @@ defmodule AWS.CodePipeline do
   then be modified and used to update the pipeline structure with
   `UpdatePipeline`.
   """
-  def get_pipeline(client, input, http_options \\ []) do
-    request(client, "GetPipeline", input, http_options)
+  def get_pipeline(client, input, options \\ []) do
+    request(client, "GetPipeline", input, options)
   end
 
   @doc """
   Returns information about the state of a pipeline, including the stages,
   actions, and details about the last run of the pipeline.
   """
-  def get_pipeline_state(client, input, http_options \\ []) do
-    request(client, "GetPipelineState", input, http_options)
+  def get_pipeline_state(client, input, options \\ []) do
+    request(client, "GetPipelineState", input, options)
   end
 
   @doc """
@@ -200,23 +200,23 @@ defmodule AWS.CodePipeline do
 
   </important>
   """
-  def get_third_party_job_details(client, input, http_options \\ []) do
-    request(client, "GetThirdPartyJobDetails", input, http_options)
+  def get_third_party_job_details(client, input, options \\ []) do
+    request(client, "GetThirdPartyJobDetails", input, options)
   end
 
   @doc """
   Gets a summary of all AWS CodePipeline action types associated with your
   account.
   """
-  def list_action_types(client, input, http_options \\ []) do
-    request(client, "ListActionTypes", input, http_options)
+  def list_action_types(client, input, options \\ []) do
+    request(client, "ListActionTypes", input, options)
   end
 
   @doc """
   Gets a summary of all of the pipelines associated with your account.
   """
-  def list_pipelines(client, input, http_options \\ []) do
-    request(client, "ListPipelines", input, http_options)
+  def list_pipelines(client, input, options \\ []) do
+    request(client, "ListPipelines", input, options)
   end
 
   @doc """
@@ -230,8 +230,8 @@ defmodule AWS.CodePipeline do
 
   </important>
   """
-  def poll_for_jobs(client, input, http_options \\ []) do
-    request(client, "PollForJobs", input, http_options)
+  def poll_for_jobs(client, input, options \\ []) do
+    request(client, "PollForJobs", input, options)
   end
 
   @doc """
@@ -245,55 +245,55 @@ defmodule AWS.CodePipeline do
 
   </important>
   """
-  def poll_for_third_party_jobs(client, input, http_options \\ []) do
-    request(client, "PollForThirdPartyJobs", input, http_options)
+  def poll_for_third_party_jobs(client, input, options \\ []) do
+    request(client, "PollForThirdPartyJobs", input, options)
   end
 
   @doc """
   Provides information to AWS CodePipeline about new revisions to a source.
   """
-  def put_action_revision(client, input, http_options \\ []) do
-    request(client, "PutActionRevision", input, http_options)
+  def put_action_revision(client, input, options \\ []) do
+    request(client, "PutActionRevision", input, options)
   end
 
   @doc """
   Represents the failure of a job as returned to the pipeline by a job
   worker. Only used for custom actions.
   """
-  def put_job_failure_result(client, input, http_options \\ []) do
-    request(client, "PutJobFailureResult", input, http_options)
+  def put_job_failure_result(client, input, options \\ []) do
+    request(client, "PutJobFailureResult", input, options)
   end
 
   @doc """
   Represents the success of a job as returned to the pipeline by a job
   worker. Only used for custom actions.
   """
-  def put_job_success_result(client, input, http_options \\ []) do
-    request(client, "PutJobSuccessResult", input, http_options)
+  def put_job_success_result(client, input, options \\ []) do
+    request(client, "PutJobSuccessResult", input, options)
   end
 
   @doc """
   Represents the failure of a third party job as returned to the pipeline by
   a job worker. Only used for partner actions.
   """
-  def put_third_party_job_failure_result(client, input, http_options \\ []) do
-    request(client, "PutThirdPartyJobFailureResult", input, http_options)
+  def put_third_party_job_failure_result(client, input, options \\ []) do
+    request(client, "PutThirdPartyJobFailureResult", input, options)
   end
 
   @doc """
   Represents the success of a third party job as returned to the pipeline by
   a job worker. Only used for partner actions.
   """
-  def put_third_party_job_success_result(client, input, http_options \\ []) do
-    request(client, "PutThirdPartyJobSuccessResult", input, http_options)
+  def put_third_party_job_success_result(client, input, options \\ []) do
+    request(client, "PutThirdPartyJobSuccessResult", input, options)
   end
 
   @doc """
   Starts the specified pipeline. Specifically, it begins processing the
   latest commit to the source location specified as part of the pipeline.
   """
-  def start_pipeline_execution(client, input, http_options \\ []) do
-    request(client, "StartPipelineExecution", input, http_options)
+  def start_pipeline_execution(client, input, options \\ []) do
+    request(client, "StartPipelineExecution", input, options)
   end
 
   @doc """
@@ -302,11 +302,11 @@ defmodule AWS.CodePipeline do
   provide the full structure of the pipeline. Updating the pipeline increases
   the version number of the pipeline by 1.
   """
-  def update_pipeline(client, input, http_options \\ []) do
-    request(client, "UpdatePipeline", input, http_options)
+  def update_pipeline(client, input, options \\ []) do
+    request(client, "UpdatePipeline", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "codepipeline"}
     host = "codepipeline.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -315,12 +315,14 @@ defmodule AWS.CodePipeline do
                {"X-Amz-Target", "CodePipeline_20150709.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

@@ -33,8 +33,8 @@ defmodule AWS.DirectConnect do
   Allocates a VLAN number and a specified amount of bandwidth for use by a
   hosted connection on the given interconnect.
   """
-  def allocate_connection_on_interconnect(client, input, http_options \\ []) do
-    request(client, "AllocateConnectionOnInterconnect", input, http_options)
+  def allocate_connection_on_interconnect(client, input, options \\ []) do
+    request(client, "AllocateConnectionOnInterconnect", input, options)
   end
 
   @doc """
@@ -48,8 +48,8 @@ defmodule AWS.DirectConnect do
   this step has been completed, the virtual interface will be in 'Confirming'
   state, and will not be available for handling traffic.
   """
-  def allocate_private_virtual_interface(client, input, http_options \\ []) do
-    request(client, "AllocatePrivateVirtualInterface", input, http_options)
+  def allocate_private_virtual_interface(client, input, options \\ []) do
+    request(client, "AllocatePrivateVirtualInterface", input, options)
   end
 
   @doc """
@@ -63,8 +63,8 @@ defmodule AWS.DirectConnect do
   this step has been completed, the virtual interface will be in 'Confirming'
   state, and will not be available for handling traffic.
   """
-  def allocate_public_virtual_interface(client, input, http_options \\ []) do
-    request(client, "AllocatePublicVirtualInterface", input, http_options)
+  def allocate_public_virtual_interface(client, input, options \\ []) do
+    request(client, "AllocatePublicVirtualInterface", input, options)
   end
 
   @doc """
@@ -74,8 +74,8 @@ defmodule AWS.DirectConnect do
   and will remain in this state until the owner calls ConfirmConnection to
   confirm creation of the hosted connection.
   """
-  def confirm_connection(client, input, http_options \\ []) do
-    request(client, "ConfirmConnection", input, http_options)
+  def confirm_connection(client, input, options \\ []) do
+    request(client, "ConfirmConnection", input, options)
   end
 
   @doc """
@@ -86,8 +86,8 @@ defmodule AWS.DirectConnect do
   interface will be created and attached to the given virtual private
   gateway, and will be available for handling traffic.
   """
-  def confirm_private_virtual_interface(client, input, http_options \\ []) do
-    request(client, "ConfirmPrivateVirtualInterface", input, http_options)
+  def confirm_private_virtual_interface(client, input, options \\ []) do
+    request(client, "ConfirmPrivateVirtualInterface", input, options)
   end
 
   @doc """
@@ -96,8 +96,8 @@ defmodule AWS.DirectConnect do
   After the virtual interface owner calls this function, the specified
   virtual interface will be created and made available for handling traffic.
   """
-  def confirm_public_virtual_interface(client, input, http_options \\ []) do
-    request(client, "ConfirmPublicVirtualInterface", input, http_options)
+  def confirm_public_virtual_interface(client, input, options \\ []) do
+    request(client, "ConfirmPublicVirtualInterface", input, options)
   end
 
   @doc """
@@ -112,8 +112,8 @@ defmodule AWS.DirectConnect do
   connections with AWS Direct Connect locations in multiple regions, but a
   connection in one region does not provide connectivity to other regions.
   """
-  def create_connection(client, input, http_options \\ []) do
-    request(client, "CreateConnection", input, http_options)
+  def create_connection(client, input, options \\ []) do
+    request(client, "CreateConnection", input, options)
   end
 
   @doc """
@@ -135,8 +135,8 @@ defmodule AWS.DirectConnect do
   resources by creating a virtual interface on their connection, using the
   VLAN assigned to them by the AWS Direct Connect partner.
   """
-  def create_interconnect(client, input, http_options \\ []) do
-    request(client, "CreateInterconnect", input, http_options)
+  def create_interconnect(client, input, options \\ []) do
+    request(client, "CreateInterconnect", input, options)
   end
 
   @doc """
@@ -144,8 +144,8 @@ defmodule AWS.DirectConnect do
   that transports AWS Direct Connect traffic. A private virtual interface
   supports sending traffic to a single virtual private cloud (VPC).
   """
-  def create_private_virtual_interface(client, input, http_options \\ []) do
-    request(client, "CreatePrivateVirtualInterface", input, http_options)
+  def create_private_virtual_interface(client, input, options \\ []) do
+    request(client, "CreatePrivateVirtualInterface", input, options)
   end
 
   @doc """
@@ -154,8 +154,8 @@ defmodule AWS.DirectConnect do
   supports sending traffic to public services of AWS such as Amazon Simple
   Storage Service (Amazon S3).
   """
-  def create_public_virtual_interface(client, input, http_options \\ []) do
-    request(client, "CreatePublicVirtualInterface", input, http_options)
+  def create_public_virtual_interface(client, input, options \\ []) do
+    request(client, "CreatePublicVirtualInterface", input, options)
   end
 
   @doc """
@@ -166,22 +166,22 @@ defmodule AWS.DirectConnect do
   services or charges for cross-connects or network circuits that connect you
   to the AWS Direct Connect location.
   """
-  def delete_connection(client, input, http_options \\ []) do
-    request(client, "DeleteConnection", input, http_options)
+  def delete_connection(client, input, options \\ []) do
+    request(client, "DeleteConnection", input, options)
   end
 
   @doc """
   Deletes the specified interconnect.
   """
-  def delete_interconnect(client, input, http_options \\ []) do
-    request(client, "DeleteInterconnect", input, http_options)
+  def delete_interconnect(client, input, options \\ []) do
+    request(client, "DeleteInterconnect", input, options)
   end
 
   @doc """
   Deletes a virtual interface.
   """
-  def delete_virtual_interface(client, input, http_options \\ []) do
-    request(client, "DeleteVirtualInterface", input, http_options)
+  def delete_virtual_interface(client, input, options \\ []) do
+    request(client, "DeleteVirtualInterface", input, options)
   end
 
   @doc """
@@ -190,16 +190,16 @@ defmodule AWS.DirectConnect do
   If a connection ID is provided, the call returns only that particular
   connection.
   """
-  def describe_connections(client, input, http_options \\ []) do
-    request(client, "DescribeConnections", input, http_options)
+  def describe_connections(client, input, options \\ []) do
+    request(client, "DescribeConnections", input, options)
   end
 
   @doc """
   Return a list of connections that have been provisioned on the given
   interconnect.
   """
-  def describe_connections_on_interconnect(client, input, http_options \\ []) do
-    request(client, "DescribeConnectionsOnInterconnect", input, http_options)
+  def describe_connections_on_interconnect(client, input, options \\ []) do
+    request(client, "DescribeConnectionsOnInterconnect", input, options)
   end
 
   @doc """
@@ -208,8 +208,8 @@ defmodule AWS.DirectConnect do
   If an interconnect ID is provided, it will only return this particular
   interconnect.
   """
-  def describe_interconnects(client, input, http_options \\ []) do
-    request(client, "DescribeInterconnects", input, http_options)
+  def describe_interconnects(client, input, options \\ []) do
+    request(client, "DescribeInterconnects", input, options)
   end
 
   @doc """
@@ -217,8 +217,8 @@ defmodule AWS.DirectConnect do
   These are the locations that may be selected when calling CreateConnection
   or CreateInterconnect.
   """
-  def describe_locations(client, input, http_options \\ []) do
-    request(client, "DescribeLocations", input, http_options)
+  def describe_locations(client, input, options \\ []) do
+    request(client, "DescribeLocations", input, options)
   end
 
   @doc """
@@ -230,8 +230,8 @@ defmodule AWS.DirectConnect do
   CreateVpnGateway](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html)
   action.
   """
-  def describe_virtual_gateways(client, input, http_options \\ []) do
-    request(client, "DescribeVirtualGateways", input, http_options)
+  def describe_virtual_gateways(client, input, options \\ []) do
+    request(client, "DescribeVirtualGateways", input, options)
   end
 
   @doc """
@@ -249,11 +249,11 @@ defmodule AWS.DirectConnect do
   specified connection will be returned. If a virtual interface ID is
   provided, only this particular virtual interface will be returned.
   """
-  def describe_virtual_interfaces(client, input, http_options \\ []) do
-    request(client, "DescribeVirtualInterfaces", input, http_options)
+  def describe_virtual_interfaces(client, input, options \\ []) do
+    request(client, "DescribeVirtualInterfaces", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "directconnect"}
     host = "directconnect.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -262,12 +262,14 @@ defmodule AWS.DirectConnect do
                {"X-Amz-Target", "OvertureService.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

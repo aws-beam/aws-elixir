@@ -179,8 +179,8 @@ defmodule AWS.DynamoDB do
   Calculations](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations)
   in the *Amazon DynamoDB Developer Guide*.
   """
-  def batch_get_item(client, input, http_options \\ []) do
-    request(client, "BatchGetItem", input, http_options)
+  def batch_get_item(client, input, options \\ []) do
+    request(client, "BatchGetItem", input, options)
   end
 
   @doc """
@@ -261,8 +261,8 @@ defmodule AWS.DynamoDB do
 
   </li> </ul>
   """
-  def batch_write_item(client, input, http_options \\ []) do
-    request(client, "BatchWriteItem", input, http_options)
+  def batch_write_item(client, input, options \\ []) do
+    request(client, "BatchWriteItem", input, options)
   end
 
   @doc """
@@ -285,8 +285,8 @@ defmodule AWS.DynamoDB do
 
   You can use the *DescribeTable* API to check the table status.
   """
-  def create_table(client, input, http_options \\ []) do
-    request(client, "CreateTable", input, http_options)
+  def create_table(client, input, options \\ []) do
+    request(client, "CreateTable", input, options)
   end
 
   @doc """
@@ -305,8 +305,8 @@ defmodule AWS.DynamoDB do
   conditions are met. If those conditions are met, DynamoDB performs the
   delete. Otherwise, the item is not deleted.
   """
-  def delete_item(client, input, http_options \\ []) do
-    request(client, "DeleteItem", input, http_options)
+  def delete_item(client, input, options \\ []) do
+    request(client, "DeleteItem", input, options)
   end
 
   @doc """
@@ -331,8 +331,8 @@ defmodule AWS.DynamoDB do
 
   Use the *DescribeTable* API to check the status of the table.
   """
-  def delete_table(client, input, http_options \\ []) do
-    request(client, "DeleteTable", input, http_options)
+  def delete_table(client, input, options \\ []) do
+    request(client, "DeleteTable", input, options)
   end
 
   @doc """
@@ -348,8 +348,8 @@ defmodule AWS.DynamoDB do
 
   </note>
   """
-  def describe_table(client, input, http_options \\ []) do
-    request(client, "DescribeTable", input, http_options)
+  def describe_table(client, input, options \\ []) do
+    request(client, "DescribeTable", input, options)
   end
 
   @doc """
@@ -362,8 +362,8 @@ defmodule AWS.DynamoDB do
   `true`. Although a strongly consistent read might take more time than an
   eventually consistent read, it always returns the last updated value.
   """
-  def get_item(client, input, http_options \\ []) do
-    request(client, "GetItem", input, http_options)
+  def get_item(client, input, options \\ []) do
+    request(client, "GetItem", input, options)
   end
 
   @doc """
@@ -371,8 +371,8 @@ defmodule AWS.DynamoDB do
   endpoint. The output from *ListTables* is paginated, with each page
   returning a maximum of 100 table names.
   """
-  def list_tables(client, input, http_options \\ []) do
-    request(client, "ListTables", input, http_options)
+  def list_tables(client, input, options \\ []) do
+    request(client, "ListTables", input, options)
   end
 
   @doc """
@@ -404,8 +404,8 @@ defmodule AWS.DynamoDB do
   Items](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
-  def put_item(client, input, http_options \\ []) do
-    request(client, "PutItem", input, http_options)
+  def put_item(client, input, options \\ []) do
+    request(client, "PutItem", input, options)
   end
 
   @doc """
@@ -436,8 +436,8 @@ defmodule AWS.DynamoDB do
   result. Global secondary indexes support eventually consistent reads only,
   so do not specify *ConsistentRead* when querying a global secondary index.
   """
-  def query(client, input, http_options \\ []) do
-    request(client, "Query", input, http_options)
+  def query(client, input, options \\ []) do
+    request(client, "Query", input, options)
   end
 
   @doc """
@@ -463,8 +463,8 @@ defmodule AWS.DynamoDB do
   consistent reads instead by setting the *ConsistentRead* parameter to
   *true*.
   """
-  def scan(client, input, http_options \\ []) do
-    request(client, "Scan", input, http_options)
+  def scan(client, input, options \\ []) do
+    request(client, "Scan", input, options)
   end
 
   @doc """
@@ -479,8 +479,8 @@ defmodule AWS.DynamoDB do
   You can also return the item's attribute values in the same *UpdateItem*
   operation using the *ReturnValues* parameter.
   """
-  def update_item(client, input, http_options \\ []) do
-    request(client, "UpdateItem", input, http_options)
+  def update_item(client, input, options \\ []) do
+    request(client, "UpdateItem", input, options)
   end
 
   @doc """
@@ -504,11 +504,11 @@ defmodule AWS.DynamoDB do
   table returns to the `ACTIVE` state, the *UpdateTable* operation is
   complete.
   """
-  def update_table(client, input, http_options \\ []) do
-    request(client, "UpdateTable", input, http_options)
+  def update_table(client, input, options \\ []) do
+    request(client, "UpdateTable", input, options)
   end
 
-  defp request(client, action, input, http_options) do
+  defp request(client, action, input, options) do
     client = %{client | service: "dynamodb"}
     host = "dynamodb.#{client.region}.#{client.endpoint}"
     url = "https://#{host}/"
@@ -517,12 +517,14 @@ defmodule AWS.DynamoDB do
                {"X-Amz-Target", "DynamoDB_20120810.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    case HTTPoison.post(url, payload, headers, http_options) do
+    case HTTPoison.post(url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{body: body}} ->
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
         reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason, response}
+        {:error, reason}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

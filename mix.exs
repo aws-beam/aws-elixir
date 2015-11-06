@@ -32,7 +32,7 @@ defmodule AWS.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:earmark, "~> 0.1", only: :dev},
+    [{:earmark, "~> 0.1.19", only: :dev},
      {:ex_doc, "~> 0.10", only: :dev},
      {:poison, "~> 1.4.0"},
      {:httpoison, "~> 0.6"},

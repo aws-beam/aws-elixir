@@ -22,3 +22,5 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+
+#config :ex_doc, :markdown_processor, ExDoc.Markdown.Pandoc

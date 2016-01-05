@@ -43,6 +43,11 @@ end
 
 After adding `aws` as a dependency, run `mix deps.get` to install it.
 
+## Generating docs
+
+* Run `MIX_ENV=docs mix docs`
+* Open `docs/index.html`
+
 ## License
 
 Copyright 2015 Jamshed Kakar <jkakar@kakar.ca>

@@ -280,7 +280,7 @@ defmodule AWS.Support do
     request(client, "ResolveCase", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ->
+  @spec request(map(), binary(), map(), list()) ::
     {:ok, Poison.Parser.t | nil, Poison.Response.t} |
     {:error, Poison.Parser.t} |
     {:error, HTTPoison.Error.t}

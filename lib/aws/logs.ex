@@ -16,17 +16,16 @@ defmodule AWS.Logs do
   Use the following links to get started using the *Amazon CloudWatch Logs
   API Reference*:
 
-  <ul> <li>
-  [Actions](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Operations.html):
-  An alphabetical list of all Amazon CloudWatch Logs actions.</li> <li> [Data
+  <ul>
+  <li>[Actions](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Operations.html):
+  An alphabetical list of all Amazon CloudWatch Logs actions.</li> <li>[Data
   Types](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Types.html):
-  An alphabetical list of all Amazon CloudWatch Logs data types.</li> <li>
-  [Common
+  An alphabetical list of all Amazon CloudWatch Logs data types.</li>
+  <li>[Common
   Parameters](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonParameters.html):
-  Parameters that all Query actions can use.</li> <li> [Common
+  Parameters that all Query actions can use.</li> <li>[Common
   Errors](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonErrors.html):
-  Client and server errors that all actions can return.</li> <li> [Regions
-  and
+  Client and server errors that all actions can return.</li> <li>[Regions and
   Endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html):
   Itemized regions and endpoints for all AWS products.</li> </ul> In addition
   to using the Amazon CloudWatch Logs API, you can also use the following
@@ -66,6 +65,11 @@ defmodule AWS.Logs do
   this API will initiate an export task and respond with the task Id. Once
   started, `DescribeExportTasks` can be used to get the status of an export
   task.
+
+  You can export logs from multiple log groups or multiple time ranges to the
+  same Amazon S3 bucket. To separate out log data for each export task, you
+  can specify a prefix that will be used as the Amazon S3 key prefix for all
+  exported objects.
   """
   def create_export_task(client, input, options \\ []) do
     request(client, "CreateExportTask", input, options)
@@ -372,6 +376,10 @@ defmodule AWS.Logs do
     request(client, "TestMetricFilter", input, options)
   end
 
+  @spec request(map(), binary(), map(), list()) ->
+    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
+    {:error, Poison.Parser.t} |
+    {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "logs"}
     host = "logs.#{client.region}.#{client.endpoint}"
@@ -383,7 +391,7 @@ defmodule AWS.Logs do
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
-        {:ok, response}
+        {:ok, nil, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->

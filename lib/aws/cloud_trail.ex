@@ -30,7 +30,9 @@ defmodule AWS.CloudTrail do
   Adds one or more tags to a trail, up to a limit of 10. Tags must be unique
   per trail. Overwrites an existing tag's value when a new value is specified
   for an existing tag key. If you specify a key without a value, the tag will
-  be created with the specified key and a value of null.
+  be created with the specified key and a value of null. You can tag a trail
+  that applies to all regions only from the region in which the trail was
+  created (that is, from its home region).
   """
   def add_tags(client, input, options \\ []) do
     request(client, "AddTags", input, options)
@@ -38,7 +40,8 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Creates a trail that specifies the settings for delivery of log data to an
-  Amazon S3 bucket.
+  Amazon S3 bucket. A maximum of five trails can exist in a region,
+  irrespective of the region in which they were created.
   """
   def create_trail(client, input, options \\ []) do
     request(client, "CreateTrail", input, options)
@@ -46,7 +49,9 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Deletes a trail. This operation must be called from the region in which the
-  trail was created.
+  trail was created. `DeleteTrail` cannot be called on the shadow trails
+  (replicated trails in other regions) of a trail that is enabled in all
+  regions.
   """
   def delete_trail(client, input, options \\ []) do
     request(client, "DeleteTrail", input, options)
@@ -86,6 +91,8 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Lists the tags for the specified trail or trails in the current region.
+
   Lists the tags for the trail in the current region.
   """
   def list_tags(client, input, options \\ []) do
@@ -123,6 +130,10 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Starts the recording of AWS API calls and log file delivery for a trail.
+  For a trail that is enabled in all regions, this operation must be called
+  from the region in which the trail was created. This operation cannot be
+  called on the shadow trails (replicated trails in other regions) of a trail
+  that is enabled in all regions.
   """
   def start_logging(client, input, options \\ []) do
     request(client, "StartLogging", input, options)
@@ -132,7 +143,11 @@ defmodule AWS.CloudTrail do
   Suspends the recording of AWS API calls and log file delivery for the
   specified trail. Under most circumstances, there is no need to use this
   action. You can update a trail without stopping it first. This action is
-  the only way to stop recording.
+  the only way to stop recording. For a trail enabled in all regions, this
+  operation must be called from the region in which the trail was created, or
+  an `InvalidHomeRegionException` will occur. This operation cannot be called
+  on the shadow trails (replicated trails in other regions) of a trail
+  enabled in all regions.
   """
   def stop_logging(client, input, options \\ []) do
     request(client, "StopLogging", input, options)
@@ -143,12 +158,17 @@ defmodule AWS.CloudTrail do
   do not require stopping the CloudTrail service. Use this action to
   designate an existing bucket for log delivery. If the existing bucket has
   previously been a target for CloudTrail log files, an IAM policy exists for
-  the bucket.
+  the bucket. `UpdateTrail` must be called from the region in which the trail
+  was created; otherwise, an `InvalidHomeRegionException` is thrown.
   """
   def update_trail(client, input, options \\ []) do
     request(client, "UpdateTrail", input, options)
   end
 
+  @spec request(map(), binary(), map(), list()) ->
+    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
+    {:error, Poison.Parser.t} |
+    {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "cloudtrail"}
     host = "cloudtrail.#{client.region}.#{client.endpoint}"
@@ -160,7 +180,7 @@ defmodule AWS.CloudTrail do
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
-        {:ok, response}
+        {:ok, nil, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->

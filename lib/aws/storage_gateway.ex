@@ -786,6 +786,10 @@ defmodule AWS.StorageGateway do
     request(client, "UpdateVTLDeviceType", input, options)
   end
 
+  @spec request(map(), binary(), map(), list()) ->
+    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
+    {:error, Poison.Parser.t} |
+    {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "storagegateway"}
     host = "storagegateway.#{client.region}.#{client.endpoint}"
@@ -797,7 +801,7 @@ defmodule AWS.StorageGateway do
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
-        {:ok, response}
+        {:ok, nil, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->

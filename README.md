@@ -41,6 +41,11 @@ iex> IO.inspect result
 
 Code is generated using the [aws-codegen](https://github.com/jkakar/aws-codegen) library, from the JSON descriptions of AWS services provided by Amazon.
 
+## Documentation
+
+* Run `MIX_ENV=docs mix docs`
+* Open `docs/index.html`
+
 ## Tests
 
 ```

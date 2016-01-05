@@ -11,7 +11,7 @@ defmodule AWS.DirectoryService do
   """
 
   @doc """
-  Creates an AD Connector to connect an on-premises directory.
+  Creates an AD Connector to connect to an on-premises directory.
   """
   def connect_directory(client, input, options \\ []) do
     request(client, "ConnectDirectory", input, options)
@@ -20,7 +20,7 @@ defmodule AWS.DirectoryService do
   @doc """
   Creates an alias for a directory and assigns the alias to the directory.
   The alias is used to construct the access URL for the directory, such as
-  `http://&#x3C;alias&#x3E;.awsapps.com`.
+  `http://<![CDATA[&#x3C;]]>alias<![CDATA[&#x3E;]]>.awsapps.com`.
 
   <important> After an alias has been created, it cannot be deleted or
   reused, so this operation should only be used when absolutely necessary.
@@ -47,12 +47,36 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Creates a snapshot of an existing directory.
+  Creates a Microsoft AD in the AWS cloud.
+  """
+  def create_microsoft_a_d(client, input, options \\ []) do
+    request(client, "CreateMicrosoftAD", input, options)
+  end
 
-  You cannot take snapshots of extended or connected directories.
+  @doc """
+  Creates a snapshot of a Simple AD directory.
+
+  <note> You cannot take snapshots of AD Connector directories.
+
+  </note>
   """
   def create_snapshot(client, input, options \\ []) do
     request(client, "CreateSnapshot", input, options)
+  end
+
+  @doc """
+  AWS Directory Service for Microsoft Active Directory allows you to
+  configure trust relationships. For example, you can establish a trust
+  between your Microsoft AD in the AWS cloud, and your existing on-premises
+  Microsoft Active Directory. This would allow you to provide users and
+  groups access to resources in either domain, with a single set of
+  credentials.
+
+  This action initiates the creation of the AWS side of a trust relationship
+  between a Microsoft AD in the AWS cloud and an external domain.
+  """
+  def create_trust(client, input, options \\ []) do
+    request(client, "CreateTrust", input, options)
   end
 
   @doc """
@@ -67,6 +91,14 @@ defmodule AWS.DirectoryService do
   """
   def delete_snapshot(client, input, options \\ []) do
     request(client, "DeleteSnapshot", input, options)
+  end
+
+  @doc """
+  Deletes an existing trust relationship between your Microsoft AD in the AWS
+  cloud and an external domain.
+  """
+  def delete_trust(client, input, options \\ []) do
+    request(client, "DeleteTrust", input, options)
   end
 
   @doc """
@@ -106,8 +138,18 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Disables multi-factor authentication (MFA) with Remote Authentication Dial
-  In User Service (RADIUS) for an AD Connector directory.
+  Obtains information about the trust relationships for this account.
+
+  If no input parameters are provided, such as DirectoryId or TrustIds, this
+  request describes all the trust relationships belonging to the account.
+  """
+  def describe_trusts(client, input, options \\ []) do
+    request(client, "DescribeTrusts", input, options)
+  end
+
+  @doc """
+  Disables multi-factor authentication (MFA) with the Remote Authentication
+  Dial In User Service (RADIUS) server for an AD Connector directory.
   """
   def disable_radius(client, input, options \\ []) do
     request(client, "DisableRadius", input, options)
@@ -121,8 +163,8 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Enables multi-factor authentication (MFA) with Remote Authentication Dial
-  In User Service (RADIUS) for an AD Connector directory.
+  Enables multi-factor authentication (MFA) with the Remote Authentication
+  Dial In User Service (RADIUS) server for an AD Connector directory.
   """
   def enable_radius(client, input, options \\ []) do
     request(client, "EnableRadius", input, options)
@@ -173,6 +215,21 @@ defmodule AWS.DirectoryService do
     request(client, "UpdateRadius", input, options)
   end
 
+  @doc """
+  AWS Directory Service for Microsoft Active Directory allows you to
+  configure and verify trust relationships.
+
+  This action verifies a trust relationship between your Microsoft AD in the
+  AWS cloud and an external domain.
+  """
+  def verify_trust(client, input, options \\ []) do
+    request(client, "VerifyTrust", input, options)
+  end
+
+  @spec request(map(), binary(), map(), list()) ::
+    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
+    {:error, Poison.Parser.t} |
+    {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "ds"}
     host = "ds.#{client.region}.#{client.endpoint}"
@@ -184,7 +241,7 @@ defmodule AWS.DirectoryService do
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
-        {:ok, response}
+        {:ok, nil, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->

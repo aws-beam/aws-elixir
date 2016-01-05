@@ -9,6 +9,11 @@ All notable changes to this project will be documented in this file.
 - All services return a `{:error, reason, response}` tuple when an
   unsuccessful HTTP status code is returned (previously the `response` was not
   included).
+- Services return an `{:ok, nil, response}` 3-tuple, instead of the `{:ok,
+  response}` 2-tuple that was previously returned, when an AWS service
+  endpoint returns a successful HTTP status with an empty response body.
+- `AWS.DirectoryService` module has new functionality for managing and
+  verifying trust relationships.
 
 ### Fixed
 - An empty body returned alongside an HTTP 200 from an AWS service isn't

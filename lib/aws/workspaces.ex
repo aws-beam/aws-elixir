@@ -126,6 +126,10 @@ defmodule AWS.Workspaces do
     request(client, "TerminateWorkspaces", input, options)
   end
 
+  @spec request(map(), binary(), map(), list()) ::
+    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
+    {:error, Poison.Parser.t} |
+    {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "workspaces"}
     host = "workspaces.#{client.region}.#{client.endpoint}"
@@ -137,7 +141,7 @@ defmodule AWS.Workspaces do
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
-        {:ok, response}
+        {:ok, nil, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->

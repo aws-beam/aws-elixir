@@ -96,7 +96,7 @@ defmodule AWS.Config do
   verify that the AWS Lambda execution role includes the
   `config:PutEvaluations` permission.</li> <li>The rule's AWS Lambda function
   has returned `NOT_APPLICABLE` for all evaluation results. This can occur if
-  the resources were deleted or removed from the rule's scope.</li> </ul>
+  the resources were deleted or removed from the rule's scope.</li></ul>
   """
   def describe_compliance_by_config_rule(client, input, options \\ []) do
     request(client, "DescribeComplianceByConfigRule", input, options)
@@ -123,8 +123,8 @@ defmodule AWS.Config do
   customer managed rule, verify that the AWS Lambda execution role includes
   the `config:PutEvaluations` permission.</li> <li>The rule's AWS Lambda
   function has returned `NOT_APPLICABLE` for all evaluation results. This can
-  occur if the resources were deleted or removed from the rule's scope.</li>
-  </ul>
+  occur if the resources were deleted or removed from the rule's
+  scope.</li></ul>
   """
   def describe_compliance_by_resource(client, input, options \\ []) do
     request(client, "DescribeComplianceByResource", input, options)
@@ -309,6 +309,8 @@ defmodule AWS.Config do
   [Evaluating AWS Resource Configurations with AWS
   Config](http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html)
   in the *AWS Config Developer Guide*.
+
+  <p/>
   """
   def put_config_rule(client, input, options \\ []) do
     request(client, "PutConfigRule", input, options)
@@ -381,6 +383,10 @@ defmodule AWS.Config do
     request(client, "StopConfigurationRecorder", input, options)
   end
 
+  @spec request(map(), binary(), map(), list()) ::
+    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
+    {:error, Poison.Parser.t} |
+    {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "config"}
     host = "config.#{client.region}.#{client.endpoint}"
@@ -392,7 +398,7 @@ defmodule AWS.Config do
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
-        {:ok, response}
+        {:ok, nil, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->

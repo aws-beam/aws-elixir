@@ -109,7 +109,7 @@ defmodule AWS.CloudSearch.Domain do
   end
 
   defp request(client, method, url, headers, input, options, success_status_code) do
-    client = %{client | service: "cloudsearchdomain"}
+    client = %{client | service: "cloudsearch"}
     host = "cloudsearchdomain.#{client.region}.#{client.endpoint}"
     url = "https://#{host}#{url}"
     headers = Enum.concat([{"Host", host},

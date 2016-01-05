@@ -15,14 +15,14 @@ defmodule AWS.DirectConnect do
   Connect. Use the following links to get started using the *AWS Direct
   Connect API Reference*:
 
-  <ul> <li>
-  [Actions](http://docs.aws.amazon.com/directconnect/latest/APIReference/API_Operations.html):
-  An alphabetical list of all AWS Direct Connect actions.</li> <li> [Data
+  <ul>
+  <li>[Actions](http://docs.aws.amazon.com/directconnect/latest/APIReference/API_Operations.html):
+  An alphabetical list of all AWS Direct Connect actions.</li> <li>[Data
   Types](http://docs.aws.amazon.com/directconnect/latest/APIReference/API_Types.html):
-  An alphabetical list of all AWS Direct Connect data types.</li> <li>
-  [Common Query
+  An alphabetical list of all AWS Direct Connect data types.</li> <li>[Common
+  Query
   Parameters](http://docs.aws.amazon.com/directconnect/latest/APIReference/CommonParameters.html):
-  Parameters that all Query actions can use.</li> <li> [Common
+  Parameters that all Query actions can use.</li> <li>[Common
   Errors](http://docs.aws.amazon.com/directconnect/latest/APIReference/CommonErrors.html):
   Client and server errors that all actions can return.</li> </ul>
   """
@@ -253,6 +253,10 @@ defmodule AWS.DirectConnect do
     request(client, "DescribeVirtualInterfaces", input, options)
   end
 
+  @spec request(map(), binary(), map(), list()) ::
+    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
+    {:error, Poison.Parser.t} |
+    {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "directconnect"}
     host = "directconnect.#{client.region}.#{client.endpoint}"
@@ -264,7 +268,7 @@ defmodule AWS.DirectConnect do
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
-        {:ok, response}
+        {:ok, nil, response}
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->

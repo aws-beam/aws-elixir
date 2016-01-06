@@ -250,8 +250,8 @@ defmodule AWS.SSM do
     {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "ssm"}
-    host = "ssm.#{client.region}.#{client.endpoint}"
-    url = "https://#{host}/"
+    host = get_host("ssm", client)
+    url = get_url(host, client)
     headers = [{"Host", host},
                {"Content-Type", "application/x-amz-json-1.1"},
                {"X-Amz-Target", "AmazonSSM.#{action}"}]
@@ -269,4 +269,17 @@ defmodule AWS.SSM do
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
+
+  defp get_host(endpoint_prefix, client) do
+    if client.region == "local" do
+      "localhost"
+    else
+      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
+    end
+  end
+
+  defp get_url(host, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}"
+  end
+
 end

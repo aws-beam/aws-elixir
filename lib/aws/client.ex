@@ -7,5 +7,8 @@ defmodule AWS.Client do
             secret_access_key: nil,
             region: nil,
             endpoint: nil,
-            service: nil
+            service: nil,
+            proto: "https",
+            port: "443"
+
 end

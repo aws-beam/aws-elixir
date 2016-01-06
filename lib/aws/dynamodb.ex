@@ -514,8 +514,8 @@ defmodule AWS.DynamoDB do
     {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "dynamodb"}
-    host = "dynamodb.#{client.region}.#{client.endpoint}"
-    url = "https://#{host}/"
+    host = get_host("dynamodb", client)
+    url = get_url(host, client)
     headers = [{"Host", host},
                {"Content-Type", "application/x-amz-json-1.0"},
                {"X-Amz-Target", "DynamoDB_20120810.#{action}"}]
@@ -533,4 +533,17 @@ defmodule AWS.DynamoDB do
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
+
+  defp get_host(endpoint_prefix, client) do
+    if client.region == "local" do
+      "localhost"
+    else
+      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
+    end
+  end
+
+  defp get_url(host, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}"
+  end
+
 end

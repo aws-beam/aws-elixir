@@ -45,7 +45,7 @@ defmodule AWS.Mixfile do
   end
 
   defp package do
-    [contributors: ["Jamu Kakar"],
+    [maintainers: ["Jamu Kakar"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/jkakar/aws-elixir",
               "Docs" => "http://hexdocs.pm/aws/#{version}/",

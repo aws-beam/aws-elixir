@@ -28,8 +28,8 @@ defmodule AWS.MobileAnalytics do
 
   defp request(client, method, url, headers, input, options, success_status_code) do
     client = %{client | service: "mobileanalytics"}
-    host = "mobileanalytics.#{client.region}.#{client.endpoint}"
-    url = "https://#{host}#{url}"
+    host = get_host("mobileanalytics", client)
+    url = get_url(host, url, client)
     headers = Enum.concat([{"Host", host},
                            {"Content-Type", "application/x-amz-json-1.1"}],
                           headers)
@@ -66,6 +66,18 @@ defmodule AWS.MobileAnalytics do
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
+  end
+
+  defp get_host(endpoint_prefix, client) do
+    if client.region == "local" do
+      "localhost"
+    else
+      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
+    end
+  end
+
+  defp get_url(host, url, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{url}/"
   end
 
   defp encode_payload(input) do

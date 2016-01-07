@@ -109,8 +109,8 @@ defmodule AWS.DynamoDB.Streams do
     {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
     client = %{client | service: "streams.dynamodb"}
-    host = "streams.dynamodb.#{client.region}.#{client.endpoint}"
-    url = "https://#{host}/"
+    host = get_host("streams.dynamodb", client)
+    url = get_url(host, client)
     headers = [{"Host", host},
                {"Content-Type", "application/x-amz-json-1.0"},
                {"X-Amz-Target", "DynamoDBStreams_20120810.#{action}"}]
@@ -128,4 +128,17 @@ defmodule AWS.DynamoDB.Streams do
         {:error, %HTTPoison.Error{reason: reason}}
     end
   end
+
+  defp get_host(endpoint_prefix, client) do
+    if client.region == "local" do
+      "localhost"
+    else
+      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
+    end
+  end
+
+  defp get_url(host, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}/"
+  end
+
 end

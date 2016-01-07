@@ -335,7 +335,7 @@ defmodule AWS.CodeDeploy do
   end
 
   defp get_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}"
+    "#{proto}://#{host}:#{port}/"
   end
 
 end

@@ -94,6 +94,7 @@ defmodule AWS.Request.Internal do
 
   def canonical_request(method, url, headers, body) do
     {canonical_url, canonical_query_string} = split_url(url)
+    IO.puts "url: #{inspect url}  canonical_url: #{inspect canonical_url}  canonical_query_string: #{inspect canonical_query_string}"
     canonical_headers = canonical_headers(headers)
     signed_headers = signed_headers(headers)
     payload_hash = AWS.Util.sha256_hexdigest(body)

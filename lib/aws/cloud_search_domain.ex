@@ -159,7 +159,7 @@ defmodule AWS.CloudSearch.Domain do
   end
 
   defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}"
+    "#{proto}://#{host}:#{port}#{url}/"
   end
 
   defp encode_payload(input) do

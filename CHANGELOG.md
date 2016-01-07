@@ -4,16 +4,30 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.0.6] - 2016-01-06
+### Added
+- `AWS.DirectoryService` module has new functionality for managing and
+  verifying trust relationships.
+- `AWS.Client` has new `proto` and `port` members that can be used to create a
+  client that is suitable for use with Local DynamoDB.  In this situation, the
+  region should be set to `local`, the protocol to `http` and the port should
+  match the running Local DynamoDB instance.
+- `AWS.ECS` has updated documentation.
+- `AWS.Logs` has updated documentation.
+- `AWS.SSM` has updated documentation.
+
+### Changed
+- Services return an `{:ok, nil, response}` 3-tuple, instead of the `{:ok,
+  response}` 2-tuple that was previously returned, when an AWS service
+  endpoint returns a successful HTTP status with an empty response body.
+- Relax `Poison` dependency to 1.2.0 to maintain compatibility with
+  [ex_aws](https://hex.pm/packages/ex_aws).
+
 ## [v0.0.5] - 2015-11-06
 ### Changed
 - All services return a `{:error, reason, response}` tuple when an
   unsuccessful HTTP status code is returned (previously the `response` was not
   included).
-- Services return an `{:ok, nil, response}` 3-tuple, instead of the `{:ok,
-  response}` 2-tuple that was previously returned, when an AWS service
-  endpoint returns a successful HTTP status with an empty response body.
-- `AWS.DirectoryService` module has new functionality for managing and
-  verifying trust relationships.
 
 ### Fixed
 - An empty body returned alongside an HTTP 200 from an AWS service isn't
@@ -96,7 +110,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.5...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.6...HEAD
+[v0.0.6]: https://github.com/jkakar/aws-elixir/compare/v0.0.5...v0.0.6
 [v0.0.5]: https://github.com/jkakar/aws-elixir/compare/v0.0.4...v0.0.5
 [v0.0.4]: https://github.com/jkakar/aws-elixir/compare/v0.0.3...v0.0.4
 [v0.0.3]: https://github.com/jkakar/aws-elixir/compare/v0.0.2...v0.0.3

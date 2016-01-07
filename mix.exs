@@ -36,12 +36,12 @@ defmodule AWS.Mixfile do
      {:earmark, "~> 0.2.0", only: :docs},
      {:ex_doc, "~> 0.11.3", only: :docs},
      {:httpoison, "~> 0.8.0"},
-     {:poison, "~> 1.5.0"},
+     {:poison, "~> 1.2.0"},
      {:timex, "~> 1.0.0"}]
   end
 
   defp version do
-    "0.0.5"
+    "0.0.6"
   end
 
   defp package do

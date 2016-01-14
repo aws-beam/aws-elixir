@@ -30,7 +30,7 @@ iex> IO.inspect result
 
   ```elixir
   def deps do
-    [{:aws, "~> 0.0.6"}]
+    [{:aws, "~> 0.0.7"}]
   end
   ```
 
@@ -51,6 +51,15 @@ Code is generated using the [aws-codegen](https://github.com/jkakar/aws-codegen)
 ```
 mix test
 ```
+
+## Release
+
+* Make sure the `CHANGELOG.md` is up-to-date and and reflects the changes for
+  the new version.
+* Bump the version here in the `README.md` and in `mix.exs`.
+* Run `git tag $VERSION` to tag the version that was just published.
+* Run `mix hex.publish` to publish the new version.
+* Run `mix hex.docs` to publish the documentation.
 
 ## License
 

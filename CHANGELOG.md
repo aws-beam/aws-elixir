@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Trailing slashes that were causing signing errors in generated URLs in the
   Lambda client have been removed.  Thanks Akash Manohar aka @HashNuke.
+- REST-JSON clients, including `AWS.CloudSearchDomain`, `AWS.CognitoSync`,
+  `AWS.EFS`, `AWS.Glacier`, `AWS.Lambda`, `AWS.MobileAnalytics` and
+  `AWS.Transcoder` correctly handle responses with empty bodies.  Thanks Akash
+  Manohar aka @HashNuke.
 
 ## [v0.0.6] - 2016-01-06
 ### Added

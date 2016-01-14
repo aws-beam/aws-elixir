@@ -140,6 +140,8 @@ defmodule AWS.CloudSearch.Domain do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+        {:ok, nil, response}
       {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->

@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+### Fixed
+- Trailing slashes that were causing signing errors in generated URLs in the
+  Lambda client have been removed.  Thanks Akash Manohar aka @HashNuke.
 
 ## [v0.0.6] - 2016-01-06
 ### Added

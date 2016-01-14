@@ -77,7 +77,7 @@ defmodule AWS.Lambda do
   `lambda:CreateEventSourceMapping` action.
   """
   def create_event_source_mapping(client, input, options \\ []) do
-    url = "/2015-03-31/event-source-mappings/"
+    url = "/2015-03-31/event-source-mappings"
     headers = []
     request(client, :post, url, headers, input, options, 202)
   end
@@ -287,7 +287,7 @@ defmodule AWS.Lambda do
   This operation requires permission for the `lambda:InvokeFunction` action.
   """
   def invoke_async(client, function_name, input, options \\ []) do
-    url = "/2014-11-13/functions/#{URI.encode(function_name)}/invoke-async/"
+    url = "/2014-11-13/functions/#{URI.encode(function_name)}/invoke-async"
     headers = []
     request(client, :post, url, headers, input, options, 202)
   end
@@ -320,7 +320,7 @@ defmodule AWS.Lambda do
   action.
   """
   def list_event_source_mappings(client, options \\ []) do
-    url = "/2015-03-31/event-source-mappings/"
+    url = "/2015-03-31/event-source-mappings"
     headers = []
     request(client, :get, url, headers, nil, options, 200)
   end
@@ -333,7 +333,7 @@ defmodule AWS.Lambda do
   This operation requires permission for the `lambda:ListFunctions` action.
   """
   def list_functions(client, options \\ []) do
-    url = "/2015-03-31/functions/"
+    url = "/2015-03-31/functions"
     headers = []
     request(client, :get, url, headers, nil, options, 200)
   end

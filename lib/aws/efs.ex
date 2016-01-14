@@ -307,7 +307,7 @@ defmodule AWS.EFS do
   action.
   """
   def describe_tags(client, file_system_id, options \\ []) do
-    url = "/2015-02-01/tags/#{URI.encode(file_system_id)}/"
+    url = "/2015-02-01/tags/#{URI.encode(file_system_id)}"
     headers = []
     request(client, :get, url, headers, nil, options, 200)
   end

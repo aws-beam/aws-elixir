@@ -47,44 +47,79 @@ defmodule AWS.SSM do
   more information, see [Managing Windows Instance
   Configuration](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html).
 
-  <para>SSM Config and Run Command include the following pre-defined
-  documents.</para> <table> <title>Amazon Pre-defined SSM Documents</title>
-  <tgroup cols="3"> <colspec colname="col1" colnum="1" colwidth="1*"/>
-  <colspec colname="col2" colnum="2" colwidth="1*"/> <colspec colname="col3"
-  colnum="3" colwidth="1*"/> <thead> <row> <entry>Name</entry>
+  SSM Config and Run Command include the following pre-defined documents.
+
+  <table> <title>Amazon Pre-defined SSM Documents</title> <tgroup cols="3">
+  <colspec colname="col1" colnum="1" colwidth="1*"/> <colspec colname="col2"
+  colnum="2" colwidth="1*"/> <colspec colname="col3" colnum="3"
+  colwidth="1*"/> <thead> <row> <entry>Name</entry>
   <entry>Description</entry> <entry>Platform</entry> </row> </thead> <tbody>
-  <row> <entry> <para>AWS-RunShellScript</para> </entry> <entry> <para>Run
-  shell scripts</para> </entry> <entry> <para>Linux</para> </entry> </row>
-  <row> <entry> <para>AWS-UpdateSSMAgent</para> </entry> <entry> <para>Update
-  the Amazon SSM agent</para> </entry> <entry> <para>Linux</para> </entry>
-  </row> <row> <entry> <para>AWS-JoinDirectoryServiceDomain </para> </entry>
-  <entry> <para>Join an AWS Directory </para> </entry> <entry>
-  <para>Windows</para> </entry> </row> <row> <entry>
-  <para>AWS-RunPowerShellScript</para> </entry> <entry> <para>Run PowerShell
-  commands or scripts</para> </entry> <entry> <para>Windows</para> </entry>
-  </row> <row> <entry> <para>AWS-UpdateEC2Config</para> </entry> <entry>
-  <para>Update the EC2Config service </para> </entry> <entry>
-  <para>Windows</para> </entry> </row> <row> <entry>
-  <para>AWS-ConfigureWindowsUpdate</para> </entry> <entry> <para>Configure
-  Windows Update settings</para> </entry> <entry> <para>Windows</para>
-  </entry> </row> <row> <entry> <para>AWS-InstallApplication</para> </entry>
-  <entry> <para>Install, repair, or uninstall software using an MSI
-  package</para> </entry> <entry> <para>Windows</para> </entry> </row> <row>
-  <entry> <para>AWS-InstallPowerShellModule</para> </entry> <entry>
-  <para>Install PowerShell modules </para> </entry> <entry>
-  <para>Windows</para> </entry> </row> <row> <entry>
-  <para>AWS-ConfigureCloudWatch</para> </entry> <entry> <para>Configure
-  Amazon CloudWatch Logs to monitor applications and systems</para> </entry>
-  <entry> <para>Windows</para> </entry> </row> </tbody> </tgroup> </table>
-  <important> <simpara>The commands or scripts specified in SSM documents run
-  with administrative privilege on your instances because the Amazon SSM
-  agent runs as root on Linux and the EC2Config service runs in the Local
-  System account on Windows. If a user has permission to execute any of the
-  pre-defined SSM documents (any document that begins with AWS-*) then that
-  user also has administrator access to the instance. Delegate access to SSM
-  and Run Command judiciously. This becomes extremely important if you create
-  your own SSM documents. Amazon Web Services does not provide guidance about
-  how to create secure SSM documents. You create SSM documents and delegate
+  <row> <entry> AWS-RunShellScript
+
+  </entry> <entry> Run shell scripts
+
+  </entry> <entry> Linux
+
+  </entry> </row> <row> <entry> AWS-UpdateSSMAgent
+
+  </entry> <entry> Update the Amazon SSM agent
+
+  </entry> <entry> Linux
+
+  </entry> </row> <row> <entry> AWS-JoinDirectoryServiceDomain
+
+  </entry> <entry> Join an AWS Directory
+
+  </entry> <entry> Windows
+
+  </entry> </row> <row> <entry> AWS-RunPowerShellScript
+
+  </entry> <entry> Run PowerShell commands or scripts
+
+  </entry> <entry> Windows
+
+  </entry> </row> <row> <entry> AWS-UpdateEC2Config
+
+  </entry> <entry> Update the EC2Config service
+
+  </entry> <entry> Windows
+
+  </entry> </row> <row> <entry> AWS-ConfigureWindowsUpdate
+
+  </entry> <entry> Configure Windows Update settings
+
+  </entry> <entry> Windows
+
+  </entry> </row> <row> <entry> AWS-InstallApplication
+
+  </entry> <entry> Install, repair, or uninstall software using an MSI
+  package
+
+  </entry> <entry> Windows
+
+  </entry> </row> <row> <entry> AWS-InstallPowerShellModule
+
+  </entry> <entry> Install PowerShell modules
+
+  </entry> <entry> Windows
+
+  </entry> </row> <row> <entry> AWS-ConfigureCloudWatch
+
+  </entry> <entry> Configure Amazon CloudWatch Logs to monitor applications
+  and systems
+
+  </entry> <entry> Windows
+
+  </entry> </row> </tbody> </tgroup> </table> <important> <simpara>The
+  commands or scripts specified in SSM documents run with administrative
+  privilege on your instances because the Amazon SSM agent runs as root on
+  Linux and the EC2Config service runs in the Local System account on
+  Windows. If a user has permission to execute any of the pre-defined SSM
+  documents (any document that begins with AWS-*) then that user also has
+  administrator access to the instance. Delegate access to SSM and Run
+  Command judiciously. This becomes extremely important if you create your
+  own SSM documents. Amazon Web Services does not provide guidance about how
+  to create secure SSM documents. You create SSM documents and delegate
   access to Run Command at your own risk. As a security best practice, we
   recommend that you assign access to "AWS-*" documents, especially the
   AWS-RunShellScript document on Linux and the AWS-RunPowerShellScript

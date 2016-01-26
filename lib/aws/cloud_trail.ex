@@ -184,8 +184,10 @@ defmodule AWS.CloudTrail do
       {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
         {:ok, Poison.Parser.parse!(body), response}
       {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["__type"]
-        {:error, reason}
+        error = Poison.Parser.parse!(body)
+        exception = error["__type"]
+        message = error["message"]
+        {:error, {exception, message}}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

@@ -32,6 +32,44 @@ defmodule AWS.Request do
                                            signature)
     Internal.add_authorization_header(headers, authorization)
   end
+
+  @doc """
+  Generate headers with an AWS signature version 4 for the specified request that can be transformed into a query string.
+  """
+  def sign_v4_query(client, method, url, headers, body) do
+    sign_v4_query(client, Timex.Date.universal, method, url, headers, body)
+  end
+
+  @doc """
+  Generate headers with an AWS signature version 4 for the specified request using the specified time that can be transformed into a query string.
+  """
+  def sign_v4_query(client, now, method, url, headers, body) do
+    {:ok, long_date} = Timex.DateFormat.format(now, "{YYYY}{0M}{0D}T{0h24}{0m}{0s}Z")
+    {:ok, short_date} = Timex.DateFormat.format(now, "{YYYY}{0M}{0D}")
+    headers = Internal.add_date_header(headers, long_date)
+    canonical_request = Internal.canonical_request(method, url, headers, body)
+    hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
+    credential_scope = Internal.credential_scope(short_date, client.region,
+                                                 client.service)
+    signing_key = Internal.signing_key(client.secret_access_key, short_date,
+                                       client.region, client.service)
+    string_to_sign = Internal.string_to_sign(long_date, credential_scope,
+                                             hashed_canonical_request)
+    signature = Util.hmac_sha256_hexdigest(signing_key, string_to_sign)
+    signed_headers = Internal.signed_headers(headers)
+    credential = Enum.join([client.access_key_id, client.region,
+                            client.service, "aws4_request"], "/")
+    result = [{"X-Amz-Algorithm", "AWS4-HMAC-SHA256"},
+              {"X-Amz-Credential", credential},
+              {"X-Amz-Date", long_date},
+              {"X-Amz-SignedHeaders", signed_headers},
+              {"X-Amz-Signature", signature}]
+    if expiry = :proplists.get_value("X-Amz-Expires", headers, nil) do
+      [{"X-Amz-Expires", expiry}|result]
+    else
+      result
+    end
+  end
 end
 
 defmodule AWS.Request.Internal do

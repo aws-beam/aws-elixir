@@ -3,7 +3,7 @@ defmodule AWS.RequestTest do
   alias AWS.Client
   alias AWS.Request
 
-  test "sign_request/6 extracts credentials, service and region information from a Client map, generates an AWS signature version 4 for a request, and returns a new set of HTTP headers with Authorization and X-Aws-Date headers" do
+  test "sign_v4 extracts credentials, service and region information from a Client map, generates an AWS signature version 4 for a request, and returns a new set of HTTP headers with Authorization and X-Aws-Date headers" do
     client = %Client{access_key_id: "access-key-id",
                      secret_access_key: "secret-access-key",
                      region: "us-east-1",
@@ -17,6 +17,26 @@ defmodule AWS.RequestTest do
                 {"X-Amz-Date", "20150514T165005Z"},
                 {"Host", "ec2.us-east-1.amazonaws.com"},
                 {"Header", "Value"}]
+    assert expected == actual
+  end
+
+  test "sign_v4_query returns a map with header/value pairs suitable for use in a query string" do
+    client = %Client{access_key_id: "access-key-id",
+                     secret_access_key: "secret-access-key",
+                     region: "us-east-1",
+                     service: "ec2"}
+    now = Timex.Date.from({{2015, 5, 14}, {16, 50, 5}})
+    method = "GET"
+    url = "https://s3.us-east-1.amazonaws.com/bucket"
+    headers = [{"Host", "ec2.us-east-1.amazonaws.com"},
+               {"X-Amz-Expires", "86400"}]
+    actual = Request.sign_v4_query(client, now, method, url, headers, "")
+    expected = [{"X-Amz-Expires", "86400"},
+                {"X-Amz-Algorithm", "AWS4-HMAC-SHA256"},
+                {"X-Amz-Credential", "access-key-id/us-east-1/ec2/aws4_request"},
+                {"X-Amz-Date", "20150514T165005Z"},
+                {"X-Amz-SignedHeaders", "host;x-amz-date;x-amz-expires"},
+                {"X-Amz-Signature", "c16e00732fa6c75a2b4d88a5980e2050af10be730e98a9b5e0352f331c292874"}]
     assert expected == actual
   end
 end

@@ -57,7 +57,7 @@ defmodule AWS.Request do
                                              hashed_canonical_request)
     signature = Util.hmac_sha256_hexdigest(signing_key, string_to_sign)
     signed_headers = Internal.signed_headers(headers)
-    credential = Enum.join([client.access_key_id, client.region,
+    credential = Enum.join([client.access_key_id, short_date, client.region,
                             client.service, "aws4_request"], "/")
     result = [{"X-Amz-Algorithm", "AWS4-HMAC-SHA256"},
               {"X-Amz-Credential", credential},

@@ -33,7 +33,7 @@ defmodule AWS.RequestTest do
     actual = Request.sign_v4_query(client, now, method, url, headers, "")
     expected = [{"X-Amz-Expires", "86400"},
                 {"X-Amz-Algorithm", "AWS4-HMAC-SHA256"},
-                {"X-Amz-Credential", "access-key-id/us-east-1/ec2/aws4_request"},
+                {"X-Amz-Credential", "access-key-id/20150514/us-east-1/ec2/aws4_request"},
                 {"X-Amz-Date", "20150514T165005Z"},
                 {"X-Amz-SignedHeaders", "host;x-amz-date;x-amz-expires"},
                 {"X-Amz-Signature", "c16e00732fa6c75a2b4d88a5980e2050af10be730e98a9b5e0352f331c292874"}]

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+### Added
+- `AWS.GameLift` module for AWS GameLift service.
+- `AWS.MCA` module for AWS Marketplace Commerce Analytics service.
+- `AWS.WAF` module for AWS Web Application Firewall service.
 
 ## [v0.0.7] - 2016-01-13
 ### Fixed

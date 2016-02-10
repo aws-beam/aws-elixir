@@ -41,7 +41,7 @@ defmodule AWS.Mixfile do
   end
 
   defp version do
-    "0.0.7"
+    "0.0.8"
   end
 
   defp package do
@@ -49,6 +49,6 @@ defmodule AWS.Mixfile do
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/jkakar/aws-elixir",
               "Docs" => "http://hexdocs.pm/aws/#{version}/",
-              "Change Log" => "https://github.com/jkakar/aws-elixir/blob/master/CHANGELOG.md"}]
+              "Changelog" => "https://github.com/jkakar/aws-elixir/blob/master/CHANGELOG.md"}]
   end
 end

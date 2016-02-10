@@ -3,10 +3,19 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+
+## [v0.0.8][v0.0.8]
 ### Added
 - `AWS.GameLift` module for AWS GameLift service.
 - `AWS.MCA` module for AWS Marketplace Commerce Analytics service.
 - `AWS.WAF` module for AWS Web Application Firewall service.
+- Experimental/unstable support for generating v4 signatures that can be
+  embedded in query strings is taking shape in `AWS.Request.sign_v4_query`.
+
+## Changed
+- Requests that error now return `{:error, {exception, message}}` 2-tuples
+  instead of the `{:error, exception}` 2-tuples that were returned before.
+
 
 ## [v0.0.7] - 2016-01-13
 ### Fixed

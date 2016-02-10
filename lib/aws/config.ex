@@ -85,7 +85,7 @@ defmodule AWS.Config do
   it is noncompliant if any of these resources do not comply.
 
   If AWS Config has no current evaluation results for the rule, it returns
-  `InsufficientData`. This result might indicate one of the following
+  `INSUFFICIENT_DATA`. This result might indicate one of the following
   conditions: <ul> <li>AWS Config has never invoked an evaluation for the
   rule. To check whether it has, use the `DescribeConfigRuleEvaluationStatus`
   action to get the `LastSuccessfulInvocationTime` and
@@ -112,13 +112,13 @@ defmodule AWS.Config do
   these rules.
 
   If AWS Config has no current evaluation results for the resource, it
-  returns `InsufficientData`. This result might indicate one of the following
-  conditions about the rules that evaluate the resource: <ul> <li>AWS Config
-  has never invoked an evaluation for the rule. To check whether it has, use
-  the `DescribeConfigRuleEvaluationStatus` action to get the
-  `LastSuccessfulInvocationTime` and `LastFailedInvocationTime`.</li> <li>The
-  rule's AWS Lambda function is failing to send evaluation results to AWS
-  Config. Verify that the role that you assigned to your configuration
+  returns `INSUFFICIENT_DATA`. This result might indicate one of the
+  following conditions about the rules that evaluate the resource: <ul>
+  <li>AWS Config has never invoked an evaluation for the rule. To check
+  whether it has, use the `DescribeConfigRuleEvaluationStatus` action to get
+  the `LastSuccessfulInvocationTime` and `LastFailedInvocationTime`.</li>
+  <li>The rule's AWS Lambda function is failing to send evaluation results to
+  AWS Config. Verify that the role that you assigned to your configuration
   recorder includes the `config:PutEvaluations` permission. If the rule is a
   customer managed rule, verify that the AWS Lambda execution role includes
   the `config:PutEvaluations` permission.</li> <li>The rule's AWS Lambda

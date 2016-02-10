@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
-## [v0.0.8][v0.0.8]
+## [v0.0.8] - 2016-02-09
 ### Added
 - `AWS.GameLift` module for AWS GameLift service.
 - `AWS.MCA` module for AWS Marketplace Commerce Analytics service.

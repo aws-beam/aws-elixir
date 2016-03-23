@@ -7,6 +7,16 @@ defmodule AWS.CloudHSM do
   """
 
   @doc """
+  Adds or overwrites one or more tags for the specified resource.
+
+  Each tag consists of a key and a value. Tag keys must be unique per
+  resource.
+  """
+  def add_tags_to_resource(client, input, options \\ []) do
+    request(client, "AddTagsToResource", input, options)
+  end
+
+  @doc """
   Creates a high-availability partition group. A high-availability partition
   group is a group of partitions that spans multiple physical HSMs.
   """
@@ -137,6 +147,13 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
+  Returns a list of all tags for the specified resource.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Modifies an existing high-availability partition group.
   """
   def modify_hapg(client, input, options \\ []) do
@@ -147,7 +164,7 @@ defmodule AWS.CloudHSM do
   Modifies an HSM.
 
   <important> This operation can result in the HSM being offline for up to 15
-  minutes while the AWS CloudHSM service is reconfigured. If you are
+  minutes while the AWS CloudHSM service is reconfigured. If you are
   modifying a production HSM, you should ensure that your AWS CloudHSM
   service is configured for high availability, and consider executing this
   operation during a maintenance window.
@@ -166,6 +183,16 @@ defmodule AWS.CloudHSM do
   """
   def modify_luna_client(client, input, options \\ []) do
     request(client, "ModifyLunaClient", input, options)
+  end
+
+  @doc """
+  Removes one or more tags from the specified resource.
+
+  To remove a tag, specify only the tag key to remove (not the value). To
+  overwrite the value for an existing tag, use `AddTagsToResource`.
+  """
+  def remove_tags_from_resource(client, input, options \\ []) do
+    request(client, "RemoveTagsFromResource", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

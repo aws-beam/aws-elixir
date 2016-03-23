@@ -14,23 +14,29 @@ defmodule AWS.StorageGateway do
   Use the following links to get started using the *AWS Storage Gateway
   Service API Reference*:
 
-  <ul> <li> [AWS Storage Gateway Required Request
+  <ul> <li>[AWS Storage Gateway Required Request
   Headers](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayHTTPRequestsHeaders.html):
   Describes the required headers that you must send with every POST request
-  to AWS Storage Gateway.</li> <li> [Signing
+  to AWS Storage Gateway.</li> <li>[Signing
   Requests](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewaySigningRequests.html):
   AWS Storage Gateway requires that you authenticate every request you send;
-  this topic describes how sign such a request.</li> <li> [Error
+  this topic describes how sign such a request.</li> <li>[Error
   Responses](http://docs.aws.amazon.com/storagegateway/latest/userguide/APIErrorResponses.html):
-  Provides reference information about AWS Storage Gateway errors.</li> <li>
-  [Operations in AWS Storage
+  Provides reference information about AWS Storage Gateway errors.</li>
+  <li>[Operations in AWS Storage
   Gateway](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPIOperations.html):
   Contains detailed descriptions of all AWS Storage Gateway operations, their
   request parameters, response elements, possible errors, and examples of
-  requests and responses.</li> <li> [AWS Storage Gateway Regions and
+  requests and responses.</li> <li>[AWS Storage Gateway Regions and
   Endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html):
   Provides a list of each of the regions and endpoints available for use with
-  AWS Storage Gateway. </li> </ul>
+  AWS Storage Gateway. </li> </ul> <note>AWS Storage Gateway resource IDs are
+  in uppercase. When you use these resource IDs with the Amazon EC2 API, EC2
+  expects resource IDs in lowercase. You must change your resource ID to
+  lowercase to use it with the EC2 API. For example, in Storage Gateway the
+  ID for a volume might be vol-1122AABB. When you use this ID with the EC2
+  API, you must change it to vol-1122aabb. Otherwise, the EC2 API might not
+  behave as expected.</note>
   """
 
   @doc """
@@ -222,6 +228,18 @@ defmodule AWS.StorageGateway do
   """
   def create_stored_iscsi_volume(client, input, options \\ []) do
     request(client, "CreateStorediSCSIVolume", input, options)
+  end
+
+  @doc """
+  Creates a virtual tape by using your own barcode. You write data to the
+  virtual tape and then archive the tape.
+
+  <note>Cache storage must be allocated to the gateway before you can create
+  a virtual tape. Use the `AddCache` operation to add cache storage to a
+  gateway.</note>
+  """
+  def create_tape_with_barcode(client, input, options \\ []) do
+    request(client, "CreateTapeWithBarcode", input, options)
   end
 
   @doc """
@@ -726,6 +744,10 @@ defmodule AWS.StorageGateway do
   This operation updates a gateway's metadata, which includes the gateway's
   name and time zone. To specify which gateway to update, use the Amazon
   Resource Name (ARN) of the gateway in your request.
+
+  <note>For Gateways activated after September 02, 2015, the gateway's ARN
+  contains the gateway id rather than the gateway name. However changing the
+  name of the gateway has no effect on the gateway's ARN.</note>
   """
   def update_gateway_information(client, input, options \\ []) do
     request(client, "UpdateGatewayInformation", input, options)

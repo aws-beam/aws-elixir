@@ -18,7 +18,7 @@ defmodule AWS.Lambda do
   @doc """
   Adds a permission to the resource policy associated with the specified AWS
   Lambda function. You use resource policies to grant permissions to event
-  sources that use "push" model. In "push" model, event sources (such as
+  sources that use *push* model. In a *push* model, event sources (such as
   Amazon S3 and custom applications) invoke your Lambda function. Each
   permission you add to the resource policy allows an event source,
   permission to invoke the Lambda function.
@@ -26,12 +26,11 @@ defmodule AWS.Lambda do
   For information about the push model, see [AWS Lambda: How it
   Works](http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html).
 
-  If you are using versioning feature (see [AWS Lambda Function Versioning
-  and
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html)),
-  a Lambda function can have multiple ARNs that can be used to invoke the
-  function. Note that, each permission you add to resource policy using this
-  API is specific to an ARN, specified using the `Qualifier` parameter
+  If you are using versioning, the permissions you add are specific to the
+  Lambda function version or alias you specify in the `AddPermission` request
+  via the `Qualifier` parameter. For more information about versioning, see
+  [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   This operation requires permission for the `lambda:AddPermission` action.
   """
@@ -42,11 +41,12 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates an alias to the specified Lambda function version. For more
-  information, see [Introduction to AWS Lambda
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+  Creates an alias that points to the specified Lambda function version. For
+  more information, see [Introduction to AWS Lambda
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html).
 
-  This requires permission for the lambda:CreateAlias action.
+  Alias names are unique for a given function. This requires permission for
+  the lambda:CreateAlias action.
   """
   def create_alias(client, function_name, input, options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
@@ -59,19 +59,25 @@ defmodule AWS.Lambda do
   either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda
   invokes the specified function when records are posted to the stream.
 
-  This is the pull model, where AWS Lambda invokes the function. For more
-  information, go to [AWS Lambda: How it
-  Works](http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html)
-  in the *AWS Lambda Developer Guide*.
+  This association between a stream source and a Lambda function is called
+  the event source mapping.
 
-  This association between an Amazon Kinesis stream and a Lambda function is
-  called the event source mapping. You provide the configuration information
-  (for example, which stream to read from and which Lambda function to
-  invoke) for the event source mapping in the request body.
+  <important>This event source mapping is relevant only in the AWS Lambda
+  pull model, where AWS Lambda invokes the function. For more information, go
+  to [AWS Lambda: How it
+  Works](http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html)
+  in the *AWS Lambda Developer Guide*.</important> You provide mapping
+  information (for example, which stream to read from and which Lambda
+  function to invoke) in the request body.
 
   Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be
   associated with multiple AWS Lambda function. A given Lambda function can
   be associated with multiple AWS event sources.
+
+  If you are using versioning, you can specify a specific function version or
+  an alias via the function name parameter. For more information about
+  versioning, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   This operation requires permission for the
   `lambda:CreateEventSourceMapping` action.
@@ -88,6 +94,11 @@ defmodule AWS.Lambda do
   file in the request body. If the function name already exists, the
   operation will fail. Note that the function name is case-sensitive.
 
+  If you are using versioning, you can also publish a version of the Lambda
+  function you are creating using the `Publish` parameter. For more
+  information about versioning, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
+
   This operation requires permission for the `lambda:CreateFunction` action.
   """
   def create_function(client, input, options \\ []) do
@@ -97,9 +108,9 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes specified Lambda function alias. For more information, see
+  Deletes the specified Lambda function alias. For more information, see
   [Introduction to AWS Lambda
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html).
 
   This requires permission for the lambda:DeleteAlias action.
   """
@@ -125,16 +136,16 @@ defmodule AWS.Lambda do
   @doc """
   Deletes the specified Lambda function code and configuration.
 
-  If you don't specify a function version, AWS Lambda will delete the
+  If you are using the versioning feature and you don't specify a function
+  version in your `DeleteFunction` request, AWS Lambda will delete the
   function, including all its versions, and any aliases pointing to the
-  function versions.
+  function versions. To delete a specific function version, you must provide
+  the function version via the `Qualifier` parameter. For information about
+  function versioning, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   When you delete a function the associated resource policy is also deleted.
   You will need to delete the event source mappings explicitly.
-
-  For information about function versioning, see [AWS Lambda Function
-  Versioning and
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html).
 
   This operation requires permission for the `lambda:DeleteFunction` action.
   """
@@ -148,9 +159,9 @@ defmodule AWS.Lambda do
   Returns the specified alias information such as the alias ARN, description,
   and function version it is pointing to. For more information, see
   [Introduction to AWS Lambda
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html).
 
-  This requires permission for the lambda:GetAlias action.
+  This requires permission for the `lambda:GetAlias` action.
   """
   def get_alias(client, function_name, name, options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
@@ -181,9 +192,9 @@ defmodule AWS.Lambda do
   Using the optional `Qualifier` parameter, you can specify a specific
   function version for which you want this information. If you don't specify
   this parameter, the API uses unqualified function ARN which return
-  information about the $LATEST version of the Lambda function. For more
+  information about the `$LATEST` version of the Lambda function. For more
   information, see [AWS Lambda Function Versioning and
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html).
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   This operation requires permission for the `lambda:GetFunction` action.
   """
@@ -198,12 +209,13 @@ defmodule AWS.Lambda do
   information you provided as parameters when uploading the function by using
   `CreateFunction`.
 
-  You can use the optional `Qualifier` parameter to retrieve configuration
-  information for a specific Lambda function version. If you don't provide
-  it, the API returns information about the $LATEST version of the function.
-  For more information about versioning, see [AWS Lambda Function Versioning
-  and
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html).
+  If you are using the versioning feature, you can retrieve this information
+  for a specific function version by using the optional `Qualifier` parameter
+  and specifying the function version or alias that points to it. If you
+  don't provide it, the API returns information about the $LATEST version of
+  the function. For more information about versioning, see [AWS Lambda
+  Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   This operation requires permission for the
   `lambda:GetFunctionConfiguration` operation.
@@ -215,10 +227,15 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns the resource policy, containing a list of permissions that apply to
-  a specific to an ARN that you specify via the `Qualifier` paramter.
+  Returns the resource policy associated with the specified Lambda function.
 
-  For informration about adding permissions, see `AddPermission`.
+  If you are using the versioning feature, you can get the resource policy
+  associated with the specific Lambda function version or alias by specifying
+  the version or alias name using the `Qualifier` parameter. For more
+  information about versioning, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
+
+  For information about adding permissions, see `AddPermission`.
 
   You need permission for the `lambda:GetPolicy action.`
   """
@@ -229,22 +246,15 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Invokes a specific Lambda function version.
+  Invokes a specific Lambda function.
 
-  If you don't provide the `Qualifier` parameter, it uses the unqualified
-  function ARN which results in invocation of the $LATEST version of the
-  Lambda function (when you create a Lambda function, the $LATEST is the
-  version). The AWS Lambda versioning and aliases feature allows you to
-  publish multiple versions of a Lambda function and also create aliases for
-  each function version. So each your Lambda function version can be invoked
-  using multiple ARNs. For more information, see [AWS Lambda Function
-  Versioning and
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html).
-  Using the `Qualifier` parameter, you can specify a function version or
-  alias name to invoke specific function version. If you specify function
-  version, the API uses the qualified function ARN to invoke a specific
-  function version. If you specify alias name, the API uses the alias ARN to
-  invoke the function version to which the alias points.
+  If you are using the versioning feature, you can invoke the specific
+  function version by providing function version or alias name that is
+  pointing to the function version using the `Qualifier` parameter in the
+  request. If you don't provide the `Qualifier` parameter, the `$LATEST`
+  version of the Lambda function is invoked. For information about the
+  versioning feature, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   This operation requires permission for the `lambda:InvokeFunction` action.
   """
@@ -252,24 +262,24 @@ defmodule AWS.Lambda do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/invocations"
     headers = []
     if Dict.has_key?(input, "ClientContext") do
-      headers = [{"ClientContext", input["ClientContext"]}|headers]
+      headers = [{"X-Amz-Client-Context", input["ClientContext"]}|headers]
       input = Dict.delete(input, "ClientContext")
     end
     if Dict.has_key?(input, "InvocationType") do
-      headers = [{"InvocationType", input["InvocationType"]}|headers]
+      headers = [{"X-Amz-Invocation-Type", input["InvocationType"]}|headers]
       input = Dict.delete(input, "InvocationType")
     end
     if Dict.has_key?(input, "LogType") do
-      headers = [{"LogType", input["LogType"]}|headers]
+      headers = [{"X-Amz-Log-Type", input["LogType"]}|headers]
       input = Dict.delete(input, "LogType")
     end
     case request(client, :post, url, headers, input, options, nil) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["FunctionError"]) do
-          body = %{body | "FunctionError" => response.headers["FunctionError"]}
+        if !is_nil(response.headers["X-Amz-Function-Error"]) do
+          body = %{body | "FunctionError" => response.headers["X-Amz-Function-Error"]}
         end
-        if !is_nil(response.headers["LogResult"]) do
-          body = %{body | "LogResult" => response.headers["LogResult"]}
+        if !is_nil(response.headers["X-Amz-Log-Result"]) do
+          body = %{body | "LogResult" => response.headers["X-Amz-Log-Result"]}
         end
         {:ok, body, response}
       result ->
@@ -282,7 +292,7 @@ defmodule AWS.Lambda do
   `Invoke`).</important> Submits an invocation request to AWS Lambda. Upon
   receiving the request, Lambda executes the specified function
   asynchronously. To see the logs generated by the Lambda function execution,
-  see the CloudWatch logs console.
+  see the CloudWatch Logs console.
 
   This operation requires permission for the `lambda:InvokeFunction` action.
   """
@@ -297,7 +307,7 @@ defmodule AWS.Lambda do
   response includes information such as the alias ARN, description, alias
   name, and the function version to which it points. For more information,
   see [Introduction to AWS Lambda
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html).
 
   This requires permission for the lambda:ListAliases action.
   """
@@ -309,12 +319,16 @@ defmodule AWS.Lambda do
 
   @doc """
   Returns a list of event source mappings you created using the
-  `CreateEventSourceMapping` (see `CreateEventSourceMapping`), where you
-  identify a stream as an event source. This list does not include Amazon S3
-  event sources.
+  `CreateEventSourceMapping` (see `CreateEventSourceMapping`).
 
   For each mapping, the API returns configuration information. You can
   optionally specify filters to retrieve specific event source mappings.
+
+  If you are using the versioning feature, you can get list of event source
+  mappings for a specific Lambda function version or an alias as described in
+  the `FunctionName` parameter. For information about the versioning feature,
+  see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   This operation requires permission for the `lambda:ListEventSourceMappings`
   action.
@@ -331,6 +345,11 @@ defmodule AWS.Lambda do
   to retrieve the code for your function.
 
   This operation requires permission for the `lambda:ListFunctions` action.
+
+  If you are using versioning feature, the response returns list of $LATEST
+  versions of your functions. For information about the versioning feature,
+  see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
   """
   def list_functions(client, options \\ []) do
     url = "/2015-03-31/functions"
@@ -339,7 +358,9 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  List all versions of a function.
+  List all versions of a function. For information about the versioning
+  feature, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
   """
   def list_versions_by_function(client, function_name, options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
@@ -348,11 +369,12 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Publishes a version of your function from the current snapshot of HEAD.
+  Publishes a version of your function from the current snapshot of $LATEST.
   That is, AWS Lambda takes a snapshot of the function code and configuration
-  information from HEAD and publishes a new version. The code and `handler`
-  of this specific Lambda function version cannot be modified after
-  publication, but you can modify the configuration information.
+  information from $LATEST and publishes a new version. The code and
+  configuration cannot be modified after publication. For information about
+  the versioning feature, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
   """
   def publish_version(client, function_name, input, options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
@@ -363,8 +385,13 @@ defmodule AWS.Lambda do
   @doc """
   You can remove individual permissions from an resource policy associated
   with a Lambda function by providing a statement ID that you provided when
-  you addded the permission. The API removes corresponding permission that is
-  associated with the specific ARN identified by the `Qualifier` parameter.
+  you added the permission.
+
+  If you are using versioning, the permissions you remove are specific to the
+  Lambda function version or alias you specify in the `AddPermission` request
+  via the `Qualifier` parameter. For more information about versioning, see
+  [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   Note that removal of a permission will cause an active event source to lose
   permission to the function.
@@ -378,10 +405,10 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Using this API you can update function version to which the alias points to
-  and alias description. For more information, see [Introduction to AWS
-  Lambda
-  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html)
+  Using this API you can update the function version to which the alias
+  points and the alias description. For more information, see [Introduction
+  to AWS Lambda
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html).
 
   This requires permission for the lambda:UpdateAlias action.
   """
@@ -397,6 +424,17 @@ defmodule AWS.Lambda do
   in the stream. You can change which function will receive the stream
   records, but to change the stream itself, you must create a new mapping.
 
+  If you are using the versioning feature, you can update the event source
+  mapping to map to a specific Lambda function version or alias as described
+  in the `FunctionName` parameter. For information about the versioning
+  feature, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
+
+  If you disable the event source mapping, AWS Lambda stops polling. If you
+  enable again, it will resume polling from the time it had stopped polling,
+  so you don't lose processing of any records. However, if you delete event
+  source mapping and create it again, it will reset.
+
   This operation requires permission for the
   `lambda:UpdateEventSourceMapping` action.
   """
@@ -410,6 +448,11 @@ defmodule AWS.Lambda do
   Updates the code for the specified Lambda function. This operation must
   only be used on an existing Lambda function and cannot be used to update
   the function configuration.
+
+  If you are using the versioning feature, note this API will always update
+  the $LATEST version of your Lambda function. For information about the
+  versioning feature, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   This operation requires permission for the `lambda:UpdateFunctionCode`
   action.
@@ -425,6 +468,11 @@ defmodule AWS.Lambda do
   using the values provided in the request. You provide only the parameters
   you want to change. This operation must only be used on an existing Lambda
   function and cannot be used to update the function's code.
+
+  If you are using the versioning feature, note this API will always update
+  the $LATEST version of your Lambda function. For information about the
+  versioning feature, see [AWS Lambda Function Versioning and
+  Aliases](http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
 
   This operation requires permission for the
   `lambda:UpdateFunctionConfiguration` action.

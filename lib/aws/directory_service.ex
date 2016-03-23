@@ -54,7 +54,8 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Creates a snapshot of a Simple AD directory.
+  Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS
+  cloud.
 
   <note> You cannot take snapshots of AD Connector directories.
 
@@ -102,6 +103,13 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Removes the specified directory as a publisher to the specified SNS topic.
+  """
+  def deregister_event_topic(client, input, options \\ []) do
+    request(client, "DeregisterEventTopic", input, options)
+  end
+
+  @doc """
   Obtains information about the directories that belong to this account.
 
   You can retrieve information about specific directories by passing the
@@ -119,6 +127,17 @@ defmodule AWS.DirectoryService do
   """
   def describe_directories(client, input, options \\ []) do
     request(client, "DescribeDirectories", input, options)
+  end
+
+  @doc """
+  Obtains information about which SNS topics receive status messages from the
+  specified directory.
+
+  If no input parameters are provided, such as DirectoryId or TopicName, this
+  request describes all of the associations in the account.
+  """
+  def describe_event_topics(client, input, options \\ []) do
+    request(client, "DescribeEventTopics", input, options)
   end
 
   @doc """
@@ -189,6 +208,18 @@ defmodule AWS.DirectoryService do
   """
   def get_snapshot_limits(client, input, options \\ []) do
     request(client, "GetSnapshotLimits", input, options)
+  end
+
+  @doc """
+  Associates a directory with an SNS topic. This establishes the directory as
+  a publisher to the specified SNS topic. You can then receive email or text
+  (SMS) messages when the status of your directory changes. You get notified
+  if your directory goes from an Active status to an Impaired or Inoperable
+  status. You also receive a notification when the directory returns to an
+  Active status.
+  """
+  def register_event_topic(client, input, options \\ []) do
+    request(client, "RegisterEventTopic", input, options)
   end
 
   @doc """

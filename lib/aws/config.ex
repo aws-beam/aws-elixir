@@ -39,8 +39,8 @@ defmodule AWS.Config do
 
   AWS Config sets the state of a rule to `DELETING` until the deletion is
   complete. You cannot update a rule while it is in this state. If you make a
-  `PutConfigRule` request for the rule, you will receive a
-  `ResourceInUseException`.
+  `PutConfigRule` or `DeleteConfigRule` request for the rule, you will
+  receive a `ResourceInUseException`.
 
   You can check the state of a rule by using the `DescribeConfigRules`
   request.

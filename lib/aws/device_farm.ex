@@ -99,6 +99,19 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Gets the current status and future status of all offerings purchased by an
+  AWS account. The response indicates how many offerings are currently
+  available and the offerings that will be available in the next period. The
+  API returns a `NotEligible` error if the user is not permitted to invoke
+  the operation. Please contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
+  if you believe that you should be able to invoke this operation.
+  """
+  def get_offering_status(client, input, options \\ []) do
+    request(client, "GetOfferingStatus", input, options)
+  end
+
+  @doc """
   Gets information about a project.
   """
   def get_project(client, input, options \\ []) do
@@ -162,6 +175,31 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Returns a list of all historical purchases, renewals, and system renewal
+  transactions for an AWS account. The list is paginated and ordered by a
+  descending timestamp (most recent transactions are first). The API returns
+  a `NotEligible` error if the user is not permitted to invoke the operation.
+  Please contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
+  if you believe that you should be able to invoke this operation.
+  """
+  def list_offering_transactions(client, input, options \\ []) do
+    request(client, "ListOfferingTransactions", input, options)
+  end
+
+  @doc """
+  Returns a list of products or offerings that the user can manage through
+  the API. Each offering record indicates the recurring price per unit and
+  the frequency for that offering. The API returns a `NotEligible` error if
+  the user is not permitted to invoke the operation. Please contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
+  if you believe that you should be able to invoke this operation.
+  """
+  def list_offerings(client, input, options \\ []) do
+    request(client, "ListOfferings", input, options)
+  end
+
+  @doc """
   Gets information about projects.
   """
   def list_projects(client, input, options \\ []) do
@@ -211,10 +249,47 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Immediately purchases offerings for an AWS account. Offerings renew with
+  the latest total purchased quantity for an offering, unless the renewal was
+  overridden. The API returns a `NotEligible` error if the user is not
+  permitted to invoke the operation. Please contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
+  if you believe that you should be able to invoke this operation.
+  """
+  def purchase_offering(client, input, options \\ []) do
+    request(client, "PurchaseOffering", input, options)
+  end
+
+  @doc """
+  Explicitly sets the quantity of devices to renew for an offering, starting
+  from the `effectiveDate` of the next period. The API returns a
+  `NotEligible` error if the user is not permitted to invoke the operation.
+  Please contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
+  if you believe that you should be able to invoke this operation.
+  """
+  def renew_offering(client, input, options \\ []) do
+    request(client, "RenewOffering", input, options)
+  end
+
+  @doc """
   Schedules a run.
   """
   def schedule_run(client, input, options \\ []) do
     request(client, "ScheduleRun", input, options)
+  end
+
+  @doc """
+  Initiates a stop request for the current test run. AWS Device Farm will
+  immediately stop the run on devices where tests have not started executing,
+  and you will not be billed for these devices. On devices where tests have
+  started executing, Setup Suite and Teardown Suite tests will run to
+  completion before stopping execution on those devices. You will be billed
+  for Setup, Teardown, and any tests that were in progress or already
+  completed.
+  """
+  def stop_run(client, input, options \\ []) do
+    request(client, "StopRun", input, options)
   end
 
   @doc """

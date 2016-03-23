@@ -16,11 +16,11 @@ defmodule AWS.MobileAnalytics do
     url = "/2014-06-05/events"
     headers = []
     if Dict.has_key?(input, "clientContext") do
-      headers = [{"clientContext", input["clientContext"]}|headers]
+      headers = [{"x-amz-Client-Context", input["clientContext"]}|headers]
       input = Dict.delete(input, "clientContext")
     end
     if Dict.has_key?(input, "clientContextEncoding") do
-      headers = [{"clientContextEncoding", input["clientContextEncoding"]}|headers]
+      headers = [{"x-amz-Client-Context-Encoding", input["clientContextEncoding"]}|headers]
       input = Dict.delete(input, "clientContextEncoding")
     end
     request(client, :post, url, headers, input, options, 202)

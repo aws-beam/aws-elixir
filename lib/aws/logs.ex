@@ -5,49 +5,41 @@ defmodule AWS.Logs do
   @moduledoc """
   Amazon CloudWatch Logs API Reference
 
-  This is the *Amazon CloudWatch Logs API Reference*. Amazon CloudWatch Logs
-  enables you to monitor, store, and access your system, application, and
-  custom log files. This guide provides detailed information about Amazon
-  CloudWatch Logs actions, data types, parameters, and errors. For detailed
-  information about Amazon CloudWatch Logs features and their associated API
-  calls, go to the [Amazon CloudWatch Developer
-  Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide).
+  You can use Amazon CloudWatch Logs to monitor, store, and access your log
+  files from Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon
+  CloudTrail, or other sources. You can then retrieve the associated log data
+  from CloudWatch Logs using the Amazon CloudWatch console, the CloudWatch
+  Logs commands in the AWS CLI, the CloudWatch Logs API, or the CloudWatch
+  Logs SDK.
 
-  Use the following links to get started using the *Amazon CloudWatch Logs
-  API Reference*:
+  You can use CloudWatch Logs to:
 
-  <ul>
-  <li>[Actions](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Operations.html):
-  An alphabetical list of all Amazon CloudWatch Logs actions.</li> <li>[Data
-  Types](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Types.html):
-  An alphabetical list of all Amazon CloudWatch Logs data types.</li>
-  <li>[Common
-  Parameters](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonParameters.html):
-  Parameters that all Query actions can use.</li> <li>[Common
-  Errors](http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonErrors.html):
-  Client and server errors that all actions can return.</li> <li>[Regions and
-  Endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html):
-  Itemized regions and endpoints for all AWS products.</li> </ul> In addition
-  to using the Amazon CloudWatch Logs API, you can also use the following
-  SDKs and third-party libraries to access Amazon CloudWatch Logs
-  programmatically.
+  <ul> <li> **Monitor Logs from Amazon EC2 Instances in Real-time**: You can
+  use CloudWatch Logs to monitor applications and systems using log data. For
+  example, CloudWatch Logs can track the number of errors that occur in your
+  application logs and send you a notification whenever the rate of errors
+  exceeds a threshold you specify. CloudWatch Logs uses your log data for
+  monitoring; so, no code changes are required. For example, you can monitor
+  application logs for specific literal terms (such as
+  "NullReferenceException") or count the number of occurrences of a literal
+  term at a particular position in log data (such as "404" status codes in an
+  Apache access log). When the term you are searching for is found,
+  CloudWatch Logs reports the data to a Amazon CloudWatch metric that you
+  specify.
 
-  <ul> <li>[AWS SDK for Java
-  Documentation](http://aws.amazon.com/documentation/sdkforjava/)</li>
-  <li>[AWS SDK for .NET
-  Documentation](http://aws.amazon.com/documentation/sdkfornet/)</li>
-  <li>[AWS SDK for PHP
-  Documentation](http://aws.amazon.com/documentation/sdkforphp/)</li>
-  <li>[AWS SDK for Ruby
-  Documentation](http://aws.amazon.com/documentation/sdkforruby/)</li> </ul>
-  Developers in the AWS developer community also provide their own libraries,
-  which you can find at the following AWS developer centers:
+  </li> <li> **Monitor Amazon CloudTrail Logged Events**: You can create
+  alarms in Amazon CloudWatch and receive notifications of particular API
+  activity as captured by CloudTrail and use the notification to perform
+  troubleshooting.
 
-  <ul> <li>[AWS Java Developer Center](http://aws.amazon.com/java/)</li>
-  <li>[AWS PHP Developer Center](http://aws.amazon.com/php/)</li> <li>[AWS
-  Python Developer Center](http://aws.amazon.com/python/)</li> <li>[AWS Ruby
-  Developer Center](http://aws.amazon.com/ruby/)</li> <li>[AWS Windows and
-  .NET Developer Center](http://aws.amazon.com/net/)</li> </ul>
+  </li> <li> **Archive Log Data**: You can use CloudWatch Logs to store your
+  log data in highly durable storage. You can change the log retention
+  setting so that any log events older than this setting are automatically
+  deleted. The CloudWatch Logs agent makes it easy to quickly send both
+  rotated and non-rotated log data off of a host and into the log service.
+  You can then access the raw log data when you need it.
+
+  </li> </ul>
   """
 
   @doc """
@@ -64,7 +56,8 @@ defmodule AWS.Logs do
   This is an asynchronous call. If all the required information is provided,
   this API will initiate an export task and respond with the task Id. Once
   started, `DescribeExportTasks` can be used to get the status of an export
-  task.
+  task. You can only have one active (`RUNNING` or `PENDING`) export task at
+  a time, per account.
 
   You can export logs from multiple log groups or multiple time ranges to the
   same Amazon S3 bucket. To separate out log data for each export task, you
@@ -322,7 +315,9 @@ defmodule AWS.Logs do
   days or the retention period of the log group.</li> <li>The log events in
   the batch must be in chronological ordered by their <code
   class="code">timestamp`.</li> <li>The maximum number of log events in a
-  batch is 10,000.</li> </ul>
+  batch is 10,000.</li> <li>A batch of log events in a single PutLogEvents
+  request cannot span more than 24 hours. Otherwise, the PutLogEvents
+  operation will fail.</li> </ul>
   """
   def put_log_events(client, input, options \\ []) do
     request(client, "PutLogEvents", input, options)
@@ -354,11 +349,14 @@ defmodule AWS.Logs do
   specified log group. Subscription filters allow you to subscribe to a
   real-time stream of log events ingested through <code
   class="code">PutLogEvents` requests and have them delivered to a specific
-  destination. Currently, the supported destinations are: <ul> <li> A Amazon
+  destination. Currently, the supported destinations are: <ul> <li> An Amazon
   Kinesis stream belonging to the same account as the subscription filter,
   for same-account delivery. </li> <li> A logical destination (used via an
   ARN of `Destination`) belonging to a different account, for cross-account
-  delivery. </li> </ul>
+  delivery. </li> <li> An Amazon Kinesis Firehose stream belonging to the
+  same account as the subscription filter, for same-account delivery. </li>
+  <li> An AWS Lambda function belonging to the same account as the
+  subscription filter, for same-account delivery. </li> </ul>
 
   Currently there can only be one subscription filter associated with a log
   group.

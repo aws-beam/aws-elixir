@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+### Removed
+- `AWS.CloudSearch.Domain` module has been removed because it doesn't work
+  correctly and adding support for it to the code generator not a priority.
 
 ## [v0.0.8] - 2016-02-09
 ### Added
@@ -12,10 +15,9 @@ All notable changes to this project will be documented in this file.
 - Experimental/unstable support for generating v4 signatures that can be
   embedded in query strings is taking shape in `AWS.Request.sign_v4_query`.
 
-## Changed
+### Changed
 - Requests that error now return `{:error, {exception, message}}` 2-tuples
   instead of the `{:error, exception}` 2-tuples that were returned before.
-
 
 ## [v0.0.7] - 2016-01-13
 ### Fixed

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+### Added
+- `AWS.CloudHSM` module has support to add, list and remove tags on resources.
+- `AWS.CodeCommit` module has support for getting commits, and working with
+  repository triggers.
+- `AWS.CodeDeploy` module has support for batch operations related to
+  application revisions, deployment groups and deployment instances.
+- `AWS.DeviceFarm` module has support for offering status, offering
+  transactions, offerings and stopping of runs.
+- `AWS.DirectoryService` module has support managing event topics.
+- `AWS.GameLift` module has support for managing game session details and
+  scaling policies.
+- `AWS.StorageGateway` module has support for creating tapes with barcodes.
+
+### Fixed
+- `AWS.Cognito.Sync` module uses header locations instead of parameter names
+  when making requests.
+- `AWS.Glacier` module uses header locations instead of parameter names when
+  making requests and processing responses.
+- `AWS.Lambda` module uses header locations instead of parameter names when
+  making requests and processing responses.
+- `AWS.MobileAnalytics` module uses header locations instead of parameter
+  names when making requests.
 
 ## [v0.0.9] - 2016-03-22
 ### Removed

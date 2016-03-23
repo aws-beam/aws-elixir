@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+
+## [v0.0.10] - 2016-03-22
 ### Added
 - `AWS.CloudHSM` module has support to add, list and remove tags on resources.
 - `AWS.CodeCommit` module has support for getting commits, and working with
@@ -158,7 +160,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.9...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.10...HEAD
+[v0.0.10]: https://github.com/jkakar/aws-elixir/compare/v0.0.9...v0.0.10
 [v0.0.9]: https://github.com/jkakar/aws-elixir/compare/v0.0.8...v0.0.9
 [v0.0.8]: https://github.com/jkakar/aws-elixir/compare/v0.0.7...v0.0.8
 [v0.0.7]: https://github.com/jkakar/aws-elixir/compare/v0.0.6...v0.0.7

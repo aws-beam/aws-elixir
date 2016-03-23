@@ -5,21 +5,38 @@ defmodule AWS.DynamoDB do
   @moduledoc """
   Amazon DynamoDB
 
-  **Overview**
-
   This is the Amazon DynamoDB API Reference. This guide provides descriptions
-  and samples of the low-level DynamoDB API. For information about DynamoDB
-  application development, see the [Amazon DynamoDB Developer
-  Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/).
+  of the low-level DynamoDB API.
 
-  Instead of making the requests to the low-level DynamoDB API directly from
-  your application, we recommend that you use the AWS Software Development
-  Kits (SDKs). The easy-to-use libraries in the AWS SDKs make it unnecessary
-  to call the low-level DynamoDB API directly from your application. The
-  libraries take care of request authentication, serialization, and
-  connection management. For more information, see [Using the AWS SDKs with
+  This guide is intended for use with the following DynamoDB documentation:
+
+  <ul> <li> [Amazon DynamoDB Getting Started
+  Guide](http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/)
+  - provides hands-on exercises that help you learn the basics of working
+  with DynamoDB. *If you are new to DynamoDB, we recommend that you begin
+  with the Getting Started Guide.*
+
+  </li> <li> [Amazon DynamoDB Developer
+  Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/) -
+  contains detailed information about DynamoDB concepts, usage, and best
+  practices.
+
+  </li> <li> [Amazon DynamoDB Streams API
+  Reference](http://docs.aws.amazon.com/dynamodbstreams/latest/APIReference/)
+  - provides descriptions and samples of the DynamoDB Streams API. (For more
+  information, see [Capturing Table Activity with DynamoDB
+  Streams](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html)
+  in the Amazon DynamoDB Developer Guide.)
+
+  </li> </ul> Instead of making the requests to the low-level DynamoDB API
+  directly from your application, we recommend that you use the AWS Software
+  Development Kits (SDKs). The easy-to-use libraries in the AWS SDKs make it
+  unnecessary to call the low-level DynamoDB API directly from your
+  application. The libraries take care of request authentication,
+  serialization, and connection management. For more information, see [Using
+  the AWS SDKs with
   DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html)
-  in the *Amazon DynamoDB Developer Guide*.
+  in the Amazon DynamoDB Developer Guide.
 
   If you decide to code against the low-level DynamoDB API directly, you will
   need to write the necessary code to authenticate your requests. For more
@@ -33,11 +50,10 @@ defmodule AWS.DynamoDB do
   **Managing Tables**
 
   <ul> <li> *CreateTable* - Creates a table with user-specified provisioned
-  throughput settings. You must designate one attribute as the hash primary
-  key for the table; you can optionally designate a second attribute as the
-  range primary key. DynamoDB creates indexes on these key attributes for
-  fast data access. Optionally, you can create one or more secondary indexes,
-  which provide fast data access using non-key attributes.
+  throughput settings. You must define a primary key for the table - either a
+  simple primary key (partition key), or a composite primary key (partition
+  key and sort key). Optionally, you can create one or more secondary
+  indexes, which provide fast data access using non-key attributes.
 
   </li> <li> *DescribeTable* - Returns metadata for a table, such as table
   size, status, and index information.
@@ -69,10 +85,10 @@ defmodule AWS.DynamoDB do
   reads can be used.
 
   </li> <li> *Query* - Returns one or more items from a table or a secondary
-  index. You must provide a specific hash key value. You can narrow the scope
-  of the query using comparison operators against a range key value, or on
-  the index key. *Query* supports either eventual or strong consistency. A
-  single response has a size limit of 1 MB.
+  index. You must provide a specific value for the partition key. You can
+  narrow the scope of the query using comparison operators against a sort key
+  value, or on the index key. *Query* supports either eventual or strong
+  consistency. A single response has a size limit of 1 MB.
 
   </li> <li> *Scan* - Reads every item in a table; the result set is
   eventually consistent. You can limit the number of items returned by
@@ -257,7 +273,7 @@ defmodule AWS.DynamoDB do
 
   </li> <li> Any individual item in a batch exceeds 400 KB.
 
-  </li> <li> The total request size exceeds 16 MB.
+  </li> <li>The total request size exceeds 16 MB.
 
   </li> </ul>
   """
@@ -336,15 +352,73 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Returns the current provisioned-capacity limits for your AWS account in a
+  region, both for the region as a whole and for any one DynamoDB table that
+  you create there.
+
+  When you establish an AWS account, the account has initial limits on the
+  maximum read capacity units and write capacity units that you can provision
+  across all of your DynamoDB tables in a given region. Also, there are
+  per-table limits that apply when you create a table there. For more
+  information, see
+  [Limits](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
+  page in the *Amazon DynamoDB Developer Guide*.
+
+  Although you can increase these limits by filing a case at [AWS Support
+  Center](https://console.aws.amazon.com/support/home#/), obtaining the
+  increase is not instantaneous. The *DescribeLimits* API lets you write code
+  to compare the capacity you are currently using to those limits imposed by
+  your account so that you have enough time to apply for an increase before
+  you hit a limit.
+
+  For example, you could use one of the AWS SDKs to do the following:
+
+  <ol> <li>Call *DescribeLimits* for a particular region to obtain your
+  current account limits on provisioned capacity there.</li> <li>Create a
+  variable to hold the aggregate read capacity units provisioned for all your
+  tables in that region, and one to hold the aggregate write capacity units.
+  Zero them both.</li> <li>Call *ListTables* to obtain a list of all your
+  DynamoDB tables.</li> <li>For each table name listed by *ListTables*, do
+  the following:
+
+  <ul> <li>Call *DescribeTable* with the table name.</li> <li>Use the data
+  returned by *DescribeTable* to add the read capacity units and write
+  capacity units provisioned for the table itself to your variables.</li>
+  <li>If the table has one or more global secondary indexes (GSIs), loop over
+  these GSIs and add their provisioned capacity values to your variables as
+  well.</li> </ul> </li> <li>Report the account limits for that region
+  returned by *DescribeLimits*, along with the total current provisioned
+  capacity levels you have calculated.</li> </ol> This will let you see
+  whether you are getting close to your account-level limits.
+
+  The per-table limits apply only when you are creating a new table. They
+  restrict the sum of the provisioned capacity of the new table itself and
+  all its global secondary indexes.
+
+  For existing tables and their GSIs, DynamoDB will not let you increase
+  provisioned capacity extremely rapidly, but the only upper limit that
+  applies is that the aggregate provisioned capacity over all your tables and
+  GSIs cannot exceed either of the per-account limits.
+
+  <note>*DescribeLimits* should only be called periodically. You can expect
+  throttling errors if you call it more than once in a minute.
+
+  </note> The *DescribeLimits* Request element has no content.
+  """
+  def describe_limits(client, input, options \\ []) do
+    request(client, "DescribeLimits", input, options)
+  end
+
+  @doc """
   Returns information about the table, including the current status of the
   table, when it was created, the primary key schema, and any indexes on the
   table.
 
-  <note> If you issue a DescribeTable request immediately after a CreateTable
-  request, DynamoDB might return a ResourceNotFoundException. This is because
-  DescribeTable uses an eventually consistent query, and the metadata for
-  your table might not be available at that moment. Wait for a few seconds,
-  and then try the DescribeTable request again.
+  <note> If you issue a *DescribeTable* request immediately after a
+  *CreateTable* request, DynamoDB might return a *ResourceNotFoundException*.
+  This is because *DescribeTable* uses an eventually consistent query, and
+  the metadata for your table might not be available at that moment. Wait for
+  a few seconds, and then try the *DescribeTable* request again.
 
   </note>
   """
@@ -397,8 +471,11 @@ defmodule AWS.DynamoDB do
   more information, see the *ReturnValues* description below.
 
   <note> To prevent a new item from replacing an existing item, use a
-  conditional put operation with *ComparisonOperator* set to `NULL` for the
-  primary key attribute, or attributes.
+  conditional expression that contains the `attribute_not_exists` function
+  with the name of the attribute being used as the partition key for the
+  table. Since every record must contain that attribute, the
+  `attribute_not_exists` function will only succeed if no matching item
+  exists.
 
   </note> For more information about using this API, see [Working with
   Items](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
@@ -412,12 +489,13 @@ defmodule AWS.DynamoDB do
   A *Query* operation uses the primary key of a table or a secondary index to
   directly access items from that table or index.
 
-  Use the *KeyConditionExpression* parameter to provide a specific hash key
-  value. The *Query* operation will return all of the items from the table or
-  index with that hash key value. You can optionally narrow the scope of the
-  *Query* operation by specifying a range key value and a comparison operator
-  in *KeyConditionExpression*. You can use the *ScanIndexForward* parameter
-  to get results in forward or reverse order, by range key or by index key.
+  Use the *KeyConditionExpression* parameter to provide a specific value for
+  the partition key. The *Query* operation will return all of the items from
+  the table or index with that partition key value. You can optionally narrow
+  the scope of the *Query* operation by specifying a sort key value and a
+  comparison operator in *KeyConditionExpression*. You can use the
+  *ScanIndexForward* parameter to get results in forward or reverse order, by
+  sort key.
 
   Queries that do not return results consume the minimum number of read
   capacity units for that type of read operation.
@@ -458,10 +536,11 @@ defmodule AWS.DynamoDB do
   Scan](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#QueryAndScanParallelScan)
   in the *Amazon DynamoDB Developer Guide*.
 
-  By default, *Scan* uses eventually consistent reads when acessing the data
-  in the table or local secondary index. However, you can use strongly
-  consistent reads instead by setting the *ConsistentRead* parameter to
-  *true*.
+  By default, *Scan* uses eventually consistent reads when accessing the data
+  in a table; therefore, the result set might not include the changes to data
+  in the table immediately before the operation began. If you need a
+  consistent copy of the data, as of the time that the Scan begins, you can
+  set the *ConsistentRead* parameter to *true*.
   """
   def scan(client, input, options \\ []) do
     request(client, "Scan", input, options)
@@ -472,9 +551,7 @@ defmodule AWS.DynamoDB do
   does not already exist. You can put, delete, or add attribute values. You
   can also perform a conditional update on an existing item (insert a new
   attribute name-value pair if it doesn't exist, or replace an existing
-  name-value pair if it has certain expected attribute values). If conditions
-  are specified and the item does not exist, then the operation fails and a
-  new item is not created.
+  name-value pair if it has certain expected attribute values).
 
   You can also return the item's attribute values in the same *UpdateItem*
   operation using the *ReturnValues* parameter.

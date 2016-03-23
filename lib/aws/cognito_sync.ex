@@ -271,7 +271,7 @@ defmodule AWS.Cognito.Sync do
     url = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
     headers = []
     if Dict.has_key?(input, "ClientContext") do
-      headers = [{"ClientContext", input["ClientContext"]}|headers]
+      headers = [{"x-amz-Client-Context", input["ClientContext"]}|headers]
       input = Dict.delete(input, "ClientContext")
     end
     request(client, :post, url, headers, input, options, 200)

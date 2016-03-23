@@ -22,7 +22,18 @@ defmodule AWS.GameLift do
   includes commands for GameLift. For administrative actions, you can use the
   Amazon GameLift console.
 
-  **Setting Up Your Game Servers**
+  **Managing Game and Player Sessions Through GameLift**
+
+  Call these actions from your game clients and/or services to create and
+  manage multiplayer game sessions.
+
+  <ul> <li> **Game sessions** <ul> <li>`CreateGameSession`</li>
+  <li>`DescribeGameSessions`</li> <li>`DescribeGameSessionDetails`</li>
+  <li>`UpdateGameSession`</li> </ul> </li> <li> **Player sessions** <ul>
+  <li>`CreatePlayerSession`</li> <li>`CreatePlayerSessions`</li>
+  <li>`DescribePlayerSessions`</li> </ul> </li> <li> **Other actions:** <ul>
+  <li>`GetGameSessionLogUrl`</li> </ul> </li> </ul> **Setting Up Game
+  Servers**
 
   Use these administrative actions to configure GameLift to host your game
   servers. When configuring GameLift, you'll need to (1) configure a build
@@ -41,17 +52,9 @@ defmodule AWS.GameLift do
   <li>`UpdateFleetPortSettings`</li> </ul> </li> <li>`DeleteFleet`</li> </ul>
   </li> <li> **Alias actions:** <ul> <li>`ListAliases`</li>
   <li>`CreateAlias`</li> <li>`DescribeAlias`</li> <li>`UpdateAlias`</li>
-  <li>`DeleteAlias`</li> <li>`ResolveAlias`</li> </ul> </li> </ul> **Managing
-  Game and Player Sessions Through GameLift**
-
-  Call these actions from your game clients and/or services to create and
-  manage multiplayer game sessions.
-
-  <ul> <li> **Game sessions** <ul> <li>`CreateGameSession`</li>
-  <li>`DescribeGameSessions`</li> <li>`UpdateGameSession`</li> </ul> </li>
-  <li> **Player sessions** <ul> <li>`CreatePlayerSession`</li>
-  <li>`CreatePlayerSessions`</li> <li>`DescribePlayerSessions`</li> </ul>
-  </li> <li> **Other actions:** <ul> <li>`GetGameSessionLogUrl`</li> </ul>
+  <li>`DeleteAlias`</li> <li>`ResolveAlias`</li> </ul> </li> <li> **Scaling
+  policy actions:** <ul> <li>`PutScalingPolicy`</li>
+  <li>`DescribeScalingPolicies`</li> <li>`DeleteScalingPolicy`</li> </ul>
   </li> </ul>
   """
 
@@ -113,7 +116,8 @@ defmodule AWS.GameLift do
   READY state before they can be used to build fleets. When configuring the
   new fleet, you can optionally (1) provide a set of launch parameters to be
   passed to a game server when activated; (2) limit incoming traffic to a
-  specified range of IP addresses and port numbers; and (3) configure Amazon
+  specified range of IP addresses and port numbers; (3) set game session
+  protection for all instances in the fleet, and (4) configure Amazon
   GameLift to store game session logs by specifying the path to the logs
   stored in your game server files. If the call is successful, Amazon
   GameLift performs the following tasks:
@@ -218,6 +222,16 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+  Deletes a fleet scaling policy. This action means that the policy is no
+  longer in force and removes all record of it. To delete a scaling policy,
+  specify both the scaling policy name and the fleet ID it is associated
+  with.
+  """
+  def delete_scaling_policy(client, input, options \\ []) do
+    request(client, "DeleteScalingPolicy", input, options)
+  end
+
+  @doc """
   Retrieves properties for a specified alias. To get the alias, specify an
   alias ID. If successful, an `Alias` object is returned.
   """
@@ -234,9 +248,13 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves the maximum number of instances allowed, per AWS account, for
-  each specified EC2 instance type. The current usage level for the AWS
-  account is also retrieved.
+  Retrieves the following information for the specified EC2 instance type:
+
+  <ul> <li>maximum number of instances allowed per AWS account (service
+  limit)</li> <li>current usage level for the AWS account </li> </ul> Service
+  limits vary depending on region. Available regions for GameLift can be
+  found in the AWS Management Console for GameLift (see the drop-down list in
+  the upper right corner).
   """
   def describe_e_c2_instance_limits(client, input, options \\ []) do
     request(client, "DescribeEC2InstanceLimits", input, options)
@@ -322,13 +340,29 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves properties for one or more game sessions. This action can be used
-  in several ways: (1) provide a *GameSessionId* parameter to request
-  properties for a specific game session; (2) provide a *FleetId* or
-  *AliasId* parameter to request properties for all game sessions running on
-  a fleet.
+  Retrieves properties, including the protection policy in force, for one or
+  more game sessions. This action can be used in several ways: (1) provide a
+  *GameSessionId* to request details for a specific game session; (2) provide
+  either a *FleetId* or an *AliasId* to request properties for all game
+  sessions running on a fleet.
 
-  To get game session record(s), specify only one of the following: game
+  To get game session record(s), specify just one of the following: game
+  session ID, fleet ID, or alias ID. You can filter this request by game
+  session status. Use the pagination parameters to retrieve results as a set
+  of sequential pages. If successful, a `GameSessionDetail` object is
+  returned for each session matching the request.
+  """
+  def describe_game_session_details(client, input, options \\ []) do
+    request(client, "DescribeGameSessionDetails", input, options)
+  end
+
+  @doc """
+  Retrieves properties for one or more game sessions. This action can be used
+  in several ways: (1) provide a *GameSessionId* to request properties for a
+  specific game session; (2) provide a *FleetId* or an *AliasId* to request
+  properties for all game sessions running on a fleet.
+
+  To get game session record(s), specify just one of the following: game
   session ID, fleet ID, or alias ID. You can filter this request by game
   session status. Use the pagination parameters to retrieve results as a set
   of sequential pages. If successful, a `GameSession` object is returned for
@@ -354,6 +388,19 @@ defmodule AWS.GameLift do
   """
   def describe_player_sessions(client, input, options \\ []) do
     request(client, "DescribePlayerSessions", input, options)
+  end
+
+  @doc """
+  Retrieves all scaling policies applied to a fleet.
+
+  To get a fleet's scaling policies, specify the fleet ID. You can filter
+  this request by policy status, such as to retrieve only active scaling
+  policies. Use the pagination parameters to retrieve results as a set of
+  sequential pages. If successful, set of `ScalingPolicy` objects is returned
+  for the fleet.
+  """
+  def describe_scaling_policies(client, input, options \\ []) do
+    request(client, "DescribeScalingPolicies", input, options)
   end
 
   @doc """
@@ -409,6 +456,36 @@ defmodule AWS.GameLift do
   """
   def list_fleets(client, input, options \\ []) do
     request(client, "ListFleets", input, options)
+  end
+
+  @doc """
+  Creates or updates a scaling policy for a fleet. An active scaling policy
+  prompts GameLift to track a certain metric for a fleet and automatically
+  change the fleet's capacity in specific circumstances. Each scaling policy
+  contains one rule statement. Fleets can have multiple scaling policies in
+  force simultaneously.
+
+  A scaling policy rule statement has the following structure:
+
+  If *[MetricName]* is *[ComparisonOperator]* *[Threshold]* for
+  *[EvaluationPeriods]* minutes, then *[ScalingAdjustmentType]* to/by
+  *[ScalingAdjustment]*.
+
+  For example, this policy: "If the number of idle instances exceeds 20 for
+  more than 15 minutes, then reduce the fleet capacity by 10 instances" could
+  be implemented as the following rule statement:
+
+  If [IdleInstances] is [GreaterThanOrEqualToThreshold] [20] for [15]
+  minutes, then [ChangeInCapacity] by [-10].
+
+  To create or update a scaling policy, specify a unique combination of name
+  and fleet ID, and set the rule values. All parameters for this action are
+  required. If successful, the policy name is returned. Scaling policies
+  cannot be suspended or made inactive. To stop enforcing a scaling policy,
+  call `DeleteScalingPolicy`.
+  """
+  def put_scaling_policy(client, input, options \\ []) do
+    request(client, "PutScalingPolicy", input, options)
   end
 
   @doc """
@@ -472,6 +549,12 @@ defmodule AWS.GameLift do
   calling this action, you may want to call `DescribeEC2InstanceLimits` to
   get the maximum capacity based on the fleet's EC2 instance type.
 
+  If you're using auto-scaling (see `PutScalingPolicy`), you may want to
+  specify a minimum and/or maximum capacity. If you don't provide these
+  boundaries, auto-scaling can set capacity anywhere between zero and the
+  [service
+  limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift).
+
   To update fleet capacity, specify the fleet ID and the desired number of
   instances. If successful, Amazon GameLift starts or terminates instances so
   that the fleet's active instance count matches the desired instance count.
@@ -497,10 +580,12 @@ defmodule AWS.GameLift do
 
   @doc """
   Updates game session properties. This includes the session name, maximum
-  player count and the player session creation policy, which either allows or
-  denies new players from joining the session. To update a game session,
-  specify the game session ID and the values you want to change. If
-  successful, an updated `GameSession` object is returned.
+  player count, protection policy, which controls whether or not an active
+  game session can be terminated during a scale-down event, and the player
+  session creation policy, which controls whether or not new players can join
+  the session. To update a game session, specify the game session ID and the
+  values you want to change. If successful, an updated `GameSession` object
+  is returned.
   """
   def update_game_session(client, input, options \\ []) do
     request(client, "UpdateGameSession", input, options)

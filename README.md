@@ -5,7 +5,7 @@
 ## Features
 
 * Generated using the same JSON descriptions of AWS services used to build
-  the [AWS SDK for Go](https://github.com/awslabs/aws-sdk-go/tree/master/apis).
+  the [AWS SDK for Go](https://github.com/aws/aws-sdk-go/tree/master/models/apis).
 * Supports AWS services that use `json` and `rest-json` protocols.
 
 ## Example

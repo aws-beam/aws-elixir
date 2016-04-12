@@ -4,8 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 ### Fixed
-- Link to `aws-codegen` added and broken AWS SDK specification links fixed.
-  Thanks Brenton Annan (@brentonannan).
+- Link to `aws-codegen` added and broken AWS SDK specification links fixed in
+  README.  Thanks Brenton Annan (@brentonannan).
 
 ## [v0.0.10] - 2016-03-22
 ### Added

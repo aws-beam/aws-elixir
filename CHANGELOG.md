@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+### Fixed
+- Link to `aws-codegen` added and broken AWS SDK specification links fixed.
+  Thanks Brenton Annan (@brentonannan).
 
 ## [v0.0.10] - 2016-03-22
 ### Added
@@ -52,7 +55,7 @@ All notable changes to this project will be documented in this file.
 - REST-JSON clients, including `AWS.CloudSearchDomain`, `AWS.CognitoSync`,
   `AWS.EFS`, `AWS.Glacier`, `AWS.Lambda`, `AWS.MobileAnalytics` and
   `AWS.Transcoder` correctly handle responses with empty bodies.  Thanks Akash
-  Manohar aka @HashNuke.
+  Manohar (@HashNuke).
 
 ## [v0.0.6] - 2016-01-06
 ### Added
@@ -82,7 +85,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - An empty body returned alongside an HTTP 200 from an AWS service isn't
   parsed by Poison (which was causing exceptions to be raised).  Thanks Mike
-  Coleman aka @fivebats.
+  Coleman (@fivebats).
 
 ## [v0.0.4] - 2015-08-05
 ### Added

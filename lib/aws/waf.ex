@@ -175,6 +175,29 @@ defmodule AWS.WAF do
   end
 
   @doc """
+  Creates an `XssMatchSet`, which you use to allow, block, or count requests
+  that contain cross-site scripting attacks in the specified part of web
+  requests. AWS WAF searches for character sequences that are likely to be
+  malicious strings.
+
+  To create and configure an `XssMatchSet`, perform the following steps:
+
+  <ol> <li>Use `GetChangeToken` to get the change token that you provide in
+  the `ChangeToken` parameter of a `CreateXssMatchSet` request.</li>
+  <li>Submit a `CreateXssMatchSet` request.</li> <li>Use `GetChangeToken` to
+  get the change token that you provide in the `ChangeToken` parameter of an
+  `UpdateXssMatchSet` request.</li> <li>Submit an `UpdateXssMatchSet` request
+  to specify the parts of web requests in which you want to allow, block, or
+  count cross-site scripting attacks.</li> </ol> For more information about
+  how to use the AWS WAF API to allow or block HTTP requests, see the [AWS
+  WAF Developer
+  Guide](http://docs.aws.amazon.com/waf/latest/developerguide/).
+  """
+  def create_xss_match_set(client, input, options \\ []) do
+    request(client, "CreateXssMatchSet", input, options)
+  end
+
+  @doc """
   Permanently deletes a `ByteMatchSet`. You can't delete a `ByteMatchSet` if
   it's still used in any `Rules` or if it still includes any `ByteMatchTuple`
   objects (any filters).
@@ -287,6 +310,27 @@ defmodule AWS.WAF do
   end
 
   @doc """
+  Permanently deletes an `XssMatchSet`. You can't delete an `XssMatchSet` if
+  it's still used in any `Rules` or if it still contains any `XssMatchTuple`
+  objects.
+
+  If you just want to remove an `XssMatchSet` from a `Rule`, use
+  `UpdateRule`.
+
+  To permanently delete an `XssMatchSet` from AWS WAF, perform the following
+  steps:
+
+  <ol> <li>Update the `XssMatchSet` to remove filters, if any. For more
+  information, see `UpdateXssMatchSet`.</li> <li>Use `GetChangeToken` to get
+  the change token that you provide in the `ChangeToken` parameter of a
+  `DeleteXssMatchSet` request.</li> <li>Submit a `DeleteXssMatchSet`
+  request.</li> </ol>
+  """
+  def delete_xss_match_set(client, input, options \\ []) do
+    request(client, "DeleteXssMatchSet", input, options)
+  end
+
+  @doc """
   Returns the `ByteMatchSet` specified by `ByteMatchSetId`.
   """
   def get_byte_match_set(client, input, options \\ []) do
@@ -384,6 +428,13 @@ defmodule AWS.WAF do
   end
 
   @doc """
+  Returns the `XssMatchSet` that is specified by `XssMatchSetId`.
+  """
+  def get_xss_match_set(client, input, options \\ []) do
+    request(client, "GetXssMatchSet", input, options)
+  end
+
+  @doc """
   Returns an array of `ByteMatchSetSummary` objects.
   """
   def list_byte_match_sets(client, input, options \\ []) do
@@ -423,6 +474,13 @@ defmodule AWS.WAF do
   """
   def list_web_a_c_ls(client, input, options \\ []) do
     request(client, "ListWebACLs", input, options)
+  end
+
+  @doc """
+  Returns an array of `XssMatchSet` objects.
+  """
+  def list_xss_match_sets(client, input, options \\ []) do
+    request(client, "ListXssMatchSets", input, options)
   end
 
   @doc """
@@ -646,6 +704,38 @@ defmodule AWS.WAF do
   """
   def update_web_a_c_l(client, input, options \\ []) do
     request(client, "UpdateWebACL", input, options)
+  end
+
+  @doc """
+  Inserts or deletes `XssMatchTuple` objects (filters) in an `XssMatchSet`.
+  For each `XssMatchTuple` object, you specify the following values:
+
+  <ul> <li>`Action`: Whether to insert the object into or delete the object
+  from the array. To change a `XssMatchTuple`, you delete the existing object
+  and add a new one.</li> <li>`FieldToMatch`: The part of web requests that
+  you want AWS WAF to inspect and, if you want AWS WAF to inspect a header,
+  the name of the header.</li> <li>`TextTransformation`: Which text
+  transformation, if any, to perform on the web request before inspecting the
+  request for cross-site scripting attacks.</li> </ul> You use `XssMatchSet`
+  objects to specify which CloudFront requests you want to allow, block, or
+  count. For example, if you're receiving requests that contain cross-site
+  scripting attacks in the request body and you want to block the requests,
+  you can create an `XssMatchSet` with the applicable settings, and then
+  configure AWS WAF to block the requests.
+
+  To create and configure an `XssMatchSet`, perform the following steps:
+
+  <ol> <li>Submit a `CreateXssMatchSet` request.</li> <li>Use
+  `GetChangeToken` to get the change token that you provide in the
+  `ChangeToken` parameter of an `UpdateIPSet` request.</li> <li>Submit an
+  `UpdateXssMatchSet` request to specify the parts of web requests that you
+  want AWS WAF to inspect for cross-site scripting attacks.</li> </ol> For
+  more information about how to use the AWS WAF API to allow or block HTTP
+  requests, see the [AWS WAF Developer
+  Guide](http://docs.aws.amazon.com/waf/latest/developerguide/).
+  """
+  def update_xss_match_set(client, input, options \\ []) do
+    request(client, "UpdateXssMatchSet", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

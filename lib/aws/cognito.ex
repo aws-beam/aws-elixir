@@ -45,8 +45,11 @@ defmodule AWS.Cognito do
   @doc """
   Creates a new identity pool. The identity pool is a store of user identity
   information that is specific to your AWS account. The limit on identity
-  pools is 60 per account. You must use AWS Developer credentials to call
-  this API.
+  pools is 60 per account. The keys for `SupportedLoginProviders` are as
+  follows: <ul> <li>Facebook: `graph.facebook.com`</li> <li>Google:
+  `accounts.google.com`</li> <li>Amazon: `www.amazon.com`</li> <li>Twitter:
+  `api.twitter.com`</li> <li>Digits: `www.digits.com`</li> </ul> You must use
+  AWS Developer credentials to call this API.
   """
   def create_identity_pool(client, input, options \\ []) do
     request(client, "CreateIdentityPool", input, options)
@@ -93,8 +96,8 @@ defmodule AWS.Cognito do
   end
 
   @doc """
-  Returns credentials for the the provided identity ID. Any provided logins
-  will be validated against supported login providers. If the token is for
+  Returns credentials for the provided identity ID. Any provided logins will
+  be validated against supported login providers. If the token is for
   cognito-identity.amazonaws.com, it will be passed through to AWS Security
   Token Service with the appropriate role for the token.
 
@@ -107,8 +110,6 @@ defmodule AWS.Cognito do
   @doc """
   Generates (or retrieves) a Cognito ID. Supplying multiple logins will
   create an implicit linked account.
-
-  token+";"+tokenSecret.
 
   This is a public API. You do not need any credentials to call this API.
   """
@@ -172,7 +173,7 @@ defmodule AWS.Cognito do
   @doc """
   Lists all of the Cognito identity pools registered for your account.
 
-  This is a public API. You do not need any credentials to call this API.
+  You must use AWS Developer credentials to call this API.
   """
   def list_identity_pools(client, input, options \\ []) do
     request(client, "ListIdentityPools", input, options)
@@ -228,7 +229,7 @@ defmodule AWS.Cognito do
   well as the developer user identifier, the Cognito identity becomes
   inaccessible.
 
-  This is a public API. You do not need any credentials to call this API.
+  You must use AWS Developer credentials to call this API.
   """
   def unlink_developer_identity(client, input, options \\ []) do
     request(client, "UnlinkDeveloperIdentity", input, options)

@@ -17,16 +17,16 @@ defmodule AWS.CodePipeline do
   *Pipelines* are models of automated release processes. Each pipeline is
   uniquely named, and consists of actions, gates, and stages.
 
-  You can work with pipelines by calling: <ul><li>`CreatePipeline`, which
-  creates a uniquely-named pipeline.</li> <li>`DeletePipeline`, which deletes
-  the specified pipeline.</li> <li>`GetPipeline`, which returns information
-  about a pipeline structure.</li> <li>`GetPipelineState`, which returns
-  information about the current state of the stages and actions of a
+  You can work with pipelines by calling: <ul> <li> `CreatePipeline`, which
+  creates a uniquely-named pipeline.</li> <li> `DeletePipeline`, which
+  deletes the specified pipeline.</li> <li> `GetPipeline`, which returns
+  information about a pipeline structure.</li> <li> `GetPipelineState`, which
+  returns information about the current state of the stages and actions of a
   pipeline.</li> <li> `ListPipelines`, which gets a summary of all of the
-  pipelines associated with your account.</li> <li>`StartPipelineExecution`,
+  pipelines associated with your account.</li> <li> `StartPipelineExecution`,
   which runs the the most recent revision of an artifact through the
-  pipeline.</li> <li>`UpdatePipeline`, which updates a pipeline with edits or
-  changes to the structure of the pipeline.</li> </ul> Pipelines include
+  pipeline.</li> <li> `UpdatePipeline`, which updates a pipeline with edits
+  or changes to the structure of the pipeline.</li> </ul> Pipelines include
   *stages*, which are which are logical groupings of gates and actions. Each
   stage contains one or more actions that must complete before the next stage
   begins. A stage will result in success or failure. If a stage fails, then
@@ -55,9 +55,9 @@ defmodule AWS.CodePipeline do
 
   You can work with transitions by calling:
 
-  <ul> <li>`DisableStageTransition`, which prevents artifacts from
-  transitioning to the next stage in a pipeline.</li>
-  <li>`EnableStageTransition`, which enables transition of artifacts between
+  <ul> <li> `DisableStageTransition`, which prevents artifacts from
+  transitioning to the next stage in a pipeline.</li> <li>
+  `EnableStageTransition`, which enables transition of artifacts between
   stages in a pipeline. </li> </ul> **Using the API to integrate with AWS
   CodePipeline**
 
@@ -70,23 +70,23 @@ defmodule AWS.CodePipeline do
   source action might import a revision of an artifact from a source. You can
   work with jobs by calling:
 
-  <ul> <li>`AcknowledgeJob`, which confirms whether a job worker has received
-  the specified job,</li> <li>`GetJobDetails`, which returns the details of a
-  job,</li> <li>`PollForJobs`, which determines whether there are any jobs to
-  act upon, </li> <li>`PutJobFailureResult`, which provides details of a job
-  failure, and</li> <li>`PutJobSuccessResult`, which provides details of a
-  job success.</li> </ul></li> <li>Third party jobs, which are instances of
-  an action created by a partner action and integrated into AWS CodePipeline.
-  Partner actions are created by members of the AWS Partner Network. You can
-  work with third party jobs by calling:
+  <ul> <li> `AcknowledgeJob`, which confirms whether a job worker has
+  received the specified job,</li> <li> `GetJobDetails`, which returns the
+  details of a job,</li> <li> `PollForJobs`, which determines whether there
+  are any jobs to act upon, </li> <li> `PutJobFailureResult`, which provides
+  details of a job failure, and</li> <li> `PutJobSuccessResult`, which
+  provides details of a job success.</li> </ul> </li> <li>Third party jobs,
+  which are instances of an action created by a partner action and integrated
+  into AWS CodePipeline. Partner actions are created by members of the AWS
+  Partner Network. You can work with third party jobs by calling:
 
-  <ul><li>`AcknowledgeThirdPartyJob`, which confirms whether a job worker has
-  received the specified job,</li> <li>`GetThirdPartyJobDetails`, which
-  requests the details of a job for a partner action,</li>
-  <li>`PollForThirdPartyJobs`, which determines whether there are any jobs to
-  act upon, </li> <li>`PutThirdPartyJobFailureResult`, which provides details
-  of a job failure, and</li> <li>`PutThirdPartyJobSuccessResult`, which
-  provides details of a job success.</li> </ul></li> </ul>
+  <ul> <li> `AcknowledgeThirdPartyJob`, which confirms whether a job worker
+  has received the specified job,</li> <li> `GetThirdPartyJobDetails`, which
+  requests the details of a job for a partner action,</li> <li>
+  `PollForThirdPartyJobs`, which determines whether there are any jobs to act
+  upon, </li> <li> `PutThirdPartyJobFailureResult`, which provides details of
+  a job failure, and</li> <li> `PutThirdPartyJobSuccessResult`, which
+  provides details of a job success.</li> </ul> </li> </ul>
   """
 
   @doc """

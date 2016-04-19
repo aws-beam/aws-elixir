@@ -29,9 +29,9 @@ defmodule AWS.StorageGateway do
   request parameters, response elements, possible errors, and examples of
   requests and responses.</li> <li>[AWS Storage Gateway Regions and
   Endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html):
-  Provides a list of each of the regions and endpoints available for use with
-  AWS Storage Gateway. </li> </ul> <note>AWS Storage Gateway resource IDs are
-  in uppercase. When you use these resource IDs with the Amazon EC2 API, EC2
+  Provides a list of each of the s and endpoints available for use with AWS
+  Storage Gateway. </li> </ul> <note>AWS Storage Gateway resource IDs are in
+  uppercase. When you use these resource IDs with the Amazon EC2 API, EC2
   expects resource IDs in lowercase. You must change your resource ID to
   lowercase to use it with the EC2 API. For example, in Storage Gateway the
   ID for a volume might be vol-1122AABB. When you use this ID with the EC2
@@ -40,13 +40,13 @@ defmodule AWS.StorageGateway do
   """
 
   @doc """
-  This operation activates the gateway you previously deployed on your host.
-  For more information, see [ Activate the AWS Storage
+  Activates the gateway you previously deployed on your host. For more
+  information, see [ Activate the AWS Storage
   Gateway](http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html).
-  In the activation process, you specify information such as the region you
-  want to use for storing snapshots, the time zone for scheduled snapshots
-  the gateway snapshot schedule window, an activation key, and a name for
-  your gateway. The activation process also associates your gateway with your
+  In the activation process, you specify information such as the you want to
+  use for storing snapshots, the time zone for scheduled snapshots the
+  gateway snapshot schedule window, an activation key, and a name for your
+  gateway. The activation process also associates your gateway with your
   account; for more information, see `UpdateGatewayInformation`.
 
   <note>You must turn on the gateway VM before you can activate your
@@ -57,9 +57,9 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation configures one or more gateway local disks as cache for a
-  cached-volume gateway. This operation is supported only for the
-  gateway-cached volume architecture (see [Storage Gateway
+  Configures one or more gateway local disks as cache for a cached-volume
+  gateway. This operation is supported only for the gateway-cached volume
+  architecture (see [Storage Gateway
   Concepts](http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html)).
 
   In the request, you specify the gateway Amazon Resource Name (ARN) to which
@@ -71,11 +71,11 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation adds one or more tags to the specified resource. You use
-  tags to add metadata to resources, which you can use to categorize these
-  resources. For example, you can categorize resources by purpose, owner,
-  environment, or team. Each tag consists of a key and a value, which you
-  define. You can add tags to the following AWS Storage Gateway resources:
+  Adds one or more tags to the specified resource. You use tags to add
+  metadata to resources, which you can use to categorize these resources. For
+  example, you can categorize resources by purpose, owner, environment, or
+  team. Each tag consists of a key and a value, which you define. You can add
+  tags to the following AWS Storage Gateway resources:
 
   <ul> <li>Storage gateways of all types
 
@@ -92,9 +92,9 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation configures one or more gateway local disks as upload buffer
-  for a specified gateway. This operation is supported for both the
-  gateway-stored and gateway-cached volume architectures.
+  Configures one or more gateway local disks as upload buffer for a specified
+  gateway. This operation is supported for both the gateway-stored and
+  gateway-cached volume architectures.
 
   In the request, you specify the gateway Amazon Resource Name (ARN) to which
   you want to add upload buffer, and one or more disk IDs that you want to
@@ -105,10 +105,10 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation configures one or more gateway local disks as working
-  storage for a gateway. This operation is supported only for the
-  gateway-stored volume architecture. This operation is deprecated method in
-  cached-volumes API version (20120630). Use AddUploadBuffer instead.
+  Configures one or more gateway local disks as working storage for a
+  gateway. This operation is supported only for the gateway-stored volume
+  architecture. This operation is deprecated in cached-volumes API version
+  20120630. Use `AddUploadBuffer` instead.
 
   <note>Working storage is also referred to as upload buffer. You can also
   use the `AddUploadBuffer` operation to add upload buffer to a stored-volume
@@ -140,8 +140,8 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation creates a cached volume on a specified cached gateway. This
-  operation is supported only for the gateway-cached volume architecture.
+  Creates a cached volume on a specified cached gateway. This operation is
+  supported only for the gateway-cached volume architecture.
 
   <note>Cache storage must be allocated to the gateway before you can create
   a cached volume. Use the `AddCache` operation to add cache storage to a
@@ -157,7 +157,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation initiates a snapshot of a volume.
+  Initiates a snapshot of a volume.
 
   AWS Storage Gateway provides the ability to back up point-in-time snapshots
   of your data to Amazon Simple Storage (S3) for durable off-site recovery,
@@ -185,9 +185,8 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation initiates a snapshot of a gateway from a volume recovery
-  point. This operation is supported only for the gateway-cached volume
-  architecture (see ).
+  Initiates a snapshot of a gateway from a volume recovery point. This
+  operation is supported only for the gateway-cached volume architecture.
 
   A volume recovery point is a point in time at which all data of the volume
   is consistent and from which you can create a snapshot. To get a list of
@@ -212,8 +211,8 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation creates a volume on a specified gateway. This operation is
-  supported only for the gateway-stored volume architecture.
+  Creates a volume on a specified gateway. This operation is supported only
+  for the gateway-stored volume architecture.
 
   The size of the volume to create is inferred from the disk size. You can
   choose to preserve existing data on the disk, create volume from an
@@ -255,29 +254,29 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation deletes the bandwidth rate limits of a gateway. You can
-  delete either the upload and download bandwidth rate limit, or you can
-  delete both. If you delete only one of the limits, the other limit remains
-  unchanged. To specify which gateway to work with, use the Amazon Resource
-  Name (ARN) of the gateway in your request.
+  Deletes the bandwidth rate limits of a gateway. You can delete either the
+  upload and download bandwidth rate limit, or you can delete both. If you
+  delete only one of the limits, the other limit remains unchanged. To
+  specify which gateway to work with, use the Amazon Resource Name (ARN) of
+  the gateway in your request.
   """
   def delete_bandwidth_rate_limit(client, input, options \\ []) do
     request(client, "DeleteBandwidthRateLimit", input, options)
   end
 
   @doc """
-  This operation deletes Challenge-Handshake Authentication Protocol (CHAP)
-  credentials for a specified iSCSI target and initiator pair.
+  Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for
+  a specified iSCSI target and initiator pair.
   """
   def delete_chap_credentials(client, input, options \\ []) do
     request(client, "DeleteChapCredentials", input, options)
   end
 
   @doc """
-  This operation deletes a gateway. To specify which gateway to delete, use
-  the Amazon Resource Name (ARN) of the gateway in your request. The
-  operation deletes the gateway; however, it does not delete the gateway
-  virtual machine (VM) from your host computer.
+  Deletes a gateway. To specify which gateway to delete, use the Amazon
+  Resource Name (ARN) of the gateway in your request. The operation deletes
+  the gateway; however, it does not delete the gateway virtual machine (VM)
+  from your host computer.
 
   After you delete a gateway, you cannot reactivate it. Completed snapshots
   of the gateway volumes are not deleted upon deleting the gateway, however,
@@ -287,7 +286,7 @@ defmodule AWS.StorageGateway do
   <important> You no longer pay software charges after the gateway is
   deleted; however, your existing Amazon EBS snapshots persist and you will
   continue to be billed for these snapshots. You can choose to remove all
-  remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription. 
+  remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription.
   If you prefer not to cancel your Amazon EC2 subscription, you can delete
   your snapshots using the Amazon EC2 console. For more information, see the
   [ AWS Storage Gateway Detail Page](http://aws.amazon.com/storagegateway).
@@ -299,11 +298,11 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation deletes a snapshot of a volume.
+  Deletes a snapshot of a volume.
 
-  You can take snapshots of your gateway volumes on a scheduled or ad-hoc
-  basis. This API enables you to delete a snapshot schedule for a volume. For
-  more information, see [Working with
+  You can take snapshots of your gateway volumes on a scheduled or ad hoc
+  basis. This API action enables you to delete a snapshot schedule for a
+  volume. For more information, see [Working with
   Snapshots](http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html).
   In the `DeleteSnapshotSchedule` request, you identify the volume by
   providing its Amazon Resource Name (ARN).
@@ -332,11 +331,11 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation deletes the specified gateway volume that you previously
-  created using the `CreateCachediSCSIVolume` or `CreateStorediSCSIVolume`
-  API. For gateway-stored volumes, the local disk that was configured as the
-  storage volume is not deleted. You can reuse the local disk to create
-  another storage volume.
+  Deletes the specified gateway volume that you previously created using the
+  `CreateCachediSCSIVolume` or `CreateStorediSCSIVolume` API. For
+  gateway-stored volumes, the local disk that was configured as the storage
+  volume is not deleted. You can reuse the local disk to create another
+  storage volume.
 
   Before you delete a gateway volume, make sure there are no iSCSI
   connections to the volume you are deleting. You should also make sure there
@@ -354,9 +353,8 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation returns the bandwidth rate limits of a gateway. By default,
-  these limits are not set, which means no bandwidth rate limiting is in
-  effect.
+  Returns the bandwidth rate limits of a gateway. By default, these limits
+  are not set, which means no bandwidth rate limiting is in effect.
 
   This operation only returns a value for a bandwidth rate limit only if the
   limit is set. If no limits are set for the gateway, then this operation
@@ -369,8 +367,8 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation returns information about the cache of a gateway. This
-  operation is supported only for the gateway-cached volume architecture.
+  Returns information about the cache of a gateway. This operation is
+  supported only for the gateway-cached volume architecture.
 
   The response includes disk IDs that are configured as cache, and it
   includes the amount of cache allocated and used.
@@ -380,9 +378,8 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation returns a description of the gateway volumes specified in
-  the request. This operation is supported only for the gateway-cached volume
-  architecture.
+  Returns a description of the gateway volumes specified in the request. This
+  operation is supported only for the gateway-cached volume architecture.
 
   The list of gateway volumes in the request must be from one gateway. In the
   response Amazon Storage Gateway returns volume information sorted by volume
@@ -393,47 +390,46 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation returns an array of Challenge-Handshake Authentication
-  Protocol (CHAP) credentials information for a specified iSCSI target, one
-  for each target-initiator pair.
+  Returns an array of Challenge-Handshake Authentication Protocol (CHAP)
+  credentials information for a specified iSCSI target, one for each
+  target-initiator pair.
   """
   def describe_chap_credentials(client, input, options \\ []) do
     request(client, "DescribeChapCredentials", input, options)
   end
 
   @doc """
-  This operation returns metadata about a gateway such as its name, network
-  interfaces, configured time zone, and the state (whether the gateway is
-  running or not). To specify which gateway to describe, use the Amazon
-  Resource Name (ARN) of the gateway in your request.
+  Returns metadata about a gateway such as its name, network interfaces,
+  configured time zone, and the state (whether the gateway is running or
+  not). To specify which gateway to describe, use the Amazon Resource Name
+  (ARN) of the gateway in your request.
   """
   def describe_gateway_information(client, input, options \\ []) do
     request(client, "DescribeGatewayInformation", input, options)
   end
 
   @doc """
-  This operation returns your gateway's weekly maintenance start time
-  including the day and time of the week. Note that values are in terms of
-  the gateway's time zone.
+  Returns your gateway's weekly maintenance start time including the day and
+  time of the week. Note that values are in terms of the gateway's time zone.
   """
   def describe_maintenance_start_time(client, input, options \\ []) do
     request(client, "DescribeMaintenanceStartTime", input, options)
   end
 
   @doc """
-  This operation describes the snapshot schedule for the specified gateway
-  volume. The snapshot schedule information includes intervals at which
-  snapshots are automatically initiated on the volume.
+  Describes the snapshot schedule for the specified gateway volume. The
+  snapshot schedule information includes intervals at which snapshots are
+  automatically initiated on the volume.
   """
   def describe_snapshot_schedule(client, input, options \\ []) do
     request(client, "DescribeSnapshotSchedule", input, options)
   end
 
   @doc """
-  This operation returns the description of the gateway volumes specified in
-  the request. The list of gateway volumes in the request must be from one
-  gateway. In the response Amazon Storage Gateway returns volume information
-  sorted by volume ARNs.
+  Returns the description of the gateway volumes specified in the request.
+  The list of gateway volumes in the request must be from one gateway. In the
+  response Amazon Storage Gateway returns volume information sorted by volume
+  ARNs.
   """
   def describe_stored_iscsi_volumes(client, input, options \\ []) do
     request(client, "DescribeStorediSCSIVolumes", input, options)
@@ -455,7 +451,7 @@ defmodule AWS.StorageGateway do
   Returns a list of virtual tape recovery points that are available for the
   specified gateway-VTL.
 
-  A recovery point is a point in time view of a virtual tape at which all the
+  A recovery point is a point-in-time view of a virtual tape at which all the
   data on the virtual tape is consistent. If your gateway crashes, virtual
   tapes that have recovery points can be recovered to a new gateway.
   """
@@ -473,9 +469,9 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation returns information about the upload buffer of a gateway.
-  This operation is supported for both the gateway-stored and gateway-cached
-  volume architectures.
+  Returns information about the upload buffer of a gateway. This operation is
+  supported for both the gateway-stored and gateway-cached volume
+  architectures.
 
   The response includes disk IDs that are configured as upload buffer space,
   and it includes the amount of upload buffer space allocated and used.
@@ -496,10 +492,10 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation returns information about the working storage of a gateway.
-  This operation is supported only for the gateway-stored volume
-  architecture. This operation is deprecated in cached-volumes API version
-  (20120630). Use DescribeUploadBuffer instead.
+  Returns information about the working storage of a gateway. This operation
+  is supported only for the gateway-stored volume architecture. This
+  operation is deprecated in cached-volumes API version (20120630). Use
+  DescribeUploadBuffer instead.
 
   <note>Working storage is also referred to as upload buffer. You can also
   use the DescribeUploadBuffer operation to add upload buffer to a
@@ -527,16 +523,16 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation lists gateways owned by an AWS account in a region specified
-  in the request. The returned list is ordered by gateway Amazon Resource
-  Name (ARN).
+  Lists gateways owned by an AWS account in a region specified in the
+  request. The returned list is ordered by gateway Amazon Resource Name
+  (ARN).
 
   By default, the operation returns a maximum of 100 gateways. This operation
   supports pagination that allows you to optionally reduce the number of
   gateways returned in a response.
 
-  If you have more gateways than are returned in a response-that is, the
-  response returns only a truncated list of your gateways-the response
+  If you have more gateways than are returned in a response (that is, the
+  response returns only a truncated list of your gateways), the response
   contains a marker that you can specify in your next request to fetch the
   next page of gateways.
   """
@@ -545,9 +541,9 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation returns a list of the gateway's local disks. To specify
-  which gateway to describe, you use the Amazon Resource Name (ARN) of the
-  gateway in the body of the request.
+  Returns a list of the gateway's local disks. To specify which gateway to
+  describe, you use the Amazon Resource Name (ARN) of the gateway in the body
+  of the request.
 
   The request returns a list of all disks, specifying which are configured as
   working storage, cache storage, or stored volume or not configured at all.
@@ -561,24 +557,23 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation lists the tags that have been added to the specified
-  resource.
+  Lists the tags that have been added to the specified resource.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
-  This operation lists iSCSI initiators that are connected to a volume. You
-  can use this operation to determine whether a volume is being used or not.
+  Lists iSCSI initiators that are connected to a volume. You can use this
+  operation to determine whether a volume is being used or not.
   """
   def list_volume_initiators(client, input, options \\ []) do
     request(client, "ListVolumeInitiators", input, options)
   end
 
   @doc """
-  This operation lists the recovery points for a specified gateway. This
-  operation is supported only for the gateway-cached volume architecture.
+  Lists the recovery points for a specified gateway. This operation is
+  supported only for the gateway-cached volume architecture.
 
   Each gateway-cached volume has one recovery point. A volume recovery point
   is a point in time at which all data of the volume is consistent and from
@@ -590,10 +585,9 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation lists the iSCSI stored volumes of a gateway. Results are
-  sorted by volume ARN. The response includes only the volume ARNs. If you
-  want additional volume information, use the `DescribeStorediSCSIVolumes`
-  API.
+  Lists the iSCSI stored volumes of a gateway. Results are sorted by volume
+  ARN. The response includes only the volume ARNs. If you want additional
+  volume information, use the `DescribeStorediSCSIVolumes` API.
 
   The operation supports pagination. By default, the operation returns a
   maximum of up to 100 volumes. You can optionally specify the `Limit` field
@@ -607,20 +601,20 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation removes one or more tags from the specified resource.
+  Removes one or more tags from the specified resource.
   """
   def remove_tags_from_resource(client, input, options \\ []) do
     request(client, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
-  This operation resets all cache disks that have encountered a error and
-  makes the disks available for reconfiguration as cache storage. If your
-  cache disk encounters a error, the gateway prevents read and write
-  operations on virtual tapes in the gateway. For example, an error can occur
-  when a disk is corrupted or removed from the gateway. When a cache is
-  reset, the gateway loses its cache storage. At this point you can
-  reconfigure the disks as cache disks.
+  Resets all cache disks that have encountered a error and makes the disks
+  available for reconfiguration as cache storage. If your cache disk
+  encounters a error, the gateway prevents read and write operations on
+  virtual tapes in the gateway. For example, an error can occur when a disk
+  is corrupted or removed from the gateway. When a cache is reset, the
+  gateway loses its cache storage. At this point you can reconfigure the
+  disks as cache disks.
 
   <important> If the cache disk you are resetting contains data that has not
   been uploaded to Amazon S3 yet, that data can be lost. After you reset
@@ -664,9 +658,18 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation shuts down a gateway. To specify which gateway to shut down,
-  use the Amazon Resource Name (ARN) of the gateway in the body of your
-  request.
+  Sets the password for your VM local console. When you log in to the local
+  console for the first time, you log in to the VM with the default
+  credentials. We recommend that you set a new password. You don't need to
+  know the default password to set a new password.
+  """
+  def set_local_console_password(client, input, options \\ []) do
+    request(client, "SetLocalConsolePassword", input, options)
+  end
+
+  @doc """
+  Shuts down a gateway. To specify which gateway to shut down, use the Amazon
+  Resource Name (ARN) of the gateway in the body of your request.
 
   The operation shuts down the gateway service component running in the
   storage gateway's virtual machine (VM) and not the VM.
@@ -692,10 +695,10 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation starts a gateway that you previously shut down (see
-  `ShutdownGateway`). After the gateway starts, you can then make other API
-  calls, your applications can read from or write to the gateway's storage
-  volumes and you will be able to take snapshot backups.
+  Starts a gateway that you previously shut down (see `ShutdownGateway`).
+  After the gateway starts, you can then make other API calls, your
+  applications can read from or write to the gateway's storage volumes and
+  you will be able to take snapshot backups.
 
   <note>When you make a request, you will get a 200 OK success response
   immediately. However, it might take some time for the gateway to be ready.
@@ -709,10 +712,9 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation updates the bandwidth rate limits of a gateway. You can
-  update both the upload and download bandwidth rate limit or specify only
-  one of the two. If you don't set a bandwidth rate limit, the existing rate
-  limit remains.
+  Updates the bandwidth rate limits of a gateway. You can update both the
+  upload and download bandwidth rate limit or specify only one of the two. If
+  you don't set a bandwidth rate limit, the existing rate limit remains.
 
   By default, a gateway's bandwidth rate limits are not set. If you don't set
   any limit, the gateway does not have any limitations on its bandwidth usage
@@ -726,9 +728,9 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation updates the Challenge-Handshake Authentication Protocol
-  (CHAP) credentials for a specified iSCSI target. By default, a gateway does
-  not have CHAP enabled; however, for added security, you might use it.
+  Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials
+  for a specified iSCSI target. By default, a gateway does not have CHAP
+  enabled; however, for added security, you might use it.
 
   <important> When you update CHAP credentials, all existing connections on
   the target are closed and initiators must reconnect with the new
@@ -741,12 +743,12 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation updates a gateway's metadata, which includes the gateway's
-  name and time zone. To specify which gateway to update, use the Amazon
-  Resource Name (ARN) of the gateway in your request.
+  Updates a gateway's metadata, which includes the gateway's name and time
+  zone. To specify which gateway to update, use the Amazon Resource Name
+  (ARN) of the gateway in your request.
 
-  <note>For Gateways activated after September 02, 2015, the gateway's ARN
-  contains the gateway id rather than the gateway name. However changing the
+  <note>For Gateways activated after September 2, 2015, the gateway's ARN
+  contains the gateway ID rather than the gateway name. However, changing the
   name of the gateway has no effect on the gateway's ARN.</note>
   """
   def update_gateway_information(client, input, options \\ []) do
@@ -754,8 +756,8 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation updates the gateway virtual machine (VM) software. The
-  request immediately triggers the software update.
+  Updates the gateway virtual machine (VM) software. The request immediately
+  triggers the software update.
 
   <note>When you make this request, you get a `200 OK` success response
   immediately. However, it might take some time for the update to complete.
@@ -775,16 +777,16 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation updates a gateway's weekly maintenance start time
-  information, including day and time of the week. The maintenance time is
-  the time in your gateway's time zone.
+  Updates a gateway's weekly maintenance start time information, including
+  day and time of the week. The maintenance time is the time in your
+  gateway's time zone.
   """
   def update_maintenance_start_time(client, input, options \\ []) do
     request(client, "UpdateMaintenanceStartTime", input, options)
   end
 
   @doc """
-  This operation updates a snapshot schedule configured for a gateway volume.
+  Updates a snapshot schedule configured for a gateway volume.
 
   The default snapshot schedule for volume is once every 24 hours, starting
   at the creation time of the volume. You can use this API to change the
@@ -799,10 +801,10 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  This operation updates the type of medium changer in a gateway-VTL. When
-  you activate a gateway-VTL, you select a medium changer type for the
-  gateway-VTL. This operation enables you to select a different type of
-  medium changer after a gateway-VTL is activated.
+  Updates the type of medium changer in a gateway-VTL. When you activate a
+  gateway-VTL, you select a medium changer type for the gateway-VTL. This
+  operation enables you to select a different type of medium changer after a
+  gateway-VTL is activated.
   """
   def update_vtl_device_type(client, input, options \\ []) do
     request(client, "UpdateVTLDeviceType", input, options)

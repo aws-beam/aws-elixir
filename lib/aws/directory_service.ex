@@ -40,6 +40,16 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Creates a conditional forwarder associated with your AWS directory.
+  Conditional forwarders are required in order to set up a trust relationship
+  with another domain. The conditional forwarder points to the trusted
+  domain.
+  """
+  def create_conditional_forwarder(client, input, options \\ []) do
+    request(client, "CreateConditionalForwarder", input, options)
+  end
+
+  @doc """
   Creates a Simple AD directory.
   """
   def create_directory(client, input, options \\ []) do
@@ -81,6 +91,14 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Deletes a conditional forwarder that has been set up for your AWS
+  directory.
+  """
+  def delete_conditional_forwarder(client, input, options \\ []) do
+    request(client, "DeleteConditionalForwarder", input, options)
+  end
+
+  @doc """
   Deletes an AWS Directory Service directory.
   """
   def delete_directory(client, input, options \\ []) do
@@ -107,6 +125,16 @@ defmodule AWS.DirectoryService do
   """
   def deregister_event_topic(client, input, options \\ []) do
     request(client, "DeregisterEventTopic", input, options)
+  end
+
+  @doc """
+  Obtains information about the conditional forwarders for this account.
+
+  If no input parameters are provided for RemoteDomainNames, this request
+  describes all conditional forwarders for the specified directory ID.
+  """
+  def describe_conditional_forwarders(client, input, options \\ []) do
+    request(client, "DescribeConditionalForwarders", input, options)
   end
 
   @doc """
@@ -236,6 +264,14 @@ defmodule AWS.DirectoryService do
   """
   def restore_from_snapshot(client, input, options \\ []) do
     request(client, "RestoreFromSnapshot", input, options)
+  end
+
+  @doc """
+  Updates a conditional forwarder that has been set up for your AWS
+  directory.
+  """
+  def update_conditional_forwarder(client, input, options \\ []) do
+    request(client, "UpdateConditionalForwarder", input, options)
   end
 
   @doc """

@@ -1,0 +1,807 @@
+# WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
+# See https://github.com/jkakar/aws-codegen for more details.
+
+defmodule AWS.APIGateway do
+  @moduledoc """
+  Amazon API Gateway
+
+  Amazon API Gateway helps developers deliver robust, secure and scalable
+  mobile and web application backends. Amazon API Gateway allows developers
+  to securely connect mobile and web applications to APIs that run on AWS
+  Lambda, Amazon EC2, or other publicly addressable web services that are
+  hosted outside of AWS.
+  """
+
+  @doc """
+  Create an `ApiKey` resource.
+  """
+  def create_api_key(client, input, options \\ []) do
+    url = "/apikeys"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Adds a new `Authorizer` resource to an existing `RestApi` resource.
+  """
+  def create_authorizer(client, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/authorizers"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Creates a new `BasePathMapping` resource.
+  """
+  def create_base_path_mapping(client, domain_name, input, options \\ []) do
+    url = "/domainnames/{domain_name}/basepathmappings"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Creates a `Deployment` resource, which makes a specified `RestApi` callable
+  over the internet.
+  """
+  def create_deployment(client, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/deployments"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Creates a new domain name.
+  """
+  def create_domain_name(client, input, options \\ []) do
+    url = "/domainnames"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Adds a new `Model` resource to an existing `RestApi` resource.
+  """
+  def create_model(client, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/models"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Creates a `Resource` resource.
+  """
+  def create_resource(client, parent_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{parent_id}"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Creates a new `RestApi` resource.
+  """
+  def create_rest_api(client, input, options \\ []) do
+    url = "/restapis"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Creates a new `Stage` resource that references a pre-existing `Deployment`
+  for the API.
+  """
+  def create_stage(client, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/stages"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Deletes the `ApiKey` resource.
+  """
+  def delete_api_key(client, api_key, input, options \\ []) do
+    url = "/apikeys/{api_Key}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes an existing `Authorizer` resource.
+  """
+  def delete_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/authorizers/{authorizer_id}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes the `BasePathMapping` resource.
+  """
+  def delete_base_path_mapping(client, base_path, domain_name, input, options \\ []) do
+    url = "/domainnames/{domain_name}/basepathmappings/{base_path}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes the `ClientCertificate` resource.
+  """
+  def delete_client_certificate(client, client_certificate_id, input, options \\ []) do
+    url = "/clientcertificates/{clientcertificate_id}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes a `Deployment` resource. Deleting a deployment will only succeed if
+  there are no `Stage` resources associated with it.
+  """
+  def delete_deployment(client, deployment_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/deployments/{deployment_id}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes the `DomainName` resource.
+  """
+  def delete_domain_name(client, domain_name, input, options \\ []) do
+    url = "/domainnames/{domain_name}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Represents a delete integration.
+  """
+  def delete_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration"
+    headers = []
+    request(client, :delete, url, headers, input, options, 204)
+  end
+
+  @doc """
+  Represents a delete integration response.
+  """
+  def delete_integration_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration/responses/{status_code}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 204)
+  end
+
+  @doc """
+  Deletes an existing `Method` resource.
+  """
+  def delete_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 204)
+  end
+
+  @doc """
+  Deletes an existing `MethodResponse` resource.
+  """
+  def delete_method_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/responses/{status_code}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 204)
+  end
+
+  @doc """
+  Deletes a model.
+  """
+  def delete_model(client, model_name, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/models/{model_name}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes a `Resource` resource.
+  """
+  def delete_resource(client, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes the specified API.
+  """
+  def delete_rest_api(client, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes a `Stage` resource.
+  """
+  def delete_stage(client, rest_api_id, stage_name, input, options \\ []) do
+    url = "/restapis/{restapi_id}/stages/{stage_name}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Flushes all authorizer cache entries on a stage.
+  """
+  def flush_stage_authorizers_cache(client, rest_api_id, stage_name, input, options \\ []) do
+    url = "/restapis/{restapi_id}/stages/{stage_name}/cache/authorizers"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Flushes a stage's cache.
+  """
+  def flush_stage_cache(client, rest_api_id, stage_name, input, options \\ []) do
+    url = "/restapis/{restapi_id}/stages/{stage_name}/cache/data"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Generates a `ClientCertificate` resource.
+  """
+  def generate_client_certificate(client, input, options \\ []) do
+    url = "/clientcertificates"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Gets information about the current `Account` resource.
+  """
+  def get_account(client, options \\ []) do
+    url = "/account"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about the current `ApiKey` resource.
+  """
+  def get_api_key(client, api_key, options \\ []) do
+    url = "/apikeys/{api_Key}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about the current `ApiKeys` resource.
+  """
+  def get_api_keys(client, options \\ []) do
+    url = "/apikeys"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describe an existing `Authorizer` resource.
+  """
+  def get_authorizer(client, authorizer_id, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/authorizers/{authorizer_id}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describe an existing `Authorizers` resource.
+  """
+  def get_authorizers(client, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/authorizers"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describe a `BasePathMapping` resource.
+  """
+  def get_base_path_mapping(client, base_path, domain_name, options \\ []) do
+    url = "/domainnames/{domain_name}/basepathmappings/{base_path}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Represents a collection of `BasePathMapping` resources.
+  """
+  def get_base_path_mappings(client, domain_name, options \\ []) do
+    url = "/domainnames/{domain_name}/basepathmappings"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about the current `ClientCertificate` resource.
+  """
+  def get_client_certificate(client, client_certificate_id, options \\ []) do
+    url = "/clientcertificates/{clientcertificate_id}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a collection of `ClientCertificate` resources.
+  """
+  def get_client_certificates(client, options \\ []) do
+    url = "/clientcertificates"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about a `Deployment` resource.
+  """
+  def get_deployment(client, deployment_id, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/deployments/{deployment_id}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about a `Deployments` collection.
+  """
+  def get_deployments(client, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/deployments"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Represents a domain name that is contained in a simpler, more intuitive URL
+  that can be called.
+  """
+  def get_domain_name(client, domain_name, options \\ []) do
+    url = "/domainnames/{domain_name}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Represents a collection of `DomainName` resources.
+  """
+  def get_domain_names(client, options \\ []) do
+    url = "/domainnames"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Exports a deployed version of a `RestApi` in a specified format.
+  """
+  def get_export(client, export_type, rest_api_id, stage_name, accepts \\ nil, options \\ []) do
+    url = "/restapis/{restapi_id}/stages/{stage_name}/exports/{export_type}"
+    headers = []
+    if !is_nil(accepts) do
+      headers = [{"Accept", accepts}|headers]
+    end
+    case request(client, :get, url, headers, nil, options, 200) do
+      {:ok, body, response} ->
+        if !is_nil(response.headers["Content-Disposition"]) do
+          body = %{body | "contentDisposition" => response.headers["Content-Disposition"]}
+        end
+        if !is_nil(response.headers["Content-Type"]) do
+          body = %{body | "contentType" => response.headers["Content-Type"]}
+        end
+        {:ok, body, response}
+      result ->
+        result
+    end
+  end
+
+  @doc """
+  Represents a get integration.
+  """
+  def get_integration(client, http_method, resource_id, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Represents a get integration response.
+  """
+  def get_integration_response(client, http_method, resource_id, rest_api_id, status_code, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration/responses/{status_code}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describe an existing `Method` resource.
+  """
+  def get_method(client, http_method, resource_id, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes a `MethodResponse` resource.
+  """
+  def get_method_response(client, http_method, resource_id, rest_api_id, status_code, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/responses/{status_code}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes an existing model defined for a `RestApi` resource.
+  """
+  def get_model(client, model_name, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/models/{model_name}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Generates a sample mapping template that can be used to transform a payload
+  into the structure of a model.
+  """
+  def get_model_template(client, model_name, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/models/{model_name}/default_template"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes existing `Models` defined for a `RestApi` resource.
+  """
+  def get_models(client, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/models"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists information about a resource.
+  """
+  def get_resource(client, resource_id, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists information about a collection of `Resource` resources.
+  """
+  def get_resources(client, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/resources"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists the `RestApi` resource in the collection.
+  """
+  def get_rest_api(client, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists the `RestApis` resources for your collection.
+  """
+  def get_rest_apis(client, options \\ []) do
+    url = "/restapis"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Generates a client SDK for a `RestApi` and `Stage`.
+  """
+  def get_sdk(client, rest_api_id, sdk_type, stage_name, options \\ []) do
+    url = "/restapis/{restapi_id}/stages/{stage_name}/sdks/{sdk_type}"
+    headers = []
+    case request(client, :get, url, headers, nil, options, 200) do
+      {:ok, body, response} ->
+        if !is_nil(response.headers["Content-Disposition"]) do
+          body = %{body | "contentDisposition" => response.headers["Content-Disposition"]}
+        end
+        if !is_nil(response.headers["Content-Type"]) do
+          body = %{body | "contentType" => response.headers["Content-Type"]}
+        end
+        {:ok, body, response}
+      result ->
+        result
+    end
+  end
+
+  @doc """
+  Gets information about a `Stage` resource.
+  """
+  def get_stage(client, rest_api_id, stage_name, options \\ []) do
+    url = "/restapis/{restapi_id}/stages/{stage_name}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about one or more `Stage` resources.
+  """
+  def get_stages(client, rest_api_id, options \\ []) do
+    url = "/restapis/{restapi_id}/stages"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  A feature of the Amazon API Gateway control service for creating a new API
+  from an external API definition file.
+  """
+  def import_rest_api(client, input, options \\ []) do
+    url = "/restapis?mode=import"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Represents a put integration.
+  """
+  def put_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration"
+    headers = []
+    request(client, :put, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Represents a put integration.
+  """
+  def put_integration_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration/responses/{status_code}"
+    headers = []
+    request(client, :put, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Add a method to an existing `Resource` resource.
+  """
+  def put_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}"
+    headers = []
+    request(client, :put, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Adds a `MethodResponse` to an existing `Method` resource.
+  """
+  def put_method_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/responses/{status_code}"
+    headers = []
+    request(client, :put, url, headers, input, options, 201)
+  end
+
+  @doc """
+  A feature of the Amazon API Gateway control service for updating an
+  existing API with an input of external API definitions. The update can take
+  the form of merging the supplied definition into the existing API or
+  overwriting the existing API.
+  """
+  def put_rest_api(client, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}"
+    headers = []
+    request(client, :put, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Simulate the execution of an `Authorizer` in your `RestApi` with headers,
+  parameters, and an incoming request body.
+  """
+  def test_invoke_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/authorizers/{authorizer_id}"
+    headers = []
+    request(client, :post, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Simulate the execution of a `Method` in your `RestApi` with headers,
+  parameters, and an incoming request body.
+  """
+  def test_invoke_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}"
+    headers = []
+    request(client, :post, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about the current `Account` resource.
+  """
+  def update_account(client, input, options \\ []) do
+    url = "/account"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about an `ApiKey` resource.
+  """
+  def update_api_key(client, api_key, input, options \\ []) do
+    url = "/apikeys/{api_Key}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates an existing `Authorizer` resource.
+  """
+  def update_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/authorizers/{authorizer_id}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about the `BasePathMapping` resource.
+  """
+  def update_base_path_mapping(client, base_path, domain_name, input, options \\ []) do
+    url = "/domainnames/{domain_name}/basepathmappings/{base_path}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about an `ClientCertificate` resource.
+  """
+  def update_client_certificate(client, client_certificate_id, input, options \\ []) do
+    url = "/clientcertificates/{clientcertificate_id}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about a `Deployment` resource.
+  """
+  def update_deployment(client, deployment_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/deployments/{deployment_id}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about the `DomainName` resource.
+  """
+  def update_domain_name(client, domain_name, input, options \\ []) do
+    url = "/domainnames/{domain_name}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Represents an update integration.
+  """
+  def update_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Represents an update integration response.
+  """
+  def update_integration_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration/responses/{status_code}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates an existing `Method` resource.
+  """
+  def update_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates an existing `MethodResponse` resource.
+  """
+  def update_method_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/responses/{status_code}"
+    headers = []
+    request(client, :patch, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Changes information about a model.
+  """
+  def update_model(client, model_name, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/models/{model_name}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about a `Resource` resource.
+  """
+  def update_resource(client, resource_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}/resources/{resource_id}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about the specified API.
+  """
+  def update_rest_api(client, rest_api_id, input, options \\ []) do
+    url = "/restapis/{restapi_id}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Changes information about a `Stage` resource.
+  """
+  def update_stage(client, rest_api_id, stage_name, input, options \\ []) do
+    url = "/restapis/{restapi_id}/stages/{stage_name}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  defp request(client, method, url, headers, input, options, success_status_code) do
+    client = %{client | service: "apigateway"}
+    host = get_host("apigateway", client)
+    url = get_url(host, url, client)
+    headers = Enum.concat([{"Host", host},
+                           {"Content-Type", "application/x-amz-json-1.1"}],
+                          headers)
+    payload = encode_payload(input)
+    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
+    perform_request(method, url, payload, headers, options, success_status_code)
+  end
+
+  defp perform_request(method, url, payload, headers, options, nil) do
+    case HTTPoison.request(method, url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+        {:ok, response}
+      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
+        {:ok, Poison.Parser.parse!(body), response}
+      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
+        {:ok, Poison.Parser.parse!(body), response}
+      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
+        {:ok, Poison.Parser.parse!(body), response}
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body)["message"]
+        {:error, reason}
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        {:error, %HTTPoison.Error{reason: reason}}
+    end
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    case HTTPoison.request(method, url, payload, headers, options) do
+      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+        {:ok, nil, response}
+      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
+        {:ok, Poison.Parser.parse!(body), response}
+      {:ok, _response=%HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body)["message"]
+        {:error, reason}
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        {:error, %HTTPoison.Error{reason: reason}}
+    end
+  end
+
+  defp get_host(endpoint_prefix, client) do
+    if client.region == "local" do
+      "localhost"
+    else
+      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
+    end
+  end
+
+  defp get_url(host, url, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{url}/"
+  end
+
+  defp encode_payload(input) do
+    if input != nil do
+      Poison.Encoder.encode(input, [])
+    else
+      ""
+    end
+  end
+end

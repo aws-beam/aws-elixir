@@ -8,7 +8,7 @@ defmodule AWS.RequestTest do
                      secret_access_key: "secret-access-key",
                      region: "us-east-1",
                      service: "ec2"}
-    now = Timex.Date.from({{2015, 5, 14}, {16, 50, 5}})
+    now = Timex.DateTime.from({{2015, 5, 14}, {16, 50, 5}})
     method = "GET"
     url = "https://ec2.us-east-1.amazonaws.com?Action=DescribeInstances&Version=2014-10-01"
     headers = [{"Host", "ec2.us-east-1.amazonaws.com"}, {"Header", "Value"}]
@@ -25,7 +25,7 @@ defmodule AWS.RequestTest do
                      secret_access_key: "secret-access-key",
                      region: "us-east-1",
                      service: "ec2"}
-    now = Timex.Date.from({{2015, 5, 14}, {16, 50, 5}})
+    now = Timex.DateTime.from({{2015, 5, 14}, {16, 50, 5}})
     method = "GET"
     url = "https://s3.us-east-1.amazonaws.com/bucket"
     headers = [{"Host", "ec2.us-east-1.amazonaws.com"},

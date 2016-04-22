@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+
+## [v0.0.11] - 2016-04-21
+### Added
+- `AWS.CertificateManager` module for AWS Certificate Manager service.
+- `AWS.CloudWatch.Events` module for AWS CloudWatch Events service.
+- `AWS.Cognito.IdentityProvider` module for AWS Cognito Identity Provider
+  service.
+- `AWS.DMS` module for AWS Database Migration Service.
+- `AWS.ECR` module for AWS EC2 Container Registry service.
+- `AWS.Inspector` module for AWS Inspector service.
+- `AWS.IoT` module for AWS IoT service.
+- `AWS.IoT.DataPlane` module for AWS IoT Data Plane service.
+- `AWS.Kinesis.Firehose` module for AWS Kinesis Firehose service.
+- `AWS.MachineLearning` module for AWS Machine Learning service.
+- `AWS.Marketplace.Metering` module for AWS Marketplace Metering service.
+
+### Changed
+- `AWS.CodePipeline` module has updated documentation.
+- `AWS.Cognito` module has updated documentation.
+- `AWS.DirectoryService` module has support for creating, deleting, describing
+  and updating conditional forwarders.
+- `AWS.Kinesis` module has updated documentation and enabling and disabling
+  enhanced monitoring.
+- `AWS.MCA` module has been renamed to `AWS.Marketplace.CommerceAnalytics`.
+- `AWS.StorageGateway` module has updated documentation.
+- `AWS.WAF` module has support for creating, deleting, getting, listing and
+  updating XSS match sets.
+- Timex dependency upgrade from 1.x to 2.x (Fixes #40).
+- Bump minimum Elixir version to 1.2.
+
 ### Fixed
 - Link to `aws-codegen` added and broken AWS SDK specification links fixed in
   README.  Thanks Brenton Annan (@brentonannan).
@@ -163,7 +193,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.10...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.11...HEAD
+[v0.0.11]: https://github.com/jkakar/aws-elixir/compare/v0.0.10...v0.0.11
 [v0.0.10]: https://github.com/jkakar/aws-elixir/compare/v0.0.9...v0.0.10
 [v0.0.9]: https://github.com/jkakar/aws-elixir/compare/v0.0.8...v0.0.9
 [v0.0.8]: https://github.com/jkakar/aws-elixir/compare/v0.0.7...v0.0.8

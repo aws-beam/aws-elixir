@@ -30,7 +30,7 @@ iex> IO.inspect result
 
   ```elixir
   def deps do
-    [{:aws, "~> 0.0.10"}]
+    [{:aws, "~> 0.0.11"}]
   end
   ```
 

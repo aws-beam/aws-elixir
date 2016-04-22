@@ -6,7 +6,7 @@ defmodule AWS.Request do
   Generate headers with an AWS signature version 4 for the specified request.
   """
   def sign_v4(client, method, url, headers, body) do
-    sign_v4(client, Timex.Date.universal, method, url, headers, body)
+    sign_v4(client, Timex.DateTime.universal, method, url, headers, body)
   end
 
   @doc """
@@ -14,8 +14,8 @@ defmodule AWS.Request do
   using the specified time.
   """
   def sign_v4(client, now, method, url, headers, body) do
-    {:ok, long_date} = Timex.DateFormat.format(now, "{YYYY}{0M}{0D}T{0h24}{0m}{0s}Z")
-    {:ok, short_date} = Timex.DateFormat.format(now, "{YYYY}{0M}{0D}")
+    {:ok, long_date} = Timex.format(now, "{YYYY}{0M}{0D}T{h24}{m}{s}Z")
+    {:ok, short_date} = Timex.format(now, "{YYYY}{0M}{0D}")
     headers = Internal.add_date_header(headers, long_date)
     canonical_request = Internal.canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
@@ -37,15 +37,15 @@ defmodule AWS.Request do
   Generate headers with an AWS signature version 4 for the specified request that can be transformed into a query string.
   """
   def sign_v4_query(client, method, url, headers, body) do
-    sign_v4_query(client, Timex.Date.universal, method, url, headers, body)
+    sign_v4_query(client, Timex.DateTime.universal, method, url, headers, body)
   end
 
   @doc """
   Generate headers with an AWS signature version 4 for the specified request using the specified time that can be transformed into a query string.
   """
   def sign_v4_query(client, now, method, url, headers, body) do
-    {:ok, long_date} = Timex.DateFormat.format(now, "{YYYY}{0M}{0D}T{0h24}{0m}{0s}Z")
-    {:ok, short_date} = Timex.DateFormat.format(now, "{YYYY}{0M}{0D}")
+    {:ok, long_date} = Timex.format(now, "{YYYY}{0M}{0D}T{h24}{m}{s}Z")
+    {:ok, short_date} = Timex.format(now, "{YYYY}{0M}{0D}")
     headers = Internal.add_date_header(headers, long_date)
     canonical_request = Internal.canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)

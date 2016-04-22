@@ -9,7 +9,7 @@ defmodule AWS.Mixfile do
      name: "aws-elixir",
      source_url: "https://github.com/jkakar/aws-elixir",
      homepage_url: "http://github.com/jkakar/aws-elixir",
-     elixir: "~> 1.0",
+     elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -19,7 +19,7 @@ defmodule AWS.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:httpoison, :logger]]
+    [applications: [:httpoison, :logger, :timex]]
   end
 
   # Dependencies can be Hex packages:
@@ -37,7 +37,7 @@ defmodule AWS.Mixfile do
      {:ex_doc, "~> 0.11.3", only: [:dev]},
      {:httpoison, "~> 0.8.0"},
      {:poison, "~> 1.0"},
-     {:timex, "~> 1.0.0"}]
+     {:timex, "~> 2.1"}]
   end
 
   defp version do

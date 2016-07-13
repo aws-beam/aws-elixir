@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.0.12] - 2016-07-13
+### Changed
+- Bumped `poison` dependency from `~1.0` to `~1.5 or ~2.0` to be compatible
+  with the latest version of Phoenix.
+
 ## [v0.0.11] - 2016-04-21
 ### Added
 - `AWS.CertificateManager` module for AWS Certificate Manager service.
@@ -193,7 +198,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.11...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.12...HEAD
+[v0.0.12]: https://github.com/jkakar/aws-elixir/compare/v0.0.11...v0.0.12
 [v0.0.11]: https://github.com/jkakar/aws-elixir/compare/v0.0.10...v0.0.11
 [v0.0.10]: https://github.com/jkakar/aws-elixir/compare/v0.0.9...v0.0.10
 [v0.0.9]: https://github.com/jkakar/aws-elixir/compare/v0.0.8...v0.0.9

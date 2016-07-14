@@ -147,7 +147,7 @@ defmodule AWS.DynamoDB do
   returned, the operation returns a value for *UnprocessedKeys*. You can use
   this value to retry the operation starting with the next item to get.
 
-  <important>If you request more than 100 items *BatchGetItem* will return a
+  <important> If you request more than 100 items *BatchGetItem* will return a
   *ValidationException* with the message "Too many items requested for the
   BatchGetItem call".
 
@@ -185,8 +185,8 @@ defmodule AWS.DynamoDB do
   parallel.
 
   When designing your application, keep in mind that DynamoDB does not return
-  attributes in any particular order. To help parse the response by item,
-  include the primary key values for the items in your request in the
+  items in any particular order. To help parse the response by item, include
+  the primary key values for the items in your request in the
   *AttributesToGet* parameter.
 
   If a requested item does not exist, it is not returned in the result.
@@ -273,7 +273,7 @@ defmodule AWS.DynamoDB do
 
   </li> <li> Any individual item in a batch exceeds 400 KB.
 
-  </li> <li>The total request size exceeds 16 MB.
+  </li> <li> The total request size exceeds 16 MB.
 
   </li> </ul>
   """
@@ -374,22 +374,32 @@ defmodule AWS.DynamoDB do
   For example, you could use one of the AWS SDKs to do the following:
 
   <ol> <li>Call *DescribeLimits* for a particular region to obtain your
-  current account limits on provisioned capacity there.</li> <li>Create a
-  variable to hold the aggregate read capacity units provisioned for all your
-  tables in that region, and one to hold the aggregate write capacity units.
-  Zero them both.</li> <li>Call *ListTables* to obtain a list of all your
-  DynamoDB tables.</li> <li>For each table name listed by *ListTables*, do
-  the following:
+  current account limits on provisioned capacity there.
 
-  <ul> <li>Call *DescribeTable* with the table name.</li> <li>Use the data
-  returned by *DescribeTable* to add the read capacity units and write
-  capacity units provisioned for the table itself to your variables.</li>
-  <li>If the table has one or more global secondary indexes (GSIs), loop over
-  these GSIs and add their provisioned capacity values to your variables as
-  well.</li> </ul> </li> <li>Report the account limits for that region
-  returned by *DescribeLimits*, along with the total current provisioned
-  capacity levels you have calculated.</li> </ol> This will let you see
-  whether you are getting close to your account-level limits.
+  </li> <li>Create a variable to hold the aggregate read capacity units
+  provisioned for all your tables in that region, and one to hold the
+  aggregate write capacity units. Zero them both.
+
+  </li> <li>Call *ListTables* to obtain a list of all your DynamoDB tables.
+
+  </li> <li> For each table name listed by *ListTables*, do the following:
+
+  <ul> <li>Call *DescribeTable* with the table name.
+
+  </li> <li>Use the data returned by *DescribeTable* to add the read capacity
+  units and write capacity units provisioned for the table itself to your
+  variables.
+
+  </li> <li>If the table has one or more global secondary indexes (GSIs),
+  loop over these GSIs and add their provisioned capacity values to your
+  variables as well.
+
+  </li> </ul> </li> <li>Report the account limits for that region returned by
+  *DescribeLimits*, along with the total current provisioned capacity levels
+  you have calculated.
+
+  </li> </ol> This will let you see whether you are getting close to your
+  account-level limits.
 
   The per-table limits apply only when you are creating a new table. They
   restrict the sum of the provisioned capacity of the new table itself and
@@ -400,7 +410,7 @@ defmodule AWS.DynamoDB do
   applies is that the aggregate provisioned capacity over all your tables and
   GSIs cannot exceed either of the per-account limits.
 
-  <note>*DescribeLimits* should only be called periodically. You can expect
+  <note> *DescribeLimits* should only be called periodically. You can expect
   throttling errors if you call it more than once in a minute.
 
   </note> The *DescribeLimits* Request element has no content.
@@ -505,8 +515,8 @@ defmodule AWS.DynamoDB do
   user with the *LastEvaluatedKey* element to continue the query in a
   subsequent operation. Unlike a *Scan* operation, a *Query* operation never
   returns both an empty result set and a *LastEvaluatedKey* value.
-  *LastEvaluatedKey* is only provided if the results exceed 1 MB, or if you
-  have used the *Limit* parameter.
+  *LastEvaluatedKey* is only provided if you have used the *Limit* parameter,
+  or if the result set exceeds 1 MB (prior to applying a filter).
 
   You can query a table, a local secondary index, or a global secondary
   index. For a query on a table or on a local secondary index, you can set
@@ -566,11 +576,11 @@ defmodule AWS.DynamoDB do
 
   You can only perform one of the following operations at once:
 
-  <ul> <li>Modify the provisioned throughput settings of the table.
+  <ul> <li> Modify the provisioned throughput settings of the table.
 
-  </li> <li>Enable or disable Streams on the table.
+  </li> <li> Enable or disable Streams on the table.
 
-  </li> <li>Remove a global secondary index from the table.
+  </li> <li> Remove a global secondary index from the table.
 
   </li> <li> Create a new global secondary index on the table. Once the index
   begins backfilling, you can use *UpdateTable* to perform other operations.

@@ -9,53 +9,65 @@ defmodule AWS.GameLift do
   managed Amazon Web Services (AWS) service for developers who need a
   scalable, server-based solution for multiplayer games. Amazon GameLift
   provides setup and deployment of game servers, and handles infrastructure
-  scaling and session management. For more information about the GameLift
-  service, including a feature overview, getting started guide, and tutorial,
-  see the accompanying [Amazon GameLift Developer
-  Guide](http://docs.aws.amazon.com/gamelift/latest/developerguide/).
+  scaling and session management.
 
   This reference describes the low-level service API for GameLift. You can
   call this API directly or use the [AWS SDK](https://aws.amazon.com/tools/)
   for your preferred language. The AWS SDK includes a set of high-level
   GameLift actions multiplayer game sessions. Alternatively, you can use the
   [AWS command-line interface](https://aws.amazon.com/cli/) (CLI) tool, which
-  includes commands for GameLift. For administrative actions, you can use the
-  Amazon GameLift console.
+  includes commands for GameLift. For administrative actions, you can also
+  use the Amazon GameLift console.
 
-  **Managing Game and Player Sessions Through GameLift**
+  **More Resources**
+
+  <ul> <li> [Amazon GameLift Developer
+  Guide](http://docs.aws.amazon.com/gamelift/latest/developerguide/): Learn
+  more about GameLift features and how to use them </li> <li> [Lumberyard and
+  GameLift Tutorials](https://gamedev.amazon.com/forums/tutorials): Get
+  started fast with walkthroughs and sample projects</li> <li> [GameDev
+  Blog](https://aws.amazon.com/blogs/gamedev/): Stay up to date with new
+  features and techniques</li> <li> [GameDev
+  Forums](https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html):
+  Connect with the GameDev community</li> </ul> **Manage Games and Players
+  Through GameLift**
 
   Call these actions from your game clients and/or services to create and
-  manage multiplayer game sessions.
+  manage multiplayer game sessions and player sessions.
 
   <ul> <li> **Game sessions** <ul> <li>`CreateGameSession`</li>
   <li>`DescribeGameSessions`</li> <li>`DescribeGameSessionDetails`</li>
   <li>`UpdateGameSession`</li> </ul> </li> <li> **Player sessions** <ul>
   <li>`CreatePlayerSession`</li> <li>`CreatePlayerSessions`</li>
   <li>`DescribePlayerSessions`</li> </ul> </li> <li> **Other actions:** <ul>
-  <li>`GetGameSessionLogUrl`</li> </ul> </li> </ul> **Setting Up Game
+  <li>`GetGameSessionLogUrl`</li> </ul> </li> </ul> **Set Up and Manage Game
   Servers**
 
   Use these administrative actions to configure GameLift to host your game
-  servers. When configuring GameLift, you'll need to (1) configure a build
-  for your game and provide build files, and (2) set up one or more fleets to
-  host game sessions.
+  servers. When setting up GameLift, you'll need to (1) configure a build for
+  your game and upload build files, and (2) set up one or more fleets to host
+  game sessions. Once you've created and activated a fleet, you can assign
+  aliases to it, scale capacity, track performance and utilization, etc.
 
-  <ul> <li> **Build actions:** <ul> <li>`ListBuilds`</li>
+  <ul> <li> **Manage your builds:** <ul> <li>`ListBuilds`</li>
   <li>`CreateBuild`</li> <li>`DescribeBuild`</li> <li>`UpdateBuild`</li>
   <li>`DeleteBuild`</li> <li>`RequestUploadCredentials`</li> </ul> </li> <li>
-  **Fleet actions:** <ul> <li>`ListFleets`</li> <li>`CreateFleet`</li>
-  <li>Describe fleet actions: <ul> <li>`DescribeFleetAttributes`</li>
+  **Manage your fleets:** <ul> <li>`ListFleets`</li> <li>`CreateFleet`</li>
+  <li>Describe fleets: <ul> <li>`DescribeFleetAttributes`</li>
   <li>`DescribeFleetCapacity`</li> <li>`DescribeFleetPortSettings`</li>
   <li>`DescribeFleetUtilization`</li> <li>`DescribeEC2InstanceLimits`</li>
-  <li>`DescribeFleetEvents`</li> </ul> </li> <li>Update fleet actions: <ul>
-  <li>`UpdateFleetAttributes`</li> <li>`UpdateFleetCapacity`</li>
-  <li>`UpdateFleetPortSettings`</li> </ul> </li> <li>`DeleteFleet`</li> </ul>
-  </li> <li> **Alias actions:** <ul> <li>`ListAliases`</li>
+  <li>`DescribeFleetEvents`</li> <li>`DescribeRuntimeConfiguration`</li>
+  </ul> </li> <li>Update fleets: <ul> <li>`UpdateFleetAttributes`</li>
+  <li>`UpdateFleetCapacity`</li> <li>`UpdateFleetPortSettings`</li>
+  <li>`UpdateRuntimeConfiguration`</li> </ul> </li> <li>`DeleteFleet`</li>
+  </ul> </li> <li> **Manage fleet aliases:** <ul> <li>`ListAliases`</li>
   <li>`CreateAlias`</li> <li>`DescribeAlias`</li> <li>`UpdateAlias`</li>
-  <li>`DeleteAlias`</li> <li>`ResolveAlias`</li> </ul> </li> <li> **Scaling
-  policy actions:** <ul> <li>`PutScalingPolicy`</li>
+  <li>`DeleteAlias`</li> <li>`ResolveAlias`</li> </ul> </li> <li> **Manage
+  autoscaling:** <ul> <li>`PutScalingPolicy`</li>
   <li>`DescribeScalingPolicies`</li> <li>`DeleteScalingPolicy`</li> </ul>
-  </li> </ul>
+  </li> </ul> To view changes to the API, see the GameLift [Document
+  History](http://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html)
+  page.
   """
 
   @doc """
@@ -80,62 +92,66 @@ defmodule AWS.GameLift do
   @doc """
   Initializes a new build record and generates information required to upload
   a game build to Amazon GameLift. Once the build record has been created and
-  is in an INITIALIZED state, you can upload your game build.
+  is in an `INITIALIZED` state, you can upload your game build.
 
-  <important>To create a build, use the CLI command `upload-build`, which
-  creates a new build record and uploads the build files in one step. (See
-  the [Amazon GameLift Developer
+  <important> Do not use this API action unless you are using your own Amazon
+  Simple Storage Service (Amazon S3) client and need to manually upload your
+  build files. Instead, to create a build, use the CLI command
+  `upload-build`, which creates a new build record and uploads the build
+  files in one step. (See the [Amazon GameLift Developer
   Guide](http://docs.aws.amazon.com/gamelift/latest/developerguide/) for more
-  details on the CLI and the upload process.) Call the `CreateBuild` action
-  only if you have your own Amazon Simple Storage Service (Amazon S3) client
-  and need to manually upload your build files.
+  details on the CLI and the upload process.)
 
   </important> To create a new build, optionally specify a build name and
   version. This metadata is stored with other properties in the build record
-  and is displayed in the GameLift console (but not visible to players). If
+  and is displayed in the GameLift console (it is not visible to players). If
   successful, this action returns the newly created build record along with
-  an Amazon S3 storage location and AWS account credentials. Use the location
-  and credentials to upload your game build.
+  the Amazon S3 storage location and AWS account credentials. Use the
+  location and credentials to upload your game build.
   """
   def create_build(client, input, options \\ []) do
     request(client, "CreateBuild", input, options)
   end
 
   @doc """
-  Creates a new fleet to host game servers. A fleet consists of a set of
-  Amazon Elastic Compute Cloud (Amazon EC2) instances of a certain type,
-  which defines the CPU, memory, storage, and networking capacity of each
-  host in the fleet. See [Amazon EC2 Instance
-  Types](https://aws.amazon.com/ec2/instance-types/) for more information.
-  Each instance in the fleet hosts a game server created from the specified
-  game build. Once a fleet is in an ACTIVE state, it can begin hosting game
-  sessions.
+  Creates a new fleet to run your game servers. A fleet is a set of Amazon
+  Elastic Compute Cloud (Amazon EC2) instances, each of which can run
+  multiple server processes to host game sessions. You configure a fleet to
+  create instances with certain hardware specifications (see [Amazon EC2
+  Instance Types](https://aws.amazon.com/ec2/instance-types/) for more
+  information), and deploy a specified game build to each instance. A newly
+  created fleet passes through several states; once it reaches the `ACTIVE`
+  state, it can begin hosting game sessions.
 
-  To create a new fleet, provide a name and the EC2 instance type for the new
-  fleet, and specify the build and server launch path. Builds must be in a
-  READY state before they can be used to build fleets. When configuring the
-  new fleet, you can optionally (1) provide a set of launch parameters to be
-  passed to a game server when activated; (2) limit incoming traffic to a
-  specified range of IP addresses and port numbers; (3) set game session
-  protection for all instances in the fleet, and (4) configure Amazon
-  GameLift to store game session logs by specifying the path to the logs
-  stored in your game server files. If the call is successful, Amazon
-  GameLift performs the following tasks:
+  To create a new fleet, provide a fleet name, an EC2 instance type, and a
+  build ID of the game build to deploy. You can also configure the new fleet
+  with the following settings: (1) a runtime configuration describing what
+  server processes to run on each instance in the fleet (required to create
+  fleet), (2) access permissions for inbound traffic, (3) fleet-wide game
+  session protection, and (4) the location of default log files for GameLift
+  to upload and store.
 
-  <ul> <li>Creates a fleet record and sets the state to NEW.</li> <li>Sets
-  the fleet's capacity to 1 "desired" and 1 "active" EC2 instance count.</li>
-  <li>Creates an EC2 instance and begins the process of initializing the
-  fleet and activating a game server on the instance.</li> <li>Begins writing
-  events to the fleet event log, which can be accessed in the GameLift
-  console.</li> </ul> Once a fleet is created, use the following actions to
-  change certain fleet properties (server launch parameters and log paths
-  cannot be changed):
+  If the `CreateFleet` call is successful, Amazon GameLift performs the
+  following tasks:
+
+  <ul> <li>Creates a fleet record and sets the state to `NEW` (followed by
+  other states as the fleet is activated).</li> <li>Sets the fleet's capacity
+  to 1 "desired", which causes GameLift to start one new EC2 instance.</li>
+  <li>Starts launching server processes on the instance. If the fleet is
+  configured to run multiple server processes per instance, GameLift staggers
+  each launch by a few seconds.</li> <li>Begins writing events to the fleet
+  event log, which can be accessed in the GameLift console.</li> <li>Sets the
+  fleet's status to `ACTIVE` once one server process in the fleet is ready to
+  host a game session.</li> </ul> After a fleet is created, use the following
+  actions to change fleet properties and configuration:
 
   <ul> <li> `UpdateFleetAttributes` -- Update fleet metadata, including name
   and description.</li> <li> `UpdateFleetCapacity` -- Increase or decrease
   the number of instances you want the fleet to maintain.</li> <li>
-  `UpdateFleetPortSettings` -- Change the IP addresses and ports that allow
-  access to incoming traffic.</li> </ul>
+  `UpdateFleetPortSettings` -- Change the IP address and port ranges that
+  allow access to incoming traffic.</li> <li> `UpdateRuntimeConfiguration` --
+  Change how server processes are launched in the fleet, including launch
+  path, launch parameters, and the number of concurrent processes.</li> </ul>
   """
   def create_fleet(client, input, options \\ []) do
     request(client, "CreateFleet", input, options)
@@ -144,9 +160,9 @@ defmodule AWS.GameLift do
   @doc """
   Creates a multiplayer game session for players. This action creates a game
   session record and assigns the new session to an instance in the specified
-  fleet, which activates the server initialization process in your game
-  server. A fleet must be in an ACTIVE state before a game session can be
-  created for it.
+  fleet, which initializes a new server process to host the game session. A
+  fleet must be in an `ACTIVE` state before a game session can be created in
+  it.
 
   To create a game session, specify either a fleet ID or an alias ID and
   indicate the maximum number of players the game session allows. You can
@@ -162,8 +178,9 @@ defmodule AWS.GameLift do
 
   @doc """
   Adds a player to a game session and creates a player session record. A game
-  session must be in an ACTIVE state, have a creation policy of ALLOW_ALL,
-  and have an open player slot before players can be added to the session.
+  session must be in an `ACTIVE` state, have a creation policy of
+  `ALLOW_ALL`, and have an open player slot before players can be added to
+  the session.
 
   To create a player session, specify a game session ID and player ID. If
   successful, the player is added to the game session and a new
@@ -177,8 +194,8 @@ defmodule AWS.GameLift do
   Adds a group of players to a game session. Similar to
   `CreatePlayerSession`, this action allows you to add multiple players in a
   single call, which is useful for games that provide party and/or
-  matchmaking features. A game session must be in an ACTIVE state, have a
-  creation policy of ALLOW_ALL, and have an open player slot before players
+  matchmaking features. A game session must be in an `ACTIVE` state, have a
+  creation policy of `ALLOW_ALL`, and have an open player slot before players
   can be added to the session.
 
   To create player sessions, specify a game session ID and a list of player
@@ -191,7 +208,7 @@ defmodule AWS.GameLift do
 
   @doc """
   Deletes an alias. This action removes all record of the alias; game clients
-  attempting to access a game server using the deleted alias receive an
+  attempting to access a server process using the deleted alias receive an
   error. To delete an alias, specify the alias ID to be deleted.
   """
   def delete_alias(client, input, options \\ []) do
@@ -203,8 +220,8 @@ defmodule AWS.GameLift do
   uploaded build files.
 
   To delete a build, specify its ID. Deleting a build does not affect the
-  status of any active fleets, but you can no longer create new fleets for
-  the deleted build.
+  status of any active fleets using the build, but you can no longer create
+  new fleets with the deleted build.
   """
   def delete_build(client, input, options \\ []) do
     request(client, "DeleteBuild", input, options)
@@ -263,13 +280,13 @@ defmodule AWS.GameLift do
   @doc """
   Retrieves fleet properties, including metadata, status, and configuration,
   for one or more fleets. You can request attributes for all fleets, or
-  specify a list of one or more fleet IDs. When requesting all fleets, use
-  the pagination parameters to retrieve results as a set of sequential pages.
-  If successful, a `FleetAttributes` object is returned for each requested
-  fleet ID. When specifying a list of fleet IDs, attribute objects are
-  returned only for fleets that currently exist.
+  specify a list of one or more fleet IDs. When requesting multiple fleets,
+  use the pagination parameters to retrieve results as a set of sequential
+  pages. If successful, a `FleetAttributes` object is returned for each
+  requested fleet ID. When specifying a list of fleet IDs, attribute objects
+  are returned only for fleets that currently exist.
 
-  <note>Some API actions may limit the number of fleet IDs allowed in one
+  <note> Some API actions may limit the number of fleet IDs allowed in one
   request. If a request exceeds this limit, the request fails and the error
   message includes the maximum allowed.
 
@@ -283,13 +300,13 @@ defmodule AWS.GameLift do
   Retrieves the current status of fleet capacity for one or more fleets. This
   information includes the number of instances that have been requested for
   the fleet and the number currently active. You can request capacity for all
-  fleets, or specify a list of one or more fleet IDs. When requesting all
-  fleets, use the pagination parameters to retrieve results as a set of
-  sequential pages. If successful, a `FleetCapacity` object is returned for
-  each requested fleet ID. When specifying a list of fleet IDs, attribute
+  fleets, or specify a list of one or more fleet IDs. When requesting
+  multiple fleets, use the pagination parameters to retrieve results as a set
+  of sequential pages. If successful, a `FleetCapacity` object is returned
+  for each requested fleet ID. When specifying a list of fleet IDs, attribute
   objects are returned only for fleets that currently exist.
 
-  <note>Some API actions may limit the number of fleet IDs allowed in one
+  <note> Some API actions may limit the number of fleet IDs allowed in one
   request. If a request exceeds this limit, the request fails and the error
   message includes the maximum allowed.
 
@@ -300,21 +317,22 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves entries from the fleet event log. You can specify a time range to
-  limit the result set. Use the pagination parameters to retrieve results as
-  a set of sequential pages. If successful, a collection of event log entries
-  matching the request are returned.
+  Retrieves entries from the specified fleet's event log. You can specify a
+  time range to limit the result set. Use the pagination parameters to
+  retrieve results as a set of sequential pages. If successful, a collection
+  of event log entries matching the request are returned.
   """
   def describe_fleet_events(client, input, options \\ []) do
     request(client, "DescribeFleetEvents", input, options)
   end
 
   @doc """
-  Retrieves the port settings for a fleet. Port settings are used to limit
-  incoming traffic access to game servers in the fleet. To get a fleet's port
-  settings, specify a fleet ID. If successful, an `IpPermission` object is
-  returned for the requested fleet ID. If the requested fleet has been
-  deleted, the result set will be empty.
+  Retrieves the inbound connection permissions for a fleet. Connection
+  permissions include a range of IP addresses and port settings that incoming
+  traffic can use to access server processes in the fleet. To get a fleet's
+  inbound connection permissions, specify a fleet ID. If successful, a
+  collection of `IpPermission` objects is returned for the requested fleet
+  ID. If the requested fleet has been deleted, the result set is empty.
   """
   def describe_fleet_port_settings(client, input, options \\ []) do
     request(client, "DescribeFleetPortSettings", input, options)
@@ -323,13 +341,13 @@ defmodule AWS.GameLift do
   @doc """
   Retrieves utilization statistics for one or more fleets. You can request
   utilization data for all fleets, or specify a list of one or more fleet
-  IDs. When requesting all fleets, use the pagination parameters to retrieve
-  results as a set of sequential pages. If successful, a `FleetUtilization`
-  object is returned for each requested fleet ID. When specifying a list of
-  fleet IDs, utilization objects are returned only for fleets that currently
-  exist.
+  IDs. When requesting multiple fleets, use the pagination parameters to
+  retrieve results as a set of sequential pages. If successful, a
+  `FleetUtilization` object is returned for each requested fleet ID. When
+  specifying a list of fleet IDs, utilization objects are returned only for
+  fleets that currently exist.
 
-  <note>Some API actions may limit the number of fleet IDs allowed in one
+  <note> Some API actions may limit the number of fleet IDs allowed in one
   request. If a request exceeds this limit, the request fails and the error
   message includes the maximum allowed.
 
@@ -342,8 +360,8 @@ defmodule AWS.GameLift do
   @doc """
   Retrieves properties, including the protection policy in force, for one or
   more game sessions. This action can be used in several ways: (1) provide a
-  *GameSessionId* to request details for a specific game session; (2) provide
-  either a *FleetId* or an *AliasId* to request properties for all game
+  `GameSessionId` to request details for a specific game session; (2) provide
+  either a `FleetId` or an `AliasId` to request properties for all game
   sessions running on a fleet.
 
   To get game session record(s), specify just one of the following: game
@@ -358,8 +376,8 @@ defmodule AWS.GameLift do
 
   @doc """
   Retrieves properties for one or more game sessions. This action can be used
-  in several ways: (1) provide a *GameSessionId* to request properties for a
-  specific game session; (2) provide a *FleetId* or an *AliasId* to request
+  in several ways: (1) provide a `GameSessionId` to request properties for a
+  specific game session; (2) provide a `FleetId` or an `AliasId` to request
   properties for all game sessions running on a fleet.
 
   To get game session record(s), specify just one of the following: game
@@ -374,10 +392,10 @@ defmodule AWS.GameLift do
 
   @doc """
   Retrieves properties for one or more player sessions. This action can be
-  used in several ways: (1) provide a *PlayerSessionId* parameter to request
-  properties for a specific player session; (2) provide a *GameSessionId*
+  used in several ways: (1) provide a `PlayerSessionId` parameter to request
+  properties for a specific player session; (2) provide a `GameSessionId`
   parameter to request properties for all player sessions in the specified
-  game session; (3) provide a *PlayerId* parameter to request properties for
+  game session; (3) provide a `PlayerId` parameter to request properties for
   all player sessions of a specified player.
 
   To get game session record(s), specify only one of the following: a player
@@ -388,6 +406,15 @@ defmodule AWS.GameLift do
   """
   def describe_player_sessions(client, input, options \\ []) do
     request(client, "DescribePlayerSessions", input, options)
+  end
+
+  @doc """
+  Retrieves the current runtime configuration for the specified fleet. The
+  runtime configuration tells GameLift how to launch server processes on
+  instances in the fleet.
+  """
+  def describe_runtime_configuration(client, input, options \\ []) do
+    request(client, "DescribeRuntimeConfiguration", input, options)
   end
 
   @doc """
@@ -408,7 +435,7 @@ defmodule AWS.GameLift do
   session. When a game session is terminated, Amazon GameLift automatically
   stores the logs in Amazon S3. Use this URL to download the logs.
 
-  <note>See the [AWS Service
+  <note> See the [AWS Service
   Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift)
   page for maximum log file sizes. Log files that exceed this limit are not
   saved.
@@ -424,7 +451,7 @@ defmodule AWS.GameLift do
   filter the result set by alias name and/or routing strategy type. Use the
   pagination parameters to retrieve results in sequential pages.
 
-  <note>Aliases are not listed in any particular order.
+  <note> Aliases are not listed in any particular order.
 
   </note>
   """
@@ -433,11 +460,12 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves build records for all builds associated with an AWS account. You
-  can filter the result set by build status. Use the pagination parameters to
-  retrieve results in a set of sequential pages.
+  Retrieves build records for all builds associated with the AWS account in
+  use. You can limit results to builds in a specific state using the `Status`
+  parameter. Use the pagination parameters to retrieve results in a set of
+  sequential pages.
 
-  <note>Build records are not listed in any particular order.
+  <note> Build records are not listed in any particular order.
 
   </note>
   """
@@ -450,7 +478,7 @@ defmodule AWS.GameLift do
   filter the result set by build ID. Use the pagination parameters to
   retrieve results in sequential pages.
 
-  <note>Fleet records are not listed in any particular order.
+  <note> Fleet records are not listed in any particular order.
 
   </note>
   """
@@ -460,16 +488,16 @@ defmodule AWS.GameLift do
 
   @doc """
   Creates or updates a scaling policy for a fleet. An active scaling policy
-  prompts GameLift to track a certain metric for a fleet and automatically
-  change the fleet's capacity in specific circumstances. Each scaling policy
-  contains one rule statement. Fleets can have multiple scaling policies in
-  force simultaneously.
+  prompts Amazon GameLift to track a certain metric for a fleet and
+  automatically change the fleet's capacity in specific circumstances. Each
+  scaling policy contains one rule statement. Fleets can have multiple
+  scaling policies in force simultaneously.
 
   A scaling policy rule statement has the following structure:
 
-  If *[MetricName]* is *[ComparisonOperator]* *[Threshold]* for
-  *[EvaluationPeriods]* minutes, then *[ScalingAdjustmentType]* to/by
-  *[ScalingAdjustment]*.
+  If `[MetricName]` is `[ComparisonOperator]` `[Threshold]` for
+  `[EvaluationPeriods]` minutes, then `[ScalingAdjustmentType]` to/by
+  `[ScalingAdjustment]`.
 
   For example, this policy: "If the number of idle instances exceeds 20 for
   more than 15 minutes, then reduce the fleet capacity by 10 instances" could
@@ -493,14 +521,14 @@ defmodule AWS.GameLift do
   storage location for a specific build. Valid credentials are required to
   upload your game build files to Amazon S3.
 
-  <important>Call this action only if you need credentials for a build
-  created with `CreateBuild`. This is a rare situation; in most cases, builds
-  are created using the CLI command `upload-build`, which creates a build
-  record and also uploads build files.
+  <important> Call this action only if you need credentials for a build
+  created with ``CreateBuild``. This is a rare situation; in most cases,
+  builds are created using the CLI command `upload-build`, which creates a
+  build record and also uploads build files.
 
   </important> Upload credentials are returned when you create the build, but
   they have a limited lifespan. You can get fresh credentials and use them to
-  re-upload game files until the state of that build changes to READY. Once
+  re-upload game files until the state of that build changes to `READY`. Once
   this happens, you must create a brand new build.
   """
   def request_upload_credentials(client, input, options \\ []) do
@@ -545,22 +573,21 @@ defmodule AWS.GameLift do
 
   @doc """
   Updates capacity settings for a fleet. Use this action to specify the
-  number of EC2 instances (hosts) you want this fleet to contain. Before
+  number of EC2 instances (hosts) that you want this fleet to contain. Before
   calling this action, you may want to call `DescribeEC2InstanceLimits` to
   get the maximum capacity based on the fleet's EC2 instance type.
 
-  If you're using auto-scaling (see `PutScalingPolicy`), you may want to
-  specify a minimum and/or maximum capacity. If you don't provide these
-  boundaries, auto-scaling can set capacity anywhere between zero and the
-  [service
+  If you're using autoscaling (see `PutScalingPolicy`), you may want to
+  specify a minimum and/or maximum capacity. If you don't provide these,
+  autoscaling can set capacity anywhere between zero and the [service
   limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift).
 
-  To update fleet capacity, specify the fleet ID and the desired number of
-  instances. If successful, Amazon GameLift starts or terminates instances so
-  that the fleet's active instance count matches the desired instance count.
-  You can view a fleet's current capacity information by calling
-  `DescribeFleetCapacity`. If the desired instance count is higher than the
-  instance type's limit, the "Limit Exceeded" exception will occur.
+  To update fleet capacity, specify the fleet ID and the number of instances
+  you want the fleet to host. If successful, Amazon GameLift starts or
+  terminates instances so that the fleet's active instance count matches the
+  desired instance count. You can view a fleet's current capacity information
+  by calling `DescribeFleetCapacity`. If the desired instance count is higher
+  than the instance type's limit, the "Limit Exceeded" exception occurs.
   """
   def update_fleet_capacity(client, input, options \\ []) do
     request(client, "UpdateFleetCapacity", input, options)
@@ -569,8 +596,8 @@ defmodule AWS.GameLift do
   @doc """
   Updates port settings for a fleet. To update settings, specify the fleet ID
   to be updated and list the permissions you want to update. List the
-  permissions you want to add in *InboundPermissionAuthorizations*, and
-  permissions you want to remove in *InboundPermissionRevocations*.
+  permissions you want to add in `InboundPermissionAuthorizations`, and
+  permissions you want to remove in `InboundPermissionRevocations`.
   Permissions to be removed must match existing fleet permissions. If
   successful, the fleet ID for the updated fleet is returned.
   """
@@ -589,6 +616,29 @@ defmodule AWS.GameLift do
   """
   def update_game_session(client, input, options \\ []) do
     request(client, "UpdateGameSession", input, options)
+  end
+
+  @doc """
+  Updates the current runtime configuration for the specified fleet, which
+  tells GameLift how to launch server processes on instances in the fleet.
+  You can update a fleet's runtime configuration at any time after the fleet
+  is created; it does not need to be in an `ACTIVE` state.
+
+  To update runtime configuration, specify the fleet ID and provide a
+  `RuntimeConfiguration` object with the updated collection of server process
+  configurations.
+
+  Each instance in a GameLift fleet checks regularly for an updated runtime
+  configuration and changes how it launches server processes to comply with
+  the latest version. Existing server processes are not affected by the
+  update; they continue to run until they end, while GameLift simply adds new
+  server processes to fit the current runtime configuration. As a result, the
+  runtime configuration changes are applied gradually as existing processes
+  shut down and new processes are launched in GameLift's normal process
+  recycling activity.
+  """
+  def update_runtime_configuration(client, input, options \\ []) do
+    request(client, "UpdateRuntimeConfiguration", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

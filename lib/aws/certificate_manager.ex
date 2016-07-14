@@ -12,10 +12,34 @@ defmodule AWS.CertificateManager do
   ACM and for more information about using the console, see the [AWS
   Certificate Manager User
   Guide](http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html).
-  For more information about using the ACM API, see the [ AWS Certificate
+  For more information about using the ACM API, see the [AWS Certificate
   Manager API
   Reference](http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html).
   """
+
+  @doc """
+  Adds one or more tags to an ACM Certificate. Tags are labels that you can
+  use to identify and organize your AWS resources. Each tag consists of a
+  `key` and an optional `value`. You specify the certificate on input by its
+  Amazon Resource Name (ARN). You specify the tag by using a key-value pair.
+
+  You can apply a tag to just one certificate if you want to identify a
+  specific characteristic of that certificate, or you can apply the same tag
+  to multiple certificates if you want to filter for a common relationship
+  among those certificates. Similarly, you can apply the same tag to multiple
+  resources if you want to specify a relationship among those resources. For
+  example, you can add the same tag to an ACM Certificate and an Elastic Load
+  Balancing load balancer to indicate that they are both used by the same
+  website. For more information, see [Tagging ACM
+  Certificates](http://docs.aws.amazon.com/acm/latest/userguide/tags.html).
+
+  To remove one or more tags, use the `RemoveTagsFromCertificate` action. To
+  view all of the tags that have been applied to the certificate, use the
+  `ListTagsForCertificate` action.
+  """
+  def add_tags_to_certificate(client, input, options \\ []) do
+    request(client, "AddTagsToCertificate", input, options)
+  end
 
   @doc """
   Deletes an ACM Certificate and its associated private key. If this action
@@ -24,9 +48,11 @@ defmodule AWS.CertificateManager do
   retrieved by calling the `GetCertificate` action. The certificate will not
   be available for use by other AWS services.
 
-  <note>You cannot delete an ACM Certificate that is being used by another
+  <note> You cannot delete an ACM Certificate that is being used by another
   AWS service. To delete a certificate that is in use, the certificate
-  association must first be removed. </note>
+  association must first be removed.
+
+  </note>
   """
   def delete_certificate(client, input, options \\ []) do
     request(client, "DeleteCertificate", input, options)
@@ -36,8 +62,8 @@ defmodule AWS.CertificateManager do
   Returns a list of the fields contained in the specified ACM Certificate.
   For example, this action returns the certificate status, a flag that
   indicates whether the certificate is associated with any other AWS service,
-  and the date at which the certificate request was created. The ACM
-  Certificate is specified on input by its Amazon Resource Name (ARN).
+  and the date at which the certificate request was created. You specify the
+  ACM Certificate on input by its Amazon Resource Name (ARN).
   """
   def describe_certificate(client, input, options \\ []) do
     request(client, "DescribeCertificate", input, options)
@@ -52,22 +78,46 @@ defmodule AWS.CertificateManager do
   individual certificate fields, you can use OpenSSL.
 
   <note> Currently, ACM Certificates can be used only with Elastic Load
-  Balancing and Amazon CloudFront. </note>
+  Balancing and Amazon CloudFront.
+
+  </note>
   """
   def get_certificate(client, input, options \\ []) do
     request(client, "GetCertificate", input, options)
   end
 
   @doc """
-  Retrieves a list of the ACM Certificate ARNs, and the domain name for each
-  ARN, owned by the calling account. You can filter the list based on the
-  `CertificateStatuses` parameter, and you can display up to `MaxItems`
-  certificates at one time. If you have more than `MaxItems` certificates,
-  use the `NextToken` marker from the response object in your next call to
-  the `ListCertificates` action to retrieve the next set of certificate ARNs.
+  Retrieves a list of ACM Certificates and the domain name for each. You can
+  optionally filter the list to return only the certificates that match the
+  specified status.
   """
   def list_certificates(client, input, options \\ []) do
     request(client, "ListCertificates", input, options)
+  end
+
+  @doc """
+  Lists the tags that have been applied to the ACM Certificate. Use the
+  certificate ARN to specify the certificate. To add a tag to an ACM
+  Certificate, use the `AddTagsToCertificate` action. To delete a tag, use
+  the `RemoveTagsFromCertificate` action.
+  """
+  def list_tags_for_certificate(client, input, options \\ []) do
+    request(client, "ListTagsForCertificate", input, options)
+  end
+
+  @doc """
+  Remove one or more tags from an ACM Certificate. A tag consists of a
+  key-value pair. If you do not specify the value portion of the tag when
+  calling this function, the tag will be removed regardless of value. If you
+  specify a value, the tag is removed only if it is associated with the
+  specified value.
+
+  To add tags to a certificate, use the `AddTagsToCertificate` action. To
+  view all of the tags that have been applied to a specific ACM Certificate,
+  use the `ListTagsForCertificate` action.
+  """
+  def remove_tags_from_certificate(client, input, options \\ []) do
+    request(client, "RemoveTagsFromCertificate", input, options)
   end
 
   @doc """
@@ -77,7 +127,7 @@ defmodule AWS.CertificateManager do
   your site by using other names. For each domain name you specify, email is
   sent to the domain owner to request approval to issue the certificate.
   After receiving approval from the domain owner, the ACM Certificate is
-  issued. For more information, see the [ AWS Certificate Manager User Guide
+  issued. For more information, see the [AWS Certificate Manager User Guide
   ](http://docs.aws.amazon.com/acm/latest/userguide/overview.html).
   """
   def request_certificate(client, input, options \\ []) do

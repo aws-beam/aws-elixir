@@ -50,12 +50,27 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Deletes the specified delivery channel.
+  Deletes the configuration recorder.
 
-  The delivery channel cannot be deleted if it is the only delivery channel
-  and the configuration recorder is still running. To delete the delivery
-  channel, stop the running configuration recorder using the
-  `StopConfigurationRecorder` action.
+  After the configuration recorder is deleted, AWS Config will not record
+  resource configuration changes until you create a new configuration
+  recorder.
+
+  This action does not delete the configuration information that was
+  previously recorded. You will be able to access the previously recorded
+  information by using the `GetResourceConfigHistory` action, but you will
+  not be able to access this information in the AWS Config console until you
+  create a new configuration recorder.
+  """
+  def delete_configuration_recorder(client, input, options \\ []) do
+    request(client, "DeleteConfigurationRecorder", input, options)
+  end
+
+  @doc """
+  Deletes the delivery channel.
+
+  Before you can delete the delivery channel, you must stop the configuration
+  recorder by using the `StopConfigurationRecorder` action.
   """
   def delete_delivery_channel(client, input, options \\ []) do
     request(client, "DeleteDeliveryChannel", input, options)
@@ -86,17 +101,19 @@ defmodule AWS.Config do
 
   If AWS Config has no current evaluation results for the rule, it returns
   `INSUFFICIENT_DATA`. This result might indicate one of the following
-  conditions: <ul> <li>AWS Config has never invoked an evaluation for the
-  rule. To check whether it has, use the `DescribeConfigRuleEvaluationStatus`
-  action to get the `LastSuccessfulInvocationTime` and
-  `LastFailedInvocationTime`.</li> <li>The rule's AWS Lambda function is
-  failing to send evaluation results to AWS Config. Verify that the role that
-  you assigned to your configuration recorder includes the
-  `config:PutEvaluations` permission. If the rule is a customer managed rule,
-  verify that the AWS Lambda execution role includes the
-  `config:PutEvaluations` permission.</li> <li>The rule's AWS Lambda function
-  has returned `NOT_APPLICABLE` for all evaluation results. This can occur if
-  the resources were deleted or removed from the rule's scope.</li></ul>
+  conditions:
+
+  <ul> <li>AWS Config has never invoked an evaluation for the rule. To check
+  whether it has, use the `DescribeConfigRuleEvaluationStatus` action to get
+  the `LastSuccessfulInvocationTime` and `LastFailedInvocationTime`.</li>
+  <li>The rule's AWS Lambda function is failing to send evaluation results to
+  AWS Config. Verify that the role that you assigned to your configuration
+  recorder includes the `config:PutEvaluations` permission. If the rule is a
+  customer managed rule, verify that the AWS Lambda execution role includes
+  the `config:PutEvaluations` permission.</li> <li>The rule's AWS Lambda
+  function has returned `NOT_APPLICABLE` for all evaluation results. This can
+  occur if the resources were deleted or removed from the rule's scope.</li>
+  </ul>
   """
   def describe_compliance_by_config_rule(client, input, options \\ []) do
     request(client, "DescribeComplianceByConfigRule", input, options)
@@ -113,8 +130,9 @@ defmodule AWS.Config do
 
   If AWS Config has no current evaluation results for the resource, it
   returns `INSUFFICIENT_DATA`. This result might indicate one of the
-  following conditions about the rules that evaluate the resource: <ul>
-  <li>AWS Config has never invoked an evaluation for the rule. To check
+  following conditions about the rules that evaluate the resource:
+
+  <ul> <li>AWS Config has never invoked an evaluation for the rule. To check
   whether it has, use the `DescribeConfigRuleEvaluationStatus` action to get
   the `LastSuccessfulInvocationTime` and `LastFailedInvocationTime`.</li>
   <li>The rule's AWS Lambda function is failing to send evaluation results to
@@ -123,8 +141,8 @@ defmodule AWS.Config do
   customer managed rule, verify that the AWS Lambda execution role includes
   the `config:PutEvaluations` permission.</li> <li>The rule's AWS Lambda
   function has returned `NOT_APPLICABLE` for all evaluation results. This can
-  occur if the resources were deleted or removed from the rule's
-  scope.</li></ul>
+  occur if the resources were deleted or removed from the rule's scope.</li>
+  </ul>
   """
   def describe_compliance_by_resource(client, input, options \\ []) do
     request(client, "DescribeComplianceByResource", input, options)
@@ -152,8 +170,10 @@ defmodule AWS.Config do
   configuration recorder is not specified, this action returns the status of
   all configuration recorder associated with the account.
 
-  <note>Currently, you can specify only one configuration recorder per
-  account.</note>
+  <note> Currently, you can specify only one configuration recorder per
+  account.
+
+  </note>
   """
   def describe_configuration_recorder_status(client, input, options \\ []) do
     request(client, "DescribeConfigurationRecorderStatus", input, options)
@@ -178,8 +198,9 @@ defmodule AWS.Config do
   channel is not specified, this action returns the current status of all
   delivery channels associated with the account.
 
-  <note>Currently, you can specify only one delivery channel per
-  account.</note>
+  <note> Currently, you can specify only one delivery channel per account.
+
+  </note>
   """
   def describe_delivery_channel_status(client, input, options \\ []) do
     request(client, "DescribeDeliveryChannelStatus", input, options)
@@ -263,12 +284,14 @@ defmodule AWS.Config do
   is not currently recording. You can narrow the results to include only
   resources that have specific resource IDs or a resource name.
 
-  <note>You can specify either resource IDs or a resource name but not both
-  in the same request.</note> The response is paginated, and by default AWS
-  Config lists 100 resource identifiers on each page. You can customize this
-  number with the `limit` parameter. The response includes a `nextToken`
-  string, and to get the next page of results, run the request again and
-  enter this string for the `nextToken` parameter.
+  <note> You can specify either resource IDs or a resource name but not both
+  in the same request.
+
+  </note> The response is paginated, and by default AWS Config lists 100
+  resource identifiers on each page. You can customize this number with the
+  `limit` parameter. The response includes a `nextToken` string, and to get
+  the next page of results, run the request again and enter this string for
+  the `nextToken` parameter.
   """
   def list_discovered_resources(client, input, options \\ []) do
     request(client, "ListDiscoveredResources", input, options)
@@ -337,8 +360,11 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Creates a new delivery channel object to deliver the configuration
-  information to an Amazon S3 bucket, and to an Amazon SNS topic.
+  Creates a delivery channel object to deliver configuration information to
+  an Amazon S3 bucket and Amazon SNS topic.
+
+  Before you can create a delivery channel, you must create a configuration
+  recorder.
 
   You can use this action to change the Amazon S3 bucket or an Amazon SNS
   topic of the existing delivery channel. To change the Amazon S3 bucket or
@@ -347,7 +373,7 @@ defmodule AWS.Config do
   either the S3 bucket or the SNS topic, this action will keep the existing
   value for the parameter that is not changed.
 
-  <note> Currently, you can specify only one delivery channel per account.
+  <note> You can have only one delivery channel per AWS account.
 
   </note>
   """

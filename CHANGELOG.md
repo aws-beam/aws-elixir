@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+### Added
+- `AWS.AutoScaling` module for AWS Auto Scaling service.
+- `AWS.CertificateManager` module has support for adding, listing and removing
+  tags from certificates along with updated documentation.
+- `AWS.CloudHSM` module has updated documentation.
+- `AWS.CloudTrail` module has updated documentation.
+- `AWS.CodePipeline` module has support for putting approval results, retrying
+  stage execution and updated documentation.
+- `AWS.Config` module has support to delete configuration recorders and
+  updated documentation.
+- `AWS.DirectConnect` module has support to fetch letters of authorization for
+  connections and interconnects and has updated documentation.
+- `AWS.DirectoryService` module has support to add, list and remove tags from
+  resources.
+- `AWS.Discovery` module for AWS Application Discovery Service.
+- `AWS.DMS` module has support to import, delete and describe certifications
+  and has updated documentation.
+- `AWS.DynamoDB` module has updated documentation.
+- `AWS.DyanamoDB.Streams` module has updated documentation.
+- `AWS.ECS` module has updated documentation.
+- `AWS.EFS` module has updated documentation.
+- `AWS.GameLift` module has support to describe and update a runtime
+  configuration for a fleet and has updated documentation.
+- `AWS.Inspector` module has updated documentation.
+- `AWS.IoT` module has support to list policy principals and has updated
+  documentation.
+- `AWS.Kinesis.Firehose` module has updated documentation.
+- `AWS.KMS` module has updated documentation.
+- `AWS.MachineLearning` module has support to add, describe and delete tags on
+  an object and has updated documentation.
+- `AWS.OpsWorks` module has updated documentation.
+- `AWS.Route53.Domains` module has support to get and resent contact
+  reachability status and has updated documentation.
+- `AWS.ServiceCatalog` module for AWS Service Catalog service.
+- `AWS.SSM` module has support to add, list and remove tags from resources, to
+  create, describe and delete activations, to deregister managed instances, to
+  describe and modify document permissions, to update managed instance roles
+  and has updated documentation.
+- `AWS.StorageGateway` module has support to list taps and has updated
+  documentation.
+- `AWS.Workspaces` module has support to create, describe and delete tags.
+
+### Removed
+- `AWS.CognitoIdentityProvider` module removes support to get JSON web keys or
+  OpenID configuration information for user pools.
 
 ## [v0.0.12] - 2016-07-13
 ### Changed

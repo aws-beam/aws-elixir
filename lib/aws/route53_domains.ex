@@ -7,10 +7,9 @@ defmodule AWS.Route53.Domains do
   """
 
   @doc """
-  This operation checks the availability of one domain name. You can access
-  this API without authenticating. Note that if the availability status of a
-  domain is pending, you must submit another request to determine the
-  availability of the domain name.
+  This operation checks the availability of one domain name. Note that if the
+  availability status of a domain is pending, you must submit another request
+  to determine the availability of the domain name.
   """
   def check_domain_availability(client, input, options \\ []) do
     request(client, "CheckDomainAvailability", input, options)
@@ -81,6 +80,19 @@ defmodule AWS.Route53.Domains do
   end
 
   @doc """
+  For operations that require confirmation that the email address for the
+  registrant contact is valid, such as registering a new domain, this
+  operation returns information about whether the registrant contact has
+  responded.
+
+  If you want us to resend the email, use the
+  `ResendContactReachabilityEmail` operation.
+  """
+  def get_contact_reachability_status(client, input, options \\ []) do
+    request(client, "GetContactReachabilityStatus", input, options)
+  end
+
+  @doc """
   This operation returns detailed information about the domain. The domain's
   contact information is also returned as part of the output.
   """
@@ -148,6 +160,16 @@ defmodule AWS.Route53.Domains do
   """
   def register_domain(client, input, options \\ []) do
     request(client, "RegisterDomain", input, options)
+  end
+
+  @doc """
+  For operations that require confirmation that the email address for the
+  registrant contact is valid, such as registering a new domain, this
+  operation resends the confirmation email to the current email address for
+  the registrant contact.
+  """
+  def resend_contact_reachability_email(client, input, options \\ []) do
+    request(client, "ResendContactReachabilityEmail", input, options)
   end
 
   @doc """

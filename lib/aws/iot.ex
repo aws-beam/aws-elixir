@@ -90,7 +90,7 @@ defmodule AWS.IoT do
   Assuming a set of CSRs are located inside of the directory
   my-csr-directory:
 
-  &gt; On Linux and OS X, the command is:
+  On Linux and OS X, the command is:
 
   $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
   --certificate-signing-request file://my-csr-directory/{}
@@ -190,7 +190,7 @@ defmodule AWS.IoT do
   Deletes a registered CA certificate.
   """
   def delete_c_a_certificate(client, certificate_id, input, options \\ []) do
-    url = "/cacertificate/#{URI.encode(certificate_id)}"
+    url = "/cacertificate/{caCertificateId}"
     headers = []
     request(client, :delete, url, headers, input, options, nil)
   end
@@ -272,7 +272,7 @@ defmodule AWS.IoT do
   Describes a registered CA certificate.
   """
   def describe_c_a_certificate(client, certificate_id, options \\ []) do
-    url = "/cacertificate/#{URI.encode(certificate_id)}"
+    url = "/cacertificate/{caCertificateId}"
     headers = []
     request(client, :get, url, headers, nil, options, nil)
   end
@@ -287,9 +287,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Returns a unique endpoint specific to the AWS account making the call. You
-  specify the following URI when updating state information for your thing:
-  https://*endpoint*/things/*thingName*/shadow.
+  Returns a unique endpoint specific to the AWS account making the call.
   """
   def describe_endpoint(client, options \\ []) do
     url = "/endpoint"
@@ -439,7 +437,19 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the versions of the specified policy, and identifies the default
+  Lists the principals associated with the specified policy.
+  """
+  def list_policy_principals(client, policy_name \\ nil, options \\ []) do
+    url = "/policy-principals"
+    headers = []
+    if !is_nil(policy_name) do
+      headers = [{"x-amzn-iot-policy", policy_name}|headers]
+    end
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists the versions of the specified policy and identifies the default
   version.
   """
   def list_policy_versions(client, policy_name, options \\ []) do
@@ -605,7 +615,7 @@ defmodule AWS.IoT do
   Updates a registered CA certificate.
   """
   def update_c_a_certificate(client, certificate_id, input, options \\ []) do
-    url = "/cacertificate/#{URI.encode(certificate_id)}"
+    url = "/cacertificate/{caCertificateId}"
     headers = []
     request(client, :put, url, headers, input, options, nil)
   end

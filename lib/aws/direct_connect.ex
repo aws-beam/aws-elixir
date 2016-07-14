@@ -22,6 +22,10 @@ defmodule AWS.DirectConnect do
 
   Allocates a VLAN number and a specified amount of bandwidth for use by a
   hosted connection on the given interconnect.
+
+  <note> This is intended for use by AWS Direct Connect partners only.
+
+  </note>
   """
   def allocate_connection_on_interconnect(client, input, options \\ []) do
     request(client, "AllocateConnectionOnInterconnect", input, options)
@@ -124,6 +128,10 @@ defmodule AWS.DirectConnect do
   AllocateConnectionOnInterconnect. The end customer can then connect to AWS
   resources by creating a virtual interface on their connection, using the
   VLAN assigned to them by the AWS Direct Connect partner.
+
+  <note> This is intended for use by AWS Direct Connect partners only.
+
+  </note>
   """
   def create_interconnect(client, input, options \\ []) do
     request(client, "CreateInterconnect", input, options)
@@ -162,6 +170,10 @@ defmodule AWS.DirectConnect do
 
   @doc """
   Deletes the specified interconnect.
+
+  <note> This is intended for use by AWS Direct Connect partners only.
+
+  </note>
   """
   def delete_interconnect(client, input, options \\ []) do
     request(client, "DeleteInterconnect", input, options)
@@ -172,6 +184,20 @@ defmodule AWS.DirectConnect do
   """
   def delete_virtual_interface(client, input, options \\ []) do
     request(client, "DeleteVirtualInterface", input, options)
+  end
+
+  @doc """
+  Returns the LOA-CFA for a Connection.
+
+  The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a
+  document that your APN partner or service provider uses when establishing
+  your cross connect to AWS at the colocation facility. For more information,
+  see [Requesting Cross Connects at AWS Direct Connect
+  Locations](http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
+  in the AWS Direct Connect user guide.
+  """
+  def describe_connection_loa(client, input, options \\ []) do
+    request(client, "DescribeConnectionLoa", input, options)
   end
 
   @doc """
@@ -187,9 +213,27 @@ defmodule AWS.DirectConnect do
   @doc """
   Return a list of connections that have been provisioned on the given
   interconnect.
+
+  <note> This is intended for use by AWS Direct Connect partners only.
+
+  </note>
   """
   def describe_connections_on_interconnect(client, input, options \\ []) do
     request(client, "DescribeConnectionsOnInterconnect", input, options)
+  end
+
+  @doc """
+  Returns the LOA-CFA for an Interconnect.
+
+  The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a
+  document that is used when establishing your cross connect to AWS at the
+  colocation facility. For more information, see [Requesting Cross Connects
+  at AWS Direct Connect
+  Locations](http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
+  in the AWS Direct Connect user guide.
+  """
+  def describe_interconnect_loa(client, input, options \\ []) do
+    request(client, "DescribeInterconnectLoa", input, options)
   end
 
   @doc """

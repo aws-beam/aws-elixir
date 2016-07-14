@@ -41,7 +41,7 @@ defmodule AWS.Mixfile do
   end
 
   defp version do
-    "0.0.12"
+    "0.1.0"
   end
 
   defp package do

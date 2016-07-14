@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+
+## [v0.1.0] - 2016-07-13
 ### Added
 - `AWS.AutoScaling` module for AWS Auto Scaling service.
 - `AWS.CertificateManager` module has support for adding, listing and removing
@@ -243,7 +245,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.0.12...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.1.0...HEAD
+[v0.1.0]: https://github.com/jkakar/aws-elixir/compare/v0.0.12...v0.1.0
 [v0.0.12]: https://github.com/jkakar/aws-elixir/compare/v0.0.11...v0.0.12
 [v0.0.11]: https://github.com/jkakar/aws-elixir/compare/v0.0.10...v0.0.11
 [v0.0.10]: https://github.com/jkakar/aws-elixir/compare/v0.0.9...v0.0.10

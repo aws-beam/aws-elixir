@@ -11,6 +11,13 @@ defmodule AWS.Workspaces do
   """
 
   @doc """
+  Creates tags for a WorkSpace.
+  """
+  def create_tags(client, input, options \\ []) do
+    request(client, "CreateTags", input, options)
+  end
+
+  @doc """
   Creates one or more WorkSpaces.
 
   <note> This operation is asynchronous and returns before the WorkSpaces are
@@ -20,6 +27,20 @@ defmodule AWS.Workspaces do
   """
   def create_workspaces(client, input, options \\ []) do
     request(client, "CreateWorkspaces", input, options)
+  end
+
+  @doc """
+  Deletes tags from a WorkSpace.
+  """
+  def delete_tags(client, input, options \\ []) do
+    request(client, "DeleteTags", input, options)
+  end
+
+  @doc """
+  Describes tags for a WorkSpace.
+  """
+  def describe_tags(client, input, options \\ []) do
+    request(client, "DescribeTags", input, options)
   end
 
   @doc """

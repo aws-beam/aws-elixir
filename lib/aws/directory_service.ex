@@ -11,6 +11,15 @@ defmodule AWS.DirectoryService do
   """
 
   @doc """
+  Adds or overwrites one or more tags for the specified Amazon Directory
+  Services directory. Each directory can have a maximum of 10 tags. Each tag
+  consists of a key and optional value. Tag keys must be unique per resource.
+  """
+  def add_tags_to_resource(client, input, options \\ []) do
+    request(client, "AddTagsToResource", input, options)
+  end
+
+  @doc """
   Creates an AD Connector to connect to an on-premises directory.
   """
   def connect_directory(client, input, options \\ []) do
@@ -20,7 +29,7 @@ defmodule AWS.DirectoryService do
   @doc """
   Creates an alias for a directory and assigns the alias to the directory.
   The alias is used to construct the access URL for the directory, such as
-  `http://<![CDATA[&#x3C;]]>alias<![CDATA[&#x3E;]]>.awsapps.com`.
+  `http://&lt;alias&gt;.awsapps.com`.
 
   <important> After an alias has been created, it cannot be deleted or
   reused, so this operation should only be used when absolutely necessary.
@@ -239,6 +248,13 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Lists all tags on an Amazon Directory Services directory.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Associates a directory with an SNS topic. This establishes the directory as
   a publisher to the specified SNS topic. You can then receive email or text
   (SMS) messages when the status of your directory changes. You get notified
@@ -248,6 +264,13 @@ defmodule AWS.DirectoryService do
   """
   def register_event_topic(client, input, options \\ []) do
     request(client, "RegisterEventTopic", input, options)
+  end
+
+  @doc """
+  Removes tags from an Amazon Directory Services directory.
+  """
+  def remove_tags_from_resource(client, input, options \\ []) do
+    request(client, "RemoveTagsFromResource", input, options)
   end
 
   @doc """

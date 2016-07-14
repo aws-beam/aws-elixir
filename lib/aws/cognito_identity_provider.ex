@@ -176,20 +176,6 @@ defmodule AWS.Cognito.IdentityProvider do
   end
 
   @doc """
-  Gets the JSON Web keys for the specified user pool.
-  """
-  def get_j_w_k_s(client, input, options \\ []) do
-    request(client, "GetJWKS", input, options)
-  end
-
-  @doc """
-  Gets the OpenId configuration information for the specified user pool.
-  """
-  def get_open_id_configuration(client, input, options \\ []) do
-    request(client, "GetOpenIdConfiguration", input, options)
-  end
-
-  @doc """
   Gets the user attributes and metadata for a user.
   """
   def get_user(client, input, options \\ []) do

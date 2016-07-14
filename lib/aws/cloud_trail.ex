@@ -14,16 +14,17 @@ defmodule AWS.CloudTrail do
   source IP address, the request parameters, and the response elements
   returned by the service.
 
-  <note> As an alternative to using the API, you can use one of the AWS SDKs,
-  which consist of libraries and sample code for various programming
-  languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs
-  provide a convenient way to create programmatic access to AWSCloudTrail.
-  For example, the SDKs take care of cryptographically signing requests,
-  managing errors, and retrying requests automatically. For information about
-  the AWS SDKs, including how to download and install them, see the [Tools
-  for Amazon Web Services page](http://aws.amazon.com/tools/). </note> See
-  the CloudTrail User Guide for information about the data that is included
-  with each AWS API call listed in the log files.
+  <note> As an alternative to the API, you can use one of the AWS SDKs, which
+  consist of libraries and sample code for various programming languages and
+  platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a
+  convenient way to create programmatic access to AWSCloudTrail. For example,
+  the SDKs take care of cryptographically signing requests, managing errors,
+  and retrying requests automatically. For information about the AWS SDKs,
+  including how to download and install them, see the [Tools for Amazon Web
+  Services page](http://aws.amazon.com/tools/).
+
+  </note> See the CloudTrail User Guide for information about the data that
+  is included with each AWS API call listed in the log files.
   """
 
   @doc """
@@ -81,18 +82,18 @@ defmodule AWS.CloudTrail do
   files within the specified time range. The public key is needed to validate
   digest files that were signed with its corresponding private key.
 
-  <note>CloudTrail uses different private/public key pairs per region. Each
+  <note> CloudTrail uses different private/public key pairs per region. Each
   digest file is signed with a private key unique to its region. Therefore,
   when you validate a digest file from a particular region, you must look in
-  the same region for its corresponding public key.</note>
+  the same region for its corresponding public key.
+
+  </note>
   """
   def list_public_keys(client, input, options \\ []) do
     request(client, "ListPublicKeys", input, options)
   end
 
   @doc """
-  Lists the tags for the specified trail or trails in the current region.
-
   Lists the tags for the trail in the current region.
   """
   def list_tags(client, input, options \\ []) do
@@ -111,11 +112,14 @@ defmodule AWS.CloudTrail do
   a maximum of 50 possible. The response includes a token that you can use to
   get the next page of results.
 
-  <important>The rate of lookup requests is limited to one per second per
-  account. If this limit is exceeded, a throttling error occurs. </important>
-  <important>Events that occurred during the selected time range will not be
-  available for lookup if CloudTrail logging was not enabled when the events
-  occurred.</important>
+  <important> The rate of lookup requests is limited to one per second per
+  account. If this limit is exceeded, a throttling error occurs.
+
+  </important> <important> Events that occurred during the selected time
+  range will not be available for lookup if CloudTrail logging was not
+  enabled when the events occurred.
+
+  </important>
   """
   def lookup_events(client, input, options \\ []) do
     request(client, "LookupEvents", input, options)

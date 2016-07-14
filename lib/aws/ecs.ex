@@ -34,6 +34,10 @@ defmodule AWS.ECS do
   `desiredCount`, Amazon ECS spawns another instantiation of the task in the
   specified cluster. To update an existing service, see `UpdateService`.
 
+  In addition to maintaining the desired count of tasks in your service, you
+  can optionally run your service behind a load balancer. The load balancer
+  distributes traffic across the tasks that are associated with the service.
+
   You can optionally specify a deployment configuration for your service.
   During a deployment (which is triggered by changing the task definition of
   a service with an `UpdateService` operation), the service scheduler uses
@@ -128,8 +132,10 @@ defmodule AWS.ECS do
   instance, be sure to terminate it in the Amazon EC2 console to stop
   billing.
 
-  <note>When you terminate a container instance, it is automatically
-  deregistered from your cluster.
+  <note> If you terminate a running container instance with a connected
+  Amazon ECS container agent, the agent automatically deregisters the
+  instance from your cluster (stopped container instances or instances with
+  disconnected agents are not automatically deregistered when terminated).
 
   </note>
   """
@@ -200,7 +206,7 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  <note>This action is only used by the Amazon EC2 Container Service agent,
+  <note> This action is only used by the Amazon EC2 Container Service agent,
   and it is not intended for use outside of the agent.
 
   </note> Returns an endpoint for the Amazon EC2 Container Service agent to
@@ -234,8 +240,12 @@ defmodule AWS.ECS do
   @doc """
   Returns a list of task definition families that are registered to your
   account (which may include task definition families that no longer have any
-  `ACTIVE` task definitions). You can filter the results with the
-  `familyPrefix` parameter.
+  `ACTIVE` task definition revisions).
+
+  You can filter out task definition families that do not contain any
+  `ACTIVE` task definition revisions by setting the `status` parameter to
+  `ACTIVE`. You can also filter the results with the `familyPrefix`
+  parameter.
   """
   def list_task_definition_families(client, input, options \\ []) do
     request(client, "ListTaskDefinitionFamilies", input, options)
@@ -255,13 +265,16 @@ defmodule AWS.ECS do
   by family name, by a particular container instance, or by the desired
   status of the task with the `family`, `containerInstance`, and
   `desiredStatus` parameters.
+
+  Recently-stopped tasks might appear in the returned results. Currently,
+  stopped tasks appear in the returned results for at least one hour.
   """
   def list_tasks(client, input, options \\ []) do
     request(client, "ListTasks", input, options)
   end
 
   @doc """
-  <note>This action is only used by the Amazon EC2 Container Service agent,
+  <note> This action is only used by the Amazon EC2 Container Service agent,
   and it is not intended for use outside of the agent.
 
   </note> Registers an EC2 instance into the specified cluster. This instance
@@ -277,6 +290,14 @@ defmodule AWS.ECS do
   containers with the `volumes` parameter. For more information about task
   definition parameters and defaults, see [Amazon ECS Task
   Definitions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html)
+  in the *Amazon EC2 Container Service Developer Guide*.
+
+  You may also specify an IAM role for your task with the `taskRoleArn`
+  parameter. When you specify an IAM role for a task, its containers can then
+  use the latest versions of the AWS CLI or SDKs to make API requests to the
+  AWS services that are specified in the IAM policy associated with the role.
+  For more information, see [IAM Roles for
+  Tasks](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
   in the *Amazon EC2 Container Service Developer Guide*.
   """
   def register_task_definition(client, input, options \\ []) do
@@ -324,7 +345,7 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  <note>This action is only used by the Amazon EC2 Container Service agent,
+  <note> This action is only used by the Amazon EC2 Container Service agent,
   and it is not intended for use outside of the agent.
 
   </note> Sent to acknowledge that a container changed states.
@@ -334,7 +355,7 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  <note>This action is only used by the Amazon EC2 Container Service agent,
+  <note> This action is only used by the Amazon EC2 Container Service agent,
   and it is not intended for use outside of the agent.
 
   </note> Sent to acknowledge that a task changed states.

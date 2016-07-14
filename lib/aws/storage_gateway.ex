@@ -14,29 +14,59 @@ defmodule AWS.StorageGateway do
   Use the following links to get started using the *AWS Storage Gateway
   Service API Reference*:
 
-  <ul> <li>[AWS Storage Gateway Required Request
+  <ul> <li> [AWS Storage Gateway Required Request
   Headers](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayHTTPRequestsHeaders.html):
   Describes the required headers that you must send with every POST request
-  to AWS Storage Gateway.</li> <li>[Signing
+  to AWS Storage Gateway.
+
+  </li> <li> [Signing
   Requests](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewaySigningRequests.html):
   AWS Storage Gateway requires that you authenticate every request you send;
-  this topic describes how sign such a request.</li> <li>[Error
+  this topic describes how sign such a request.
+
+  </li> <li> [Error
   Responses](http://docs.aws.amazon.com/storagegateway/latest/userguide/APIErrorResponses.html):
-  Provides reference information about AWS Storage Gateway errors.</li>
-  <li>[Operations in AWS Storage
+  Provides reference information about AWS Storage Gateway errors.
+
+  </li> <li> [Operations in AWS Storage
   Gateway](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPIOperations.html):
   Contains detailed descriptions of all AWS Storage Gateway operations, their
   request parameters, response elements, possible errors, and examples of
-  requests and responses.</li> <li>[AWS Storage Gateway Regions and
+  requests and responses.
+
+  </li> <li> [AWS Storage Gateway Regions and
   Endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html):
   Provides a list of each of the s and endpoints available for use with AWS
-  Storage Gateway. </li> </ul> <note>AWS Storage Gateway resource IDs are in
-  uppercase. When you use these resource IDs with the Amazon EC2 API, EC2
-  expects resource IDs in lowercase. You must change your resource ID to
-  lowercase to use it with the EC2 API. For example, in Storage Gateway the
-  ID for a volume might be vol-1122AABB. When you use this ID with the EC2
-  API, you must change it to vol-1122aabb. Otherwise, the EC2 API might not
-  behave as expected.</note>
+  Storage Gateway.
+
+  </li> </ul> <note> AWS Storage Gateway resource IDs are in uppercase. When
+  you use these resource IDs with the Amazon EC2 API, EC2 expects resource
+  IDs in lowercase. You must change your resource ID to lowercase to use it
+  with the EC2 API. For example, in Storage Gateway the ID for a volume might
+  be `vol-1122AABB`. When you use this ID with the EC2 API, you must change
+  it to `vol-1122aabb`. Otherwise, the EC2 API might not behave as expected.
+
+  </note> <important> IDs for Storage Gateway volumes and Amazon EBS
+  snapshots created from gateway volumes are changing to a longer format.
+  Starting in December 2016, all new volumes and snapshots will be created
+  with a 17-character string. Starting in April 2016, you will be able to use
+  these longer IDs so you can test your systems with the new format. For more
+  information, see [Longer EC2 and EBS Resource
+  IDs](https://aws.amazon.com/ec2/faqs/#longer-ids).
+
+  For example, a volume ARN with the longer volume ID format will look like
+  this:
+
+  `arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG`.
+
+  A snapshot ID with the longer ID format will look like this:
+  `snap-78e226633445566ee`.
+
+  For more information, see [Announcement: Heads-up – Longer AWS Storage
+  Gateway volume and snapshot IDs coming in
+  2016](https://forums.aws.amazon.com/ann.jspa?annID=3557).
+
+  </important>
   """
 
   @doc """
@@ -49,8 +79,9 @@ defmodule AWS.StorageGateway do
   gateway. The activation process also associates your gateway with your
   account; for more information, see `UpdateGatewayInformation`.
 
-  <note>You must turn on the gateway VM before you can activate your
-  gateway.</note>
+  <note>You must turn on the gateway VM before you can activate your gateway.
+
+  </note>
   """
   def activate_gateway(client, input, options \\ []) do
     request(client, "ActivateGateway", input, options)
@@ -77,11 +108,11 @@ defmodule AWS.StorageGateway do
   team. Each tag consists of a key and a value, which you define. You can add
   tags to the following AWS Storage Gateway resources:
 
-  <ul> <li>Storage gateways of all types
+  <ul> <li> Storage gateways of all types
 
-  </li> </ul> <ul> <li>Storage Volumes
+  </li> </ul> <ul> <li> Storage Volumes
 
-  </li> </ul> <ul> <li>Virtual Tapes
+  </li> </ul> <ul> <li> Virtual Tapes
 
   </li> </ul> You can create a maximum of 10 tags for each resource. Virtual
   tapes and storage volumes that are recovered to a new gateway maintain
@@ -110,7 +141,7 @@ defmodule AWS.StorageGateway do
   architecture. This operation is deprecated in cached-volumes API version
   20120630. Use `AddUploadBuffer` instead.
 
-  <note>Working storage is also referred to as upload buffer. You can also
+  <note> Working storage is also referred to as upload buffer. You can also
   use the `AddUploadBuffer` operation to add upload buffer to a stored-volume
   gateway.
 
@@ -145,12 +176,14 @@ defmodule AWS.StorageGateway do
 
   <note>Cache storage must be allocated to the gateway before you can create
   a cached volume. Use the `AddCache` operation to add cache storage to a
-  gateway. </note> In the request, you must specify the gateway, size of the
-  volume in bytes, the iSCSI target name, an IP address on which to expose
-  the target, and a unique client token. In response, AWS Storage Gateway
-  creates the volume and returns information about it such as the volume
-  Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
-  initiators can use to connect to the volume target.
+  gateway.
+
+  </note> In the request, you must specify the gateway, size of the volume in
+  bytes, the iSCSI target name, an IP address on which to expose the target,
+  and a unique client token. In response, AWS Storage Gateway creates the
+  volume and returns information about it such as the volume Amazon Resource
+  Name (ARN), its size, and the iSCSI target ARN that initiators can use to
+  connect to the volume target.
   """
   def create_cached_iscsi_volume(client, input, options \\ []) do
     request(client, "CreateCachediSCSIVolume", input, options)
@@ -178,7 +211,14 @@ defmodule AWS.StorageGateway do
 
   <note>To list or delete a snapshot, you must use the Amazon EC2 API. For
   more information, see DescribeSnapshots or DeleteSnapshot in the [EC2 API
-  reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html).</note>
+  reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html).
+
+  </note> <important> Volume and snapshot IDs are changing to a longer length
+  ID format. For more information, see the important note on the
+  [Welcome](http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html)
+  page.
+
+  </important>
   """
   def create_snapshot(client, input, options \\ []) do
     request(client, "CreateSnapshot", input, options)
@@ -235,7 +275,9 @@ defmodule AWS.StorageGateway do
 
   <note>Cache storage must be allocated to the gateway before you can create
   a virtual tape. Use the `AddCache` operation to add cache storage to a
-  gateway.</note>
+  gateway.
+
+  </note>
   """
   def create_tape_with_barcode(client, input, options \\ []) do
     request(client, "CreateTapeWithBarcode", input, options)
@@ -247,7 +289,9 @@ defmodule AWS.StorageGateway do
 
   <note>Cache storage must be allocated to the gateway before you can create
   virtual tapes. Use the `AddCache` operation to add cache storage to a
-  gateway. </note>
+  gateway.
+
+  </note>
   """
   def create_tapes(client, input, options \\ []) do
     request(client, "CreateTapes", input, options)
@@ -497,7 +541,7 @@ defmodule AWS.StorageGateway do
   operation is deprecated in cached-volumes API version (20120630). Use
   DescribeUploadBuffer instead.
 
-  <note>Working storage is also referred to as upload buffer. You can also
+  <note> Working storage is also referred to as upload buffer. You can also
   use the DescribeUploadBuffer operation to add upload buffer to a
   stored-volume gateway.
 
@@ -516,7 +560,9 @@ defmodule AWS.StorageGateway do
   Use this operation for a gateway-VTL that is not reachable or not
   functioning.
 
-  <important>Once a gateway is disabled it cannot be enabled.</important>
+  <important>Once a gateway is disabled it cannot be enabled.
+
+  </important>
   """
   def disable_gateway(client, input, options \\ []) do
     request(client, "DisableGateway", input, options)
@@ -561,6 +607,23 @@ defmodule AWS.StorageGateway do
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Lists virtual tapes in your virtual tape library (VTL) and your virtual
+  tape shelf (VTS). You specify the tapes to list by specifying one or more
+  tape Amazon Resource Names (ARNs). If you don't specify a tape ARN, the
+  operation lists all virtual tapes in both your VTL and VTS.
+
+  This operation supports pagination. By default, the operation returns a
+  maximum of up to 100 tapes. You can optionally specify the `Limit`
+  parameter in the body to limit the number of tapes in the response. If the
+  number of tapes returned in the response is truncated, the response
+  includes a `Marker` element that you can use in your subsequent request to
+  retrieve the next set of tapes.
+  """
+  def list_tapes(client, input, options \\ []) do
+    request(client, "ListTapes", input, options)
   end
 
   @doc """
@@ -651,7 +714,9 @@ defmodule AWS.StorageGateway do
 
   <note>The virtual tape can be retrieved to only one gateway. The retrieved
   tape is read-only. The virtual tape can be retrieved to only a gateway-VTL.
-  There is no charge for retrieving recovery points.</note>
+  There is no charge for retrieving recovery points.
+
+  </note>
   """
   def retrieve_tape_recovery_point(client, input, options \\ []) do
     request(client, "RetrieveTapeRecoveryPoint", input, options)
@@ -676,19 +741,21 @@ defmodule AWS.StorageGateway do
 
   <note>If you want to shut down the VM, it is recommended that you first
   shut down the gateway component in the VM to avoid unpredictable
-  conditions.</note> After the gateway is shutdown, you cannot call any other
-  API except `StartGateway`, `DescribeGatewayInformation`, and
-  `ListGateways`. For more information, see `ActivateGateway`. Your
-  applications cannot read from or write to the gateway's storage volumes,
-  and there are no snapshots taken.
+  conditions.
+
+  </note> After the gateway is shutdown, you cannot call any other API except
+  `StartGateway`, `DescribeGatewayInformation`, and `ListGateways`. For more
+  information, see `ActivateGateway`. Your applications cannot read from or
+  write to the gateway's storage volumes, and there are no snapshots taken.
 
   <note>When you make a shutdown request, you will get a `200 OK` success
   response immediately. However, it might take some time for the gateway to
   shut down. You can call the `DescribeGatewayInformation` API to check the
-  status. For more information, see `ActivateGateway`.</note> If do not
-  intend to use the gateway again, you must delete the gateway (using
-  `DeleteGateway`) to no longer pay software charges associated with the
-  gateway.
+  status. For more information, see `ActivateGateway`.
+
+  </note> If do not intend to use the gateway again, you must delete the
+  gateway (using `DeleteGateway`) to no longer pay software charges
+  associated with the gateway.
   """
   def shutdown_gateway(client, input, options \\ []) do
     request(client, "ShutdownGateway", input, options)
@@ -704,8 +771,10 @@ defmodule AWS.StorageGateway do
   immediately. However, it might take some time for the gateway to be ready.
   You should call `DescribeGatewayInformation` and check the status before
   making any additional API calls. For more information, see
-  `ActivateGateway`.</note> To specify which gateway to start, use the Amazon
-  Resource Name (ARN) of the gateway in your request.
+  `ActivateGateway`.
+
+  </note> To specify which gateway to start, use the Amazon Resource Name
+  (ARN) of the gateway in your request.
   """
   def start_gateway(client, input, options \\ []) do
     request(client, "StartGateway", input, options)
@@ -749,7 +818,9 @@ defmodule AWS.StorageGateway do
 
   <note>For Gateways activated after September 2, 2015, the gateway's ARN
   contains the gateway ID rather than the gateway name. However, changing the
-  name of the gateway has no effect on the gateway's ARN.</note>
+  name of the gateway has no effect on the gateway's ARN.
+
+  </note>
   """
   def update_gateway_information(client, input, options \\ []) do
     request(client, "UpdateGatewayInformation", input, options)
@@ -762,15 +833,19 @@ defmodule AWS.StorageGateway do
   <note>When you make this request, you get a `200 OK` success response
   immediately. However, it might take some time for the update to complete.
   You can call `DescribeGatewayInformation` to verify the gateway is in the
-  `STATE_RUNNING` state.</note> <important>A software update forces a system
-  restart of your gateway. You can minimize the chance of any disruption to
-  your applications by increasing your iSCSI Initiators' timeouts. For more
-  information about increasing iSCSI Initiator timeouts for Windows and
-  Linux, see [Customizing Your Windows iSCSI
+  `STATE_RUNNING` state.
+
+  </note> <important>A software update forces a system restart of your
+  gateway. You can minimize the chance of any disruption to your applications
+  by increasing your iSCSI Initiators' timeouts. For more information about
+  increasing iSCSI Initiator timeouts for Windows and Linux, see [Customizing
+  Your Windows iSCSI
   Settings](http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings)
   and [Customizing Your Linux iSCSI
   Settings](http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings),
-  respectively.</important>
+  respectively.
+
+  </important>
   """
   def update_gateway_software_now(client, input, options \\ []) do
     request(client, "UpdateGatewaySoftwareNow", input, options)

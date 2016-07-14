@@ -32,11 +32,11 @@ defmodule AWS.KMS do
   **Signing Requests**
 
   Requests must be signed by using an access key ID and a secret access key.
-  We strongly recommend that you *do not* use your AWS account access key ID
-  and secret key for everyday work with AWS KMS. Instead, use the access key
-  ID and secret access key for an IAM user, or you can use the AWS Security
-  Token Service to generate temporary security credentials that you can use
-  to sign requests.
+  We strongly recommend that you *do not* use your AWS account (root) access
+  key ID and secret key for everyday work with AWS KMS. Instead, use the
+  access key ID and secret access key for an IAM user, or you can use the AWS
+  Security Token Service to generate temporary security credentials that you
+  can use to sign requests.
 
   All AWS KMS operations require [Signature Version
   4](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
@@ -59,21 +59,33 @@ defmodule AWS.KMS do
   <ul> <li> [AWS Security
   Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)
   - This topic provides general information about the types of credentials
-  used for accessing AWS. </li> <li> [AWS Security Token
-  Service](http://docs.aws.amazon.com/STS/latest/UsingSTS/) - This guide
-  describes how to create and use temporary security credentials. </li> <li>
-  [Signing AWS API
-  Requests](http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
+  used for accessing AWS.
+
+  </li> <li> [Temporary Security
+  Credentials](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)
+  - This section of the *IAM User Guide* describes how to create and use
+  temporary security credentials.
+
+  </li> <li> [Signature Version 4 Signing
+  Process](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
   - This set of topics walks you through the process of signing a request
-  using an access key ID and a secret access key. </li> </ul> **Commonly Used
-  APIs**
+  using an access key ID and a secret access key.
+
+  </li> </ul> **Commonly Used APIs**
 
   Of the APIs discussed in this guide, the following will prove the most
   useful for most applications. You will likely perform actions other than
   these, such as creating keys and assigning policies, by using the console.
 
-  <ul> <li>`Encrypt`</li> <li>`Decrypt`</li> <li>`GenerateDataKey`</li>
-  <li>`GenerateDataKeyWithoutPlaintext`</li> </ul>
+  <ul> <li> `Encrypt`
+
+  </li> <li> `Decrypt`
+
+  </li> <li> `GenerateDataKey`
+
+  </li> <li> `GenerateDataKeyWithoutPlaintext`
+
+  </li> </ul>
   """
 
   @doc """
@@ -81,8 +93,8 @@ defmodule AWS.KMS do
   successful, the CMK is set to the `Disabled` state. To enable a CMK, use
   `EnableKey`.
 
-  For more information about scheduling and canceling deletion of a CMK, go
-  to [Deleting Customer Master
+  For more information about scheduling and canceling deletion of a CMK, see
+  [Deleting Customer Master
   Keys](http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html)
   in the *AWS Key Management Service Developer Guide*.
   """
@@ -121,11 +133,20 @@ defmodule AWS.KMS do
   end
 
   @doc """
-  Creates a customer master key. Customer master keys can be used to encrypt
-  small amounts of data (less than 4K) directly, but they are most commonly
-  used to encrypt or envelope data keys that are then used to encrypt
-  customer data. For more information about data keys, see `GenerateDataKey`
-  and `GenerateDataKeyWithoutPlaintext`.
+  Creates a customer master key (CMK).
+
+  You can use a CMK to encrypt small amounts of data (4 KiB or less)
+  directly, but CMKs are more commonly used to encrypt data encryption keys
+  (DEKs), which are used to encrypt raw data. For more information about DEKs
+  and the difference between CMKs and DEKs, see the following:
+
+  <ul> <li> The `GenerateDataKey` operation
+
+  </li> <li> [AWS Key Management Service
+  Concepts](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+  in the *AWS Key Management Service Developer Guide*
+
+  </li> </ul>
   """
   def create_key(client, input, options \\ []) do
     request(client, "CreateKey", input, options)
@@ -133,18 +154,22 @@ defmodule AWS.KMS do
 
   @doc """
   Decrypts ciphertext. Ciphertext is plaintext that has been previously
-  encrypted by using any of the following functions: <ul>
-  <li>`GenerateDataKey`</li> <li>`GenerateDataKeyWithoutPlaintext`</li>
-  <li>`Encrypt`</li> </ul>
+  encrypted by using any of the following functions:
 
-  Note that if a caller has been granted access permissions to all keys
-  (through, for example, IAM user policies that grant `Decrypt` permission on
-  all resources), then ciphertext encrypted by using keys in other accounts
-  where the key grants access to the caller can be decrypted. To remedy this,
-  we recommend that you do not grant `Decrypt` access in an IAM user policy.
-  Instead grant `Decrypt` access only in key policies. If you must grant
-  `Decrypt` access in an IAM user policy, you should scope the resource to
-  specific keys or to specific trusted accounts.
+  <ul> <li> `GenerateDataKey`
+
+  </li> <li> `GenerateDataKeyWithoutPlaintext`
+
+  </li> <li> `Encrypt`
+
+  </li> </ul> Note that if a caller has been granted access permissions to
+  all keys (through, for example, IAM user policies that grant `Decrypt`
+  permission on all resources), then ciphertext encrypted by using keys in
+  other accounts where the key grants access to the caller can be decrypted.
+  To remedy this, we recommend that you do not grant `Decrypt` access in an
+  IAM user policy. Instead grant `Decrypt` access only in key policies. If
+  you must grant `Decrypt` access in an IAM user policy, you should scope the
+  resource to specific keys or to specific trusted accounts.
   """
   def decrypt(client, input, options \\ []) do
     request(client, "Decrypt", input, options)
@@ -166,10 +191,10 @@ defmodule AWS.KMS do
   end
 
   @doc """
-  Sets the state of a master key to disabled, thereby preventing its use for
-  cryptographic operations. For more information about how key state affects
-  the use of a master key, go to [How Key State Affects the Use of a Customer
-  Master
+  Sets the state of a customer master key (CMK) to disabled, thereby
+  preventing its use for cryptographic operations. For more information about
+  how key state affects the use of a CMK, see [How Key State Affects the Use
+  of a Customer Master
   Key](http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html)
   in the *AWS Key Management Service Developer Guide*.
   """
@@ -200,20 +225,22 @@ defmodule AWS.KMS do
 
   @doc """
   Encrypts plaintext into ciphertext by using a customer master key. The
-  `Encrypt` function has two primary use cases: <ul> <li>You can encrypt up
-  to 4 KB of arbitrary data such as an RSA key, a database password, or other
-  sensitive customer information.</li> <li>If you are moving encrypted data
-  from one region to another, you can use this API to encrypt in the new
-  region the plaintext data key that was used to encrypt the data in the
-  original region. This provides you with an encrypted copy of the data key
-  that can be decrypted in the new region and used there to decrypt the
-  encrypted data. </li> </ul>
+  `Encrypt` function has two primary use cases:
 
-  Unless you are moving encrypted data from one region to another, you don't
-  use this function to encrypt a generated data key within a region. You
-  retrieve data keys already encrypted by calling the `GenerateDataKey` or
-  `GenerateDataKeyWithoutPlaintext` function. Data keys don't need to be
-  encrypted again by calling `Encrypt`.
+  <ul> <li> You can encrypt up to 4 KB of arbitrary data such as an RSA key,
+  a database password, or other sensitive customer information.
+
+  </li> <li> If you are moving encrypted data from one region to another, you
+  can use this API to encrypt in the new region the plaintext data key that
+  was used to encrypt the data in the original region. This provides you with
+  an encrypted copy of the data key that can be decrypted in the new region
+  and used there to decrypt the encrypted data.
+
+  </li> </ul> Unless you are moving encrypted data from one region to
+  another, you don't use this function to encrypt a generated data key within
+  a region. You retrieve data keys already encrypted by calling the
+  `GenerateDataKey` or `GenerateDataKeyWithoutPlaintext` function. Data keys
+  don't need to be encrypted again by calling `Encrypt`.
 
   If you want to encrypt data locally in your application, you can use the
   `GenerateDataKey` function to return a plaintext data encryption key and a
@@ -238,16 +265,18 @@ defmodule AWS.KMS do
   key from memory. Store the encrypted data key (contained in the
   `CiphertextBlob` field) alongside of the locally encrypted data.
 
-  <note>You should not call the `Encrypt` function to re-encrypt your data
+  <note> You should not call the `Encrypt` function to re-encrypt your data
   keys within a region. `GenerateDataKey` always returns the data key
   encrypted and tied to the customer master key that will be used to decrypt
-  it. There is no need to decrypt it twice. </note> If you decide to use the
-  optional `EncryptionContext` parameter, you must also store the context in
-  full or at least store enough information along with the encrypted data to
-  be able to reconstruct the context when submitting the ciphertext to the
-  `Decrypt` API. It is a good practice to choose a context that you can
-  reconstruct on the fly to better secure the ciphertext. For more
-  information about how this parameter is used, see [Encryption
+  it. There is no need to decrypt it twice.
+
+  </note> If you decide to use the optional `EncryptionContext` parameter,
+  you must also store the context in full or at least store enough
+  information along with the encrypted data to be able to reconstruct the
+  context when submitting the ciphertext to the `Decrypt` API. It is a good
+  practice to choose a context that you can reconstruct on the fly to better
+  secure the ciphertext. For more information about how this parameter is
+  used, see [Encryption
   Context](http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html).
 
   To decrypt data, pass the encrypted data key to the `Decrypt` API.
@@ -335,7 +364,11 @@ defmodule AWS.KMS do
   end
 
   @doc """
-  Attaches a policy to the specified key.
+  Attaches a key policy to the specified customer master key (CMK).
+
+  For more information about key policies, see [Key
+  Policies](http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
+  in the *AWS Key Management Service Developer Guide*.
   """
   def put_key_policy(client, input, options \\ []) do
     request(client, "PutKeyPolicy", input, options)
@@ -362,14 +395,18 @@ defmodule AWS.KMS do
   @doc """
   Retires a grant. You can retire a grant when you're done using it to clean
   up. You should revoke a grant when you intend to actively deny operations
-  that depend on it. The following are permitted to call this API: <ul>
-  <li>The account that created the grant</li> <li>The `RetiringPrincipal`, if
-  present</li> <li>The `GranteePrincipal`, if `RetireGrant` is a grantee
-  operation</li> </ul> The grant to retire must be identified by its grant
-  token or by a combination of the key ARN and the grant ID. A grant token is
-  a unique variable-length base64-encoded string. A grant ID is a 64
-  character unique identifier of a grant. Both are returned by the
-  `CreateGrant` function.
+  that depend on it. The following are permitted to call this API:
+
+  <ul> <li> The account that created the grant
+
+  </li> <li> The `RetiringPrincipal`, if present
+
+  </li> <li> The `GranteePrincipal`, if `RetireGrant` is a grantee operation
+
+  </li> </ul> The grant to retire must be identified by its grant token or by
+  a combination of the key ARN and the grant ID. A grant token is a unique
+  variable-length base64-encoded string. A grant ID is a 64 character unique
+  identifier of a grant. Both are returned by the `CreateGrant` function.
   """
   def retire_grant(client, input, options \\ []) do
     request(client, "RetireGrant", input, options)
@@ -398,8 +435,8 @@ defmodule AWS.KMS do
   is rendered unrecoverable. To restrict the use of a CMK without deleting
   it, use `DisableKey`.
 
-  </important> For more information about scheduling a CMK for deletion, go
-  to [Deleting Customer Master
+  </important> For more information about scheduling a CMK for deletion, see
+  [Deleting Customer Master
   Keys](http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html)
   in the *AWS Key Management Service Developer Guide*.
   """

@@ -7,10 +7,10 @@ defmodule AWS.DMS do
 
   AWS Database Migration Service (AWS DMS) can migrate your data to and from
   the most widely used commercial and open-source databases such as Oracle,
-  PostgreSQL, Microsoft SQL Server, MariaDB, Amazon Aurora, and MySQL. The
-  service supports homogeneous migrations such as Oracle to Oracle, as well
-  as heterogeneous migrations between different database platforms, such as
-  Oracle to MySQL or SQL Server to PostgreSQL.
+  PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora,
+  and MySQL. The service supports homogeneous migrations such as Oracle to
+  Oracle, as well as heterogeneous migrations between different database
+  platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
   """
 
   @doc """
@@ -18,8 +18,6 @@ defmodule AWS.DMS do
   endpoint, security group, and migration task. These tags can also be used
   with cost allocation reporting to track cost associated with DMS resources,
   or used in a Condition statement in an IAM policy for DMS.
-
-  <note/><p/>
   """
   def add_tags_to_resource(client, input, options \\ []) do
     request(client, "AddTagsToResource", input, options)
@@ -27,8 +25,6 @@ defmodule AWS.DMS do
 
   @doc """
   Creates an endpoint using the provided settings.
-
-  <note/><p/>
   """
   def create_endpoint(client, input, options \\ []) do
     request(client, "CreateEndpoint", input, options)
@@ -36,8 +32,6 @@ defmodule AWS.DMS do
 
   @doc """
   Creates the replication instance using the specified parameters.
-
-  <note/><p/>
   """
   def create_replication_instance(client, input, options \\ []) do
     request(client, "CreateReplicationInstance", input, options)
@@ -45,8 +39,6 @@ defmodule AWS.DMS do
 
   @doc """
   Creates a replication subnet group given a list of the subnet IDs in a VPC.
-
-  <note/><p/>
   """
   def create_replication_subnet_group(client, input, options \\ []) do
     request(client, "CreateReplicationSubnetGroup", input, options)
@@ -54,18 +46,25 @@ defmodule AWS.DMS do
 
   @doc """
   Creates a replication task using the specified parameters.
-
-  <note/><p/>
   """
   def create_replication_task(client, input, options \\ []) do
     request(client, "CreateReplicationTask", input, options)
   end
 
   @doc """
+  Deletes the specified certificate.
+  """
+  def delete_certificate(client, input, options \\ []) do
+    request(client, "DeleteCertificate", input, options)
+  end
+
+  @doc """
   Deletes the specified endpoint.
 
-  <note>All tasks associated with the endpoint must be deleted before you can
-  delete the endpoint.</note><p/>
+  <note> All tasks associated with the endpoint must be deleted before you
+  can delete the endpoint.
+
+  </note> <p/>
   """
   def delete_endpoint(client, input, options \\ []) do
     request(client, "DeleteEndpoint", input, options)
@@ -74,8 +73,10 @@ defmodule AWS.DMS do
   @doc """
   Deletes the specified replication instance.
 
-  <note>You must delete any migration tasks that are associated with the
-  replication instance before you can delete it.</note><p/>
+  <note> You must delete any migration tasks that are associated with the
+  replication instance before you can delete it.
+
+  </note> <p/>
   """
   def delete_replication_instance(client, input, options \\ []) do
     request(client, "DeleteReplicationInstance", input, options)
@@ -83,8 +84,6 @@ defmodule AWS.DMS do
 
   @doc """
   Deletes a subnet group.
-
-  <note/><p/>
   """
   def delete_replication_subnet_group(client, input, options \\ []) do
     request(client, "DeleteReplicationSubnetGroup", input, options)
@@ -92,8 +91,6 @@ defmodule AWS.DMS do
 
   @doc """
   Deletes the specified replication task.
-
-  <note/><p/>
   """
   def delete_replication_task(client, input, options \\ []) do
     request(client, "DeleteReplicationTask", input, options)
@@ -106,19 +103,22 @@ defmodule AWS.DMS do
   current usage toward that quota, and the quota's maximum value.
 
   This command does not take any parameters.
-
-  <note/><p/>
   """
   def describe_account_attributes(client, input, options \\ []) do
     request(client, "DescribeAccountAttributes", input, options)
   end
 
   @doc """
+  Provides a description of the certificate.
+  """
+  def describe_certificates(client, input, options \\ []) do
+    request(client, "DescribeCertificates", input, options)
+  end
+
+  @doc """
   Describes the status of the connections that have been made between the
   replication instance and an endpoint. Connections are created when you test
   an endpoint.
-
-  <note/><p/>
   """
   def describe_connections(client, input, options \\ []) do
     request(client, "DescribeConnections", input, options)
@@ -126,8 +126,6 @@ defmodule AWS.DMS do
 
   @doc """
   Returns information about the type of endpoints available.
-
-  <note/> <p/>
   """
   def describe_endpoint_types(client, input, options \\ []) do
     request(client, "DescribeEndpointTypes", input, options)
@@ -136,8 +134,6 @@ defmodule AWS.DMS do
   @doc """
   Returns information about the endpoints for your account in the current
   region.
-
-  <note/><p/>
   """
   def describe_endpoints(client, input, options \\ []) do
     request(client, "DescribeEndpoints", input, options)
@@ -146,8 +142,6 @@ defmodule AWS.DMS do
   @doc """
   Returns information about the replication instance types that can be
   created in the specified region.
-
-  <note/><p/>
   """
   def describe_orderable_replication_instances(client, input, options \\ []) do
     request(client, "DescribeOrderableReplicationInstances", input, options)
@@ -155,8 +149,6 @@ defmodule AWS.DMS do
 
   @doc """
   Returns the status of the RefreshSchemas operation.
-
-  <note/><p/>
   """
   def describe_refresh_schemas_status(client, input, options \\ []) do
     request(client, "DescribeRefreshSchemasStatus", input, options)
@@ -165,8 +157,6 @@ defmodule AWS.DMS do
   @doc """
   Returns information about replication instances for your account in the
   current region.
-
-  <note/><p/>
   """
   def describe_replication_instances(client, input, options \\ []) do
     request(client, "DescribeReplicationInstances", input, options)
@@ -174,8 +164,6 @@ defmodule AWS.DMS do
 
   @doc """
   Returns information about the replication subnet groups.
-
-  <note/><p/>
   """
   def describe_replication_subnet_groups(client, input, options \\ []) do
     request(client, "DescribeReplicationSubnetGroups", input, options)
@@ -184,8 +172,6 @@ defmodule AWS.DMS do
   @doc """
   Returns information about replication tasks for your account in the current
   region.
-
-  <note/><p/>
   """
   def describe_replication_tasks(client, input, options \\ []) do
     request(client, "DescribeReplicationTasks", input, options)
@@ -194,7 +180,7 @@ defmodule AWS.DMS do
   @doc """
   Returns information about the schema for the specified endpoint.
 
-  <note/><p/>
+  <p/>
   """
   def describe_schemas(client, input, options \\ []) do
     request(client, "DescribeSchemas", input, options)
@@ -203,17 +189,20 @@ defmodule AWS.DMS do
   @doc """
   Returns table statistics on the database migration task, including table
   name, rows inserted, rows updated, and rows deleted.
-
-  <note/><p/>
   """
   def describe_table_statistics(client, input, options \\ []) do
     request(client, "DescribeTableStatistics", input, options)
   end
 
   @doc """
-  Lists all tags for an AWS DMS resource.
+  Uploads the specified certificate.
+  """
+  def import_certificate(client, input, options \\ []) do
+    request(client, "ImportCertificate", input, options)
+  end
 
-  <note/><p/>
+  @doc """
+  Lists all tags for an AWS DMS resource.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -221,8 +210,6 @@ defmodule AWS.DMS do
 
   @doc """
   Modifies the specified endpoint.
-
-  <note/><p/>
   """
   def modify_endpoint(client, input, options \\ []) do
     request(client, "ModifyEndpoint", input, options)
@@ -233,7 +220,8 @@ defmodule AWS.DMS do
   or more parameters by specifying these parameters and the new values in the
   request.
 
-  <note>Some settings are applied during the maintenance window.</note><p/>
+  Some settings are applied during the maintenance window.
+
   <p/>
   """
   def modify_replication_instance(client, input, options \\ []) do
@@ -242,8 +230,6 @@ defmodule AWS.DMS do
 
   @doc """
   Modifies the settings for the specified replication subnet group.
-
-  <note/><p/>
   """
   def modify_replication_subnet_group(client, input, options \\ []) do
     request(client, "ModifyReplicationSubnetGroup", input, options)
@@ -253,8 +239,6 @@ defmodule AWS.DMS do
   Populates the schema for the specified endpoint. This is an asynchronous
   operation and can take several minutes. You can check the status of this
   operation by calling the DescribeRefreshSchemasStatus operation.
-
-  <note/><p/>
   """
   def refresh_schemas(client, input, options \\ []) do
     request(client, "RefreshSchemas", input, options)
@@ -262,8 +246,6 @@ defmodule AWS.DMS do
 
   @doc """
   Removes metadata tags from a DMS resource.
-
-  <note/><p/>
   """
   def remove_tags_from_resource(client, input, options \\ []) do
     request(client, "RemoveTagsFromResource", input, options)
@@ -271,8 +253,6 @@ defmodule AWS.DMS do
 
   @doc """
   Starts the replication task.
-
-  <note/><p/>
   """
   def start_replication_task(client, input, options \\ []) do
     request(client, "StartReplicationTask", input, options)
@@ -281,7 +261,7 @@ defmodule AWS.DMS do
   @doc """
   Stops the replication task.
 
-  <note/><p/>
+  <p/>
   """
   def stop_replication_task(client, input, options \\ []) do
     request(client, "StopReplicationTask", input, options)
@@ -289,8 +269,6 @@ defmodule AWS.DMS do
 
   @doc """
   Tests the connection between the replication instance and the endpoint.
-
-  <note/><p/>
   """
   def test_connection(client, input, options \\ []) do
     request(client, "TestConnection", input, options)

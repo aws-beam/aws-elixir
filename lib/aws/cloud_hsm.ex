@@ -7,9 +7,10 @@ defmodule AWS.CloudHSM do
   """
 
   @doc """
-  Adds or overwrites one or more tags for the specified resource.
+  Adds or overwrites one or more tags for the specified AWS CloudHSM
+  resource.
 
-  Each tag consists of a key and a value. Tag keys must be unique per
+  Each tag consists of a key and a value. Tag keys must be unique to each
   resource.
   """
   def add_tags_to_resource(client, input, options \\ []) do
@@ -147,7 +148,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  Returns a list of all tags for the specified resource.
+  Returns a list of all tags for the specified AWS CloudHSM resource.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -186,7 +187,7 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  Removes one or more tags from the specified resource.
+  Removes one or more tags from the specified AWS CloudHSM resource.
 
   To remove a tag, specify only the tag key to remove (not the value). To
   overwrite the value for an existing tag, use `AddTagsToResource`.

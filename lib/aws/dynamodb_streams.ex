@@ -3,28 +3,19 @@
 
 defmodule AWS.DynamoDB.Streams do
   @moduledoc """
-  Amazon DynamoDB Streams
+  Amazon DynamoDB
 
-  This is the Amazon DynamoDB Streams API Reference. This guide describes the
-  low-level API actions for accessing streams and processing stream records.
-  For information about application development with DynamoDB Streams, see
-  the [Amazon DynamoDB Developer
-  Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide//Streams.html).
+  Amazon DynamoDB Streams provides API actions for accessing streams and
+  processing stream records. To learn more about application development with
+  Streams, see [Capturing Table Activity with DynamoDB
+  Streams](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html)
+  in the Amazon DynamoDB Developer Guide.
 
-  Note that this document is intended for use with the following DynamoDB
-  documentation:
+  The following are short descriptions of each low-level DynamoDB Streams
+  action:
 
-  <ul> <li> [Amazon DynamoDB Developer
-  Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/)
-
-  </li> <li> [Amazon DynamoDB API
-  Reference](http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/)
-
-  </li> </ul> The following are short descriptions of each low-level DynamoDB
-  Streams API action, organized by function.
-
-  <ul> <li>*DescribeStream* - Returns detailed information about a particular
-  stream.
+  <ul> <li> *DescribeStream* - Returns detailed information about a
+  particular stream.
 
   </li> <li> *GetRecords* - Retrieves the stream records from within a shard.
 
@@ -42,14 +33,14 @@ defmodule AWS.DynamoDB.Streams do
   stream, its Amazon Resource Name (ARN), the composition of its shards, and
   its corresponding DynamoDB table.
 
-  <note>You can call *DescribeStream* at a maximum rate of 10 times per
+  <note> You can call *DescribeStream* at a maximum rate of 10 times per
   second.
 
   </note> Each shard in the stream has a `SequenceNumberRange` associated
   with it. If the `SequenceNumberRange` has a `StartingSequenceNumber` but no
   `EndingSequenceNumber`, then the shard is still open (able to receive more
   stream records). If both `StartingSequenceNumber` and
-  `EndingSequenceNumber` are present, the that shared is closed and can no
+  `EndingSequenceNumber` are present, then that shard is closed and can no
   longer receive more data.
   """
   def describe_stream(client, input, options \\ []) do
@@ -66,8 +57,8 @@ defmodule AWS.DynamoDB.Streams do
   `GetRecords` returns an empty list. Note that it might take multiple calls
   to get to a portion of the shard that contains stream records.
 
-  <note><function>GetRecords</function> can retrieve a maximum of 1 MB of
-  data or 2000 stream records, whichever comes first.
+  <note> `GetRecords` can retrieve a maximum of 1 MB of data or 1000 stream
+  records, whichever comes first.
 
   </note>
   """
@@ -81,7 +72,7 @@ defmodule AWS.DynamoDB.Streams do
   in a subsequent `GetRecords` request to read the stream records from the
   shard.
 
-  <note>A shard iterator expires 15 minutes after it is returned to the
+  <note> A shard iterator expires 15 minutes after it is returned to the
   requester.
 
   </note>
@@ -95,7 +86,7 @@ defmodule AWS.DynamoDB.Streams do
   endpoint. If the `TableName` parameter is present, then *ListStreams* will
   return only the streams ARNs for that table.
 
-  <note>You can call *ListStreams* at a maximum rate of 5 times per second.
+  <note> You can call *ListStreams* at a maximum rate of 5 times per second.
 
   </note>
   """

@@ -28,10 +28,11 @@ defmodule AWS.Kinesis.Firehose do
   By default, you can create up to 20 delivery streams per region.
 
   A delivery stream can only be configured with a single destination, Amazon
-  S3 or Amazon Redshift. For correct `CreateDeliveryStream` request syntax,
-  specify only one destination configuration parameter: either
-  **ElasticsearchDestinationConfiguration**,
-  **RedshiftDestinationConfiguration** or **S3DestinationConfiguration**
+  S3, Amazon Elasticsearch Service, or Amazon Redshift. For correct
+  `CreateDeliveryStream` request syntax, specify only one destination
+  configuration parameter: either **S3DestinationConfiguration**,
+  **ElasticsearchDestinationConfiguration**, or
+  **RedshiftDestinationConfiguration**.
 
   As part of **S3DestinationConfiguration**, optional values
   **BufferingHints**, **EncryptionConfiguration**, and **CompressionFormat**
@@ -46,21 +47,25 @@ defmodule AWS.Kinesis.Firehose do
 
   A few notes about **RedshiftDestinationConfiguration**:
 
-  <ul> <li>An Amazon Redshift destination requires an S3 bucket as
+  <ul> <li> An Amazon Redshift destination requires an S3 bucket as
   intermediate location, as Firehose first delivers data to S3 and then uses
   `COPY` syntax to load data into an Amazon Redshift table. This is specified
   in the **RedshiftDestinationConfiguration.S3Configuration** parameter
-  element.</li> <li>The compression formats `SNAPPY` or `ZIP` cannot be
-  specified in **RedshiftDestinationConfiguration.S3Configuration** because
-  the Amazon Redshift `COPY` operation that reads from the S3 bucket doesn't
-  support these compression formats.</li> <li>We strongly recommend that the
-  username and password provided is used exclusively for Firehose purposes,
-  and that the permissions for the account are restricted for Amazon Redshift
-  `INSERT` permissions.</li> </ul> Firehose assumes the IAM role that is
-  configured as part of destinations. The IAM role should allow the Firehose
-  principal to assume the role, and the role should have permissions that
-  allows the service to deliver the data. For more information, see [Amazon
-  S3 Bucket
+  element.
+
+  </li> <li> The compression formats `SNAPPY` or `ZIP` cannot be specified in
+  **RedshiftDestinationConfiguration.S3Configuration** because the Amazon
+  Redshift `COPY` operation that reads from the S3 bucket doesn't support
+  these compression formats.
+
+  </li> <li> We strongly recommend that the username and password provided is
+  used exclusively for Firehose purposes, and that the permissions for the
+  account are restricted for Amazon Redshift `INSERT` permissions.
+
+  </li> </ul> Firehose assumes the IAM role that is configured as part of
+  destinations. The IAM role should allow the Firehose principal to assume
+  the role, and the role should have permissions that allows the service to
+  deliver the data. For more information, see [Amazon S3 Bucket
   Access](http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3)
   in the *Amazon Kinesis Firehose Developer Guide*.
   """

@@ -6,8 +6,8 @@ defmodule AWS.OpsWorks do
   AWS OpsWorks
 
   Welcome to the *AWS OpsWorks API Reference*. This guide provides
-  descriptions, syntax, and usage examples about AWS OpsWorks actions and
-  data types, including common parameters and error codes.
+  descriptions, syntax, and usage examples for AWS OpsWorks actions and data
+  types, including common parameters and error codes.
 
   AWS OpsWorks is an application management service that provides an
   integrated experience for overseeing the complete application lifecycle.
@@ -22,48 +22,65 @@ defmodule AWS.OpsWorks do
 
   <ul> <li> [AWS
   CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+
   </li> <li> [AWS SDK for
   Java](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)
+
   </li> <li> [AWS SDK for
   .NET](http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm)
+
   </li> <li> [AWS SDK for PHP
   2](http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html)
-  </li> <li> [AWS SDK for
-  Ruby](http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/OpsWorks/Client.html)
-  </li> <li> [AWS SDK for
-  Node.js](http://aws.amazon.com/documentation/sdkforjavascript/) </li> <li>
-  [AWS SDK for
-  Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html) </li>
-  </ul> **Endpoints**
 
-  AWS OpsWorks supports only one endpoint, opsworks.us-east-1.amazonaws.com
-  (HTTPS), so you must connect to that endpoint. You can then use the API to
-  direct AWS OpsWorks to create stacks in any AWS Region.
+  </li> <li> [AWS SDK for Ruby](http://docs.aws.amazon.com/sdkforruby/api/)
+
+  </li> <li> [AWS SDK for
+  Node.js](http://aws.amazon.com/documentation/sdkforjavascript/)
+
+  </li> <li> [AWS SDK for
+  Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html)
+
+  </li> </ul> **Endpoints**
+
+  AWS OpsWorks supports two endpoints, opsworks.us-east-1.amazonaws.com and
+  opsworks.ap-south-1.amazonaws.com (both HTTPS). You must connect to one of
+  those two endpoints. You can then use the API to direct AWS OpsWorks to
+  create stacks in any AWS region. Stacks created in all regions except
+  ap-south-1 are connected to the us-east-1 regional endpoint; stacks created
+  in ap-south-1 are associated with the ap-south-1 regional endpoint, and can
+  only be accessed or managed within that endpoint.
 
   **Chef Versions**
 
   When you call `CreateStack`, `CloneStack`, or `UpdateStack` we recommend
   you use the `ConfigurationManager` parameter to specify the Chef version.
-  The recommended value for Linux stacks is currently 12 (the default is
-  11.4). Windows stacks use Chef 12.2. For more information, see [Chef
+  The recommended and default value for Linux stacks is currently 12. Windows
+  stacks use Chef 12.2. For more information, see [Chef
   Versions](http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html).
 
-  <note>You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We
+  <note> You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We
   recommend migrating your existing Linux stacks to Chef 12 as soon as
-  possible.</note>
+  possible.
+
+  </note>
   """
 
   @doc """
   Assign a registered instance to a layer.
 
-  <ul> <li>You can assign registered on-premises instances to any layer
-  type.</li> <li>You can assign registered Amazon EC2 instances only to
-  custom layers.</li> <li>You cannot use this action with instances that were
-  created with AWS OpsWorks.</li> </ul> **Required Permissions**: To use this
-  action, an AWS Identity and Access Management (IAM) user must have a Manage
-  permissions level for the stack or an attached policy that explicitly
-  grants permissions. For more information on user permissions, see [Managing
-  User
+  <ul> <li> You can assign registered on-premises instances to any layer
+  type.
+
+  </li> <li> You can assign registered Amazon EC2 instances only to custom
+  layers.
+
+  </li> <li> You cannot use this action with instances that were created with
+  AWS OpsWorks.
+
+  </li> </ul> **Required Permissions**: To use this action, an AWS Identity
+  and Access Management (IAM) user must have a Manage permissions level for
+  the stack or an attached policy that explicitly grants permissions. For
+  more information on user permissions, see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def assign_instance(client, input, options \\ []) do
@@ -311,8 +328,8 @@ defmodule AWS.OpsWorks do
   **Required Permissions**: To use this action, an IAM user must have a
   Manage permissions level for the stack or an attached policy that
   explicitly grants permissions. For more information on user permissions,
-  see <a
-  href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html"/>.
+  see
+  [http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_ecs_cluster(client, input, options \\ []) do
     request(client, "DeregisterEcsCluster", input, options)
@@ -715,8 +732,10 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
-  <note>This action can be used only with Windows stacks.</note> Grants RDP
-  access to a Windows instance for a specified time period.
+  <note> This action can be used only with Windows stacks.
+
+  </note> Grants RDP access to a Windows instance for a specified time
+  period.
   """
   def grant_access(client, input, options \\ []) do
     request(client, "GrantAccess", input, options)
@@ -774,16 +793,17 @@ defmodule AWS.OpsWorks do
   Registers instances with a specified stack that were created outside of AWS
   OpsWorks.
 
-  <note>We do not recommend using this action to register instances. The
+  <note> We do not recommend using this action to register instances. The
   complete registration operation has two primary steps, installing the AWS
   OpsWorks agent on the instance and registering the instance with the stack.
   `RegisterInstance` handles only the second step. You should instead use the
   AWS CLI `register` command, which performs the entire registration
   operation. For more information, see [ Registering an Instance with an AWS
   OpsWorks
-  Stack](http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html).</note>
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack or an attached policy that
+  Stack](http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html).
+
+  </note> **Required Permissions**: To use this action, an IAM user must have
+  a Manage permissions level for the stack or an attached policy that
   explicitly grants permissions. For more information on user permissions,
   see [Managing User
   Permissions](http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).

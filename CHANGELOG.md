@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.2.0] - 2016-08-20
+### Changed
+- Bumped `httpoison` dependency from `~0.8.0` to `~0.9.1` to be compatible
+  with Elixir 1.3.2.
+
 ## [v0.1.0] - 2016-07-13
 ### Added
 - `AWS.AutoScaling` module for AWS Auto Scaling service.
@@ -245,7 +250,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/jkakar/aws-elixir/compare/v0.1.0...v0.2.0
 [v0.1.0]: https://github.com/jkakar/aws-elixir/compare/v0.0.12...v0.1.0
 [v0.0.12]: https://github.com/jkakar/aws-elixir/compare/v0.0.11...v0.0.12
 [v0.0.11]: https://github.com/jkakar/aws-elixir/compare/v0.0.10...v0.0.11

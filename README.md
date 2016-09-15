@@ -33,6 +33,14 @@ iex> IO.inspect result
     [{:aws, "~> 0.2.0"}]
   end
   ```
+  
+* Configure the OTP application to start HTTPoison
+
+  ```elixir
+  def application do
+    [applications: [:logger, :httpoison]]
+  end  
+  ```
 
 * Run `mix deps.get` to install.
 

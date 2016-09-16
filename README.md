@@ -34,11 +34,11 @@ iex> IO.inspect result
   end
   ```
   
-* Configure the OTP application to start HTTPoison
+* Configure the OTP application to start `aws-elixir`
 
   ```elixir
   def application do
-    [applications: [:logger, :httpoison]]
+    [applications: [:logger, :aws]]
   end  
   ```
 

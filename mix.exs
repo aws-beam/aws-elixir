@@ -9,7 +9,7 @@ defmodule AWS.Mixfile do
      name: "aws-elixir",
      source_url: "https://github.com/jkakar/aws-elixir",
      homepage_url: "http://github.com/jkakar/aws-elixir",
-     elixir: "~> 1.2",
+     elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -37,7 +37,7 @@ defmodule AWS.Mixfile do
      {:ex_doc, "~> 0.11.3", only: [:dev]},
      {:httpoison, "~> 0.10.0"},
      {:poison, "~> 1.5 or ~> 2.0"},
-     {:timex, "~> 2.1"}]
+     {:timex, "~> 3.1"}]
   end
 
   defp version do

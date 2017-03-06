@@ -4,15 +4,15 @@ defmodule AWS.Mixfile do
   def project do
     [app: :aws,
      description: "AWS clients for Elixir",
-     package: package,
-     version: version,
+     package: package(),
+     version: version(),
      name: "aws-elixir",
      source_url: "https://github.com/jkakar/aws-elixir",
      homepage_url: "http://github.com/jkakar/aws-elixir",
-     elixir: "~> 1.3",
+     elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
@@ -48,7 +48,7 @@ defmodule AWS.Mixfile do
     [maintainers: ["Jamu Kakar"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/jkakar/aws-elixir",
-              "Docs" => "http://hexdocs.pm/aws/#{version}/",
+              "Docs" => "http://hexdocs.pm/aws/#{version()}/",
               "Changelog" => "https://github.com/jkakar/aws-elixir/blob/master/CHANGELOG.md"}]
   end
 end

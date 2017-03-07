@@ -4,6 +4,112 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.4.0] - 2017-03-06
+### Added
+- `AWS.AppStream` module for AWS AppStream service.
+- `AWS.Batch` module for AWS Batch service.
+- `AWS.Budgets` module for AWS Budgets service.
+- `AWS.CloudDirectory` module for AWS CloudDirectory service.
+- `AWS.CodeBuild` module for AWS CodeBuild service.
+- `AWS.CostAndUsageReport` module for AWS Cost and Usage Report service.
+- `AWS.Health` module for AWS Health service.
+- `AWS.Kinesis.Analytics` module for Kinesis Analytics service.
+- `AWS.LexRuntime` module for AWS Lex Runtime service.
+- `AWS.Lightsail` module for AWS Lightsail service.
+- `AWS.MechanicalTurk` module for AWS Mechanical Turk service.
+- `AWS.OpsWorks.ChefAutomate` module for AWS OpsWorks for Chef Automate
+  service.
+- `AWS.Organizations` module for AWS Organizations service.
+- `AWS.Polly` module for AWS Polly service.
+- `AWS.Rekognition` module for AWS Rekognition service.
+- `AWS.Shield` module for AWS Shield service.
+- `AWS.SMS` moduule for AWS Server Migration service.
+- `AWS.Snowball` module for AWS Snowball service.
+- `AWS.StepFunctions` module for AWS Step Functions service.
+- `AWS.WAF.Regional` module for WAF Regional service.
+- `AWS.XRay` module for AWS X-Ray service.
+
+### Changed
+- Elixir 1.4 with Erlang 19.1 are the minimally supported versions of Elixir
+  and Erlang/OTP.
+- README has been simplified and improved. Thanks Paulo Ancheta
+  (@pauloancheta).
+- Bumped `httpoison` dependency from `~> 0.10.0` to `~> 0.11.1`. Thanks Wojtek
+  Piekutowski (@wpiekutowski).
+- Bumped `poison` dependency from `~> 1.5 or ~> 2.0` to `~> 3.1`.
+- Bumped `timex` dependency from `~> 2.1` to `~> 3.1`. Thanks Christian
+  Blavier (@cblavier).
+- `AWS.APIGateway` module has updated documentation and support for managing
+  documentation parts and versions, usage plans and keys, getting SDK types
+  and importing API keys.
+- `AWS.AutoScaling` module has updated documentation.
+- `AWS.CertificateManager` module has updated documentation.
+- `AWS.CloudTrail` module has updated documentation and support for event
+  selectors.
+- `AWS.CodeCommit` module has updated documentation and support for blobs and
+  differences.
+- `AWS.CodeDeploy` module has updated documentation and support for skipping
+  wait times before terminating instances in blue/green deployments.
+- `AWS.CodePipeline` module has updated documentation and support for getting
+  pipeline executions.
+- `AWS.Cognito` module has updated documentation.
+- `AWS.Cognito.IdentityProvider` module has updated documentation and support
+  for admin operations.
+- `AWS.Config` module has updated documentation and support for evaluations
+  results.
+- `AWS.DeviceFarm` module has updated documentation and support for managing
+  remote access sessions.
+- `AWS.DirectConnect` module has updated documentation and support for
+  managing hosted connections, lag and BGP peers.
+- `AWS.DirectoryService` module has updated documentation and support for
+  managing schema extensions.
+- `AWS.Discovery` module has updated documentation and support for managing
+  application configuration and fetching summaries.
+- `AWS.DMS` module has updated documentation and support for modifying
+  replication tasks.
+- `AWS.DynamoDB` module has updated documentation and support for managing
+  resource tags and managing the lifetime of individual table items.
+- `AWS.DynamoDB.Streams` has updated documentation.
+- `AWS.ECR` module has updated documentation and support for describing
+  images.
+- `AWS.ECS` module has updated documentation and support for managing
+  attributes and updating container instance states.
+- `AWS.EFS` module has updated documentation.
+- `AWS.EMR` module has updated documentation and support for canceling steps
+  and managing security configuration and auto scaling policy.
+- `AWS.GameLift` module has updated documentation and support for managing
+  instances, game session queues and game session placement.
+- `AWS.Glacier` module has updated documentation and support for purchasing
+  provisions capacity.
+- `AWS.IoT` module has updated documentation and support for managing thing
+  types and outgoing certificates.
+- `AWS.Kinesis` module has updated documentation and support for managing
+  limits.
+- `AWS.Kinesis.Firehose` module has updated documentation.
+- `AWS.KMS` module has updated documentation and support for import parameters
+  and resource tags.
+- `AWS.Lambda` module has updated documentation and support for managing
+  account settings.
+- `AWS.Logs` module has updated documentation and support for log group tags.
+- `AWS.MachineLearning` module has updated documentation.
+- `AWS.Marketplace.CommerceAnalytics` module has updated documentation and
+  support for starting support data export.
+- `AWS.Marketplace.Metering` module has updated documentation and support for
+  batch metering and resolving customers.
+- `AWS.OpsWorks` module has updated documentation.
+- `AWS.Route53.Domains` module has updated documentation and support for
+  domain suggestions, billing and domain renewal.
+- `AWS.ServiceCatalog` module has updated documentation and support for
+  portfolios, products and constraints.
+- `AWS.SSM` module has updated documentation and support for maintenance
+  windows, parameters and patch baselines.
+- `AWS.StorageGateway` module has updated documentation and support for NFS
+  file shares.
+- `AWS.Support` module has updated documentation.
+- `AWS.WAF` module has updated documentation.
+- `AWS.Workspaces` module has updated documentation and support for workspace
+  properties and connection status.
+
 ## [v0.3.0] - 2016-12-11
 ### Changed
 - Bumped `httpoison` dependency from `~0.9.1` to `~0.10.0`.
@@ -96,7 +202,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Link to `aws-codegen` added and broken AWS SDK specification links fixed in
-  README.  Thanks Brenton Annan (@brentonannan).
+  README. Thanks Brenton Annan (@brentonannan).
 
 ## [v0.0.10] - 2016-03-22
 ### Added
@@ -142,10 +248,10 @@ All notable changes to this project will be documented in this file.
 ## [v0.0.7] - 2016-01-13
 ### Fixed
 - Trailing slashes that were causing signing errors in generated URLs in the
-  Lambda client have been removed.  Thanks Akash Manohar aka @HashNuke.
+  Lambda client have been removed. Thanks Akash Manohar aka @HashNuke.
 - REST-JSON clients, including `AWS.CloudSearchDomain`, `AWS.CognitoSync`,
   `AWS.EFS`, `AWS.Glacier`, `AWS.Lambda`, `AWS.MobileAnalytics` and
-  `AWS.Transcoder` correctly handle responses with empty bodies.  Thanks Akash
+  `AWS.Transcoder` correctly handle responses with empty bodies. Thanks Akash
   Manohar (@HashNuke).
 
 ## [v0.0.6] - 2016-01-06
@@ -153,7 +259,7 @@ All notable changes to this project will be documented in this file.
 - `AWS.DirectoryService` module has new functionality for managing and
   verifying trust relationships.
 - `AWS.Client` has new `proto` and `port` members that can be used to create a
-  client that is suitable for use with Local DynamoDB.  In this situation, the
+  client that is suitable for use with Local DynamoDB. In this situation, the
   region should be set to `local`, the protocol to `http` and the port should
   match the running Local DynamoDB instance.
 - `AWS.ECS` has updated documentation.
@@ -175,7 +281,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - An empty body returned alongside an HTTP 200 from an AWS service isn't
-  parsed by Poison (which was causing exceptions to be raised).  Thanks Mike
+  parsed by Poison (which was causing exceptions to be raised). Thanks Mike
   Coleman (@fivebats).
 
 ## [v0.0.4] - 2015-08-05
@@ -254,7 +360,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.3.0...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/jkakar/aws-elixir/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/jkakar/aws-elixir/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/jkakar/aws-elixir/compare/v0.1.0...v0.2.0
 [v0.1.0]: https://github.com/jkakar/aws-elixir/compare/v0.0.12...v0.1.0

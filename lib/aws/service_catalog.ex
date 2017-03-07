@@ -27,6 +27,119 @@ defmodule AWS.ServiceCatalog do
   """
 
   @doc """
+  Accepts an offer to share a portfolio.
+  """
+  def accept_portfolio_share(client, input, options \\ []) do
+    request(client, "AcceptPortfolioShare", input, options)
+  end
+
+  @doc """
+  Associates the specified principal ARN with the specified portfolio.
+  """
+  def associate_principal_with_portfolio(client, input, options \\ []) do
+    request(client, "AssociatePrincipalWithPortfolio", input, options)
+  end
+
+  @doc """
+  Associates a product with a portfolio.
+  """
+  def associate_product_with_portfolio(client, input, options \\ []) do
+    request(client, "AssociateProductWithPortfolio", input, options)
+  end
+
+  @doc """
+  Creates a new constraint.
+  """
+  def create_constraint(client, input, options \\ []) do
+    request(client, "CreateConstraint", input, options)
+  end
+
+  @doc """
+  Creates a new portfolio.
+  """
+  def create_portfolio(client, input, options \\ []) do
+    request(client, "CreatePortfolio", input, options)
+  end
+
+  @doc """
+  Creates a new portfolio share.
+  """
+  def create_portfolio_share(client, input, options \\ []) do
+    request(client, "CreatePortfolioShare", input, options)
+  end
+
+  @doc """
+  Creates a new product.
+  """
+  def create_product(client, input, options \\ []) do
+    request(client, "CreateProduct", input, options)
+  end
+
+  @doc """
+  Create a new provisioning artifact for the specified product. This
+  operation will not work with a product that has been shared with you.
+  """
+  def create_provisioning_artifact(client, input, options \\ []) do
+    request(client, "CreateProvisioningArtifact", input, options)
+  end
+
+  @doc """
+  Deletes the specified constraint.
+  """
+  def delete_constraint(client, input, options \\ []) do
+    request(client, "DeleteConstraint", input, options)
+  end
+
+  @doc """
+  Deletes the specified portfolio. This operation will not work with a
+  portfolio that has been shared with you or if it has products, users,
+  constraints, or shared accounts associated with it.
+  """
+  def delete_portfolio(client, input, options \\ []) do
+    request(client, "DeletePortfolio", input, options)
+  end
+
+  @doc """
+  Deletes the specified portfolio share.
+  """
+  def delete_portfolio_share(client, input, options \\ []) do
+    request(client, "DeletePortfolioShare", input, options)
+  end
+
+  @doc """
+  Deletes the specified product. This operation will not work with a product
+  that has been shared with you or is associated with a portfolio.
+  """
+  def delete_product(client, input, options \\ []) do
+    request(client, "DeleteProduct", input, options)
+  end
+
+  @doc """
+  Deletes the specified provisioning artifact. This operation will not work
+  on a provisioning artifact associated with a product that has been shared
+  with you, or on the last provisioning artifact associated with a product (a
+  product must have at least one provisioning artifact).
+  """
+  def delete_provisioning_artifact(client, input, options \\ []) do
+    request(client, "DeleteProvisioningArtifact", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information for a specified constraint.
+  """
+  def describe_constraint(client, input, options \\ []) do
+    request(client, "DescribeConstraint", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information and any tags associated with the specified
+  portfolio.
+  """
+  def describe_portfolio(client, input, options \\ []) do
+    request(client, "DescribePortfolio", input, options)
+  end
+
+  @doc """
   Retrieves information about a specified product.
 
   This operation is functionally identical to `DescribeProductView` except
@@ -37,6 +150,14 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+  Retrieves information about a specified product, run with administrator
+  access.
+  """
+  def describe_product_as_admin(client, input, options \\ []) do
+    request(client, "DescribeProductAsAdmin", input, options)
+  end
+
+  @doc """
   Retrieves information about a specified product.
 
   This operation is functionally identical to `DescribeProduct` except that
@@ -44,6 +165,13 @@ defmodule AWS.ServiceCatalog do
   """
   def describe_product_view(client, input, options \\ []) do
     request(client, "DescribeProductView", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information about the specified provisioning artifact.
+  """
+  def describe_provisioning_artifact(client, input, options \\ []) do
+    request(client, "DescribeProvisioningArtifact", input, options)
   end
 
   @doc """
@@ -66,6 +194,37 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+  Disassociates a previously associated principal ARN from a specified
+  portfolio.
+  """
+  def disassociate_principal_from_portfolio(client, input, options \\ []) do
+    request(client, "DisassociatePrincipalFromPortfolio", input, options)
+  end
+
+  @doc """
+  Disassociates the specified product from the specified portfolio.
+  """
+  def disassociate_product_from_portfolio(client, input, options \\ []) do
+    request(client, "DisassociateProductFromPortfolio", input, options)
+  end
+
+  @doc """
+  Lists details of all portfolios for which sharing was accepted by this
+  account.
+  """
+  def list_accepted_portfolio_shares(client, input, options \\ []) do
+    request(client, "ListAcceptedPortfolioShares", input, options)
+  end
+
+  @doc """
+  Retrieves detailed constraint information for the specified portfolio and
+  product.
+  """
+  def list_constraints_for_portfolio(client, input, options \\ []) do
+    request(client, "ListConstraintsForPortfolio", input, options)
+  end
+
+  @doc """
   Returns a paginated list of all paths to a specified product. A path is how
   the user has access to a specified product, and is necessary when
   provisioning a product. A path also determines the constraints put on the
@@ -73,6 +232,42 @@ defmodule AWS.ServiceCatalog do
   """
   def list_launch_paths(client, input, options \\ []) do
     request(client, "ListLaunchPaths", input, options)
+  end
+
+  @doc """
+  Lists the account IDs that have been authorized sharing of the specified
+  portfolio.
+  """
+  def list_portfolio_access(client, input, options \\ []) do
+    request(client, "ListPortfolioAccess", input, options)
+  end
+
+  @doc """
+  Lists all portfolios in the catalog.
+  """
+  def list_portfolios(client, input, options \\ []) do
+    request(client, "ListPortfolios", input, options)
+  end
+
+  @doc """
+  Lists all portfolios that the specified product is associated with.
+  """
+  def list_portfolios_for_product(client, input, options \\ []) do
+    request(client, "ListPortfoliosForProduct", input, options)
+  end
+
+  @doc """
+  Lists all principal ARNs associated with the specified portfolio.
+  """
+  def list_principals_for_portfolio(client, input, options \\ []) do
+    request(client, "ListPrincipalsForPortfolio", input, options)
+  end
+
+  @doc """
+  Lists all provisioning artifacts associated with the specified product.
+  """
+  def list_provisioning_artifacts(client, input, options \\ []) do
+    request(client, "ListProvisioningArtifacts", input, options)
   end
 
   @doc """
@@ -97,6 +292,13 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+  Rejects an offer to share a portfolio.
+  """
+  def reject_portfolio_share(client, input, options \\ []) do
+    request(client, "RejectPortfolioShare", input, options)
+  end
+
+  @doc """
   Returns a paginated list of all the ProvisionedProduct objects that are
   currently available (not terminated).
   """
@@ -116,6 +318,16 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+  Retrieves summary and status information about all products created within
+  the caller's account. If a portfolio ID is provided, this operation
+  retrieves information for only those products that are associated with the
+  specified portfolio.
+  """
+  def search_products_as_admin(client, input, options \\ []) do
+    request(client, "SearchProductsAsAdmin", input, options)
+  end
+
+  @doc """
   Requests termination of an existing ProvisionedProduct object. If there are
   `Tags` associated with the object, they are terminated when the
   ProvisionedProduct object is terminated.
@@ -131,6 +343,28 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+  Updates an existing constraint.
+  """
+  def update_constraint(client, input, options \\ []) do
+    request(client, "UpdateConstraint", input, options)
+  end
+
+  @doc """
+  Updates the specified portfolio's details. This operation will not work
+  with a product that has been shared with you.
+  """
+  def update_portfolio(client, input, options \\ []) do
+    request(client, "UpdatePortfolio", input, options)
+  end
+
+  @doc """
+  Updates an existing product.
+  """
+  def update_product(client, input, options \\ []) do
+    request(client, "UpdateProduct", input, options)
+  end
+
+  @doc """
   Requests updates to the configuration of an existing ProvisionedProduct
   object. If there are tags associated with the object, they cannot be
   updated or added with this operation. Depending on the specific updates
@@ -142,6 +376,15 @@ defmodule AWS.ServiceCatalog do
   """
   def update_provisioned_product(client, input, options \\ []) do
     request(client, "UpdateProvisionedProduct", input, options)
+  end
+
+  @doc """
+  Updates an existing provisioning artifact's information. This operation
+  will not work on a provisioning artifact associated with a product that has
+  been shared with you.
+  """
+  def update_provisioning_artifact(client, input, options \\ []) do
+    request(client, "UpdateProvisioningArtifact", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

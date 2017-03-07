@@ -5,9 +5,8 @@ defmodule AWS.Workspaces do
   @moduledoc """
   Amazon WorkSpaces Service
 
-  This is the *Amazon WorkSpaces API Reference*. This guide provides detailed
-  information about Amazon WorkSpaces operations, data types, parameters, and
-  errors.
+  This reference provides detailed information about the Amazon WorkSpaces
+  operations.
   """
 
   @doc """
@@ -89,12 +88,27 @@ defmodule AWS.Workspaces do
   end
 
   @doc """
+  Describes the connection status of a specified WorkSpace.
+  """
+  def describe_workspaces_connection_status(client, input, options \\ []) do
+    request(client, "DescribeWorkspacesConnectionStatus", input, options)
+  end
+
+  @doc """
+  Modifies the WorkSpace properties, including the RunningMode and AutoStop
+  time.
+  """
+  def modify_workspace_properties(client, input, options \\ []) do
+    request(client, "ModifyWorkspaceProperties", input, options)
+  end
+
+  @doc """
   Reboots the specified WorkSpaces.
 
   To be able to reboot a WorkSpace, the WorkSpace must have a **State** of
   `AVAILABLE`, `IMPAIRED`, or `INOPERABLE`.
 
-  <note> This operation is asynchronous and will return before the WorkSpaces
+  <note> This operation is asynchronous and returns before the WorkSpaces
   have rebooted.
 
   </note>
@@ -109,23 +123,43 @@ defmodule AWS.Workspaces do
   Rebuilding a WorkSpace is a potentially destructive action that can result
   in the loss of data. Rebuilding a WorkSpace causes the following to occur:
 
-  <ul> <li>The system is restored to the image of the bundle that the
+  <ul> <li> The system is restored to the image of the bundle that the
   WorkSpace is created from. Any applications that have been installed, or
   system settings that have been made since the WorkSpace was created will be
-  lost.</li> <li>The data drive (D drive) is re-created from the last
-  automatic snapshot taken of the data drive. The current contents of the
-  data drive are overwritten. Automatic snapshots of the data drive are taken
-  every 12 hours, so the snapshot can be as much as 12 hours old.</li> </ul>
-  To be able to rebuild a WorkSpace, the WorkSpace must have a **State** of
-  `AVAILABLE` or `ERROR`.
+  lost.
 
-  <note> This operation is asynchronous and will return before the WorkSpaces
+  </li> <li> The data drive (D drive) is re-created from the last automatic
+  snapshot taken of the data drive. The current contents of the data drive
+  are overwritten. Automatic snapshots of the data drive are taken every 12
+  hours, so the snapshot can be as much as 12 hours old.
+
+  </li> </ul> To be able to rebuild a WorkSpace, the WorkSpace must have a
+  **State** of `AVAILABLE` or `ERROR`.
+
+  <note> This operation is asynchronous and returns before the WorkSpaces
   have been completely rebuilt.
 
   </note>
   """
   def rebuild_workspaces(client, input, options \\ []) do
     request(client, "RebuildWorkspaces", input, options)
+  end
+
+  @doc """
+  Starts the specified WorkSpaces. The API only works with WorkSpaces that
+  have RunningMode configured as AutoStop and the State set to “STOPPED.”
+  """
+  def start_workspaces(client, input, options \\ []) do
+    request(client, "StartWorkspaces", input, options)
+  end
+
+  @doc """
+  Stops the specified WorkSpaces. The API only works with WorkSpaces that
+  have RunningMode configured as AutoStop and the State set to AVAILABLE,
+  IMPAIRED, UNHEALTHY, or ERROR.
+  """
+  def stop_workspaces(client, input, options \\ []) do
+    request(client, "StopWorkspaces", input, options)
   end
 
   @doc """
@@ -138,7 +172,7 @@ defmodule AWS.Workspaces do
 
   You can terminate a WorkSpace that is in any state except `SUSPENDED`.
 
-  <note> This operation is asynchronous and will return before the WorkSpaces
+  <note> This operation is asynchronous and returns before the WorkSpaces
   have been completely terminated.
 
   </note>

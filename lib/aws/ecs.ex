@@ -31,45 +31,57 @@ defmodule AWS.ECS do
   @doc """
   Runs and maintains a desired number of tasks from a specified task
   definition. If the number of tasks running in a service drops below
-  `desiredCount`, Amazon ECS spawns another instantiation of the task in the
-  specified cluster. To update an existing service, see `UpdateService`.
+  `desiredCount`, Amazon ECS spawns another copy of the task in the specified
+  cluster. To update an existing service, see `UpdateService`.
 
   In addition to maintaining the desired count of tasks in your service, you
   can optionally run your service behind a load balancer. The load balancer
   distributes traffic across the tasks that are associated with the service.
+  For more information, see [Service Load
+  Balancing](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
+  in the *Amazon EC2 Container Service Developer Guide*.
 
   You can optionally specify a deployment configuration for your service.
-  During a deployment (which is triggered by changing the task definition of
-  a service with an `UpdateService` operation), the service scheduler uses
-  the `minimumHealthyPercent` and `maximumPercent` parameters to determine
-  the deployment strategy.
+  During a deployment (which is triggered by changing the task definition or
+  the desired count of a service with an `UpdateService` operation), the
+  service scheduler uses the `minimumHealthyPercent` and `maximumPercent`
+  parameters to determine the deployment strategy.
 
-  If the `minimumHealthyPercent` is below 100%, the scheduler can ignore the
-  `desiredCount` temporarily during a deployment. For example, if your
-  service has a `desiredCount` of four tasks, a `minimumHealthyPercent` of
-  50% allows the scheduler to stop two existing tasks before starting two new
-  tasks. Tasks for services that *do not* use a load balancer are considered
-  healthy if they are in the `RUNNING` state; tasks for services that *do*
-  use a load balancer are considered healthy if they are in the `RUNNING`
-  state and the container instance it is hosted on is reported as healthy by
-  the load balancer. The default value for `minimumHealthyPercent` is 50% in
-  the console and 100% for the AWS CLI, the AWS SDKs, and the APIs.
+  The `minimumHealthyPercent` represents a lower limit on the number of your
+  service's tasks that must remain in the `RUNNING` state during a
+  deployment, as a percentage of the `desiredCount` (rounded up to the
+  nearest integer). This parameter enables you to deploy without using
+  additional cluster capacity. For example, if `desiredCount` is four tasks
+  and the minimum is 50%, the scheduler can stop two existing tasks to free
+  up cluster capacity before starting two new tasks. Tasks for services that
+  do not use a load balancer are considered healthy if they are in the
+  `RUNNING` state. Tasks for services that use a load balancer are considered
+  healthy if they are in the `RUNNING` state and the container instance they
+  are hosted on is reported as healthy by the load balancer. The default
+  value is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and the
+  APIs.
 
   The `maximumPercent` parameter represents an upper limit on the number of
-  running tasks during a deployment, which enables you to define the
-  deployment batch size. For example, if your service has a `desiredCount` of
-  four tasks, a `maximumPercent` value of 200% starts four new tasks before
-  stopping the four older tasks (provided that the cluster resources required
-  to do this are available). The default value for `maximumPercent` is 200%.
+  your service's tasks that are allowed in the `RUNNING` or `PENDING` state
+  during a deployment, as a percentage of the `desiredCount` (rounded down to
+  the nearest integer). This parameter enables you to define the deployment
+  batch size. For example, if `desiredCount` is four tasks and the maximum is
+  200%, the scheduler can start four new tasks before stopping the four older
+  tasks (provided that the cluster resources required to do this are
+  available). The default value is 200%.
 
-  When the service scheduler launches new tasks, it attempts to balance them
-  across the Availability Zones in your cluster with the following logic:
+  When the service scheduler launches new tasks, it determines task placement
+  in your cluster using the following logic:
 
   <ul> <li> Determine which of the container instances in your cluster can
   support your service's task definition (for example, they have the required
   CPU, memory, ports, and container instance attributes).
 
-  </li> <li> Sort the valid container instances by the fewest number of
+  </li> <li> By default, the service scheduler attempts to balance tasks
+  across Availability Zones in this manner (although you can choose a
+  different placement strategy):
+
+  <ul> <li> Sort the valid container instances by the fewest number of
   running tasks for this service in the same Availability Zone as the
   instance. For example, if zone A has one running service task and zones B
   and C each have zero, valid container instances in either zone B or C are
@@ -79,10 +91,17 @@ defmodule AWS.ECS do
   optimal Availability Zone (based on the previous steps), favoring container
   instances with the fewest number of running tasks for this service.
 
-  </li> </ul>
+  </li> </ul> </li> </ul>
   """
   def create_service(client, input, options \\ []) do
     request(client, "CreateService", input, options)
+  end
+
+  @doc """
+  Deletes one or more custom attributes from an Amazon ECS resource.
+  """
+  def delete_attributes(client, input, options \\ []) do
+    request(client, "DeleteAttributes", input, options)
   end
 
   @doc """
@@ -132,10 +151,10 @@ defmodule AWS.ECS do
   instance, be sure to terminate it in the Amazon EC2 console to stop
   billing.
 
-  <note> If you terminate a running container instance with a connected
-  Amazon ECS container agent, the agent automatically deregisters the
-  instance from your cluster (stopped container instances or instances with
-  disconnected agents are not automatically deregistered when terminated).
+  <note> If you terminate a running container instance, Amazon ECS
+  automatically deregisters the instance from your cluster (stopped container
+  instances or instances with disconnected agents are not automatically
+  deregistered when terminated).
 
   </note>
   """
@@ -217,6 +236,19 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Lists the attributes for Amazon ECS resources within a specified target
+  type and cluster. When you specify a target type and cluster,
+  `LisAttributes` returns a list of attribute objects, one for each attribute
+  on each resource. You can filter the list of results to a single attribute
+  name to only return results that have that name. You can also filter the
+  results by attribute name and value, for example, to see which container
+  instances in a cluster are running a Linux AMI (`ecs.os-type=linux`).
+  """
+  def list_attributes(client, input, options \\ []) do
+    request(client, "ListAttributes", input, options)
+  end
+
+  @doc """
   Returns a list of existing clusters.
   """
   def list_clusters(client, input, options \\ []) do
@@ -224,7 +256,12 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Returns a list of container instances in a specified cluster.
+  Returns a list of container instances in a specified cluster. You can
+  filter the results of a `ListContainerInstances` operation with cluster
+  query language statements inside the `filter` parameter. For more
+  information, see [Cluster Query
+  Language](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html)
+  in the *Amazon EC2 Container Service Developer Guide*.
   """
   def list_container_instances(client, input, options \\ []) do
     request(client, "ListContainerInstances", input, options)
@@ -274,6 +311,18 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Create or update an attribute on an Amazon ECS resource. If the attribute
+  does not exist, it is created. If the attribute exists, its value is
+  replaced with the specified value. To delete an attribute, use
+  `DeleteAttributes`. For more information, see
+  [Attributes](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes)
+  in the *Amazon EC2 Container Service Developer Guide*.
+  """
+  def put_attributes(client, input, options \\ []) do
+    request(client, "PutAttributes", input, options)
+  end
+
+  @doc """
   <note> This action is only used by the Amazon EC2 Container Service agent,
   and it is not intended for use outside of the agent.
 
@@ -292,26 +341,35 @@ defmodule AWS.ECS do
   Definitions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html)
   in the *Amazon EC2 Container Service Developer Guide*.
 
-  You may also specify an IAM role for your task with the `taskRoleArn`
-  parameter. When you specify an IAM role for a task, its containers can then
-  use the latest versions of the AWS CLI or SDKs to make API requests to the
-  AWS services that are specified in the IAM policy associated with the role.
-  For more information, see [IAM Roles for
+  You can specify an IAM role for your task with the `taskRoleArn` parameter.
+  When you specify an IAM role for a task, its containers can then use the
+  latest versions of the AWS CLI or SDKs to make API requests to the AWS
+  services that are specified in the IAM policy associated with the role. For
+  more information, see [IAM Roles for
   Tasks](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
   in the *Amazon EC2 Container Service Developer Guide*.
+
+  You can specify a Docker networking mode for the containers in your task
+  definition with the `networkMode` parameter. The available network modes
+  correspond to those described in [Network
+  settings](https://docs.docker.com/engine/reference/run/#/network-settings)
+  in the Docker run reference.
   """
   def register_task_definition(client, input, options \\ []) do
     request(client, "RegisterTaskDefinition", input, options)
   end
 
   @doc """
-  Start a task using random placement and the default Amazon ECS scheduler.
-  To use your own scheduler or place a task on a specific container instance,
-  use `StartTask` instead.
+  Starts a new task using the specified task definition.
 
-  <important> The `count` parameter is limited to 10 tasks per call.
+  You can allow Amazon ECS to place tasks for you, or you can customize how
+  Amazon ECS places tasks using placement constraints and placement
+  strategies. For more information, see [Scheduling
+  Tasks](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)
+  in the *Amazon EC2 Container Service Developer Guide*.
 
-  </important>
+  Alternatively, you can use `StartTask` to use your own scheduler or place
+  tasks manually on specific container instances.
   """
   def run_task(client, input, options \\ []) do
     request(client, "RunTask", input, options)
@@ -319,13 +377,12 @@ defmodule AWS.ECS do
 
   @doc """
   Starts a new task from the specified task definition on the specified
-  container instance or instances. To use the default Amazon ECS scheduler to
-  place your task, use `RunTask` instead.
+  container instance or instances.
 
-  <important> The list of container instances to start tasks on is limited to
-  10.
-
-  </important>
+  Alternatively, you can use `RunTask` to place tasks for you. For more
+  information, see [Scheduling
+  Tasks](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)
+  in the *Amazon EC2 Container Service Developer Guide*.
   """
   def start_task(client, input, options \\ []) do
     request(client, "StartTask", input, options)
@@ -383,6 +440,57 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Modifies the status of an Amazon ECS container instance.
+
+  You can change the status of a container instance to `DRAINING` to manually
+  remove an instance from a cluster, for example to perform system updates,
+  update the Docker daemon, or scale down the cluster size.
+
+  When you set a container instance to `DRAINING`, Amazon ECS prevents new
+  tasks from being scheduled for placement on the container instance and
+  replacement service tasks are started on other container instances in the
+  cluster if the resources are available. Service tasks on the container
+  instance that are in the `PENDING` state are stopped immediately.
+
+  Service tasks on the container instance that are in the `RUNNING` state are
+  stopped and replaced according the service's deployment configuration
+  parameters, `minimumHealthyPercent` and `maximumPercent`. Note that you can
+  change the deployment configuration of your service using `UpdateService`.
+
+  <ul> <li> If `minimumHealthyPercent` is below 100%, the scheduler can
+  ignore `desiredCount` temporarily during task replacement. For example,
+  `desiredCount` is four tasks, a minimum of 50% allows the scheduler to stop
+  two existing tasks before starting two new tasks. If the minimum is 100%,
+  the service scheduler can't remove existing tasks until the replacement
+  tasks are considered healthy. Tasks for services that do not use a load
+  balancer are considered healthy if they are in the `RUNNING` state. Tasks
+  for services that use a load balancer are considered healthy if they are in
+  the `RUNNING` state and the container instance they are hosted on is
+  reported as healthy by the load balancer.
+
+  </li> <li> The `maximumPercent` parameter represents an upper limit on the
+  number of running tasks during task replacement, which enables you to
+  define the replacement batch size. For example, if `desiredCount` of four
+  tasks, a maximum of 200% starts four new tasks before stopping the four
+  tasks to be drained (provided that the cluster resources required to do
+  this are available). If the maximum is 100%, then replacement tasks can't
+  start until the draining tasks have stopped.
+
+  </li> </ul> Any `PENDING` or `RUNNING` tasks that do not belong to a
+  service are not affected; you must wait for them to finish or stop them
+  manually.
+
+  A container instance has completed draining when it has no more `RUNNING`
+  tasks. You can verify this using `ListTasks`.
+
+  When you set a container instance to `ACTIVE`, the Amazon ECS scheduler can
+  begin scheduling tasks on the instance again.
+  """
+  def update_container_instances_state(client, input, options \\ []) do
+    request(client, "UpdateContainerInstancesState", input, options)
+  end
+
+  @doc """
   Modifies the desired count, deployment configuration, or task definition
   used in a service.
 
@@ -399,38 +507,40 @@ defmodule AWS.ECS do
   `minimumHealthyPercent` and `maximumPercent`, to determine the deployment
   strategy.
 
-  If the `minimumHealthyPercent` is below 100%, the scheduler can ignore the
-  `desiredCount` temporarily during a deployment. For example, if your
-  service has a `desiredCount` of four tasks, a `minimumHealthyPercent` of
-  50% allows the scheduler to stop two existing tasks before starting two new
-  tasks. Tasks for services that *do not* use a load balancer are considered
-  healthy if they are in the `RUNNING` state; tasks for services that *do*
-  use a load balancer are considered healthy if they are in the `RUNNING`
-  state and the container instance it is hosted on is reported as healthy by
-  the load balancer.
+  <ul> <li> If `minimumHealthyPercent` is below 100%, the scheduler can
+  ignore `desiredCount` temporarily during a deployment. For example, if
+  `desiredCount` is four tasks, a minimum of 50% allows the scheduler to stop
+  two existing tasks before starting two new tasks. Tasks for services that
+  do not use a load balancer are considered healthy if they are in the
+  `RUNNING` state. Tasks for services that use a load balancer are considered
+  healthy if they are in the `RUNNING` state and the container instance they
+  are hosted on is reported as healthy by the load balancer.
 
-  The `maximumPercent` parameter represents an upper limit on the number of
-  running tasks during a deployment, which enables you to define the
-  deployment batch size. For example, if your service has a `desiredCount` of
-  four tasks, a `maximumPercent` value of 200% starts four new tasks before
-  stopping the four older tasks (provided that the cluster resources required
-  to do this are available).
+  </li> <li> The `maximumPercent` parameter represents an upper limit on the
+  number of running tasks during a deployment, which enables you to define
+  the deployment batch size. For example, if `desiredCount` is four tasks, a
+  maximum of 200% starts four new tasks before stopping the four older tasks
+  (provided that the cluster resources required to do this are available).
 
-  When `UpdateService` stops a task during a deployment, the equivalent of
-  `docker stop` is issued to the containers running in the task. This results
-  in a `SIGTERM` and a 30-second timeout, after which `SIGKILL` is sent and
-  the containers are forcibly stopped. If the container handles the `SIGTERM`
-  gracefully and exits within 30 seconds from receiving it, no `SIGKILL` is
-  sent.
+  </li> </ul> When `UpdateService` stops a task during a deployment, the
+  equivalent of `docker stop` is issued to the containers running in the
+  task. This results in a `SIGTERM` and a 30-second timeout, after which
+  `SIGKILL` is sent and the containers are forcibly stopped. If the container
+  handles the `SIGTERM` gracefully and exits within 30 seconds from receiving
+  it, no `SIGKILL` is sent.
 
-  When the service scheduler launches new tasks, it attempts to balance them
-  across the Availability Zones in your cluster with the following logic:
+  When the service scheduler launches new tasks, it determines task placement
+  in your cluster with the following logic:
 
   <ul> <li> Determine which of the container instances in your cluster can
   support your service's task definition (for example, they have the required
   CPU, memory, ports, and container instance attributes).
 
-  </li> <li> Sort the valid container instances by the fewest number of
+  </li> <li> By default, the service scheduler attempts to balance tasks
+  across Availability Zones in this manner (although you can choose a
+  different placement strategy):
+
+  <ul> <li> Sort the valid container instances by the fewest number of
   running tasks for this service in the same Availability Zone as the
   instance. For example, if zone A has one running service task and zones B
   and C each have zero, valid container instances in either zone B or C are
@@ -439,6 +549,20 @@ defmodule AWS.ECS do
   </li> <li> Place the new service task on a valid container instance in an
   optimal Availability Zone (based on the previous steps), favoring container
   instances with the fewest number of running tasks for this service.
+
+  </li> </ul> </li> </ul> When the service scheduler stops running tasks, it
+  attempts to maintain balance across the Availability Zones in your cluster
+  using the following logic:
+
+  <ul> <li> Sort the container instances by the largest number of running
+  tasks for this service in the same Availability Zone as the instance. For
+  example, if zone A has one running service task and zones B and C each have
+  two, container instances in either zone B or C are considered optimal for
+  termination.
+
+  </li> <li> Stop the task on a container instance in an optimal Availability
+  Zone (based on the previous steps), favoring container instances with the
+  largest number of running tasks for this service.
 
   </li> </ul>
   """

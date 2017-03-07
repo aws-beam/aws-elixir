@@ -4,6 +4,13 @@
 defmodule AWS.EFS do
   @moduledoc """
   Amazon Elastic File System
+
+  Amazon Elastic File System (Amazon EFS) provides simple, scalable file
+  storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon
+  EFS, storage capacity is elastic, growing and shrinking automatically as
+  you add and remove files, so your applications have the storage they need,
+  when they need it. For more information, see the [User
+  Guide](http://docs.aws.amazon.com/efs/latest/ug/api-reference.html).
   """
 
   @doc """
@@ -135,7 +142,7 @@ defmodule AWS.EFS do
   `true`, and the `requesterId` value to `EFS`.
 
   </li> </ul> Each Amazon EFS mount target has one corresponding
-  requestor-managed EC2 network interface. After the network interface is
+  requester-managed EC2 network interface. After the network interface is
   created, Amazon EFS sets the `NetworkInterfaceId` field in the mount
   target's description to the network interface ID, and the `IpAddress` field
   to its address. If network interface creation fails, the entire
@@ -143,9 +150,9 @@ defmodule AWS.EFS do
 
   </li> </ul> <note> The `CreateMountTarget` call returns only after creating
   the network interface, but while the mount target state is still
-  `creating`. You can check the mount target creation status by calling the
-  `DescribeFileSystems` operation, which among other things returns the mount
-  target state.
+  `creating`, you can check the mount target creation status by calling the
+  `DescribeMountTargets` operation, which among other things returns the
+  mount target state.
 
   </note> We recommend you create a mount target in each of the Availability
   Zones. There are cost considerations for using a file system in an

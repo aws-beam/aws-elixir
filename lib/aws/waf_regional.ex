@@ -1,17 +1,27 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
 # See https://github.com/jkakar/aws-codegen for more details.
 
-defmodule AWS.WAF do
+defmodule AWS.WAF.Regional do
   @moduledoc """
-  This is the *AWS WAF API Reference* for using AWS WAF with Amazon
-  CloudFront. The AWS WAF actions and data types listed in the reference are
-  available for protecting Amazon CloudFront distributions. You can use these
-  actions and data types via the endpoint *waf.amazonaws.com*. This guide is
-  for developers who need detailed information about the AWS WAF API actions,
-  data types, and errors. For detailed information about AWS WAF features and
-  an overview of how to use the AWS WAF API, see the [AWS WAF Developer
+  This is the *AWS WAF Regional API Reference* for using AWS WAF with Elastic
+  Load Balancing (ELB) Application Load Balancers. The AWS WAF actions and
+  data types listed in the reference are available for protecting Application
+  Load Balancers. You can use these actions and data types by means of the
+  endpoints listed in [AWS Regions and
+  Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region).
+  This guide is for developers who need detailed information about the AWS
+  WAF API actions, data types, and errors. For detailed information about AWS
+  WAF features and an overview of how to use the AWS WAF API, see the [AWS
+  WAF Developer
   Guide](http://docs.aws.amazon.com/waf/latest/developerguide/).
   """
+
+  @doc """
+  Associates a web ACL with a resource.
+  """
+  def associate_web_a_c_l(client, input, options \\ []) do
+    request(client, "AssociateWebACL", input, options)
+  end
 
   @doc """
   Creates a `ByteMatchSet`. You then use `UpdateByteMatchSet` to identify the
@@ -407,6 +417,13 @@ defmodule AWS.WAF do
   end
 
   @doc """
+  Removes a web ACL from the specified resource.
+  """
+  def disassociate_web_a_c_l(client, input, options \\ []) do
+    request(client, "DisassociateWebACL", input, options)
+  end
+
+  @doc """
   Returns the `ByteMatchSet` specified by `ByteMatchSetId`.
   """
   def get_byte_match_set(client, input, options \\ []) do
@@ -509,6 +526,13 @@ defmodule AWS.WAF do
   end
 
   @doc """
+  Returns the web ACL for the specified resource.
+  """
+  def get_web_a_c_l_for_resource(client, input, options \\ []) do
+    request(client, "GetWebACLForResource", input, options)
+  end
+
+  @doc """
   Returns the `XssMatchSet` that is specified by `XssMatchSetId`.
   """
   def get_xss_match_set(client, input, options \\ []) do
@@ -527,6 +551,13 @@ defmodule AWS.WAF do
   """
   def list_i_p_sets(client, input, options \\ []) do
     request(client, "ListIPSets", input, options)
+  end
+
+  @doc """
+  Returns an array of resources associated with the specified web ACL.
+  """
+  def list_resources_for_web_a_c_l(client, input, options \\ []) do
+    request(client, "ListResourcesForWebACL", input, options)
   end
 
   @doc """
@@ -908,12 +939,12 @@ defmodule AWS.WAF do
     {:error, Poison.Parser.t} |
     {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
-    client = %{client | service: "waf"}
-    host = get_host("waf", client)
+    client = %{client | service: "waf-regional"}
+    host = get_host("waf-regional", client)
     url = get_url(host, client)
     headers = [{"Host", host},
                {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AWSWAF_20150824.#{action}"}]
+               {"X-Amz-Target", "AWSWAF_Regional_20161128.#{action}"}]
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     case HTTPoison.post(url, payload, headers, options) do

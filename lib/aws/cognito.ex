@@ -46,10 +46,19 @@ defmodule AWS.Cognito do
   Creates a new identity pool. The identity pool is a store of user identity
   information that is specific to your AWS account. The limit on identity
   pools is 60 per account. The keys for `SupportedLoginProviders` are as
-  follows: <ul> <li>Facebook: `graph.facebook.com`</li> <li>Google:
-  `accounts.google.com`</li> <li>Amazon: `www.amazon.com`</li> <li>Twitter:
-  `api.twitter.com`</li> <li>Digits: `www.digits.com`</li> </ul> You must use
-  AWS Developer credentials to call this API.
+  follows:
+
+  <ul> <li> Facebook: `graph.facebook.com`
+
+  </li> <li> Google: `accounts.google.com`
+
+  </li> <li> Amazon: `www.amazon.com`
+
+  </li> <li> Twitter: `api.twitter.com`
+
+  </li> <li> Digits: `www.digits.com`
+
+  </li> </ul> You must use AWS Developer credentials to call this API.
   """
   def create_identity_pool(client, input, options \\ []) do
     request(client, "CreateIdentityPool", input, options)

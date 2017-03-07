@@ -13,58 +13,52 @@ defmodule AWS.Kinesis.Firehose do
   @doc """
   Creates a delivery stream.
 
-  `CreateDeliveryStream` is an asynchronous operation that immediately
-  returns. The initial status of the delivery stream is `CREATING`. After the
-  delivery stream is created, its status is `ACTIVE` and it now accepts data.
-  Attempts to send data to a delivery stream that is not in the `ACTIVE`
-  state cause an exception. To check the state of a delivery stream, use
-  `DescribeDeliveryStream`.
-
-  The name of a delivery stream identifies it. You can't have two delivery
-  streams with the same name in the same region. Two delivery streams in
-  different AWS accounts or different regions in the same AWS account can
-  have the same name.
-
   By default, you can create up to 20 delivery streams per region.
 
-  A delivery stream can only be configured with a single destination, Amazon
-  S3, Amazon Elasticsearch Service, or Amazon Redshift. For correct
-  `CreateDeliveryStream` request syntax, specify only one destination
-  configuration parameter: either **S3DestinationConfiguration**,
+  This is an asynchronous operation that immediately returns. The initial
+  status of the delivery stream is `CREATING`. After the delivery stream is
+  created, its status is `ACTIVE` and it now accepts data. Attempts to send
+  data to a delivery stream that is not in the `ACTIVE` state cause an
+  exception. To check the state of a delivery stream, use
+  `DescribeDeliveryStream`.
+
+  A delivery stream is configured with a single destination: Amazon S3,
+  Amazon Elasticsearch Service, or Amazon Redshift. You must specify only one
+  of the following destination configuration parameters:
+  **ExtendedS3DestinationConfiguration**, **S3DestinationConfiguration**,
   **ElasticsearchDestinationConfiguration**, or
   **RedshiftDestinationConfiguration**.
 
-  As part of **S3DestinationConfiguration**, optional values
-  **BufferingHints**, **EncryptionConfiguration**, and **CompressionFormat**
-  can be provided. By default, if no **BufferingHints** value is provided,
-  Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is
-  satisfied first. Note that **BufferingHints** is a hint, so there are some
-  cases where the service cannot adhere to these conditions strictly; for
-  example, record boundaries are such that the size is a little over or under
-  the configured buffering size. By default, no encryption is performed. We
-  strongly recommend that you enable encryption to ensure secure data storage
-  in Amazon S3.
+  When you specify **S3DestinationConfiguration**, you can also provide the
+  following optional values: **BufferingHints**, **EncryptionConfiguration**,
+  and **CompressionFormat**. By default, if no **BufferingHints** value is
+  provided, Firehose buffers data up to 5 MB or for 5 minutes, whichever
+  condition is satisfied first. Note that **BufferingHints** is a hint, so
+  there are some cases where the service cannot adhere to these conditions
+  strictly; for example, record boundaries are such that the size is a little
+  over or under the configured buffering size. By default, no encryption is
+  performed. We strongly recommend that you enable encryption to ensure
+  secure data storage in Amazon S3.
 
-  A few notes about **RedshiftDestinationConfiguration**:
+  A few notes about Amazon Redshift as a destination:
 
   <ul> <li> An Amazon Redshift destination requires an S3 bucket as
   intermediate location, as Firehose first delivers data to S3 and then uses
   `COPY` syntax to load data into an Amazon Redshift table. This is specified
-  in the **RedshiftDestinationConfiguration.S3Configuration** parameter
-  element.
+  in the **RedshiftDestinationConfiguration.S3Configuration** parameter.
 
   </li> <li> The compression formats `SNAPPY` or `ZIP` cannot be specified in
   **RedshiftDestinationConfiguration.S3Configuration** because the Amazon
   Redshift `COPY` operation that reads from the S3 bucket doesn't support
   these compression formats.
 
-  </li> <li> We strongly recommend that the username and password provided is
-  used exclusively for Firehose purposes, and that the permissions for the
+  </li> <li> We strongly recommend that you use the user name and password
+  you provide exclusively with Firehose, and that the permissions for the
   account are restricted for Amazon Redshift `INSERT` permissions.
 
-  </li> </ul> Firehose assumes the IAM role that is configured as part of
-  destinations. The IAM role should allow the Firehose principal to assume
-  the role, and the role should have permissions that allows the service to
+  </li> </ul> Firehose assumes the IAM role that is configured as part of the
+  destination. The role should allow the Firehose principal to assume the
+  role, and the role should have permissions that allows the service to
   deliver the data. For more information, see [Amazon S3 Bucket
   Access](http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3)
   in the *Amazon Kinesis Firehose Developer Guide*.
@@ -166,15 +160,16 @@ defmodule AWS.Kinesis.Firehose do
   `PutRecord`. Applications using these operations are referred to as
   producers.
 
-  Each `PutRecordBatch` request supports up to 500 records. Each record in
-  the request can be as large as 1,000 KB (before 64-bit encoding), up to a
-  limit of 4 MB for the entire request. By default, each delivery stream can
-  take in up to 2,000 transactions per second, 5,000 records per second, or 5
-  MB per second. Note that if you use `PutRecord` and `PutRecordBatch`, the
-  limits are an aggregate across these two operations for each delivery
-  stream. For more information about limits and how to request an increase,
+  By default, each delivery stream can take in up to 2,000 transactions per
+  second, 5,000 records per second, or 5 MB per second. Note that if you use
+  `PutRecord` and `PutRecordBatch`, the limits are an aggregate across these
+  two operations for each delivery stream. For more information about limits,
   see [Amazon Kinesis Firehose
   Limits](http://docs.aws.amazon.com/firehose/latest/dev/limits.html).
+
+  Each `PutRecordBatch` request supports up to 500 records. Each record in
+  the request can be as large as 1,000 KB (before 64-bit encoding), up to a
+  limit of 4 MB for the entire request. These limits cannot be changed.
 
   You must specify the name of the delivery stream and the data record when
   using `PutRecord`. The data record consists of a data blob that can be up
@@ -187,35 +182,34 @@ defmodule AWS.Kinesis.Firehose do
   unique within the data. This allows the consumer application(s) to parse
   individual data items when reading the data from the destination.
 
-  The `PutRecordBatch` response includes a count of any failed records,
-  **FailedPutCount**, and an array of responses, **RequestResponses**. The
-  **FailedPutCount** value is a count of records that failed. Each entry in
-  the **RequestResponses** array gives additional information of the
-  processed record. Each entry in **RequestResponses** directly correlates
-  with a record in the request array using the same ordering, from the top to
-  the bottom of the request and response. **RequestResponses** always
-  includes the same number of records as the request array.
-  **RequestResponses** both successfully and unsuccessfully processed
-  records. Firehose attempts to process all records in each `PutRecordBatch`
-  request. A single record failure does not stop the processing of subsequent
-  records.
+  The `PutRecordBatch` response includes a count of failed records,
+  **FailedPutCount**, and an array of responses, **RequestResponses**. Each
+  entry in the **RequestResponses** array provides additional information
+  about the processed record, and directly correlates with a record in the
+  request array using the same ordering, from the top to the bottom. The
+  response array always includes the same number of records as the request
+  array. **RequestResponses** includes both successfully and unsuccessfully
+  processed records. Firehose attempts to process all records in each
+  `PutRecordBatch` request. A single record failure does not stop the
+  processing of subsequent records.
 
-  A successfully processed record includes a **RecordId** value, which is a
-  unique value identified for the record. An unsuccessfully processed record
-  includes **ErrorCode** and **ErrorMessage** values. **ErrorCode** reflects
-  the type of error and is one of the following values: `ServiceUnavailable`
-  or `InternalFailure`. `ErrorMessage` provides more detailed information
+  A successfully processed record includes a **RecordId** value, which is
+  unique for the record. An unsuccessfully processed record includes
+  **ErrorCode** and **ErrorMessage** values. **ErrorCode** reflects the type
+  of error, and is one of the following values: `ServiceUnavailable` or
+  `InternalFailure`. **ErrorMessage** provides more detailed information
   about the error.
 
-  If **FailedPutCount** is greater than 0 (zero), retry the request. A retry
-  of the entire batch of records is possible; however, we strongly recommend
-  that you inspect the entire response and resend only those records that
-  failed processing. This minimizes duplicate records and also reduces the
-  total bytes sent (and corresponding charges).
+  If there is an internal server error or a timeout, the write might have
+  completed or it might have failed. If **FailedPutCount** is greater than 0,
+  retry the request, resending only those records that might have failed
+  processing. This minimizes the possible duplicate records and also reduces
+  the total bytes sent (and corresponding charges). We recommend that you
+  handle any duplicates at the destination.
 
-  If the `PutRecordBatch` operation throws a **ServiceUnavailableException**,
-  back off and retry. If the exception persists, it is possible that the
-  throughput limits have been exceeded for the delivery stream.
+  If `PutRecordBatch` throws **ServiceUnavailableException**, back off and
+  retry. If the exception persists, it is possible that the throughput limits
+  have been exceeded for the delivery stream.
 
   Data records sent to Firehose are stored for 24 hours from the time they
   are added to a delivery stream as it attempts to send the records to the
@@ -227,40 +221,39 @@ defmodule AWS.Kinesis.Firehose do
   end
 
   @doc """
-  Updates the specified destination of the specified delivery stream. Note:
-  Switching between Elasticsearch and other services is not supported. For
-  Elasticsearch destination, you can only update an existing Elasticsearch
-  destination with this operation.
+  Updates the specified destination of the specified delivery stream.
 
-  This operation can be used to change the destination type (for example, to
+  You can use this operation to change the destination type (for example, to
   replace the Amazon S3 destination with Amazon Redshift) or change the
-  parameters associated with a given destination (for example, to change the
-  bucket name of the Amazon S3 destination). The update may not occur
-  immediately. The target delivery stream remains active while the
-  configurations are updated, so data writes to the delivery stream can
-  continue during this process. The updated configurations are normally
-  effective within a few minutes.
+  parameters associated with a destination (for example, to change the bucket
+  name of the Amazon S3 destination). The update might not occur immediately.
+  The target delivery stream remains active while the configurations are
+  updated, so data writes to the delivery stream can continue during this
+  process. The updated configurations are usually effective within a few
+  minutes.
+
+  Note that switching between Amazon ES and other services is not supported.
+  For an Amazon ES destination, you can only update to another Amazon ES
+  destination.
 
   If the destination type is the same, Firehose merges the configuration
-  parameters specified in the `UpdateDestination` request with the
-  destination configuration that already exists on the delivery stream. If
-  any of the parameters are not specified in the update request, then the
-  existing configuration parameters are retained. For example, in the Amazon
-  S3 destination, if `EncryptionConfiguration` is not specified then the
+  parameters specified with the destination configuration that already exists
+  on the delivery stream. If any of the parameters are not specified in the
+  call, the existing values are retained. For example, in the Amazon S3
+  destination, if `EncryptionConfiguration` is not specified then the
   existing `EncryptionConfiguration` is maintained on the destination.
 
   If the destination type is not the same, for example, changing the
   destination from Amazon S3 to Amazon Redshift, Firehose does not merge any
   parameters. In this case, all parameters must be specified.
 
-  Firehose uses the **CurrentDeliveryStreamVersionId** to avoid race
-  conditions and conflicting merges. This is a required field in every
-  request and the service only updates the configuration if the existing
-  configuration matches the **VersionId**. After the update is applied
-  successfully, the **VersionId** is updated, which can be retrieved with the
-  `DescribeDeliveryStream` operation. The new **VersionId** should be uses to
-  set **CurrentDeliveryStreamVersionId** in the next `UpdateDestination`
-  operation.
+  Firehose uses **CurrentDeliveryStreamVersionId** to avoid race conditions
+  and conflicting merges. This is a required field, and the service updates
+  the configuration only if the existing configuration has a version ID that
+  matches. After the update is applied successfully, the version ID is
+  updated, and can be retrieved using `DescribeDeliveryStream`. You should
+  use the new version ID to set **CurrentDeliveryStreamVersionId** in the
+  next call.
   """
   def update_destination(client, input, options \\ []) do
     request(client, "UpdateDestination", input, options)

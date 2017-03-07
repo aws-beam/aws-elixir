@@ -8,9 +8,10 @@ defmodule AWS.DMS do
   AWS Database Migration Service (AWS DMS) can migrate your data to and from
   the most widely used commercial and open-source databases such as Oracle,
   PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora,
-  and MySQL. The service supports homogeneous migrations such as Oracle to
-  Oracle, as well as heterogeneous migrations between different database
-  platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
+  MySQL, and SAP Adaptive Server Enterprise (ASE). The service supports
+  homogeneous migrations such as Oracle to Oracle, as well as heterogeneous
+  migrations between different database platforms, such as Oracle to MySQL or
+  SQL Server to PostgreSQL.
   """
 
   @doc """
@@ -233,6 +234,16 @@ defmodule AWS.DMS do
   """
   def modify_replication_subnet_group(client, input, options \\ []) do
     request(client, "ModifyReplicationSubnetGroup", input, options)
+  end
+
+  @doc """
+  Modifies the specified replication task.
+
+  You can't modify the task endpoints. The task must be stopped before you
+  can modify it.
+  """
+  def modify_replication_task(client, input, options \\ []) do
+    request(client, "ModifyReplicationTask", input, options)
   end
 
   @doc """

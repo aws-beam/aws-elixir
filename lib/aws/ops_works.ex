@@ -42,15 +42,33 @@ defmodule AWS.OpsWorks do
 
   </li> </ul> **Endpoints**
 
-  AWS OpsWorks supports two endpoints, opsworks.us-east-1.amazonaws.com and
-  opsworks.ap-south-1.amazonaws.com (both HTTPS). You must connect to one of
-  those two endpoints. You can then use the API to direct AWS OpsWorks to
-  create stacks in any AWS region. Stacks created in all regions except
-  ap-south-1 are connected to the us-east-1 regional endpoint; stacks created
-  in ap-south-1 are associated with the ap-south-1 regional endpoint, and can
-  only be accessed or managed within that endpoint.
+  AWS OpsWorks supports the following endpoints, all HTTPS. You must connect
+  to one of the following endpoints. Stacks can only be accessed or managed
+  within the endpoint in which they are created.
 
-  **Chef Versions**
+  <ul> <li> opsworks.us-east-1.amazonaws.com
+
+  </li> <li> opsworks.us-west-1.amazonaws.com
+
+  </li> <li> opsworks.us-west-2.amazonaws.com
+
+  </li> <li> opsworks.eu-west-1.amazonaws.com
+
+  </li> <li> opsworks.eu-central-1.amazonaws.com
+
+  </li> <li> opsworks.ap-northeast-1.amazonaws.com
+
+  </li> <li> opsworks.ap-northeast-2.amazonaws.com
+
+  </li> <li> opsworks.ap-south-1.amazonaws.com
+
+  </li> <li> opsworks.ap-southeast-1.amazonaws.com
+
+  </li> <li> opsworks.ap-southeast-2.amazonaws.com
+
+  </li> <li> opsworks.sa-east-1.amazonaws.com
+
+  </li> </ul> **Chef Versions**
 
   When you call `CreateStack`, `CloneStack`, or `UpdateStack` we recommend
   you use the `ConfigurationManager` parameter to specify the Chef version.

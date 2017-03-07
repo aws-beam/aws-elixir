@@ -23,6 +23,13 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Specifies and starts a remote access session.
+  """
+  def create_remote_access_session(client, input, options \\ []) do
+    request(client, "CreateRemoteAccessSession", input, options)
+  end
+
+  @doc """
   Uploads an app or test scripts.
   """
   def create_upload(client, input, options \\ []) do
@@ -44,6 +51,13 @@ defmodule AWS.DeviceFarm do
   """
   def delete_project(client, input, options \\ []) do
     request(client, "DeleteProject", input, options)
+  end
+
+  @doc """
+  Deletes a completed remote access session and its results.
+  """
+  def delete_remote_access_session(client, input, options \\ []) do
+    request(client, "DeleteRemoteAccessSession", input, options)
   end
 
   @doc """
@@ -119,6 +133,13 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Returns a link to a currently running remote access session.
+  """
+  def get_remote_access_session(client, input, options \\ []) do
+    request(client, "GetRemoteAccessSession", input, options)
+  end
+
+  @doc """
   Gets information about a run.
   """
   def get_run(client, input, options \\ []) do
@@ -144,6 +165,15 @@ defmodule AWS.DeviceFarm do
   """
   def get_upload(client, input, options \\ []) do
     request(client, "GetUpload", input, options)
+  end
+
+  @doc """
+  Installs an application to the device in a remote access session. For
+  Android applications, the file must be in .apk format. For iOS
+  applications, the file must be in .ipa format.
+  """
+  def install_to_remote_access_session(client, input, options \\ []) do
+    request(client, "InstallToRemoteAccessSession", input, options)
   end
 
   @doc """
@@ -207,14 +237,21 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Gets information about runs.
+  Returns a list of all currently running remote access sessions.
+  """
+  def list_remote_access_sessions(client, input, options \\ []) do
+    request(client, "ListRemoteAccessSessions", input, options)
+  end
+
+  @doc """
+  Gets information about runs, given an AWS Device Farm project ARN.
   """
   def list_runs(client, input, options \\ []) do
     request(client, "ListRuns", input, options)
   end
 
   @doc """
-  Gets information about samples.
+  Gets information about samples, given an AWS Device Farm project ARN
   """
   def list_samples(client, input, options \\ []) do
     request(client, "ListSamples", input, options)
@@ -242,7 +279,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Gets information about uploads.
+  Gets information about uploads, given an AWS Device Farm project ARN.
   """
   def list_uploads(client, input, options \\ []) do
     request(client, "ListUploads", input, options)
@@ -277,6 +314,13 @@ defmodule AWS.DeviceFarm do
   """
   def schedule_run(client, input, options \\ []) do
     request(client, "ScheduleRun", input, options)
+  end
+
+  @doc """
+  Ends a specified remote access session.
+  """
+  def stop_remote_access_session(client, input, options \\ []) do
+    request(client, "StopRemoteAccessSession", input, options)
   end
 
   @doc """

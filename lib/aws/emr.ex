@@ -3,15 +3,14 @@
 
 defmodule AWS.EMR do
   @moduledoc """
-  Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy
-  to process large amounts of data efficiently. Amazon EMR uses Hadoop
-  processing combined with several AWS products to do tasks such as web
-  indexing, data mining, log file analysis, machine learning, scientific
-  simulation, and data warehousing.
+  Amazon EMR is a web service that makes it easy to process large amounts of
+  data efficiently. Amazon EMR uses Hadoop processing combined with several
+  AWS products to do tasks such as web indexing, data mining, log file
+  analysis, machine learning, scientific simulation, and data warehousing.
   """
 
   @doc """
-  AddInstanceGroups adds an instance group to a running cluster.
+  Adds one or more instance groups to a running cluster.
   """
   def add_instance_groups(client, input, options \\ []) do
     request(client, "AddInstanceGroups", input, options)
@@ -26,9 +25,9 @@ defmodule AWS.EMR do
   bypass the 256-step limitation in various ways, including using the SSH
   shell to connect to the master node and submitting queries directly to the
   software running on the master node, such as Hive and Hadoop. For more
-  information on how to do this, go to [Add More than 256 Steps to a Job
+  information on how to do this, see [Add More than 256 Steps to a Job
   Flow](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html)
-  in the *Amazon Elastic MapReduce Developer's Guide*.
+  in the *Amazon EMR Developer's Guide*.
 
   A step specifies the location of a JAR file stored either on the master
   node of the job flow or in Amazon S3. Each step is performed by the main
@@ -36,7 +35,7 @@ defmodule AWS.EMR do
   either in the manifest of the JAR or by using the MainFunction parameter of
   the step.
 
-  Elastic MapReduce executes each step in the order listed. For a step to be
+  Amazon EMR executes each step in the order listed. For a step to be
   considered complete, the main function must exit with a zero exit code and
   all Hadoop jobs started while the step was running must have completed and
   run successfully.
@@ -57,6 +56,33 @@ defmodule AWS.EMR do
   """
   def add_tags(client, input, options \\ []) do
     request(client, "AddTags", input, options)
+  end
+
+  @doc """
+  Cancels a pending step or steps in a running cluster. Available only in
+  Amazon EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of
+  256 steps are allowed in each CancelSteps request. CancelSteps is
+  idempotent but asynchronous; it does not guarantee a step will be canceled,
+  even if the request is successfully submitted. You can only cancel steps
+  that are in a `PENDING` state.
+  """
+  def cancel_steps(client, input, options \\ []) do
+    request(client, "CancelSteps", input, options)
+  end
+
+  @doc """
+  Creates a security configuration, which is stored in the service and can be
+  specified when a cluster is created.
+  """
+  def create_security_configuration(client, input, options \\ []) do
+    request(client, "CreateSecurityConfiguration", input, options)
+  end
+
+  @doc """
+  Deletes a security configuration.
+  """
+  def delete_security_configuration(client, input, options \\ []) do
+    request(client, "DeleteSecurityConfiguration", input, options)
   end
 
   @doc """
@@ -83,14 +109,23 @@ defmodule AWS.EMR do
   If no parameters are supplied, then job flows matching either of the
   following criteria are returned:
 
-  <ul> <li>Job flows created and completed in the last two weeks</li> <li>
-  Job flows created within the last two months that are in one of the
-  following states: `RUNNING`, `WAITING`, `SHUTTING_DOWN`, `STARTING` </li>
-  </ul> Amazon Elastic MapReduce can return a maximum of 512 job flow
-  descriptions.
+  <ul> <li> Job flows created and completed in the last two weeks
+
+  </li> <li> Job flows created within the last two months that are in one of
+  the following states: `RUNNING`, `WAITING`, `SHUTTING_DOWN`, `STARTING`
+
+  </li> </ul> Amazon EMR can return a maximum of 512 job flow descriptions.
   """
   def describe_job_flows(client, input, options \\ []) do
     request(client, "DescribeJobFlows", input, options)
+  end
+
+  @doc """
+  Provides the details of a security configuration by returning the
+  configuration JSON.
+  """
+  def describe_security_configuration(client, input, options \\ []) do
+    request(client, "DescribeSecurityConfiguration", input, options)
   end
 
   @doc """
@@ -137,7 +172,18 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Provides a list of steps for the cluster.
+  Lists all the security configurations visible to this account, providing
+  their creation dates and times, and their names. This call returns a
+  maximum of 50 clusters per call, but returns a marker to track the paging
+  of the cluster list across multiple ListSecurityConfigurations calls.
+  """
+  def list_security_configurations(client, input, options \\ []) do
+    request(client, "ListSecurityConfigurations", input, options)
+  end
+
+  @doc """
+  Provides a list of steps for the cluster in reverse order unless you
+  specify stepIds with the request.
   """
   def list_steps(client, input, options \\ []) do
     request(client, "ListSteps", input, options)
@@ -151,6 +197,24 @@ defmodule AWS.EMR do
   """
   def modify_instance_groups(client, input, options \\ []) do
     request(client, "ModifyInstanceGroups", input, options)
+  end
+
+  @doc """
+  Creates or updates an automatic scaling policy for a core instance group or
+  task instance group in an Amazon EMR cluster. The automatic scaling policy
+  defines how an instance group dynamically adds and terminates EC2 instances
+  in response to the value of a CloudWatch metric.
+  """
+  def put_auto_scaling_policy(client, input, options \\ []) do
+    request(client, "PutAutoScalingPolicy", input, options)
+  end
+
+  @doc """
+  Removes an automatic scaling policy from a specified instance group within
+  an EMR cluster.
+  """
+  def remove_auto_scaling_policy(client, input, options \\ []) do
+    request(client, "RemoveAutoScalingPolicy", input, options)
   end
 
   @doc """
@@ -168,12 +232,12 @@ defmodule AWS.EMR do
 
   @doc """
   RunJobFlow creates and starts running a new job flow. The job flow will run
-  the steps specified. Once the job flow completes, the cluster is stopped
+  the steps specified. After the job flow completes, the cluster is stopped
   and the HDFS partition is lost. To prevent loss of data, configure the last
   step of the job flow to store results in Amazon S3. If the
   `JobFlowInstancesConfig` `KeepJobFlowAliveWhenNoSteps` parameter is set to
   `TRUE`, the job flow will transition to the WAITING state rather than
-  shutting down once the steps have completed.
+  shutting down after the steps have completed.
 
   For additional protection, you can set the `JobFlowInstancesConfig`
   `TerminationProtected` parameter to `TRUE` to lock the job flow and prevent
@@ -187,9 +251,9 @@ defmodule AWS.EMR do
   bypass the 256-step limitation in various ways, including using the SSH
   shell to connect to the master node and submitting queries directly to the
   software running on the master node, such as Hive and Hadoop. For more
-  information on how to do this, go to [Add More than 256 Steps to a Job
-  Flow](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html)
-  in the *Amazon Elastic MapReduce Developer's Guide*.
+  information on how to do this, see [Add More than 256 Steps to a Job
+  Flow](http://docs.aws.amazon.com/ElasticMapReduce/latest/Management/Guide/AddMoreThan256Steps.html)
+  in the *Amazon EMR Management Guide*.
 
   For long running job flows, we recommend that you periodically store your
   results.
@@ -199,9 +263,9 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  SetTerminationProtection locks a job flow so the Amazon EC2 instances in
-  the cluster cannot be terminated by user intervention, an API call, or in
-  the event of a job-flow error. The cluster still terminates upon successful
+  SetTerminationProtection locks a job flow so the EC2 instances in the
+  cluster cannot be terminated by user intervention, an API call, or in the
+  event of a job-flow error. The cluster still terminates upon successful
   completion of the job flow. Calling SetTerminationProtection on a job flow
   is analogous to calling the Amazon EC2 DisableAPITermination API on all of
   the EC2 instances in a cluster.
@@ -216,9 +280,9 @@ defmodule AWS.EMR do
   subsequent call to SetTerminationProtection in which you set the value to
   `false`.
 
-  For more information, go to [Protecting a Job Flow from
+  For more information, see[Protecting a Job Flow from
   Termination](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html)
-  in the *Amazon Elastic MapReduce Developer's Guide.*
+  in the *Amazon EMR Guide.*
   """
   def set_termination_protection(client, input, options \\ []) do
     request(client, "SetTerminationProtection", input, options)
@@ -245,8 +309,8 @@ defmodule AWS.EMR do
 
   The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows
   is asynchronous. Depending on the configuration of the job flow, it may
-  take up to 5-20 minutes for the job flow to completely terminate and
-  release allocated resources, such as Amazon EC2 instances.
+  take up to 1-5 minutes for the job flow to completely terminate and release
+  allocated resources, such as Amazon EC2 instances.
   """
   def terminate_job_flows(client, input, options \\ []) do
     request(client, "TerminateJobFlows", input, options)

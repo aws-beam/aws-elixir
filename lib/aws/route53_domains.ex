@@ -28,11 +28,6 @@ defmodule AWS.Route53.Domains do
   @doc """
   This operation disables automatic renewal of domain registration for the
   specified domain.
-
-  <note>Caution! Amazon Route 53 doesn't have a manual renewal process, so if
-  you disable automatic renewal, registration for the domain will not be
-  renewed when the expiration date passes, and you will lose control of the
-  domain name.</note>
   """
   def disable_domain_auto_renew(client, input, options \\ []) do
     request(client, "DisableDomainAutoRenew", input, options)
@@ -101,6 +96,25 @@ defmodule AWS.Route53.Domains do
   end
 
   @doc """
+  The GetDomainSuggestions operation returns a list of suggested domain names
+  given a string, which can either be a domain name or simply a word or
+  phrase (without spaces).
+
+  Parameters: <ul><li>DomainName (string): The basis for your domain
+  suggestion search, a string with (or without) top-level domain
+  specified.</li> <li>SuggestionCount (int): The number of domain suggestions
+  to be returned, maximum 50, minimum 1.</li> <li>OnlyAvailable (bool): If
+  true, availability check will be performed on suggestion results, and only
+  available domains will be returned. If false, suggestions will be returned
+  without checking whether the domain is actually available, and caller will
+  have to call checkDomainAvailability for each suggestion to determine
+  availability for registration.</li> </ul>
+  """
+  def get_domain_suggestions(client, input, options \\ []) do
+    request(client, "GetDomainSuggestions", input, options)
+  end
+
+  @doc """
   This operation returns the current status of an operation that is not
   completed.
   """
@@ -160,6 +174,21 @@ defmodule AWS.Route53.Domains do
   """
   def register_domain(client, input, options \\ []) do
     request(client, "RegisterDomain", input, options)
+  end
+
+  @doc """
+  This operation renews a domain for the specified number of years. The cost
+  of renewing your domain is billed to your AWS account.
+
+  We recommend that you renew your domain several weeks before the expiration
+  date. Some TLD registries delete domains before the expiration date if you
+  haven't renewed far enough in advance. For more information about renewing
+  domain registration, see [Renewing Registration for a
+  Domain](http://docs.aws.amazon.com/console/route53/domain-renew) in the
+  Amazon Route 53 documentation.
+  """
+  def renew_domain(client, input, options \\ []) do
+    request(client, "RenewDomain", input, options)
   end
 
   @doc """
@@ -265,6 +294,14 @@ defmodule AWS.Route53.Domains do
   """
   def update_tags_for_domain(client, input, options \\ []) do
     request(client, "UpdateTagsForDomain", input, options)
+  end
+
+  @doc """
+  This operation returns all the domain-related billing records for the
+  current AWS account for a specified period
+  """
+  def view_billing(client, input, options \\ []) do
+    request(client, "ViewBilling", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

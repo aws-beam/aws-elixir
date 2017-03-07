@@ -77,15 +77,30 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Deletes the evaluation results for the specified Config rule. You can
+  specify one Config rule per request. After you delete the evaluation
+  results, you can call the `StartConfigRulesEvaluation` API to start
+  evaluating your AWS resources against the rule.
+  """
+  def delete_evaluation_results(client, input, options \\ []) do
+    request(client, "DeleteEvaluationResults", input, options)
+  end
+
+  @doc """
   Schedules delivery of a configuration snapshot to the Amazon S3 bucket in
   the specified delivery channel. After the delivery has started, AWS Config
   sends following notifications using an Amazon SNS topic that you have
   specified.
 
-  <ul> <li>Notification of starting the delivery.</li> <li>Notification of
-  delivery completed, if the delivery was successfully completed.</li>
-  <li>Notification of delivery failure, if the delivery failed to
-  complete.</li> </ul>
+  <ul> <li> Notification of starting the delivery.
+
+  </li> <li> Notification of delivery completed, if the delivery was
+  successfully completed.
+
+  </li> <li> Notification of delivery failure, if the delivery failed to
+  complete.
+
+  </li> </ul>
   """
   def deliver_config_snapshot(client, input, options \\ []) do
     request(client, "DeliverConfigSnapshot", input, options)
@@ -103,17 +118,21 @@ defmodule AWS.Config do
   `INSUFFICIENT_DATA`. This result might indicate one of the following
   conditions:
 
-  <ul> <li>AWS Config has never invoked an evaluation for the rule. To check
+  <ul> <li> AWS Config has never invoked an evaluation for the rule. To check
   whether it has, use the `DescribeConfigRuleEvaluationStatus` action to get
-  the `LastSuccessfulInvocationTime` and `LastFailedInvocationTime`.</li>
-  <li>The rule's AWS Lambda function is failing to send evaluation results to
-  AWS Config. Verify that the role that you assigned to your configuration
-  recorder includes the `config:PutEvaluations` permission. If the rule is a
-  customer managed rule, verify that the AWS Lambda execution role includes
-  the `config:PutEvaluations` permission.</li> <li>The rule's AWS Lambda
-  function has returned `NOT_APPLICABLE` for all evaluation results. This can
-  occur if the resources were deleted or removed from the rule's scope.</li>
-  </ul>
+  the `LastSuccessfulInvocationTime` and `LastFailedInvocationTime`.
+
+  </li> <li> The rule's AWS Lambda function is failing to send evaluation
+  results to AWS Config. Verify that the role that you assigned to your
+  configuration recorder includes the `config:PutEvaluations` permission. If
+  the rule is a custom rule, verify that the AWS Lambda execution role
+  includes the `config:PutEvaluations` permission.
+
+  </li> <li> The rule's AWS Lambda function has returned `NOT_APPLICABLE` for
+  all evaluation results. This can occur if the resources were deleted or
+  removed from the rule's scope.
+
+  </li> </ul>
   """
   def describe_compliance_by_config_rule(client, input, options \\ []) do
     request(client, "DescribeComplianceByConfigRule", input, options)
@@ -132,17 +151,21 @@ defmodule AWS.Config do
   returns `INSUFFICIENT_DATA`. This result might indicate one of the
   following conditions about the rules that evaluate the resource:
 
-  <ul> <li>AWS Config has never invoked an evaluation for the rule. To check
+  <ul> <li> AWS Config has never invoked an evaluation for the rule. To check
   whether it has, use the `DescribeConfigRuleEvaluationStatus` action to get
-  the `LastSuccessfulInvocationTime` and `LastFailedInvocationTime`.</li>
-  <li>The rule's AWS Lambda function is failing to send evaluation results to
-  AWS Config. Verify that the role that you assigned to your configuration
-  recorder includes the `config:PutEvaluations` permission. If the rule is a
-  customer managed rule, verify that the AWS Lambda execution role includes
-  the `config:PutEvaluations` permission.</li> <li>The rule's AWS Lambda
-  function has returned `NOT_APPLICABLE` for all evaluation results. This can
-  occur if the resources were deleted or removed from the rule's scope.</li>
-  </ul>
+  the `LastSuccessfulInvocationTime` and `LastFailedInvocationTime`.
+
+  </li> <li> The rule's AWS Lambda function is failing to send evaluation
+  results to AWS Config. Verify that the role that you assigned to your
+  configuration recorder includes the `config:PutEvaluations` permission. If
+  the rule is a custom rule, verify that the AWS Lambda execution role
+  includes the `config:PutEvaluations` permission.
+
+  </li> <li> The rule's AWS Lambda function has returned `NOT_APPLICABLE` for
+  all evaluation results. This can occur if the resources were deleted or
+  removed from the rule's scope.
+
+  </li> </ul>
   """
   def describe_compliance_by_resource(client, input, options \\ []) do
     request(client, "DescribeComplianceByResource", input, options)
@@ -171,7 +194,7 @@ defmodule AWS.Config do
   all configuration recorder associated with the account.
 
   <note> Currently, you can specify only one configuration recorder per
-  account.
+  region in your account.
 
   </note>
   """
@@ -180,12 +203,12 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Returns the name of one or more specified configuration recorders. If the
-  recorder name is not specified, this action returns the names of all the
-  configuration recorders associated with the account.
+  Returns the details for the specified configuration recorders. If the
+  configuration recorder is not specified, this action returns the details
+  for all configuration recorders associated with the account.
 
   <note> Currently, you can specify only one configuration recorder per
-  account.
+  region in your account.
 
   </note>
   """
@@ -198,7 +221,8 @@ defmodule AWS.Config do
   channel is not specified, this action returns the current status of all
   delivery channels associated with the account.
 
-  <note> Currently, you can specify only one delivery channel per account.
+  <note> Currently, you can specify only one delivery channel per region in
+  your account.
 
   </note>
   """
@@ -211,7 +235,8 @@ defmodule AWS.Config do
   is not specified, this action returns the details of all delivery channels
   associated with the account.
 
-  <note> Currently, you can specify only one delivery channel per account.
+  <note> Currently, you can specify only one delivery channel per region in
+  your account.
 
   </note>
   """
@@ -301,15 +326,15 @@ defmodule AWS.Config do
   Adds or updates an AWS Config rule for evaluating whether your AWS
   resources comply with your desired configurations.
 
-  You can use this action for customer managed Config rules and AWS managed
-  Config rules. A customer managed Config rule is a custom rule that you
-  develop and maintain. An AWS managed Config rule is a customizable,
-  predefined rule that is provided by AWS Config.
+  You can use this action for custom Config rules and AWS managed Config
+  rules. A custom Config rule is a rule that you develop and maintain. An AWS
+  managed Config rule is a customizable, predefined rule that AWS Config
+  provides.
 
-  If you are adding a new customer managed Config rule, you must first create
-  the AWS Lambda function that the rule invokes to evaluate your resources.
-  When you use the `PutConfigRule` action to add the rule to AWS Config, you
-  must specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the
+  If you are adding a new custom Config rule, you must first create the AWS
+  Lambda function that the rule invokes to evaluate your resources. When you
+  use the `PutConfigRule` action to add the rule to AWS Config, you must
+  specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the
   function. Specify the ARN for the `SourceIdentifier` key. This key is part
   of the `Source` object, which is part of the `ConfigRule` object.
 
@@ -322,18 +347,21 @@ defmodule AWS.Config do
   `ConfigRule` object. Do not specify the `ConfigRuleArn` or the
   `ConfigRuleId`. These values are generated by AWS Config for new rules.
 
-  If you are updating a rule that you have added previously, specify the
-  rule's `ConfigRuleName`, `ConfigRuleId`, or `ConfigRuleArn` in the
+  If you are updating a rule that you added previously, you can specify the
+  rule by `ConfigRuleName`, `ConfigRuleId`, or `ConfigRuleArn` in the
   `ConfigRule` data type that you use in this request.
 
-  The maximum number of rules that AWS Config supports is 25.
+  The maximum number of rules that AWS Config supports is 50.
+
+  For more information about requesting a rule limit increase, see [AWS
+  Config
+  Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config)
+  in the *AWS General Reference Guide*.
 
   For more information about developing and using AWS Config rules, see
   [Evaluating AWS Resource Configurations with AWS
   Config](http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html)
   in the *AWS Config Developer Guide*.
-
-  <p/>
   """
   def put_config_rule(client, input, options \\ []) do
     request(client, "PutConfigRule", input, options)
@@ -348,7 +376,7 @@ defmodule AWS.Config do
   action on the existing configuration recorder and specify a role.
 
   <note> Currently, you can specify only one configuration recorder per
-  account.
+  region in your account.
 
   If `ConfigurationRecorder` does not have the **recordingGroup** parameter
   specified, the default is to record all supported resource types.
@@ -373,7 +401,7 @@ defmodule AWS.Config do
   either the S3 bucket or the SNS topic, this action will keep the existing
   value for the parameter that is not changed.
 
-  <note> You can have only one delivery channel per AWS account.
+  <note> You can have only one delivery channel per region in your account.
 
   </note>
   """
@@ -388,6 +416,49 @@ defmodule AWS.Config do
   """
   def put_evaluations(client, input, options \\ []) do
     request(client, "PutEvaluations", input, options)
+  end
+
+  @doc """
+  Runs an on-demand evaluation for the specified Config rules against the
+  last known configuration state of the resources. Use
+  `StartConfigRulesEvaluation` when you want to test a rule that you updated
+  is working as expected. `StartConfigRulesEvaluation` does not re-record the
+  latest configuration state for your resources; it re-runs an evaluation
+  against the last known state of your resources.
+
+  You can specify up to 25 Config rules per request.
+
+  An existing `StartConfigRulesEvaluation` call must complete for the
+  specified rules before you can call the API again. If you chose to have AWS
+  Config stream to an Amazon SNS topic, you will receive a
+  `ConfigRuleEvaluationStarted` notification when the evaluation starts.
+
+  <note> You don't need to call the `StartConfigRulesEvaluation` API to run
+  an evaluation for a new rule. When you create a new rule, AWS Config
+  automatically evaluates your resources against the rule.
+
+  </note> The `StartConfigRulesEvaluation` API is useful if you want to run
+  on-demand evaluations, such as the following example:
+
+  <ol> <li> You have a custom rule that evaluates your IAM resources every 24
+  hours.
+
+  </li> <li> You update your Lambda function to add additional conditions to
+  your rule.
+
+  </li> <li> Instead of waiting for the next periodic evaluation, you call
+  the `StartConfigRulesEvaluation` API.
+
+  </li> <li> AWS Config invokes your Lambda function and evaluates your IAM
+  resources.
+
+  </li> <li> Your custom rule will still run periodic evaluations every 24
+  hours.
+
+  </li> </ol>
+  """
+  def start_config_rules_evaluation(client, input, options \\ []) do
+    request(client, "StartConfigRulesEvaluation", input, options)
   end
 
   @doc """

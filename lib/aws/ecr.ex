@@ -17,8 +17,8 @@ defmodule AWS.ECR do
   repository.
 
   <note> This operation is used by the Amazon ECR proxy, and it is not
-  intended for general use by customers. Use the `docker` CLI to pull, tag,
-  and push images.
+  intended for general use by customers for pulling and pushing images. In
+  most cases, you should use the `docker` CLI to pull, tag, and push images.
 
   </note>
   """
@@ -29,6 +29,13 @@ defmodule AWS.ECR do
   @doc """
   Deletes a list of specified images within a specified repository. Images
   are specified with either `imageTag` or `imageDigest`.
+
+  You can remove a tag from an image by specifying the image's tag in your
+  request. When you remove the last tag from an image, the image is deleted
+  from your repository.
+
+  You can completely delete an image (and all of its tags) by specifying the
+  image's digest in your request.
   """
   def batch_delete_image(client, input, options \\ []) do
     request(client, "BatchDeleteImage", input, options)
@@ -48,8 +55,8 @@ defmodule AWS.ECR do
   `sha256` digest of the image layer for data validation purposes.
 
   <note> This operation is used by the Amazon ECR proxy, and it is not
-  intended for general use by customers. Use the `docker` CLI to pull, tag,
-  and push images.
+  intended for general use by customers for pulling and pushing images. In
+  most cases, you should use the `docker` CLI to pull, tag, and push images.
 
   </note>
   """
@@ -80,6 +87,21 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Returns metadata about the images in a repository, including image size,
+  image tags, and creation date.
+
+  <note> Beginning with Docker version 1.9, the Docker client compresses
+  image layers before pushing them to a V2 Docker registry. The output of the
+  `docker images` command shows the uncompressed image size, so it may return
+  a larger image size than the image sizes returned by `DescribeImages`.
+
+  </note>
+  """
+  def describe_images(client, input, options \\ []) do
+    request(client, "DescribeImages", input, options)
+  end
+
+  @doc """
   Describes image repositories in a registry.
   """
   def describe_repositories(client, input, options \\ []) do
@@ -107,8 +129,8 @@ defmodule AWS.ECR do
   image.
 
   <note> This operation is used by the Amazon ECR proxy, and it is not
-  intended for general use by customers. Use the `docker` CLI to pull, tag,
-  and push images.
+  intended for general use by customers for pulling and pushing images. In
+  most cases, you should use the `docker` CLI to pull, tag, and push images.
 
   </note>
   """
@@ -127,8 +149,8 @@ defmodule AWS.ECR do
   Notify Amazon ECR that you intend to upload an image layer.
 
   <note> This operation is used by the Amazon ECR proxy, and it is not
-  intended for general use by customers. Use the `docker` CLI to pull, tag,
-  and push images.
+  intended for general use by customers for pulling and pushing images. In
+  most cases, you should use the `docker` CLI to pull, tag, and push images.
 
   </note>
   """
@@ -138,17 +160,24 @@ defmodule AWS.ECR do
 
   @doc """
   Lists all the image IDs for a given repository.
+
+  You can filter images based on whether or not they are tagged by setting
+  the `tagStatus` parameter to `TAGGED` or `UNTAGGED`. For example, you can
+  filter your results to return only `UNTAGGED` images and then pipe that
+  result to a `BatchDeleteImage` operation to delete them. Or, you can filter
+  your results to return only `TAGGED` images to list all of the tags in your
+  repository.
   """
   def list_images(client, input, options \\ []) do
     request(client, "ListImages", input, options)
   end
 
   @doc """
-  Creates or updates the image manifest associated with an image.
+  Creates or updates the image manifest and tags associated with an image.
 
   <note> This operation is used by the Amazon ECR proxy, and it is not
-  intended for general use by customers. Use the `docker` CLI to pull, tag,
-  and push images.
+  intended for general use by customers for pulling and pushing images. In
+  most cases, you should use the `docker` CLI to pull, tag, and push images.
 
   </note>
   """
@@ -168,8 +197,8 @@ defmodule AWS.ECR do
   Uploads an image layer part to Amazon ECR.
 
   <note> This operation is used by the Amazon ECR proxy, and it is not
-  intended for general use by customers. Use the `docker` CLI to pull, tag,
-  and push images.
+  intended for general use by customers for pulling and pushing images. In
+  most cases, you should use the `docker` CLI to pull, tag, and push images.
 
   </note>
   """

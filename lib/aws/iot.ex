@@ -167,10 +167,19 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a thing in the Thing Registry.
+  Creates a thing record in the thing registry.
   """
   def create_thing(client, thing_name, input, options \\ []) do
     url = "/things/#{URI.encode(thing_name)}"
+    headers = []
+    request(client, :post, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a new thing type.
+  """
+  def create_thing_type(client, thing_type_name, input, options \\ []) do
+    url = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
     request(client, :post, url, headers, input, options, nil)
   end
@@ -190,7 +199,7 @@ defmodule AWS.IoT do
   Deletes a registered CA certificate.
   """
   def delete_c_a_certificate(client, certificate_id, input, options \\ []) do
-    url = "/cacertificate/{caCertificateId}"
+    url = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
     request(client, :delete, url, headers, input, options, nil)
   end
@@ -251,10 +260,23 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified thing from the Thing Registry.
+  Deletes the specified thing.
   """
   def delete_thing(client, thing_name, input, options \\ []) do
     url = "/things/#{URI.encode(thing_name)}"
+    headers = []
+    request(client, :delete, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes the specified thing type . You cannot delete a thing type if it has
+  things associated with it. To delete a thing type, first mark it as
+  deprecated by calling `DeprecateThingType`, then remove any associated
+  things by calling `UpdateThing` to change the thing type on any associated
+  thing, and finally use `DeleteThingType` to delete the thing type.
+  """
+  def delete_thing_type(client, thing_type_name, input, options \\ []) do
+    url = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
     request(client, :delete, url, headers, input, options, nil)
   end
@@ -269,10 +291,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Deprecates a thing type. You can not associate new things with deprecated
+  thing type.
+  """
+  def deprecate_thing_type(client, thing_type_name, input, options \\ []) do
+    url = "/thing-types/#{URI.encode(thing_type_name)}/deprecate"
+    headers = []
+    request(client, :post, url, headers, input, options, nil)
+  end
+
+  @doc """
   Describes a registered CA certificate.
   """
   def describe_c_a_certificate(client, certificate_id, options \\ []) do
-    url = "/cacertificate/{caCertificateId}"
+    url = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
     request(client, :get, url, headers, nil, options, nil)
   end
@@ -300,6 +332,15 @@ defmodule AWS.IoT do
   """
   def describe_thing(client, thing_name, options \\ []) do
     url = "/things/#{URI.encode(thing_name)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about the specified thing type.
+  """
+  def describe_thing_type(client, thing_type_name, options \\ []) do
+    url = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
     request(client, :get, url, headers, nil, options, nil)
   end
@@ -428,6 +469,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Lists certificates that are being transfered but not yet accepted.
+  """
+  def list_outgoing_certificates(client, options \\ []) do
+    url = "/certificates-out-going"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists your policies.
   """
   def list_policies(client, options \\ []) do
@@ -494,9 +544,19 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists your things. You can pass an AttributeName or AttributeValue to
-  filter your things (for example, "ListThings where AttributeName=Color and
-  AttributeValue=Red").
+  Lists the existing thing types.
+  """
+  def list_thing_types(client, options \\ []) do
+    url = "/thing-types"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists your things. Use the **attributeName** and **attributeValue**
+  parameters to filter your things. For example, calling `ListThings` with
+  attributeName=Color and attributeValue=Red retrieves all things in the
+  registry that contain an attribute **Color** with the value **Red**.
   """
   def list_things(client, options \\ []) do
     url = "/things"
@@ -615,7 +675,7 @@ defmodule AWS.IoT do
   Updates a registered CA certificate.
   """
   def update_c_a_certificate(client, certificate_id, input, options \\ []) do
-    url = "/cacertificate/{caCertificateId}"
+    url = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
     request(client, :put, url, headers, input, options, nil)
   end

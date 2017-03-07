@@ -11,10 +11,12 @@ defmodule AWS.Transcoder do
   @doc """
   The CancelJob operation cancels an unfinished job.
 
-  <note>You can only cancel a job that has a status of `Submitted`. To
+  <note> You can only cancel a job that has a status of `Submitted`. To
   prevent a pipeline from starting to process a job while you're getting the
   job identifier, use `UpdatePipelineStatus` to temporarily pause the
-  pipeline.</note>
+  pipeline.
+
+  </note>
   """
   def cancel_job(client, id, input, options \\ []) do
     url = "/2012-09-25/jobs/#{URI.encode(id)}"
@@ -51,7 +53,7 @@ defmodule AWS.Transcoder do
   @doc """
   The CreatePreset operation creates a preset with settings that you specify.
 
-  <important>Elastic Transcoder checks the CreatePreset settings to ensure
+  <important> Elastic Transcoder checks the CreatePreset settings to ensure
   that they meet Elastic Transcoder requirements and to determine whether
   they comply with H.264 standards. If your settings are not valid for
   Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response
@@ -60,10 +62,12 @@ defmodule AWS.Transcoder do
   standard, Elastic Transcoder creates the preset and returns a warning
   message in the response. This helps you determine whether your settings
   comply with the H.264 standard while giving you greater flexibility with
-  respect to the video that Elastic Transcoder produces.</important> Elastic
-  Transcoder uses the H.264 video-compression format. For more information,
-  see the International Telecommunication Union publication *Recommendation
-  ITU-T H.264: Advanced video coding for generic audiovisual services*.
+  respect to the video that Elastic Transcoder produces.
+
+  </important> Elastic Transcoder uses the H.264 video-compression format.
+  For more information, see the International Telecommunication Union
+  publication *Recommendation ITU-T H.264: Advanced video coding for generic
+  audiovisual services*.
   """
   def create_preset(client, input, options \\ []) do
     url = "/2012-09-25/presets"
@@ -188,10 +192,13 @@ defmodule AWS.Transcoder do
 
   @doc """
   Use the `UpdatePipeline` operation to update settings for a pipeline.
-  <important>When you change pipeline settings, your changes take effect
+
+  <important> When you change pipeline settings, your changes take effect
   immediately. Jobs that you have already submitted and that Elastic
   Transcoder has not started to process are affected in addition to jobs that
-  you submit after you change settings. </important>
+  you submit after you change settings.
+
+  </important>
   """
   def update_pipeline(client, id, input, options \\ []) do
     url = "/2012-09-25/pipelines/#{URI.encode(id)}"

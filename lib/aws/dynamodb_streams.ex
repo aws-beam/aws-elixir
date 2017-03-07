@@ -10,22 +10,6 @@ defmodule AWS.DynamoDB.Streams do
   Streams, see [Capturing Table Activity with DynamoDB
   Streams](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html)
   in the Amazon DynamoDB Developer Guide.
-
-  The following are short descriptions of each low-level DynamoDB Streams
-  action:
-
-  <ul> <li> *DescribeStream* - Returns detailed information about a
-  particular stream.
-
-  </li> <li> *GetRecords* - Retrieves the stream records from within a shard.
-
-  </li> <li> *GetShardIterator* - Returns information on how to retrieve the
-  streams record from a shard with a given shard ID.
-
-  </li> <li> *ListStreams* - Returns a list of all the streams associated
-  with the current AWS account and endpoint.
-
-  </li> </ul>
   """
 
   @doc """
@@ -33,7 +17,7 @@ defmodule AWS.DynamoDB.Streams do
   stream, its Amazon Resource Name (ARN), the composition of its shards, and
   its corresponding DynamoDB table.
 
-  <note> You can call *DescribeStream* at a maximum rate of 10 times per
+  <note> You can call `DescribeStream` at a maximum rate of 10 times per
   second.
 
   </note> Each shard in the stream has a `SequenceNumberRange` associated
@@ -83,10 +67,10 @@ defmodule AWS.DynamoDB.Streams do
 
   @doc """
   Returns an array of stream ARNs associated with the current account and
-  endpoint. If the `TableName` parameter is present, then *ListStreams* will
+  endpoint. If the `TableName` parameter is present, then `ListStreams` will
   return only the streams ARNs for that table.
 
-  <note> You can call *ListStreams* at a maximum rate of 5 times per second.
+  <note> You can call `ListStreams` at a maximum rate of 5 times per second.
 
   </note>
   """

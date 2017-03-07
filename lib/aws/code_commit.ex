@@ -6,45 +6,80 @@ defmodule AWS.CodeCommit do
   AWS CodeCommit
 
   This is the *AWS CodeCommit API Reference*. This reference provides
-  descriptions of the operations and data types for AWS CodeCommit API.
+  descriptions of the operations and data types for AWS CodeCommit API along
+  with usage examples.
 
   You can use the AWS CodeCommit API to work with the following objects:
 
-  <ul> <li>Repositories, by calling the following: <ul>
-  <li>`BatchGetRepositories`, which returns information about one or more
-  repositories associated with your AWS account</li> <li>`CreateRepository`,
-  which creates an AWS CodeCommit repository</li> <li>`DeleteRepository`,
-  which deletes an AWS CodeCommit repository</li> <li>`GetRepository`, which
-  returns information about a specified repository</li>
-  <li>`ListRepositories`, which lists all AWS CodeCommit repositories
-  associated with your AWS account</li> <li>`UpdateRepositoryDescription`,
-  which sets or updates the description of the repository</li>
-  <li>`UpdateRepositoryName`, which changes the name of the repository. If
-  you change the name of a repository, no other users of that repository will
-  be able to access it until you send them the new HTTPS or SSH URL to
-  use.</li> </ul></li> <li>Branches, by calling the following: <ul>
-  <li>`CreateBranch`, which creates a new branch in a specified
-  repository</li> <li>`GetBranch`, which returns information about a
-  specified branch</li> <li>`ListBranches`, which lists all branches for a
-  specified repository</li> <li>`UpdateDefaultBranch`, which changes the
-  default branch for a repository</li> </ul></li> <li>Information about
-  committed code in a repository, by calling the following: <ul>
-  <li>`GetCommit`, which returns information about a commit, including commit
-  messages and committer information.</li> </ul></li> <li>Triggers, by
-  calling the following: <ul> <li>`GetRepositoryTriggers`, which returns
-  information about triggers configured for a repository</li>
-  <li>`PutRepositoryTriggers`, which replaces all triggers for a repository
-  and can be used to create or delete triggers</li>
-  <li>`TestRepositoryTriggers`, which tests the functionality of a repository
-  trigger by sending data to the trigger target</li> </ul> </li> </ul> For
-  information about how to use AWS CodeCommit, see the [AWS CodeCommit User
+  Repositories, by calling the following:
+
+  <ul> <li> `BatchGetRepositories`, which returns information about one or
+  more repositories associated with your AWS account
+
+  </li> <li> `CreateRepository`, which creates an AWS CodeCommit repository
+
+  </li> <li> `DeleteRepository`, which deletes an AWS CodeCommit repository
+
+  </li> <li> `GetRepository`, which returns information about a specified
+  repository
+
+  </li> <li> `ListRepositories`, which lists all AWS CodeCommit repositories
+  associated with your AWS account
+
+  </li> <li> `UpdateRepositoryDescription`, which sets or updates the
+  description of the repository
+
+  </li> <li> `UpdateRepositoryName`, which changes the name of the
+  repository. If you change the name of a repository, no other users of that
+  repository will be able to access it until you send them the new HTTPS or
+  SSH URL to use.
+
+  </li> </ul> Branches, by calling the following:
+
+  <ul> <li> `CreateBranch`, which creates a new branch in a specified
+  repository
+
+  </li> <li> `GetBranch`, which returns information about a specified branch
+
+  </li> <li> `ListBranches`, which lists all branches for a specified
+  repository
+
+  </li> <li> `UpdateDefaultBranch`, which changes the default branch for a
+  repository
+
+  </li> </ul> Information about committed code in a repository, by calling
+  the following:
+
+  <ul> <li> `GetBlob`, which returns the base-64 encoded content of an
+  individual Git blob object within a repository
+
+  </li> <li> `GetCommit`, which returns information about a commit, including
+  commit messages and author and committer information
+
+  </li> <li> `GetDifferences`, which returns information about the
+  differences in a valid commit specifier (such as a branch, tag, HEAD,
+  commit ID or other fully qualified reference)
+
+  </li> </ul> Triggers, by calling the following:
+
+  <ul> <li> `GetRepositoryTriggers`, which returns information about triggers
+  configured for a repository
+
+  </li> <li> `PutRepositoryTriggers`, which replaces all triggers for a
+  repository and can be used to create or delete triggers
+
+  </li> <li> `TestRepositoryTriggers`, which tests the functionality of a
+  repository trigger by sending data to the trigger target
+
+  </li> </ul> For information about how to use AWS CodeCommit, see the [AWS
+  CodeCommit User
   Guide](http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
   """
 
   @doc """
   Returns information about one or more repositories.
 
-  <note>The description field for a repository accepts all HTML characters
+  <note> The description field for a repository accepts all HTML characters
   and all valid Unicode characters. Applications that do not HTML-encode the
   description and display it in a web page could expose users to potentially
   malicious code. Make sure that you HTML-encode the description field in any
@@ -60,7 +95,7 @@ defmodule AWS.CodeCommit do
   @doc """
   Creates a new branch in a repository and points the branch to a commit.
 
-  <note>Calling the create branch operation does not set a repository's
+  <note> Calling the create branch operation does not set a repository's
   default branch. To do this, call the update default branch operation.
 
   </note>
@@ -82,10 +117,20 @@ defmodule AWS.CodeCommit do
 
   <important>Deleting a repository also deletes all associated objects and
   metadata. After a repository is deleted, all future push calls to the
-  deleted repository will fail.</important>
+  deleted repository will fail.
+
+  </important>
   """
   def delete_repository(client, input, options \\ []) do
     request(client, "DeleteRepository", input, options)
+  end
+
+  @doc """
+  Returns the base-64 encoded content of an individual blob within a
+  repository.
+  """
+  def get_blob(client, input, options \\ []) do
+    request(client, "GetBlob", input, options)
   end
 
   @doc """
@@ -105,9 +150,18 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Returns information about the differences in a valid commit specifier (such
+  as a branch, tag, HEAD, commit ID or other fully qualified reference).
+  Results can be limited to a specified path.
+  """
+  def get_differences(client, input, options \\ []) do
+    request(client, "GetDifferences", input, options)
+  end
+
+  @doc """
   Returns information about a repository.
 
-  <note>The description field for a repository accepts all HTML characters
+  <note> The description field for a repository accepts all HTML characters
   and all valid Unicode characters. Applications that do not HTML-encode the
   description and display it in a web page could expose users to potentially
   malicious code. Make sure that you HTML-encode the description field in any
@@ -162,7 +216,7 @@ defmodule AWS.CodeCommit do
   @doc """
   Sets or changes the default branch name for the specified repository.
 
-  <note>If you use this operation to change the default branch name to the
+  <note> If you use this operation to change the default branch name to the
   current default branch name, a success message is returned even though the
   default branch did not change.
 
@@ -175,7 +229,7 @@ defmodule AWS.CodeCommit do
   @doc """
   Sets or changes the comment or description for a repository.
 
-  <note>The description field for a repository accepts all HTML characters
+  <note> The description field for a repository accepts all HTML characters
   and all valid Unicode characters. Applications that do not HTML-encode the
   description and display it in a web page could expose users to potentially
   malicious code. Make sure that you HTML-encode the description field in any

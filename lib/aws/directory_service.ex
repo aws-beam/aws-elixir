@@ -5,22 +5,72 @@ defmodule AWS.DirectoryService do
   @moduledoc """
   AWS Directory Service
 
-  This is the *AWS Directory Service API Reference*. This guide provides
+  AWS Directory Service is a web service that makes it easy for you to setup
+  and run directories in the AWS cloud, or connect your AWS resources with an
+  existing on-premises Microsoft Active Directory. This guide provides
   detailed information about AWS Directory Service operations, data types,
-  parameters, and errors.
+  parameters, and errors. For information about AWS Directory Services
+  features, see [AWS Directory
+  Service](https://aws.amazon.com/directoryservice/) and the [AWS Directory
+  Service Administration
+  Guide](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html).
+
+  <note> AWS provides SDKs that consist of libraries and sample code for
+  various programming languages and platforms (Java, Ruby, .Net, iOS,
+  Android, etc.). The SDKs provide a convenient way to create programmatic
+  access to AWS Directory Service and other AWS services. For more
+  information about the AWS SDKs, including how to download and install them,
+  see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+
+  </note>
   """
 
   @doc """
-  Adds or overwrites one or more tags for the specified Amazon Directory
-  Services directory. Each directory can have a maximum of 10 tags. Each tag
-  consists of a key and optional value. Tag keys must be unique per resource.
+  If the DNS server for your on-premises domain uses a publicly addressable
+  IP address, you must add a CIDR address block to correctly route traffic to
+  and from your Microsoft AD on Amazon Web Services. *AddIpRoutes* adds this
+  address block. You can also use *AddIpRoutes* to facilitate routing traffic
+  that uses public IP ranges from your Microsoft AD on AWS to a peer VPC.
+
+  Before you call *AddIpRoutes*, ensure that all of the required permissions
+  have been explicitly granted through a policy. For details about what
+  permissions are required to run the *AddIpRoutes* operation, see [AWS
+  Directory Service API Permissions: Actions, Resources, and Conditions
+  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
+  """
+  def add_ip_routes(client, input, options \\ []) do
+    request(client, "AddIpRoutes", input, options)
+  end
+
+  @doc """
+  Adds or overwrites one or more tags for the specified directory. Each
+  directory can have a maximum of 50 tags. Each tag consists of a key and
+  optional value. Tag keys must be unique to each resource.
   """
   def add_tags_to_resource(client, input, options \\ []) do
     request(client, "AddTagsToResource", input, options)
   end
 
   @doc """
+  Cancels an in-progress schema extension to a Microsoft AD directory. Once a
+  schema extension has started replicating to all domain controllers, the
+  task can no longer be canceled. A schema extension can be canceled during
+  any of the following states; `Initializing`, `CreatingSnapshot`, and
+  `UpdatingSchema`.
+  """
+  def cancel_schema_extension(client, input, options \\ []) do
+    request(client, "CancelSchemaExtension", input, options)
+  end
+
+  @doc """
   Creates an AD Connector to connect to an on-premises directory.
+
+  Before you call *ConnectDirectory*, ensure that all of the required
+  permissions have been explicitly granted through a policy. For details
+  about what permissions are required to run the *ConnectDirectory*
+  operation, see [AWS Directory Service API Permissions: Actions, Resources,
+  and Conditions
+  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def connect_directory(client, input, options \\ []) do
     request(client, "ConnectDirectory", input, options)
@@ -60,6 +110,13 @@ defmodule AWS.DirectoryService do
 
   @doc """
   Creates a Simple AD directory.
+
+  Before you call *CreateDirectory*, ensure that all of the required
+  permissions have been explicitly granted through a policy. For details
+  about what permissions are required to run the *CreateDirectory* operation,
+  see [AWS Directory Service API Permissions: Actions, Resources, and
+  Conditions
+  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def create_directory(client, input, options \\ []) do
     request(client, "CreateDirectory", input, options)
@@ -67,6 +124,13 @@ defmodule AWS.DirectoryService do
 
   @doc """
   Creates a Microsoft AD in the AWS cloud.
+
+  Before you call *CreateMicrosoftAD*, ensure that all of the required
+  permissions have been explicitly granted through a policy. For details
+  about what permissions are required to run the *CreateMicrosoftAD*
+  operation, see [AWS Directory Service API Permissions: Actions, Resources,
+  and Conditions
+  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def create_microsoft_a_d(client, input, options \\ []) do
     request(client, "CreateMicrosoftAD", input, options)
@@ -109,6 +173,13 @@ defmodule AWS.DirectoryService do
 
   @doc """
   Deletes an AWS Directory Service directory.
+
+  Before you call *DeleteDirectory*, ensure that all of the required
+  permissions have been explicitly granted through a policy. For details
+  about what permissions are required to run the *DeleteDirectory* operation,
+  see [AWS Directory Service API Permissions: Actions, Resources, and
+  Conditions
+  Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def delete_directory(client, input, options \\ []) do
     request(client, "DeleteDirectory", input, options)
@@ -227,7 +298,7 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Enables single-sign on for a directory.
+  Enables single sign-on for a directory.
   """
   def enable_sso(client, input, options \\ []) do
     request(client, "EnableSso", input, options)
@@ -248,7 +319,21 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Lists all tags on an Amazon Directory Services directory.
+  Lists the address blocks that you have added to a directory.
+  """
+  def list_ip_routes(client, input, options \\ []) do
+    request(client, "ListIpRoutes", input, options)
+  end
+
+  @doc """
+  Lists all schema extensions applied to a Microsoft AD Directory.
+  """
+  def list_schema_extensions(client, input, options \\ []) do
+    request(client, "ListSchemaExtensions", input, options)
+  end
+
+  @doc """
+  Lists all tags on a directory.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -267,7 +352,14 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Removes tags from an Amazon Directory Services directory.
+  Removes IP address blocks from a directory.
+  """
+  def remove_ip_routes(client, input, options \\ []) do
+    request(client, "RemoveIpRoutes", input, options)
+  end
+
+  @doc """
+  Removes tags from a directory.
   """
   def remove_tags_from_resource(client, input, options \\ []) do
     request(client, "RemoveTagsFromResource", input, options)
@@ -287,6 +379,13 @@ defmodule AWS.DirectoryService do
   """
   def restore_from_snapshot(client, input, options \\ []) do
     request(client, "RestoreFromSnapshot", input, options)
+  end
+
+  @doc """
+  Applies a schema extension to a Microsoft AD directory.
+  """
+  def start_schema_extension(client, input, options \\ []) do
+    request(client, "StartSchemaExtension", input, options)
   end
 
   @doc """

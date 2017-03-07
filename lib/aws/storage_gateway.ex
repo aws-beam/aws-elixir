@@ -15,21 +15,21 @@ defmodule AWS.StorageGateway do
   Service API Reference*:
 
   <ul> <li> [AWS Storage Gateway Required Request
-  Headers](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayHTTPRequestsHeaders.html):
+  Headers](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders):
   Describes the required headers that you must send with every POST request
   to AWS Storage Gateway.
 
   </li> <li> [Signing
-  Requests](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewaySigningRequests.html):
+  Requests](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests):
   AWS Storage Gateway requires that you authenticate every request you send;
   this topic describes how sign such a request.
 
   </li> <li> [Error
-  Responses](http://docs.aws.amazon.com/storagegateway/latest/userguide/APIErrorResponses.html):
+  Responses](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses):
   Provides reference information about AWS Storage Gateway errors.
 
   </li> <li> [Operations in AWS Storage
-  Gateway](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPIOperations.html):
+  Gateway](http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html):
   Contains detailed descriptions of all AWS Storage Gateway operations, their
   request parameters, response elements, possible errors, and examples of
   requests and responses.
@@ -79,7 +79,8 @@ defmodule AWS.StorageGateway do
   gateway. The activation process also associates your gateway with your
   account; for more information, see `UpdateGatewayInformation`.
 
-  <note>You must turn on the gateway VM before you can activate your gateway.
+  <note> You must turn on the gateway VM before you can activate your
+  gateway.
 
   </note>
   """
@@ -174,19 +175,34 @@ defmodule AWS.StorageGateway do
   Creates a cached volume on a specified cached gateway. This operation is
   supported only for the gateway-cached volume architecture.
 
-  <note>Cache storage must be allocated to the gateway before you can create
+  <note> Cache storage must be allocated to the gateway before you can create
   a cached volume. Use the `AddCache` operation to add cache storage to a
   gateway.
 
   </note> In the request, you must specify the gateway, size of the volume in
   bytes, the iSCSI target name, an IP address on which to expose the target,
   and a unique client token. In response, AWS Storage Gateway creates the
-  volume and returns information about it such as the volume Amazon Resource
-  Name (ARN), its size, and the iSCSI target ARN that initiators can use to
-  connect to the volume target.
+  volume and returns information about it. This information includes the
+  volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
+  initiators can use to connect to the volume target.
+
+  Optionally, you can provide the ARN for an existing volume as the
+  `SourceVolumeARN` for this cached volume, which creates an exact copy of
+  the existing volume’s latest recovery point. The `VolumeSizeInBytes` value
+  must be equal to or larger than the size of the copied volume, in bytes.
   """
   def create_cached_iscsi_volume(client, input, options \\ []) do
     request(client, "CreateCachediSCSIVolume", input, options)
+  end
+
+  @doc """
+  Creates a file share on an existing file gateway. In Storage Gateway, a
+  file share is a file system mount point backed by Amazon S3 cloud storage.
+  Storage Gateway exposes file shares using a Network File System (NFS)
+  interface.
+  """
+  def create_nfs_file_share(client, input, options \\ []) do
+    request(client, "CreateNFSFileShare", input, options)
   end
 
   @doc """
@@ -209,7 +225,7 @@ defmodule AWS.StorageGateway do
   snapshot ID to check the snapshot progress or later use it when you want to
   create a volume from a snapshot.
 
-  <note>To list or delete a snapshot, you must use the Amazon EC2 API. For
+  <note> To list or delete a snapshot, you must use the Amazon EC2 API. For
   more information, see DescribeSnapshots or DeleteSnapshot in the [EC2 API
   reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html).
 
@@ -273,7 +289,7 @@ defmodule AWS.StorageGateway do
   Creates a virtual tape by using your own barcode. You write data to the
   virtual tape and then archive the tape.
 
-  <note>Cache storage must be allocated to the gateway before you can create
+  <note> Cache storage must be allocated to the gateway before you can create
   a virtual tape. Use the `AddCache` operation to add cache storage to a
   gateway.
 
@@ -287,7 +303,7 @@ defmodule AWS.StorageGateway do
   Creates one or more virtual tapes. You write data to the virtual tapes and
   then archive the tapes.
 
-  <note>Cache storage must be allocated to the gateway before you can create
+  <note> Cache storage must be allocated to the gateway before you can create
   virtual tapes. Use the `AddCache` operation to add cache storage to a
   gateway.
 
@@ -314,6 +330,13 @@ defmodule AWS.StorageGateway do
   """
   def delete_chap_credentials(client, input, options \\ []) do
     request(client, "DeleteChapCredentials", input, options)
+  end
+
+  @doc """
+  Deletes a file share from a file gateway.
+  """
+  def delete_file_share(client, input, options \\ []) do
+    request(client, "DeleteFileShare", input, options)
   end
 
   @doc """
@@ -461,6 +484,13 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Gets a description for one or more file shares from a file gateway.
+  """
+  def describe_nfs_file_shares(client, input, options \\ []) do
+    request(client, "DescribeNFSFileShares", input, options)
+  end
+
+  @doc """
   Describes the snapshot schedule for the specified gateway volume. The
   snapshot schedule information includes intervals at which snapshots are
   automatically initiated on the volume.
@@ -560,12 +590,20 @@ defmodule AWS.StorageGateway do
   Use this operation for a gateway-VTL that is not reachable or not
   functioning.
 
-  <important>Once a gateway is disabled it cannot be enabled.
+  <important> Once a gateway is disabled it cannot be enabled.
 
   </important>
   """
   def disable_gateway(client, input, options \\ []) do
     request(client, "DisableGateway", input, options)
+  end
+
+  @doc """
+  Gets a list of the file shares for a specific file gateway, or the list of
+  file shares that belong to the calling user account.
+  """
+  def list_file_shares(client, input, options \\ []) do
+    request(client, "ListFileShares", input, options)
   end
 
   @doc """
@@ -650,7 +688,8 @@ defmodule AWS.StorageGateway do
   @doc """
   Lists the iSCSI stored volumes of a gateway. Results are sorted by volume
   ARN. The response includes only the volume ARNs. If you want additional
-  volume information, use the `DescribeStorediSCSIVolumes` API.
+  volume information, use the `DescribeStorediSCSIVolumes` or the
+  `DescribeCachediSCSIVolumes` API.
 
   The operation supports pagination. By default, the operation returns a
   maximum of up to 100 volumes. You can optionally specify the `Limit` field
@@ -712,7 +751,7 @@ defmodule AWS.StorageGateway do
   data on the tape is consistent. If your gateway crashes, virtual tapes that
   have recovery points can be recovered to a new gateway.
 
-  <note>The virtual tape can be retrieved to only one gateway. The retrieved
+  <note> The virtual tape can be retrieved to only one gateway. The retrieved
   tape is read-only. The virtual tape can be retrieved to only a gateway-VTL.
   There is no charge for retrieving recovery points.
 
@@ -739,7 +778,7 @@ defmodule AWS.StorageGateway do
   The operation shuts down the gateway service component running in the
   storage gateway's virtual machine (VM) and not the VM.
 
-  <note>If you want to shut down the VM, it is recommended that you first
+  <note> If you want to shut down the VM, it is recommended that you first
   shut down the gateway component in the VM to avoid unpredictable
   conditions.
 
@@ -748,7 +787,7 @@ defmodule AWS.StorageGateway do
   information, see `ActivateGateway`. Your applications cannot read from or
   write to the gateway's storage volumes, and there are no snapshots taken.
 
-  <note>When you make a shutdown request, you will get a `200 OK` success
+  <note> When you make a shutdown request, you will get a `200 OK` success
   response immediately. However, it might take some time for the gateway to
   shut down. You can call the `DescribeGatewayInformation` API to check the
   status. For more information, see `ActivateGateway`.
@@ -767,7 +806,7 @@ defmodule AWS.StorageGateway do
   applications can read from or write to the gateway's storage volumes and
   you will be able to take snapshot backups.
 
-  <note>When you make a request, you will get a 200 OK success response
+  <note> When you make a request, you will get a 200 OK success response
   immediately. However, it might take some time for the gateway to be ready.
   You should call `DescribeGatewayInformation` and check the status before
   making any additional API calls. For more information, see
@@ -816,7 +855,7 @@ defmodule AWS.StorageGateway do
   zone. To specify which gateway to update, use the Amazon Resource Name
   (ARN) of the gateway in your request.
 
-  <note>For Gateways activated after September 2, 2015, the gateway's ARN
+  <note> For Gateways activated after September 2, 2015, the gateway's ARN
   contains the gateway ID rather than the gateway name. However, changing the
   name of the gateway has no effect on the gateway's ARN.
 
@@ -830,12 +869,12 @@ defmodule AWS.StorageGateway do
   Updates the gateway virtual machine (VM) software. The request immediately
   triggers the software update.
 
-  <note>When you make this request, you get a `200 OK` success response
+  <note> When you make this request, you get a `200 OK` success response
   immediately. However, it might take some time for the update to complete.
   You can call `DescribeGatewayInformation` to verify the gateway is in the
   `STATE_RUNNING` state.
 
-  </note> <important>A software update forces a system restart of your
+  </note> <important> A software update forces a system restart of your
   gateway. You can minimize the chance of any disruption to your applications
   by increasing your iSCSI Initiators' timeouts. For more information about
   increasing iSCSI Initiator timeouts for Windows and Linux, see [Customizing
@@ -858,6 +897,18 @@ defmodule AWS.StorageGateway do
   """
   def update_maintenance_start_time(client, input, options \\ []) do
     request(client, "UpdateMaintenanceStartTime", input, options)
+  end
+
+  @doc """
+  Updates a file share.
+
+  <note> To leave a file share field unchanged, set the corresponding input
+  field to null.
+
+  </note>
+  """
+  def update_nfs_file_share(client, input, options \\ []) do
+    request(client, "UpdateNFSFileShare", input, options)
   end
 
   @doc """

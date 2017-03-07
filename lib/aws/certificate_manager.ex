@@ -5,16 +5,12 @@ defmodule AWS.CertificateManager do
   @moduledoc """
   AWS Certificate Manager
 
-  Welcome to the AWS Certificate Manager (ACM) Command Reference. This guide
-  provides descriptions, syntax, and usage examples for each ACM command. You
-  can use AWS Certificate Manager to request ACM Certificates for your
-  AWS-based websites and applications. For general information about using
-  ACM and for more information about using the console, see the [AWS
-  Certificate Manager User
-  Guide](http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html).
-  For more information about using the ACM API, see the [AWS Certificate
-  Manager API
-  Reference](http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html).
+  Welcome to the AWS Certificate Manager (ACM) API documentation.
+
+  You can use ACM to manage SSL/TLS certificates for your AWS-based websites
+  and applications. For general information about using ACM, see the [ *AWS
+  Certificate Manager User Guide*
+  ](http://docs.aws.amazon.com/acm/latest/userguide/).
   """
 
   @doc """
@@ -59,11 +55,7 @@ defmodule AWS.CertificateManager do
   end
 
   @doc """
-  Returns a list of the fields contained in the specified ACM Certificate.
-  For example, this action returns the certificate status, a flag that
-  indicates whether the certificate is associated with any other AWS service,
-  and the date at which the certificate request was created. You specify the
-  ACM Certificate on input by its Amazon Resource Name (ARN).
+  Returns detailed metadata about the specified ACM Certificate.
   """
   def describe_certificate(client, input, options \\ []) do
     request(client, "DescribeCertificate", input, options)
@@ -87,6 +79,43 @@ defmodule AWS.CertificateManager do
   end
 
   @doc """
+  Imports an SSL/TLS certificate into AWS Certificate Manager (ACM) to use
+  with [ACM's integrated AWS
+  services](http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html).
+
+  <note> ACM does not provide [managed
+  renewal](http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html)
+  for certificates that you import.
+
+  </note> For more information about importing certificates into ACM,
+  including the differences between certificates that you import and those
+  that ACM provides, see [Importing
+  Certificates](http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html)
+  in the *AWS Certificate Manager User Guide*.
+
+  To import a certificate, you must provide the certificate and the matching
+  private key. When the certificate is not self-signed, you must also provide
+  a certificate chain. You can omit the certificate chain when importing a
+  self-signed certificate.
+
+  The certificate, private key, and certificate chain must be PEM-encoded.
+  For more information about converting these items to PEM format, see
+  [Importing Certificates
+  Troubleshooting](http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html#import-certificate-troubleshooting)
+  in the *AWS Certificate Manager User Guide*.
+
+  To import a new certificate, omit the `CertificateArn` field. Include this
+  field only when you want to replace a previously imported certificate.
+
+  This operation returns the [Amazon Resource Name
+  (ARN)](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+  of the imported certificate.
+  """
+  def import_certificate(client, input, options \\ []) do
+    request(client, "ImportCertificate", input, options)
+  end
+
+  @doc """
   Retrieves a list of ACM Certificates and the domain name for each. You can
   optionally filter the list to return only the certificates that match the
   specified status.
@@ -97,9 +126,9 @@ defmodule AWS.CertificateManager do
 
   @doc """
   Lists the tags that have been applied to the ACM Certificate. Use the
-  certificate ARN to specify the certificate. To add a tag to an ACM
-  Certificate, use the `AddTagsToCertificate` action. To delete a tag, use
-  the `RemoveTagsFromCertificate` action.
+  certificate's Amazon Resource Name (ARN) to specify the certificate. To add
+  a tag to an ACM Certificate, use the `AddTagsToCertificate` action. To
+  delete a tag, use the `RemoveTagsFromCertificate` action.
   """
   def list_tags_for_certificate(client, input, options \\ []) do
     request(client, "ListTagsForCertificate", input, options)
@@ -127,8 +156,8 @@ defmodule AWS.CertificateManager do
   your site by using other names. For each domain name you specify, email is
   sent to the domain owner to request approval to issue the certificate.
   After receiving approval from the domain owner, the ACM Certificate is
-  issued. For more information, see the [AWS Certificate Manager User Guide
-  ](http://docs.aws.amazon.com/acm/latest/userguide/overview.html).
+  issued. For more information, see the [AWS Certificate Manager User
+  Guide](http://docs.aws.amazon.com/acm/latest/userguide/).
   """
   def request_certificate(client, input, options \\ []) do
     request(client, "RequestCertificate", input, options)

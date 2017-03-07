@@ -5,12 +5,15 @@ defmodule AWS.CodeDeploy do
   @moduledoc """
   AWS CodeDeploy
 
-  **Overview** This reference guide provides descriptions of the AWS
-  CodeDeploy APIs. For more information about AWS CodeDeploy, see the [AWS
-  CodeDeploy User Guide](docs.aws.amazon.com/codedeploy/latest/userguide).
+  **Overview**
 
-  **Using the APIs** You can use the AWS CodeDeploy APIs to work with the
-  following:
+  This reference guide provides descriptions of the AWS CodeDeploy APIs. For
+  more information about AWS CodeDeploy, see the [AWS CodeDeploy User
+  Guide](http://docs.aws.amazon.com/codedeploy/latest/userguide).
+
+  **Using the APIs**
+
+  You can use the AWS CodeDeploy APIs to work with the following:
 
   <ul> <li> Applications are unique identifiers used by AWS CodeDeploy to
   ensure the correct combinations of revisions, deployment configurations,
@@ -48,7 +51,7 @@ defmodule AWS.CodeDeploy do
   (such as source code, web pages, executable files, and deployment scripts)
   along with an application specification (AppSpec) file. (The AppSpec file
   is unique to AWS CodeDeploy; it defines the deployment actions you want AWS
-  CodeDeploy to execute.) Ffor application revisions stored in Amazon S3
+  CodeDeploy to execute.) For application revisions stored in Amazon S3
   buckets, an application revision is uniquely identified by its Amazon S3
   object key and its ETag, version, or both. For application revisions stored
   in GitHub repositories, an application revision is uniquely identified by
@@ -83,7 +86,7 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Get information about one or more deployment groups.
+  Gets information about one or more deployment groups.
   """
   def batch_get_deployment_groups(client, input, options \\ []) do
     request(client, "BatchGetDeploymentGroups", input, options)
@@ -109,6 +112,17 @@ defmodule AWS.CodeDeploy do
   """
   def batch_get_on_premises_instances(client, input, options \\ []) do
     request(client, "BatchGetOnPremisesInstances", input, options)
+  end
+
+  @doc """
+  Starts the process of rerouting traffic from instances in the original
+  environment to instances in thereplacement environment without waiting for
+  a specified wait time to elapse. (Traffic rerouting, which is achieved by
+  registering instances in the replacement environment with the load
+  balancer, can start as soon as all instances have a status of Ready.)
+  """
+  def continue_deployment(client, input, options \\ []) do
+    request(client, "ContinueDeployment", input, options)
   end
 
   @doc """
@@ -149,8 +163,10 @@ defmodule AWS.CodeDeploy do
   @doc """
   Deletes a deployment configuration.
 
-  <note>A deployment configuration cannot be deleted if it is currently in
-  use. Predefined configurations cannot be deleted.</note>
+  <note> A deployment configuration cannot be deleted if it is currently in
+  use. Predefined configurations cannot be deleted.
+
+  </note>
   """
   def delete_deployment_config(client, input, options \\ []) do
     request(client, "DeleteDeploymentConfig", input, options)
@@ -286,6 +302,11 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Registers an on-premises instance.
+
+  <note> Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported
+  in the request. You cannot use both.
+
+  </note>
   """
   def register_on_premises_instance(client, input, options \\ []) do
     request(client, "RegisterOnPremisesInstance", input, options)
@@ -296,6 +317,14 @@ defmodule AWS.CodeDeploy do
   """
   def remove_tags_from_on_premises_instances(client, input, options \\ []) do
     request(client, "RemoveTagsFromOnPremisesInstances", input, options)
+  end
+
+  @doc """
+  In a blue/green deployment, overrides any specified wait time and starts
+  terminating instances immediately after the traffic routing is completed.
+  """
+  def skip_wait_time_for_instance_termination(client, input, options \\ []) do
+    request(client, "SkipWaitTimeForInstanceTermination", input, options)
   end
 
   @doc """

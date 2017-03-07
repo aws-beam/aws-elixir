@@ -179,7 +179,7 @@ defmodule AWS.MachineLearning do
 
   `CreateMLModel` requires a `DataSource` with computed statistics, which can
   be created by setting `ComputeStatistics` to `true` in
-  `CreateDataSourcceFromRDS`, `CreateDataSourceFromS3`, or
+  `CreateDataSourceFromRDS`, `CreateDataSourceFromS3`, or
   `CreateDataSourceFromRedshift` operations.
   """
   def create_m_l_model(client, input, options \\ []) do

@@ -28,6 +28,9 @@ defmodule AWS.CodePipeline do
   </li> <li> `GetPipeline`, which returns information about a pipeline
   structure.
 
+  </li> <li> `GetPipelineExecution`, which returns information about a
+  specific execution of a pipeline.
+
   </li> <li> `GetPipelineState`, which returns information about the current
   state of the stages and actions of a pipeline.
 
@@ -40,17 +43,17 @@ defmodule AWS.CodePipeline do
   </li> <li> `UpdatePipeline`, which updates a pipeline with edits or changes
   to the structure of the pipeline.
 
-  </li> </ul> Pipelines include *stages*, which are which are logical
-  groupings of gates and actions. Each stage contains one or more actions
-  that must complete before the next stage begins. A stage will result in
-  success or failure. If a stage fails, then the pipeline stops at that stage
-  and will remain stopped until either a new version of an artifact appears
-  in the source location, or a user takes action to re-run the most recent
-  artifact through the pipeline. You can call `GetPipelineState`, which
-  displays the status of a pipeline, including the status of stages in the
-  pipeline, or `GetPipeline`, which returns the entire structure of the
-  pipeline, including the stages of that pipeline. For more information about
-  the structure of stages and actions, also refer to the [AWS CodePipeline
+  </li> </ul> Pipelines include *stages*, which are logical groupings of
+  gates and actions. Each stage contains one or more actions that must
+  complete before the next stage begins. A stage will result in success or
+  failure. If a stage fails, then the pipeline stops at that stage and will
+  remain stopped until either a new version of an artifact appears in the
+  source location, or a user takes action to re-run the most recent artifact
+  through the pipeline. You can call `GetPipelineState`, which displays the
+  status of a pipeline, including the status of stages in the pipeline, or
+  `GetPipeline`, which returns the entire structure of the pipeline,
+  including the stages of that pipeline. For more information about the
+  structure of stages and actions, also refer to the [AWS CodePipeline
   Pipeline Structure
   Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html).
 
@@ -212,6 +215,15 @@ defmodule AWS.CodePipeline do
   """
   def get_pipeline(client, input, options \\ []) do
     request(client, "GetPipeline", input, options)
+  end
+
+  @doc """
+  Returns information about an execution of a pipeline, including details
+  about artifacts, the pipeline execution ID, and the name, version, and
+  status of the pipeline.
+  """
+  def get_pipeline_execution(client, input, options \\ []) do
+    request(client, "GetPipelineExecution", input, options)
   end
 
   @doc """

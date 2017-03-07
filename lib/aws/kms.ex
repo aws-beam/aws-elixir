@@ -184,6 +184,24 @@ defmodule AWS.KMS do
   end
 
   @doc """
+  Deletes key material that you previously imported and makes the specified
+  customer master key (CMK) unusable. For more information about importing
+  key material into AWS KMS, see [Importing Key
+  Material](http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html)
+  in the *AWS Key Management Service Developer Guide*.
+
+  When the specified CMK is in the `PendingDeletion` state, this operation
+  does not change the CMK's state. Otherwise, it changes the CMK's state to
+  `PendingImport`.
+
+  After you delete key material, you can use `ImportKeyMaterial` to reimport
+  the same key material into the CMK.
+  """
+  def delete_imported_key_material(client, input, options \\ []) do
+    request(client, "DeleteImportedKeyMaterial", input, options)
+  end
+
+  @doc """
   Provides detailed information about the specified customer master key.
   """
   def describe_key(client, input, options \\ []) do
@@ -252,51 +270,74 @@ defmodule AWS.KMS do
   end
 
   @doc """
-  Generates a data key that you can use in your application to locally
-  encrypt data. This call returns a plaintext version of the key in the
-  `Plaintext` field of the response object and an encrypted copy of the key
-  in the `CiphertextBlob` field. The key is encrypted by using the master key
-  specified by the `KeyId` field. To decrypt the encrypted key, pass it to
-  the `Decrypt` API.
+  Returns a data encryption key that you can use in your application to
+  encrypt data locally.
 
-  We recommend that you use the following pattern to locally encrypt data:
-  call the `GenerateDataKey` API, use the key returned in the `Plaintext`
-  response field to locally encrypt data, and then erase the plaintext data
-  key from memory. Store the encrypted data key (contained in the
-  `CiphertextBlob` field) alongside of the locally encrypted data.
+  You must specify the customer master key (CMK) under which to generate the
+  data key. You must also specify the length of the data key using either the
+  `KeySpec` or `NumberOfBytes` field. You must specify one field or the
+  other, but not both. For common key lengths (128-bit and 256-bit symmetric
+  keys), we recommend that you use `KeySpec`.
 
-  <note> You should not call the `Encrypt` function to re-encrypt your data
-  keys within a region. `GenerateDataKey` always returns the data key
-  encrypted and tied to the customer master key that will be used to decrypt
-  it. There is no need to decrypt it twice.
+  This operation returns a plaintext copy of the data key in the `Plaintext`
+  field of the response, and an encrypted copy of the data key in the
+  `CiphertextBlob` field. The data key is encrypted under the CMK specified
+  in the `KeyId` field of the request.
 
-  </note> If you decide to use the optional `EncryptionContext` parameter,
-  you must also store the context in full or at least store enough
-  information along with the encrypted data to be able to reconstruct the
-  context when submitting the ciphertext to the `Decrypt` API. It is a good
-  practice to choose a context that you can reconstruct on the fly to better
-  secure the ciphertext. For more information about how this parameter is
-  used, see [Encryption
-  Context](http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html).
+  We recommend that you use the following pattern to encrypt data locally in
+  your application:
 
-  To decrypt data, pass the encrypted data key to the `Decrypt` API.
-  `Decrypt` uses the associated master key to decrypt the encrypted data key
-  and returns it as plaintext. Use the plaintext data key to locally decrypt
-  your data and then erase the key from memory. You must specify the
-  encryption context, if any, that you specified when you generated the key.
-  The encryption context is logged by CloudTrail, and you can use this log to
-  help track the use of particular data.
+  <ol> <li> Use this operation (`GenerateDataKey`) to retrieve a data
+  encryption key.
+
+  </li> <li> Use the plaintext data encryption key (returned in the
+  `Plaintext` field of the response) to encrypt data locally, then erase the
+  plaintext data key from memory.
+
+  </li> <li> Store the encrypted data key (returned in the `CiphertextBlob`
+  field of the response) alongside the locally encrypted data.
+
+  </li> </ol> To decrypt data locally:
+
+  <ol> <li> Use the `Decrypt` operation to decrypt the encrypted data key
+  into a plaintext copy of the data key.
+
+  </li> <li> Use the plaintext data key to decrypt data locally, then erase
+  the plaintext data key from memory.
+
+  </li> </ol> To return only an encrypted copy of the data key, use
+  `GenerateDataKeyWithoutPlaintext`. To return an arbitrary unpredictable
+  byte string, use `GenerateRandom`.
+
+  If you use the optional `EncryptionContext` field, you must store at least
+  enough information to be able to reconstruct the full encryption context
+  when you later send the ciphertext to the `Decrypt` operation. It is a good
+  practice to choose an encryption context that you can reconstruct on the
+  fly to better secure the ciphertext. For more information, see [Encryption
+  Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html)
+  in the *AWS Key Management Service Developer Guide*.
   """
   def generate_data_key(client, input, options \\ []) do
     request(client, "GenerateDataKey", input, options)
   end
 
   @doc """
-  Returns a data key encrypted by a customer master key without the plaintext
-  copy of that key. Otherwise, this API functions exactly like
-  `GenerateDataKey`. You can use this API to, for example, satisfy an audit
-  requirement that an encrypted key be made available without exposing the
-  plaintext copy of that key.
+  Returns a data encryption key encrypted under a customer master key (CMK).
+  This operation is identical to `GenerateDataKey` but returns only the
+  encrypted copy of the data key.
+
+  This operation is useful in a system that has multiple components with
+  different degrees of trust. For example, consider a system that stores
+  encrypted data in containers. Each container stores the encrypted data and
+  an encrypted copy of the data key. One component of the system, called the
+  *control plane*, creates new containers. When it creates a new container,
+  it uses this operation (`GenerateDataKeyWithoutPlaintext`) to get an
+  encrypted data key and then stores it in the container. Later, a different
+  component of the system, called the *data plane*, puts encrypted data into
+  the containers. To do this, it passes the encrypted data key to the
+  `Decrypt` operation, then uses the returned plaintext data key to encrypt
+  data, and finally stores the encrypted data in the container. In this
+  system, the control plane never sees the plaintext data key.
   """
   def generate_data_key_without_plaintext(client, input, options \\ []) do
     request(client, "GenerateDataKeyWithoutPlaintext", input, options)
@@ -322,6 +363,59 @@ defmodule AWS.KMS do
   """
   def get_key_rotation_status(client, input, options \\ []) do
     request(client, "GetKeyRotationStatus", input, options)
+  end
+
+  @doc """
+  Returns the items you need in order to import key material into AWS KMS
+  from your existing key management infrastructure. For more information
+  about importing key material into AWS KMS, see [Importing Key
+  Material](http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html)
+  in the *AWS Key Management Service Developer Guide*.
+
+  You must specify the key ID of the customer master key (CMK) into which you
+  will import key material. This CMK's `Origin` must be `EXTERNAL`. You must
+  also specify the wrapping algorithm and type of wrapping key (public key)
+  that you will use to encrypt the key material.
+
+  This operation returns a public key and an import token. Use the public key
+  to encrypt the key material. Store the import token to send with a
+  subsequent `ImportKeyMaterial` request. The public key and import token
+  from the same response must be used together. These items are valid for 24
+  hours, after which they cannot be used for a subsequent `ImportKeyMaterial`
+  request. To retrieve new ones, send another `GetParametersForImport`
+  request.
+  """
+  def get_parameters_for_import(client, input, options \\ []) do
+    request(client, "GetParametersForImport", input, options)
+  end
+
+  @doc """
+  Imports key material into an AWS KMS customer master key (CMK) from your
+  existing key management infrastructure. For more information about
+  importing key material into AWS KMS, see [Importing Key
+  Material](http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html)
+  in the *AWS Key Management Service Developer Guide*.
+
+  You must specify the key ID of the CMK to import the key material into.
+  This CMK's `Origin` must be `EXTERNAL`. You must also send an import token
+  and the encrypted key material. Send the import token that you received in
+  the same `GetParametersForImport` response that contained the public key
+  that you used to encrypt the key material. You must also specify whether
+  the key material expires and if so, when. When the key material expires,
+  AWS KMS deletes the key material and the CMK becomes unusable. To use the
+  CMK again, you can reimport the same key material. If you set an expiration
+  date, you can change it only by reimporting the same key material and
+  specifying a new expiration date.
+
+  When this operation is successful, the specified CMK's key state changes to
+  `Enabled`, and you can use the CMK.
+
+  After you successfully import key material into a CMK, you can reimport the
+  same key material into that CMK, but you cannot import different key
+  material.
+  """
+  def import_key_material(client, input, options \\ []) do
+    request(client, "ImportKeyMaterial", input, options)
   end
 
   @doc """
@@ -353,6 +447,13 @@ defmodule AWS.KMS do
   end
 
   @doc """
+  Returns a list of all tags for the specified customer master key (CMK).
+  """
+  def list_resource_tags(client, input, options \\ []) do
+    request(client, "ListResourceTags", input, options)
+  end
+
+  @doc """
   Returns a list of all grants for which the grant's `RetiringPrincipal`
   matches the one specified.
 
@@ -375,38 +476,42 @@ defmodule AWS.KMS do
   end
 
   @doc """
-  Encrypts data on the server side with a new customer master key without
-  exposing the plaintext of the data on the client side. The data is first
-  decrypted and then encrypted. This operation can also be used to change the
-  encryption context of a ciphertext.
+  Encrypts data on the server side with a new customer master key (CMK)
+  without exposing the plaintext of the data on the client side. The data is
+  first decrypted and then reencrypted. You can also use this operation to
+  change the encryption context of a ciphertext.
 
-  Unlike other actions, `ReEncrypt` is authorized twice - once as
-  `ReEncryptFrom` on the source key and once as `ReEncryptTo` on the
-  destination key. We therefore recommend that you include the
-  `"action":"kms:ReEncrypt*"` statement in your key policies to permit
-  re-encryption from or to the key. The statement is included automatically
-  when you authorize use of the key through the console but must be included
-  manually when you set a policy by using the `PutKeyPolicy` function.
+  Unlike other operations, `ReEncrypt` is authorized twice, once as
+  `ReEncryptFrom` on the source CMK and once as `ReEncryptTo` on the
+  destination CMK. We recommend that you include the `"kms:ReEncrypt*"`
+  permission in your [key
+  policies](http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
+  to permit reencryption from or to the CMK. This permission is automatically
+  included in the key policy when you create a CMK through the console, but
+  you must include it manually when you create a CMK programmatically or when
+  you set a key policy with the `PutKeyPolicy` operation.
   """
   def re_encrypt(client, input, options \\ []) do
     request(client, "ReEncrypt", input, options)
   end
 
   @doc """
-  Retires a grant. You can retire a grant when you're done using it to clean
-  up. You should revoke a grant when you intend to actively deny operations
+  Retires a grant. To clean up, you can retire a grant when you're done using
+  it. You should revoke a grant when you intend to actively deny operations
   that depend on it. The following are permitted to call this API:
 
-  <ul> <li> The account that created the grant
+  <ul> <li> The AWS account (root user) under which the grant was created
 
-  </li> <li> The `RetiringPrincipal`, if present
+  </li> <li> The `RetiringPrincipal`, if present in the grant
 
-  </li> <li> The `GranteePrincipal`, if `RetireGrant` is a grantee operation
+  </li> <li> The `GranteePrincipal`, if `RetireGrant` is an operation
+  specified in the grant
 
-  </li> </ul> The grant to retire must be identified by its grant token or by
-  a combination of the key ARN and the grant ID. A grant token is a unique
-  variable-length base64-encoded string. A grant ID is a 64 character unique
-  identifier of a grant. Both are returned by the `CreateGrant` function.
+  </li> </ul> You must identify the grant to retire by its grant token or by
+  a combination of the grant ID and the Amazon Resource Name (ARN) of the
+  customer master key (CMK). A grant token is a unique variable-length
+  base64-encoded string. A grant ID is a 64 character unique identifier of a
+  grant. The `CreateGrant` operation returns both.
   """
   def retire_grant(client, input, options \\ []) do
     request(client, "RetireGrant", input, options)
@@ -428,7 +533,7 @@ defmodule AWS.KMS do
   Before the waiting period ends, you can use `CancelKeyDeletion` to cancel
   the deletion of the CMK. After the waiting period ends, AWS KMS deletes the
   CMK and all AWS KMS data associated with it, including all aliases that
-  point to it.
+  refer to it.
 
   <important> Deleting a CMK is a destructive and potentially dangerous
   operation. When a CMK is deleted, all data that was encrypted under the CMK
@@ -442,6 +547,35 @@ defmodule AWS.KMS do
   """
   def schedule_key_deletion(client, input, options \\ []) do
     request(client, "ScheduleKeyDeletion", input, options)
+  end
+
+  @doc """
+  Adds or overwrites one or more tags for the specified customer master key
+  (CMK).
+
+  Each tag consists of a tag key and a tag value. Tag keys and tag values are
+  both required, but tag values can be empty (null) strings.
+
+  You cannot use the same tag key more than once per CMK. For example,
+  consider a CMK with one tag whose tag key is `Purpose` and tag value is
+  `Test`. If you send a `TagResource` request for this CMK with a tag key of
+  `Purpose` and a tag value of `Prod`, it does not create a second tag.
+  Instead, the original tag is overwritten with the new tag value.
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
+  end
+
+  @doc """
+  Removes the specified tag or tags from the specified customer master key
+  (CMK).
+
+  To remove a tag, you specify the tag key for each tag to remove. You do not
+  specify the tag value. To overwrite the tag value for an existing tag, use
+  `TagResource`.
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
   end
 
   @doc """
@@ -465,7 +599,7 @@ defmodule AWS.KMS do
   end
 
   @doc """
-  Updates the description of a key.
+  Updates the description of a customer master key (CMK).
   """
   def update_key_description(client, input, options \\ []) do
     request(client, "UpdateKeyDescription", input, options)

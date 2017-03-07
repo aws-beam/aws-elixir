@@ -1,4 +1,4 @@
-Copyright 2015-2016 Jamshed Kakar <jkakar@kakar.ca>
+Copyright 2015-2017 Jamshed Kakar <jkakar@kakar.ca>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

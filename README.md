@@ -30,11 +30,11 @@ iex> IO.inspect result
 
   ```elixir
   def deps do
-    [{:aws, "~> 0.3.0"}]
+    [{:aws, "~> 0.4.0"}]
   end
   ```
 
-* Configure the OTP application to start `aws-elixir` 
+* Configure the OTP application to start `aws-elixir`
 
   _Note: If you are using elixir 1.4, you can skip this step_
 

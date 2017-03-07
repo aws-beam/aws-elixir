@@ -1,11 +1,13 @@
 defmodule AWS.Mixfile do
   use Mix.Project
 
+  @version "0.4.0"
+
   def project do
     [app: :aws,
      description: "AWS clients for Elixir",
      package: package(),
-     version: version(),
+     version: @version,
      name: "aws-elixir",
      source_url: "https://github.com/jkakar/aws-elixir",
      homepage_url: "http://github.com/jkakar/aws-elixir",
@@ -40,15 +42,11 @@ defmodule AWS.Mixfile do
      {:timex, "~> 3.1"}]
   end
 
-  defp version do
-    "0.3.0"
-  end
-
   defp package do
     [maintainers: ["Jamu Kakar"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/jkakar/aws-elixir",
-              "Docs" => "http://hexdocs.pm/aws/#{version()}/",
+              "Docs" => "http://hexdocs.pm/aws/#{@version}/",
               "Changelog" => "https://github.com/jkakar/aws-elixir/blob/master/CHANGELOG.md"}]
   end
 end

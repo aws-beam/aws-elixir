@@ -1,4 +1,4 @@
-# AWS SDK for Elixir
+# AWS clients for Elixir
 
 [![Build Status](https://travis-ci.org/jkakar/aws-elixir.svg?branch=master)](https://travis-ci.org/jkakar/aws-elixir)
 

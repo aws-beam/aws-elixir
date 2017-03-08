@@ -63,4 +63,4 @@ mix test
 
 ## License
 
-&copy; 2015-2016 Jamshed Kakar <jkakar@kakar.ca>. See `LICENSE` file for details.
+&copy; 2015-2017 Jamshed Kakar <jkakar@kakar.ca>. See `LICENSE` file for details.

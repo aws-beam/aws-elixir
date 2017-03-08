@@ -34,16 +34,6 @@ iex> IO.inspect result
   end
   ```
 
-* Configure the OTP application to start `aws-elixir`
-
-  _Note: If you are using elixir 1.4, you can skip this step_
-
-  ```elixir
-  def application do
-    [applications: [:logger, :aws]]
-  end
-  ```
-
 * Run `mix deps.get` to install.
 
 

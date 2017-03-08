@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.5.0] - 2017-03-07
+### Fixed
+- `AWS.APIGateway` module uses a service URL without a trailing slash
+  (apparently AWS behaviour with regard to URL signing is
+  inconsistent). Thanks Richard Foster (@zuren).
+
 ## [v0.4.0] - 2017-03-06
 ### Added
 - `AWS.AppStream` module for AWS AppStream service.
@@ -360,7 +366,8 @@ All notable changes to this project will be documented in this file.
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.4.0...HEAD
+[unreleased]: https://github.com/jkakar/aws-elixir/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/jkakar/aws-elixir/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/jkakar/aws-elixir/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/jkakar/aws-elixir/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/jkakar/aws-elixir/compare/v0.1.0...v0.2.0

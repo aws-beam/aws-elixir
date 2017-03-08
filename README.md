@@ -30,7 +30,7 @@ iex> IO.inspect result
 
   ```elixir
   def deps do
-    [{:aws, "~> 0.4.0"}]
+    [{:aws, "~> 0.5.0"}]
   end
   ```
 
@@ -70,7 +70,6 @@ mix test
 * Run `git tag v$VERSION` to tag the version that was just published.
 * Run `git push --tags origin master` to push tags to Github.
 * Run `mix hex.publish` to publish the new version.
-* Run `mix hex.docs` to publish the documentation.
 
 ## License
 

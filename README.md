@@ -9,6 +9,7 @@
   [AWS SDK for Go](https://github.com/aws/aws-sdk-go/tree/master/models/apis).
 * Support for most AWS services that use `json` and `rest-json` protocols.
 
+
 ## Example
 
 Listing Amazon Kinesis streams. Start a console with `iex -S mix`:
@@ -46,6 +47,8 @@ library from the JSON descriptions of AWS services provided by Amazon.
 
 * Run `MIX_ENV=docs mix docs`
 * Open `docs/index.html`
+
+__note:__ Arguments, errors and reponse structure can be found by viewing the model schemas used to generate this module at `aws-sdk-go/models/apis/<aws-service>/<version>/` an example is `aws-sdk-go/models/apis/rekognition/2016-06-27/api-2.json`
 
 ## Tests
 

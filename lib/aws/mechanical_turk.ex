@@ -578,6 +578,7 @@ defmodule AWS.MechanicalTurk do
 
     prefix = Keyword.get(options, :endpoint_prefix, "mturk-requester")
     options = Keyword.delete(:endpoint_prefix)
+    IO.puts "Endpoint prefix: #{prefix}"
     client = %{client | service: prefix}
     host = get_host(prefix, client)
 

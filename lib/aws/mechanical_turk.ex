@@ -575,8 +575,12 @@ defmodule AWS.MechanicalTurk do
     {:error, Poison.Parser.t} |
     {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
-    client = %{client | service: "mturk-requester"}
-    host = get_host("mturk-requester", client)
+
+    prefix = Keyword.get(options, :endpoint_prefix, "mturk-requester")
+    options = Keyword.delete(:endpoint_prefix)
+    client = %{client | service: prefix}
+    host = get_host(prefix, client)
+
     url = get_url(host, client)
     headers = [{"Host", host},
                {"Content-Type", "application/x-amz-json-1.1"},

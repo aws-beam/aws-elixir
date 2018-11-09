@@ -168,13 +168,13 @@ defmodule AWS.Glacier do
   def complete_multipart_upload(client, account_id, upload_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
-    if Dict.has_key?(input, "archiveSize") do
+    if Map.has_key?(input, "archiveSize") do
       headers = [{"x-amz-archive-size", input["archiveSize"]}|headers]
-      input = Dict.delete(input, "archiveSize")
+      input = Map.delete(input, "archiveSize")
     end
-    if Dict.has_key?(input, "checksum") do
+    if Map.has_key?(input, "checksum") do
       headers = [{"x-amz-sha256-tree-hash", input["checksum"]}|headers]
-      input = Dict.delete(input, "checksum")
+      input = Map.delete(input, "checksum")
     end
     case request(client, :post, url, headers, input, options, 201) do
       {:ok, body, response} ->
@@ -826,13 +826,13 @@ defmodule AWS.Glacier do
   def initiate_multipart_upload(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
     headers = []
-    if Dict.has_key?(input, "archiveDescription") do
+    if Map.has_key?(input, "archiveDescription") do
       headers = [{"x-amz-archive-description", input["archiveDescription"]}|headers]
-      input = Dict.delete(input, "archiveDescription")
+      input = Map.delete(input, "archiveDescription")
     end
-    if Dict.has_key?(input, "partSize") do
+    if Map.has_key?(input, "partSize") do
       headers = [{"x-amz-part-size", input["partSize"]}|headers]
-      input = Dict.delete(input, "partSize")
+      input = Map.delete(input, "partSize")
     end
     case request(client, :post, url, headers, input, options, 201) do
       {:ok, body, response} ->
@@ -1235,13 +1235,13 @@ defmodule AWS.Glacier do
   def upload_archive(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives"
     headers = []
-    if Dict.has_key?(input, "archiveDescription") do
+    if Map.has_key?(input, "archiveDescription") do
       headers = [{"x-amz-archive-description", input["archiveDescription"]}|headers]
-      input = Dict.delete(input, "archiveDescription")
+      input = Map.delete(input, "archiveDescription")
     end
-    if Dict.has_key?(input, "checksum") do
+    if Map.has_key?(input, "checksum") do
       headers = [{"x-amz-sha256-tree-hash", input["checksum"]}|headers]
-      input = Dict.delete(input, "checksum")
+      input = Map.delete(input, "checksum")
     end
     case request(client, :post, url, headers, input, options, 201) do
       {:ok, body, response} ->
@@ -1314,13 +1314,13 @@ defmodule AWS.Glacier do
   def upload_multipart_part(client, account_id, upload_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
-    if Dict.has_key?(input, "checksum") do
+    if Map.has_key?(input, "checksum") do
       headers = [{"x-amz-sha256-tree-hash", input["checksum"]}|headers]
-      input = Dict.delete(input, "checksum")
+      input = Map.delete(input, "checksum")
     end
-    if Dict.has_key?(input, "range") do
+    if Map.has_key?(input, "range") do
       headers = [{"Content-Range", input["range"]}|headers]
-      input = Dict.delete(input, "range")
+      input = Map.delete(input, "range")
     end
     case request(client, :put, url, headers, input, options, 204) do
       {:ok, body, response} ->

@@ -282,17 +282,17 @@ defmodule AWS.Lambda do
   def invoke(client, function_name, input, options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/invocations"
     headers = []
-    if Dict.has_key?(input, "ClientContext") do
+    if Map.has_key?(input, "ClientContext") do
       headers = [{"X-Amz-Client-Context", input["ClientContext"]}|headers]
-      input = Dict.delete(input, "ClientContext")
+      input = Map.delete(input, "ClientContext")
     end
-    if Dict.has_key?(input, "InvocationType") do
+    if Map.has_key?(input, "InvocationType") do
       headers = [{"X-Amz-Invocation-Type", input["InvocationType"]}|headers]
-      input = Dict.delete(input, "InvocationType")
+      input = Map.delete(input, "InvocationType")
     end
-    if Dict.has_key?(input, "LogType") do
+    if Map.has_key?(input, "LogType") do
       headers = [{"X-Amz-Log-Type", input["LogType"]}|headers]
-      input = Dict.delete(input, "LogType")
+      input = Map.delete(input, "LogType")
     end
     case request(client, :post, url, headers, input, options, nil) do
       {:ok, body, response} ->

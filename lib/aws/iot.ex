@@ -37,9 +37,9 @@ defmodule AWS.IoT do
   def attach_principal_policy(client, policy_name, input, options \\ []) do
     url = "/principal-policies/#{URI.encode(policy_name)}"
     headers = []
-    if Dict.has_key?(input, "principal") do
+    if Map.has_key?(input, "principal") do
       headers = [{"x-amzn-iot-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
+      input = Map.delete(input, "principal")
     end
     request(client, :put, url, headers, input, options, nil)
   end
@@ -50,9 +50,9 @@ defmodule AWS.IoT do
   def attach_thing_principal(client, thing_name, input, options \\ []) do
     url = "/things/#{URI.encode(thing_name)}/principals"
     headers = []
-    if Dict.has_key?(input, "principal") do
+    if Map.has_key?(input, "principal") do
       headers = [{"x-amzn-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
+      input = Map.delete(input, "principal")
     end
     request(client, :put, url, headers, input, options, nil)
   end
@@ -351,9 +351,9 @@ defmodule AWS.IoT do
   def detach_principal_policy(client, policy_name, input, options \\ []) do
     url = "/principal-policies/#{URI.encode(policy_name)}"
     headers = []
-    if Dict.has_key?(input, "principal") do
+    if Map.has_key?(input, "principal") do
       headers = [{"x-amzn-iot-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
+      input = Map.delete(input, "principal")
     end
     request(client, :delete, url, headers, input, options, nil)
   end
@@ -364,9 +364,9 @@ defmodule AWS.IoT do
   def detach_thing_principal(client, thing_name, input, options \\ []) do
     url = "/things/#{URI.encode(thing_name)}/principals"
     headers = []
-    if Dict.has_key?(input, "principal") do
+    if Map.has_key?(input, "principal") do
       headers = [{"x-amzn-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
+      input = Map.delete(input, "principal")
     end
     request(client, :delete, url, headers, input, options, nil)
   end

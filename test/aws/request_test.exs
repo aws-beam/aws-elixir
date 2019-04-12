@@ -137,7 +137,7 @@ defmodule AWS.Request.InternalTest do
   end
 
   test "split_url/1 returns an empty binary if no query string is present" do
-    assert {"/index", nil} = Internal.split_url("https://example.com/index?")
+    assert {"/index", ""} = Internal.split_url("https://example.com/index?")
   end
 
   test "string_to_sign/3 combines a long date, credential scope and hash canonical request into a binary value that's ready to sign" do

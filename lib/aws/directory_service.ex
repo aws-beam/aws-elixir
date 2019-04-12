@@ -26,6 +26,14 @@ defmodule AWS.DirectoryService do
   """
 
   @doc """
+  Accepts a directory sharing request that was sent from the directory owner
+  account.
+  """
+  def accept_shared_directory(client, input, options \\ []) do
+    request(client, "AcceptSharedDirectory", input, options)
+  end
+
+  @doc """
   If the DNS server for your on-premises domain uses a publicly addressable
   IP address, you must add a CIDR address block to correctly route traffic to
   and from your Microsoft AD on Amazon Web Services. *AddIpRoutes* adds this
@@ -65,9 +73,9 @@ defmodule AWS.DirectoryService do
   @doc """
   Creates an AD Connector to connect to an on-premises directory.
 
-  Before you call *ConnectDirectory*, ensure that all of the required
+  Before you call `ConnectDirectory`, ensure that all of the required
   permissions have been explicitly granted through a policy. For details
-  about what permissions are required to run the *ConnectDirectory*
+  about what permissions are required to run the `ConnectDirectory`
   operation, see [AWS Directory Service API Permissions: Actions, Resources,
   and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
@@ -111,9 +119,9 @@ defmodule AWS.DirectoryService do
   @doc """
   Creates a Simple AD directory.
 
-  Before you call *CreateDirectory*, ensure that all of the required
+  Before you call `CreateDirectory`, ensure that all of the required
   permissions have been explicitly granted through a policy. For details
-  about what permissions are required to run the *CreateDirectory* operation,
+  about what permissions are required to run the `CreateDirectory` operation,
   see [AWS Directory Service API Permissions: Actions, Resources, and
   Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
@@ -123,7 +131,16 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Creates a Microsoft AD in the AWS cloud.
+  Creates a subscription to forward real time Directory Service domain
+  controller security logs to the specified CloudWatch log group in your AWS
+  account.
+  """
+  def create_log_subscription(client, input, options \\ []) do
+    request(client, "CreateLogSubscription", input, options)
+  end
+
+  @doc """
+  Creates an AWS Managed Microsoft AD directory.
 
   Before you call *CreateMicrosoftAD*, ensure that all of the required
   permissions have been explicitly granted through a policy. For details
@@ -151,13 +168,14 @@ defmodule AWS.DirectoryService do
   @doc """
   AWS Directory Service for Microsoft Active Directory allows you to
   configure trust relationships. For example, you can establish a trust
-  between your Microsoft AD in the AWS cloud, and your existing on-premises
-  Microsoft Active Directory. This would allow you to provide users and
-  groups access to resources in either domain, with a single set of
+  between your AWS Managed Microsoft AD directory, and your existing
+  on-premises Microsoft Active Directory. This would allow you to provide
+  users and groups access to resources in either domain, with a single set of
   credentials.
 
   This action initiates the creation of the AWS side of a trust relationship
-  between a Microsoft AD in the AWS cloud and an external domain.
+  between an AWS Managed Microsoft AD directory and an external domain. You
+  can create either a forest trust or an external trust.
   """
   def create_trust(client, input, options \\ []) do
     request(client, "CreateTrust", input, options)
@@ -174,15 +192,22 @@ defmodule AWS.DirectoryService do
   @doc """
   Deletes an AWS Directory Service directory.
 
-  Before you call *DeleteDirectory*, ensure that all of the required
+  Before you call `DeleteDirectory`, ensure that all of the required
   permissions have been explicitly granted through a policy. For details
-  about what permissions are required to run the *DeleteDirectory* operation,
+  about what permissions are required to run the `DeleteDirectory` operation,
   see [AWS Directory Service API Permissions: Actions, Resources, and
   Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
   def delete_directory(client, input, options \\ []) do
     request(client, "DeleteDirectory", input, options)
+  end
+
+  @doc """
+  Deletes the specified log subscription.
+  """
+  def delete_log_subscription(client, input, options \\ []) do
+    request(client, "DeleteLogSubscription", input, options)
   end
 
   @doc """
@@ -193,8 +218,8 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Deletes an existing trust relationship between your Microsoft AD in the AWS
-  cloud and an external domain.
+  Deletes an existing trust relationship between your AWS Managed Microsoft
+  AD directory and an external domain.
   """
   def delete_trust(client, input, options \\ []) do
     request(client, "DeleteTrust", input, options)
@@ -221,20 +246,27 @@ defmodule AWS.DirectoryService do
   Obtains information about the directories that belong to this account.
 
   You can retrieve information about specific directories by passing the
-  directory identifiers in the *DirectoryIds* parameter. Otherwise, all
+  directory identifiers in the `DirectoryIds` parameter. Otherwise, all
   directories that belong to the current account are returned.
 
-  This operation supports pagination with the use of the *NextToken* request
+  This operation supports pagination with the use of the `NextToken` request
   and response parameters. If more results are available, the
-  *DescribeDirectoriesResult.NextToken* member contains a token that you pass
+  `DescribeDirectoriesResult.NextToken` member contains a token that you pass
   in the next call to `DescribeDirectories` to retrieve the next set of
   items.
 
-  You can also specify a maximum number of return results with the *Limit*
+  You can also specify a maximum number of return results with the `Limit`
   parameter.
   """
   def describe_directories(client, input, options \\ []) do
     request(client, "DescribeDirectories", input, options)
+  end
+
+  @doc """
+  Provides information about any domain controllers in your directory.
+  """
+  def describe_domain_controllers(client, input, options \\ []) do
+    request(client, "DescribeDomainControllers", input, options)
   end
 
   @doc """
@@ -246,6 +278,13 @@ defmodule AWS.DirectoryService do
   """
   def describe_event_topics(client, input, options \\ []) do
     request(client, "DescribeEventTopics", input, options)
+  end
+
+  @doc """
+  Returns the shared directories in your account.
+  """
+  def describe_shared_directories(client, input, options \\ []) do
+    request(client, "DescribeSharedDirectories", input, options)
   end
 
   @doc """
@@ -276,7 +315,8 @@ defmodule AWS.DirectoryService do
 
   @doc """
   Disables multi-factor authentication (MFA) with the Remote Authentication
-  Dial In User Service (RADIUS) server for an AD Connector directory.
+  Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD
+  directory.
   """
   def disable_radius(client, input, options \\ []) do
     request(client, "DisableRadius", input, options)
@@ -291,7 +331,8 @@ defmodule AWS.DirectoryService do
 
   @doc """
   Enables multi-factor authentication (MFA) with the Remote Authentication
-  Dial In User Service (RADIUS) server for an AD Connector directory.
+  Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD
+  directory.
   """
   def enable_radius(client, input, options \\ []) do
     request(client, "EnableRadius", input, options)
@@ -326,6 +367,13 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Lists the active log subscriptions for the AWS account.
+  """
+  def list_log_subscriptions(client, input, options \\ []) do
+    request(client, "ListLogSubscriptions", input, options)
+  end
+
+  @doc """
   Lists all schema extensions applied to a Microsoft AD Directory.
   """
   def list_schema_extensions(client, input, options \\ []) do
@@ -352,6 +400,14 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Rejects a directory sharing request that was sent from the directory owner
+  account.
+  """
+  def reject_shared_directory(client, input, options \\ []) do
+    request(client, "RejectSharedDirectory", input, options)
+  end
+
+  @doc """
   Removes IP address blocks from a directory.
   """
   def remove_ip_routes(client, input, options \\ []) do
@@ -363,6 +419,14 @@ defmodule AWS.DirectoryService do
   """
   def remove_tags_from_resource(client, input, options \\ []) do
     request(client, "RemoveTagsFromResource", input, options)
+  end
+
+  @doc """
+  Resets the password for any user in your AWS Managed Microsoft AD or Simple
+  AD directory.
+  """
+  def reset_user_password(client, input, options \\ []) do
+    request(client, "ResetUserPassword", input, options)
   end
 
   @doc """
@@ -382,10 +446,43 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Shares a specified directory (`DirectoryId`) in your AWS account (directory
+  owner) with another AWS account (directory consumer). With this operation
+  you can use your directory from any AWS account and from any Amazon VPC
+  within an AWS Region.
+
+  When you share your AWS Managed Microsoft AD directory, AWS Directory
+  Service creates a shared directory in the directory consumer account. This
+  shared directory contains the metadata to provide access to the directory
+  within the directory owner account. The shared directory is visible in all
+  VPCs in the directory consumer account.
+
+  The `ShareMethod` parameter determines whether the specified directory can
+  be shared between AWS accounts inside the same AWS organization
+  (`ORGANIZATIONS`). It also determines whether you can share the directory
+  with any other AWS account either inside or outside of the organization
+  (`HANDSHAKE`).
+
+  The `ShareNotes` parameter is only used when `HANDSHAKE` is called, which
+  sends a directory sharing request to the directory consumer.
+  """
+  def share_directory(client, input, options \\ []) do
+    request(client, "ShareDirectory", input, options)
+  end
+
+  @doc """
   Applies a schema extension to a Microsoft AD directory.
   """
   def start_schema_extension(client, input, options \\ []) do
     request(client, "StartSchemaExtension", input, options)
+  end
+
+  @doc """
+  Stops the directory sharing between the directory owner and consumer
+  accounts.
+  """
+  def unshare_directory(client, input, options \\ []) do
+    request(client, "UnshareDirectory", input, options)
   end
 
   @doc """
@@ -397,19 +494,39 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Adds or removes domain controllers to or from the directory. Based on the
+  difference between current value and new value (provided through this API
+  call), domain controllers will be added or removed. It may take up to 45
+  minutes for any new domain controllers to become fully active once the
+  requested number of domain controllers is updated. During this time, you
+  cannot make another update request.
+  """
+  def update_number_of_domain_controllers(client, input, options \\ []) do
+    request(client, "UpdateNumberOfDomainControllers", input, options)
+  end
+
+  @doc """
   Updates the Remote Authentication Dial In User Service (RADIUS) server
-  information for an AD Connector directory.
+  information for an AD Connector or Microsoft AD directory.
   """
   def update_radius(client, input, options \\ []) do
     request(client, "UpdateRadius", input, options)
   end
 
   @doc """
+  Updates the trust that has been set up between your AWS Managed Microsoft
+  AD directory and an on-premises Active Directory.
+  """
+  def update_trust(client, input, options \\ []) do
+    request(client, "UpdateTrust", input, options)
+  end
+
+  @doc """
   AWS Directory Service for Microsoft Active Directory allows you to
   configure and verify trust relationships.
 
-  This action verifies a trust relationship between your Microsoft AD in the
-  AWS cloud and an external domain.
+  This action verifies a trust relationship between your AWS Managed
+  Microsoft AD directory and an external domain.
   """
   def verify_trust(client, input, options \\ []) do
     request(client, "VerifyTrust", input, options)

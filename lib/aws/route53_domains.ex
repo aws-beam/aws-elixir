@@ -3,7 +3,8 @@
 
 defmodule AWS.Route53.Domains do
   @moduledoc """
-
+  Amazon Route 53 API actions let you register domain names and perform
+  related operations.
   """
 
   @doc """
@@ -16,10 +17,17 @@ defmodule AWS.Route53.Domains do
   end
 
   @doc """
+  Checks whether a domain name can be transferred to Amazon Route 53.
+  """
+  def check_domain_transferability(client, input, options \\ []) do
+    request(client, "CheckDomainTransferability", input, options)
+  end
+
+  @doc """
   This operation deletes the specified tags for a domain.
 
-  All tag operations are eventually consistent; subsequent operations may not
-  immediately represent all issued operations.
+  All tag operations are eventually consistent; subsequent operations might
+  not immediately represent all issued operations.
   """
   def delete_tags_for_domain(client, input, options \\ []) do
     request(client, "DeleteTagsForDomain", input, options)
@@ -55,9 +63,9 @@ defmodule AWS.Route53.Domains do
   list of TLDs and their renewal policies, see ["Renewal, restoration, and
   deletion
   times"](http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times)
-  on the website for our registrar partner, Gandi. Route 53 requires that you
-  renew before the end of the renewal period that is listed on the Gandi
-  website so we can complete processing before the deadline.
+  on the website for our registrar associate, Gandi. Amazon Route 53 requires
+  that you renew before the end of the renewal period that is listed on the
+  Gandi website so we can complete processing before the deadline.
   """
   def enable_domain_auto_renew(client, input, options \\ []) do
     request(client, "EnableDomainAutoRenew", input, options)
@@ -88,8 +96,9 @@ defmodule AWS.Route53.Domains do
   end
 
   @doc """
-  This operation returns detailed information about the domain. The domain's
-  contact information is also returned as part of the output.
+  This operation returns detailed information about a specified domain that
+  is associated with the current AWS account. Contact information for the
+  domain is also returned as part of the output.
   """
   def get_domain_detail(client, input, options \\ []) do
     request(client, "GetDomainDetail", input, options)
@@ -99,16 +108,6 @@ defmodule AWS.Route53.Domains do
   The GetDomainSuggestions operation returns a list of suggested domain names
   given a string, which can either be a domain name or simply a word or
   phrase (without spaces).
-
-  Parameters: <ul><li>DomainName (string): The basis for your domain
-  suggestion search, a string with (or without) top-level domain
-  specified.</li> <li>SuggestionCount (int): The number of domain suggestions
-  to be returned, maximum 50, minimum 1.</li> <li>OnlyAvailable (bool): If
-  true, availability check will be performed on suggestion results, and only
-  available domains will be returned. If false, suggestions will be returned
-  without checking whether the domain is actually available, and caller will
-  have to call checkDomainAvailability for each suggestion to determine
-  availability for registration.</li> </ul>
   """
   def get_domain_suggestions(client, input, options \\ []) do
     request(client, "GetDomainSuggestions", input, options)
@@ -142,35 +141,45 @@ defmodule AWS.Route53.Domains do
   This operation returns all of the tags that are associated with the
   specified domain.
 
-  All tag operations are eventually consistent; subsequent operations may not
-  immediately represent all issued operations.
+  All tag operations are eventually consistent; subsequent operations might
+  not immediately represent all issued operations.
   """
   def list_tags_for_domain(client, input, options \\ []) do
     request(client, "ListTagsForDomain", input, options)
   end
 
   @doc """
-  This operation registers a domain. Domains are registered by the AWS
-  registrar partner, Gandi. For some top-level domains (TLDs), this operation
-  requires extra parameters.
+  This operation registers a domain. Domains are registered either by Amazon
+  Registrar (for .com, .net, and .org domains) or by our registrar associate,
+  Gandi (for all other domains). For some top-level domains (TLDs), this
+  operation requires extra parameters.
 
   When you register a domain, Amazon Route 53 does the following:
 
-  <ul> <li>Creates a Amazon Route 53 hosted zone that has the same name as
+  <ul> <li> Creates a Amazon Route 53 hosted zone that has the same name as
   the domain. Amazon Route 53 assigns four name servers to your hosted zone
   and automatically updates your domain registration with the names of these
-  name servers.</li> <li>Enables autorenew, so your domain registration will
-  renew automatically each year. We'll notify you in advance of the renewal
-  date so you can choose whether to renew the registration.</li>
-  <li>Optionally enables privacy protection, so WHOIS queries return contact
-  information for our registrar partner, Gandi, instead of the information
-  you entered for registrant, admin, and tech contacts.</li> <li>If
-  registration is successful, returns an operation ID that you can use to
-  track the progress and completion of the action. If the request is not
-  completed successfully, the domain registrant is notified by email.</li>
-  <li>Charges your AWS account an amount based on the top-level domain. For
-  more information, see [Amazon Route 53
-  Pricing](http://aws.amazon.com/route53/pricing/).</li> </ul>
+  name servers.
+
+  </li> <li> Enables autorenew, so your domain registration will renew
+  automatically each year. We'll notify you in advance of the renewal date so
+  you can choose whether to renew the registration.
+
+  </li> <li> Optionally enables privacy protection, so WHOIS queries return
+  contact information either for Amazon Registrar (for .com, .net, and .org
+  domains) or for our registrar associate, Gandi (for all other TLDs). If you
+  don't enable privacy protection, WHOIS queries return the information that
+  you entered for the registrant, admin, and tech contacts.
+
+  </li> <li> If registration is successful, returns an operation ID that you
+  can use to track the progress and completion of the action. If the request
+  is not completed successfully, the domain registrant is notified by email.
+
+  </li> <li> Charges your AWS account an amount based on the top-level
+  domain. For more information, see [Amazon Route 53
+  Pricing](http://aws.amazon.com/route53/pricing/).
+
+  </li> </ul>
   """
   def register_domain(client, input, options \\ []) do
     request(client, "RegisterDomain", input, options)
@@ -184,8 +193,8 @@ defmodule AWS.Route53.Domains do
   date. Some TLD registries delete domains before the expiration date if you
   haven't renewed far enough in advance. For more information about renewing
   domain registration, see [Renewing Registration for a
-  Domain](http://docs.aws.amazon.com/console/route53/domain-renew) in the
-  Amazon Route 53 documentation.
+  Domain](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html)
+  in the Amazon Route 53 Developer Guide.
   """
   def renew_domain(client, input, options \\ []) do
     request(client, "RenewDomain", input, options)
@@ -211,14 +220,15 @@ defmodule AWS.Route53.Domains do
 
   @doc """
   This operation transfers a domain from another registrar to Amazon Route
-  53. When the transfer is complete, the domain is registered with the AWS
-  registrar partner, Gandi.
+  53. When the transfer is complete, the domain is registered either with
+  Amazon Registrar (for .com, .net, and .org domains) or with our registrar
+  associate, Gandi (for all other TLDs).
 
   For transfer requirements, a detailed procedure, and information about
   viewing the status of a domain transfer, see [Transferring Registration for
   a Domain to Amazon Route
   53](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html)
-  in the Amazon Route 53 Developer Guide.
+  in the *Amazon Route 53 Developer Guide*.
 
   If the registrar for your domain is also the DNS service provider for the
   domain, we highly recommend that you consider transferring your DNS service
@@ -228,22 +238,24 @@ defmodule AWS.Route53.Domains do
   previous registrar will not renew your domain registration and could end
   your DNS service at any time.
 
-  <note>Caution! If the registrar for your domain is also the DNS service
+  <important> If the registrar for your domain is also the DNS service
   provider for the domain and you don't transfer DNS service to another
   provider, your website, email, and the web applications associated with the
-  domain might become unavailable.</note> If the transfer is successful, this
-  method returns an operation ID that you can use to track the progress and
-  completion of the action. If the transfer doesn't complete successfully,
-  the domain registrant will be notified by email.
+  domain might become unavailable.
+
+  </important> If the transfer is successful, this method returns an
+  operation ID that you can use to track the progress and completion of the
+  action. If the transfer doesn't complete successfully, the domain
+  registrant will be notified by email.
   """
   def transfer_domain(client, input, options \\ []) do
     request(client, "TransferDomain", input, options)
   end
 
   @doc """
-  This operation updates the contact information for a particular domain.
-  Information for at least one contact (registrant, administrator, or
-  technical) must be supplied for update.
+  This operation updates the contact information for a particular domain. You
+  must specify information for at least one contact: registrant,
+  administrator, or technical.
 
   If the update is successful, this method returns an operation ID that you
   can use to track the progress and completion of the action. If the request
@@ -256,17 +268,17 @@ defmodule AWS.Route53.Domains do
 
   @doc """
   This operation updates the specified domain contact's privacy setting. When
-  the privacy option is enabled, personal information such as postal or email
-  address is hidden from the results of a public WHOIS query. The privacy
-  services are provided by the AWS registrar, Gandi. For more information,
-  see the [Gandi privacy
-  features](http://www.gandi.net/domain/whois/?currency=USD&amp;amp;lang=en).
+  privacy protection is enabled, contact information such as email address is
+  replaced either with contact information for Amazon Registrar (for .com,
+  .net, and .org domains) or with contact information for our registrar
+  associate, Gandi.
 
-  This operation only affects the privacy of the specified contact type
-  (registrant, administrator, or tech). Successful acceptance returns an
-  operation ID that you can use with GetOperationDetail to track the progress
-  and completion of the action. If the request is not completed successfully,
-  the domain registrant will be notified by email.
+  This operation affects only the contact information for the specified
+  contact type (registrant, administrator, or tech). If the request succeeds,
+  Amazon Route 53 returns an operation ID that you can use with
+  `GetOperationDetail` to track the progress and completion of the action. If
+  the request doesn't complete successfully, the domain registrant will be
+  notified by email.
   """
   def update_domain_contact_privacy(client, input, options \\ []) do
     request(client, "UpdateDomainContactPrivacy", input, options)
@@ -289,16 +301,16 @@ defmodule AWS.Route53.Domains do
   @doc """
   This operation adds or updates tags for a specified domain.
 
-  All tag operations are eventually consistent; subsequent operations may not
-  immediately represent all issued operations.
+  All tag operations are eventually consistent; subsequent operations might
+  not immediately represent all issued operations.
   """
   def update_tags_for_domain(client, input, options \\ []) do
     request(client, "UpdateTagsForDomain", input, options)
   end
 
   @doc """
-  This operation returns all the domain-related billing records for the
-  current AWS account for a specified period
+  Returns all the domain-related billing records for the current AWS account
+  for a specified period
   """
   def view_billing(client, input, options \\ []) do
     request(client, "ViewBilling", input, options)

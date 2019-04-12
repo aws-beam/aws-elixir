@@ -10,6 +10,18 @@ defmodule AWS.EMR do
   """
 
   @doc """
+  Adds an instance fleet to a running cluster.
+
+  <note> The instance fleet configuration is available only in Amazon EMR
+  versions 4.8.0 and later, excluding 5.0.x.
+
+  </note>
+  """
+  def add_instance_fleet(client, input, options \\ []) do
+    request(client, "AddInstanceFleet", input, options)
+  end
+
+  @doc """
   Adds one or more instance groups to a running cluster.
   """
   def add_instance_groups(client, input, options \\ []) do
@@ -17,20 +29,20 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  AddJobFlowSteps adds new steps to a running job flow. A maximum of 256
-  steps are allowed in each job flow.
+  AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps
+  are allowed in each job flow.
 
-  If your job flow is long-running (such as a Hive data warehouse) or
-  complex, you may require more than 256 steps to process your data. You can
-  bypass the 256-step limitation in various ways, including using the SSH
-  shell to connect to the master node and submitting queries directly to the
-  software running on the master node, such as Hive and Hadoop. For more
-  information on how to do this, see [Add More than 256 Steps to a Job
-  Flow](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html)
-  in the *Amazon EMR Developer's Guide*.
+  If your cluster is long-running (such as a Hive data warehouse) or complex,
+  you may require more than 256 steps to process your data. You can bypass
+  the 256-step limitation in various ways, including using SSH to connect to
+  the master node and submitting queries directly to the software running on
+  the master node, such as Hive and Hadoop. For more information on how to do
+  this, see [Add More than 256 Steps to a
+  Cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html)
+  in the *Amazon EMR Management Guide*.
 
   A step specifies the location of a JAR file stored either on the master
-  node of the job flow or in Amazon S3. Each step is performed by the main
+  node of the cluster or in Amazon S3. Each step is performed by the main
   function of the main class of the JAR file. The main class can be specified
   either in the manifest of the JAR or by using the MainFunction parameter of
   the step.
@@ -40,8 +52,8 @@ defmodule AWS.EMR do
   all Hadoop jobs started while the step was running must have completed and
   run successfully.
 
-  You can only add steps to a job flow that is in one of the following
-  states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
+  You can only add steps to a cluster that is in one of the following states:
+  STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
   """
   def add_job_flow_steps(client, input, options \\ []) do
     request(client, "AddJobFlowSteps", input, options)
@@ -50,9 +62,8 @@ defmodule AWS.EMR do
   @doc """
   Adds tags to an Amazon EMR resource. Tags make it easier to associate
   clusters in various ways, such as grouping clusters to track your Amazon
-  EMR resource allocation costs. For more information, see [Tagging Amazon
-  EMR
-  Resources](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html).
+  EMR resource allocation costs. For more information, see [Tag
+  Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
   """
   def add_tags(client, input, options \\ []) do
     request(client, "AddTags", input, options)
@@ -87,8 +98,7 @@ defmodule AWS.EMR do
 
   @doc """
   Provides cluster-level details including status, hardware and software
-  configuration, VPC settings, and so on. For information about the cluster
-  steps, see `ListSteps`.
+  configuration, VPC settings, and so on.
   """
   def describe_cluster(client, input, options \\ []) do
     request(client, "DescribeCluster", input, options)
@@ -154,6 +164,18 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Lists all available details about the instance fleets in a cluster.
+
+  <note> The instance fleet configuration is available only in Amazon EMR
+  versions 4.8.0 and later, excluding 5.0.x versions.
+
+  </note>
+  """
+  def list_instance_fleets(client, input, options \\ []) do
+    request(client, "ListInstanceFleets", input, options)
+  end
+
+  @doc """
   Provides all available details about the instance groups in a cluster.
   """
   def list_instance_groups(client, input, options \\ []) do
@@ -161,11 +183,10 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  Provides information about the cluster instances that Amazon EMR provisions
-  on behalf of a user when it creates the cluster. For example, this
-  operation indicates when the EC2 instances reach the Ready state, when
-  instances become available to Amazon EMR to use for jobs, and the IP
-  addresses for cluster instances, etc.
+  Provides information for all active EC2 instances and EC2 instances
+  terminated in the last 30 days, up to a maximum of 2,000. EC2 instances in
+  any of the following states are considered active: AWAITING_FULFILLMENT,
+  PROVISIONING, BOOTSTRAPPING, RUNNING.
   """
   def list_instances(client, input, options \\ []) do
     request(client, "ListInstances", input, options)
@@ -187,6 +208,20 @@ defmodule AWS.EMR do
   """
   def list_steps(client, input, options \\ []) do
     request(client, "ListSteps", input, options)
+  end
+
+  @doc """
+  Modifies the target On-Demand and target Spot capacities for the instance
+  fleet with the specified InstanceFleetID within the cluster specified using
+  ClusterID. The call either succeeds or fails atomically.
+
+  <note> The instance fleet configuration is available only in Amazon EMR
+  versions 4.8.0 and later, excluding 5.0.x versions.
+
+  </note>
+  """
+  def modify_instance_fleet(client, input, options \\ []) do
+    request(client, "ModifyInstanceFleet", input, options)
   end
 
   @doc """
@@ -220,9 +255,8 @@ defmodule AWS.EMR do
   @doc """
   Removes tags from an Amazon EMR resource. Tags make it easier to associate
   clusters in various ways, such as grouping clusters to track your Amazon
-  EMR resource allocation costs. For more information, see [Tagging Amazon
-  EMR
-  Resources](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html).
+  EMR resource allocation costs. For more information, see [Tag
+  Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
 
   The following example removes the stack tag with value Prod from a cluster:
   """
@@ -231,58 +265,65 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  RunJobFlow creates and starts running a new job flow. The job flow will run
-  the steps specified. After the job flow completes, the cluster is stopped
-  and the HDFS partition is lost. To prevent loss of data, configure the last
+  RunJobFlow creates and starts running a new cluster (job flow). The cluster
+  runs the steps specified. After the steps complete, the cluster stops and
+  the HDFS partition is lost. To prevent loss of data, configure the last
   step of the job flow to store results in Amazon S3. If the
   `JobFlowInstancesConfig` `KeepJobFlowAliveWhenNoSteps` parameter is set to
-  `TRUE`, the job flow will transition to the WAITING state rather than
-  shutting down after the steps have completed.
+  `TRUE`, the cluster transitions to the WAITING state rather than shutting
+  down after the steps have completed.
 
   For additional protection, you can set the `JobFlowInstancesConfig`
-  `TerminationProtected` parameter to `TRUE` to lock the job flow and prevent
+  `TerminationProtected` parameter to `TRUE` to lock the cluster and prevent
   it from being terminated by API call, user intervention, or in the event of
   a job flow error.
 
   A maximum of 256 steps are allowed in each job flow.
 
-  If your job flow is long-running (such as a Hive data warehouse) or
-  complex, you may require more than 256 steps to process your data. You can
-  bypass the 256-step limitation in various ways, including using the SSH
-  shell to connect to the master node and submitting queries directly to the
-  software running on the master node, such as Hive and Hadoop. For more
-  information on how to do this, see [Add More than 256 Steps to a Job
-  Flow](http://docs.aws.amazon.com/ElasticMapReduce/latest/Management/Guide/AddMoreThan256Steps.html)
+  If your cluster is long-running (such as a Hive data warehouse) or complex,
+  you may require more than 256 steps to process your data. You can bypass
+  the 256-step limitation in various ways, including using the SSH shell to
+  connect to the master node and submitting queries directly to the software
+  running on the master node, such as Hive and Hadoop. For more information
+  on how to do this, see [Add More than 256 Steps to a
+  Cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html)
   in the *Amazon EMR Management Guide*.
 
-  For long running job flows, we recommend that you periodically store your
+  For long running clusters, we recommend that you periodically store your
   results.
+
+  <note> The instance fleets configuration is available only in Amazon EMR
+  versions 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request
+  can contain InstanceFleets parameters or InstanceGroups parameters, but not
+  both.
+
+  </note>
   """
   def run_job_flow(client, input, options \\ []) do
     request(client, "RunJobFlow", input, options)
   end
 
   @doc """
-  SetTerminationProtection locks a job flow so the EC2 instances in the
-  cluster cannot be terminated by user intervention, an API call, or in the
-  event of a job-flow error. The cluster still terminates upon successful
-  completion of the job flow. Calling SetTerminationProtection on a job flow
-  is analogous to calling the Amazon EC2 DisableAPITermination API on all of
-  the EC2 instances in a cluster.
+  SetTerminationProtection locks a cluster (job flow) so the EC2 instances in
+  the cluster cannot be terminated by user intervention, an API call, or in
+  the event of a job-flow error. The cluster still terminates upon successful
+  completion of the job flow. Calling `SetTerminationProtection` on a cluster
+  is similar to calling the Amazon EC2 `DisableAPITermination` API on all EC2
+  instances in a cluster.
 
-  SetTerminationProtection is used to prevent accidental termination of a job
-  flow and to ensure that in the event of an error, the instances will
-  persist so you can recover any data stored in their ephemeral instance
+  `SetTerminationProtection` is used to prevent accidental termination of a
+  cluster and to ensure that in the event of an error, the instances persist
+  so that you can recover any data stored in their ephemeral instance
   storage.
 
-  To terminate a job flow that has been locked by setting
-  SetTerminationProtection to `true`, you must first unlock the job flow by a
-  subsequent call to SetTerminationProtection in which you set the value to
-  `false`.
+  To terminate a cluster that has been locked by setting
+  `SetTerminationProtection` to `true`, you must first unlock the job flow by
+  a subsequent call to `SetTerminationProtection` in which you set the value
+  to `false`.
 
-  For more information, see[Protecting a Job Flow from
-  Termination](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html)
-  in the *Amazon EMR Guide.*
+  For more information, see[Managing Cluster
+  Termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html)
+  in the *Amazon EMR Management Guide*.
   """
   def set_termination_protection(client, input, options \\ []) do
     request(client, "SetTerminationProtection", input, options)
@@ -290,27 +331,27 @@ defmodule AWS.EMR do
 
   @doc """
   Sets whether all AWS Identity and Access Management (IAM) users under your
-  account can access the specified job flows. This action works on running
-  job flows. You can also set the visibility of a job flow when you launch it
-  using the `VisibleToAllUsers` parameter of `RunJobFlow`. The
+  account can access the specified clusters (job flows). This action works on
+  running clusters. You can also set the visibility of a cluster when you
+  launch it using the `VisibleToAllUsers` parameter of `RunJobFlow`. The
   SetVisibleToAllUsers action can be called only by an IAM user who created
-  the job flow or the AWS account that owns the job flow.
+  the cluster or the AWS account that owns the cluster.
   """
   def set_visible_to_all_users(client, input, options \\ []) do
     request(client, "SetVisibleToAllUsers", input, options)
   end
 
   @doc """
-  TerminateJobFlows shuts a list of job flows down. When a job flow is shut
-  down, any step not yet completed is canceled and the EC2 instances on which
-  the job flow is running are stopped. Any log files not already saved are
-  uploaded to Amazon S3 if a LogUri was specified when the job flow was
-  created.
+  TerminateJobFlows shuts a list of clusters (job flows) down. When a job
+  flow is shut down, any step not yet completed is canceled and the EC2
+  instances on which the cluster is running are stopped. Any log files not
+  already saved are uploaded to Amazon S3 if a LogUri was specified when the
+  cluster was created.
 
-  The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows
-  is asynchronous. Depending on the configuration of the job flow, it may
-  take up to 1-5 minutes for the job flow to completely terminate and release
-  allocated resources, such as Amazon EC2 instances.
+  The maximum number of clusters allowed is 10. The call to
+  `TerminateJobFlows` is asynchronous. Depending on the configuration of the
+  cluster, it may take up to 1-5 minutes for the cluster to completely
+  terminate and release allocated resources, such as Amazon EC2 instances.
   """
   def terminate_job_flows(client, input, options \\ []) do
     request(client, "TerminateJobFlows", input, options)

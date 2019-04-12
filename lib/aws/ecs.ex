@@ -3,19 +3,28 @@
 
 defmodule AWS.ECS do
   @moduledoc """
-  Amazon EC2 Container Service (Amazon ECS) is a highly scalable, fast,
+  Amazon Elastic Container Service
+
+  Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast,
   container management service that makes it easy to run, stop, and manage
-  Docker containers on a cluster of EC2 instances. Amazon ECS lets you launch
-  and stop container-enabled applications with simple API calls, allows you
-  to get the state of your cluster from a centralized service, and gives you
-  access to many familiar Amazon EC2 features like security groups, Amazon
-  EBS volumes, and IAM roles.
+  Docker containers on a cluster. You can host your cluster on a serverless
+  infrastructure that is managed by Amazon ECS by launching your services or
+  tasks using the Fargate launch type. For more control, you can host your
+  tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances
+  that you manage by using the EC2 launch type. For more information about
+  launch types, see [Amazon ECS Launch
+  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html).
+
+  Amazon ECS lets you launch and stop container-based applications with
+  simple API calls, allows you to get the state of your cluster from a
+  centralized service, and gives you access to many familiar Amazon EC2
+  features.
 
   You can use Amazon ECS to schedule the placement of containers across your
   cluster based on your resource needs, isolation policies, and availability
-  requirements. Amazon EC2 Container Service eliminates the need for you to
-  operate your own cluster management and configuration management systems or
-  worry about scaling your management infrastructure.
+  requirements. Amazon ECS eliminates the need for you to operate your own
+  cluster management and configuration management systems or worry about
+  scaling your management infrastructure.
   """
 
   @doc """
@@ -23,6 +32,17 @@ defmodule AWS.ECS do
   `default` cluster when you launch your first container instance. However,
   you can create your own cluster with a unique name with the `CreateCluster`
   action.
+
+  <note> When you call the `CreateCluster` API operation, Amazon ECS attempts
+  to create the service-linked role for your account so that required
+  resources in other AWS services can be managed on your behalf. However, if
+  the IAM user that makes the call does not have permissions to create the
+  service-linked role, it is not created. For more information, see [Using
+  Service-Linked Roles for Amazon
+  ECS](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  </note>
   """
   def create_cluster(client, input, options \\ []) do
     request(client, "CreateCluster", input, options)
@@ -30,7 +50,7 @@ defmodule AWS.ECS do
 
   @doc """
   Runs and maintains a desired number of tasks from a specified task
-  definition. If the number of tasks running in a service drops below
+  definition. If the number of tasks running in a service drops below the
   `desiredCount`, Amazon ECS spawns another copy of the task in the specified
   cluster. To update an existing service, see `UpdateService`.
 
@@ -38,37 +58,84 @@ defmodule AWS.ECS do
   can optionally run your service behind a load balancer. The load balancer
   distributes traffic across the tasks that are associated with the service.
   For more information, see [Service Load
-  Balancing](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
 
-  You can optionally specify a deployment configuration for your service.
-  During a deployment (which is triggered by changing the task definition or
-  the desired count of a service with an `UpdateService` operation), the
-  service scheduler uses the `minimumHealthyPercent` and `maximumPercent`
-  parameters to determine the deployment strategy.
+  Tasks for services that *do not* use a load balancer are considered healthy
+  if they're in the `RUNNING` state. Tasks for services that *do* use a load
+  balancer are considered healthy if they're in the `RUNNING` state and the
+  container instance that they're hosted on is reported as healthy by the
+  load balancer.
 
-  The `minimumHealthyPercent` represents a lower limit on the number of your
-  service's tasks that must remain in the `RUNNING` state during a
-  deployment, as a percentage of the `desiredCount` (rounded up to the
-  nearest integer). This parameter enables you to deploy without using
-  additional cluster capacity. For example, if `desiredCount` is four tasks
-  and the minimum is 50%, the scheduler can stop two existing tasks to free
-  up cluster capacity before starting two new tasks. Tasks for services that
-  do not use a load balancer are considered healthy if they are in the
-  `RUNNING` state. Tasks for services that use a load balancer are considered
-  healthy if they are in the `RUNNING` state and the container instance they
-  are hosted on is reported as healthy by the load balancer. The default
-  value is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and the
-  APIs.
+  There are two service scheduler strategies available:
 
-  The `maximumPercent` parameter represents an upper limit on the number of
-  your service's tasks that are allowed in the `RUNNING` or `PENDING` state
-  during a deployment, as a percentage of the `desiredCount` (rounded down to
-  the nearest integer). This parameter enables you to define the deployment
-  batch size. For example, if `desiredCount` is four tasks and the maximum is
-  200%, the scheduler can start four new tasks before stopping the four older
-  tasks (provided that the cluster resources required to do this are
-  available). The default value is 200%.
+  <ul> <li> `REPLICA` - The replica scheduling strategy places and maintains
+  the desired number of tasks across your cluster. By default, the service
+  scheduler spreads tasks across Availability Zones. You can use task
+  placement strategies and constraints to customize task placement decisions.
+  For more information, see [Service Scheduler
+  Concepts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  </li> <li> `DAEMON` - The daemon scheduling strategy deploys exactly one
+  task on each active container instance that meets all of the task placement
+  constraints that you specify in your cluster. When using this strategy, you
+  don't need to specify a desired number of tasks, a task placement strategy,
+  or use Service Auto Scaling policies. For more information, see [Service
+  Scheduler
+  Concepts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  </li> </ul> You can optionally specify a deployment configuration for your
+  service. The deployment is triggered by changing properties, such as the
+  task definition or the desired count of a service, with an `UpdateService`
+  operation. The default value for a replica service for
+  `minimumHealthyPercent` is 100%. The default value for a daemon service for
+  `minimumHealthyPercent` is 0%.
+
+  If a service is using the `ECS` deployment controller, the minimum healthy
+  percent represents a lower limit on the number of tasks in a service that
+  must remain in the `RUNNING` state during a deployment, as a percentage of
+  the desired number of tasks (rounded up to the nearest integer), and while
+  any container instances are in the `DRAINING` state if the service contains
+  tasks using the EC2 launch type. This parameter enables you to deploy
+  without using additional cluster capacity. For example, if your service has
+  a desired number of four tasks and a minimum healthy percent of 50%, the
+  scheduler might stop two existing tasks to free up cluster capacity before
+  starting two new tasks. Tasks for services that *do not* use a load
+  balancer are considered healthy if they're in the `RUNNING` state. Tasks
+  for services that *do* use a load balancer are considered healthy if
+  they're in the `RUNNING` state and they're reported as healthy by the load
+  balancer. The default value for minimum healthy percent is 100%.
+
+  If a service is using the `ECS` deployment controller, the **maximum
+  percent** parameter represents an upper limit on the number of tasks in a
+  service that are allowed in the `RUNNING` or `PENDING` state during a
+  deployment, as a percentage of the desired number of tasks (rounded down to
+  the nearest integer), and while any container instances are in the
+  `DRAINING` state if the service contains tasks using the EC2 launch type.
+  This parameter enables you to define the deployment batch size. For
+  example, if your service has a desired number of four tasks and a maximum
+  percent value of 200%, the scheduler may start four new tasks before
+  stopping the four older tasks (provided that the cluster resources required
+  to do this are available). The default value for maximum percent is 200%.
+
+  If a service is using either the `CODE_DEPLOY` or `EXTERNAL` deployment
+  controller types and tasks that use the EC2 launch type, the **minimum
+  healthy percent** and **maximum percent** values are used only to define
+  the lower and upper limit on the number of the tasks in the service that
+  remain in the `RUNNING` state while the container instances are in the
+  `DRAINING` state. If the tasks in the service use the Fargate launch type,
+  the minimum healthy percent and maximum percent values aren't used,
+  although they're currently visible when describing your service.
+
+  When creating a service that uses the `EXTERNAL` deployment controller, you
+  can specify only parameters that aren't controlled at the task set level.
+  The only required parameter is the service name. You control your services
+  using the `CreateTaskSet` operation. For more information, see [Amazon ECS
+  Deployment
+  Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
 
   When the service scheduler launches new tasks, it determines task placement
   in your cluster using the following logic:
@@ -79,13 +146,13 @@ defmodule AWS.ECS do
 
   </li> <li> By default, the service scheduler attempts to balance tasks
   across Availability Zones in this manner (although you can choose a
-  different placement strategy):
+  different placement strategy) with the `placementStrategy` parameter):
 
-  <ul> <li> Sort the valid container instances by the fewest number of
-  running tasks for this service in the same Availability Zone as the
-  instance. For example, if zone A has one running service task and zones B
-  and C each have zero, valid container instances in either zone B or C are
-  considered optimal for placement.
+  <ul> <li> Sort the valid container instances, giving priority to instances
+  that have the fewest number of running tasks for this service in their
+  respective Availability Zone. For example, if zone A has one running
+  service task and zones B and C each have zero, valid container instances in
+  either zone B or C are considered optimal for placement.
 
   </li> <li> Place the new service task on a valid container instance in an
   optimal Availability Zone (based on the previous steps), favoring container
@@ -95,6 +162,27 @@ defmodule AWS.ECS do
   """
   def create_service(client, input, options \\ []) do
     request(client, "CreateService", input, options)
+  end
+
+  @doc """
+  Create a task set in the specified cluster and service. This is used when a
+  service uses the `EXTERNAL` deployment controller type. For more
+  information, see [Amazon ECS Deployment
+  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+  """
+  def create_task_set(client, input, options \\ []) do
+    request(client, "CreateTaskSet", input, options)
+  end
+
+  @doc """
+  Modifies the ARN and resource ID format of a resource for a specified IAM
+  user, IAM role, or the root user for an account. You can specify whether
+  the new ARN and resource ID format are disabled for new resources that are
+  created.
+  """
+  def delete_account_setting(client, input, options \\ []) do
+    request(client, "DeleteAccountSetting", input, options)
   end
 
   @doc """
@@ -123,18 +211,33 @@ defmodule AWS.ECS do
 
   <note> When you delete a service, if there are still running tasks that
   require cleanup, the service status moves from `ACTIVE` to `DRAINING`, and
-  the service is no longer visible in the console or in `ListServices` API
-  operations. After the tasks have stopped, then the service status moves
+  the service is no longer visible in the console or in the `ListServices`
+  API operation. After the tasks have stopped, then the service status moves
   from `DRAINING` to `INACTIVE`. Services in the `DRAINING` or `INACTIVE`
-  status can still be viewed with `DescribeServices` API operations; however,
-  in the future, `INACTIVE` services may be cleaned up and purged from Amazon
-  ECS record keeping, and `DescribeServices` API operations on those services
-  will return a `ServiceNotFoundException` error.
+  status can still be viewed with the `DescribeServices` API operation.
+  However, in the future, `INACTIVE` services may be cleaned up and purged
+  from Amazon ECS record keeping, and `DescribeServices` calls on those
+  services return a `ServiceNotFoundException` error.
 
-  </note>
+  </note> <important> If you attempt to create a new service with the same
+  name as an existing service in either `ACTIVE` or `DRAINING` status, you
+  receive an error.
+
+  </important>
   """
   def delete_service(client, input, options \\ []) do
     request(client, "DeleteService", input, options)
+  end
+
+  @doc """
+  Deletes a specified task set within a service. This is used when a service
+  uses the `EXTERNAL` deployment controller type. For more information, see
+  [Amazon ECS Deployment
+  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+  """
+  def delete_task_set(client, input, options \\ []) do
+    request(client, "DeleteTaskSet", input, options)
   end
 
   @doc """
@@ -143,11 +246,11 @@ defmodule AWS.ECS do
 
   If you intend to use the container instance for some other purpose after
   deregistration, you should stop all of the tasks running on the container
-  instance before deregistration to avoid any orphaned tasks from consuming
-  resources.
+  instance before deregistration. That prevents any orphaned tasks from
+  consuming resources.
 
   Deregistering a container instance removes the instance from a cluster, but
-  it does not terminate the EC2 instance; if you are finished using the
+  it does not terminate the EC2 instance. If you are finished using the
   instance, be sure to terminate it in the Amazon EC2 console to stop
   billing.
 
@@ -172,9 +275,16 @@ defmodule AWS.ECS do
 
   You cannot use an `INACTIVE` task definition to run new tasks or create new
   services, and you cannot update an existing service to reference an
-  `INACTIVE` task definition (although there may be up to a 10 minute window
+  `INACTIVE` task definition. However, there may be up to a 10-minute window
   following deregistration where these restrictions have not yet taken
-  effect).
+  effect.
+
+  <note> At this time, `INACTIVE` task definitions remain discoverable in
+  your account indefinitely. However, this behavior is subject to change in
+  the future, so you should not rely on `INACTIVE` task definitions
+  persisting beyond the lifecycle of any associated tasks and services.
+
+  </note>
   """
   def deregister_task_definition(client, input, options \\ []) do
     request(client, "DeregisterTaskDefinition", input, options)
@@ -188,7 +298,7 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Describes Amazon EC2 Container Service container instances. Returns
+  Describes Amazon Elastic Container Service container instances. Returns
   metadata about registered and remaining resources on each container
   instance requested.
   """
@@ -218,6 +328,17 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Describes the task sets in the specified cluster and service. This is used
+  when a service uses the `EXTERNAL` deployment controller type. For more
+  information, see [Amazon ECS Deployment
+  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+  """
+  def describe_task_sets(client, input, options \\ []) do
+    request(client, "DescribeTaskSets", input, options)
+  end
+
+  @doc """
   Describes a specified task or tasks.
   """
   def describe_tasks(client, input, options \\ []) do
@@ -225,24 +346,32 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  <note> This action is only used by the Amazon EC2 Container Service agent,
-  and it is not intended for use outside of the agent.
+  <note> This action is only used by the Amazon ECS agent, and it is not
+  intended for use outside of the agent.
 
-  </note> Returns an endpoint for the Amazon EC2 Container Service agent to
-  poll for updates.
+  </note> Returns an endpoint for the Amazon ECS agent to poll for updates.
   """
   def discover_poll_endpoint(client, input, options \\ []) do
     request(client, "DiscoverPollEndpoint", input, options)
   end
 
   @doc """
+  Lists the account settings for an Amazon ECS resource for a specified
+  principal.
+  """
+  def list_account_settings(client, input, options \\ []) do
+    request(client, "ListAccountSettings", input, options)
+  end
+
+  @doc """
   Lists the attributes for Amazon ECS resources within a specified target
   type and cluster. When you specify a target type and cluster,
-  `LisAttributes` returns a list of attribute objects, one for each attribute
-  on each resource. You can filter the list of results to a single attribute
-  name to only return results that have that name. You can also filter the
-  results by attribute name and value, for example, to see which container
-  instances in a cluster are running a Linux AMI (`ecs.os-type=linux`).
+  `ListAttributes` returns a list of attribute objects, one for each
+  attribute on each resource. You can filter the list of results to a single
+  attribute name to only return results that have that name. You can also
+  filter the results by attribute name and value, for example, to see which
+  container instances in a cluster are running a Linux AMI
+  (`ecs.os-type=linux`).
   """
   def list_attributes(client, input, options \\ []) do
     request(client, "ListAttributes", input, options)
@@ -260,8 +389,8 @@ defmodule AWS.ECS do
   filter the results of a `ListContainerInstances` operation with cluster
   query language statements inside the `filter` parameter. For more
   information, see [Cluster Query
-  Language](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
   """
   def list_container_instances(client, input, options \\ []) do
     request(client, "ListContainerInstances", input, options)
@@ -272,6 +401,13 @@ defmodule AWS.ECS do
   """
   def list_services(client, input, options \\ []) do
     request(client, "ListServices", input, options)
+  end
+
+  @doc """
+  List the tags for an Amazon ECS resource.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -303,7 +439,7 @@ defmodule AWS.ECS do
   status of the task with the `family`, `containerInstance`, and
   `desiredStatus` parameters.
 
-  Recently-stopped tasks might appear in the returned results. Currently,
+  Recently stopped tasks might appear in the returned results. Currently,
   stopped tasks appear in the returned results for at least one hour.
   """
   def list_tasks(client, input, options \\ []) do
@@ -311,20 +447,48 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Modifies the ARN and resource ID format of a resource type for a specified
+  IAM user, IAM role, or the root user for an account. If the account setting
+  for the root user is changed, it sets the default setting for all of the
+  IAM users and roles for which no individual account setting has been set.
+  The opt-in and opt-out account setting can be set for each Amazon ECS
+  resource separately. The ARN and resource ID format of a resource will be
+  defined by the opt-in status of the IAM user or role that created the
+  resource. Enabling this setting is required to use new Amazon ECS features
+  such as resource tagging. For more information, see [Amazon Resource Names
+  (ARNs) and
+  IDs](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-resource-ids.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+  """
+  def put_account_setting(client, input, options \\ []) do
+    request(client, "PutAccountSetting", input, options)
+  end
+
+  @doc """
+  Modifies the ARN and resource ID format of a resource type for all IAM
+  users on an account for which no individual account setting has been set.
+  Enabling this setting is required to use new Amazon ECS features such as
+  resource tagging.
+  """
+  def put_account_setting_default(client, input, options \\ []) do
+    request(client, "PutAccountSettingDefault", input, options)
+  end
+
+  @doc """
   Create or update an attribute on an Amazon ECS resource. If the attribute
   does not exist, it is created. If the attribute exists, its value is
   replaced with the specified value. To delete an attribute, use
   `DeleteAttributes`. For more information, see
-  [Attributes](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  [Attributes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes)
+  in the *Amazon Elastic Container Service Developer Guide*.
   """
   def put_attributes(client, input, options \\ []) do
     request(client, "PutAttributes", input, options)
   end
 
   @doc """
-  <note> This action is only used by the Amazon EC2 Container Service agent,
-  and it is not intended for use outside of the agent.
+  <note> This action is only used by the Amazon ECS agent, and it is not
+  intended for use outside of the agent.
 
   </note> Registers an EC2 instance into the specified cluster. This instance
   becomes available to place containers on.
@@ -338,22 +502,27 @@ defmodule AWS.ECS do
   `containerDefinitions`. Optionally, you can add data volumes to your
   containers with the `volumes` parameter. For more information about task
   definition parameters and defaults, see [Amazon ECS Task
-  Definitions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
 
   You can specify an IAM role for your task with the `taskRoleArn` parameter.
   When you specify an IAM role for a task, its containers can then use the
   latest versions of the AWS CLI or SDKs to make API requests to the AWS
   services that are specified in the IAM policy associated with the role. For
   more information, see [IAM Roles for
-  Tasks](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
 
   You can specify a Docker networking mode for the containers in your task
   definition with the `networkMode` parameter. The available network modes
   correspond to those described in [Network
   settings](https://docs.docker.com/engine/reference/run/#/network-settings)
-  in the Docker run reference.
+  in the Docker run reference. If you specify the `awsvpc` network mode, the
+  task is allocated an elastic network interface, and you must specify a
+  `NetworkConfiguration` when you create a service or run a task with the
+  task definition. For more information, see [Task
+  Networking](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
   """
   def register_task_definition(client, input, options \\ []) do
     request(client, "RegisterTaskDefinition", input, options)
@@ -365,11 +534,34 @@ defmodule AWS.ECS do
   You can allow Amazon ECS to place tasks for you, or you can customize how
   Amazon ECS places tasks using placement constraints and placement
   strategies. For more information, see [Scheduling
-  Tasks](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
 
   Alternatively, you can use `StartTask` to use your own scheduler or place
   tasks manually on specific container instances.
+
+  The Amazon ECS API follows an eventual consistency model, due to the
+  distributed nature of the system supporting the API. This means that the
+  result of an API command you run that affects your Amazon ECS resources
+  might not be immediately visible to all subsequent commands you run. Keep
+  this in mind when you carry out an API command that immediately follows a
+  previous API command.
+
+  To manage eventual consistency, you can do the following:
+
+  <ul> <li> Confirm the state of the resource before you run a command to
+  modify it. Run the DescribeTasks command using an exponential backoff
+  algorithm to ensure that you allow enough time for the previous command to
+  propagate through the system. To do this, run the DescribeTasks command
+  repeatedly, starting with a couple of seconds of wait time and increasing
+  gradually up to five minutes of wait time.
+
+  </li> <li> Add wait time between subsequent commands, even if the
+  DescribeTasks command returns an accurate response. Apply an exponential
+  backoff algorithm starting with a couple of seconds of wait time, and
+  increase gradually up to about five minutes of wait time.
+
+  </li> </ul>
   """
   def run_task(client, input, options \\ []) do
     request(client, "RunTask", input, options)
@@ -381,29 +573,38 @@ defmodule AWS.ECS do
 
   Alternatively, you can use `RunTask` to place tasks for you. For more
   information, see [Scheduling
-  Tasks](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
   """
   def start_task(client, input, options \\ []) do
     request(client, "StartTask", input, options)
   end
 
   @doc """
-  Stops a running task.
+  Stops a running task. Any tags associated with the task will be deleted.
 
   When `StopTask` is called on a task, the equivalent of `docker stop` is
   issued to the containers running in the task. This results in a `SIGTERM`
-  and a 30-second timeout, after which `SIGKILL` is sent and the containers
-  are forcibly stopped. If the container handles the `SIGTERM` gracefully and
-  exits within 30 seconds from receiving it, no `SIGKILL` is sent.
+  value and a default 30-second timeout, after which the `SIGKILL` value is
+  sent and the containers are forcibly stopped. If the container handles the
+  `SIGTERM` value gracefully and exits within 30 seconds from receiving it,
+  no `SIGKILL` value is sent.
+
+  <note> The default 30-second timeout can be configured on the Amazon ECS
+  container agent with the `ECS_CONTAINER_STOP_TIMEOUT` variable. For more
+  information, see [Amazon ECS Container Agent
+  Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  </note>
   """
   def stop_task(client, input, options \\ []) do
     request(client, "StopTask", input, options)
   end
 
   @doc """
-  <note> This action is only used by the Amazon EC2 Container Service agent,
-  and it is not intended for use outside of the agent.
+  <note> This action is only used by the Amazon ECS agent, and it is not
+  intended for use outside of the agent.
 
   </note> Sent to acknowledge that a container changed states.
   """
@@ -412,13 +613,30 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  <note> This action is only used by the Amazon EC2 Container Service agent,
-  and it is not intended for use outside of the agent.
+  <note> This action is only used by the Amazon ECS agent, and it is not
+  intended for use outside of the agent.
 
   </note> Sent to acknowledge that a task changed states.
   """
   def submit_task_state_change(client, input, options \\ []) do
     request(client, "SubmitTaskStateChange", input, options)
+  end
+
+  @doc """
+  Associates the specified tags to a resource with the specified
+  `resourceArn`. If existing tags on a resource are not specified in the
+  request parameters, they are not changed. When a resource is deleted, the
+  tags associated with that resource are deleted as well.
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
+  end
+
+  @doc """
+  Deletes specified tags from a resource.
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
   end
 
   @doc """
@@ -432,8 +650,8 @@ defmodule AWS.ECS do
   Linux with the `ecs-init` service installed and running. For help updating
   the Amazon ECS container agent on other operating systems, see [Manually
   Updating the Amazon ECS Container
-  Agent](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent)
+  in the *Amazon Elastic Container Service Developer Guide*.
   """
   def update_container_agent(client, input, options \\ []) do
     request(client, "UpdateContainerAgent", input, options)
@@ -453,9 +671,9 @@ defmodule AWS.ECS do
   instance that are in the `PENDING` state are stopped immediately.
 
   Service tasks on the container instance that are in the `RUNNING` state are
-  stopped and replaced according the service's deployment configuration
-  parameters, `minimumHealthyPercent` and `maximumPercent`. Note that you can
-  change the deployment configuration of your service using `UpdateService`.
+  stopped and replaced according to the service's deployment configuration
+  parameters, `minimumHealthyPercent` and `maximumPercent`. You can change
+  the deployment configuration of your service using `UpdateService`.
 
   <ul> <li> If `minimumHealthyPercent` is below 100%, the scheduler can
   ignore `desiredCount` temporarily during task replacement. For example,
@@ -470,14 +688,14 @@ defmodule AWS.ECS do
 
   </li> <li> The `maximumPercent` parameter represents an upper limit on the
   number of running tasks during task replacement, which enables you to
-  define the replacement batch size. For example, if `desiredCount` of four
+  define the replacement batch size. For example, if `desiredCount` is four
   tasks, a maximum of 200% starts four new tasks before stopping the four
-  tasks to be drained (provided that the cluster resources required to do
-  this are available). If the maximum is 100%, then replacement tasks can't
+  tasks to be drained, provided that the cluster resources required to do
+  this are available. If the maximum is 100%, then replacement tasks can't
   start until the draining tasks have stopped.
 
   </li> </ul> Any `PENDING` or `RUNNING` tasks that do not belong to a
-  service are not affected; you must wait for them to finish or stop them
+  service are not affected. You must wait for them to finish or stop them
   manually.
 
   A container instance has completed draining when it has no more `RUNNING`
@@ -491,18 +709,45 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Modifies the desired count, deployment configuration, or task definition
-  used in a service.
+  Modifies the parameters of a service.
+
+  For services using the rolling update (`ECS`) deployment controller, the
+  desired count, deployment configuration, network configuration, or task
+  definition used can be updated.
+
+  For services using the blue/green (`CODE_DEPLOY`) deployment controller,
+  only the desired count, deployment configuration, and health check grace
+  period can be updated using this API. If the network configuration,
+  platform version, or task definition need to be updated, a new AWS
+  CodeDeploy deployment should be created. For more information, see
+  [CreateDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html)
+  in the *AWS CodeDeploy API Reference*.
+
+  For services using an external deployment controller, you can update only
+  the desired count and health check grace period using this API. If the
+  launch type, load balancer, network configuration, platform version, or
+  task definition need to be updated, you should create a new task set. For
+  more information, see `CreateTaskSet`.
 
   You can add to or subtract from the number of instantiations of a task
   definition in a service by specifying the cluster that the service is
   running in and a new `desiredCount` parameter.
 
-  You can use `UpdateService` to modify your task definition and deploy a new
-  version of your service.
+  If you have updated the Docker image of your application, you can create a
+  new task definition with that image and deploy it to your service. The
+  service scheduler uses the minimum healthy percent and maximum percent
+  parameters (in the service's deployment configuration) to determine the
+  deployment strategy.
 
-  You can also update the deployment configuration of a service. When a
-  deployment is triggered by updating the task definition of a service, the
+  <note> If your updated Docker image uses the same tag as what is in the
+  existing task definition for your service (for example, `my_image:latest`),
+  you do not need to create a new revision of your task definition. You can
+  update the service using the `forceNewDeployment` option. The new tasks
+  launched by the deployment pull the current image/tag combination from your
+  repository when they start.
+
+  </note> You can also update the deployment configuration of a service. When
+  a deployment is triggered by updating the task definition of a service, the
   service scheduler uses the deployment configuration parameters,
   `minimumHealthyPercent` and `maximumPercent`, to determine the deployment
   strategy.
@@ -568,6 +813,30 @@ defmodule AWS.ECS do
   """
   def update_service(client, input, options \\ []) do
     request(client, "UpdateService", input, options)
+  end
+
+  @doc """
+  Modifies which task set in a service is the primary task set. Any
+  parameters that are updated on the primary task set in a service will
+  transition to the service. This is used when a service uses the `EXTERNAL`
+  deployment controller type. For more information, see [Amazon ECS
+  Deployment
+  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+  """
+  def update_service_primary_task_set(client, input, options \\ []) do
+    request(client, "UpdateServicePrimaryTaskSet", input, options)
+  end
+
+  @doc """
+  Modifies a task set. This is used when a service uses the `EXTERNAL`
+  deployment controller type. For more information, see [Amazon ECS
+  Deployment
+  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+  """
+  def update_task_set(client, input, options \\ []) do
+    request(client, "UpdateTaskSet", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

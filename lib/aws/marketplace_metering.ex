@@ -28,7 +28,25 @@ defmodule AWS.Marketplace.Metering do
   browser. The Registration Token is resolved through this API to obtain a
   CustomerIdentifier and Product Code.
 
-  </li> </ul>
+  </li> </ul> **Entitlement and Metering for Paid Container Products**
+
+  <ul> <li> Paid container software products sold through AWS Marketplace
+  must integrate with the AWS Marketplace Metering Service and call the
+  RegisterUsage operation for software entitlement and metering. Calling
+  RegisterUsage from containers running outside of Amazon Elastic Container
+  Service (Amazon ECR) isn't supported. Free and BYOL products for ECS aren't
+  required to call RegisterUsage, but you can do so if you want to receive
+  usage data in your seller reports. For more information on using the
+  RegisterUsage operation, see [Container-Based
+  Products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-based-products.html).
+
+  </li> </ul> BatchMeterUsage API calls are captured by AWS CloudTrail. You
+  can use Cloudtrail to verify that the SaaS metering records that you sent
+  are accurate by searching for records with the eventName of
+  BatchMeterUsage. You can also use CloudTrail to audit records over time.
+  For more information, see the * [AWS CloudTrail User
+  Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html)
+  *.
   """
 
   @doc """
@@ -57,6 +75,47 @@ defmodule AWS.Marketplace.Metering do
   """
   def meter_usage(client, input, options \\ []) do
     request(client, "MeterUsage", input, options)
+  end
+
+  @doc """
+  Paid container software products sold through AWS Marketplace must
+  integrate with the AWS Marketplace Metering Service and call the
+  RegisterUsage operation for software entitlement and metering. Calling
+  RegisterUsage from containers running outside of ECS is not currently
+  supported. Free and BYOL products for ECS aren't required to call
+  RegisterUsage, but you may choose to do so if you would like to receive
+  usage data in your seller reports. The sections below explain the behavior
+  of RegisterUsage. RegisterUsage performs two primary functions: metering
+  and entitlement.
+
+  <ul> <li> *Entitlement*: RegisterUsage allows you to verify that the
+  customer running your paid software is subscribed to your product on AWS
+  Marketplace, enabling you to guard against unauthorized use. Your container
+  image that integrates with RegisterUsage is only required to guard against
+  unauthorized use at container startup, as such a
+  CustomerNotSubscribedException/PlatformNotSupportedException will only be
+  thrown on the initial call to RegisterUsage. Subsequent calls from the same
+  Amazon ECS task instance (e.g. task-id) will not throw a
+  CustomerNotSubscribedException, even if the customer unsubscribes while the
+  Amazon ECS task is still running.
+
+  </li> <li> *Metering*: RegisterUsage meters software use per ECS task, per
+  hour, with usage prorated to the second. A minimum of 1 minute of usage
+  applies to tasks that are short lived. For example, if a customer has a 10
+  node ECS cluster and creates an ECS service configured as a Daemon Set,
+  then ECS will launch a task on all 10 cluster nodes and the customer will
+  be charged: (10 * hourly_rate). Metering for software use is automatically
+  handled by the AWS Marketplace Metering Control Plane -- your software is
+  not required to perform any metering specific actions, other than call
+  RegisterUsage once for metering of software use to commence. The AWS
+  Marketplace Metering Control Plane will also continue to bill customers for
+  running ECS tasks, regardless of the customers subscription state, removing
+  the need for your software to perform entitlement checks at runtime.
+
+  </li> </ul>
+  """
+  def register_usage(client, input, options \\ []) do
+    request(client, "RegisterUsage", input, options)
   end
 
   @doc """

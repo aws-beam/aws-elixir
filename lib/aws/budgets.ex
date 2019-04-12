@@ -3,95 +3,167 @@
 
 defmodule AWS.Budgets do
   @moduledoc """
-  All public APIs for AWS Budgets
+  The AWS Budgets API enables you to use AWS Budgets to plan your service
+  usage, service costs, and instance reservations. The API reference provides
+  descriptions, syntax, and usage examples for each of the actions and data
+  types for AWS Budgets.
+
+  Budgets provide you with a way to see the following information:
+
+  <ul> <li> How close your plan is to your budgeted amount or to the free
+  tier limits
+
+  </li> <li> Your usage-to-date, including how much you've used of your
+  Reserved Instances (RIs)
+
+  </li> <li> Your current estimated charges from AWS, and how much your
+  predicted usage will accrue in charges by the end of the month
+
+  </li> <li> How much of your budget has been used
+
+  </li> </ul> AWS updates your budget status several times a day. Budgets
+  track your unblended costs, subscriptions, refunds, and RIs. You can create
+  the following types of budgets:
+
+  <ul> <li> **Cost budgets** - Plan how much you want to spend on a service.
+
+  </li> <li> **Usage budgets** - Plan how much you want to use one or more
+  services.
+
+  </li> <li> **RI utilization budgets** - Define a utilization threshold, and
+  receive alerts when your RI usage falls below that threshold. This lets you
+  see if your RIs are unused or under-utilized.
+
+  </li> <li> **RI coverage budgets** - Define a coverage threshold, and
+  receive alerts when the number of your instance hours that are covered by
+  RIs fall below that threshold. This lets you see how much of your instance
+  usage is covered by a reservation.
+
+  </li> </ul> Service Endpoint
+
+  The AWS Budgets API provides the following endpoint:
+
+  <ul> <li> https://budgets.amazonaws.com
+
+  </li> </ul> For information about costs that are associated with the AWS
+  Budgets API, see [AWS Cost Management
+  Pricing](https://aws.amazon.com/aws-cost-management/pricing/).
   """
 
   @doc """
-  Create a new budget
+  Creates a budget and, if included, notifications and subscribers.
   """
   def create_budget(client, input, options \\ []) do
     request(client, "CreateBudget", input, options)
   end
 
   @doc """
-  Create a new Notification with subscribers for a budget
+  Creates a notification. You must create the budget before you create the
+  associated notification.
   """
   def create_notification(client, input, options \\ []) do
     request(client, "CreateNotification", input, options)
   end
 
   @doc """
-  Create a new Subscriber for a notification
+  Creates a subscriber. You must create the associated budget and
+  notification before you create the subscriber.
   """
   def create_subscriber(client, input, options \\ []) do
     request(client, "CreateSubscriber", input, options)
   end
 
   @doc """
-  Delete a budget and related notifications
+  Deletes a budget. You can delete your budget at any time.
+
+  <important> Deleting a budget also deletes the notifications and
+  subscribers that are associated with that budget.
+
+  </important>
   """
   def delete_budget(client, input, options \\ []) do
     request(client, "DeleteBudget", input, options)
   end
 
   @doc """
-  Delete a notification and related subscribers
+  Deletes a notification.
+
+  <important> Deleting a notification also deletes the subscribers that are
+  associated with the notification.
+
+  </important>
   """
   def delete_notification(client, input, options \\ []) do
     request(client, "DeleteNotification", input, options)
   end
 
   @doc """
-  Delete a Subscriber for a notification
+  Deletes a subscriber.
+
+  <important> Deleting the last subscriber to a notification also deletes the
+  notification.
+
+  </important>
   """
   def delete_subscriber(client, input, options \\ []) do
     request(client, "DeleteSubscriber", input, options)
   end
 
   @doc """
-  Get a single budget
+  Describes a budget.
   """
   def describe_budget(client, input, options \\ []) do
     request(client, "DescribeBudget", input, options)
   end
 
   @doc """
-  Get all budgets for an account
+  Describes the history for `DAILY`, `MONTHLY`, and `QUARTERLY` budgets.
+  Budget history isn't available for `ANNUAL` budgets.
+  """
+  def describe_budget_performance_history(client, input, options \\ []) do
+    request(client, "DescribeBudgetPerformanceHistory", input, options)
+  end
+
+  @doc """
+  Lists the budgets that are associated with an account.
   """
   def describe_budgets(client, input, options \\ []) do
     request(client, "DescribeBudgets", input, options)
   end
 
   @doc """
-  Get notifications of a budget
+  Lists the notifications that are associated with a budget.
   """
   def describe_notifications_for_budget(client, input, options \\ []) do
     request(client, "DescribeNotificationsForBudget", input, options)
   end
 
   @doc """
-  Get subscribers of a notification
+  Lists the subscribers that are associated with a notification.
   """
   def describe_subscribers_for_notification(client, input, options \\ []) do
     request(client, "DescribeSubscribersForNotification", input, options)
   end
 
   @doc """
-  Update the information of a budget already created
+  Updates a budget. You can change every part of a budget except for the
+  `budgetName` and the `calculatedSpend`. When you modify a budget, the
+  `calculatedSpend` drops to zero until AWS has new usage data to use for
+  forecasting.
   """
   def update_budget(client, input, options \\ []) do
     request(client, "UpdateBudget", input, options)
   end
 
   @doc """
-  Update the information about a notification already created
+  Updates a notification.
   """
   def update_notification(client, input, options \\ []) do
     request(client, "UpdateNotification", input, options)
   end
 
   @doc """
-  Update a subscriber
+  Updates a subscriber.
   """
   def update_subscriber(client, input, options \\ []) do
     request(client, "UpdateSubscriber", input, options)

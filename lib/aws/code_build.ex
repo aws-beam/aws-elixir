@@ -10,26 +10,40 @@ defmodule AWS.CodeBuild do
   ready to deploy. AWS CodeBuild eliminates the need to provision, manage,
   and scale your own build servers. It provides prepackaged build
   environments for the most popular programming languages and build tools,
-  such as Apach Maven, Gradle, and more. You can also fully customize build
+  such as Apache Maven, Gradle, and more. You can also fully customize build
   environments in AWS CodeBuild to use your own build tools. AWS CodeBuild
-  scales automatically to meet peak build requests, and you pay only for the
+  scales automatically to meet peak build requests. You pay only for the
   build time you consume. For more information about AWS CodeBuild, see the
   *AWS CodeBuild User Guide*.
 
   AWS CodeBuild supports these operations:
 
-  <ul> <li> `BatchGetProjects`: Gets information about one or more build
-  projects. A *build project* defines how AWS CodeBuild will run a build.
-  This includes information such as where to get the source code to build,
-  the build environment to use, the build commands to run, and where to store
-  the build output. A *build environment* represents a combination of
-  operating system, programming language runtime, and tools that AWS
-  CodeBuild will use to run a build. Also, you can add tags to build projects
-  to help manage your resources and costs.
+  <ul> <li> `BatchDeleteBuilds`: Deletes one or more builds.
+
+  </li> <li> `BatchGetProjects`: Gets information about one or more build
+  projects. A *build project* defines how AWS CodeBuild runs a build. This
+  includes information such as where to get the source code to build, the
+  build environment to use, the build commands to run, and where to store the
+  build output. A *build environment* is a representation of operating
+  system, programming language runtime, and tools that AWS CodeBuild uses to
+  run a build. You can add tags to build projects to help manage your
+  resources and costs.
 
   </li> <li> `CreateProject`: Creates a build project.
 
+  </li> <li> `CreateWebhook`: For an existing AWS CodeBuild build project
+  that has its source code stored in a GitHub or Bitbucket repository,
+  enables AWS CodeBuild to start rebuilding the source code every time a code
+  change is pushed to the repository.
+
+  </li> <li> `UpdateWebhook`: Changes the settings of an existing webhook.
+
   </li> <li> `DeleteProject`: Deletes a build project.
+
+  </li> <li> `DeleteWebhook`: For an existing AWS CodeBuild build project
+  that has its source code stored in a GitHub or Bitbucket repository, stops
+  AWS CodeBuild from rebuilding the source code every time a code change is
+  pushed to the repository.
 
   </li> <li> `ListProjects`: Gets a list of build project names, with each
   build project name representing a single build project.
@@ -52,8 +66,27 @@ defmodule AWS.CodeBuild do
   </li> <li> `ListCuratedEnvironmentImages`: Gets information about Docker
   images that are managed by AWS CodeBuild.
 
+  </li> <li> `DeleteSourceCredentials`: Deletes a set of GitHub, GitHub
+  Enterprise, or Bitbucket source credentials.
+
+  </li> <li> `ImportSourceCredentials`: Imports the source repository
+  credentials for an AWS CodeBuild project that has its source code stored in
+  a GitHub, GitHub Enterprise, or Bitbucket repository.
+
+  </li> <li> `ListSourceCredentials`: Returns a list of
+  `SourceCredentialsInfo` objects. Each `SourceCredentialsInfo` object
+  includes the authentication type, token ARN, and type of source provider
+  for one set of credentials.
+
   </li> </ul>
   """
+
+  @doc """
+  Deletes one or more builds.
+  """
+  def batch_delete_builds(client, input, options \\ []) do
+    request(client, "BatchDeleteBuilds", input, options)
+  end
 
   @doc """
   Gets information about builds.
@@ -77,10 +110,65 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  For an existing AWS CodeBuild build project that has its source code stored
+  in a GitHub or Bitbucket repository, enables AWS CodeBuild to start
+  rebuilding the source code every time a code change is pushed to the
+  repository.
+
+  <important> If you enable webhooks for an AWS CodeBuild project, and the
+  project is used as a build step in AWS CodePipeline, then two identical
+  builds are created for each commit. One build is triggered through
+  webhooks, and one through AWS CodePipeline. Because billing is on a
+  per-build basis, you are billed for both builds. Therefore, if you are
+  using AWS CodePipeline, we recommend that you disable webhooks in AWS
+  CodeBuild. In the AWS CodeBuild console, clear the Webhook box. For more
+  information, see step 5 in [Change a Build Project's
+  Settings](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console).
+
+  </important>
+  """
+  def create_webhook(client, input, options \\ []) do
+    request(client, "CreateWebhook", input, options)
+  end
+
+  @doc """
   Deletes a build project.
   """
   def delete_project(client, input, options \\ []) do
     request(client, "DeleteProject", input, options)
+  end
+
+  @doc """
+  Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source
+  credentials.
+  """
+  def delete_source_credentials(client, input, options \\ []) do
+    request(client, "DeleteSourceCredentials", input, options)
+  end
+
+  @doc """
+  For an existing AWS CodeBuild build project that has its source code stored
+  in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding
+  the source code every time a code change is pushed to the repository.
+  """
+  def delete_webhook(client, input, options \\ []) do
+    request(client, "DeleteWebhook", input, options)
+  end
+
+  @doc """
+  Imports the source repository credentials for an AWS CodeBuild project that
+  has its source code stored in a GitHub, GitHub Enterprise, or Bitbucket
+  repository.
+  """
+  def import_source_credentials(client, input, options \\ []) do
+    request(client, "ImportSourceCredentials", input, options)
+  end
+
+  @doc """
+  Resets the cache for a project.
+  """
+  def invalidate_project_cache(client, input, options \\ []) do
+    request(client, "InvalidateProjectCache", input, options)
   end
 
   @doc """
@@ -114,6 +202,13 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Returns a list of `SourceCredentialsInfo` objects.
+  """
+  def list_source_credentials(client, input, options \\ []) do
+    request(client, "ListSourceCredentials", input, options)
+  end
+
+  @doc """
   Starts running a build.
   """
   def start_build(client, input, options \\ []) do
@@ -132,6 +227,17 @@ defmodule AWS.CodeBuild do
   """
   def update_project(client, input, options \\ []) do
     request(client, "UpdateProject", input, options)
+  end
+
+  @doc """
+  Updates the webhook associated with an AWS CodeBuild build project.
+
+  <note> If you use Bitbucket for your repository, `rotateSecret` is ignored.
+
+  </note>
+  """
+  def update_webhook(client, input, options \\ []) do
+    request(client, "UpdateWebhook", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

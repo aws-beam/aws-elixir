@@ -37,7 +37,7 @@ defmodule AWS.Mixfile do
     [{:dialyxir, "~> 0.5.0", only: [:dev]},
      {:earmark, "~> 1.1", only: [:dev]},
      {:ex_doc, "~> 0.15.0", only: [:dev]},
-     {:httpoison, "~> 0.11.1"},
+     {:httpoison, "~> 1.5"},
      {:poison, "~> 3.1"},
      {:timex, "~> 3.1"}]
   end

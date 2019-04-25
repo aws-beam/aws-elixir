@@ -7,9 +7,9 @@ defmodule AWS.StorageGateway do
 
   AWS Storage Gateway is the service that connects an on-premises software
   appliance with cloud-based storage to provide seamless and secure
-  integration between an organization's on-premises IT environment and AWS's
-  storage infrastructure. The service enables you to securely upload data to
-  the AWS cloud for cost effective backup and rapid disaster recovery.
+  integration between an organization's on-premises IT environment and the
+  AWS storage infrastructure. The service enables you to securely upload data
+  to the AWS cloud for cost effective backup and rapid disaster recovery.
 
   Use the following links to get started using the *AWS Storage Gateway
   Service API Reference*:
@@ -116,7 +116,7 @@ defmodule AWS.StorageGateway do
 
   </li> <li> NFS and SMB file shares
 
-  </li> </ul> You can create a maximum of 10 tags for each resource. Virtual
+  </li> </ul> You can create a maximum of 50 tags for each resource. Virtual
   tapes and storage volumes that are recovered to a new gateway maintain
   their tags.
   """
@@ -262,7 +262,7 @@ defmodule AWS.StorageGateway do
   of your data to Amazon Simple Storage (S3) for durable off-site recovery,
   as well as import the data to an Amazon Elastic Block Store (EBS) volume in
   Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway
-  volume on a scheduled or ad-hoc basis. This API enables you to take ad-hoc
+  volume on a scheduled or ad hoc basis. This API enables you to take ad-hoc
   snapshot. For more information, see [Editing a Snapshot
   Schedule](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot).
 
@@ -836,6 +836,13 @@ defmodule AWS.StorageGateway do
   be notified through an Amazon CloudWatch event when your RefreshCache
   operation completes. For more information, see [Getting Notified About File
   Operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification).
+
+  When this API is called, it only initiates the refresh operation. When the
+  API call completes and returns a success code, it doesn't necessarily mean
+  that the file refresh has completed. You should use the refresh-complete
+  notification to determine that the operation has completed before you check
+  for new files on the gateway file share. You can subscribe to be notified
+  through an CloudWatch event when your `RefreshCache` operation completes.
   """
   def refresh_cache(client, input, options \\ []) do
     request(client, "RefreshCache", input, options)

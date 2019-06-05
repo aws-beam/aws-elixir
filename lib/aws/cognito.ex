@@ -3,43 +3,27 @@
 
 defmodule AWS.Cognito do
   @moduledoc """
-  Amazon Cognito
+  Amazon Cognito Federated Identities
 
-  Amazon Cognito is a web service that delivers scoped temporary credentials
-  to mobile devices and other untrusted environments. Amazon Cognito uniquely
-  identifies a device and supplies the user with a consistent identity over
-  the lifetime of an application.
+  Amazon Cognito Federated Identities is a web service that delivers scoped
+  temporary credentials to mobile devices and other untrusted environments.
+  It uniquely identifies a device and supplies the user with a consistent
+  identity over the lifetime of an application.
 
-  Using Amazon Cognito, you can enable authentication with one or more
-  third-party identity providers (Facebook, Google, or Login with Amazon),
-  and you can also choose to support unauthenticated access from your app.
-  Cognito delivers a unique identifier for each user and acts as an OpenID
-  token provider trusted by AWS Security Token Service (STS) to access
-  temporary, limited-privilege AWS credentials.
+  Using Amazon Cognito Federated Identities, you can enable authentication
+  with one or more third-party identity providers (Facebook, Google, or Login
+  with Amazon) or an Amazon Cognito user pool, and you can also choose to
+  support unauthenticated access from your app. Cognito delivers a unique
+  identifier for each user and acts as an OpenID token provider trusted by
+  AWS Security Token Service (STS) to access temporary, limited-privilege AWS
+  credentials.
 
-  To provide end-user credentials, first make an unsigned call to `GetId`. If
-  the end user is authenticated with one of the supported identity providers,
-  set the `Logins` map with the identity provider token. `GetId` returns a
-  unique identifier for the user.
+  For a description of the authentication flow from the Amazon Cognito
+  Developer Guide see [Authentication
+  Flow](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html).
 
-  Next, make an unsigned call to `GetCredentialsForIdentity`. This call
-  expects the same `Logins` map as the `GetId` call, as well as the
-  `IdentityID` originally returned by `GetId`. Assuming your identity pool
-  has been configured via the `SetIdentityPoolRoles` operation,
-  `GetCredentialsForIdentity` will return AWS credentials for your use. If
-  your pool has not been configured with `SetIdentityPoolRoles`, or if you
-  want to follow legacy flow, make an unsigned call to `GetOpenIdToken`,
-  which returns the OpenID token necessary to call STS and retrieve AWS
-  credentials. This call expects the same `Logins` map as the `GetId` call,
-  as well as the `IdentityID` originally returned by `GetId`. The token
-  returned by `GetOpenIdToken` can be passed to the STS operation
-  [AssumeRoleWithWebIdentity](http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)
-  to retrieve AWS credentials.
-
-  If you want to use Amazon Cognito in an Android, iOS, or Unity application,
-  you will probably want to make API calls via the AWS Mobile SDK. To learn
-  more, see the [AWS Mobile SDK Developer
-  Guide](http://docs.aws.amazon.com/mobile/index.html).
+  For more information see [Amazon Cognito Federated
+  Identities](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html).
   """
 
   @doc """
@@ -75,7 +59,7 @@ defmodule AWS.Cognito do
   end
 
   @doc """
-  Deletes a user pool. Once a pool is deleted, users will not be able to
+  Deletes an identity pool. Once a pool is deleted, users will not be able to
   authenticate with the pool.
 
   You must use AWS Developer credentials to call this API.
@@ -140,7 +124,7 @@ defmodule AWS.Cognito do
   returned by `GetId`. You can optionally add additional logins for the
   identity. Supplying multiple logins creates an implicit link.
 
-  The OpenId token is valid for 15 minutes.
+  The OpenId token is valid for 10 minutes.
 
   This is a public API. You do not need any credentials to call this API.
   """
@@ -171,7 +155,7 @@ defmodule AWS.Cognito do
   end
 
   @doc """
-  Lists the identities in a pool.
+  Lists the identities in an identity pool.
 
   You must use AWS Developer credentials to call this API.
   """
@@ -189,15 +173,35 @@ defmodule AWS.Cognito do
   end
 
   @doc """
+  Lists the tags that are assigned to an Amazon Cognito identity pool.
+
+  A tag is a label that you can apply to identity pools to categorize and
+  manage them in different ways, such as by purpose, owner, environment, or
+  other criteria.
+
+  You can use this action up to 10 times per second, per account.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Retrieves the `IdentityID` associated with a `DeveloperUserIdentifier` or
-  the list of `DeveloperUserIdentifier`s associated with an `IdentityId` for
-  an existing identity. Either `IdentityID` or `DeveloperUserIdentifier` must
-  not be null. If you supply only one of these values, the other value will
-  be searched in the database and returned as a part of the response. If you
-  supply both, `DeveloperUserIdentifier` will be matched against
-  `IdentityID`. If the values are verified against the database, the response
-  returns both values and is the same as the request. Otherwise a
-  `ResourceConflictException` is thrown.
+  the list of `DeveloperUserIdentifier` values associated with an
+  `IdentityId` for an existing identity. Either `IdentityID` or
+  `DeveloperUserIdentifier` must not be null. If you supply only one of these
+  values, the other value will be searched in the database and returned as a
+  part of the response. If you supply both, `DeveloperUserIdentifier` will be
+  matched against `IdentityID`. If the values are verified against the
+  database, the response returns both values and is the same as the request.
+  Otherwise a `ResourceConflictException` is thrown.
+
+  `LookupDeveloperIdentity` is intended for low-throughput control plane
+  operations: for example, to enable customer service to locate an identity
+  ID by username. If you are using it for higher-volume operations such as
+  user authentication, your requests are likely to be throttled.
+  `GetOpenIdTokenForDeveloperIdentity` is a better option for higher-volume
+  operations for user authentication.
 
   You must use AWS Developer credentials to call this API.
   """
@@ -215,6 +219,11 @@ defmodule AWS.Cognito do
   merged. If the users to be merged are associated with the same public
   provider, but as two different users, an exception will be thrown.
 
+  The number of linked logins is limited to 20. So, the number of linked
+  logins for the source user, `SourceUserIdentifier`, and the destination
+  user, `DestinationUserIdentifier`, together should not be larger than 20.
+  Otherwise, an exception will be thrown.
+
   You must use AWS Developer credentials to call this API.
   """
   def merge_developer_identities(client, input, options \\ []) do
@@ -229,6 +238,31 @@ defmodule AWS.Cognito do
   """
   def set_identity_pool_roles(client, input, options \\ []) do
     request(client, "SetIdentityPoolRoles", input, options)
+  end
+
+  @doc """
+  Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label
+  that you can use to categorize and manage identity pools in different ways,
+  such as by purpose, owner, environment, or other criteria.
+
+  Each tag consists of a key and value, both of which you define. A key is a
+  general category for more specific values. For example, if you have two
+  versions of an identity pool, one for testing and another for production,
+  you might assign an `Environment` tag key to both identity pools. The value
+  of this key might be `Test` for one identity pool and `Production` for the
+  other.
+
+  Tags are useful for cost tracking and access control. You can activate your
+  tags so that they appear on the Billing and Cost Management console, where
+  you can track the costs associated with your identity pools. In an IAM
+  policy, you can constrain permissions for identity pools based on specific
+  tags or tag values.
+
+  You can use this action up to 5 times per second, per account. An identity
+  pool can have as many as 50 tags.
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
   end
 
   @doc """
@@ -256,7 +290,15 @@ defmodule AWS.Cognito do
   end
 
   @doc """
-  Updates a user pool.
+  Removes the specified tags from an Amazon Cognito identity pool. You can
+  use this action up to 5 times per second, per account
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an identity pool.
 
   You must use AWS Developer credentials to call this API.
   """

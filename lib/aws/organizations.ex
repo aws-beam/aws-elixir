@@ -11,7 +11,7 @@ defmodule AWS.Organizations do
 
   This guide provides descriptions of the Organizations API. For more
   information about using this service, see the [AWS Organizations User
-  Guide](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
+  Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
 
   **API Version**
 
@@ -31,7 +31,7 @@ defmodule AWS.Organizations do
   calls to Organizations. However, you also can use the Organizations Query
   API to make direct calls to the Organizations web service. To learn more
   about the Organizations Query API, see [Making Query
-  Requests](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_query-requests.html)
+  Requests](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_query-requests.html)
   in the *AWS Organizations User Guide*. Organizations supports GET and POST
   requests for all actions. That is, the API does not require you to use GET
   for some actions and POST for others. However, GET requests are subject to
@@ -51,7 +51,7 @@ defmodule AWS.Organizations do
   use those credentials to sign requests.
 
   To sign requests, we recommend that you use [Signature Version
-  4](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   If you have an existing application that uses Signature Version 2, you do
   not have to update it to use Signature Version 4. However, some operations
   now require Signature Version 4. The documentation for operations that
@@ -67,12 +67,11 @@ defmodule AWS.Organizations do
   **Support and Feedback for AWS Organizations**
 
   We welcome your feedback. Send your comments to
-  [aws-organizations-feedback@amazon.com](mailto:aws-organizations-feedback@amazon.com)
-  or post your feedback and questions in our private [AWS Organizations
-  support forum](http://forums.aws.amazon.com/forum.jspa?forumID=219). If you
-  don't have access to the forum, send a request for access to the email
-  address, along with your forum user ID. For more information about the AWS
-  support forums, see [Forums Help](http://forums.aws.amazon.com/help.jspa).
+  [feedback-awsorganizations@amazon.com](mailto:feedback-awsorganizations@amazon.com)
+  or post your feedback and questions in the [AWS Organizations support
+  forum](http://forums.aws.amazon.com/forum.jspa?forumID=219). For more
+  information about the AWS support forums, see [Forums
+  Help](http://forums.aws.amazon.com/help.jspa).
 
   **Endpoint to Call When Using the CLI or the AWS API**
 
@@ -98,7 +97,7 @@ defmodule AWS.Organizations do
   </li> </ul> For the various SDKs used to call the APIs, see the
   documentation for the SDK of interest to learn how to direct the requests
   to a specific endpoint. For more information, see [Regions and
-  Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region)
+  Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region)
   in the *AWS General Reference*.
 
   **How examples are presented**
@@ -119,11 +118,11 @@ defmodule AWS.Organizations do
   requests were successfully made to Organizations, who made the request,
   when it was made, and so on. For more about AWS Organizations and its
   support for AWS CloudTrail, see [Logging AWS Organizations Events with AWS
-  CloudTrail](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_cloudtrail-integration.html)
+  CloudTrail](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html#orgs_cloudtrail-integration)
   in the *AWS Organizations User Guide*. To learn more about CloudTrail,
   including how to turn it on and find your log files, see the [AWS
   CloudTrail User
-  Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html).
+  Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html).
   """
 
   @doc """
@@ -136,26 +135,36 @@ defmodule AWS.Organizations do
   <ul> <li> **Invitation to join** or **Approve all features request**
   handshakes: only a principal from the member account.
 
+  The user who calls the API for an invitation to join must have the
+  `organizations:AcceptHandshake` permission. If you enabled all features in
+  the organization, then the user must also have the
+  `iam:CreateServiceLinkedRole` permission so that Organizations can create
+  the required service-linked role named *AWSServiceRoleForOrganizations*.
+  For more information, see [AWS Organizations and Service-Linked
+  Roles](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles)
+  in the *AWS Organizations User Guide*.
+
   </li> <li> **Enable all features final confirmation** handshake: only a
   principal from the master account.
 
   For more information about invitations, see [Inviting an AWS Account to
   Join Your
-  Organization](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html)
+  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html)
   in the *AWS Organizations User Guide*. For more information about requests
   to enable all features in the organization, see [Enabling All Features in
   Your
-  Organization](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
+  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
   in the *AWS Organizations User Guide*.
 
-  </li> </ul>
+  </li> </ul> After you accept a handshake, it continues to appear in the
+  results of relevant APIs for only 30 days. After that it is deleted.
   """
   def accept_handshake(client, input, options \\ []) do
     request(client, "AcceptHandshake", input, options)
   end
 
   @doc """
-  Attaches a policy to a root, an organizational unit, or an individual
+  Attaches a policy to a root, an organizational unit (OU), or an individual
   account. How the policy affects accounts depends on the type of policy:
 
   <ul> <li> **Service control policy (SCP)** - An SCP specifies what
@@ -171,9 +180,10 @@ defmodule AWS.Organizations do
   </li> <li> If you attach the policy directly to an account, then it affects
   only that account.
 
-  </li> </ul> SCPs essentially are permission "filters". When you attach one
-  SCP to a higher level root or OU, and you also attach a different SCP to a
-  child OU or to an account, the child policy can further restrict only the
+  </li> </ul> SCPs are JSON policies that specify the maximum permissions for
+  an organization or organizational unit (OU). When you attach one SCP to a
+  higher level root or OU, and you also attach a different SCP to a child OU
+  or to an account, the child policy can further restrict only the
   permissions that pass through the parent filter and are available to the
   child. An SCP that is attached to a child cannot grant a permission that is
   not already granted by the parent. For example, imagine that the parent SCP
@@ -193,7 +203,7 @@ defmodule AWS.Organizations do
 
   For more information about how Organizations policies permissions work, see
   [Using Service Control
-  Policies](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)
+  Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)
   in the *AWS Organizations User Guide*.
 
   </li> </ul> This operation can be called only from the organization's
@@ -211,6 +221,9 @@ defmodule AWS.Organizations do
   handshake. The recipient of the handshake can't cancel it, but can use
   `DeclineHandshake` instead. After a handshake is canceled, the recipient
   can no longer respond to that handshake.
+
+  After you cancel a handshake, it continues to appear in the results of
+  relevant APIs for only 30 days. After that it is deleted.
   """
   def cancel_handshake(client, input, options \\ []) do
     request(client, "CancelHandshake", input, options)
@@ -219,46 +232,211 @@ defmodule AWS.Organizations do
   @doc """
   Creates an AWS account that is automatically a member of the organization
   whose credentials made the request. This is an asynchronous request that
-  AWS performs in the background. If you want to check the status of the
-  request later, you need the `OperationId` response element from this
-  operation to provide as a parameter to the `DescribeCreateAccountStatus`
-  operation.
+  AWS performs in the background. Because `CreateAccount` operates
+  asynchronously, it can return a successful completion message even though
+  account initialization might still be in progress. You might need to wait a
+  few minutes before you can successfully access the account. To check the
+  status of the request, do one of the following:
+
+  <ul> <li> Use the `OperationId` response element from this operation to
+  provide as a parameter to the `DescribeCreateAccountStatus` operation.
+
+  </li> <li> Check the AWS CloudTrail log for the `CreateAccountResult`
+  event. For information on using AWS CloudTrail with Organizations, see
+  [Monitoring the Activity in Your
+  Organization](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html)
+  in the *AWS Organizations User Guide.*
+
+  </li> </ul> <p/> The user who calls the API to create an account must have
+  the `organizations:CreateAccount` permission. If you enabled all features
+  in the organization, AWS Organizations will create the required
+  service-linked role named `AWSServiceRoleForOrganizations`. For more
+  information, see [AWS Organizations and Service-Linked
+  Roles](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs)
+  in the *AWS Organizations User Guide*.
 
   AWS Organizations preconfigures the new member account with a role (named
-  `OrganizationAccountAccessRole` by default) that grants administrator
-  permissions to the new account. Principals in the master account can assume
-  the role. AWS Organizations clones the company name and address information
-  for the new account from the organization's master account.
+  `OrganizationAccountAccessRole` by default) that grants users in the master
+  account administrator permissions in the new member account. Principals in
+  the master account can assume the role. AWS Organizations clones the
+  company name and address information for the new account from the
+  organization's master account.
+
+  This operation can be called only from the organization's master account.
 
   For more information about creating accounts, see [Creating an AWS Account
   in Your
-  Organization](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html)
+  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html)
+  in the *AWS Organizations User Guide.*
+
+  <important> <ul> <li> When you create an account in an organization using
+  the AWS Organizations console, API, or CLI commands, the information
+  required for the account to operate as a standalone account, such as a
+  payment method and signing the end user license agreement (EULA) is *not*
+  automatically collected. If you must remove an account from your
+  organization later, you can do so only after you provide the missing
+  information. Follow the steps at [ To leave an organization as a member
+  account](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
   in the *AWS Organizations User Guide*.
 
-  <important> You cannot remove accounts that are created with this operation
-  from an organization. That also means that you cannot delete an
-  organization that contains an account that is created with this operation.
+  </li> <li> If you get an exception that indicates that you exceeded your
+  account limits for the organization, contact [AWS
+  Support](https://console.aws.amazon.com/support/home#/).
 
-  </important> <note> When you create a member account with this operation,
-  the account is created with the **IAM User and Role Access to Billing
-  Information** switch enabled. This allows IAM users and roles that are
-  granted appropriate permissions to view billing information. If this is
-  disabled, then only the account root user can access billing information.
-  For information about how to disable this for an account, see [Granting
-  Access to Your Billing Information and
-  Tools](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html).
+  </li> <li> If you get an exception that indicates that the operation failed
+  because your organization is still initializing, wait one hour and then try
+  again. If the error persists, contact [AWS
+  Support](https://console.aws.amazon.com/support/home#/).
 
-  </note> This operation can be called only from the organization's master
-  account.
+  </li> <li> Using CreateAccount to create multiple temporary accounts isn't
+  recommended. You can only close an account from the Billing and Cost
+  Management Console, and you must be signed in as the root user. For
+  information on the requirements and process for closing an account, see
+  [Closing an AWS
+  Account](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
+  in the *AWS Organizations User Guide*.
+
+  </li> </ul> </important> <note> When you create a member account with this
+  operation, you can choose whether to create the account with the **IAM User
+  and Role Access to Billing Information** switch enabled. If you enable it,
+  IAM users and roles that have appropriate permissions can view billing
+  information for the account. If you disable it, only the account root user
+  can access billing information. For information about how to disable this
+  switch for an account, see [Granting Access to Your Billing Information and
+  Tools](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html).
+
+  </note>
   """
   def create_account(client, input, options \\ []) do
     request(client, "CreateAccount", input, options)
   end
 
   @doc """
+  This action is available if all of the following are true:
+
+  <ul> <li> You are authorized to create accounts in the AWS GovCloud (US)
+  Region. For more information on the AWS GovCloud (US) Region, see the [
+  *AWS GovCloud User
+  Guide*.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/welcome.html)
+
+  </li> <li> You already have an account in the AWS GovCloud (US) Region that
+  is associated with your master account in the commercial Region.
+
+  </li> <li> You call this action from the master account of your
+  organization in the commercial Region.
+
+  </li> <li> You have the `organizations:CreateGovCloudAccount` permission.
+  AWS Organizations creates the required service-linked role named
+  `AWSServiceRoleForOrganizations`. For more information, see [AWS
+  Organizations and Service-Linked
+  Roles](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs)
+  in the *AWS Organizations User Guide*.
+
+  </li> </ul> AWS automatically enables AWS CloudTrail for AWS GovCloud (US)
+  accounts, but you should also do the following:
+
+  <ul> <li> Verify that AWS CloudTrail is enabled to store logs.
+
+  </li> <li> Create an S3 bucket for AWS CloudTrail log storage.
+
+  For more information, see [Verifying AWS CloudTrail Is
+  Enabled](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/verifying-cloudtrail.html)
+  in the *AWS GovCloud User Guide*.
+
+  </li> </ul> You call this action from the master account of your
+  organization in the commercial Region to create a standalone AWS account in
+  the AWS GovCloud (US) Region. After the account is created, the master
+  account of an organization in the AWS GovCloud (US) Region can invite it to
+  that organization. For more information on inviting standalone accounts in
+  the AWS GovCloud (US) to join an organization, see [AWS
+  Organizations](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html)
+  in the *AWS GovCloud User Guide.*
+
+  Calling `CreateGovCloudAccount` is an asynchronous request that AWS
+  performs in the background. Because `CreateGovCloudAccount` operates
+  asynchronously, it can return a successful completion message even though
+  account initialization might still be in progress. You might need to wait a
+  few minutes before you can successfully access the account. To check the
+  status of the request, do one of the following:
+
+  <ul> <li> Use the `OperationId` response element from this operation to
+  provide as a parameter to the `DescribeCreateAccountStatus` operation.
+
+  </li> <li> Check the AWS CloudTrail log for the `CreateAccountResult`
+  event. For information on using AWS CloudTrail with Organizations, see
+  [Monitoring the Activity in Your
+  Organization](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html)
+  in the *AWS Organizations User Guide.*
+
+  </li> </ul> <p/> When you call the `CreateGovCloudAccount` action, you
+  create two accounts: a standalone account in the AWS GovCloud (US) Region
+  and an associated account in the commercial Region for billing and support
+  purposes. The account in the commercial Region is automatically a member of
+  the organization whose credentials made the request. Both accounts are
+  associated with the same email address.
+
+  A role is created in the new account in the commercial Region that allows
+  the master account in the organization in the commercial Region to assume
+  it. An AWS GovCloud (US) account is then created and associated with the
+  commercial account that you just created. A role is created in the new AWS
+  GovCloud (US) account that can be assumed by the AWS GovCloud (US) account
+  that is associated with the master account of the commercial organization.
+  For more information and to view a diagram that explains how account access
+  works, see [AWS
+  Organizations](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html)
+  in the *AWS GovCloud User Guide.*
+
+  For more information about creating accounts, see [Creating an AWS Account
+  in Your
+  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html)
+  in the *AWS Organizations User Guide.*
+
+  <important> <ul> <li> When you create an account in an organization using
+  the AWS Organizations console, API, or CLI commands, the information
+  required for the account to operate as a standalone account, such as a
+  payment method and signing the end user license agreement (EULA) is *not*
+  automatically collected. If you must remove an account from your
+  organization later, you can do so only after you provide the missing
+  information. Follow the steps at [ To leave an organization as a member
+  account](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
+  in the *AWS Organizations User Guide.*
+
+  </li> <li> If you get an exception that indicates that you exceeded your
+  account limits for the organization, contact [AWS
+  Support](https://console.aws.amazon.com/support/home#/).
+
+  </li> <li> If you get an exception that indicates that the operation failed
+  because your organization is still initializing, wait one hour and then try
+  again. If the error persists, contact [AWS
+  Support](https://console.aws.amazon.com/support/home#/).
+
+  </li> <li> Using `CreateGovCloudAccount` to create multiple temporary
+  accounts isn't recommended. You can only close an account from the AWS
+  Billing and Cost Management console, and you must be signed in as the root
+  user. For information on the requirements and process for closing an
+  account, see [Closing an AWS
+  Account](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html)
+  in the *AWS Organizations User Guide*.
+
+  </li> </ul> </important> <note> When you create a member account with this
+  operation, you can choose whether to create the account with the **IAM User
+  and Role Access to Billing Information** switch enabled. If you enable it,
+  IAM users and roles that have appropriate permissions can view billing
+  information for the account. If you disable it, only the account root user
+  can access billing information. For information about how to disable this
+  switch for an account, see [Granting Access to Your Billing Information and
+  Tools](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html).
+
+  </note>
+  """
+  def create_gov_cloud_account(client, input, options \\ []) do
+    request(client, "CreateGovCloudAccount", input, options)
+  end
+
+  @doc """
   Creates an AWS organization. The account whose user is calling the
   CreateOrganization operation automatically becomes the [master
-  account](http://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_getting-started_concepts.html#account)
+  account](https://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_getting-started_concepts.html#account)
   of the new organization.
 
   This operation must be called using credentials from the account that is to
@@ -285,7 +463,7 @@ defmodule AWS.Organizations do
   root. For service control policies, the limit is five.
 
   For more information about OUs, see [Managing Organizational
-  Units](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html)
+  Units](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html)
   in the *AWS Organizations User Guide*.
 
   This operation can be called only from the organization's master account.
@@ -300,7 +478,7 @@ defmodule AWS.Organizations do
 
   For more information about policies and their use, see [Managing
   Organization
-  Policies](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
+  Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
 
   This operation can be called only from the organization's master account.
   """
@@ -316,6 +494,9 @@ defmodule AWS.Organizations do
   handshake. The originator of the handshake can use `CancelHandshake`
   instead. The originator can't reactivate a declined request, but can
   re-initiate the process with a new handshake request.
+
+  After you decline a handshake, it continues to appear in the results of
+  relevant APIs for only 30 days. After that it is deleted.
   """
   def decline_handshake(client, input, options \\ []) do
     request(client, "DeclineHandshake", input, options)
@@ -324,21 +505,16 @@ defmodule AWS.Organizations do
   @doc """
   Deletes the organization. You can delete an organization only by using
   credentials from the master account. The organization must be empty of
-  member accounts, OUs, and policies.
-
-  <important> If you create any accounts using Organizations operations or
-  the Organizations console, you can't remove those accounts from the
-  organization, which means that you can't delete the organization.
-
-  </important>
+  member accounts.
   """
   def delete_organization(client, input, options \\ []) do
     request(client, "DeleteOrganization", input, options)
   end
 
   @doc """
-  Deletes an organizational unit from a root or another OU. You must first
-  remove all accounts and child OUs from the OU that you want to delete.
+  Deletes an organizational unit (OU) from a root or another OU. You must
+  first remove all accounts and child OUs from the OU that you want to
+  delete.
 
   This operation can be called only from the organization's master account.
   """
@@ -348,8 +524,8 @@ defmodule AWS.Organizations do
 
   @doc """
   Deletes the specified policy from your organization. Before you perform
-  this operation, you must first detach the policy from all OUs, roots, and
-  accounts.
+  this operation, you must first detach the policy from all organizational
+  units (OUs), roots, and accounts.
 
   This operation can be called only from the organization's master account.
   """
@@ -381,6 +557,10 @@ defmodule AWS.Organizations do
   ID comes from the response to the original `InviteAccountToOrganization`
   operation that generated the handshake.
 
+  You can access handshakes that are ACCEPTED, DECLINED, or CANCELED for only
+  30 days after they change to that state. They are then deleted and no
+  longer accessible.
+
   This operation can be called from any account in the organization.
   """
   def describe_handshake(client, input, options \\ []) do
@@ -392,6 +572,12 @@ defmodule AWS.Organizations do
   belongs to.
 
   This operation can be called from any account in the organization.
+
+  <note> Even if a policy type is shown as available in the organization, it
+  can be disabled separately at the root level with `DisablePolicyType`. Use
+  `ListRoots` to see the status of policy types for a specified root.
+
+  </note>
   """
   def describe_organization(client, input, options \\ []) do
     request(client, "DescribeOrganization", input, options)
@@ -416,21 +602,21 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Detaches a policy from a target root, organizational unit, or account. If
-  the policy being detached is a service control policy (SCP), the changes to
-  permissions for IAM users and roles in affected accounts are immediate.
+  Detaches a policy from a target root, organizational unit (OU), or account.
+  If the policy being detached is a service control policy (SCP), the changes
+  to permissions for IAM users and roles in affected accounts are immediate.
 
   **Note:** Every root, OU, and account must have at least one SCP attached.
   If you want to replace the default `FullAWSAccess` policy with one that
   limits the permissions that can be delegated, then you must attach the
   replacement policy before you can remove the default one. This is the
   authorization strategy of
-  [whitelisting](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist).
+  [whitelisting](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist).
   If you instead attach a second SCP and leave the `FullAWSAccess` SCP still
   attached, and specify `"Effect": "Deny"` in the second SCP to override the
   `"Effect": "Allow"` in the `FullAWSAccess` policy (or any other attached
   SCP), then you are using the authorization strategy of
-  [blacklisting](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist).
+  [blacklisting](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist).
 
   This operation can be called only from the organization's master account.
   """
@@ -439,16 +625,89 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Disables an organizational control policy type in a root. A poicy of a
-  certain type can be attached to entities in a root only if that type is
-  enabled in the root. After you perform this operation, you no longer can
-  attach policies of the specified type to that root or to any OU or account
-  in that root. You can undo this by using the `EnablePolicyType` operation.
+  Disables the integration of an AWS service (the service that is specified
+  by `ServicePrincipal`) with AWS Organizations. When you disable
+  integration, the specified service no longer can create a [service-linked
+  role](http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
+  in *new* accounts in your organization. This means the service can't
+  perform operations on your behalf on any new accounts in your organization.
+  The service can still perform operations in older accounts until the
+  service completes its clean-up from AWS Organizations.
+
+  <p/> <important> We recommend that you disable integration between AWS
+  Organizations and the specified AWS service by using the console or
+  commands that are provided by the specified service. Doing so ensures that
+  the other service is aware that it can clean up any resources that are
+  required only for the integration. How the service cleans up its resources
+  in the organization's accounts depends on that service. For more
+  information, see the documentation for the other AWS service.
+
+  </important> After you perform the `DisableAWSServiceAccess` operation, the
+  specified service can no longer perform operations in your organization's
+  accounts unless the operations are explicitly permitted by the IAM policies
+  that are attached to your roles.
+
+  For more information about integrating other services with AWS
+  Organizations, including the list of services that work with Organizations,
+  see [Integrating AWS Organizations with Other AWS
+  Services](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the *AWS Organizations User Guide*.
 
   This operation can be called only from the organization's master account.
   """
+  def disable_a_w_s_service_access(client, input, options \\ []) do
+    request(client, "DisableAWSServiceAccess", input, options)
+  end
+
+  @doc """
+  Disables an organizational control policy type in a root. A policy of a
+  certain type can be attached to entities in a root only if that type is
+  enabled in the root. After you perform this operation, you no longer can
+  attach policies of the specified type to that root or to any organizational
+  unit (OU) or account in that root. You can undo this by using the
+  `EnablePolicyType` operation.
+
+  This operation can be called only from the organization's master account.
+
+  <note> If you disable a policy type for a root, it still shows as enabled
+  for the organization if all features are enabled in that organization. Use
+  `ListRoots` to see the status of policy types for a specified root. Use
+  `DescribeOrganization` to see the status of policy types in the
+  organization.
+
+  </note>
+  """
   def disable_policy_type(client, input, options \\ []) do
     request(client, "DisablePolicyType", input, options)
+  end
+
+  @doc """
+  Enables the integration of an AWS service (the service that is specified by
+  `ServicePrincipal`) with AWS Organizations. When you enable integration,
+  you allow the specified service to create a [service-linked
+  role](http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
+  in all the accounts in your organization. This allows the service to
+  perform operations on your behalf in your organization and its accounts.
+
+  <important> We recommend that you enable integration between AWS
+  Organizations and the specified AWS service by using the console or
+  commands that are provided by the specified service. Doing so ensures that
+  the service is aware that it can create the resources that are required for
+  the integration. How the service creates those resources in the
+  organization's accounts depends on that service. For more information, see
+  the documentation for the other AWS service.
+
+  </important> For more information about enabling services to integrate with
+  AWS Organizations, see [Integrating AWS Organizations with Other AWS
+  Services](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the *AWS Organizations User Guide*.
+
+  This operation can be called only from the organization's master account
+  and only if the organization has [enabled all
+  features](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
+  """
+  def enable_a_w_s_service_access(client, input, options \\ []) do
+    request(client, "EnableAWSServiceAccess", input, options)
   end
 
   @doc """
@@ -458,20 +717,24 @@ defmodule AWS.Organizations do
   only to consolidated billing, and you can't use any of the advanced account
   administration features that AWS Organizations supports. For more
   information, see [Enabling All Features in Your
-  Organization](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
+  Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
   in the *AWS Organizations User Guide*.
 
   <important> This operation is required only for organizations that were
-  created explicitly with only the consolidated billing features enabled, or
-  that were migrated from a Consolidated Billing account family to
-  Organizations. Calling this operation sends a handshake to every invited
-  account in the organization. The feature set change can be finalized and
-  the additional features enabled only after all administrators in the
-  invited accounts approve the change by accepting the handshake.
+  created explicitly with only the consolidated billing features enabled.
+  Calling this operation sends a handshake to every invited account in the
+  organization. The feature set change can be finalized and the additional
+  features enabled only after all administrators in the invited accounts
+  approve the change by accepting the handshake.
 
-  </important> After all invited member accounts accept the handshake, you
-  finalize the feature set change by accepting the handshake that contains
-  `"Action": "ENABLE_ALL_FEATURES"`. This completes the change.
+  </important> After you enable all features, you can separately enable or
+  disable individual policy types in a root using `EnablePolicyType` and
+  `DisablePolicyType`. To see the status of policy types in a root, use
+  `ListRoots`.
+
+  After all invited member accounts accept the handshake, you finalize the
+  feature set change by accepting the handshake that contains `"Action":
+  "ENABLE_ALL_FEATURES"`. This completes the change.
 
   After you enable all features in your organization, the master account in
   the organization can apply policies on all member accounts. These policies
@@ -488,10 +751,17 @@ defmodule AWS.Organizations do
 
   @doc """
   Enables a policy type in a root. After you enable a policy type in a root,
-  you can attach policies of that type to the root, any OU, or account in
-  that root. You can undo this by using the `DisablePolicyType` operation.
+  you can attach policies of that type to the root, any organizational unit
+  (OU), or account in that root. You can undo this by using the
+  `DisablePolicyType` operation.
 
   This operation can be called only from the organization's master account.
+
+  You can enable a policy type in a root only if that policy type is
+  available in the organization. Use `DescribeOrganization` to view the
+  status of available policy types in the organization.
+
+  To view the status of policy type in a root, use `ListRoots`.
   """
   def enable_policy_type(client, input, options \\ []) do
     request(client, "EnablePolicyType", input, options)
@@ -503,7 +773,22 @@ defmodule AWS.Organizations do
   address that is associated with the other account's owner. The invitation
   is implemented as a `Handshake` whose details are in the response.
 
-  This operation can be called only from the organization's master account.
+  <important> <ul> <li> You can invite AWS accounts only from the same seller
+  as the master account. For example, if your organization's master account
+  was created by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in
+  India, then you can only invite other AISPL accounts to your organization.
+  You can't combine accounts from AISPL and AWS, or any other AWS seller. For
+  more information, see [Consolidated Billing in
+  India](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html).
+
+  </li> <li> If you receive an exception that indicates that you exceeded
+  your account limits for the organization or that the operation failed
+  because your organization is still initializing, wait one hour and then try
+  again. If the error persists after an hour, then contact [AWS Customer
+  Support](https://console.aws.amazon.com/support/home#/).
+
+  </li> </ul> </important> This operation can be called only from the
+  organization's master account.
   """
   def invite_account_to_organization(client, input, options \\ []) do
     request(client, "InviteAccountToOrganization", input, options)
@@ -518,22 +803,69 @@ defmodule AWS.Organizations do
   This operation can be called only from a member account in the
   organization.
 
-  <important> The master account in an organization with all features enabled
-  can set service control policies (SCPs) that can restrict what
-  administrators of member accounts can do, including preventing them from
-  successfully calling `LeaveOrganization` and leaving the organization.
+  <important> <ul> <li> The master account in an organization with all
+  features enabled can set service control policies (SCPs) that can restrict
+  what administrators of member accounts can do, including preventing them
+  from successfully calling `LeaveOrganization` and leaving the organization.
 
-  </important>
+  </li> <li> You can leave an organization as a member account only if the
+  account is configured with the information required to operate as a
+  standalone account. When you create an account in an organization using the
+  AWS Organizations console, API, or CLI commands, the information required
+  of standalone accounts is *not* automatically collected. For each account
+  that you want to make standalone, you must accept the End User License
+  Agreement (EULA), choose a support plan, provide and verify the required
+  contact information, and provide a current payment method. AWS uses the
+  payment method to charge for any billable (not free tier) AWS activity that
+  occurs while the account is not attached to an organization. Follow the
+  steps at [ To leave an organization when all required account information
+  has not yet been
+  provided](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
+  in the *AWS Organizations User Guide*.
+
+  </li> <li> You can leave an organization only after you enable IAM user
+  access to billing in your account. For more information, see [Activating
+  Access to the Billing and Cost Management
+  Console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate)
+  in the *AWS Billing and Cost Management User Guide*.
+
+  </li> </ul> </important>
   """
   def leave_organization(client, input, options \\ []) do
     request(client, "LeaveOrganization", input, options)
   end
 
   @doc """
-  Lists all the accounts in the organization. To request only the accounts in
-  a root or OU, use the `ListAccountsForParent` operation instead.
+  Returns a list of the AWS services that you enabled to integrate with your
+  organization. After a service on this list creates the resources that it
+  requires for the integration, it can perform operations on your
+  organization and its accounts.
+
+  For more information about integrating other services with AWS
+  Organizations, including the list of services that currently work with
+  Organizations, see [Integrating AWS Organizations with Other AWS
+  Services](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the *AWS Organizations User Guide*.
 
   This operation can be called only from the organization's master account.
+  """
+  def list_a_w_s_service_access_for_organization(client, input, options \\ []) do
+    request(client, "ListAWSServiceAccessForOrganization", input, options)
+  end
+
+  @doc """
+  Lists all the accounts in the organization. To request only the accounts in
+  a specified root or organizational unit (OU), use the
+  `ListAccountsForParent` operation instead.
+
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_accounts(client, input, options \\ []) do
     request(client, "ListAccounts", input, options)
@@ -546,15 +878,34 @@ defmodule AWS.Organizations do
   get a list of all the accounts in only that OU, and not in any child OUs.
   To get a list of all accounts in the organization, use the `ListAccounts`
   operation.
+
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_accounts_for_parent(client, input, options \\ []) do
     request(client, "ListAccountsForParent", input, options)
   end
 
   @doc """
-  Lists all of the OUs or accounts that are contained in the specified parent
-  OU or root. This operation, along with `ListParents` enables you to
-  traverse the tree structure that makes up this root.
+  Lists all of the organizational units (OUs) or accounts that are contained
+  in the specified parent OU or root. This operation, along with
+  `ListParents` enables you to traverse the tree structure that makes up this
+  root.
+
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_children(client, input, options \\ []) do
     request(client, "ListChildren", input, options)
@@ -564,7 +915,14 @@ defmodule AWS.Organizations do
   Lists the account creation requests that match the specified status that is
   currently being tracked for the organization.
 
-  This operation can be called only from the organization's master account.
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_create_account_status(client, input, options \\ []) do
     request(client, "ListCreateAccountStatus", input, options)
@@ -574,7 +932,17 @@ defmodule AWS.Organizations do
   Lists the current handshakes that are associated with the account of the
   requesting user.
 
-  This operation can be called from any account in the organization.
+  Handshakes that are ACCEPTED, DECLINED, or CANCELED appear in the results
+  of this API for only 30 days after changing to that state. After that they
+  are deleted and no longer accessible.
+
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called from any account in the organization.
   """
   def list_handshakes_for_account(client, input, options \\ []) do
     request(client, "ListHandshakesForAccount", input, options)
@@ -586,7 +954,18 @@ defmodule AWS.Organizations do
   returns a list of handshake structures. Each structure contains details and
   status about a handshake.
 
-  This operation can be called only from the organization's master account.
+  Handshakes that are ACCEPTED, DECLINED, or CANCELED appear in the results
+  of this API for only 30 days after changing to that state. After that they
+  are deleted and no longer accessible.
+
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_handshakes_for_organization(client, input, options \\ []) do
     request(client, "ListHandshakesForOrganization", input, options)
@@ -596,7 +975,14 @@ defmodule AWS.Organizations do
   Lists the organizational units (OUs) in a parent organizational unit or
   root.
 
-  This operation can be called only from the organization's master account.
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_organizational_units_for_parent(client, input, options \\ []) do
     request(client, "ListOrganizationalUnitsForParent", input, options)
@@ -608,7 +994,14 @@ defmodule AWS.Organizations do
   `ListChildren` enables you to traverse the tree structure that makes up
   this root.
 
-  This operation can be called only from the organization's master account.
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
 
   <note> In the current release, a child can have only a single parent.
 
@@ -621,7 +1014,14 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves the list of all policies in an organization of a specified type.
 
-  This operation can be called only from the organization's master account.
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_policies(client, input, options \\ []) do
     request(client, "ListPolicies", input, options)
@@ -632,7 +1032,14 @@ defmodule AWS.Organizations do
   organizational unit (OU), or account. You must specify the policy type that
   you want included in the returned list.
 
-  This operation can be called only from the organization's master account.
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_policies_for_target(client, input, options \\ []) do
     request(client, "ListPoliciesForTarget", input, options)
@@ -641,25 +1048,48 @@ defmodule AWS.Organizations do
   @doc """
   Lists the roots that are defined in the current organization.
 
-  This operation can be called only from the organization's master account.
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
+
+  <note> Policy types can be enabled and disabled in roots. This is distinct
+  from whether they are available in the organization. When you enable all
+  features, you make policy types available for use in that organization.
+  Individual policy types can then be enabled and disabled in a root. To see
+  the availability of a policy type in an organization, use
+  `DescribeOrganization`.
+
+  </note>
   """
   def list_roots(client, input, options \\ []) do
     request(client, "ListRoots", input, options)
   end
 
   @doc """
-  Lists all the roots, OUs, and accounts to which the specified policy is
-  attached.
+  Lists all the roots, organizational units (OUs), and accounts to which the
+  specified policy is attached.
 
-  This operation can be called only from the organization's master account.
+  <note> Always check the `NextToken` response parameter for a `null` value
+  when calling a `List*` operation. These operations can occasionally return
+  an empty set of results even when there are more results available. The
+  `NextToken` response parameter value is `null` *only* when there are no
+  more results to display.
+
+  </note> This operation can be called only from the organization's master
+  account.
   """
   def list_targets_for_policy(client, input, options \\ []) do
     request(client, "ListTargetsForPolicy", input, options)
   end
 
   @doc """
-  Moves an account from its current source parent root or OU to the specified
-  destination parent root or OU.
+  Moves an account from its current source parent root or organizational unit
+  (OU) to the specified destination parent root or OU.
 
   This operation can be called only from the organization's master account.
   """
@@ -679,9 +1109,21 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's master account.
   Member accounts can remove themselves with `LeaveOrganization` instead.
 
-  <important> You can remove only existing accounts that were invited to join
-  the organization. You cannot remove accounts that were created by AWS
-  Organizations.
+  <important> You can remove an account from your organization only if the
+  account is configured with the information required to operate as a
+  standalone account. When you create an account in an organization using the
+  AWS Organizations console, API, or CLI commands, the information required
+  of standalone accounts is *not* automatically collected. For an account
+  that you want to make standalone, you must accept the End User License
+  Agreement (EULA), choose a support plan, provide and verify the required
+  contact information, and provide a current payment method. AWS uses the
+  payment method to charge for any billable (not free tier) AWS activity that
+  occurs while the account is not attached to an organization. To remove an
+  account that does not yet have this information, you must sign in as the
+  member account and follow the steps at [ To leave an organization when all
+  required account information has not yet been
+  provided](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
+  in the *AWS Organizations User Guide*.
 
   </important>
   """

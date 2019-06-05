@@ -73,15 +73,18 @@ defmodule AWS.CloudTrail do
   trail. The information returned for your event selectors includes the
   following:
 
-  <ul> <li> The S3 objects that you are logging for data events.
+  <ul> <li> If your event selector includes read-only events, write-only
+  events, or all events. This applies to both management events and data
+  events.
 
   </li> <li> If your event selector includes management events.
 
-  </li> <li> If your event selector includes read-only events, write-only
-  events, or all.
+  </li> <li> If your event selector includes data events, the Amazon S3
+  objects or AWS Lambda functions that you are logging for data events.
 
-  </li> </ul> For more information, see [Configuring Event Selectors for
-  Trails](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html)
+  </li> </ul> For more information, see [Logging Data and Management Events
+  for Trails
+  ](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
   in the *AWS CloudTrail User Guide*.
   """
   def get_event_selectors(client, input, options \\ []) do
@@ -123,14 +126,20 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Looks up API activity events captured by CloudTrail that create, update, or
-  delete resources in your account. Events for a region can be looked up for
-  the times in which you had CloudTrail turned on in that region during the
-  last seven days. Lookup supports the following attributes:
+  Looks up [management
+  events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events)
+  captured by CloudTrail. Events for a region can be looked up in that region
+  during the last 90 days. Lookup supports the following attributes:
 
-  <ul> <li> Event ID
+  <ul> <li> AWS access key
+
+  </li> <li> Event ID
 
   </li> <li> Event name
+
+  </li> <li> Event source
+
+  </li> <li> Read only
 
   </li> <li> Resource name
 
@@ -139,7 +148,7 @@ defmodule AWS.CloudTrail do
   </li> <li> User name
 
   </li> </ul> All attributes are optional. The default number of results
-  returned is 10, with a maximum of 50 possible. The response includes a
+  returned is 50, with a maximum of 50 possible. The response includes a
   token that you can use to get the next page of results.
 
   <important> The rate of lookup requests is limited to one per second per
@@ -156,12 +165,15 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Configures an event selector for your trail. Use event selectors to specify
-  the type of events that you want your trail to log. When an event occurs in
-  your account, CloudTrail evaluates the event selectors in all trails. For
-  each trail, if the event matches any event selector, the trail processes
-  and logs the event. If the event doesn't match any event selector, the
-  trail doesn't log the event.
+  Configures an event selector for your trail. Use event selectors to further
+  specify the management and data event settings for your trail. By default,
+  trails created without specific event selectors will be configured to log
+  all read and write management events, and no data events.
+
+  When an event occurs in your account, CloudTrail evaluates the event
+  selectors in all trails. For each trail, if the event matches any event
+  selector, the trail processes and logs the event. If the event doesn't
+  match any event selector, the trail doesn't log the event.
 
   Example
 
@@ -185,8 +197,10 @@ defmodule AWS.CloudTrail do
   `InvalidHomeRegionException` is thrown.
 
   You can configure up to five event selectors for each trail. For more
-  information, see [Configuring Event Selectors for
-  Trails](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html)
+  information, see [Logging Data and Management Events for Trails
+  ](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
+  and [Limits in AWS
+  CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html)
   in the *AWS CloudTrail User Guide*.
   """
   def put_event_selectors(client, input, options \\ []) do

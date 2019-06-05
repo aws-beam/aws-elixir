@@ -5,12 +5,49 @@ defmodule AWS.Workspaces do
   @moduledoc """
   Amazon WorkSpaces Service
 
-  This reference provides detailed information about the Amazon WorkSpaces
-  operations.
+  Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft
+  Windows and Amazon Linux desktops for your users.
   """
 
   @doc """
-  Creates tags for a WorkSpace.
+  Associates the specified IP access control group with the specified
+  directory.
+  """
+  def associate_ip_groups(client, input, options \\ []) do
+    request(client, "AssociateIpGroups", input, options)
+  end
+
+  @doc """
+  Adds one or more rules to the specified IP access control group.
+
+  This action gives users permission to access their WorkSpaces from the CIDR
+  address ranges specified in the rules.
+  """
+  def authorize_ip_rules(client, input, options \\ []) do
+    request(client, "AuthorizeIpRules", input, options)
+  end
+
+  @doc """
+  Creates an IP access control group.
+
+  An IP access control group provides you with the ability to control the IP
+  addresses from which users are allowed to access their WorkSpaces. To
+  specify the CIDR address ranges, add rules to your IP access control group
+  and then associate the group with your directory. You can add rules when
+  you create the group or at any time using `AuthorizeIpRules`.
+
+  There is a default IP access control group associated with your directory.
+  If you don't associate an IP access control group with your directory, the
+  default group is used. The default group includes a default rule that
+  allows users to access their WorkSpaces from anywhere. You cannot modify
+  the default IP access control group for your directory.
+  """
+  def create_ip_group(client, input, options \\ []) do
+    request(client, "CreateIpGroup", input, options)
+  end
+
+  @doc """
+  Creates the specified tags for the specified WorkSpace.
   """
   def create_tags(client, input, options \\ []) do
     request(client, "CreateTags", input, options)
@@ -19,144 +56,237 @@ defmodule AWS.Workspaces do
   @doc """
   Creates one or more WorkSpaces.
 
-  <note> This operation is asynchronous and returns before the WorkSpaces are
+  This operation is asynchronous and returns before the WorkSpaces are
   created.
-
-  </note>
   """
   def create_workspaces(client, input, options \\ []) do
     request(client, "CreateWorkspaces", input, options)
   end
 
   @doc """
-  Deletes tags from a WorkSpace.
+  Deletes the specified IP access control group.
+
+  You cannot delete an IP access control group that is associated with a
+  directory.
+  """
+  def delete_ip_group(client, input, options \\ []) do
+    request(client, "DeleteIpGroup", input, options)
+  end
+
+  @doc """
+  Deletes the specified tags from the specified WorkSpace.
   """
   def delete_tags(client, input, options \\ []) do
     request(client, "DeleteTags", input, options)
   end
 
   @doc """
-  Describes tags for a WorkSpace.
+  Deletes the specified image from your account. To delete an image, you must
+  first delete any bundles that are associated with the image.
+  """
+  def delete_workspace_image(client, input, options \\ []) do
+    request(client, "DeleteWorkspaceImage", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes the configuration of bring your own license
+  (BYOL) for the specified account.
+  """
+  def describe_account(client, input, options \\ []) do
+    request(client, "DescribeAccount", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes modifications to the configuration of bring
+  your own license (BYOL) for the specified account.
+  """
+  def describe_account_modifications(client, input, options \\ []) do
+    request(client, "DescribeAccountModifications", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes one or more specified Amazon WorkSpaces
+  clients.
+  """
+  def describe_client_properties(client, input, options \\ []) do
+    request(client, "DescribeClientProperties", input, options)
+  end
+
+  @doc """
+  Describes one or more of your IP access control groups.
+  """
+  def describe_ip_groups(client, input, options \\ []) do
+    request(client, "DescribeIpGroups", input, options)
+  end
+
+  @doc """
+  Describes the specified tags for the specified WorkSpace.
   """
   def describe_tags(client, input, options \\ []) do
     request(client, "DescribeTags", input, options)
   end
 
   @doc """
-  Obtains information about the WorkSpace bundles that are available to your
-  account in the specified region.
+  Retrieves a list that describes the available WorkSpace bundles.
 
-  You can filter the results with either the `BundleIds` parameter, or the
-  `Owner` parameter, but not both.
-
-  This operation supports pagination with the use of the `NextToken` request
-  and response parameters. If more results are available, the `NextToken`
-  response member contains a token that you pass in the next call to this
-  operation to retrieve the next set of items.
+  You can filter the results using either bundle ID or owner, but not both.
   """
   def describe_workspace_bundles(client, input, options \\ []) do
     request(client, "DescribeWorkspaceBundles", input, options)
   end
 
   @doc """
-  Retrieves information about the AWS Directory Service directories in the
-  region that are registered with Amazon WorkSpaces and are available to your
-  account.
-
-  This operation supports pagination with the use of the `NextToken` request
-  and response parameters. If more results are available, the `NextToken`
-  response member contains a token that you pass in the next call to this
-  operation to retrieve the next set of items.
+  Describes the available AWS Directory Service directories that are
+  registered with Amazon WorkSpaces.
   """
   def describe_workspace_directories(client, input, options \\ []) do
     request(client, "DescribeWorkspaceDirectories", input, options)
   end
 
   @doc """
-  Obtains information about the specified WorkSpaces.
+  Retrieves a list that describes one or more specified images, if the image
+  identifiers are provided. Otherwise, all images in the account are
+  described.
+  """
+  def describe_workspace_images(client, input, options \\ []) do
+    request(client, "DescribeWorkspaceImages", input, options)
+  end
 
-  Only one of the filter parameters, such as `BundleId`, `DirectoryId`, or
-  `WorkspaceIds`, can be specified at a time.
+  @doc """
+  Describes the specified WorkSpaces.
 
-  This operation supports pagination with the use of the `NextToken` request
-  and response parameters. If more results are available, the `NextToken`
-  response member contains a token that you pass in the next call to this
-  operation to retrieve the next set of items.
+  You can filter the results by using the bundle identifier, directory
+  identifier, or owner, but you can specify only one filter at a time.
   """
   def describe_workspaces(client, input, options \\ []) do
     request(client, "DescribeWorkspaces", input, options)
   end
 
   @doc """
-  Describes the connection status of a specified WorkSpace.
+  Describes the connection status of the specified WorkSpaces.
   """
   def describe_workspaces_connection_status(client, input, options \\ []) do
     request(client, "DescribeWorkspacesConnectionStatus", input, options)
   end
 
   @doc """
-  Modifies the WorkSpace properties, including the RunningMode and AutoStop
-  time.
+  Disassociates the specified IP access control group from the specified
+  directory.
+  """
+  def disassociate_ip_groups(client, input, options \\ []) do
+    request(client, "DisassociateIpGroups", input, options)
+  end
+
+  @doc """
+  Imports the specified Windows 7 or Windows 10 bring your own license (BYOL)
+  image into Amazon WorkSpaces. The image must be an already licensed EC2
+  image that is in your AWS account, and you must own the image.
+  """
+  def import_workspace_image(client, input, options \\ []) do
+    request(client, "ImportWorkspaceImage", input, options)
+  end
+
+  @doc """
+  Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that
+  you can use for the network management interface when you enable bring your
+  own license (BYOL).
+
+  The management network interface is connected to a secure Amazon WorkSpaces
+  management network. It is used for interactive streaming of the WorkSpace
+  desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to
+  manage the WorkSpace.
+  """
+  def list_available_management_cidr_ranges(client, input, options \\ []) do
+    request(client, "ListAvailableManagementCidrRanges", input, options)
+  end
+
+  @doc """
+  Modifies the configuration of bring your own license (BYOL) for the
+  specified account.
+  """
+  def modify_account(client, input, options \\ []) do
+    request(client, "ModifyAccount", input, options)
+  end
+
+  @doc """
+  Modifies the properties of the specified Amazon WorkSpaces clients.
+  """
+  def modify_client_properties(client, input, options \\ []) do
+    request(client, "ModifyClientProperties", input, options)
+  end
+
+  @doc """
+  Modifies the specified WorkSpace properties.
   """
   def modify_workspace_properties(client, input, options \\ []) do
     request(client, "ModifyWorkspaceProperties", input, options)
   end
 
   @doc """
+  Sets the state of the specified WorkSpace.
+
+  To maintain a WorkSpace without being interrupted, set the WorkSpace state
+  to `ADMIN_MAINTENANCE`. WorkSpaces in this state do not respond to requests
+  to reboot, stop, start, or rebuild. An AutoStop WorkSpace in this state is
+  not stopped. Users can log into a WorkSpace in the `ADMIN_MAINTENANCE`
+  state.
+  """
+  def modify_workspace_state(client, input, options \\ []) do
+    request(client, "ModifyWorkspaceState", input, options)
+  end
+
+  @doc """
   Reboots the specified WorkSpaces.
 
-  To be able to reboot a WorkSpace, the WorkSpace must have a **State** of
-  `AVAILABLE`, `IMPAIRED`, or `INOPERABLE`.
+  You cannot reboot a WorkSpace unless its state is `AVAILABLE` or
+  `UNHEALTHY`.
 
-  <note> This operation is asynchronous and returns before the WorkSpaces
-  have rebooted.
-
-  </note>
+  This operation is asynchronous and returns before the WorkSpaces have
+  rebooted.
   """
   def reboot_workspaces(client, input, options \\ []) do
     request(client, "RebootWorkspaces", input, options)
   end
 
   @doc """
-  Rebuilds the specified WorkSpaces.
+  Rebuilds the specified WorkSpace.
+
+  You cannot rebuild a WorkSpace unless its state is `AVAILABLE`, `ERROR`, or
+  `UNHEALTHY`.
 
   Rebuilding a WorkSpace is a potentially destructive action that can result
-  in the loss of data. Rebuilding a WorkSpace causes the following to occur:
+  in the loss of data. For more information, see [Rebuild a
+  WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html).
 
-  <ul> <li> The system is restored to the image of the bundle that the
-  WorkSpace is created from. Any applications that have been installed, or
-  system settings that have been made since the WorkSpace was created will be
-  lost.
-
-  </li> <li> The data drive (D drive) is re-created from the last automatic
-  snapshot taken of the data drive. The current contents of the data drive
-  are overwritten. Automatic snapshots of the data drive are taken every 12
-  hours, so the snapshot can be as much as 12 hours old.
-
-  </li> </ul> To be able to rebuild a WorkSpace, the WorkSpace must have a
-  **State** of `AVAILABLE` or `ERROR`.
-
-  <note> This operation is asynchronous and returns before the WorkSpaces
-  have been completely rebuilt.
-
-  </note>
+  This operation is asynchronous and returns before the WorkSpaces have been
+  completely rebuilt.
   """
   def rebuild_workspaces(client, input, options \\ []) do
     request(client, "RebuildWorkspaces", input, options)
   end
 
   @doc """
-  Starts the specified WorkSpaces. The API only works with WorkSpaces that
-  have RunningMode configured as AutoStop and the State set to “STOPPED.”
+  Removes one or more rules from the specified IP access control group.
+  """
+  def revoke_ip_rules(client, input, options \\ []) do
+    request(client, "RevokeIpRules", input, options)
+  end
+
+  @doc """
+  Starts the specified WorkSpaces.
+
+  You cannot start a WorkSpace unless it has a running mode of `AutoStop` and
+  a state of `STOPPED`.
   """
   def start_workspaces(client, input, options \\ []) do
     request(client, "StartWorkspaces", input, options)
   end
 
   @doc """
-  Stops the specified WorkSpaces. The API only works with WorkSpaces that
-  have RunningMode configured as AutoStop and the State set to AVAILABLE,
-  IMPAIRED, UNHEALTHY, or ERROR.
+  Stops the specified WorkSpaces.
+
+  You cannot stop a WorkSpace unless it has a running mode of `AutoStop` and
+  a state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or `ERROR`.
   """
   def stop_workspaces(client, input, options \\ []) do
     request(client, "StopWorkspaces", input, options)
@@ -166,19 +296,24 @@ defmodule AWS.Workspaces do
   Terminates the specified WorkSpaces.
 
   Terminating a WorkSpace is a permanent action and cannot be undone. The
-  user's data is not maintained and will be destroyed. If you need to archive
-  any user data, contact Amazon Web Services before terminating the
-  WorkSpace.
+  user's data is destroyed. If you need to archive any user data, contact
+  Amazon Web Services before terminating the WorkSpace.
 
   You can terminate a WorkSpace that is in any state except `SUSPENDED`.
 
-  <note> This operation is asynchronous and returns before the WorkSpaces
-  have been completely terminated.
-
-  </note>
+  This operation is asynchronous and returns before the WorkSpaces have been
+  completely terminated.
   """
   def terminate_workspaces(client, input, options \\ []) do
     request(client, "TerminateWorkspaces", input, options)
+  end
+
+  @doc """
+  Replaces the current rules of the specified IP access control group with
+  the specified rules.
+  """
+  def update_rules_of_ip_group(client, input, options \\ []) do
+    request(client, "UpdateRulesOfIpGroup", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

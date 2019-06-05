@@ -16,6 +16,21 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Creates a profile that can be applied to one or more private fleet device
+  instances.
+  """
+  def create_instance_profile(client, input, options \\ []) do
+    request(client, "CreateInstanceProfile", input, options)
+  end
+
+  @doc """
+  Creates a network profile.
+  """
+  def create_network_profile(client, input, options \\ []) do
+    request(client, "CreateNetworkProfile", input, options)
+  end
+
+  @doc """
   Creates a new project.
   """
   def create_project(client, input, options \\ []) do
@@ -37,11 +52,34 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Creates a configuration record in Device Farm for your Amazon Virtual
+  Private Cloud (VPC) endpoint.
+  """
+  def create_v_p_c_e_configuration(client, input, options \\ []) do
+    request(client, "CreateVPCEConfiguration", input, options)
+  end
+
+  @doc """
   Deletes a device pool given the pool ARN. Does not allow deletion of
   curated pools owned by the system.
   """
   def delete_device_pool(client, input, options \\ []) do
     request(client, "DeleteDevicePool", input, options)
+  end
+
+  @doc """
+  Deletes a profile that can be applied to one or more private device
+  instances.
+  """
+  def delete_instance_profile(client, input, options \\ []) do
+    request(client, "DeleteInstanceProfile", input, options)
+  end
+
+  @doc """
+  Deletes a network profile.
+  """
+  def delete_network_profile(client, input, options \\ []) do
+    request(client, "DeleteNetworkProfile", input, options)
   end
 
   @doc """
@@ -77,6 +115,14 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Deletes a configuration for your Amazon Virtual Private Cloud (VPC)
+  endpoint.
+  """
+  def delete_v_p_c_e_configuration(client, input, options \\ []) do
+    request(client, "DeleteVPCEConfiguration", input, options)
+  end
+
+  @doc """
   Returns the number of unmetered iOS and/or unmetered Android devices that
   have been purchased by the account.
   """
@@ -89,6 +135,14 @@ defmodule AWS.DeviceFarm do
   """
   def get_device(client, input, options \\ []) do
     request(client, "GetDevice", input, options)
+  end
+
+  @doc """
+  Returns information about a device instance belonging to a private device
+  fleet.
+  """
+  def get_device_instance(client, input, options \\ []) do
+    request(client, "GetDeviceInstance", input, options)
   end
 
   @doc """
@@ -106,10 +160,24 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Returns information about the specified instance profile.
+  """
+  def get_instance_profile(client, input, options \\ []) do
+    request(client, "GetInstanceProfile", input, options)
+  end
+
+  @doc """
   Gets information about a job.
   """
   def get_job(client, input, options \\ []) do
     request(client, "GetJob", input, options)
+  end
+
+  @doc """
+  Returns information about a network profile.
+  """
+  def get_network_profile(client, input, options \\ []) do
+    request(client, "GetNetworkProfile", input, options)
   end
 
   @doc """
@@ -168,6 +236,14 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Returns information about the configuration settings for your Amazon
+  Virtual Private Cloud (VPC) endpoint.
+  """
+  def get_v_p_c_e_configuration(client, input, options \\ []) do
+    request(client, "GetVPCEConfiguration", input, options)
+  end
+
+  @doc """
   Installs an application to the device in a remote access session. For
   Android applications, the file must be in .apk format. For iOS
   applications, the file must be in .ipa format.
@@ -181,6 +257,14 @@ defmodule AWS.DeviceFarm do
   """
   def list_artifacts(client, input, options \\ []) do
     request(client, "ListArtifacts", input, options)
+  end
+
+  @doc """
+  Returns information about the private device instances associated with one
+  or more AWS accounts.
+  """
+  def list_device_instances(client, input, options \\ []) do
+    request(client, "ListDeviceInstances", input, options)
   end
 
   @doc """
@@ -198,10 +282,36 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Gets information about jobs.
+  Returns information about all the instance profiles in an AWS account.
+  """
+  def list_instance_profiles(client, input, options \\ []) do
+    request(client, "ListInstanceProfiles", input, options)
+  end
+
+  @doc """
+  Gets information about jobs for a given test run.
   """
   def list_jobs(client, input, options \\ []) do
     request(client, "ListJobs", input, options)
+  end
+
+  @doc """
+  Returns the list of available network profiles.
+  """
+  def list_network_profiles(client, input, options \\ []) do
+    request(client, "ListNetworkProfiles", input, options)
+  end
+
+  @doc """
+  Returns a list of offering promotions. Each offering promotion record
+  contains the ID and description of the promotion. The API returns a
+  `NotEligible` error if the caller is not permitted to invoke the operation.
+  Contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
+  if you believe that you should be able to invoke this operation.
+  """
+  def list_offering_promotions(client, input, options \\ []) do
+    request(client, "ListOfferingPromotions", input, options)
   end
 
   @doc """
@@ -251,21 +361,21 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Gets information about samples, given an AWS Device Farm project ARN
+  Gets information about samples, given an AWS Device Farm job ARN.
   """
   def list_samples(client, input, options \\ []) do
     request(client, "ListSamples", input, options)
   end
 
   @doc """
-  Gets information about suites.
+  Gets information about test suites for a given job.
   """
   def list_suites(client, input, options \\ []) do
     request(client, "ListSuites", input, options)
   end
 
   @doc """
-  Gets information about tests.
+  Gets information about tests in a given test suite.
   """
   def list_tests(client, input, options \\ []) do
     request(client, "ListTests", input, options)
@@ -283,6 +393,14 @@ defmodule AWS.DeviceFarm do
   """
   def list_uploads(client, input, options \\ []) do
     request(client, "ListUploads", input, options)
+  end
+
+  @doc """
+  Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
+  configurations in the AWS account.
+  """
+  def list_v_p_c_e_configurations(client, input, options \\ []) do
+    request(client, "ListVPCEConfigurations", input, options)
   end
 
   @doc """
@@ -317,6 +435,19 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Initiates a stop request for the current job. AWS Device Farm will
+  immediately stop the job on the device where tests have not started
+  executing, and you will not be billed for this device. On the device where
+  tests have started executing, Setup Suite and Teardown Suite tests will run
+  to completion before stopping execution on the device. You will be billed
+  for Setup, Teardown, and any tests that were in progress or already
+  completed.
+  """
+  def stop_job(client, input, options \\ []) do
+    request(client, "StopJob", input, options)
+  end
+
+  @doc """
   Ends a specified remote access session.
   """
   def stop_remote_access_session(client, input, options \\ []) do
@@ -337,6 +468,13 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Updates information about an existing private device instance.
+  """
+  def update_device_instance(client, input, options \\ []) do
+    request(client, "UpdateDeviceInstance", input, options)
+  end
+
+  @doc """
   Modifies the name, description, and rules in a device pool given the
   attributes and the pool ARN. Rule updates are all-or-nothing, meaning they
   can only be updated as a whole (or not at all).
@@ -346,10 +484,39 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Updates information about an existing private device instance profile.
+  """
+  def update_instance_profile(client, input, options \\ []) do
+    request(client, "UpdateInstanceProfile", input, options)
+  end
+
+  @doc """
+  Updates the network profile with specific settings.
+  """
+  def update_network_profile(client, input, options \\ []) do
+    request(client, "UpdateNetworkProfile", input, options)
+  end
+
+  @doc """
   Modifies the specified project name, given the project ARN and a new name.
   """
   def update_project(client, input, options \\ []) do
     request(client, "UpdateProject", input, options)
+  end
+
+  @doc """
+  Update an uploaded test specification (test spec).
+  """
+  def update_upload(client, input, options \\ []) do
+    request(client, "UpdateUpload", input, options)
+  end
+
+  @doc """
+  Updates information about an existing Amazon Virtual Private Cloud (VPC)
+  endpoint configuration.
+  """
+  def update_v_p_c_e_configuration(client, input, options \\ []) do
+    request(client, "UpdateVPCEConfiguration", input, options)
   end
 
   @spec request(map(), binary(), map(), list()) ::

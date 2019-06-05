@@ -11,13 +11,13 @@ defmodule AWS.CodePipeline do
   descriptions of the actions and data types for AWS CodePipeline. Some
   functionality for your pipeline is only configurable through the API. For
   additional information, see the [AWS CodePipeline User
-  Guide](http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html).
+  Guide](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html).
 
   You can use the AWS CodePipeline API to work with pipelines, stages,
-  actions, gates, and transitions, as described below.
+  actions, and transitions, as described below.
 
   *Pipelines* are models of automated release processes. Each pipeline is
-  uniquely named, and consists of actions, gates, and stages.
+  uniquely named, and consists of stages, actions, and transitions.
 
   You can work with pipelines by calling:
 
@@ -25,8 +25,9 @@ defmodule AWS.CodePipeline do
 
   </li> <li> `DeletePipeline`, which deletes the specified pipeline.
 
-  </li> <li> `GetPipeline`, which returns information about a pipeline
-  structure.
+  </li> <li> `GetPipeline`, which returns information about the pipeline
+  structure and pipeline metadata, including the pipeline Amazon Resource
+  Name (ARN).
 
   </li> <li> `GetPipelineExecution`, which returns information about a
   specific execution of a pipeline.
@@ -37,25 +38,27 @@ defmodule AWS.CodePipeline do
   </li> <li> `ListPipelines`, which gets a summary of all of the pipelines
   associated with your account.
 
+  </li> <li> `ListPipelineExecutions`, which gets a summary of the most
+  recent executions for a pipeline.
+
   </li> <li> `StartPipelineExecution`, which runs the the most recent
   revision of an artifact through the pipeline.
 
   </li> <li> `UpdatePipeline`, which updates a pipeline with edits or changes
   to the structure of the pipeline.
 
-  </li> </ul> Pipelines include *stages*, which are logical groupings of
-  gates and actions. Each stage contains one or more actions that must
-  complete before the next stage begins. A stage will result in success or
-  failure. If a stage fails, then the pipeline stops at that stage and will
-  remain stopped until either a new version of an artifact appears in the
-  source location, or a user takes action to re-run the most recent artifact
-  through the pipeline. You can call `GetPipelineState`, which displays the
-  status of a pipeline, including the status of stages in the pipeline, or
-  `GetPipeline`, which returns the entire structure of the pipeline,
-  including the stages of that pipeline. For more information about the
-  structure of stages and actions, also refer to the [AWS CodePipeline
-  Pipeline Structure
-  Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html).
+  </li> </ul> Pipelines include *stages*. Each stage contains one or more
+  actions that must complete before the next stage begins. A stage will
+  result in success or failure. If a stage fails, then the pipeline stops at
+  that stage and will remain stopped until either a new version of an
+  artifact appears in the source location, or a user takes action to re-run
+  the most recent artifact through the pipeline. You can call
+  `GetPipelineState`, which displays the status of a pipeline, including the
+  status of stages in the pipeline, or `GetPipeline`, which returns the
+  entire structure of the pipeline, including the stages of that pipeline.
+  For more information about the structure of stages and actions, also refer
+  to the [AWS CodePipeline Pipeline Structure
+  Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html).
 
   Pipeline stages include *actions*, which are categorized into categories
   such as source or build actions performed within a stage of a pipeline. For
@@ -63,11 +66,23 @@ defmodule AWS.CodePipeline do
   from a source such as Amazon S3. Like stages, you do not work with actions
   directly in most cases, but you do define and interact with actions when
   working with pipeline operations such as `CreatePipeline` and
-  `GetPipelineState`.
+  `GetPipelineState`. Valid action categories are:
 
-  Pipelines also include *transitions*, which allow the transition of
-  artifacts from one stage to the next in a pipeline after the actions in one
-  stage complete.
+  <ul> <li> Source
+
+  </li> <li> Build
+
+  </li> <li> Test
+
+  </li> <li> Deploy
+
+  </li> <li> Approval
+
+  </li> <li> Invoke
+
+  </li> </ul> Pipelines also include *transitions*, which allow the
+  transition of artifacts from one stage to the next in a pipeline after the
+  actions in one stage complete.
 
   You can work with transitions by calling:
 
@@ -161,8 +176,11 @@ defmodule AWS.CodePipeline do
   Marks a custom action as deleted. PollForJobs for the custom action will
   fail after the action is marked for deletion. Only used for custom actions.
 
-  <important> You cannot recreate a custom action after it has been deleted
-  unless you increase the version number of the action.
+  <important> To re-create a custom action after it has been deleted you must
+  use a string in the version field that has never been used before. This
+  string can be an incremented version number, for example. To restore a
+  deleted custom action, use a JSON file that is identical to the deleted
+  action, including the original string in the version field.
 
   </important>
   """
@@ -175,6 +193,26 @@ defmodule AWS.CodePipeline do
   """
   def delete_pipeline(client, input, options \\ []) do
     request(client, "DeletePipeline", input, options)
+  end
+
+  @doc """
+  Deletes a previously created webhook by name. Deleting the webhook stops
+  AWS CodePipeline from starting a pipeline every time an external event
+  occurs. The API will return successfully when trying to delete a webhook
+  that is already deleted. If a deleted webhook is re-created by calling
+  PutWebhook with the same name, it will have a different URL.
+  """
+  def delete_webhook(client, input, options \\ []) do
+    request(client, "DeleteWebhook", input, options)
+  end
+
+  @doc """
+  Removes the connection between the webhook that was created by CodePipeline
+  and the external tool with events to be detected. Currently only supported
+  for webhooks that target an action type of GitHub.
+  """
+  def deregister_webhook_with_third_party(client, input, options \\ []) do
+    request(client, "DeregisterWebhookWithThirdParty", input, options)
   end
 
   @doc """
@@ -229,6 +267,12 @@ defmodule AWS.CodePipeline do
   @doc """
   Returns information about the state of a pipeline, including the stages and
   actions.
+
+  <note> Values returned in the revisionId and revisionUrl fields indicate
+  the source revision information, such as the commit ID, for the current
+  state.
+
+  </note>
   """
   def get_pipeline_state(client, input, options \\ []) do
     request(client, "GetPipelineState", input, options)
@@ -251,11 +295,25 @@ defmodule AWS.CodePipeline do
   end
 
   @doc """
+  Lists the action executions that have occurred in a pipeline.
+  """
+  def list_action_executions(client, input, options \\ []) do
+    request(client, "ListActionExecutions", input, options)
+  end
+
+  @doc """
   Gets a summary of all AWS CodePipeline action types associated with your
   account.
   """
   def list_action_types(client, input, options \\ []) do
     request(client, "ListActionTypes", input, options)
+  end
+
+  @doc """
+  Gets a summary of the most recent executions for a pipeline.
+  """
+  def list_pipeline_executions(client, input, options \\ []) do
+    request(client, "ListPipelineExecutions", input, options)
   end
 
   @doc """
@@ -266,7 +324,19 @@ defmodule AWS.CodePipeline do
   end
 
   @doc """
+  Gets a listing of all the webhooks in this region for this account. The
+  output lists all webhooks and includes the webhook URL and ARN, as well the
+  configuration for each webhook.
+  """
+  def list_webhooks(client, input, options \\ []) do
+    request(client, "ListWebhooks", input, options)
+  end
+
+  @doc """
   Returns information about any jobs for AWS CodePipeline to act upon.
+  PollForJobs is only valid for action types with "Custom" in the owner
+  field. If the action type contains "AWS" or "ThirdParty" in the owner
+  field, the PollForJobs action returns an error.
 
   <important> When this API is called, AWS CodePipeline returns temporary
   credentials for the Amazon S3 bucket used to store artifacts for the
@@ -340,6 +410,29 @@ defmodule AWS.CodePipeline do
   """
   def put_third_party_job_success_result(client, input, options \\ []) do
     request(client, "PutThirdPartyJobSuccessResult", input, options)
+  end
+
+  @doc """
+  Defines a webhook and returns a unique webhook URL generated by
+  CodePipeline. This URL can be supplied to third party source hosting
+  providers to call every time there's a code change. When CodePipeline
+  receives a POST request on this URL, the pipeline defined in the webhook is
+  started as long as the POST request satisfied the authentication and
+  filtering requirements supplied when defining the webhook.
+  RegisterWebhookWithThirdParty and DeregisterWebhookWithThirdParty APIs can
+  be used to automatically configure supported third parties to call the
+  generated webhook URL.
+  """
+  def put_webhook(client, input, options \\ []) do
+    request(client, "PutWebhook", input, options)
+  end
+
+  @doc """
+  Configures a connection between the webhook that was created and the
+  external tool with events to be detected.
+  """
+  def register_webhook_with_third_party(client, input, options \\ []) do
+    request(client, "RegisterWebhookWithThirdParty", input, options)
   end
 
   @doc """

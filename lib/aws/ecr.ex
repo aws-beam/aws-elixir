@@ -3,13 +3,13 @@
 
 defmodule AWS.ECR do
   @moduledoc """
-  Amazon EC2 Container Registry (Amazon ECR) is a managed AWS Docker registry
+  Amazon Elastic Container Registry (Amazon ECR) is a managed Docker registry
   service. Customers can use the familiar Docker CLI to push, pull, and
   manage images. Amazon ECR provides a secure, scalable, and reliable
   registry. Amazon ECR supports private Docker repositories with
-  resource-based permissions using AWS IAM so that specific users or Amazon
-  EC2 instances can access repositories and images. Developers can use the
-  Docker CLI to author and manage images.
+  resource-based permissions using IAM so that specific users or Amazon EC2
+  instances can access repositories and images. Developers can use the Docker
+  CLI to author and manage images.
   """
 
   @doc """
@@ -50,9 +50,9 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Inform Amazon ECR that the image layer upload for a specified registry,
-  repository name, and upload ID, has completed. You can optionally provide a
-  `sha256` digest of the image layer for data validation purposes.
+  Informs Amazon ECR that the image layer upload has completed for a
+  specified registry, repository name, and upload ID. You can optionally
+  provide a `sha256` digest of the image layer for data validation purposes.
 
   <note> This operation is used by the Amazon ECR proxy, and it is not
   intended for general use by customers for pulling and pushing images. In
@@ -69,6 +69,13 @@ defmodule AWS.ECR do
   """
   def create_repository(client, input, options \\ []) do
     request(client, "CreateRepository", input, options)
+  end
+
+  @doc """
+  Deletes the specified lifecycle policy.
+  """
+  def delete_lifecycle_policy(client, input, options \\ []) do
+    request(client, "DeleteLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -139,6 +146,20 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Retrieves the specified lifecycle policy.
+  """
+  def get_lifecycle_policy(client, input, options \\ []) do
+    request(client, "GetLifecyclePolicy", input, options)
+  end
+
+  @doc """
+  Retrieves the results of the specified lifecycle policy preview request.
+  """
+  def get_lifecycle_policy_preview(client, input, options \\ []) do
+    request(client, "GetLifecyclePolicyPreview", input, options)
+  end
+
+  @doc """
   Retrieves the repository policy for a specified repository.
   """
   def get_repository_policy(client, input, options \\ []) do
@@ -173,6 +194,13 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  List the tags for an Amazon ECR resource.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Creates or updates the image manifest and tags associated with an image.
 
   <note> This operation is used by the Amazon ECR proxy, and it is not
@@ -186,11 +214,44 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Creates or updates a lifecycle policy. For information about lifecycle
+  policy syntax, see [Lifecycle Policy
+  Template](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+  """
+  def put_lifecycle_policy(client, input, options \\ []) do
+    request(client, "PutLifecyclePolicy", input, options)
+  end
+
+  @doc """
   Applies a repository policy on a specified repository to control access
   permissions.
   """
   def set_repository_policy(client, input, options \\ []) do
     request(client, "SetRepositoryPolicy", input, options)
+  end
+
+  @doc """
+  Starts a preview of the specified lifecycle policy. This allows you to see
+  the results before creating the lifecycle policy.
+  """
+  def start_lifecycle_policy_preview(client, input, options \\ []) do
+    request(client, "StartLifecyclePolicyPreview", input, options)
+  end
+
+  @doc """
+  Adds specified tags to a resource with the specified ARN. Existing tags on
+  a resource are not changed if they are not specified in the request
+  parameters.
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
+  end
+
+  @doc """
+  Deletes specified tags from a resource.
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
   end
 
   @doc """
@@ -211,8 +272,8 @@ defmodule AWS.ECR do
     {:error, Poison.Parser.t} |
     {:error, HTTPoison.Error.t}
   defp request(client, action, input, options) do
-    client = %{client | service: "ecr"}
-    host = get_host("ecr", client)
+    client = %{client | service: "api.ecr"}
+    host = get_host("api.ecr", client)
     url = get_url(host, client)
     headers = [{"Host", host},
                {"Content-Type", "application/x-amz-json-1.1"},

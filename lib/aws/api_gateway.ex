@@ -6,8 +6,8 @@ defmodule AWS.APIGateway do
   Amazon API Gateway
 
   Amazon API Gateway helps developers deliver robust, secure, and scalable
-  mobile and web application back ends. Amazon API Gateway allows developers
-  to securely connect mobile and web applications to APIs that run on AWS
+  mobile and web application back ends. API Gateway allows developers to
+  securely connect mobile and web applications to APIs that run on AWS
   Lambda, Amazon EC2, or other publicly addressable web services that are
   hosted outside of AWS.
   """
@@ -16,7 +16,7 @@ defmodule AWS.APIGateway do
   Create an `ApiKey` resource.
 
   <div class="seeAlso">[AWS
-  CLI](http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html)</div>
+  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html)</div>
   """
   def create_api_key(client, input, options \\ []) do
     url = "/apikeys"
@@ -28,7 +28,7 @@ defmodule AWS.APIGateway do
   Adds a new `Authorizer` resource to an existing `RestApi` resource.
 
   <div class="seeAlso">[AWS
-  CLI](http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html)</div>
+  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html)</div>
   """
   def create_authorizer(client, rest_api_id, input, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
@@ -92,6 +92,15 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Creates a `ReqeustValidator` of a given `RestApi`.
+  """
+  def create_request_validator(client, rest_api_id, input, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators"
+    headers = []
+    request(client, :post, url, headers, input, options, 201)
+  end
+
+  @doc """
   Creates a `Resource` resource.
   """
   def create_resource(client, parent_id, rest_api_id, input, options \\ []) do
@@ -139,6 +148,18 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Creates a VPC link, under the caller's account in a selected region, in an
+  asynchronous operation that typically takes 2-4 minutes to complete and
+  become operational. The caller must have permissions to create and update
+  VPC Endpoint services.
+  """
+  def create_vpc_link(client, input, options \\ []) do
+    url = "/vpclinks"
+    headers = []
+    request(client, :post, url, headers, input, options, 202)
+  end
+
+  @doc """
   Deletes the `ApiKey` resource.
   """
   def delete_api_key(client, api_key, input, options \\ []) do
@@ -151,7 +172,7 @@ defmodule AWS.APIGateway do
   Deletes an existing `Authorizer` resource.
 
   <div class="seeAlso">[AWS
-  CLI](http://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html)</div>
+  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html)</div>
   """
   def delete_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
@@ -215,6 +236,16 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Clears any customization of a `GatewayResponse` of a specified response
+  type on the given `RestApi` and resets it with the default settings.
+  """
+  def delete_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
   Represents a delete integration.
   """
   def delete_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
@@ -255,6 +286,15 @@ defmodule AWS.APIGateway do
   """
   def delete_model(client, model_name, rest_api_id, input, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes a `RequestValidator` of a given `RestApi`.
+  """
+  def delete_request_validator(client, request_validator_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
     headers = []
     request(client, :delete, url, headers, input, options, 202)
   end
@@ -301,6 +341,15 @@ defmodule AWS.APIGateway do
   """
   def delete_usage_plan_key(client, key_id, usage_plan_id, input, options \\ []) do
     url = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 202)
+  end
+
+  @doc """
+  Deletes an existing `VpcLink` of a specified identifier.
+  """
+  def delete_vpc_link(client, vpc_link_id, input, options \\ []) do
+    url = "/vpclinks/#{URI.encode(vpc_link_id)}"
     headers = []
     request(client, :delete, url, headers, input, options, 202)
   end
@@ -363,7 +412,7 @@ defmodule AWS.APIGateway do
   Describe an existing `Authorizer` resource.
 
   <div class="seeAlso">[AWS
-  CLI](http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html)</div>
+  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html)</div>
   """
   def get_authorizer(client, authorizer_id, rest_api_id, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
@@ -375,7 +424,7 @@ defmodule AWS.APIGateway do
   Describe an existing `Authorizers` resource.
 
   <div class="seeAlso">[AWS
-  CLI](http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html)</div>
+  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html)</div>
   """
   def get_authorizers(client, rest_api_id, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
@@ -516,7 +565,29 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Represents a get integration.
+  Gets a `GatewayResponse` of a specified response type on the given
+  `RestApi`.
+  """
+  def get_gateway_response(client, response_type, rest_api_id, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets the `GatewayResponses` collection on the given `RestApi`. If an API
+  developer has not added any definitions for gateway responses, the result
+  will be the API Gateway-generated default `GatewayResponses` collection for
+  the supported response types.
+  """
+  def get_gateway_responses(client, rest_api_id, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Get the integration settings.
   """
   def get_integration(client, http_method, resource_id, rest_api_id, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
@@ -575,6 +646,24 @@ defmodule AWS.APIGateway do
   """
   def get_models(client, rest_api_id, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/models"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a `RequestValidator` of a given `RestApi`.
+  """
+  def get_request_validator(client, request_validator_id, rest_api_id, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets the `RequestValidators` collection of a given `RestApi`.
+  """
+  def get_request_validators(client, rest_api_id, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators"
     headers = []
     request(client, :get, url, headers, nil, options, nil)
   end
@@ -672,6 +761,15 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Gets the `Tags` collection for a given resource.
+  """
+  def get_tags(client, resource_arn, options \\ []) do
+    url = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
   Gets the usage data of a usage plan in a specified time interval.
   """
   def get_usage(client, usage_plan_id, options \\ []) do
@@ -718,6 +816,25 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Gets a specified VPC link under the caller's account in a region.
+  """
+  def get_vpc_link(client, vpc_link_id, options \\ []) do
+    url = "/vpclinks/#{URI.encode(vpc_link_id)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets the `VpcLinks` collection under the caller's account in a selected
+  region.
+  """
+  def get_vpc_links(client, options \\ []) do
+    url = "/vpclinks"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
   Import API keys from an external source, such as a CSV-formatted file.
   """
   def import_api_keys(client, input, options \\ []) do
@@ -736,8 +853,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  A feature of the Amazon API Gateway control service for creating a new API
-  from an external API definition file.
+  A feature of the API Gateway control service for creating a new API from an
+  external API definition file.
   """
   def import_rest_api(client, input, options \\ []) do
     url = "/restapis?mode=import"
@@ -746,7 +863,17 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Represents a put integration.
+  Creates a customization of a `GatewayResponse` of a specified response type
+  and status code on the given `RestApi`.
+  """
+  def put_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
+    headers = []
+    request(client, :put, url, headers, input, options, 201)
+  end
+
+  @doc """
+  Sets up a method's integration.
   """
   def put_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
@@ -782,10 +909,10 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  A feature of the Amazon API Gateway control service for updating an
-  existing API with an input of external API definitions. The update can take
-  the form of merging the supplied definition into the existing API or
-  overwriting the existing API.
+  A feature of the API Gateway control service for updating an existing API
+  with an input of external API definitions. The update can take the form of
+  merging the supplied definition into the existing API or overwriting the
+  existing API.
   """
   def put_rest_api(client, rest_api_id, input, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}"
@@ -794,11 +921,20 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Adds or updates a tag on a given resource.
+  """
+  def tag_resource(client, resource_arn, input, options \\ []) do
+    url = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    request(client, :put, url, headers, input, options, 204)
+  end
+
+  @doc """
   Simulate the execution of an `Authorizer` in your `RestApi` with headers,
   parameters, and an incoming request body.
 
   <div class="seeAlso"> [Enable custom
-  authorizers](http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html)
+  authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html)
   </div>
   """
   def test_invoke_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
@@ -815,6 +951,15 @@ defmodule AWS.APIGateway do
     url = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
     headers = []
     request(client, :post, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Removes a tag from a given resource.
+  """
+  def untag_resource(client, resource_arn, input, options \\ []) do
+    url = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    request(client, :delete, url, headers, input, options, 204)
   end
 
   @doc """
@@ -839,7 +984,7 @@ defmodule AWS.APIGateway do
   Updates an existing `Authorizer` resource.
 
   <div class="seeAlso">[AWS
-  CLI](http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html)</div>
+  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html)</div>
   """
   def update_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
     url = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
@@ -902,6 +1047,16 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Updates a `GatewayResponse` of a specified response type on the given
+  `RestApi`.
+  """
+  def update_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
   Represents an update integration.
   """
   def update_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
@@ -947,6 +1102,15 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Updates a `RequestValidator` of a given `RestApi`.
+  """
+  def update_request_validator(client, request_validator_id, rest_api_id, input, options \\ []) do
+    url = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
   Changes information about a `Resource` resource.
   """
   def update_resource(client, resource_id, rest_api_id, input, options \\ []) do
@@ -974,7 +1138,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Grants a temporary extension to the reamining quota of a usage plan
+  Grants a temporary extension to the remaining quota of a usage plan
   associated with a specified API key.
   """
   def update_usage(client, key_id, usage_plan_id, input, options \\ []) do
@@ -988,6 +1152,15 @@ defmodule AWS.APIGateway do
   """
   def update_usage_plan(client, usage_plan_id, input, options \\ []) do
     url = "/usageplans/#{URI.encode(usage_plan_id)}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates an existing `VpcLink` of a specified identifier.
+  """
+  def update_vpc_link(client, vpc_link_id, input, options \\ []) do
+    url = "/vpclinks/#{URI.encode(vpc_link_id)}"
     headers = []
     request(client, :patch, url, headers, input, options, nil)
   end

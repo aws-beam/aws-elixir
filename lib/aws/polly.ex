@@ -67,12 +67,35 @@ defmodule AWS.Polly do
   end
 
   @doc """
+  Retrieves a specific SpeechSynthesisTask object based on its TaskID. This
+  object contains information about the given speech synthesis task,
+  including the status of the task, and a link to the S3 bucket containing
+  the output of the task.
+  """
+  def get_speech_synthesis_task(client, task_id, options \\ []) do
+    url = "/v1/synthesisTasks/#{URI.encode(task_id)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of pronunciation lexicons stored in an AWS Region. For more
   information, see [Managing
   Lexicons](http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def list_lexicons(client, options \\ []) do
     url = "/v1/lexicons"
+    headers = []
+    request(client, :get, url, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of SpeechSynthesisTask objects ordered by their creation
+  date. This operation can filter the tasks by their status, for example,
+  allowing users to list only tasks that are completed.
+  """
+  def list_speech_synthesis_tasks(client, options \\ []) do
+    url = "/v1/synthesisTasks"
     headers = []
     request(client, :get, url, headers, nil, options, 200)
   end
@@ -90,6 +113,21 @@ defmodule AWS.Polly do
     url = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
     request(client, :put, url, headers, input, options, 200)
+  end
+
+  @doc """
+  Allows the creation of an asynchronous synthesis task, by starting a new
+  `SpeechSynthesisTask`. This operation requires all the standard information
+  needed for speech synthesis, plus the name of an Amazon S3 bucket for the
+  service to store the output of the synthesis task and two optional
+  parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is
+  created, this operation will return a SpeechSynthesisTask object, which
+  will include an identifier of this task as well as the current status.
+  """
+  def start_speech_synthesis_task(client, input, options \\ []) do
+    url = "/v1/synthesisTasks"
+    headers = []
+    request(client, :post, url, headers, input, options, 200)
   end
 
   @doc """

@@ -24,11 +24,11 @@ defmodule AWS.Batch do
   """
 
   @doc """
-  Cancels jobs in an AWS Batch job queue. Jobs that are in the `SUBMITTED`,
+  Cancels a job in an AWS Batch job queue. Jobs that are in the `SUBMITTED`,
   `PENDING`, or `RUNNABLE` state are cancelled. Jobs that have progressed to
   `STARTING` or `RUNNING` are not cancelled (but the API operation still
-  succeeds, even if no jobs are cancelled); these jobs must be terminated
-  with the `TerminateJob` operation.
+  succeeds, even if no job is cancelled); these jobs must be terminated with
+  the `TerminateJob` operation.
   """
   def cancel_job(client, input, options \\ []) do
     url = "/v1/canceljob"
@@ -38,30 +38,51 @@ defmodule AWS.Batch do
 
   @doc """
   Creates an AWS Batch compute environment. You can create `MANAGED` or
-  `UNMANAGED`compute environments.
+  `UNMANAGED` compute environments.
 
-  In a managed compute environment, AWS Batch manages the compute resources
-  within the environment, based on the compute resources that you specify.
-  Instances launched into a managed compute environment use the latest Amazon
-  ECS-optimized AMI. You can choose to use Amazon EC2 On-Demand instances in
-  your managed compute environment, or you can use Amazon EC2 Spot instances
-  that only launch when the Spot bid price is below a specified percentage of
-  the On-Demand price.
+  In a managed compute environment, AWS Batch manages the capacity and
+  instance types of the compute resources within the environment. This is
+  based on the compute resource specification that you define or the [launch
+  template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+  that you specify when you create the compute environment. You can choose to
+  use Amazon EC2 On-Demand Instances or Spot Instances in your managed
+  compute environment. You can optionally set a maximum price so that Spot
+  Instances only launch when the Spot Instance price is below a specified
+  percentage of the On-Demand price.
 
-  In an unmanaged compute environment, you can manage your own compute
-  resources. This provides more compute resource configuration options, such
-  as using a custom AMI, but you must ensure that your AMI meets the Amazon
-  ECS container instance AMI specification. For more information, see
-  [Container Instance
-  AMIs](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html)
-  in the *Amazon EC2 Container Service Developer Guide*. After you have
+  <note> Multi-node parallel jobs are not supported on Spot Instances.
+
+  </note> In an unmanaged compute environment, you can manage your own
+  compute resources. This provides more compute resource configuration
+  options, such as using a custom AMI, but you must ensure that your AMI
+  meets the Amazon ECS container instance AMI specification. For more
+  information, see [Container Instance
+  AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html)
+  in the *Amazon Elastic Container Service Developer Guide*. After you have
   created your unmanaged compute environment, you can use the
   `DescribeComputeEnvironments` operation to find the Amazon ECS cluster that
-  is associated with it and then manually launch your container instances
-  into that Amazon ECS cluster. For more information, see [Launching an
-  Amazon ECS Container
-  Instance](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
-  in the *Amazon EC2 Container Service Developer Guide*.
+  is associated with it. Then, manually launch your container instances into
+  that Amazon ECS cluster. For more information, see [Launching an Amazon ECS
+  Container
+  Instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  <note> AWS Batch does not upgrade the AMIs in a compute environment after
+  it is created (for example, when a newer version of the Amazon
+  ECS-optimized AMI is available). You are responsible for the management of
+  the guest operating system (including updates and security patches) and any
+  additional application software or utilities that you install on the
+  compute resources. To use a new AMI for your AWS Batch jobs:
+
+  <ol> <li> Create a new compute environment with the new AMI.
+
+  </li> <li> Add the compute environment to an existing job queue.
+
+  </li> <li> Remove the old compute environment from your job queue.
+
+  </li> <li> Delete the old compute environment.
+
+  </li> </ol> </note>
   """
   def create_compute_environment(client, input, options \\ []) do
     url = "/v1/createcomputeenvironment"
@@ -102,8 +123,8 @@ defmodule AWS.Batch do
 
   @doc """
   Deletes the specified job queue. You must first disable submissions for a
-  queue with the `UpdateJobQueue` operation and terminate any jobs that have
-  not completed with the `TerminateJob`.
+  queue with the `UpdateJobQueue` operation. All jobs in the queue are
+  terminated when you delete a job queue.
 
   It is not necessary to disassociate compute environments from a queue
   before submitting a `DeleteJobQueue` request.
@@ -165,8 +186,20 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Returns a list of task jobs for a specified job queue. You can filter the
-  results by job status with the `jobStatus` parameter.
+  Returns a list of AWS Batch jobs.
+
+  You must specify only one of the following:
+
+  <ul> <li> a job queue ID to return a list of jobs in that job queue
+
+  </li> <li> a multi-node parallel job ID to return a list of that job's
+  nodes
+
+  </li> <li> an array job ID to return a list of that job's children
+
+  </li> </ul> You can filter the results by job status with the `jobStatus`
+  parameter. If you do not specify a status, only `RUNNING` jobs are
+  returned.
   """
   def list_jobs(client, input, options \\ []) do
     url = "/v1/listjobs"
@@ -194,7 +227,7 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Terminates jobs in a job queue. Jobs that are in the `STARTING` or
+  Terminates a job in a job queue. Jobs that are in the `STARTING` or
   `RUNNING` state are terminated, which causes them to transition to
   `FAILED`. Jobs that have not progressed to the `STARTING` state are
   cancelled.

@@ -10,7 +10,7 @@ defmodule AWS.EFS do
   EFS, storage capacity is elastic, growing and shrinking automatically as
   you add and remove files, so your applications have the storage they need,
   when they need it. For more information, see the [User
-  Guide](http://docs.aws.amazon.com/efs/latest/ug/api-reference.html).
+  Guide](https://docs.aws.amazon.com/efs/latest/ug/api-reference.html).
   """
 
   @doc """
@@ -52,14 +52,14 @@ defmodule AWS.EFS do
   operations per second with a tradeoff of slightly higher latencies for most
   file operations. The performance mode can't be changed after the file
   system has been created. For more information, see [Amazon EFS: Performance
-  Modes](http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html).
+  Modes](https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html).
 
   After the file system is fully created, Amazon EFS sets its lifecycle state
   to `available`, at which point you can create one or more mount targets for
   the file system in your VPC. For more information, see `CreateMountTarget`.
-  You mount your Amazon EFS file system on an EC2 instances in your VPC via
-  the mount target. For more information, see [Amazon EFS: How it
-  Works](http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
+  You mount your Amazon EFS file system on an EC2 instances in your VPC by
+  using the mount target. For more information, see [Amazon EFS: How it
+  Works](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
 
   This operation requires permissions for the
   `elasticfilesystem:CreateFileSystem` action.
@@ -72,7 +72,7 @@ defmodule AWS.EFS do
 
   @doc """
   Creates a mount target for a file system. You can then mount the file
-  system on EC2 instances via the mount target.
+  system on EC2 instances by using the mount target.
 
   You can create one mount target in each Availability Zone in your VPC. All
   EC2 instances in a VPC within a given Availability Zone share a single
@@ -80,7 +80,7 @@ defmodule AWS.EFS do
   Availability Zone, you create a mount target in one of the subnets. EC2
   instances do not need to be in the same subnet as the mount target in order
   to access their file system. For more information, see [Amazon EFS: How it
-  Works](http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
+  Works](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
 
   In the request, you also specify a file system ID for which you are
   creating the mount target and the file system's lifecycle state must be
@@ -100,10 +100,10 @@ defmodule AWS.EFS do
   that includes, a `MountTargetId` and an `IpAddress`. You use this IP
   address when mounting the file system in an EC2 instance. You can also use
   the mount target's DNS name when mounting the file system. The EC2 instance
-  on which you mount the file system via the mount target can resolve the
-  mount target's DNS name to its IP address. For more information, see [How
-  it Works: Implementation
-  Overview](http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation).
+  on which you mount the file system by using the mount target can resolve
+  the mount target's DNS name to its IP address. For more information, see
+  [How it Works: Implementation
+  Overview](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation).
 
   Note that you can create mount targets for a file system in only one VPC,
   and there can be only one mount target per Availability Zone. That is, if
@@ -154,14 +154,15 @@ defmodule AWS.EFS do
   `DescribeMountTargets` operation, which among other things returns the
   mount target state.
 
-  </note> We recommend you create a mount target in each of the Availability
-  Zones. There are cost considerations for using a file system in an
-  Availability Zone through a mount target created in another Availability
-  Zone. For more information, see [Amazon EFS](http://aws.amazon.com/efs/).
-  In addition, by always using a mount target local to the instance's
-  Availability Zone, you eliminate a partial failure scenario. If the
-  Availability Zone in which your mount target is created goes down, then you
-  won't be able to access your file system through that mount target.
+  </note> We recommend that you create a mount target in each of the
+  Availability Zones. There are cost considerations for using a file system
+  in an Availability Zone through a mount target created in another
+  Availability Zone. For more information, see [Amazon
+  EFS](http://aws.amazon.com/efs/). In addition, by always using a mount
+  target local to the instance's Availability Zone, you eliminate a partial
+  failure scenario. If the Availability Zone in which your mount target is
+  created goes down, then you can't access your file system through that
+  mount target.
 
   This operation requires permissions for the following action on the file
   system:
@@ -229,14 +230,15 @@ defmodule AWS.EFS do
   @doc """
   Deletes the specified mount target.
 
-  This operation forcibly breaks any mounts of the file system via the mount
-  target that is being deleted, which might disrupt instances or applications
-  using those mounts. To avoid applications getting cut off abruptly, you
-  might consider unmounting any mounts of the mount target, if feasible. The
-  operation also deletes the associated network interface. Uncommitted writes
-  may be lost, but breaking a mount target using this operation does not
-  corrupt the file system itself. The file system you created remains. You
-  can mount an EC2 instance in your VPC via another mount target.
+  This operation forcibly breaks any mounts of the file system by using the
+  mount target that is being deleted, which might disrupt instances or
+  applications using those mounts. To avoid applications getting cut off
+  abruptly, you might consider unmounting any mounts of the mount target, if
+  feasible. The operation also deletes the associated network interface.
+  Uncommitted writes might be lost, but breaking a mount target using this
+  operation does not corrupt the file system itself. The file system you
+  created remains. You can mount an EC2 instance in your VPC by using another
+  mount target.
 
   This operation requires permissions for the following action on the file
   system:
@@ -263,10 +265,10 @@ defmodule AWS.EFS do
 
   @doc """
   Deletes the specified tags from a file system. If the `DeleteTags` request
-  includes a tag key that does not exist, Amazon EFS ignores it and doesn't
+  includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't
   cause an error. For more information about tags and related restrictions,
   see [Tag
-  Restrictions](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *AWS Billing and Cost Management User Guide*.
 
   This operation requires permissions for the `elasticfilesystem:DeleteTags`
@@ -286,19 +288,16 @@ defmodule AWS.EFS do
 
   When retrieving all file system descriptions, you can optionally specify
   the `MaxItems` parameter to limit the number of descriptions in a response.
-  If more file system descriptions remain, Amazon EFS returns a `NextMarker`,
-  an opaque token, in the response. In this case, you should send a
-  subsequent request with the `Marker` request parameter set to the value of
-  `NextMarker`.
+  Currently, this number is automatically set to 10. If more file system
+  descriptions remain, Amazon EFS returns a `NextMarker`, an opaque token, in
+  the response. In this case, you should send a subsequent request with the
+  `Marker` request parameter set to the value of `NextMarker`.
 
   To retrieve a list of your file system descriptions, this operation is used
   in an iterative process, where `DescribeFileSystems` is called first
   without the `Marker` and then the operation continues to call it with the
   `Marker` parameter set to the value of the `NextMarker` from the previous
   response until the response has no `NextMarker`.
-
-  The implementation may return fewer than `MaxItems` file system
-  descriptions while still including a `NextMarker` value.
 
   The order of file systems returned in the response of one
   `DescribeFileSystems` call and the order of file systems returned across
@@ -309,6 +308,23 @@ defmodule AWS.EFS do
   """
   def describe_file_systems(client, options \\ []) do
     url = "/2015-02-01/file-systems"
+    headers = []
+    request(client, :get, url, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the current `LifecycleConfiguration` object for the specified
+  Amazon EFS file system. EFS lifecycle management uses the
+  `LifecycleConfiguration` object to identify which files to move to the EFS
+  Infrequent Access (IA) storage class. For a file system without a
+  `LifecycleConfiguration` object, the call returns an empty array in the
+  response.
+
+  This operation requires permissions for the
+  `elasticfilesystem:DescribeLifecycleConfiguration` operation.
+  """
+  def describe_lifecycle_configuration(client, file_system_id, options \\ []) do
+    url = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
     headers = []
     request(client, :get, url, headers, nil, options, 200)
   end
@@ -354,8 +370,8 @@ defmodule AWS.EFS do
   @doc """
   Returns the tags associated with a file system. The order of tags returned
   in the response of one `DescribeTags` call and the order of tags returned
-  across the responses of a multi-call iteration (when using pagination) is
-  unspecified.
+  across the responses of a multiple-call iteration (when using pagination)
+  is unspecified.
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeTags` action.
@@ -390,6 +406,56 @@ defmodule AWS.EFS do
     url = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
     request(client, :put, url, headers, input, options, 204)
+  end
+
+  @doc """
+  Enables lifecycle management by creating a new `LifecycleConfiguration`
+  object. A `LifecycleConfiguration` object defines when files in an Amazon
+  EFS file system are automatically transitioned to the lower-cost EFS
+  Infrequent Access (IA) storage class. A `LifecycleConfiguration` applies to
+  all files in a file system.
+
+  Each Amazon EFS file system supports one lifecycle configuration, which
+  applies to all files in the file system. If a `LifecycleConfiguration`
+  object already exists for the specified file system, a
+  `PutLifecycleConfiguration` call modifies the existing configuration. A
+  `PutLifecycleConfiguration` call with an empty `LifecyclePolicies` array in
+  the request body deletes any existing `LifecycleConfiguration` and disables
+  lifecycle management.
+
+  <note> You can enable lifecycle management only for EFS file systems
+  created after the release of EFS infrequent access.
+
+  </note> In the request, specify the following:
+
+  <ul> <li> The ID for the file system for which you are creating a lifecycle
+  management configuration.
+
+  </li> <li> A `LifecyclePolicies` array of `LifecyclePolicy` objects that
+  define when files are moved to the IA storage class. The array can contain
+  only one `"TransitionToIA": "AFTER_30_DAYS"` `LifecyclePolicy` item.
+
+  </li> </ul> This operation requires permissions for the
+  `elasticfilesystem:PutLifecycleConfiguration` operation.
+
+  To apply a `LifecycleConfiguration` object to an encrypted file system, you
+  need the same AWS Key Management Service (AWS KMS) permissions as when you
+  created the encrypted file system.
+  """
+  def put_lifecycle_configuration(client, file_system_id, input, options \\ []) do
+    url = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
+    headers = []
+    request(client, :put, url, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the throughput mode or the amount of provisioned throughput of an
+  existing file system.
+  """
+  def update_file_system(client, file_system_id, input, options \\ []) do
+    url = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
+    headers = []
+    request(client, :put, url, headers, input, options, 202)
   end
 
   defp request(client, method, url, headers, input, options, success_status_code) do

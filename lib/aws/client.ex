@@ -11,4 +11,6 @@ defmodule AWS.Client do
             service: nil,
             proto: "https",
             port: "443"
+
+  @type t :: %__MODULE__{}
 end

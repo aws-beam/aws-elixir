@@ -105,8 +105,8 @@ defmodule AWS.Request.Internal do
   `name` to lowercase, and add a trailing newline.
   """
   def canonical_header({name, value}) do
-    name = String.downcase(name) |> String.strip
-    value = String.strip(value)
+    name = String.downcase(name) |> String.trim()
+    value = String.trim(value)
     name <> ":" <> value <> "\n"
   end
 
@@ -152,7 +152,7 @@ defmodule AWS.Request.Internal do
   lowercase.
   """
   def signed_header({name, _value}) do
-    String.downcase(name) |> String.strip
+    String.downcase(name) |> String.trim()
   end
 
   @doc """

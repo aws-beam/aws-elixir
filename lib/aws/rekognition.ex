@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Rekognition do
   @moduledoc """
@@ -263,10 +263,10 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Detects explicit or suggestive adult content in a specified JPEG or PNG
-  format image. Use `DetectModerationLabels` to moderate images depending on
-  your requirements. For example, you might want to filter images that
-  contain nudity, but not images containing suggestive content.
+  Detects unsafe content in a specified JPEG or PNG format image. Use
+  `DetectModerationLabels` to moderate images depending on your requirements.
+  For example, you might want to filter images that contain nudity, but not
+  images containing suggestive content.
 
   To filter images, use the labels returned by `DetectModerationLabels` to
   determine which types of content are appropriate.
@@ -392,24 +392,24 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Gets the content moderation analysis results for a Amazon Rekognition Video
+  Gets the unsafe content analysis results for a Amazon Rekognition Video
   analysis started by `StartContentModeration`.
 
-  Content moderation analysis of a video is an asynchronous operation. You
-  start analysis by calling `StartContentModeration` which returns a job
-  identifier (`JobId`). When analysis finishes, Amazon Rekognition Video
-  publishes a completion status to the Amazon Simple Notification Service
-  topic registered in the initial call to `StartContentModeration`. To get
-  the results of the content moderation analysis, first check that the status
-  value published to the Amazon SNS topic is `SUCCEEDED`. If so, call
+  Unsafe content analysis of a video is an asynchronous operation. You start
+  analysis by calling `StartContentModeration` which returns a job identifier
+  (`JobId`). When analysis finishes, Amazon Rekognition Video publishes a
+  completion status to the Amazon Simple Notification Service topic
+  registered in the initial call to `StartContentModeration`. To get the
+  results of the unsafe content analysis, first check that the status value
+  published to the Amazon SNS topic is `SUCCEEDED`. If so, call
   `GetContentModeration` and pass the job identifier (`JobId`) from the
   initial call to `StartContentModeration`.
 
   For more information, see Working with Stored Videos in the Amazon
   Rekognition Devlopers Guide.
 
-  `GetContentModeration` returns detected content moderation labels, and the
-  time they are detected, in an array, `ModerationLabels`, of
+  `GetContentModeration` returns detected unsafe content labels, and the time
+  they are detected, in an array, `ModerationLabels`, of
   `ContentModerationDetection` objects.
 
   By default, the moderated labels are returned sorted by time, in
@@ -836,18 +836,17 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
-  Starts asynchronous detection of explicit or suggestive adult content in a
-  stored video.
+  Starts asynchronous detection of unsafe content in a stored video.
 
   Amazon Rekognition Video can moderate content in a video stored in an
   Amazon S3 bucket. Use `Video` to specify the bucket name and the filename
   of the video. `StartContentModeration` returns a job identifier (`JobId`)
-  which you use to get the results of the analysis. When content moderation
+  which you use to get the results of the analysis. When unsafe content
   analysis is finished, Amazon Rekognition Video publishes a completion
   status to the Amazon Simple Notification Service topic that you specify in
   `NotificationChannel`.
 
-  To get the results of the content moderation analysis, first check that the
+  To get the results of the unsafe content analysis, first check that the
   status value published to the Amazon SNS topic is `SUCCEEDED`. If so, call
   `GetContentModeration` and pass the job identifier (`JobId`) from the
   initial call to `StartContentModeration`.
@@ -964,29 +963,38 @@ defmodule AWS.Rekognition do
     request(client, "StopStreamProcessor", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "rekognition"}
     host = get_host("rekognition", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "RekognitionService.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "RekognitionService.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1003,5 +1011,4 @@ defmodule AWS.Rekognition do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

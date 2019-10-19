@@ -70,6 +70,26 @@ defmodule AWS.Request do
       result
     end
   end
+
+  @doc """
+  Build request headers based on a list key-value pairs representing the mappings
+  from param names to header names and a map qith the `params`.
+  """
+  def build_headers(params_to_headers, %{} = params) when is_list(params_to_headers) do
+    Enum.reduce(params_to_headers, {[], params}, &move_param_to_header/2)
+  end
+
+  defp move_param_to_header({param_name, header_name}, {headers, params}) do
+    case Map.get(params, param_name) do
+      nil ->
+        {headers, params}
+
+      param_value ->
+        headers = [{header_name, param_value} | headers]
+        params = Map.delete(params, param_name)
+        {headers, params}
+    end
+  end
 end
 
 defmodule AWS.Request.Internal do

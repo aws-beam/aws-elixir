@@ -18,6 +18,24 @@ defmodule AWS.LexRuntime do
   """
 
   @doc """
+  Removes session information for a specified bot, alias, and user ID.
+  """
+  def delete_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
+    url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    headers = []
+    request(client, :delete, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Returns session information for a specified bot, alias, and user ID.
+  """
+  def get_session(client, bot_alias, bot_name, user_id, options \\ []) do
+    url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
   Sends user input (text or speech) to Amazon Lex. Clients use this API to
   send text and audio requests to Amazon Lex at runtime. Amazon Lex
   interprets the user input using the machine learning model that it built
@@ -74,67 +92,52 @@ defmodule AWS.LexRuntime do
 
   </li> </ul> In addition, Amazon Lex also returns your application-specific
   `sessionAttributes`. For more information, see [Managing Conversation
-  Context](http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
+  Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
   def post_content(client, bot_alias, bot_name, user_id, input, options \\ []) do
     url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
-    headers = []
-    if Dict.has_key?(input, "accept") do
-      headers = [{"Accept", input["accept"]}|headers]
-      input = Dict.delete(input, "accept")
-    end
-    if Dict.has_key?(input, "contentType") do
-      headers = [{"Content-Type", input["contentType"]}|headers]
-      input = Dict.delete(input, "contentType")
-    end
-    if Dict.has_key?(input, "requestAttributes") do
-      headers = [{"x-amz-lex-request-attributes", input["requestAttributes"]}|headers]
-      input = Dict.delete(input, "requestAttributes")
-    end
-    if Dict.has_key?(input, "sessionAttributes") do
-      headers = [{"x-amz-lex-session-attributes", input["sessionAttributes"]}|headers]
-      input = Dict.delete(input, "sessionAttributes")
-    end
+
+    {headers, input} =
+      [
+        {"accept", "Accept"},
+        {"contentType", "Content-Type"},
+        {"requestAttributes", "x-amz-lex-request-attributes"},
+        {"sessionAttributes", "x-amz-lex-session-attributes"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     case request(client, :post, url, headers, input, options, nil) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["Content-Type"]) do
-          body = %{body | "contentType" => response.headers["Content-Type"]}
-        end
-        if !is_nil(response.headers["x-amz-lex-dialog-state"]) do
-          body = %{body | "dialogState" => response.headers["x-amz-lex-dialog-state"]}
-        end
-        if !is_nil(response.headers["x-amz-lex-input-transcript"]) do
-          body = %{body | "inputTranscript" => response.headers["x-amz-lex-input-transcript"]}
-        end
-        if !is_nil(response.headers["x-amz-lex-intent-name"]) do
-          body = %{body | "intentName" => response.headers["x-amz-lex-intent-name"]}
-        end
-        if !is_nil(response.headers["x-amz-lex-message"]) do
-          body = %{body | "message" => response.headers["x-amz-lex-message"]}
-        end
-        if !is_nil(response.headers["x-amz-lex-message-format"]) do
-          body = %{body | "messageFormat" => response.headers["x-amz-lex-message-format"]}
-        end
-        if !is_nil(response.headers["x-amz-lex-session-attributes"]) do
-          body = %{body | "sessionAttributes" => response.headers["x-amz-lex-session-attributes"]}
-        end
-        if !is_nil(response.headers["x-amz-lex-slot-to-elicit"]) do
-          body = %{body | "slotToElicit" => response.headers["x-amz-lex-slot-to-elicit"]}
-        end
-        if !is_nil(response.headers["x-amz-lex-slots"]) do
-          body = %{body | "slots" => response.headers["x-amz-lex-slots"]}
-        end
+        body =
+          [
+            {"Content-Type", "contentType"},
+            {"x-amz-lex-dialog-state", "dialogState"},
+            {"x-amz-lex-input-transcript", "inputTranscript"},
+            {"x-amz-lex-intent-name", "intentName"},
+            {"x-amz-lex-message", "message"},
+            {"x-amz-lex-message-format", "messageFormat"},
+            {"x-amz-lex-session-attributes", "sessionAttributes"},
+            {"x-amz-lex-slot-to-elicit", "slotToElicit"},
+            {"x-amz-lex-slots", "slots"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
   end
 
   @doc """
-  Sends user input (text-only) to Amazon Lex. Client applications can use
-  this API to send requests to Amazon Lex at runtime. Amazon Lex then
-  interprets the user input using the machine learning model it built for the
-  bot.
+  Sends user input to Amazon Lex. Client applications can use this API to
+  send requests to Amazon Lex at runtime. Amazon Lex then interprets the user
+  input using the machine learning model it built for the bot.
 
   In response, Amazon Lex returns the next `message` to convey to the user an
   optional `responseCard` to display. Consider the following example
@@ -183,7 +186,7 @@ defmodule AWS.LexRuntime do
 
   </li> </ul> In addition, Amazon Lex also returns your application-specific
   `sessionAttributes`. For more information, see [Managing Conversation
-  Context](http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
+  Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
   def post_text(client, bot_alias, bot_name, user_id, input, options \\ []) do
     url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
@@ -191,13 +194,66 @@ defmodule AWS.LexRuntime do
     request(client, :post, url, headers, input, options, nil)
   end
 
+  @doc """
+  Creates a new session or modifies an existing session with an Amazon Lex
+  bot. Use this operation to enable your application to set the state of the
+  bot.
+
+  For more information, see [Managing
+  Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
+  """
+  def put_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
+    url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+
+    {headers, input} =
+      [
+        {"accept", "Accept"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
+    case request(client, :post, url, headers, input, options, nil) do
+      {:ok, body, response} ->
+        body =
+          [
+            {"Content-Type", "contentType"},
+            {"x-amz-lex-dialog-state", "dialogState"},
+            {"x-amz-lex-intent-name", "intentName"},
+            {"x-amz-lex-message", "message"},
+            {"x-amz-lex-message-format", "messageFormat"},
+            {"x-amz-lex-session-attributes", "sessionAttributes"},
+            {"x-amz-lex-session-id", "sessionId"},
+            {"x-amz-lex-slot-to-elicit", "slotToElicit"},
+            {"x-amz-lex-slots", "slots"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
+        {:ok, body, response}
+
+      result ->
+        result
+    end
+  end
+
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, method, url, headers, input, options, success_status_code) do
     client = %{client | service: "lex"}
     host = get_host("runtime.lex", client)
     url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Security-Token", client.session_token} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -205,17 +261,17 @@ defmodule AWS.LexRuntime do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -223,13 +279,16 @@ defmodule AWS.LexRuntime do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -248,10 +307,6 @@ defmodule AWS.LexRuntime do
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, []), else: ""
   end
 end

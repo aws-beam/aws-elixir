@@ -89,18 +89,20 @@ defmodule AWS.IoT do
   """
   def attach_principal_policy(client, policy_name, input, options \\ []) do
     url = "/principal-policies/#{URI.encode(policy_name)}"
-    headers = []
-    if Dict.has_key?(input, "principal") do
-      headers = [{"x-amzn-iot-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
-    end
+
+    {headers, input} =
+      [
+        {"principal", "x-amzn-iot-principal"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     request(client, :put, url, headers, input, options, nil)
   end
 
   @doc """
-  Associates a Device Defender security profile with a thing group or with
-  this account. Each thing group or account can have up to five security
-  profiles associated with it.
+  Associates a Device Defender security profile with a thing group or this
+  account. Each thing group or account can have up to five security profiles
+  associated with it.
   """
   def attach_security_profile(client, security_profile_name, input, options \\ []) do
     url = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
@@ -115,11 +117,23 @@ defmodule AWS.IoT do
   """
   def attach_thing_principal(client, thing_name, input, options \\ []) do
     url = "/things/#{URI.encode(thing_name)}/principals"
+
+    {headers, input} =
+      [
+        {"principal", "x-amzn-principal"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
+    request(client, :put, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Cancels a mitigation action task that is in progress. If the task is not in
+  progress, an InvalidRequestException occurs.
+  """
+  def cancel_audit_mitigation_actions_task(client, task_id, input, options \\ []) do
+    url = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}/cancel"
     headers = []
-    if Dict.has_key?(input, "principal") do
-      headers = [{"x-amzn-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
-    end
     request(client, :put, url, headers, input, options, nil)
   end
 
@@ -282,6 +296,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Defines an action that can be applied to audit findings by using
+  StartAuditMitigationActionsTask. Each mitigation action can apply only one
+  type of change.
+  """
+  def create_mitigation_action(client, action_name, input, options \\ []) do
+    url = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :post, url, headers, input, options, nil)
+  end
+
+  @doc """
   Creates an AWS IoT OTAUpdate on a target group of things or groups.
   """
   def create_o_t_a_update(client, ota_update_id, input, options \\ []) do
@@ -411,11 +436,13 @@ defmodule AWS.IoT do
   """
   def create_topic_rule(client, rule_name, input, options \\ []) do
     url = "/rules/#{URI.encode(rule_name)}"
-    headers = []
-    if Dict.has_key?(input, "tags") do
-      headers = [{"x-amz-tagging", input["tags"]}|headers]
-      input = Dict.delete(input, "tags")
-    end
+
+    {headers, input} =
+      [
+        {"tags", "x-amz-tagging"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     request(client, :post, url, headers, input, options, nil)
   end
 
@@ -460,9 +487,9 @@ defmodule AWS.IoT do
   @doc """
   Deletes the specified certificate.
 
-  A certificate cannot be deleted if it has a policy attached to it or if its
-  status is set to ACTIVE. To delete a certificate, first use the
-  `DetachPrincipalPolicy` API to detach all policies. Next, use the
+  A certificate cannot be deleted if it has a policy or IoT thing attached to
+  it or if its status is set to ACTIVE. To delete a certificate, first use
+  the `DetachPrincipalPolicy` API to detach all policies. Next, use the
   `UpdateCertificate` API to set the certificate to the INACTIVE status.
   """
   def delete_certificate(client, certificate_id, input, options \\ []) do
@@ -503,6 +530,15 @@ defmodule AWS.IoT do
   """
   def delete_job_execution(client, execution_number, job_id, thing_name, input, options \\ []) do
     url = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/executionNumber/#{URI.encode(execution_number)}"
+    headers = []
+    request(client, :delete, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes a defined mitigation action from your AWS account.
+  """
+  def delete_mitigation_action(client, action_name, input, options \\ []) do
+    url = "/mitigationactions/actions/#{URI.encode(action_name)}"
     headers = []
     request(client, :delete, url, headers, input, options, nil)
   end
@@ -665,6 +701,29 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Gets information about a single audit finding. Properties include the
+  reason for noncompliance, the severity of the issue, and when the audit
+  that returned the finding was started.
+  """
+  def describe_audit_finding(client, finding_id, options \\ []) do
+    url = "/audit/findings/#{URI.encode(finding_id)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about an audit mitigation task that is used to apply
+  mitigation actions to a set of audit findings. Properties include the
+  actions being applied, the audit checks to which they're being applied, the
+  task status, and aggregated task statistics.
+  """
+  def describe_audit_mitigation_actions_task(client, task_id, options \\ []) do
+    url = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
   Gets information about a Device Defender audit.
   """
   def describe_audit_task(client, task_id, options \\ []) do
@@ -764,6 +823,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Gets information about a mitigation action.
+  """
+  def describe_mitigation_action(client, action_name, options \\ []) do
+    url = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
   Describes a role alias.
   """
   def describe_role_alias(client, role_alias, options \\ []) do
@@ -851,11 +919,13 @@ defmodule AWS.IoT do
   """
   def detach_principal_policy(client, policy_name, input, options \\ []) do
     url = "/principal-policies/#{URI.encode(policy_name)}"
-    headers = []
-    if Dict.has_key?(input, "principal") do
-      headers = [{"x-amzn-iot-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
-    end
+
+    {headers, input} =
+      [
+        {"principal", "x-amzn-iot-principal"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     request(client, :delete, url, headers, input, options, nil)
   end
 
@@ -881,11 +951,13 @@ defmodule AWS.IoT do
   """
   def detach_thing_principal(client, thing_name, input, options \\ []) do
     url = "/things/#{URI.encode(thing_name)}/principals"
-    headers = []
-    if Dict.has_key?(input, "principal") do
-      headers = [{"x-amzn-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
-    end
+
+    {headers, input} =
+      [
+        {"principal", "x-amzn-principal"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     request(client, :delete, url, headers, input, options, nil)
   end
 
@@ -1042,6 +1114,25 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Gets the status of audit mitigation action tasks that were executed.
+  """
+  def list_audit_mitigation_actions_executions(client, options \\ []) do
+    url = "/audit/mitigationactions/executions"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a list of audit mitigation action tasks that match the specified
+  filters.
+  """
+  def list_audit_mitigation_actions_tasks(client, options \\ []) do
+    url = "/audit/mitigationactions/tasks"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the Device Defender audits that have been performed during a given
   time period.
   """
@@ -1139,6 +1230,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Gets a list of all mitigation actions that match the specified filter
+  criteria.
+  """
+  def list_mitigation_actions(client, options \\ []) do
+    url = "/mitigationactions/actions"
+    headers = []
+    request(client, :get, url, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists OTA updates.
   """
   def list_o_t_a_updates(client, options \\ []) do
@@ -1174,8 +1275,10 @@ defmodule AWS.IoT do
   def list_policy_principals(client, policy_name \\ nil, options \\ []) do
     url = "/policy-principals"
     headers = []
-    if !is_nil(policy_name) do
-      headers = [{"x-amzn-iot-policy", policy_name}|headers]
+    headers = if !is_nil(policy_name) do
+      [{"x-amzn-iot-policy", policy_name} | headers]
+    else
+      headers
     end
     request(client, :get, url, headers, nil, options, nil)
   end
@@ -1201,8 +1304,10 @@ defmodule AWS.IoT do
   def list_principal_policies(client, principal \\ nil, options \\ []) do
     url = "/principal-policies"
     headers = []
-    if !is_nil(principal) do
-      headers = [{"x-amzn-iot-principal", principal}|headers]
+    headers = if !is_nil(principal) do
+      [{"x-amzn-iot-principal", principal} | headers]
+    else
+      headers
     end
     request(client, :get, url, headers, nil, options, nil)
   end
@@ -1215,8 +1320,10 @@ defmodule AWS.IoT do
   def list_principal_things(client, principal \\ nil, options \\ []) do
     url = "/principals/things"
     headers = []
-    if !is_nil(principal) do
-      headers = [{"x-amzn-principal", principal}|headers]
+    headers = if !is_nil(principal) do
+      [{"x-amzn-principal", principal} | headers]
+    else
+      headers
     end
     request(client, :get, url, headers, nil, options, nil)
   end
@@ -1404,7 +1511,7 @@ defmodule AWS.IoT do
   @doc """
   Lists the Device Defender security profile violations discovered during the
   given time period. You can use filters to limit the results to those alerts
-  issued for a particular security profile, behavior or thing (device).
+  issued for a particular security profile, behavior, or thing (device).
   """
   def list_violation_events(client, options \\ []) do
     url = "/violation-events"
@@ -1552,6 +1659,16 @@ defmodule AWS.IoT do
   """
   def set_v2_logging_options(client, input, options \\ []) do
     url = "/v2LoggingOptions"
+    headers = []
+    request(client, :post, url, headers, input, options, nil)
+  end
+
+  @doc """
+  Starts a task that applies a set of mitigation actions to the specified
+  target.
+  """
+  def start_audit_mitigation_actions_task(client, task_id, input, options \\ []) do
+    url = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
     headers = []
     request(client, :post, url, headers, input, options, nil)
   end
@@ -1736,6 +1853,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Updates the definition for the specified mitigation action.
+  """
+  def update_mitigation_action(client, action_name, input, options \\ []) do
+    url = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :patch, url, headers, input, options, nil)
+  end
+
+  @doc """
   Updates a role alias.
   """
   def update_role_alias(client, role_alias, input, options \\ []) do
@@ -1745,7 +1871,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates a scheduled audit, including what checks are performed and how
+  Updates a scheduled audit, including which checks are performed and how
   often the audit takes place.
   """
   def update_scheduled_audit(client, scheduled_audit_name, input, options \\ []) do
@@ -1808,13 +1934,21 @@ defmodule AWS.IoT do
     request(client, :post, url, headers, input, options, nil)
   end
 
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, method, url, headers, input, options, success_status_code) do
     client = %{client | service: "execute-api"}
     host = get_host("iot", client)
     url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Security-Token", client.session_token} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -1822,17 +1956,17 @@ defmodule AWS.IoT do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1840,13 +1974,16 @@ defmodule AWS.IoT do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1865,10 +2002,6 @@ defmodule AWS.IoT do
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, []), else: ""
   end
 end

@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.SSM do
   @moduledoc """
@@ -18,8 +18,8 @@ defmodule AWS.SSM do
   Guide](http://docs.aws.amazon.com/systems-manager/latest/userguide/).
 
   To get started, verify prerequisites and configure managed instances. For
-  more information, see [Systems Manager
-  Prerequisites](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)
+  more information, see [Setting Up AWS Systems
+  Manager](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)
   in the *AWS Systems Manager User Guide*.
 
   For information about other API actions you can perform on Amazon EC2
@@ -32,7 +32,7 @@ defmodule AWS.SSM do
   @doc """
   Adds or overwrites one or more tags for the specified resource. Tags are
   metadata that you can assign to your documents, managed instances,
-  Maintenance Windows, Parameter Store parameters, and patch baselines. Tags
+  maintenance windows, Parameter Store parameters, and patch baselines. Tags
   enable you to categorize your resources in different ways, for example, by
   purpose, owner, or environment. Each tag consists of a key and an optional
   value, both of which you define. For example, you could define a set of
@@ -67,7 +67,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Stops a Maintenance Window execution that is already in progress and
+  Stops a maintenance window execution that is already in progress and
   cancels any tasks in the window that have not already starting running.
   (Tasks already in progress will continue to completion.)
   """
@@ -80,7 +80,7 @@ defmodule AWS.SSM do
   that you can manage these resources using Run Command. An on-premises
   server or virtual machine that has been registered with EC2 is called a
   managed instance. For more information about activations, see [Setting Up
-  Systems Manager in Hybrid
+  AWS Systems Manager for Hybrid
   Environments](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html).
   """
   def create_activation(client, input, options \\ []) do
@@ -128,10 +128,38 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Creates a new Maintenance Window.
+  Creates a new maintenance window.
+
+  <note> The value you specify for `Duration` determines the specific end
+  time for the maintenance window based on the time it begins. No maintenance
+  window tasks are permitted to start after the resulting endtime minus the
+  number of hours you specify for `Cutoff`. For example, if the maintenance
+  window starts at 3 PM, the duration is three hours, and the value you
+  specify for `Cutoff` is one hour, no maintenance window tasks can start
+  after 5 PM.
+
+  </note>
   """
   def create_maintenance_window(client, input, options \\ []) do
     request(client, "CreateMaintenanceWindow", input, options)
+  end
+
+  @doc """
+  Creates a new OpsItem. You must have permission in AWS Identity and Access
+  Management (IAM) to create a new OpsItem. For more information, see
+  [Getting Started with
+  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  in the *AWS Systems Manager User Guide*.
+
+  Operations engineers and IT professionals use OpsCenter to view,
+  investigate, and remediate operational issues impacting the performance and
+  health of their AWS resources. For more information, see [AWS Systems
+  Manager
+  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  in the *AWS Systems Manager User Guide*.
+  """
+  def create_ops_item(client, input, options \\ []) do
+    request(client, "CreateOpsItem", input, options)
   end
 
   @doc """
@@ -211,7 +239,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Deletes a Maintenance Window.
+  Deletes a maintenance window.
   """
   def delete_maintenance_window(client, input, options \\ []) do
     request(client, "DeleteMaintenanceWindow", input, options)
@@ -225,8 +253,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Delete a list of parameters. This API is used to delete parameters by using
-  the Amazon EC2 console.
+  Delete a list of parameters.
   """
   def delete_parameters(client, input, options \\ []) do
     request(client, "DeleteParameters", input, options)
@@ -266,23 +293,24 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Removes a target from a Maintenance Window.
+  Removes a target from a maintenance window.
   """
   def deregister_target_from_maintenance_window(client, input, options \\ []) do
     request(client, "DeregisterTargetFromMaintenanceWindow", input, options)
   end
 
   @doc """
-  Removes a task from a Maintenance Window.
+  Removes a task from a maintenance window.
   """
   def deregister_task_from_maintenance_window(client, input, options \\ []) do
     request(client, "DeregisterTaskFromMaintenanceWindow", input, options)
   end
 
   @doc """
-  Details about the activation, including: the date and time the activation
-  was created, the expiration date, the IAM role assigned to the instances in
-  the activation, and the number of instances activated by this registration.
+  Describes details about the activation, such as the date and time the
+  activation was created, its expiration date, the IAM role assigned to the
+  instances in the activation, and the number of instances registered by
+  using this activation.
   """
   def describe_activations(client, input, options \\ []) do
     request(client, "DescribeActivations", input, options)
@@ -331,7 +359,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Lists all patches that could possibly be included in a patch baseline.
+  Lists all patches eligible to be included in a patch baseline.
   """
   def describe_available_patches(client, input, options \\ []) do
     request(client, "DescribeAvailablePatches", input, options)
@@ -428,62 +456,80 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves the individual task executions (one per target) for a particular
-  task run as part of a Maintenance Window execution.
+  task run as part of a maintenance window execution.
   """
   def describe_maintenance_window_execution_task_invocations(client, input, options \\ []) do
     request(client, "DescribeMaintenanceWindowExecutionTaskInvocations", input, options)
   end
 
   @doc """
-  For a given Maintenance Window execution, lists the tasks that were run.
+  For a given maintenance window execution, lists the tasks that were run.
   """
   def describe_maintenance_window_execution_tasks(client, input, options \\ []) do
     request(client, "DescribeMaintenanceWindowExecutionTasks", input, options)
   end
 
   @doc """
-  Lists the executions of a Maintenance Window. This includes information
-  about when the Maintenance Window was scheduled to be active, and
-  information about tasks registered and run with the Maintenance Window.
+  Lists the executions of a maintenance window. This includes information
+  about when the maintenance window was scheduled to be active, and
+  information about tasks registered and run with the maintenance window.
   """
   def describe_maintenance_window_executions(client, input, options \\ []) do
     request(client, "DescribeMaintenanceWindowExecutions", input, options)
   end
 
   @doc """
-  Retrieves information about upcoming executions of a Maintenance Window.
+  Retrieves information about upcoming executions of a maintenance window.
   """
   def describe_maintenance_window_schedule(client, input, options \\ []) do
     request(client, "DescribeMaintenanceWindowSchedule", input, options)
   end
 
   @doc """
-  Lists the targets registered with the Maintenance Window.
+  Lists the targets registered with the maintenance window.
   """
   def describe_maintenance_window_targets(client, input, options \\ []) do
     request(client, "DescribeMaintenanceWindowTargets", input, options)
   end
 
   @doc """
-  Lists the tasks in a Maintenance Window.
+  Lists the tasks in a maintenance window.
   """
   def describe_maintenance_window_tasks(client, input, options \\ []) do
     request(client, "DescribeMaintenanceWindowTasks", input, options)
   end
 
   @doc """
-  Retrieves the Maintenance Windows in an AWS account.
+  Retrieves the maintenance windows in an AWS account.
   """
   def describe_maintenance_windows(client, input, options \\ []) do
     request(client, "DescribeMaintenanceWindows", input, options)
   end
 
   @doc """
-  Retrieves information about the Maintenance Windows targets or tasks that
-  an instance is associated with.
+  Retrieves information about the maintenance window targets or tasks that an
+  instance is associated with.
   """
   def describe_maintenance_windows_for_target(client, input, options \\ []) do
     request(client, "DescribeMaintenanceWindowsForTarget", input, options)
+  end
+
+  @doc """
+  Query a set of OpsItems. You must have permission in AWS Identity and
+  Access Management (IAM) to query a list of OpsItems. For more information,
+  see [Getting Started with
+  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  in the *AWS Systems Manager User Guide*.
+
+  Operations engineers and IT professionals use OpsCenter to view,
+  investigate, and remediate operational issues impacting the performance and
+  health of their AWS resources. For more information, see [AWS Systems
+  Manager
+  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  in the *AWS Systems Manager User Guide*.
+  """
+  def describe_ops_items(client, input, options \\ []) do
+    request(client, "DescribeOpsItems", input, options)
   end
 
   @doc """
@@ -520,6 +566,42 @@ defmodule AWS.SSM do
   """
   def describe_patch_groups(client, input, options \\ []) do
     request(client, "DescribePatchGroups", input, options)
+  end
+
+  @doc """
+  Lists the properties of available patches organized by product, product
+  family, classification, severity, and other properties of available
+  patches. You can use the reported properties in the filters you specify in
+  requests for actions such as `CreatePatchBaseline`, `UpdatePatchBaseline`,
+  `DescribeAvailablePatches`, and `DescribePatchBaselines`.
+
+  The following section lists the properties that can be used in filters for
+  each major operating system type:
+
+  <dl> <dt>WINDOWS</dt> <dd> Valid properties: PRODUCT, PRODUCT_FAMILY,
+  CLASSIFICATION, MSRC_SEVERITY
+
+  </dd> <dt>AMAZON_LINUX</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
+  SEVERITY
+
+  </dd> <dt>AMAZON_LINUX_2</dt> <dd> Valid properties: PRODUCT,
+  CLASSIFICATION, SEVERITY
+
+  </dd> <dt>UBUNTU </dt> <dd> Valid properties: PRODUCT, PRIORITY
+
+  </dd> <dt>REDHAT_ENTERPRISE_LINUX</dt> <dd> Valid properties: PRODUCT,
+  CLASSIFICATION, SEVERITY
+
+  </dd> <dt>SUSE</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
+  SEVERITY
+
+  </dd> <dt>CENTOS</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
+  SEVERITY
+
+  </dd> </dl>
+  """
+  def describe_patch_properties(client, input, options \\ []) do
+    request(client, "DescribePatchProperties", input, options)
   end
 
   @doc """
@@ -598,42 +680,64 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Retrieves a Maintenance Window.
+  Retrieves a maintenance window.
   """
   def get_maintenance_window(client, input, options \\ []) do
     request(client, "GetMaintenanceWindow", input, options)
   end
 
   @doc """
-  Retrieves details about a specific task run as part of a Maintenance Window
-  execution.
+  Retrieves details about a specific a maintenance window execution.
   """
   def get_maintenance_window_execution(client, input, options \\ []) do
     request(client, "GetMaintenanceWindowExecution", input, options)
   end
 
   @doc """
-  Retrieves the details about a specific task run as part of a Maintenance
-  Window execution.
+  Retrieves the details about a specific task run as part of a maintenance
+  window execution.
   """
   def get_maintenance_window_execution_task(client, input, options \\ []) do
     request(client, "GetMaintenanceWindowExecutionTask", input, options)
   end
 
   @doc """
-  Retrieves a task invocation. A task invocation is a specific task running
-  on a specific target. Maintenance Windows report status for all
-  invocations.
+  Retrieves information about a specific task running on a specific target.
   """
   def get_maintenance_window_execution_task_invocation(client, input, options \\ []) do
     request(client, "GetMaintenanceWindowExecutionTaskInvocation", input, options)
   end
 
   @doc """
-  Lists the tasks in a Maintenance Window.
+  Lists the tasks in a maintenance window.
   """
   def get_maintenance_window_task(client, input, options \\ []) do
     request(client, "GetMaintenanceWindowTask", input, options)
+  end
+
+  @doc """
+  Get information about an OpsItem by using the ID. You must have permission
+  in AWS Identity and Access Management (IAM) to view information about an
+  OpsItem. For more information, see [Getting Started with
+  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  in the *AWS Systems Manager User Guide*.
+
+  Operations engineers and IT professionals use OpsCenter to view,
+  investigate, and remediate operational issues impacting the performance and
+  health of their AWS resources. For more information, see [AWS Systems
+  Manager
+  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  in the *AWS Systems Manager User Guide*.
+  """
+  def get_ops_item(client, input, options \\ []) do
+    request(client, "GetOpsItem", input, options)
+  end
+
+  @doc """
+  View a summary of OpsItems based on specified filters and aggregators.
+  """
+  def get_ops_summary(client, input, options \\ []) do
+    request(client, "GetOpsSummary", input, options)
   end
 
   @doc """
@@ -946,7 +1050,13 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Defines the default patch baseline.
+  Defines the default patch baseline for the relevant operating system.
+
+  To reset the AWS predefined patch baseline as the default, specify the full
+  patch baseline ARN as the baseline ID value. For example, for CentOS,
+  specify
+  `arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed`
+  instead of `pb-0574b43a65ea646ed`.
   """
   def register_default_patch_baseline(client, input, options \\ []) do
     request(client, "RegisterDefaultPatchBaseline", input, options)
@@ -960,21 +1070,21 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Registers a target with a Maintenance Window.
+  Registers a target with a maintenance window.
   """
   def register_target_with_maintenance_window(client, input, options \\ []) do
     request(client, "RegisterTargetWithMaintenanceWindow", input, options)
   end
 
   @doc """
-  Adds a new task to a Maintenance Window.
+  Adds a new task to a maintenance window.
   """
   def register_task_with_maintenance_window(client, input, options \\ []) do
     request(client, "RegisterTaskWithMaintenanceWindow", input, options)
   end
 
   @doc """
-  Removes all tags from the specified resource.
+  Removes tag keys from the specified resource.
   """
   def remove_tags_from_resource(client, input, options \\ []) do
     request(client, "RemoveTagsFromResource", input, options)
@@ -1060,6 +1170,9 @@ defmodule AWS.SSM do
   CLI](http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
   in the *AWS Systems Manager User Guide*.
 
+  AWS Tools for PowerShell usage: Start-SSMSession is not currently supported
+  by AWS Tools for PowerShell on Windows local machines.
+
   </note>
   """
   def start_session(client, input, options \\ []) do
@@ -1086,6 +1199,14 @@ defmodule AWS.SSM do
   Updates an association. You can update the association name and version,
   the document version, schedule, parameters, and Amazon S3 output.
 
+  In order to call this API action, your IAM user account, group, or role
+  must be configured with permission to call the `DescribeAssociation` API
+  action. If you don't have permission to call DescribeAssociation, then you
+  receive the following error: `An error occurred (AccessDeniedException)
+  when calling the UpdateAssociation operation: User: &lt;user_arn&gt; is not
+  authorized to perform: ssm:DescribeAssociation on resource:
+  &lt;resource_arn&gt;`
+
   <important> When you update an association, the association immediately
   runs against the specified targets.
 
@@ -1104,7 +1225,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  The document you want to update.
+  Updates one or more values for an SSM document.
   """
   def update_document(client, input, options \\ []) do
     request(client, "UpdateDocument", input, options)
@@ -1118,38 +1239,52 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Updates an existing Maintenance Window. Only specified parameters are
+  Updates an existing maintenance window. Only specified parameters are
   modified.
+
+  <note> The value you specify for `Duration` determines the specific end
+  time for the maintenance window based on the time it begins. No maintenance
+  window tasks are permitted to start after the resulting endtime minus the
+  number of hours you specify for `Cutoff`. For example, if the maintenance
+  window starts at 3 PM, the duration is three hours, and the value you
+  specify for `Cutoff` is one hour, no maintenance window tasks can start
+  after 5 PM.
+
+  </note>
   """
   def update_maintenance_window(client, input, options \\ []) do
     request(client, "UpdateMaintenanceWindow", input, options)
   end
 
   @doc """
-  Modifies the target of an existing Maintenance Window. You can't change the
-  target type, but you can change the following:
+  Modifies the target of an existing maintenance window. You can change the
+  following:
 
-  The target from being an ID target to a Tag target, or a Tag target to an
-  ID target.
+  <ul> <li> Name
 
-  IDs for an ID target.
+  </li> <li> Description
 
-  Tags for a Tag target.
+  </li> <li> Owner
 
-  Owner.
+  </li> <li> IDs for an ID target
 
-  Name.
+  </li> <li> Tags for a Tag target
 
-  Description.
+  </li> <li> From any supported tag type to another. The three supported tag
+  types are ID target, Tag target, and resource group. For more information,
+  see `Target`.
 
-  If a parameter is null, then the corresponding field is not modified.
+  </li> </ul> <note> If a parameter is null, then the corresponding field is
+  not modified.
+
+  </note>
   """
   def update_maintenance_window_target(client, input, options \\ []) do
     request(client, "UpdateMaintenanceWindowTarget", input, options)
   end
 
   @doc """
-  Modifies a task assigned to a Maintenance Window. You can't change the task
+  Modifies a task assigned to a maintenance window. You can't change the task
   type, but you can change the following values:
 
   <ul> <li> TaskARN. For example, you can change a RUN_COMMAND task from
@@ -1175,11 +1310,29 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Assigns or changes an Amazon Identity and Access Management (IAM) role to
+  Assigns or changes an Amazon Identity and Access Management (IAM) role for
   the managed instance.
   """
   def update_managed_instance_role(client, input, options \\ []) do
     request(client, "UpdateManagedInstanceRole", input, options)
+  end
+
+  @doc """
+  Edit or change an OpsItem. You must have permission in AWS Identity and
+  Access Management (IAM) to update an OpsItem. For more information, see
+  [Getting Started with
+  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  in the *AWS Systems Manager User Guide*.
+
+  Operations engineers and IT professionals use OpsCenter to view,
+  investigate, and remediate operational issues impacting the performance and
+  health of their AWS resources. For more information, see [AWS Systems
+  Manager
+  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  in the *AWS Systems Manager User Guide*.
+  """
+  def update_ops_item(client, input, options \\ []) do
+    request(client, "UpdateOpsItem", input, options)
   end
 
   @doc """
@@ -1219,29 +1372,38 @@ defmodule AWS.SSM do
     request(client, "UpdateServiceSetting", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "ssm"}
     host = get_host("ssm", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AmazonSSM.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AmazonSSM.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1258,5 +1420,4 @@ defmodule AWS.SSM do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

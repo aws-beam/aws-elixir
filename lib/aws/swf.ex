@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.SWF do
   @moduledoc """
@@ -18,7 +18,7 @@ defmodule AWS.SWF do
 
   This documentation serves as reference only. For a broader overview of the
   Amazon SWF programming model, see the * [Amazon SWF Developer
-  Guide](http://docs.aws.amazon.com/amazonswf/latest/developerguide/) *.
+  Guide](https://docs.aws.amazon.com/amazonswf/latest/developerguide/) *.
   """
 
   @doc """
@@ -56,7 +56,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def count_closed_workflow_executions(client, input, options \\ []) do
@@ -98,7 +98,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def count_open_workflow_executions(client, input, options \\ []) do
@@ -131,7 +131,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def count_pending_activity_tasks(client, input, options \\ []) do
@@ -164,7 +164,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def count_pending_decision_tasks(client, input, options \\ []) do
@@ -205,7 +205,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def deprecate_activity_type(client, input, options \\ []) do
@@ -242,7 +242,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def deprecate_domain(client, input, options \\ []) do
@@ -283,7 +283,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def deprecate_workflow_type(client, input, options \\ []) do
@@ -320,7 +320,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def describe_activity_type(client, input, options \\ []) do
@@ -350,7 +350,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def describe_domain(client, input, options \\ []) do
@@ -383,7 +383,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def describe_workflow_execution(client, input, options \\ []) do
@@ -420,7 +420,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def describe_workflow_type(client, input, options \\ []) do
@@ -454,7 +454,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def get_workflow_execution_history(client, input, options \\ []) do
@@ -487,7 +487,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def list_activity_types(client, input, options \\ []) do
@@ -531,7 +531,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def list_closed_workflow_executions(client, input, options \\ []) do
@@ -567,7 +567,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def list_domains(client, input, options \\ []) do
@@ -611,11 +611,18 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def list_open_workflow_executions(client, input, options \\ []) do
     request(client, "ListOpenWorkflowExecutions", input, options)
+  end
+
+  @doc """
+  List tags for a given domain.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -642,7 +649,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def list_workflow_types(client, input, options \\ []) do
@@ -684,7 +691,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def poll_for_activity_task(client, input, options \\ []) do
@@ -736,7 +743,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def poll_for_decision_task(client, input, options \\ []) do
@@ -794,7 +801,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def record_activity_task_heartbeat(client, input, options \\ []) do
@@ -835,7 +842,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def register_activity_type(client, input, options \\ []) do
@@ -865,7 +872,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def register_domain(client, input, options \\ []) do
@@ -909,7 +916,7 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def register_workflow_type(client, input, options \\ []) do
@@ -950,7 +957,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def request_cancel_workflow_execution(client, input, options \\ []) do
@@ -974,7 +981,7 @@ defmodule AWS.SWF do
   processing it. A task is closed after it has been specified in a call to
   `RespondActivityTaskCompleted`, RespondActivityTaskCanceled,
   `RespondActivityTaskFailed`, or the task has [timed
-  out](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types).
+  out](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types).
 
   **Access Control**
 
@@ -995,7 +1002,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def respond_activity_task_canceled(client, input, options \\ []) do
@@ -1019,7 +1026,7 @@ defmodule AWS.SWF do
   processing it. A task is closed after it has been specified in a call to
   RespondActivityTaskCompleted, `RespondActivityTaskCanceled`,
   `RespondActivityTaskFailed`, or the task has [timed
-  out](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types).
+  out](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types).
 
   **Access Control**
 
@@ -1040,7 +1047,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def respond_activity_task_completed(client, input, options \\ []) do
@@ -1058,7 +1065,7 @@ defmodule AWS.SWF do
   it. A task is closed after it has been specified in a call to
   `RespondActivityTaskCompleted`, `RespondActivityTaskCanceled`,
   RespondActivityTaskFailed, or the task has [timed
-  out](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types).
+  out](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types).
 
   **Access Control**
 
@@ -1079,7 +1086,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def respond_activity_task_failed(client, input, options \\ []) do
@@ -1104,7 +1111,7 @@ defmodule AWS.SWF do
   can express permissions on decisions as if they were actual API calls,
   including applying conditions to some parameters. For more information, see
   [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def respond_decision_task_completed(client, input, options \\ []) do
@@ -1143,7 +1150,7 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def signal_workflow_execution(client, input, options \\ []) do
@@ -1193,11 +1200,22 @@ defmodule AWS.SWF do
   constraints, the action fails. The associated event attribute's `cause`
   parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
   policies, see [Using IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def start_workflow_execution(client, input, options \\ []) do
     request(client, "StartWorkflowExecution", input, options)
+  end
+
+  @doc """
+  Add a tag to a Amazon SWF domain.
+
+  <note> Amazon SWF supports a maximum of 50 tags per resource.
+
+  </note>
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
   end
 
   @doc """
@@ -1237,36 +1255,164 @@ defmodule AWS.SWF do
   action fails. The associated event attribute's `cause` parameter is set to
   `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
   IAM to Manage Access to Amazon SWF
-  Workflows](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
   def terminate_workflow_execution(client, input, options \\ []) do
     request(client, "TerminateWorkflowExecution", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @doc """
+  Undeprecates a previously deprecated *activity type*. After an activity
+  type has been undeprecated, you can create new tasks of that activity type.
+
+  <note> This operation is eventually consistent. The results are best effort
+  and may not exactly reflect recent updates and changes.
+
+  </note> **Access Control**
+
+  You can use IAM policies to control this action's access to Amazon SWF
+  resources as follows:
+
+  <ul> <li> Use a `Resource` element with the domain name to limit the action
+  to only specified domains.
+
+  </li> <li> Use an `Action` element to allow or deny permission to call this
+  action.
+
+  </li> <li> Constrain the following parameters by using a `Condition`
+  element with the appropriate keys.
+
+  <ul> <li> `activityType.name`: String constraint. The key is
+  `swf:activityType.name`.
+
+  </li> <li> `activityType.version`: String constraint. The key is
+  `swf:activityType.version`.
+
+  </li> </ul> </li> </ul> If the caller doesn't have sufficient permissions
+  to invoke the action, or the parameter values fall outside the specified
+  constraints, the action fails. The associated event attribute's `cause`
+  parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
+  policies, see [Using IAM to Manage Access to Amazon SWF
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  in the *Amazon SWF Developer Guide*.
+  """
+  def undeprecate_activity_type(client, input, options \\ []) do
+    request(client, "UndeprecateActivityType", input, options)
+  end
+
+  @doc """
+  Undeprecates a previously deprecated domain. After a domain has been
+  undeprecated it can be used to create new workflow executions or register
+  new types.
+
+  <note> This operation is eventually consistent. The results are best effort
+  and may not exactly reflect recent updates and changes.
+
+  </note> **Access Control**
+
+  You can use IAM policies to control this action's access to Amazon SWF
+  resources as follows:
+
+  <ul> <li> Use a `Resource` element with the domain name to limit the action
+  to only specified domains.
+
+  </li> <li> Use an `Action` element to allow or deny permission to call this
+  action.
+
+  </li> <li> You cannot use an IAM policy to constrain this action's
+  parameters.
+
+  </li> </ul> If the caller doesn't have sufficient permissions to invoke the
+  action, or the parameter values fall outside the specified constraints, the
+  action fails. The associated event attribute's `cause` parameter is set to
+  `OPERATION_NOT_PERMITTED`. For details and example IAM policies, see [Using
+  IAM to Manage Access to Amazon SWF
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  in the *Amazon SWF Developer Guide*.
+  """
+  def undeprecate_domain(client, input, options \\ []) do
+    request(client, "UndeprecateDomain", input, options)
+  end
+
+  @doc """
+  Undeprecates a previously deprecated *workflow type*. After a workflow type
+  has been undeprecated, you can create new executions of that type.
+
+  <note> This operation is eventually consistent. The results are best effort
+  and may not exactly reflect recent updates and changes.
+
+  </note> **Access Control**
+
+  You can use IAM policies to control this action's access to Amazon SWF
+  resources as follows:
+
+  <ul> <li> Use a `Resource` element with the domain name to limit the action
+  to only specified domains.
+
+  </li> <li> Use an `Action` element to allow or deny permission to call this
+  action.
+
+  </li> <li> Constrain the following parameters by using a `Condition`
+  element with the appropriate keys.
+
+  <ul> <li> `workflowType.name`: String constraint. The key is
+  `swf:workflowType.name`.
+
+  </li> <li> `workflowType.version`: String constraint. The key is
+  `swf:workflowType.version`.
+
+  </li> </ul> </li> </ul> If the caller doesn't have sufficient permissions
+  to invoke the action, or the parameter values fall outside the specified
+  constraints, the action fails. The associated event attribute's `cause`
+  parameter is set to `OPERATION_NOT_PERMITTED`. For details and example IAM
+  policies, see [Using IAM to Manage Access to Amazon SWF
+  Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
+  in the *Amazon SWF Developer Guide*.
+  """
+  def undeprecate_workflow_type(client, input, options \\ []) do
+    request(client, "UndeprecateWorkflowType", input, options)
+  end
+
+  @doc """
+  Remove a tag from a Amazon SWF domain.
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
+  end
+
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "swf"}
     host = get_host("swf", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.0"},
-               {"X-Amz-Target", "SimpleWorkflowService.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.0"},
+      {"X-Amz-Target", "SimpleWorkflowService.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1283,5 +1429,4 @@ defmodule AWS.SWF do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

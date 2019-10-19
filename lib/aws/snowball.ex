@@ -1,16 +1,17 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Snowball do
   @moduledoc """
   AWS Snowball is a petabyte-scale data transport solution that uses secure
   devices to transfer large amounts of data between your on-premises data
-  centers and Amazon Simple Storage Service (Amazon S3). The commands
-  described here provide access to the same functionality that is available
-  in the AWS Snowball Management Console, which enables you to create and
-  manage jobs for Snowball and Snowball Edge devices. To transfer data
-  locally with a device, you'll need to use the Snowball client or the Amazon
-  S3 API adapter for Snowball.
+  centers and Amazon Simple Storage Service (Amazon S3). The Snowball
+  commands described here provide access to the same functionality that is
+  available in the AWS Snowball Management Console, which enables you to
+  create and manage jobs for Snowball. To transfer data locally with a
+  Snowball device, you'll need to use the Snowball client or the Amazon S3
+  API adapter for Snowball. For more information, see the [User
+  Guide](https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html).
   """
 
   @doc """
@@ -151,6 +152,14 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+  Returns an Amazon S3 presigned URL for an update file associated with a
+  specified `JobId`.
+  """
+  def get_software_updates(client, input, options \\ []) do
+    request(client, "GetSoftwareUpdates", input, options)
+  end
+
+  @doc """
   Returns an array of `JobListEntry` objects of the specified length. Each
   `JobListEntry` object is for a job in the specified cluster and contains a
   job's state, a job's ID, and other information.
@@ -171,10 +180,10 @@ defmodule AWS.Snowball do
   @doc """
   This action returns a list of the different Amazon EC2 Amazon Machine
   Images (AMIs) that are owned by your AWS account that would be supported
-  for use on `EDGE`, `EDGE_C`, and `EDGE_CG` devices. For more information on
-  compatible AMIs, see [Using Amazon EC2 Compute
-  Instances](http://docs.aws.amazon.com/snowball/latest/developer-guide/using-ec2.html)
-  in the *AWS Snowball Developer Guide*.
+  for use on a Snowball Edge device. Currently, supported AMIs are based on
+  the CentOS 7 (x86_64) - with Updates HVM, Ubuntu Server 14.04 LTS (HVM),
+  and Ubuntu 16.04 LTS - Xenial (HVM) images, available on the AWS
+  Marketplace.
   """
   def list_compatible_images(client, input, options \\ []) do
     request(client, "ListCompatibleImages", input, options)
@@ -211,29 +220,38 @@ defmodule AWS.Snowball do
     request(client, "UpdateJob", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "snowball"}
     host = get_host("snowball", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AWSIESnowballJobManagementService.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AWSIESnowballJobManagementService.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -250,5 +268,4 @@ defmodule AWS.Snowball do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

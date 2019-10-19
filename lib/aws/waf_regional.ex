@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.WAF.Regional do
   @moduledoc """
@@ -1007,6 +1007,13 @@ defmodule AWS.WAF.Regional do
   end
 
   @doc """
+
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Returns an array of `WebACLSummary` objects in the response.
   """
   def list_web_a_c_ls(client, input, options \\ []) do
@@ -1026,13 +1033,16 @@ defmodule AWS.WAF.Regional do
   You can access information about all traffic that AWS WAF inspects using
   the following steps:
 
-  <ol> <li> Create an Amazon Kinesis Data Firehose .
+  <ol> <li> Create an Amazon Kinesis Data Firehose.
 
   Create the data firehose with a PUT source and in the region that you are
   operating. However, if you are capturing logs for Amazon CloudFront, always
   create the firehose in US East (N. Virginia).
 
-  </li> <li> Associate that firehose to your web ACL using a
+  <note> Do not create the data firehose using a `Kinesis stream` as your
+  source.
+
+  </note> </li> <li> Associate that firehose to your web ACL using a
   `PutLoggingConfiguration` request.
 
   </li> </ol> When you successfully enable logging using a
@@ -1082,6 +1092,20 @@ defmodule AWS.WAF.Regional do
   """
   def put_permission_policy(client, input, options \\ []) do
     request(client, "PutPermissionPolicy", input, options)
+  end
+
+  @doc """
+
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
+  end
+
+  @doc """
+
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
   end
 
   @doc """
@@ -1646,29 +1670,38 @@ defmodule AWS.WAF.Regional do
     request(client, "UpdateXssMatchSet", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "waf-regional"}
     host = get_host("waf-regional", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AWSWAF_Regional_20161128.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AWSWAF_Regional_20161128.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1685,5 +1718,4 @@ defmodule AWS.WAF.Regional do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

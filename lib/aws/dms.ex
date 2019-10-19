@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.DMS do
   @moduledoc """
@@ -96,6 +96,13 @@ defmodule AWS.DMS do
   end
 
   @doc """
+  Deletes the connection between a replication instance and an endpoint.
+  """
+  def delete_connection(client, input, options \\ []) do
+    request(client, "DeleteConnection", input, options)
+  end
+
+  @doc """
   Deletes the specified endpoint.
 
   <note> All tasks associated with the endpoint must be deleted before you
@@ -141,10 +148,14 @@ defmodule AWS.DMS do
   end
 
   @doc """
-  Lists all of the AWS DMS attributes for a customer account. The attributes
-  include AWS DMS quotas for the account, such as the number of replication
-  instances allowed. The description for a quota includes the quota name,
-  current usage toward that quota, and the quota's maximum value.
+  Lists all of the AWS DMS attributes for a customer account. These
+  attributes include AWS DMS quotas for the account and a unique account
+  identifier in a particular DMS region. DMS quotas include a list of
+  resource quotas supported by the account, such as the number of replication
+  instances allowed. The description for each resource quota, includes the
+  quota name, current usage toward that quota, and the quota's maximum value.
+  DMS uses the unique account identifier to name each artifact used by DMS in
+  the given region.
 
   This command does not take any parameters.
   """
@@ -426,29 +437,38 @@ defmodule AWS.DMS do
     request(client, "TestConnection", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "dms"}
     host = get_host("dms", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AmazonDMSv20160101.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AmazonDMSv20160101.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -465,5 +485,4 @@ defmodule AWS.DMS do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

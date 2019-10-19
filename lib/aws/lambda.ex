@@ -267,6 +267,17 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Returns information about a version of an [AWS Lambda
+  layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
+  with a link to download the layer archive that's valid for 10 minutes.
+  """
+  def get_layer_version_by_arn(client, options \\ []) do
+    url = "/2018-10-31/layers?find=LayerVersion"
+    headers = []
+    request(client, :get, url, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the permission policy for a version of an [AWS Lambda
   layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
   For more information, see `AddLayerVersionPermission`.
@@ -302,6 +313,13 @@ defmodule AWS.Lambda do
   function with a [dead letter
   queue](https://docs.aws.amazon.com/lambda/latest/dg/dlq.html).
 
+  When an error occurs, your function may be invoked multiple times. Retry
+  behavior varies by error type, client, event source, and invocation type.
+  For example, if you invoke a function asynchronously and it returns an
+  error, Lambda executes the function up to two more times. For more
+  information, see [Retry
+  Behavior](https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html).
+
   The status code in the API response doesn't reflect function errors. Error
   codes are reserved for errors that prevent your function from executing,
   such as permissions errors, [limit
@@ -321,31 +339,32 @@ defmodule AWS.Lambda do
   """
   def invoke(client, function_name, input, options \\ []) do
     url = "/2015-03-31/functions/#{URI.encode(function_name)}/invocations"
-    headers = []
-    if Dict.has_key?(input, "ClientContext") do
-      headers = [{"X-Amz-Client-Context", input["ClientContext"]}|headers]
-      input = Dict.delete(input, "ClientContext")
-    end
-    if Dict.has_key?(input, "InvocationType") do
-      headers = [{"X-Amz-Invocation-Type", input["InvocationType"]}|headers]
-      input = Dict.delete(input, "InvocationType")
-    end
-    if Dict.has_key?(input, "LogType") do
-      headers = [{"X-Amz-Log-Type", input["LogType"]}|headers]
-      input = Dict.delete(input, "LogType")
-    end
+
+    {headers, input} =
+      [
+        {"ClientContext", "X-Amz-Client-Context"},
+        {"InvocationType", "X-Amz-Invocation-Type"},
+        {"LogType", "X-Amz-Log-Type"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     case request(client, :post, url, headers, input, options, nil) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["X-Amz-Executed-Version"]) do
-          body = %{body | "ExecutedVersion" => response.headers["X-Amz-Executed-Version"]}
-        end
-        if !is_nil(response.headers["X-Amz-Function-Error"]) do
-          body = %{body | "FunctionError" => response.headers["X-Amz-Function-Error"]}
-        end
-        if !is_nil(response.headers["X-Amz-Log-Result"]) do
-          body = %{body | "LogResult" => response.headers["X-Amz-Log-Result"]}
-        end
+        body =
+          [
+            {"X-Amz-Executed-Version", "ExecutedVersion"},
+            {"X-Amz-Function-Error", "FunctionError"},
+            {"X-Amz-Log-Result", "LogResult"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
@@ -581,7 +600,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Modify the version-specifc settings of a Lambda function.
+  Modify the version-specific settings of a Lambda function.
 
   These settings can vary between versions of a function and are locked when
   you publish a version. You can't modify the configuration of a published
@@ -596,13 +615,21 @@ defmodule AWS.Lambda do
     request(client, :put, url, headers, input, options, 200)
   end
 
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, method, url, headers, input, options, success_status_code) do
     client = %{client | service: "lambda"}
     host = get_host("lambda", client)
     url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Security-Token", client.session_token} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -610,17 +637,17 @@ defmodule AWS.Lambda do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -628,13 +655,16 @@ defmodule AWS.Lambda do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -653,10 +683,6 @@ defmodule AWS.Lambda do
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, []), else: ""
   end
 end

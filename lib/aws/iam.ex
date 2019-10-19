@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.IAM do
   @moduledoc """
@@ -879,12 +879,143 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Generates a request for a report that includes details about when an IAM
-  resource (user, group, role, or policy) was last used in an attempt to
-  access AWS services. Recent activity usually appears within four hours. IAM
-  reports activity for the last 365 days, or less if your Region began
-  supporting this feature within the last year. For more information, see
-  [Regions Where Data Is
+  Generates a report for service last accessed data for AWS Organizations.
+  You can generate a report for any entities (organization root,
+  organizational unit, or account) or policies in your organization.
+
+  To call this operation, you must be signed in using your AWS Organizations
+  master account credentials. You can use your long-term IAM user or root
+  user credentials, or temporary credentials from assuming an IAM role. SCPs
+  must be enabled for your organization root. You must have the required IAM
+  and AWS Organizations permissions. For more information, see [Refining
+  Permissions Using Service Last Accessed
+  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  in the *IAM User Guide*.
+
+  You can generate a service last accessed data report for entities by
+  specifying only the entity's path. This data includes a list of services
+  that are allowed by any service control policies (SCPs) that apply to the
+  entity.
+
+  You can generate a service last accessed data report for a policy by
+  specifying an entity's path and an optional AWS Organizations policy ID.
+  This data includes a list of services that are allowed by the specified
+  SCP.
+
+  For each service in both report types, the data includes the most recent
+  account activity that the policy allows to account principals in the entity
+  or the entity's children. For important information about the data,
+  reporting period, permissions required, troubleshooting, and supported
+  Regions see [Reducing Permissions Using Service Last Accessed
+  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  in the *IAM User Guide*.
+
+  <important> The data includes all attempts to access AWS, not just the
+  successful ones. This includes all attempts that were made using the AWS
+  Management Console, the AWS API through any of the SDKs, or any of the
+  command line tools. An unexpected entry in the service last accessed data
+  does not mean that an account has been compromised, because the request
+  might have been denied. Refer to your CloudTrail logs as the authoritative
+  source for information about all API calls and whether they were successful
+  or denied access. For more information, see [Logging IAM Events with
+  CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  in the *IAM User Guide*.
+
+  </important> This operation returns a `JobId`. Use this parameter in the `
+  `GetOrganizationsAccessReport` ` operation to check the status of the
+  report generation. To check the status of this request, use the `JobId`
+  parameter in the ` `GetOrganizationsAccessReport` ` operation and test the
+  `JobStatus` response parameter. When the job is complete, you can retrieve
+  the report.
+
+  To generate a service last accessed data report for entities, specify an
+  entity path without specifying the optional AWS Organizations policy ID.
+  The type of entity that you specify determines the data returned in the
+  report.
+
+  <ul> <li> **Root** – When you specify the organizations root as the entity,
+  the resulting report lists all of the services allowed by SCPs that are
+  attached to your root. For each service, the report includes data for all
+  accounts in your organization except the master account, because the master
+  account is not limited by SCPs.
+
+  </li> <li> **OU** – When you specify an organizational unit (OU) as the
+  entity, the resulting report lists all of the services allowed by SCPs that
+  are attached to the OU and its parents. For each service, the report
+  includes data for all accounts in the OU or its children. This data
+  excludes the master account, because the master account is not limited by
+  SCPs.
+
+  </li> <li> **Master account** – When you specify the master account, the
+  resulting report lists all AWS services, because the master account is not
+  limited by SCPs. For each service, the report includes data for only the
+  master account.
+
+  </li> <li> **Account** – When you specify another account as the entity,
+  the resulting report lists all of the services allowed by SCPs that are
+  attached to the account and its parents. For each service, the report
+  includes data for only the specified account.
+
+  </li> </ul> To generate a service last accessed data report for policies,
+  specify an entity path and the optional AWS Organizations policy ID. The
+  type of entity that you specify determines the data returned for each
+  service.
+
+  <ul> <li> **Root** – When you specify the root entity and a policy ID, the
+  resulting report lists all of the services that are allowed by the
+  specified SCP. For each service, the report includes data for all accounts
+  in your organization to which the SCP applies. This data excludes the
+  master account, because the master account is not limited by SCPs. If the
+  SCP is not attached to any entities in the organization, then the report
+  will return a list of services with no data.
+
+  </li> <li> **OU** – When you specify an OU entity and a policy ID, the
+  resulting report lists all of the services that are allowed by the
+  specified SCP. For each service, the report includes data for all accounts
+  in the OU or its children to which the SCP applies. This means that other
+  accounts outside the OU that are affected by the SCP might not be included
+  in the data. This data excludes the master account, because the master
+  account is not limited by SCPs. If the SCP is not attached to the OU or one
+  of its children, the report will return a list of services with no data.
+
+  </li> <li> **Master account** – When you specify the master account, the
+  resulting report lists all AWS services, because the master account is not
+  limited by SCPs. If you specify a policy ID in the CLI or API, the policy
+  is ignored. For each service, the report includes data for only the master
+  account.
+
+  </li> <li> **Account** – When you specify another account entity and a
+  policy ID, the resulting report lists all of the services that are allowed
+  by the specified SCP. For each service, the report includes data for only
+  the specified account. This means that other accounts in the organization
+  that are affected by the SCP might not be included in the data. If the SCP
+  is not attached to the account, the report will return a list of services
+  with no data.
+
+  </li> </ul> <note> Service last accessed data does not use other policy
+  types when determining whether a principal could access a service. These
+  other policy types include identity-based policies, resource-based
+  policies, access control lists, IAM permissions boundaries, and STS assume
+  role policies. It only applies SCP logic. For more about the evaluation of
+  policy types, see [Evaluating
+  Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
+  in the *IAM User Guide*.
+
+  </note> For more information about service last accessed data, see
+  [Reducing Policy Scope by Viewing User
+  Activity](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  in the *IAM User Guide*.
+  """
+  def generate_organizations_access_report(client, input, options \\ []) do
+    request(client, "GenerateOrganizationsAccessReport", input, options)
+  end
+
+  @doc """
+  Generates a report that includes details about when an IAM resource (user,
+  group, role, or policy) was last used in an attempt to access AWS services.
+  Recent activity usually appears within four hours. IAM reports activity for
+  the last 365 days, or less if your Region began supporting this feature
+  within the last year. For more information, see [Regions Where Data Is
   Tracked](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period).
 
   <important> The service last accessed data includes all attempts to access
@@ -1102,6 +1233,35 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Retrieves the service last accessed data report for AWS Organizations that
+  was previously generated using the ` `GenerateOrganizationsAccessReport` `
+  operation. This operation retrieves the status of your report job and the
+  report contents.
+
+  Depending on the parameters that you passed when you generated the report,
+  the data returned could include different information. For details, see
+  `GenerateOrganizationsAccessReport`.
+
+  To call this operation, you must be signed in to the master account in your
+  organization. SCPs must be enabled for your organization root. You must
+  have permissions to perform this operation. For more information, see
+  [Refining Permissions Using Service Last Accessed
+  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  in the *IAM User Guide*.
+
+  For each service that principals in an account (root users, IAM users, or
+  IAM roles) could access using SCPs, the operation returns details about the
+  most recent access attempt. If there was no attempt, the service is listed
+  without details about the most recent attempt to access the service. If the
+  operation fails, it returns the reason that it failed.
+
+  By default, the list is sorted by service namespace.
+  """
+  def get_organizations_access_report(client, input, options \\ []) do
+    request(client, "GetOrganizationsAccessReport", input, options)
+  end
+
+  @doc """
   Retrieves information about the specified managed policy, including the
   policy's default version and the total number of IAM users, groups, and
   roles to which the policy is attached. To retrieve the list of the specific
@@ -1243,11 +1403,12 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  After you generate a user, group, role, or policy report using the
-  `GenerateServiceLastAccessedDetails` operation, you can use the `JobId`
-  parameter in `GetServiceLastAccessedDetails`. This operation retrieves the
-  status of your report job and a list of AWS services that the resource
-  (user, group, role, or managed policy) can access.
+  Retrieves a service last accessed report that was created using the
+  `GenerateServiceLastAccessedDetails` operation. You can use the `JobId`
+  parameter in `GetServiceLastAccessedDetails` to retrieve the status of your
+  report job. When the report is complete, you can retrieve the generated
+  report. The report includes a list of AWS services that the resource (user,
+  group, role, or managed policy) can access.
 
   <note> Service last accessed data does not use other policy types when
   determining whether a resource could access a service. These other policy
@@ -2524,29 +2685,38 @@ defmodule AWS.IAM do
     request(client, "UploadSigningCertificate", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "iam"}
     host = get_host("iam", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-"},
-               {"X-Amz-Target", ".#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-"},
+      {"X-Amz-Target", ".#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -2563,5 +2733,4 @@ defmodule AWS.IAM do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

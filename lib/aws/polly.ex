@@ -19,7 +19,7 @@ defmodule AWS.Polly do
   `ListLexicon` APIs.
 
   For more information, see [Managing
-  Lexicons](http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def delete_lexicon(client, name, input, options \\ []) do
     url = "/v1/lexicons/#{URI.encode(name)}"
@@ -58,7 +58,7 @@ defmodule AWS.Polly do
   @doc """
   Returns the content of the specified pronunciation lexicon stored in an AWS
   Region. For more information, see [Managing
-  Lexicons](http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def get_lexicon(client, name, options \\ []) do
     url = "/v1/lexicons/#{URI.encode(name)}"
@@ -81,7 +81,7 @@ defmodule AWS.Polly do
   @doc """
   Returns a list of pronunciation lexicons stored in an AWS Region. For more
   information, see [Managing
-  Lexicons](http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def list_lexicons(client, options \\ []) do
     url = "/v1/lexicons"
@@ -107,7 +107,7 @@ defmodule AWS.Polly do
   time before the lexicon is available to the SynthesizeSpeech operation.
 
   For more information, see [Managing
-  Lexicons](http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def put_lexicon(client, name, input, options \\ []) do
     url = "/v1/lexicons/#{URI.encode(name)}"
@@ -136,32 +136,47 @@ defmodule AWS.Polly do
   available with all the voices (for example, Cyrillic might not be read at
   all by English voices) unless phoneme mapping is used. For more
   information, see [How it
-  Works](http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
+  Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
   """
   def synthesize_speech(client, input, options \\ []) do
     url = "/v1/speech"
     headers = []
     case request(client, :post, url, headers, input, options, 200) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["Content-Type"]) do
-          body = %{body | "ContentType" => response.headers["Content-Type"]}
-        end
-        if !is_nil(response.headers["x-amzn-RequestCharacters"]) do
-          body = %{body | "RequestCharacters" => response.headers["x-amzn-RequestCharacters"]}
-        end
+        body =
+          [
+            {"Content-Type", "ContentType"},
+            {"x-amzn-RequestCharacters", "RequestCharacters"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
   end
 
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, method, url, headers, input, options, success_status_code) do
     client = %{client | service: "polly"}
     host = get_host("polly", client)
     url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Security-Token", client.session_token} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -169,17 +184,17 @@ defmodule AWS.Polly do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -187,13 +202,16 @@ defmodule AWS.Polly do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -212,10 +230,6 @@ defmodule AWS.Polly do
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, []), else: ""
   end
 end

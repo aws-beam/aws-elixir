@@ -423,17 +423,14 @@ defmodule AWS.EFS do
   the request body deletes any existing `LifecycleConfiguration` and disables
   lifecycle management.
 
-  <note> You can enable lifecycle management only for EFS file systems
-  created after the release of EFS infrequent access.
+  In the request, specify the following:
 
-  </note> In the request, specify the following:
-
-  <ul> <li> The ID for the file system for which you are creating a lifecycle
-  management configuration.
+  <ul> <li> The ID for the file system for which you are enabling, disabling,
+  or modifying lifecycle management.
 
   </li> <li> A `LifecyclePolicies` array of `LifecyclePolicy` objects that
   define when files are moved to the IA storage class. The array can contain
-  only one `"TransitionToIA": "AFTER_30_DAYS"` `LifecyclePolicy` item.
+  only one `LifecyclePolicy` item.
 
   </li> </ul> This operation requires permissions for the
   `elasticfilesystem:PutLifecycleConfiguration` operation.
@@ -458,13 +455,21 @@ defmodule AWS.EFS do
     request(client, :put, url, headers, input, options, 202)
   end
 
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, method, url, headers, input, options, success_status_code) do
     client = %{client | service: "elasticfilesystem"}
     host = get_host("elasticfilesystem", client)
     url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Security-Token", client.session_token} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -472,17 +477,17 @@ defmodule AWS.EFS do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -490,13 +495,16 @@ defmodule AWS.EFS do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -515,10 +523,6 @@ defmodule AWS.EFS do
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, []), else: ""
   end
 end

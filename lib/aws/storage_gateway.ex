@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.StorageGateway do
   @moduledoc """
@@ -36,8 +36,8 @@ defmodule AWS.StorageGateway do
 
   </li> <li> [AWS Storage Gateway Regions and
   Endpoints:](http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region)
-  Provides a list of each AWS region and endpoints available for use with AWS
-  Storage Gateway.
+  Provides a list of each AWS Region and the endpoints available for use with
+  AWS Storage Gateway.
 
   </li> </ul> <note> AWS Storage Gateway resource IDs are in uppercase. When
   you use these resource IDs with the Amazon EC2 API, EC2 expects resource
@@ -72,11 +72,11 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Activates the gateway you previously deployed on your host. In the
-  activation process, you specify information such as the region you want to
-  use for storing snapshots or tapes, the time zone for scheduled snapshots
-  the gateway snapshot schedule window, an activation key, and a name for
-  your gateway. The activation process also associates your gateway with your
-  account; for more information, see `UpdateGatewayInformation`.
+  activation process, you specify information such as the AWS Region that you
+  want to use for storing snapshots or tapes, the time zone for scheduled
+  snapshots the gateway snapshot schedule window, an activation key, and a
+  name for your gateway. The activation process also associates your gateway
+  with your account; for more information, see `UpdateGatewayInformation`.
 
   <note> You must turn on the gateway VM before you can activate your
   gateway.
@@ -156,6 +156,19 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Assigns a tape to a tape pool for archiving. The tape assigned to a pool is
+  archived in the S3 storage class that is associated with the pool. When you
+  use your backup application to eject the tape, the tape is archived
+  directly into the S3 storage class (Glacier or Deep Archive) that
+  corresponds to the pool.
+
+  Valid values: "GLACIER", "DEEP_ARCHIVE"
+  """
+  def assign_tape_pool(client, input, options \\ []) do
+    request(client, "AssignTapePool", input, options)
+  end
+
+  @doc """
   Connects a volume to an iSCSI connection and then attaches the volume to
   the specified gateway. Detaching and attaching a volume enables you to
   recover your data from one gateway to a different gateway without creating
@@ -217,10 +230,10 @@ defmodule AWS.StorageGateway do
 
   <important> File gateway requires AWS Security Token Service (AWS STS) to
   be activated to enable you create a file share. Make sure AWS STS is
-  activated in the region you are creating your file gateway in. If AWS STS
-  is not activated in the region, activate it. For information about how to
-  activate AWS STS, see Activating and Deactivating AWS STS in an AWS Region
-  in the AWS Identity and Access Management User Guide.
+  activated in the AWS Region you are creating your file gateway in. If AWS
+  STS is not activated in the AWS Region, activate it. For information about
+  how to activate AWS STS, see Activating and Deactivating AWS STS in an AWS
+  Region in the AWS Identity and Access Management User Guide.
 
   File gateway does not support creating hard or symbolic links on a file
   share.
@@ -705,7 +718,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Lists gateways owned by an AWS account in a region specified in the
+  Lists gateways owned by an AWS account in an AWS Region specified in the
   request. The returned list is ordered by gateway Amazon Resource Name
   (ARN).
 
@@ -809,13 +822,13 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Sends you notification through CloudWatch Events when all files written to
-  your NFS file share have been uploaded to Amazon S3.
+  your file share have been uploaded to Amazon S3.
 
   AWS Storage Gateway can send a notification through Amazon CloudWatch
   Events when all files written to your file share up to that point in time
   have been uploaded to Amazon S3. These files include files written to the
-  NFS file share up to the time that you make a request for notification.
-  When the upload is done, Storage Gateway sends you notification through an
+  file share up to the time that you make a request for notification. When
+  the upload is done, Storage Gateway sends you notification through an
   Amazon CloudWatch Event. You can configure CloudWatch Events to send the
   notification through event targets such as Amazon SNS or AWS Lambda
   function. This operation is only supported for file gateways.
@@ -1113,6 +1126,20 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Updates the SMB security strategy on a file gateway. This action is only
+  supported in file gateways.
+
+  <note> This API is called Security level in the User Guide.
+
+  A higher security level can affect performance of the gateway.
+
+  </note>
+  """
+  def update_s_m_b_security_strategy(client, input, options \\ []) do
+    request(client, "UpdateSMBSecurityStrategy", input, options)
+  end
+
+  @doc """
   Updates a snapshot schedule configured for a gateway volume. This operation
   is only supported in the cached volume and stored volume gateway types.
 
@@ -1139,29 +1166,38 @@ defmodule AWS.StorageGateway do
     request(client, "UpdateVTLDeviceType", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "storagegateway"}
     host = get_host("storagegateway", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "StorageGateway_20130630.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "StorageGateway_20130630.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1178,5 +1214,4 @@ defmodule AWS.StorageGateway do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

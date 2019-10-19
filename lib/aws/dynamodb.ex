@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.DynamoDB do
   @moduledoc """
@@ -31,29 +31,28 @@ defmodule AWS.DynamoDB do
   from one or more tables. You identify requested items by primary key.
 
   A single operation can retrieve up to 16 MB of data, which can contain as
-  many as 100 items. `BatchGetItem` will return a partial result if the
-  response size limit is exceeded, the table's provisioned throughput is
-  exceeded, or an internal processing failure occurs. If a partial result is
-  returned, the operation returns a value for `UnprocessedKeys`. You can use
-  this value to retry the operation starting with the next item to get.
+  many as 100 items. `BatchGetItem` returns a partial result if the response
+  size limit is exceeded, the table's provisioned throughput is exceeded, or
+  an internal processing failure occurs. If a partial result is returned, the
+  operation returns a value for `UnprocessedKeys`. You can use this value to
+  retry the operation starting with the next item to get.
 
-  <important> If you request more than 100 items `BatchGetItem` will return a
+  <important> If you request more than 100 items, `BatchGetItem` returns a
   `ValidationException` with the message "Too many items requested for the
-  BatchGetItem call".
+  BatchGetItem call."
 
   </important> For example, if you ask to retrieve 100 items, but each
   individual item is 300 KB in size, the system returns 52 items (so as not
   to exceed the 16 MB limit). It also returns an appropriate
   `UnprocessedKeys` value so you can get the next page of results. If
   desired, your application can include its own logic to assemble the pages
-  of results into one data set.
+  of results into one dataset.
 
   If *none* of the items can be processed due to insufficient provisioned
-  throughput on all of the tables in the request, then `BatchGetItem` will
-  return a `ProvisionedThroughputExceededException`. If *at least one* of the
-  items is successfully processed, then `BatchGetItem` completes
-  successfully, while returning the keys of the unread items in
-  `UnprocessedKeys`.
+  throughput on all of the tables in the request, then `BatchGetItem` returns
+  a `ProvisionedThroughputExceededException`. If *at least one* of the items
+  is successfully processed, then `BatchGetItem` completes successfully,
+  while returning the keys of the unread items in `UnprocessedKeys`.
 
   <important> If DynamoDB returns any unprocessed items, you should retry the
   batch operation on those items. However, *we strongly recommend that you
@@ -64,7 +63,7 @@ defmodule AWS.DynamoDB do
   likely to succeed.
 
   For more information, see [Batch Operations and Error
-  Handling](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations)
+  Handling](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations)
   in the *Amazon DynamoDB Developer Guide*.
 
   </important> By default, `BatchGetItem` performs eventually consistent
@@ -81,8 +80,8 @@ defmodule AWS.DynamoDB do
 
   If a requested item does not exist, it is not returned in the result.
   Requests for nonexistent items consume the minimum read capacity units
-  according to the type of read. For more information, see [Capacity Units
-  Calculations](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations)
+  according to the type of read. For more information, see [Working with
+  Tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations)
   in the *Amazon DynamoDB Developer Guide*.
   """
   def batch_get_item(client, input, options \\ []) do
@@ -108,9 +107,9 @@ defmodule AWS.DynamoDB do
   items and submit a new `BatchWriteItem` request with those unprocessed
   items until all items have been processed.
 
-  Note that if *none* of the items can be processed due to insufficient
-  provisioned throughput on all of the tables in the request, then
-  `BatchWriteItem` will return a `ProvisionedThroughputExceededException`.
+  If *none* of the items can be processed due to insufficient provisioned
+  throughput on all of the tables in the request, then `BatchWriteItem`
+  returns a `ProvisionedThroughputExceededException`.
 
   <important> If DynamoDB returns any unprocessed items, you should retry the
   batch operation on those items. However, *we strongly recommend that you
@@ -121,15 +120,15 @@ defmodule AWS.DynamoDB do
   likely to succeed.
 
   For more information, see [Batch Operations and Error
-  Handling](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations)
+  Handling](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#Programming.Errors.BatchOperations)
   in the *Amazon DynamoDB Developer Guide*.
 
   </important> With `BatchWriteItem`, you can efficiently write or delete
-  large amounts of data, such as from Amazon Elastic MapReduce (EMR), or copy
-  data from another database into DynamoDB. In order to improve performance
-  with these large-scale operations, `BatchWriteItem` does not behave in the
-  same way as individual `PutItem` and `DeleteItem` calls would. For example,
-  you cannot specify conditions on individual put and delete requests, and
+  large amounts of data, such as from Amazon EMR, or copy data from another
+  database into DynamoDB. In order to improve performance with these
+  large-scale operations, `BatchWriteItem` does not behave in the same way as
+  individual `PutItem` and `DeleteItem` calls would. For example, you cannot
+  specify conditions on individual put and delete requests, and
   `BatchWriteItem` does not return deleted items in the response.
 
   If you use a programming language that supports concurrency, you can use
@@ -176,10 +175,10 @@ defmodule AWS.DynamoDB do
   @doc """
   Creates a backup for an existing table.
 
-  Each time you create an On-Demand Backup, the entire table data is backed
+  Each time you create an on-demand backup, the entire table data is backed
   up. There is no limit to the number of on-demand backups that can be taken.
 
-  When you create an On-Demand Backup, a time marker of the request is
+  When you create an on-demand backup, a time marker of the request is
   cataloged, and the backup is created asynchronously, by applying all
   changes until the time of the request to the last full table snapshot.
   Backup requests are processed instantaneously and become available for
@@ -192,9 +191,9 @@ defmodule AWS.DynamoDB do
 
   If you submit a backup request on 2018-12-14 at 14:25:00, the backup is
   guaranteed to contain all data committed to the table up to 14:24:00, and
-  data committed after 14:26:00 will not be. The backup may or may not
-  contain data modifications made between 14:24:00 and 14:26:00. On-Demand
-  Backup does not support causal consistency.
+  data committed after 14:26:00 will not be. The backup might contain data
+  modifications made between 14:24:00 and 14:26:00. On-demand backup does not
+  support causal consistency.
 
   Along with data, the following are also included on the backups:
 
@@ -215,7 +214,7 @@ defmodule AWS.DynamoDB do
   @doc """
   Creates a global table from an existing table. A global table creates a
   replication relationship between two or more DynamoDB tables with the same
-  table name in the provided regions.
+  table name in the provided Regions.
 
   If you want to add a new replica table to a global table, each of the
   following conditions must be true:
@@ -257,9 +256,9 @@ defmodule AWS.DynamoDB do
 
   @doc """
   The `CreateTable` operation adds a new table to your account. In an AWS
-  account, table names must be unique within each region. That is, you can
+  account, table names must be unique within each Region. That is, you can
   have two tables with same name if you create the tables in different
-  regions.
+  Regions.
 
   `CreateTable` is an asynchronous operation. Upon receiving a `CreateTable`
   request, DynamoDB immediately returns a response with a `TableStatus` of
@@ -349,7 +348,7 @@ defmodule AWS.DynamoDB do
   creation. If point in time recovery is enabled, `PointInTimeRecoveryStatus`
   will be set to ENABLED.
 
-  Once continuous backups and point in time recovery are enabled, you can
+  After continuous backups and point in time recovery are enabled, you can
   restore to any point in time within `EarliestRestorableDateTime` and
   `LatestRestorableDateTime`.
 
@@ -378,7 +377,7 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  Describes region specific settings for a global table.
+  Describes Region-specific settings for a global table.
   """
   def describe_global_table_settings(client, input, options \\ []) do
     request(client, "DescribeGlobalTableSettings", input, options)
@@ -386,15 +385,15 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Returns the current provisioned-capacity limits for your AWS account in a
-  region, both for the region as a whole and for any one DynamoDB table that
+  Region, both for the Region as a whole and for any one DynamoDB table that
   you create there.
 
   When you establish an AWS account, the account has initial limits on the
   maximum read capacity units and write capacity units that you can provision
-  across all of your DynamoDB tables in a given region. Also, there are
+  across all of your DynamoDB tables in a given Region. Also, there are
   per-table limits that apply when you create a table there. For more
   information, see
-  [Limits](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
+  [Limits](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
   page in the *Amazon DynamoDB Developer Guide*.
 
   Although you can increase these limits by filing a case at [AWS Support
@@ -406,11 +405,11 @@ defmodule AWS.DynamoDB do
 
   For example, you could use one of the AWS SDKs to do the following:
 
-  <ol> <li> Call `DescribeLimits` for a particular region to obtain your
+  <ol> <li> Call `DescribeLimits` for a particular Region to obtain your
   current account limits on provisioned capacity there.
 
   </li> <li> Create a variable to hold the aggregate read capacity units
-  provisioned for all your tables in that region, and one to hold the
+  provisioned for all your tables in that Region, and one to hold the
   aggregate write capacity units. Zero them both.
 
   </li> <li> Call `ListTables` to obtain a list of all your DynamoDB tables.
@@ -427,7 +426,7 @@ defmodule AWS.DynamoDB do
   loop over these GSIs and add their provisioned capacity values to your
   variables as well.
 
-  </li> </ul> </li> <li> Report the account limits for that region returned
+  </li> </ul> </li> <li> Report the account limits for that Region returned
   by `DescribeLimits`, along with the total current provisioned capacity
   levels you have calculated.
 
@@ -438,8 +437,8 @@ defmodule AWS.DynamoDB do
   restrict the sum of the provisioned capacity of the new table itself and
   all its global secondary indexes.
 
-  For existing tables and their GSIs, DynamoDB will not let you increase
-  provisioned capacity extremely rapidly, but the only upper limit that
+  For existing tables and their GSIs, DynamoDB doesn't let you increase
+  provisioned capacity extremely rapidly. But the only upper limit that
   applies is that the aggregate provisioned capacity over all your tables and
   GSIs cannot exceed either of the per-account limits.
 
@@ -494,21 +493,21 @@ defmodule AWS.DynamoDB do
   @doc """
   List backups associated with an AWS account. To list backups for a given
   table, specify `TableName`. `ListBackups` returns a paginated list of
-  results with at most 1MB worth of items in a page. You can also specify a
+  results with at most 1 MB worth of items in a page. You can also specify a
   limit for the maximum number of entries to be returned in a page.
 
-  In the request, start time is inclusive but end time is exclusive. Note
+  In the request, start time is inclusive, but end time is exclusive. Note
   that these limits are for the time at which the original backup was
   requested.
 
-  You can call `ListBackups` a maximum of 5 times per second.
+  You can call `ListBackups` a maximum of five times per second.
   """
   def list_backups(client, input, options \\ []) do
     request(client, "ListBackups", input, options)
   end
 
   @doc """
-  Lists all global tables that have a replica in the specified region.
+  Lists all global tables that have a replica in the specified Region.
   """
   def list_global_tables(client, input, options \\ []) do
     request(client, "ListGlobalTables", input, options)
@@ -528,7 +527,7 @@ defmodule AWS.DynamoDB do
   ListTagsOfResource up to 10 times per second, per account.
 
   For an overview on tagging DynamoDB resources, see [Tagging for
-  DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
+  DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
   def list_tags_of_resource(client, input, options \\ []) do
@@ -550,34 +549,34 @@ defmodule AWS.DynamoDB do
   For information on how to call the `PutItem` API using the AWS SDK in
   specific languages, see the following:
 
-  <ul> <li> [ PutItem in the AWS Command Line Interface
-  ](http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
+  <ul> <li> [ PutItem in the AWS Command Line
+  Interface](http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
 
-  </li> <li> [ PutItem in the AWS SDK for .NET
-  ](http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem)
+  </li> <li> [ PutItem in the AWS SDK for
+  .NET](http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem)
 
-  </li> <li> [ PutItem in the AWS SDK for C++
-  ](http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem)
+  </li> <li> [ PutItem in the AWS SDK for
+  C++](http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem)
 
-  </li> <li> [ PutItem in the AWS SDK for Go
-  ](http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem)
+  </li> <li> [ PutItem in the AWS SDK for
+  Go](http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem)
 
-  </li> <li> [ PutItem in the AWS SDK for Java
-  ](http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem)
+  </li> <li> [ PutItem in the AWS SDK for
+  Java](http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem)
 
-  </li> <li> [ PutItem in the AWS SDK for JavaScript
-  ](http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem)
+  </li> <li> [ PutItem in the AWS SDK for
+  JavaScript](http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem)
 
-  </li> <li> [ PutItem in the AWS SDK for PHP V3
-  ](http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem)
+  </li> <li> [ PutItem in the AWS SDK for PHP
+  V3](http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem)
 
-  </li> <li> [ PutItem in the AWS SDK for Python
-  ](http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem)
+  </li> <li> [ PutItem in the AWS SDK for
+  Python](http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem)
 
-  </li> <li> [ PutItem in the AWS SDK for Ruby V2
-  ](http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem)
+  </li> <li> [ PutItem in the AWS SDK for Ruby
+  V2](http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem)
 
-  </li> </ul> </important> When you add an item, the primary key attribute(s)
+  </li> </ul> </important> When you add an item, the primary key attributes
   are the only required attributes. Attribute values cannot be null. String
   and Binary type attributes must have lengths greater than zero. Set type
   attributes cannot be empty. Requests with empty values will be rejected
@@ -591,7 +590,7 @@ defmodule AWS.DynamoDB do
   exists.
 
   </note> For more information about `PutItem`, see [Working with
-  Items](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
+  Items](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
   def put_item(client, input, options \\ []) do
@@ -635,7 +634,7 @@ defmodule AWS.DynamoDB do
   apply any filtering to the results using `FilterExpression`. If
   `LastEvaluatedKey` is present in the response, you will need to paginate
   the result set. For more information, see [Paginating the
-  Results](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.Pagination)
+  Results](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.Pagination)
   in the *Amazon DynamoDB Developer Guide*.
 
   `FilterExpression` is applied after a `Query` finishes, but before the
@@ -672,7 +671,7 @@ defmodule AWS.DynamoDB do
 
   </li> <li> IAM policies
 
-  </li> <li> Cloudwatch metrics and alarms
+  </li> <li> Amazon CloudWatch metrics and alarms
 
   </li> <li> Tags
 
@@ -718,7 +717,7 @@ defmodule AWS.DynamoDB do
 
   </li> <li> IAM policies
 
-  </li> <li> Cloudwatch metrics and alarms
+  </li> <li> Amazon CloudWatch metrics and alarms
 
   </li> <li> Tags
 
@@ -739,25 +738,25 @@ defmodule AWS.DynamoDB do
   accessing every item in a table or a secondary index. To have DynamoDB
   return fewer items, you can provide a `FilterExpression` operation.
 
-  If the total number of scanned items exceeds the maximum data set size
-  limit of 1 MB, the scan stops and results are returned to the user as a
+  If the total number of scanned items exceeds the maximum dataset size limit
+  of 1 MB, the scan stops and results are returned to the user as a
   `LastEvaluatedKey` value to continue the scan in a subsequent operation.
   The results also include the number of items exceeding the limit. A scan
   can result in no table data meeting the filter criteria.
 
-  A single `Scan` operation will read up to the maximum number of items set
-  (if using the `Limit` parameter) or a maximum of 1 MB of data and then
-  apply any filtering to the results using `FilterExpression`. If
-  `LastEvaluatedKey` is present in the response, you will need to paginate
-  the result set. For more information, see [Paginating the
-  Results](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination)
+  A single `Scan` operation reads up to the maximum number of items set (if
+  using the `Limit` parameter) or a maximum of 1 MB of data and then apply
+  any filtering to the results using `FilterExpression`. If
+  `LastEvaluatedKey` is present in the response, you need to paginate the
+  result set. For more information, see [Paginating the
+  Results](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination)
   in the *Amazon DynamoDB Developer Guide*.
 
   `Scan` operations proceed sequentially; however, for faster performance on
   a large table or secondary index, applications can request a parallel
   `Scan` operation by providing the `Segment` and `TotalSegments` parameters.
   For more information, see [Parallel
-  Scan](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan)
+  Scan](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan)
   in the *Amazon DynamoDB Developer Guide*.
 
   `Scan` uses eventually consistent reads when accessing the data in a table;
@@ -774,10 +773,10 @@ defmodule AWS.DynamoDB do
   Associate a set of tags with an Amazon DynamoDB resource. You can then
   activate these user-defined tags so that they appear on the Billing and
   Cost Management console for cost allocation tracking. You can call
-  TagResource up to 5 times per second, per account.
+  TagResource up to five times per second, per account.
 
   For an overview on tagging DynamoDB resources, see [Tagging for
-  DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
+  DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
   def tag_resource(client, input, options \\ []) do
@@ -787,14 +786,25 @@ defmodule AWS.DynamoDB do
   @doc """
   `TransactGetItems` is a synchronous operation that atomically retrieves
   multiple items from one or more tables (but not from indexes) in a single
-  account and region. A `TransactGetItems` call can contain up to 10
+  account and Region. A `TransactGetItems` call can contain up to 25
   `TransactGetItem` objects, each of which contains a `Get` structure that
-  specifies an item to retrieve from a table in the account and region. A
+  specifies an item to retrieve from a table in the account and Region. A
   call to `TransactGetItems` cannot retrieve items from tables in more than
-  one AWS account or region.
+  one AWS account or Region. The aggregate size of the items in the
+  transaction cannot exceed 4 MB.
 
-  DynamoDB rejects the entire `TransactGetItems` request if any of the
-  following is true:
+  <note> All AWS Regions and AWS GovCloud (US) support up to 25 items per
+  transaction with up to 4 MB of data, except the following AWS Regions:
+
+  <ul> <li> China (Beijing)
+
+  </li> <li> China (Ningxia)
+
+  </li> </ul> The China (Beijing) and China (Ningxia) Regions support up to
+  10 items per transaction with up to 4 MB of data.
+
+  </note> DynamoDB rejects the entire `TransactGetItems` request if any of
+  the following is true:
 
   <ul> <li> A conflicting operation is in the process of updating an item to
   be read.
@@ -804,6 +814,9 @@ defmodule AWS.DynamoDB do
 
   </li> <li> There is a user error, such as an invalid data format.
 
+  </li> <li> The aggregate size of the items in the transaction cannot exceed
+  4 MB.
+
   </li> </ul>
   """
   def transact_get_items(client, input, options \\ []) do
@@ -811,20 +824,31 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  `TransactWriteItems` is a synchronous write operation that groups up to 10
+  `TransactWriteItems` is a synchronous write operation that groups up to 25
   action requests. These actions can target items in different tables, but
-  not in different AWS accounts or regions, and no two actions can target the
+  not in different AWS accounts or Regions, and no two actions can target the
   same item. For example, you cannot both `ConditionCheck` and `Update` the
-  same item.
+  same item. The aggregate size of the items in the transaction cannot exceed
+  4 MB.
 
-  The actions are completed atomically so that either all of them succeed, or
-  all of them fail. They are defined by the following objects:
+  <note> All AWS Regions and AWS GovCloud (US) support up to 25 items per
+  transaction with up to 4 MB of data, except the following AWS Regions:
+
+  <ul> <li> China (Beijing)
+
+  </li> <li> China (Ningxia)
+
+  </li> </ul> The China (Beijing) and China (Ningxia) Regions support up to
+  10 items per transaction with up to 4 MB of data.
+
+  </note> The actions are completed atomically so that either all of them
+  succeed, or all of them fail. They are defined by the following objects:
 
   <ul> <li> `Put`  &#x97;   Initiates a `PutItem` operation to write a new
   item. This structure specifies the primary key of the item to be written,
   the name of the table to write it in, an optional condition expression that
   must be satisfied for the write to succeed, a list of the item's
-  attributes, and a field indicating whether or not to retrieve the item's
+  attributes, and a field indicating whether to retrieve the item's
   attributes if the condition is not met.
 
   </li> <li> `Update`  &#x97;   Initiates an `UpdateItem` operation to update
@@ -832,21 +856,20 @@ defmodule AWS.DynamoDB do
   be updated, the name of the table where it resides, an optional condition
   expression that must be satisfied for the update to succeed, an expression
   that defines one or more attributes to be updated, and a field indicating
-  whether or not to retrieve the item's attributes if the condition is not
-  met.
+  whether to retrieve the item's attributes if the condition is not met.
 
   </li> <li> `Delete`  &#x97;   Initiates a `DeleteItem` operation to delete
   an existing item. This structure specifies the primary key of the item to
   be deleted, the name of the table where it resides, an optional condition
   expression that must be satisfied for the deletion to succeed, and a field
-  indicating whether or not to retrieve the item's attributes if the
-  condition is not met.
+  indicating whether to retrieve the item's attributes if the condition is
+  not met.
 
   </li> <li> `ConditionCheck`  &#x97;   Applies a condition to an item that
   is not being modified by the transaction. This structure specifies the
   primary key of the item to be checked, the name of the table where it
   resides, a condition expression that must be satisfied for the transaction
-  to succeed, and a field indicating whether or not to retrieve the item's
+  to succeed, and a field indicating whether to retrieve the item's
   attributes if the condition is not met.
 
   </li> </ul> DynamoDB rejects the entire `TransactWriteItems` request if any
@@ -854,15 +877,17 @@ defmodule AWS.DynamoDB do
 
   <ul> <li> A condition in one of the condition expressions is not met.
 
-  </li> <li> A conflicting operation is in the process of updating the same
+  </li> <li> An ongoing operation is in the process of updating the same
   item.
 
   </li> <li> There is insufficient provisioned capacity for the transaction
   to be completed.
 
-  </li> <li> An item size becomes too large (bigger than 400 KB), a Local
-  Secondary Index (LSI) becomes too large, or a similar validation error
+  </li> <li> An item size becomes too large (bigger than 400 KB), a local
+  secondary index (LSI) becomes too large, or a similar validation error
   occurs because of changes made by the transaction.
+
+  </li> <li> The aggregate size of the items in the transaction exceeds 4 MB.
 
   </li> <li> There is a user error, such as an invalid data format.
 
@@ -874,10 +899,10 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Removes the association of tags from an Amazon DynamoDB resource. You can
-  call UntagResource up to 5 times per second, per account.
+  call `UntagResource` up to five times per second, per account.
 
   For an overview on tagging DynamoDB resources, see [Tagging for
-  DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
+  DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
   def untag_resource(client, input, options \\ []) do
@@ -896,7 +921,7 @@ defmodule AWS.DynamoDB do
   `LatestRestorableDateTime`.
 
   `LatestRestorableDateTime` is typically 5 minutes before the current time.
-  You can restore your table to any point in time during the last 35 days..
+  You can restore your table to any point in time during the last 35 days.
   """
   def update_continuous_backups(client, input, options \\ []) do
     request(client, "UpdateContinuousBackups", input, options)
@@ -905,9 +930,9 @@ defmodule AWS.DynamoDB do
   @doc """
   Adds or removes replicas in the specified global table. The global table
   must already exist to be able to use this operation. Any replica to be
-  added must be empty, must have the same name as the global table, must have
-  the same key schema, and must have DynamoDB Streams enabled and must have
-  same provisioned and maximum write capacity units.
+  added must be empty, have the same name as the global table, have the same
+  key schema, have DynamoDB Streams enabled, and have the same provisioned
+  and maximum write capacity units.
 
   <note> Although you can use `UpdateGlobalTable` to add replicas and remove
   replicas in a single request, for simplicity we recommend that you issue
@@ -959,12 +984,13 @@ defmodule AWS.DynamoDB do
 
   <ul> <li> Modify the provisioned throughput settings of the table.
 
-  </li> <li> Enable or disable Streams on the table.
+  </li> <li> Enable or disable DynamoDB Streams on the table.
 
   </li> <li> Remove a global secondary index from the table.
 
-  </li> <li> Create a new global secondary index on the table. Once the index
-  begins backfilling, you can use `UpdateTable` to perform other operations.
+  </li> <li> Create a new global secondary index on the table. After the
+  index begins backfilling, you can use `UpdateTable` to perform other
+  operations.
 
   </li> </ul> `UpdateTable` is an asynchronous operation; while it is
   executing, the table status changes from `ACTIVE` to `UPDATING`. While it
@@ -977,11 +1003,11 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  The UpdateTimeToLive method will enable or disable TTL for the specified
-  table. A successful `UpdateTimeToLive` call returns the current
-  `TimeToLiveSpecification`; it may take up to one hour for the change to
-  fully process. Any additional `UpdateTimeToLive` calls for the same table
-  during this one hour duration result in a `ValidationException`.
+  The `UpdateTimeToLive` method enables or disables Time to Live (TTL) for
+  the specified table. A successful `UpdateTimeToLive` call returns the
+  current `TimeToLiveSpecification`. It can take up to one hour for the
+  change to fully process. Any additional `UpdateTimeToLive` calls for the
+  same table during this one hour duration result in a `ValidationException`.
 
   TTL compares the current time in epoch time format to the time stored in
   the TTL attribute of an item. If the epoch time value stored in the
@@ -989,7 +1015,7 @@ defmodule AWS.DynamoDB do
   subsequently deleted.
 
   <note> The epoch time format is the number of seconds elapsed since
-  12:00:00 AM January 1st, 1970 UTC.
+  12:00:00 AM January 1, 1970 UTC.
 
   </note> DynamoDB deletes expired items on a best-effort basis to ensure
   availability of throughput for other data operations.
@@ -1000,41 +1026,50 @@ defmodule AWS.DynamoDB do
   expired and not been deleted will still show up in reads, queries, and
   scans.
 
-  </important> As items are deleted, they are removed from any Local
-  Secondary Index and Global Secondary Index immediately in the same
+  </important> As items are deleted, they are removed from any local
+  secondary index and global secondary index immediately in the same
   eventually consistent way as a standard delete operation.
 
   For more information, see [Time To
-  Live](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html)
+  Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html)
   in the Amazon DynamoDB Developer Guide.
   """
   def update_time_to_live(client, input, options \\ []) do
     request(client, "UpdateTimeToLive", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "dynamodb"}
     host = get_host("dynamodb", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.0"},
-               {"X-Amz-Target", "DynamoDB_20120810.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.0"},
+      {"X-Amz-Target", "DynamoDB_20120810.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1051,5 +1086,4 @@ defmodule AWS.DynamoDB do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

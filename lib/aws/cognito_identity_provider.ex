@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Cognito.IdentityProvider do
   @moduledoc """
@@ -23,7 +23,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Adds the specified user to the specified group.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_add_user_to_group(client, input, options \\ []) do
     request(client, "AdminAddUserToGroup", input, options)
@@ -33,7 +33,7 @@ defmodule AWS.Cognito.IdentityProvider do
   Confirms user registration as an admin without using a confirmation code.
   Works on any user.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_confirm_sign_up(client, input, options \\ []) do
     request(client, "AdminConfirmSignUp", input, options)
@@ -64,7 +64,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Deletes a user as an administrator. Works on any user.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_delete_user(client, input, options \\ []) do
     request(client, "AdminDeleteUser", input, options)
@@ -74,7 +74,7 @@ defmodule AWS.Cognito.IdentityProvider do
   Deletes the user attributes in a user pool as an administrator. Works on
   any user.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_delete_user_attributes(client, input, options \\ []) do
     request(client, "AdminDeleteUserAttributes", input, options)
@@ -118,9 +118,9 @@ defmodule AWS.Cognito.IdentityProvider do
   end
 
   @doc """
-  Disables the specified user as an administrator. Works on any user.
+  Disables the specified user.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_disable_user(client, input, options \\ []) do
     request(client, "AdminDisableUser", input, options)
@@ -129,7 +129,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Enables the specified user as an administrator. Works on any user.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_enable_user(client, input, options \\ []) do
     request(client, "AdminEnableUser", input, options)
@@ -138,7 +138,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Forgets the device, as an administrator.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_forget_device(client, input, options \\ []) do
     request(client, "AdminForgetDevice", input, options)
@@ -147,7 +147,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Gets the device, as an administrator.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_get_device(client, input, options \\ []) do
     request(client, "AdminGetDevice", input, options)
@@ -157,7 +157,7 @@ defmodule AWS.Cognito.IdentityProvider do
   Gets the specified user by user name in a user pool as an administrator.
   Works on any user.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_get_user(client, input, options \\ []) do
     request(client, "AdminGetUser", input, options)
@@ -166,7 +166,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Initiates the authentication flow, as an administrator.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_initiate_auth(client, input, options \\ []) do
     request(client, "AdminInitiateAuth", input, options)
@@ -203,7 +203,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Lists devices, as an administrator.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_list_devices(client, input, options \\ []) do
     request(client, "AdminListDevices", input, options)
@@ -212,7 +212,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Lists the groups that the user belongs to.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_list_groups_for_user(client, input, options \\ []) do
     request(client, "AdminListGroupsForUser", input, options)
@@ -229,7 +229,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Removes the specified user from the specified group.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_remove_user_from_group(client, input, options \\ []) do
     request(client, "AdminRemoveUserFromGroup", input, options)
@@ -249,7 +249,7 @@ defmodule AWS.Cognito.IdentityProvider do
   calling this API will also result in sending a message to the end user with
   the code to change their password.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_reset_user_password(client, input, options \\ []) do
     request(client, "AdminResetUserPassword", input, options)
@@ -258,23 +258,46 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Responds to an authentication challenge, as an administrator.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_respond_to_auth_challenge(client, input, options \\ []) do
     request(client, "AdminRespondToAuthChallenge", input, options)
   end
 
   @doc """
-  Sets the user's multi-factor authentication (MFA) preference.
+  Sets the user's multi-factor authentication (MFA) preference, including
+  which MFA options are enabled and if any are preferred. Only one factor can
+  be set as preferred. The preferred MFA factor will be used to authenticate
+  a user if multiple factors are enabled. If multiple options are enabled and
+  no preference is set, a challenge to choose an MFA option will be returned
+  during sign in.
   """
   def admin_set_user_m_f_a_preference(client, input, options \\ []) do
     request(client, "AdminSetUserMFAPreference", input, options)
   end
 
   @doc """
-  Sets all the user settings for a specified user name. Works on any user.
+  Sets the specified user's password in a user pool as an administrator.
+  Works on any user.
 
-  Requires developer credentials.
+  The password can be temporary or permanent. If it is temporary, the user
+  status will be placed into the `FORCE_CHANGE_PASSWORD` state. When the user
+  next tries to sign in, the InitiateAuth/AdminInitiateAuth response will
+  contain the `NEW_PASSWORD_REQUIRED` challenge. If the user does not sign in
+  before it expires, the user will not be able to sign in and their password
+  will need to be reset by an administrator.
+
+  Once the user has set a new password, or the password is permanent, the
+  user status will be set to `Confirmed`.
+  """
+  def admin_set_user_password(client, input, options \\ []) do
+    request(client, "AdminSetUserPassword", input, options)
+  end
+
+  @doc """
+  *This action is no longer supported.* You can use it to configure only SMS
+  MFA. You can't use it to configure TOTP software token MFA. To configure
+  either type of MFA, use the `AdminSetUserMFAPreference` action instead.
   """
   def admin_set_user_settings(client, input, options \\ []) do
     request(client, "AdminSetUserSettings", input, options)
@@ -292,7 +315,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Updates the device status as an administrator.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_update_device_status(client, input, options \\ []) do
     request(client, "AdminUpdateDeviceStatus", input, options)
@@ -308,7 +331,7 @@ defmodule AWS.Cognito.IdentityProvider do
   In addition to updating user attributes, this API can also be used to mark
   phone and email as verified.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_update_user_attributes(client, input, options \\ []) do
     request(client, "AdminUpdateUserAttributes", input, options)
@@ -317,7 +340,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Signs out users from all devices, as an administrator.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def admin_user_global_sign_out(client, input, options \\ []) do
     request(client, "AdminUserGlobalSignOut", input, options)
@@ -364,7 +387,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Creates a new group in the specified user pool.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def create_group(client, input, options \\ []) do
     request(client, "CreateGroup", input, options)
@@ -416,7 +439,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Deletes a group. Currently only groups with no members can be deleted.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def delete_group(client, input, options \\ []) do
     request(client, "DeleteGroup", input, options)
@@ -561,7 +584,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Gets a group.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def get_group(client, input, options \\ []) do
     request(client, "GetGroup", input, options)
@@ -637,7 +660,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Lists the groups associated with a user pool.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def list_groups(client, input, options \\ []) do
     request(client, "ListGroups", input, options)
@@ -701,7 +724,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Lists the users in the specified group.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def list_users_in_group(client, input, options \\ []) do
     request(client, "ListUsersInGroup", input, options)
@@ -757,23 +780,28 @@ defmodule AWS.Cognito.IdentityProvider do
   end
 
   @doc """
-  Set the user's multi-factor authentication (MFA) method preference.
+  Set the user's multi-factor authentication (MFA) method preference,
+  including which MFA factors are enabled and if any are preferred. Only one
+  factor can be set as preferred. The preferred MFA factor will be used to
+  authenticate a user if multiple factors are enabled. If multiple options
+  are enabled and no preference is set, a challenge to choose an MFA option
+  will be returned during sign in.
   """
   def set_user_m_f_a_preference(client, input, options \\ []) do
     request(client, "SetUserMFAPreference", input, options)
   end
 
   @doc """
-  Set the user pool MFA configuration.
+  Set the user pool multi-factor authentication (MFA) configuration.
   """
   def set_user_pool_mfa_config(client, input, options \\ []) do
     request(client, "SetUserPoolMfaConfig", input, options)
   end
 
   @doc """
-  Sets the user settings like multi-factor authentication (MFA). If MFA is to
-  be removed for a particular attribute pass the attribute with code delivery
-  as null. If null list is passed, all MFA options are removed.
+  *This action is no longer supported.* You can use it to configure only SMS
+  MFA. You can't use it to configure TOTP software token MFA. To configure
+  either type of MFA, use the `SetUserMFAPreference` action instead.
   """
   def set_user_settings(client, input, options \\ []) do
     request(client, "SetUserSettings", input, options)
@@ -852,7 +880,7 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Updates the specified group with the specified attributes.
 
-  Requires developer credentials.
+  Calling this action requires developer credentials.
   """
   def update_group(client, input, options \\ []) do
     request(client, "UpdateGroup", input, options)
@@ -952,29 +980,38 @@ defmodule AWS.Cognito.IdentityProvider do
     request(client, "VerifyUserAttribute", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "cognito-idp"}
     host = get_host("cognito-idp", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AWSCognitoIdentityProviderService.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AWSCognitoIdentityProviderService.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -991,5 +1028,4 @@ defmodule AWS.Cognito.IdentityProvider do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

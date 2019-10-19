@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.CodeCommit do
   @moduledoc """
@@ -55,23 +55,25 @@ defmodule AWS.CodeCommit do
   <ul> <li> `DeleteFile`, which deletes the content of a specified file from
   a specified branch.
 
+  </li> <li> `GetBlob`, which returns the base-64 encoded content of an
+  individual Git blob object within a repository.
+
   </li> <li> `GetFile`, which returns the base-64 encoded content of a
   specified file.
 
   </li> <li> `GetFolder`, which returns the contents of a specified folder or
   directory.
 
-  </li> <li> `PutFile`, which adds or modifies a file in a specified
+  </li> <li> `PutFile`, which adds or modifies a single file in a specified
   repository and branch.
 
-  </li> </ul> Information about committed code in a repository, by calling
-  the following:
+  </li> </ul> Commits, by calling the following:
 
-  <ul> <li> `CreateCommit`, which creates a commit for changes to a
+  <ul> <li> `BatchGetCommits`, which returns information about one or more
+  commits in a repository
+
+  </li> <li> `CreateCommit`, which creates a commit for changes to a
   repository.
-
-  </li> <li> `GetBlob`, which returns the base-64 encoded content of an
-  individual Git blob object within a repository.
 
   </li> <li> `GetCommit`, which returns information about a commit, including
   commit messages and author and committer information.
@@ -79,6 +81,37 @@ defmodule AWS.CodeCommit do
   </li> <li> `GetDifferences`, which returns information about the
   differences in a valid commit specifier (such as a branch, tag, HEAD,
   commit ID or other fully qualified reference).
+
+  </li> </ul> Merges, by calling the following:
+
+  <ul> <li> `BatchDescribeMergeConflicts`, which returns information about
+  conflicts in a merge between commits in a repository.
+
+  </li> <li> `CreateUnreferencedMergeCommit`, which creates an unreferenced
+  commit between two branches or commits for the purpose of comparing them
+  and identifying any potential conflicts.
+
+  </li> <li> `DescribeMergeConflicts`, which returns information about merge
+  conflicts between the base, source, and destination versions of a file in a
+  potential merge.
+
+  </li> <li> `GetMergeCommit`, which returns information about the merge
+  between a source and destination commit.
+
+  </li> <li> `GetMergeConflicts`, which returns information about merge
+  conflicts between the source and destination branch in a pull request.
+
+  </li> <li> `GetMergeOptions`, which returns information about the available
+  merge options between two branches or commit specifiers.
+
+  </li> <li> `MergeBranchesByFastForward`, which merges two branches using
+  the fast-forward merge option.
+
+  </li> <li> `MergeBranchesBySquash`, which merges two branches using the
+  squash merge option.
+
+  </li> <li> `MergeBranchesByThreeWay`, which merges two branches using the
+  three-way merge option.
 
   </li> </ul> Pull requests, by calling the following:
 
@@ -91,9 +124,6 @@ defmodule AWS.CodeCommit do
   </li> <li> `GetCommentsForPullRequest`, which returns information about
   comments on a specified pull request.
 
-  </li> <li> `GetMergeConflicts`, which returns information about merge
-  conflicts between the source and destination branch in a pull request.
-
   </li> <li> `GetPullRequest`, which returns information about a specified
   pull request.
 
@@ -103,6 +133,14 @@ defmodule AWS.CodeCommit do
   </li> <li> `MergePullRequestByFastForward`, which merges the source
   destination branch of a pull request into the specified destination branch
   for that pull request using the fast-forward merge option.
+
+  </li> <li> `MergePullRequestBySquash`, which merges the source destination
+  branch of a pull request into the specified destination branch for that
+  pull request using the squash merge option.
+
+  </li> <li> `MergePullRequestByThreeWay`. which merges the source
+  destination branch of a pull request into the specified destination branch
+  for that pull request using the three-way merge option.
 
   </li> <li> `PostCommentForPullRequest`, which posts a comment to a pull
   request at the specified line, file, or request.
@@ -116,8 +154,7 @@ defmodule AWS.CodeCommit do
   </li> <li> `UpdatePullRequestTitle`, which updates the title of a pull
   request.
 
-  </li> </ul> Information about comments in a repository, by calling the
-  following:
+  </li> </ul> Comments in a repository, by calling the following:
 
   <ul> <li> `DeleteCommentContent`, which deletes the content of a comment on
   a commit in a repository.
@@ -136,6 +173,18 @@ defmodule AWS.CodeCommit do
   </li> <li> `UpdateComment`, which updates the content of a comment on a
   commit in a repository.
 
+  </li> </ul> Tags used to tag resources in AWS CodeCommit (not Git tags), by
+  calling the following:
+
+  <ul> <li> `ListTagsForResource`, which gets information about AWS tags for
+  a specified Amazon Resource Name (ARN) in AWS CodeCommit.
+
+  </li> <li> `TagResource`, which adds or updates tags for a resource in AWS
+  CodeCommit.
+
+  </li> <li> `UntagResource`, which removes tags for a resource in AWS
+  CodeCommit.
+
   </li> </ul> Triggers, by calling the following:
 
   <ul> <li> `GetRepositoryTriggers`, which returns information about triggers
@@ -149,8 +198,25 @@ defmodule AWS.CodeCommit do
 
   </li> </ul> For information about how to use AWS CodeCommit, see the [AWS
   CodeCommit User
-  Guide](http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
+  Guide](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
   """
+
+  @doc """
+  Returns information about one or more merge conflicts in the attempted
+  merge of two commit specifiers using the squash or three-way merge
+  strategy.
+  """
+  def batch_describe_merge_conflicts(client, input, options \\ []) do
+    request(client, "BatchDescribeMergeConflicts", input, options)
+  end
+
+  @doc """
+  Returns information about the contents of one or more commits in a
+  repository.
+  """
+  def batch_get_commits(client, input, options \\ []) do
+    request(client, "BatchGetCommits", input, options)
+  end
 
   @doc """
   Returns information about one or more repositories.
@@ -202,6 +268,22 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Creates an unreferenced commit that represents the result of merging two
+  branches using a specified merge strategy. This can help you determine the
+  outcome of a potential merge. This API cannot be used with the fast-forward
+  merge strategy, as that strategy does not create a merge commit.
+
+  <note> This unreferenced merge commit can only be accessed using the
+  GetCommit API or through git commands such as git fetch. To retrieve this
+  commit, you must specify its commit ID or otherwise reference it.
+
+  </note>
+  """
+  def create_unreferenced_merge_commit(client, input, options \\ []) do
+    request(client, "CreateUnreferencedMergeCommit", input, options)
+  end
+
+  @doc """
   Deletes a branch from a repository, unless that branch is the default
   branch for the repository.
   """
@@ -238,6 +320,16 @@ defmodule AWS.CodeCommit do
   """
   def delete_repository(client, input, options \\ []) do
     request(client, "DeleteRepository", input, options)
+  end
+
+  @doc """
+  Returns information about one or more merge conflicts in the attempted
+  merge of two commit specifiers using the squash or three-way merge
+  strategy. If the merge option for the attempted merge is specified as
+  FAST_FORWARD_MERGE, an exception will be thrown.
+  """
+  def describe_merge_conflicts(client, input, options \\ []) do
+    request(client, "DescribeMergeConflicts", input, options)
   end
 
   @doc """
@@ -318,11 +410,27 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Returns information about a specified merge commit.
+  """
+  def get_merge_commit(client, input, options \\ []) do
+    request(client, "GetMergeCommit", input, options)
+  end
+
+  @doc """
   Returns information about merge conflicts between the before and after
   commit IDs for a pull request in a repository.
   """
   def get_merge_conflicts(client, input, options \\ []) do
     request(client, "GetMergeConflicts", input, options)
+  end
+
+  @doc """
+  Returns information about the merge options available for merging two
+  specified branches. For details about why a particular merge option is not
+  available, use GetMergeConflicts or DescribeMergeConflicts.
+  """
+  def get_merge_options(client, input, options \\ []) do
+    request(client, "GetMergeOptions", input, options)
   end
 
   @doc """
@@ -378,12 +486,65 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Closes a pull request and attempts to merge the source commit of a pull
-  request into the specified destination branch for that pull request at the
-  specified commit using the fast-forward merge option.
+  Gets information about AWS tags for a specified Amazon Resource Name (ARN)
+  in AWS CodeCommit. For a list of valid resources in AWS CodeCommit, see
+  [CodeCommit Resources and
+  Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the AWS CodeCommit User Guide.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Merges two branches using the fast-forward merge strategy.
+  """
+  def merge_branches_by_fast_forward(client, input, options \\ []) do
+    request(client, "MergeBranchesByFastForward", input, options)
+  end
+
+  @doc """
+  Merges two branches using the squash merge strategy.
+  """
+  def merge_branches_by_squash(client, input, options \\ []) do
+    request(client, "MergeBranchesBySquash", input, options)
+  end
+
+  @doc """
+  Merges two specified branches using the three-way merge strategy.
+  """
+  def merge_branches_by_three_way(client, input, options \\ []) do
+    request(client, "MergeBranchesByThreeWay", input, options)
+  end
+
+  @doc """
+  Attempts to merge the source commit of a pull request into the specified
+  destination branch for that pull request at the specified commit using the
+  fast-forward merge strategy. If the merge is successful, it closes the pull
+  request.
   """
   def merge_pull_request_by_fast_forward(client, input, options \\ []) do
     request(client, "MergePullRequestByFastForward", input, options)
+  end
+
+  @doc """
+  Attempts to merge the source commit of a pull request into the specified
+  destination branch for that pull request at the specified commit using the
+  squash merge strategy. If the merge is successful, it closes the pull
+  request.
+  """
+  def merge_pull_request_by_squash(client, input, options \\ []) do
+    request(client, "MergePullRequestBySquash", input, options)
+  end
+
+  @doc """
+  Attempts to merge the source commit of a pull request into the specified
+  destination branch for that pull request at the specified commit using the
+  three-way merge strategy. If the merge is successful, it closes the pull
+  request.
+  """
+  def merge_pull_request_by_three_way(client, input, options \\ []) do
+    request(client, "MergePullRequestByThreeWay", input, options)
   end
 
   @doc """
@@ -425,6 +586,16 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Adds or updates tags for a resource in AWS CodeCommit. For a list of valid
+  resources in AWS CodeCommit, see [CodeCommit Resources and
+  Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the AWS CodeCommit User Guide.
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
+  end
+
+  @doc """
   Tests the functionality of repository triggers by sending information to
   the trigger target. If real data is available in the repository, the test
   will send data from the last commit. If no data is available, sample data
@@ -432,6 +603,16 @@ defmodule AWS.CodeCommit do
   """
   def test_repository_triggers(client, input, options \\ []) do
     request(client, "TestRepositoryTriggers", input, options)
+  end
+
+  @doc """
+  Removes tags for a resource in AWS CodeCommit. For a list of valid
+  resources in AWS CodeCommit, see [CodeCommit Resources and
+  Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
+  in the AWS CodeCommit User Guide.
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
   end
 
   @doc """
@@ -497,36 +678,45 @@ defmodule AWS.CodeCommit do
   dash, and underscore characters, and cannot include certain characters. The
   suffix ".git" is prohibited. For a full description of the limits on
   repository names, see
-  [Limits](http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html)
+  [Limits](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html)
   in the AWS CodeCommit User Guide.
   """
   def update_repository_name(client, input, options \\ []) do
     request(client, "UpdateRepositoryName", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "codecommit"}
     host = get_host("codecommit", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "CodeCommit_20150413.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "CodeCommit_20150413.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -543,5 +733,4 @@ defmodule AWS.CodeCommit do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

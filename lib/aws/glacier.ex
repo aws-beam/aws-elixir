@@ -3,37 +3,36 @@
 
 defmodule AWS.Glacier do
   @moduledoc """
-  Amazon Glacier is a storage solution for "cold data."
+  Amazon S3 Glacier (Glacier) is a storage solution for "cold data."
 
-  Amazon Glacier is an extremely low-cost storage service that provides
-  secure, durable, and easy-to-use storage for data backup and archival. With
-  Amazon Glacier, customers can store their data cost effectively for months,
-  years, or decades. Amazon Glacier also enables customers to offload the
-  administrative burdens of operating and scaling storage to AWS, so they
-  don't have to worry about capacity planning, hardware provisioning, data
-  replication, hardware failure and recovery, or time-consuming hardware
-  migrations.
+  Glacier is an extremely low-cost storage service that provides secure,
+  durable, and easy-to-use storage for data backup and archival. With
+  Glacier, customers can store their data cost effectively for months, years,
+  or decades. Glacier also enables customers to offload the administrative
+  burdens of operating and scaling storage to AWS, so they don't have to
+  worry about capacity planning, hardware provisioning, data replication,
+  hardware failure and recovery, or time-consuming hardware migrations.
 
-  Amazon Glacier is a great storage choice when low storage cost is paramount
-  and your data is rarely retrieved. If your application requires fast or
+  Glacier is a great storage choice when low storage cost is paramount and
+  your data is rarely retrieved. If your application requires fast or
   frequent access to your data, consider using Amazon S3. For more
   information, see [Amazon Simple Storage Service (Amazon
   S3)](http://aws.amazon.com/s3/).
 
   You can store any kind of data in any format. There is no maximum limit on
-  the total amount of data you can store in Amazon Glacier.
+  the total amount of data you can store in Glacier.
 
-  If you are a first-time user of Amazon Glacier, we recommend that you begin
-  by reading the following sections in the *Amazon Glacier Developer Guide*:
+  If you are a first-time user of Glacier, we recommend that you begin by
+  reading the following sections in the *Amazon S3 Glacier Developer Guide*:
 
-  <ul> <li> [What is Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html)
+  <ul> <li> [What is Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html)
   - This section of the Developer Guide describes the underlying data model,
   the operations it supports, and the AWS SDKs that you can use to interact
   with the service.
 
-  </li> <li> [Getting Started with Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html)
+  </li> <li> [Getting Started with Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html)
   - The Getting Started section walks you through the process of creating a
   vault, uploading archives, creating jobs to download archives, retrieving
   the job output, and deleting archives.
@@ -58,13 +57,13 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Working with
-  Archives in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
+  Archives in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
   and [Abort Multipart
-  Upload](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html)
+  Upload](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def abort_multipart_upload(client, account_id, upload_id, vault_name, input, options \\ []) do
@@ -85,10 +84,10 @@ defmodule AWS.Glacier do
   `CompleteVaultLock`. You can get the state of a vault lock by calling
   `GetVaultLock`. For more information about the vault locking process, see
   [Amazon Glacier Vault
-  Lock](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
+  Lock](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
   For more information about vault lock policies, see [Amazon Glacier Access
   Control with Vault Lock
-  Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
+  Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
 
   This operation is idempotent. You can successfully invoke this operation
   multiple times, if the vault lock is in the `InProgress` state or if there
@@ -106,8 +105,8 @@ defmodule AWS.Glacier do
   cause the tag limit for the vault to be exceeded, the operation throws the
   `LimitExceededException` error. If a tag already exists on the vault under
   a specified key, the existing key value will be overwritten. For more
-  information about tags, see [Tagging Amazon Glacier
-  Resources](http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
+  information about tags, see [Tagging Amazon S3 Glacier
+  Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
   def add_tags_to_vault(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags?operation=add"
@@ -116,10 +115,10 @@ defmodule AWS.Glacier do
   end
 
   @doc """
-  You call this operation to inform Amazon Glacier that all the archive parts
-  have been uploaded and that Amazon Glacier can now assemble the archive
-  from the uploaded parts. After assembling and saving the archive to the
-  vault, Amazon Glacier returns the URI path of the newly created archive
+  You call this operation to inform Amazon S3 Glacier (Glacier) that all the
+  archive parts have been uploaded and that Glacier can now assemble the
+  archive from the uploaded parts. After assembling and saving the archive to
+  the vault, Glacier returns the URI path of the newly created archive
   resource. Using the URI path, you can then access the archive. After you
   upload an archive, you should save the archive ID returned to retrieve the
   archive at a later point. You can also get the vault inventory to obtain a
@@ -128,17 +127,17 @@ defmodule AWS.Glacier do
   In the request, you must include the computed SHA256 tree hash of the
   entire archive you have uploaded. For information about computing a SHA256
   tree hash, see [Computing
-  Checksums](http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).
-  On the server side, Amazon Glacier also constructs the SHA256 tree hash of
-  the assembled archive. If the values match, Amazon Glacier saves the
-  archive to the vault; otherwise, it returns an error, and the operation
-  fails. The `ListParts` operation returns a list of parts uploaded for a
-  specific multipart upload. It includes checksum information for each
-  uploaded part that can be used to debug a bad checksum issue.
+  Checksums](https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).
+  On the server side, Glacier also constructs the SHA256 tree hash of the
+  assembled archive. If the values match, Glacier saves the archive to the
+  vault; otherwise, it returns an error, and the operation fails. The
+  `ListParts` operation returns a list of parts uploaded for a specific
+  multipart upload. It includes checksum information for each uploaded part
+  that can be used to debug a bad checksum issue.
 
-  Additionally, Amazon Glacier also checks for any missing content ranges
-  when assembling the archive, if missing content ranges are found, Amazon
-  Glacier returns an error and the operation fails.
+  Additionally, Glacier also checks for any missing content ranges when
+  assembling the archive, if missing content ranges are found, Glacier
+  returns an error and the operation fails.
 
   Complete Multipart Upload is an idempotent operation. After your first
   successful complete multipart upload, if you call the operation again
@@ -156,38 +155,42 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Uploading Large
   Archives in Parts (Multipart
-  Upload)](http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html)
+  Upload)](https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html)
   and [Complete Multipart
-  Upload](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html)
+  Upload](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def complete_multipart_upload(client, account_id, upload_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
-    headers = []
-    if Dict.has_key?(input, "archiveSize") do
-      headers = [{"x-amz-archive-size", input["archiveSize"]}|headers]
-      input = Dict.delete(input, "archiveSize")
-    end
-    if Dict.has_key?(input, "checksum") do
-      headers = [{"x-amz-sha256-tree-hash", input["checksum"]}|headers]
-      input = Dict.delete(input, "checksum")
-    end
+
+    {headers, input} =
+      [
+        {"archiveSize", "x-amz-archive-size"},
+        {"checksum", "x-amz-sha256-tree-hash"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     case request(client, :post, url, headers, input, options, 201) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["x-amz-archive-id"]) do
-          body = %{body | "archiveId" => response.headers["x-amz-archive-id"]}
-        end
-        if !is_nil(response.headers["x-amz-sha256-tree-hash"]) do
-          body = %{body | "checksum" => response.headers["x-amz-sha256-tree-hash"]}
-        end
-        if !is_nil(response.headers["Location"]) do
-          body = %{body | "location" => response.headers["Location"]}
-        end
+        body =
+          [
+            {"x-amz-archive-id", "archiveId"},
+            {"x-amz-sha256-tree-hash", "checksum"},
+            {"Location", "location"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
@@ -200,7 +203,7 @@ defmodule AWS.Glacier do
   `InProgress` state by calling `InitiateVaultLock`. You can obtain the state
   of the vault lock by calling `GetVaultLock`. For more information about the
   vault locking process, [Amazon Glacier Vault
-  Lock](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
+  Lock](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
 
   This operation is idempotent. This request is always successful if the
   vault lock is in the `Locked` state and the provided lock ID matches the
@@ -221,7 +224,7 @@ defmodule AWS.Glacier do
   This operation creates a new vault with the specified name. The name of the
   vault must be unique within a region for an AWS account. You can create up
   to 1,000 vaults per account. If you need to create more vaults, contact
-  Amazon Glacier.
+  Amazon S3 Glacier.
 
   You must use the following guidelines when naming a vault.
 
@@ -237,13 +240,13 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Creating a Vault
   in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html)
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html)
   and [Create Vault
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html)
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def create_vault(client, account_id, vault_name, input, options \\ []) do
@@ -251,10 +254,19 @@ defmodule AWS.Glacier do
     headers = []
     case request(client, :put, url, headers, input, options, 201) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["Location"]) do
-          body = %{body | "location" => response.headers["Location"]}
-        end
+        body =
+          [
+            {"Location", "location"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
@@ -267,11 +279,11 @@ defmodule AWS.Glacier do
   following scenarios:
 
   <ul> <li> If the archive retrieval job is actively preparing the data for
-  download when Amazon Glacier receives the delete archive request, the
+  download when Amazon S3 Glacier receives the delete archive request, the
   archival retrieval operation might fail.
 
   </li> <li> If the archive retrieval job has successfully prepared the
-  archive for download when Amazon Glacier receives the delete archive
+  archive for download when Amazon S3 Glacier receives the delete archive
   request, you will be able to download the output.
 
   </li> </ul> This operation is idempotent. Attempting to delete an
@@ -282,13 +294,13 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Deleting an
   Archive in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html)
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html)
   and [Delete
-  Archive](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html)
+  Archive](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def delete_archive(client, account_id, archive_id, vault_name, input, options \\ []) do
@@ -298,17 +310,17 @@ defmodule AWS.Glacier do
   end
 
   @doc """
-  This operation deletes a vault. Amazon Glacier will delete a vault only if
-  there are no archives in the vault as of the last inventory and there have
-  been no writes to the vault since the last inventory. If either of these
-  conditions is not satisfied, the vault deletion fails (that is, the vault
-  is not removed) and Amazon Glacier returns an error. You can use
+  This operation deletes a vault. Amazon S3 Glacier will delete a vault only
+  if there are no archives in the vault as of the last inventory and there
+  have been no writes to the vault since the last inventory. If either of
+  these conditions is not satisfied, the vault deletion fails (that is, the
+  vault is not removed) and Amazon S3 Glacier returns an error. You can use
   `DescribeVault` to return the number of archives in a vault, and you can
   use [Initiate a Job (POST
-  jobs)](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html)
+  jobs)](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html)
   to initiate a new inventory retrieval for a vault. The inventory contains
   the archive IDs you use to delete archives using [Delete Archive (DELETE
-  archive)](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html).
+  archive)](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html).
 
   This operation is idempotent.
 
@@ -317,14 +329,14 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Deleting a Vault
   in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html)
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html)
   and [Delete Vault
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html)
-  in the *Amazon Glacier Developer Guide*.
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html)
+  in the *Amazon S3 Glacier Developer Guide*.
   """
   def delete_vault(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
@@ -335,14 +347,14 @@ defmodule AWS.Glacier do
   @doc """
   This operation deletes the access policy associated with the specified
   vault. The operation is eventually consistent; that is, it might take some
-  time for Amazon Glacier to completely remove the access policy, and you
+  time for Amazon S3 Glacier to completely remove the access policy, and you
   might still see the effect of the policy for a short time after you send
   the delete request.
 
   This operation is idempotent. You can invoke delete multiple times, even if
   there is no policy associated with the vault. For more information about
   vault access policies, see [Amazon Glacier Access Control with Vault Access
-  Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
+  Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
   def delete_vault_access_policy(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
@@ -353,8 +365,8 @@ defmodule AWS.Glacier do
   @doc """
   This operation deletes the notification configuration set for a vault. The
   operation is eventually consistent; that is, it might take some time for
-  Amazon Glacier to completely disable the notifications and you might still
-  receive some notifications for a short time after you send the delete
+  Amazon S3 Glacier to completely disable the notifications and you might
+  still receive some notifications for a short time after you send the delete
   request.
 
   An AWS account has full permission to perform all operations (actions).
@@ -362,14 +374,14 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Configuring Vault
-  Notifications in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
+  Notifications in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
   and [Delete Vault Notification Configuration
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html)
-  in the Amazon Glacier Developer Guide.
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html)
+  in the Amazon S3 Glacier Developer Guide.
   """
   def delete_vault_notifications(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
@@ -380,16 +392,16 @@ defmodule AWS.Glacier do
   @doc """
   This operation returns information about a job you previously initiated,
   including the job initiation date, the user who initiated the job, the job
-  status code/message and the Amazon SNS topic to notify after Amazon Glacier
-  completes the job. For more information about initiating a job, see
-  `InitiateJob`.
+  status code/message and the Amazon SNS topic to notify after Amazon S3
+  Glacier (Glacier) completes the job. For more information about initiating
+  a job, see `InitiateJob`.
 
   <note> This operation enables you to check the status of your job. However,
   it is strongly recommended that you set up an Amazon SNS topic and specify
-  it in your initiate job request so that Amazon Glacier can notify the topic
-  after it completes the job.
+  it in your initiate job request so that Glacier can notify the topic after
+  it completes the job.
 
-  </note> A job ID will not expire for at least 24 hours after Amazon Glacier
+  </note> A job ID will not expire for at least 24 hours after Glacier
   completes the job.
 
   An AWS account has full permission to perform all operations (actions).
@@ -397,11 +409,11 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For more information about using this operation, see the documentation for
   the underlying REST API [Describe
-  Job](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html)
+  Job](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def describe_job(client, account_id, job_id, vault_name, options \\ []) do
@@ -418,23 +430,23 @@ defmodule AWS.Glacier do
   generation. This means that if you add or remove an archive from a vault,
   and then immediately use Describe Vault, the change in contents will not be
   immediately reflected. If you want to retrieve the latest inventory of the
-  vault, use `InitiateJob`. Amazon Glacier generates vault inventories
+  vault, use `InitiateJob`. Amazon S3 Glacier generates vault inventories
   approximately daily. For more information, see [Downloading a Vault
-  Inventory in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html).
+  Inventory in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html).
 
   An AWS account has full permission to perform all operations (actions).
   However, AWS Identity and Access Management (IAM) users don't have any
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Retrieving Vault
-  Metadata in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html)
+  Metadata in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html)
   and [Describe Vault
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html)
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def describe_vault(client, account_id, vault_name, options \\ []) do
@@ -447,7 +459,7 @@ defmodule AWS.Glacier do
   This operation returns the current data retrieval policy for the account
   and region specified in the GET request. For more information about data
   retrieval policies, see [Amazon Glacier Data Retrieval
-  Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
+  Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
   """
   def get_data_retrieval_policy(client, account_id, options \\ []) do
     url = "/#{URI.encode(account_id)}/policies/data-retrieval"
@@ -463,73 +475,77 @@ defmodule AWS.Glacier do
 
   You can download all the job output or download a portion of the output by
   specifying a byte range. In the case of an archive retrieval job, depending
-  on the byte range you specify, Amazon Glacier returns the checksum for the
-  portion of the data. You can compute the checksum on the client and verify
-  that the values match to ensure the portion you downloaded is the correct
-  data.
+  on the byte range you specify, Amazon S3 Glacier (Glacier) returns the
+  checksum for the portion of the data. You can compute the checksum on the
+  client and verify that the values match to ensure the portion you
+  downloaded is the correct data.
 
-  A job ID will not expire for at least 24 hours after Amazon Glacier
-  completes the job. That a byte range. For both archive and inventory
-  retrieval jobs, you should verify the downloaded size against the size
-  returned in the headers from the **Get Job Output** response.
+  A job ID will not expire for at least 24 hours after Glacier completes the
+  job. That a byte range. For both archive and inventory retrieval jobs, you
+  should verify the downloaded size against the size returned in the headers
+  from the **Get Job Output** response.
 
   For archive retrieval jobs, you should also verify that the size is what
   you expected. If you download a portion of the output, the expected size is
   based on the range of bytes you specified. For example, if you specify a
   range of `bytes=0-1048575`, you should verify your download size is
   1,048,576 bytes. If you download an entire archive, the expected size is
-  the size of the archive when you uploaded it to Amazon Glacier The expected
-  size is also returned in the headers from the **Get Job Output** response.
+  the size of the archive when you uploaded it to Amazon S3 Glacier The
+  expected size is also returned in the headers from the **Get Job Output**
+  response.
 
   In the case of an archive retrieval job, depending on the byte range you
-  specify, Amazon Glacier returns the checksum for the portion of the data.
-  To ensure the portion you downloaded is the correct data, compute the
-  checksum on the client, verify that the values match, and verify that the
-  size is what you expected.
+  specify, Glacier returns the checksum for the portion of the data. To
+  ensure the portion you downloaded is the correct data, compute the checksum
+  on the client, verify that the values match, and verify that the size is
+  what you expected.
 
-  A job ID does not expire for at least 24 hours after Amazon Glacier
-  completes the job. That is, you can download the job output within the 24
-  hours period after Amazon Glacier completes the job.
+  A job ID does not expire for at least 24 hours after Glacier completes the
+  job. That is, you can download the job output within the 24 hours period
+  after Amazon Glacier completes the job.
 
   An AWS account has full permission to perform all operations (actions).
   However, AWS Identity and Access Management (IAM) users don't have any
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and the underlying REST API, see [Downloading a
   Vault
-  Inventory](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html),
+  Inventory](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html),
   [Downloading an
-  Archive](http://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html),
+  Archive](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html),
   and [Get Job Output
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html)
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html)
   """
   def get_job_output(client, account_id, job_id, vault_name, range \\ nil, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}/output"
     headers = []
-    if !is_nil(range) do
-      headers = [{"Range", range}|headers]
+    headers = if !is_nil(range) do
+      [{"Range", range} | headers]
+    else
+      headers
     end
     case request(client, :get, url, headers, nil, options, nil) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["Accept-Ranges"]) do
-          body = %{body | "acceptRanges" => response.headers["Accept-Ranges"]}
-        end
-        if !is_nil(response.headers["x-amz-archive-description"]) do
-          body = %{body | "archiveDescription" => response.headers["x-amz-archive-description"]}
-        end
-        if !is_nil(response.headers["x-amz-sha256-tree-hash"]) do
-          body = %{body | "checksum" => response.headers["x-amz-sha256-tree-hash"]}
-        end
-        if !is_nil(response.headers["Content-Range"]) do
-          body = %{body | "contentRange" => response.headers["Content-Range"]}
-        end
-        if !is_nil(response.headers["Content-Type"]) do
-          body = %{body | "contentType" => response.headers["Content-Type"]}
-        end
+        body =
+          [
+            {"Accept-Ranges", "acceptRanges"},
+            {"x-amz-archive-description", "archiveDescription"},
+            {"x-amz-sha256-tree-hash", "checksum"},
+            {"Content-Range", "contentRange"},
+            {"Content-Type", "contentType"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
@@ -539,11 +555,11 @@ defmodule AWS.Glacier do
   This operation retrieves the `access-policy` subresource set on the vault;
   for more information on setting this subresource, see [Set Vault Access
   Policy (PUT
-  access-policy)](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html).
+  access-policy)](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html).
   If there is no access policy set on the vault, the operation returns a `404
   Not found` error. For more information about vault access policies, see
   [Amazon Glacier Access Control with Vault Access
-  Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
+  Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
   def get_vault_access_policy(client, account_id, vault_name, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
@@ -571,12 +587,12 @@ defmodule AWS.Glacier do
   `CompleteVaultLock`. You can abort the vault locking process by calling
   `AbortVaultLock`. For more information about the vault locking process,
   [Amazon Glacier Vault
-  Lock](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
+  Lock](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
 
   If there is no vault lock policy set on the vault, the operation returns a
   `404 Not found` error. For more information about vault lock policies,
   [Amazon Glacier Access Control with Vault Lock
-  Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
+  Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
   """
   def get_vault_lock(client, account_id, vault_name, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
@@ -592,20 +608,21 @@ defmodule AWS.Glacier do
   `SetVaultNotifications`. If a notification configuration for a vault is not
   set, the operation returns a `404 Not Found` error. For more information
   about vault notifications, see [Configuring Vault Notifications in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html).
+  S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html).
 
   An AWS account has full permission to perform all operations (actions).
   However, AWS Identity and Access Management (IAM) users don't have any
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Configuring Vault
-  Notifications in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
+  Notifications in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
   and [Get Vault Notification Configuration
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html)
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def get_vault_notifications(client, account_id, vault_name, options \\ []) do
@@ -619,30 +636,35 @@ defmodule AWS.Glacier do
   select, an archival retrieval, or a vault retrieval. For more information
   about using this operation, see the documentation for the underlying REST
   API [Initiate a
-  Job](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html).
+  Job](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html).
   """
   def initiate_job(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
     headers = []
     case request(client, :post, url, headers, input, options, 202) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["x-amz-job-id"]) do
-          body = %{body | "jobId" => response.headers["x-amz-job-id"]}
-        end
-        if !is_nil(response.headers["x-amz-job-output-path"]) do
-          body = %{body | "jobOutputPath" => response.headers["x-amz-job-output-path"]}
-        end
-        if !is_nil(response.headers["Location"]) do
-          body = %{body | "location" => response.headers["Location"]}
-        end
+        body =
+          [
+            {"x-amz-job-id", "jobId"},
+            {"x-amz-job-output-path", "jobOutputPath"},
+            {"Location", "location"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
   end
 
   @doc """
-  This operation initiates a multipart upload. Amazon Glacier creates a
+  This operation initiates a multipart upload. Amazon S3 Glacier creates a
   multipart upload resource and returns its ID in the response. The multipart
   upload ID is used in subsequent requests to upload parts of an archive (see
   `UploadMultipartPart`).
@@ -660,48 +682,55 @@ defmodule AWS.Glacier do
   four parts of 4 MB each and one part of 0.2 MB.
 
   <note> You don't need to know the size of the archive when you start a
-  multipart upload because Amazon Glacier does not require you to specify the
-  overall archive size.
+  multipart upload because Amazon S3 Glacier does not require you to specify
+  the overall archive size.
 
-  </note> After you complete the multipart upload, Amazon Glacier removes the
-  multipart upload resource referenced by the ID. Amazon Glacier also removes
-  the multipart upload resource if you cancel the multipart upload or it may
-  be removed if there is no activity for a period of 24 hours.
+  </note> After you complete the multipart upload, Amazon S3 Glacier
+  (Glacier) removes the multipart upload resource referenced by the ID.
+  Glacier also removes the multipart upload resource if you cancel the
+  multipart upload or it may be removed if there is no activity for a period
+  of 24 hours.
 
   An AWS account has full permission to perform all operations (actions).
   However, AWS Identity and Access Management (IAM) users don't have any
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Uploading Large
   Archives in Parts (Multipart
-  Upload)](http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html)
+  Upload)](https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html)
   and [Initiate Multipart
-  Upload](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html)
+  Upload](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def initiate_multipart_upload(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
-    headers = []
-    if Dict.has_key?(input, "archiveDescription") do
-      headers = [{"x-amz-archive-description", input["archiveDescription"]}|headers]
-      input = Dict.delete(input, "archiveDescription")
-    end
-    if Dict.has_key?(input, "partSize") do
-      headers = [{"x-amz-part-size", input["partSize"]}|headers]
-      input = Dict.delete(input, "partSize")
-    end
+
+    {headers, input} =
+      [
+        {"archiveDescription", "x-amz-archive-description"},
+        {"partSize", "x-amz-part-size"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     case request(client, :post, url, headers, input, options, 201) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["Location"]) do
-          body = %{body | "location" => response.headers["Location"]}
-        end
-        if !is_nil(response.headers["x-amz-multipart-upload-id"]) do
-          body = %{body | "uploadId" => response.headers["x-amz-multipart-upload-id"]}
-        end
+        body =
+          [
+            {"Location", "location"},
+            {"x-amz-multipart-upload-id", "uploadId"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
@@ -720,7 +749,7 @@ defmodule AWS.Glacier do
   </li> </ul> You can set one vault lock policy for each vault and this
   policy can be up to 20 KB in size. For more information about vault lock
   policies, see [Amazon Glacier Access Control with Vault Lock
-  Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
+  Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
 
   You must complete the vault locking process within 24 hours after the vault
   lock enters the `InProgress` state. After the 24 hour window ends, the lock
@@ -735,7 +764,7 @@ defmodule AWS.Glacier do
   You can abort the vault locking process by calling `AbortVaultLock`. You
   can get the state of the vault lock by calling `GetVaultLock`. For more
   information about the vault locking process, [Amazon Glacier Vault
-  Lock](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
+  Lock](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
 
   If this operation is called when the vault lock is in the `InProgress`
   state, the operation returns an `AccessDeniedException` error. When the
@@ -747,10 +776,19 @@ defmodule AWS.Glacier do
     headers = []
     case request(client, :post, url, headers, input, options, 201) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["x-amz-lock-id"]) do
-          body = %{body | "lockId" => response.headers["x-amz-lock-id"]}
-        end
+        body =
+          [
+            {"x-amz-lock-id", "lockId"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
@@ -793,7 +831,7 @@ defmodule AWS.Glacier do
 
   For more information about using this operation, see the documentation for
   the underlying REST API [List
-  Jobs](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html).
+  Jobs](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html).
   """
   def list_jobs(client, account_id, vault_name, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
@@ -828,13 +866,13 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and the underlying REST API, see [Working with
-  Archives in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
+  Archives in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
   and [List Multipart Uploads
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html)
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def list_multipart_uploads(client, account_id, vault_name, options \\ []) do
@@ -865,13 +903,13 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and the underlying REST API, see [Working with
-  Archives in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
+  Archives in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html)
   and [List
-  Parts](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html)
+  Parts](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def list_parts(client, account_id, upload_id, vault_name, options \\ []) do
@@ -893,8 +931,8 @@ defmodule AWS.Glacier do
   @doc """
   This operation lists all the tags attached to a vault. The operation
   returns an empty map if there are no tags. For more information about tags,
-  see [Tagging Amazon Glacier
-  Resources](http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
+  see [Tagging Amazon S3 Glacier
+  Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
   def list_tags_for_vault(client, account_id, vault_name, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags"
@@ -920,13 +958,13 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Retrieving Vault
-  Metadata in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html)
+  Metadata in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html)
   and [List Vaults
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html)
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def list_vaults(client, account_id, options \\ []) do
@@ -943,10 +981,19 @@ defmodule AWS.Glacier do
     headers = []
     case request(client, :post, url, headers, input, options, 201) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["x-amz-capacity-id"]) do
-          body = %{body | "capacityId" => response.headers["x-amz-capacity-id"]}
-        end
+        body =
+          [
+            {"x-amz-capacity-id", "capacityId"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
@@ -954,8 +1001,8 @@ defmodule AWS.Glacier do
 
   @doc """
   This operation removes one or more tags from the set of tags attached to a
-  vault. For more information about tags, see [Tagging Amazon Glacier
-  Resources](http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
+  vault. For more information about tags, see [Tagging Amazon S3 Glacier
+  Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   This operation is idempotent. The operation will be successful, even if
   there are no tags attached to the vault.
   """
@@ -974,7 +1021,7 @@ defmodule AWS.Glacier do
   The set policy operation does not affect retrieval jobs that were in
   progress before the policy was enacted. For more information about data
   retrieval policies, see [Amazon Glacier Data Retrieval
-  Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
+  Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
   """
   def set_data_retrieval_policy(client, account_id, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/policies/data-retrieval"
@@ -990,7 +1037,7 @@ defmodule AWS.Glacier do
   access policy per vault and the policy can be up to 20 KB in size. For more
   information about vault access policies, see [Amazon Glacier Access Control
   with Vault Access
-  Policies](http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
+  Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
   def set_vault_access_policy(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
@@ -1005,7 +1052,7 @@ defmodule AWS.Glacier do
   To configure vault notifications, send a PUT request to the
   `notification-configuration` subresource of the vault. The request should
   include a JSON document that provides an Amazon SNS topic and specific
-  events for which you want Amazon Glacier to send notifications to the
+  events for which you want Amazon S3 Glacier to send notifications to the
   topic.
 
   Amazon SNS topics must grant permission to the vault to be allowed to
@@ -1029,13 +1076,13 @@ defmodule AWS.Glacier do
   have any permissions by default. You must grant them explicit permission to
   perform specific actions. For more information, see [Access Control Using
   AWS Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Configuring Vault
-  Notifications in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
+  Notifications in Amazon S3
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html)
   and [Set Vault Notification Configuration
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html)
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def set_vault_notifications(client, account_id, vault_name, input, options \\ []) do
@@ -1046,10 +1093,11 @@ defmodule AWS.Glacier do
 
   @doc """
   This operation adds an archive to a vault. This is a synchronous operation,
-  and for a successful upload, your data is durably persisted. Amazon Glacier
-  returns the archive ID in the `x-amz-archive-id` header of the response.
+  and for a successful upload, your data is durably persisted. Amazon S3
+  Glacier returns the archive ID in the `x-amz-archive-id` header of the
+  response.
 
-  You must use the archive ID to access your data in Amazon Glacier. After
+  You must use the archive ID to access your data in Amazon S3 Glacier. After
   you upload an archive, you should save the archive ID returned so that you
   can retrieve or delete the archive later. Besides saving the archive ID,
   you can also index it and give it a friendly name to allow for better
@@ -1061,7 +1109,7 @@ defmodule AWS.Glacier do
 
   You must provide a SHA256 tree hash of the data you are uploading. For
   information about computing a SHA256 tree hash, see [Computing
-  Checksums](http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).
+  Checksums](https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).
 
   You can optionally specify an archive description of up to 1,024 printable
   ASCII characters. You can get the archive description when you either
@@ -1078,38 +1126,42 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Uploading an
   Archive in Amazon
-  Glacier](http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html)
+  Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html)
   and [Upload
-  Archive](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html)
+  Archive](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def upload_archive(client, account_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives"
-    headers = []
-    if Dict.has_key?(input, "archiveDescription") do
-      headers = [{"x-amz-archive-description", input["archiveDescription"]}|headers]
-      input = Dict.delete(input, "archiveDescription")
-    end
-    if Dict.has_key?(input, "checksum") do
-      headers = [{"x-amz-sha256-tree-hash", input["checksum"]}|headers]
-      input = Dict.delete(input, "checksum")
-    end
+
+    {headers, input} =
+      [
+        {"archiveDescription", "x-amz-archive-description"},
+        {"checksum", "x-amz-sha256-tree-hash"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     case request(client, :post, url, headers, input, options, 201) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["x-amz-archive-id"]) do
-          body = %{body | "archiveId" => response.headers["x-amz-archive-id"]}
-        end
-        if !is_nil(response.headers["x-amz-sha256-tree-hash"]) do
-          body = %{body | "checksum" => response.headers["x-amz-sha256-tree-hash"]}
-        end
-        if !is_nil(response.headers["Location"]) do
-          body = %{body | "location" => response.headers["Location"]}
-        end
+        body =
+          [
+            {"x-amz-archive-id", "archiveId"},
+            {"x-amz-sha256-tree-hash", "checksum"},
+            {"Location", "location"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
@@ -1125,11 +1177,11 @@ defmodule AWS.Glacier do
 
   <ul> <li> **SHA256 tree hash does not match**To ensure that part data is
   not corrupted in transmission, you compute a SHA256 tree hash of the part
-  and include it in your request. Upon receiving the part data, Amazon
+  and include it in your request. Upon receiving the part data, Amazon S3
   Glacier also computes a SHA256 tree hash. If these hash values don't match,
   the operation fails. For information about computing a SHA256 tree hash,
   see [Computing
-  Checksums](http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).
+  Checksums](https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html).
 
   </li> <li> **Part size does not match**The size of each part except the
   last must match the size specified in the corresponding
@@ -1157,44 +1209,60 @@ defmodule AWS.Glacier do
   permissions by default. You must grant them explicit permission to perform
   specific actions. For more information, see [Access Control Using AWS
   Identity and Access Management
-  (IAM)](http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+  (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
 
   For conceptual information and underlying REST API, see [Uploading Large
   Archives in Parts (Multipart
-  Upload)](http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html)
+  Upload)](https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html)
   and [Upload Part
-  ](http://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html)
+  ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html)
   in the *Amazon Glacier Developer Guide*.
   """
   def upload_multipart_part(client, account_id, upload_id, vault_name, input, options \\ []) do
     url = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
-    headers = []
-    if Dict.has_key?(input, "checksum") do
-      headers = [{"x-amz-sha256-tree-hash", input["checksum"]}|headers]
-      input = Dict.delete(input, "checksum")
-    end
-    if Dict.has_key?(input, "range") do
-      headers = [{"Content-Range", input["range"]}|headers]
-      input = Dict.delete(input, "range")
-    end
+
+    {headers, input} =
+      [
+        {"checksum", "x-amz-sha256-tree-hash"},
+        {"range", "Content-Range"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
     case request(client, :put, url, headers, input, options, 204) do
       {:ok, body, response} ->
-        if !is_nil(response.headers["x-amz-sha256-tree-hash"]) do
-          body = %{body | "checksum" => response.headers["x-amz-sha256-tree-hash"]}
-        end
+        body =
+          [
+            {"x-amz-sha256-tree-hash", "checksum"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case response.headers[header_name] do
+              nil -> acc
+              value -> Map.put(acc, key, value)
+            end
+          end)
+        
         {:ok, body, response}
+
       result ->
         result
     end
   end
 
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, method, url, headers, input, options, success_status_code) do
     client = %{client | service: "glacier"}
     host = get_host("glacier", client)
     url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Security-Token", client.session_token} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -1202,17 +1270,17 @@ defmodule AWS.Glacier do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1220,13 +1288,16 @@ defmodule AWS.Glacier do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1245,10 +1316,6 @@ defmodule AWS.Glacier do
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, []), else: ""
   end
 end

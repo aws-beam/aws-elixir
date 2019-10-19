@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Logs do
   @moduledoc """
@@ -82,6 +82,9 @@ defmodule AWS.Logs do
   same S3 bucket. To separate out log data for each export task, you can
   specify a prefix to be used as the Amazon S3 key prefix for all exported
   objects.
+
+  Exporting to S3 buckets that are encrypted with AES-256 is supported.
+  Exporting to S3 buckets encrypted with SSE-KMS is not supported.
   """
   def create_export_task(client, input, options \\ []) do
     request(client, "CreateExportTask", input, options)
@@ -334,11 +337,18 @@ defmodule AWS.Logs do
   end
 
   @doc """
-  Returns the results from the specified query. If the query is in progress,
-  partial results of that current execution are returned. Only the fields
-  requested in the query are returned.
+  Returns the results from the specified query.
+
+  Only the fields requested in the query are returned, along with a `@ptr`
+  field which is the identifier for the log record. You can use the value of
+  `@ptr` in a operation to get the full log record.
 
   `GetQueryResults` does not start a query execution. To run a query, use .
+
+  If the value of the `Status` field in the output is `Running`, this
+  operation returns only partial results. If you see a value of `Scheduled`
+  or `Running` for the status, you can retry the operation later to see the
+  final results.
   """
   def get_query_results(client, input, options \\ []) do
     request(client, "GetQueryResults", input, options)
@@ -355,12 +365,12 @@ defmodule AWS.Logs do
   Creates or updates a destination. A destination encapsulates a physical
   resource (such as an Amazon Kinesis stream) and enables you to subscribe to
   a real-time stream of log events for a different account, ingested using
-  `PutLogEvents`. Currently, the only supported physical resource is a
-  Kinesis stream belonging to the same account as the destination.
+  `PutLogEvents`. A destination can be an Amazon Kinesis stream, Amazon
+  Kinesis Data Firehose strea, or an AWS Lambda function.
 
-  Through an access policy, a destination controls what is written to its
-  Kinesis stream. By default, `PutDestination` does not set any access policy
-  with the destination, which means a cross-account user cannot call
+  Through an access policy, a destination controls what is written to it. By
+  default, `PutDestination` does not set any access policy with the
+  destination, which means a cross-account user cannot call
   `PutSubscriptionFilter` against this destination. To enable this, the
   destination owner must call `PutDestinationPolicy` after `PutDestination`.
   """
@@ -399,7 +409,7 @@ defmodule AWS.Logs do
   the future.
 
   </li> <li> None of the log events in the batch can be older than 14 days or
-  the retention period of the log group.
+  older than the retention period of the log group.
 
   </li> <li> The log events in the batch must be in chronological ordered by
   their timestamp. The timestamp is the time the event occurred, expressed as
@@ -483,6 +493,10 @@ defmodule AWS.Logs do
 
   For more information, see [CloudWatch Logs Insights Query
   Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+
+  Queries time out after 15 minutes of execution. If your queries are timing
+  out, reduce the time range being searched, or partition your query into a
+  number of queries.
   """
   def start_query(client, input, options \\ []) do
     request(client, "StartQuery", input, options)
@@ -530,29 +544,38 @@ defmodule AWS.Logs do
     request(client, "UntagLogGroup", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "logs"}
     host = get_host("logs", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "Logs_20140328.#{action}"}]
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "Logs_20140328.#{action}"},
+      {"X-Amz-Security-Token", client.session_token}
+    ]
+    
     payload = Poison.Encoder.encode(input, [])
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+    
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+    
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -569,5 +592,4 @@ defmodule AWS.Logs do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

@@ -35,11 +35,11 @@ defmodule AWS.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [{:dialyxir, "~> 0.5.0", only: [:dev]},
-     {:earmark, "~> 1.1", only: [:dev]},
-     {:ex_doc, "~> 0.15.0", only: [:dev]},
-     {:httpoison, "~> 1.5"},
-     {:poison, "~> 3.1"},
-     {:timex, "~> 3.1"}]
+     {:earmark, "~> 1.4", only: [:dev]},
+     {:ex_doc, "~> 0.21", only: [:dev]},
+     {:httpoison, "~> 1.6"},
+     {:poison, "~> 4.0"},
+     {:timex, "~> 3.6"}]
   end
 
   defp package do

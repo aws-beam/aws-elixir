@@ -9,9 +9,9 @@ defmodule AWS.Mixfile do
      package: package(),
      version: @version,
      name: "aws-elixir",
-     source_url: "https://github.com/jkakar/aws-elixir",
-     homepage_url: "http://github.com/jkakar/aws-elixir",
-     elixir: "~> 1.4",
+     source_url: "https://github.com/aws-beam/aws-elixir",
+     homepage_url: "http://github.com/aws-beam/aws-elixir",
+     elixir: "~> 1.6",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -45,8 +45,8 @@ defmodule AWS.Mixfile do
   defp package do
     [maintainers: ["Jamu Kakar"],
      licenses: ["Apache 2.0"],
-     links: %{"GitHub" => "https://github.com/jkakar/aws-elixir",
+     links: %{"GitHub" => "https://github.com/aws-beam/aws-elixir",
               "Docs" => "http://hexdocs.pm/aws/#{@version}/",
-              "Changelog" => "https://github.com/jkakar/aws-elixir/blob/master/CHANGELOG.md"}]
+              "Changelog" => "https://github.com/aws-beam/aws-elixir/blob/master/CHANGELOG.md"}]
   end
 end

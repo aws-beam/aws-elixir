@@ -242,20 +242,24 @@ defmodule AWS.Shield do
     host = get_host("shield", client)
     url = get_url(host, client)
 
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
     headers = [
       {"Host", host},
       {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSShield_20160616.#{action}"},
-      {"X-Amz-Security-Token", client.session_token}
-    ]
-    
-    payload = Poison.Encoder.encode(input, [])
+      {"X-Amz-Target", "AWSShield_20160616.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-    
+
       {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
         {:ok, Poison.Parser.parse!(body, %{}), response}
     
@@ -264,7 +268,7 @@ defmodule AWS.Shield do
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
-    
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end

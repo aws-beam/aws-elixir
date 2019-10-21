@@ -34,10 +34,15 @@ defmodule AWS.MobileAnalytics do
     host = get_host("mobileanalytics", client)
     url = get_url(host, url, client)
 
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token} | headers]
+    else
+      []
+    end
+
     headers = [
       {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Security-Token", client.session_token} | headers
+      {"Content-Type", "application/x-amz-json-1.1"} | headers
     ]
 
     payload = encode_payload(input)
@@ -93,6 +98,6 @@ defmodule AWS.MobileAnalytics do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, []), else: ""
+    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
   end
 end

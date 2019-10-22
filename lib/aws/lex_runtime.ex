@@ -270,7 +270,7 @@ defmodule AWS.LexRuntime do
         {:ok, response}
 
       {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204->
+      when status_code == 200 or status_code == 202 or status_code == 204 ->
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->

@@ -21,18 +21,18 @@ defmodule AWS.LexRuntime do
   Removes session information for a specified bot, alias, and user ID.
   """
   def delete_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Returns session information for a specified bot, alias, and user ID.
   """
   def get_session(client, bot_alias, bot_name, user_id, options \\ []) do
-    url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -95,7 +95,7 @@ defmodule AWS.LexRuntime do
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
   def post_content(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
+    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
 
     {headers, input} =
       [
@@ -106,7 +106,7 @@ defmodule AWS.LexRuntime do
       ]
       |> AWS.Request.build_headers(input)
     
-    case request(client, :post, url, headers, input, options, nil) do
+    case request(client, :post, path, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -189,9 +189,9 @@ defmodule AWS.LexRuntime do
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
   def post_text(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
+    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -203,7 +203,7 @@ defmodule AWS.LexRuntime do
   Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
   """
   def put_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    url = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
 
     {headers, input} =
       [
@@ -211,7 +211,7 @@ defmodule AWS.LexRuntime do
       ]
       |> AWS.Request.build_headers(input)
     
-    case request(client, :post, url, headers, input, options, nil) do
+    case request(client, :post, path, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -243,10 +243,10 @@ defmodule AWS.LexRuntime do
           {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "lex"}
     host = get_host("runtime.lex", client)
-    url = get_url(host, url, client)
+    url = get_url(host, path, client)
 
     headers = if client.session_token do
       [{"X-Amz-Security-Token", client.session_token} | headers]
@@ -307,8 +307,8 @@ defmodule AWS.LexRuntime do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}/"
   end
 
   defp encode_payload(input) do

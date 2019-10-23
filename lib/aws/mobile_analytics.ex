@@ -13,7 +13,7 @@ defmodule AWS.MobileAnalytics do
   and metrics per custom event, and any number of attribute or metric values.
   """
   def put_events(client, input, options \\ []) do
-    url = "/2014-06-05/events"
+    path = "/2014-06-05/events"
 
     {headers, input} =
       [
@@ -22,17 +22,17 @@ defmodule AWS.MobileAnalytics do
       ]
       |> AWS.Request.build_headers(input)
     
-    request(client, :post, url, headers, input, options, 202)
+    request(client, :post, path, headers, input, options, 202)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "mobileanalytics"}
     host = get_host("mobileanalytics", client)
-    url = get_url(host, url, client)
+    url = get_url(host, path, client)
 
     headers = if client.session_token do
       [{"X-Amz-Security-Token", client.session_token} | headers]
@@ -93,8 +93,8 @@ defmodule AWS.MobileAnalytics do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}/"
   end
 
   defp encode_payload(input) do

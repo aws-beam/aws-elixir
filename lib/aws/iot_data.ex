@@ -21,9 +21,9 @@ defmodule AWS.IoT.DataPlane do
   in the *AWS IoT Developer Guide*.
   """
   def delete_thing_shadow(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/shadow"
+    path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -34,9 +34,9 @@ defmodule AWS.IoT.DataPlane do
   in the *AWS IoT Developer Guide*.
   """
   def get_thing_shadow(client, thing_name, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/shadow"
+    path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -47,9 +47,9 @@ defmodule AWS.IoT.DataPlane do
   in the *AWS IoT Developer Guide*.
   """
   def publish(client, topic, input, options \\ []) do
-    url = "/topics/#{URI.encode(topic)}"
+    path = "/topics/#{URI.encode(topic)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -60,19 +60,19 @@ defmodule AWS.IoT.DataPlane do
   in the *AWS IoT Developer Guide*.
   """
   def update_thing_shadow(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/shadow"
+    path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "iotdata"}
     host = get_host("data.iot", client)
-    url = get_url(host, url, client)
+    url = get_url(host, path, client)
 
     headers = if client.session_token do
       [{"X-Amz-Security-Token", client.session_token} | headers]
@@ -133,8 +133,8 @@ defmodule AWS.IoT.DataPlane do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}/"
   end
 
   defp encode_payload(input) do

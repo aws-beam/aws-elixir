@@ -121,9 +121,9 @@ defmodule AWS.LexRuntime do
             {"x-amz-lex-slots", "slots"},
           ]
           |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case response.headers[header_name] do
+            case List.keyfind(response.headers, header_name, 0) do
               nil -> acc
-              value -> Map.put(acc, key, value)
+              {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
         
@@ -226,9 +226,9 @@ defmodule AWS.LexRuntime do
             {"x-amz-lex-slots", "slots"},
           ]
           |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case response.headers[header_name] do
+            case List.keyfind(response.headers, header_name, 0) do
               nil -> acc
-              value -> Map.put(acc, key, value)
+              {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
         

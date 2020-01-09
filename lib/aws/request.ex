@@ -16,7 +16,12 @@ defmodule AWS.Request do
   def sign_v4(client, now, method, url, headers, body) do
     {:ok, long_date} = Timex.format(now, "{YYYY}{0M}{0D}T{h24}{m}{s}Z")
     {:ok, short_date} = Timex.format(now, "{YYYY}{0M}{0D}")
-    headers = Internal.add_date_header(headers, long_date)
+
+    headers =
+      headers
+      |> Internal.add_date_header(long_date)
+      |> Internal.add_security_token(client)
+
     canonical_request = Internal.canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
     credential_scope = Internal.credential_scope(short_date, client.region,
@@ -88,6 +93,13 @@ defmodule AWS.Request.Internal do
   def add_date_header(headers, date) do
     [{"X-Amz-Date", date}|headers]
   end
+
+  @doc """
+  Add an `X-Amz-Security-Token` if credentials configurations are configured for it
+  """
+  def add_security_token(headers, %AWS.Client{session_token: nil}), do: headers
+  def add_security_token(headers, %AWS.Client{session_token: session_token}),
+    do: [{"X-Amz-Security-Token", session_token}|headers]
 
   @doc """
   Generate an AWS4-HMAC-SHA256 authorization signature.

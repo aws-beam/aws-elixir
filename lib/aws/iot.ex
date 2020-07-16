@@ -29,27 +29,27 @@ defmodule AWS.IoT do
   enumerate your certificates.
   """
   def accept_certificate_transfer(client, certificate_id, input, options \\ []) do
-    url = "/accept-certificate-transfer/#{URI.encode(certificate_id)}"
+    path = "/accept-certificate-transfer/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Adds a thing to a billing group.
   """
   def add_thing_to_billing_group(client, input, options \\ []) do
-    url = "/billing-groups/addThingToBillingGroup"
+    path = "/billing-groups/addThingToBillingGroup"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
   Adds a thing to a thing group.
   """
   def add_thing_to_thing_group(client, input, options \\ []) do
-    url = "/thing-groups/addThingToThingGroup"
+    path = "/thing-groups/addThingToThingGroup"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -67,18 +67,18 @@ defmodule AWS.IoT do
   </li> </ul>
   """
   def associate_targets_with_job(client, job_id, input, options \\ []) do
-    url = "/jobs/#{URI.encode(job_id)}/targets"
+    path = "/jobs/#{URI.encode(job_id)}/targets"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Attaches a policy to the specified target.
   """
   def attach_policy(client, policy_name, input, options \\ []) do
-    url = "/target-policies/#{URI.encode(policy_name)}"
+    path = "/target-policies/#{URI.encode(policy_name)}"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -88,24 +88,26 @@ defmodule AWS.IoT do
   **Note:** This API is deprecated. Please use `AttachPolicy` instead.
   """
   def attach_principal_policy(client, policy_name, input, options \\ []) do
-    url = "/principal-policies/#{URI.encode(policy_name)}"
-    headers = []
-    if Dict.has_key?(input, "principal") do
-      headers = [{"x-amzn-iot-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
-    end
-    request(client, :put, url, headers, input, options, nil)
+    path = "/principal-policies/#{URI.encode(policy_name)}"
+
+    {headers, input} =
+      [
+        {"principal", "x-amzn-iot-principal"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
-  Associates a Device Defender security profile with a thing group or with
-  this account. Each thing group or account can have up to five security
-  profiles associated with it.
+  Associates a Device Defender security profile with a thing group or this
+  account. Each thing group or account can have up to five security profiles
+  associated with it.
   """
   def attach_security_profile(client, security_profile_name, input, options \\ []) do
-    url = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+    path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -114,13 +116,25 @@ defmodule AWS.IoT do
   or federated identities.
   """
   def attach_thing_principal(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/principals"
+    path = "/things/#{URI.encode(thing_name)}/principals"
+
+    {headers, input} =
+      [
+        {"principal", "x-amzn-principal"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
+    request(client, :put, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Cancels a mitigation action task that is in progress. If the task is not in
+  progress, an InvalidRequestException occurs.
+  """
+  def cancel_audit_mitigation_actions_task(client, task_id, input, options \\ []) do
+    path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}/cancel"
     headers = []
-    if Dict.has_key?(input, "principal") do
-      headers = [{"x-amzn-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
-    end
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -129,9 +143,9 @@ defmodule AWS.IoT do
   occurs.
   """
   def cancel_audit_task(client, task_id, input, options \\ []) do
-    url = "/audit/tasks/#{URI.encode(task_id)}/cancel"
+    path = "/audit/tasks/#{URI.encode(task_id)}/cancel"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -147,54 +161,54 @@ defmodule AWS.IoT do
   changes from PENDING_TRANSFER to INACTIVE.
   """
   def cancel_certificate_transfer(client, certificate_id, input, options \\ []) do
-    url = "/cancel-certificate-transfer/#{URI.encode(certificate_id)}"
+    path = "/cancel-certificate-transfer/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Cancels a job.
   """
   def cancel_job(client, job_id, input, options \\ []) do
-    url = "/jobs/#{URI.encode(job_id)}/cancel"
+    path = "/jobs/#{URI.encode(job_id)}/cancel"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
   Cancels the execution of a job for a given thing.
   """
   def cancel_job_execution(client, job_id, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/cancel"
+    path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/cancel"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
   Clears the default authorizer.
   """
   def clear_default_authorizer(client, input, options \\ []) do
-    url = "/default-authorizer"
+    path = "/default-authorizer"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Creates an authorizer.
   """
   def create_authorizer(client, authorizer_name, input, options \\ []) do
-    url = "/authorizer/#{URI.encode(authorizer_name)}"
+    path = "/authorizer/#{URI.encode(authorizer_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a billing group.
   """
   def create_billing_group(client, billing_group_name, input, options \\ []) do
-    url = "/billing-groups/#{URI.encode(billing_group_name)}"
+    path = "/billing-groups/#{URI.encode(billing_group_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -245,27 +259,27 @@ defmodule AWS.IoT do
   create-certificate-from-csr --certificate-signing-request file://@path"
   """
   def create_certificate_from_csr(client, input, options \\ []) do
-    url = "/certificates"
+    path = "/certificates"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a dynamic thing group.
   """
   def create_dynamic_thing_group(client, thing_group_name, input, options \\ []) do
-    url = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+    path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a job.
   """
   def create_job(client, job_id, input, options \\ []) do
-    url = "/jobs/#{URI.encode(job_id)}"
+    path = "/jobs/#{URI.encode(job_id)}"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -276,18 +290,29 @@ defmodule AWS.IoT do
   certificate, so it is important to keep it in a secure location.
   """
   def create_keys_and_certificate(client, input, options \\ []) do
-    url = "/keys-and-certificate"
+    path = "/keys-and-certificate"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Defines an action that can be applied to audit findings by using
+  StartAuditMitigationActionsTask. Each mitigation action can apply only one
+  type of change.
+  """
+  def create_mitigation_action(client, action_name, input, options \\ []) do
+    path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates an AWS IoT OTAUpdate on a target group of things or groups.
   """
   def create_o_t_a_update(client, ota_update_id, input, options \\ []) do
-    url = "/otaUpdates/#{URI.encode(ota_update_id)}"
+    path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -298,9 +323,9 @@ defmodule AWS.IoT do
   as the policy's default version.
   """
   def create_policy(client, policy_name, input, options \\ []) do
-    url = "/policies/#{URI.encode(policy_name)}"
+    path = "/policies/#{URI.encode(policy_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -314,36 +339,36 @@ defmodule AWS.IoT do
   in effect for the certificates to which the policy is attached).
   """
   def create_policy_version(client, policy_name, input, options \\ []) do
-    url = "/policies/#{URI.encode(policy_name)}/version"
+    path = "/policies/#{URI.encode(policy_name)}/version"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a role alias.
   """
   def create_role_alias(client, role_alias, input, options \\ []) do
-    url = "/role-aliases/#{URI.encode(role_alias)}"
+    path = "/role-aliases/#{URI.encode(role_alias)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a scheduled audit that is run at a specified time interval.
   """
   def create_scheduled_audit(client, scheduled_audit_name, input, options \\ []) do
-    url = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+    path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a Device Defender security profile.
   """
   def create_security_profile(client, security_profile_name, input, options \\ []) do
-    url = "/security-profiles/#{URI.encode(security_profile_name)}"
+    path = "/security-profiles/#{URI.encode(security_profile_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -357,9 +382,9 @@ defmodule AWS.IoT do
   incrementing the version by 1.
   """
   def create_stream(client, stream_id, input, options \\ []) do
-    url = "/streams/#{URI.encode(stream_id)}"
+    path = "/streams/#{URI.encode(stream_id)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -375,9 +400,9 @@ defmodule AWS.IoT do
   </note>
   """
   def create_thing(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}"
+    path = "/things/#{URI.encode(thing_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -390,18 +415,18 @@ defmodule AWS.IoT do
   </note>
   """
   def create_thing_group(client, thing_group_name, input, options \\ []) do
-    url = "/thing-groups/#{URI.encode(thing_group_name)}"
+    path = "/thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a new thing type.
   """
   def create_thing_type(client, thing_type_name, input, options \\ []) do
-    url = "/thing-types/#{URI.encode(thing_type_name)}"
+    path = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -410,13 +435,15 @@ defmodule AWS.IoT do
   the rule.
   """
   def create_topic_rule(client, rule_name, input, options \\ []) do
-    url = "/rules/#{URI.encode(rule_name)}"
-    headers = []
-    if Dict.has_key?(input, "tags") do
-      headers = [{"x-amz-tagging", input["tags"]}|headers]
-      input = Dict.delete(input, "tags")
-    end
-    request(client, :post, url, headers, input, options, nil)
+    path = "/rules/#{URI.encode(rule_name)}"
+
+    {headers, input} =
+      [
+        {"tags", "x-amz-tagging"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -425,59 +452,59 @@ defmodule AWS.IoT do
   reset to disabled.
   """
   def delete_account_audit_configuration(client, input, options \\ []) do
-    url = "/audit/configuration"
+    path = "/audit/configuration"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes an authorizer.
   """
   def delete_authorizer(client, authorizer_name, input, options \\ []) do
-    url = "/authorizer/#{URI.encode(authorizer_name)}"
+    path = "/authorizer/#{URI.encode(authorizer_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes the billing group.
   """
   def delete_billing_group(client, billing_group_name, input, options \\ []) do
-    url = "/billing-groups/#{URI.encode(billing_group_name)}"
+    path = "/billing-groups/#{URI.encode(billing_group_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a registered CA certificate.
   """
   def delete_c_a_certificate(client, certificate_id, input, options \\ []) do
-    url = "/cacertificate/#{URI.encode(certificate_id)}"
+    path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes the specified certificate.
 
-  A certificate cannot be deleted if it has a policy attached to it or if its
-  status is set to ACTIVE. To delete a certificate, first use the
-  `DetachPrincipalPolicy` API to detach all policies. Next, use the
+  A certificate cannot be deleted if it has a policy or IoT thing attached to
+  it or if its status is set to ACTIVE. To delete a certificate, first use
+  the `DetachPrincipalPolicy` API to detach all policies. Next, use the
   `UpdateCertificate` API to set the certificate to the INACTIVE status.
   """
   def delete_certificate(client, certificate_id, input, options \\ []) do
-    url = "/certificates/#{URI.encode(certificate_id)}"
+    path = "/certificates/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a dynamic thing group.
   """
   def delete_dynamic_thing_group(client, thing_group_name, input, options \\ []) do
-    url = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+    path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -493,27 +520,36 @@ defmodule AWS.IoT do
   LimitExceededException will occur.
   """
   def delete_job(client, job_id, input, options \\ []) do
-    url = "/jobs/#{URI.encode(job_id)}"
+    path = "/jobs/#{URI.encode(job_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a job execution.
   """
   def delete_job_execution(client, execution_number, job_id, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/executionNumber/#{URI.encode(execution_number)}"
+    path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/executionNumber/#{URI.encode(execution_number)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes a defined mitigation action from your AWS account.
+  """
+  def delete_mitigation_action(client, action_name, input, options \\ []) do
+    path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Delete an OTA update.
   """
   def delete_o_t_a_update(client, ota_update_id, input, options \\ []) do
-    url = "/otaUpdates/#{URI.encode(ota_update_id)}"
+    path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -531,9 +567,9 @@ defmodule AWS.IoT do
   with it.
   """
   def delete_policy(client, policy_name, input, options \\ []) do
-    url = "/policies/#{URI.encode(policy_name)}"
+    path = "/policies/#{URI.encode(policy_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -543,54 +579,54 @@ defmodule AWS.IoT do
   policy is marked as the default version, use ListPolicyVersions.
   """
   def delete_policy_version(client, policy_name, policy_version_id, input, options \\ []) do
-    url = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+    path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a CA certificate registration code.
   """
   def delete_registration_code(client, input, options \\ []) do
-    url = "/registrationcode"
+    path = "/registrationcode"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a role alias
   """
   def delete_role_alias(client, role_alias, input, options \\ []) do
-    url = "/role-aliases/#{URI.encode(role_alias)}"
+    path = "/role-aliases/#{URI.encode(role_alias)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a scheduled audit.
   """
   def delete_scheduled_audit(client, scheduled_audit_name, input, options \\ []) do
-    url = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+    path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a Device Defender security profile.
   """
   def delete_security_profile(client, security_profile_name, input, options \\ []) do
-    url = "/security-profiles/#{URI.encode(security_profile_name)}"
+    path = "/security-profiles/#{URI.encode(security_profile_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a stream.
   """
   def delete_stream(client, stream_id, input, options \\ []) do
-    url = "/streams/#{URI.encode(stream_id)}"
+    path = "/streams/#{URI.encode(stream_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -598,18 +634,18 @@ defmodule AWS.IoT do
   deletion is successful or you specify a thing that doesn't exist.
   """
   def delete_thing(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}"
+    path = "/things/#{URI.encode(thing_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a thing group.
   """
   def delete_thing_group(client, thing_group_name, input, options \\ []) do
-    url = "/thing-groups/#{URI.encode(thing_group_name)}"
+    path = "/thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -620,27 +656,27 @@ defmodule AWS.IoT do
   thing, and finally use `DeleteThingType` to delete the thing type.
   """
   def delete_thing_type(client, thing_type_name, input, options \\ []) do
-    url = "/thing-types/#{URI.encode(thing_type_name)}"
+    path = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes the rule.
   """
   def delete_topic_rule(client, rule_name, input, options \\ []) do
-    url = "/rules/#{URI.encode(rule_name)}"
+    path = "/rules/#{URI.encode(rule_name)}"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a logging level.
   """
   def delete_v2_logging_level(client, input, options \\ []) do
-    url = "/v2LoggingLevel"
+    path = "/v2LoggingLevel"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -648,9 +684,9 @@ defmodule AWS.IoT do
   thing type.
   """
   def deprecate_thing_type(client, thing_type_name, input, options \\ []) do
-    url = "/thing-types/#{URI.encode(thing_type_name)}/deprecate"
+    path = "/thing-types/#{URI.encode(thing_type_name)}/deprecate"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -659,189 +695,221 @@ defmodule AWS.IoT do
   are enabled or disabled.
   """
   def describe_account_audit_configuration(client, options \\ []) do
-    url = "/audit/configuration"
+    path = "/audit/configuration"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about a single audit finding. Properties include the
+  reason for noncompliance, the severity of the issue, and when the audit
+  that returned the finding was started.
+  """
+  def describe_audit_finding(client, finding_id, options \\ []) do
+    path = "/audit/findings/#{URI.encode(finding_id)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about an audit mitigation task that is used to apply
+  mitigation actions to a set of audit findings. Properties include the
+  actions being applied, the audit checks to which they're being applied, the
+  task status, and aggregated task statistics.
+  """
+  def describe_audit_mitigation_actions_task(client, task_id, options \\ []) do
+    path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets information about a Device Defender audit.
   """
   def describe_audit_task(client, task_id, options \\ []) do
-    url = "/audit/tasks/#{URI.encode(task_id)}"
+    path = "/audit/tasks/#{URI.encode(task_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes an authorizer.
   """
   def describe_authorizer(client, authorizer_name, options \\ []) do
-    url = "/authorizer/#{URI.encode(authorizer_name)}"
+    path = "/authorizer/#{URI.encode(authorizer_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Returns information about a billing group.
   """
   def describe_billing_group(client, billing_group_name, options \\ []) do
-    url = "/billing-groups/#{URI.encode(billing_group_name)}"
+    path = "/billing-groups/#{URI.encode(billing_group_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes a registered CA certificate.
   """
   def describe_c_a_certificate(client, certificate_id, options \\ []) do
-    url = "/cacertificate/#{URI.encode(certificate_id)}"
+    path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets information about the specified certificate.
   """
   def describe_certificate(client, certificate_id, options \\ []) do
-    url = "/certificates/#{URI.encode(certificate_id)}"
+    path = "/certificates/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes the default authorizer.
   """
   def describe_default_authorizer(client, options \\ []) do
-    url = "/default-authorizer"
+    path = "/default-authorizer"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Returns a unique endpoint specific to the AWS account making the call.
   """
   def describe_endpoint(client, options \\ []) do
-    url = "/endpoint"
+    path = "/endpoint"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes event configurations.
   """
   def describe_event_configurations(client, options \\ []) do
-    url = "/event-configurations"
+    path = "/event-configurations"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes a search index.
   """
   def describe_index(client, index_name, options \\ []) do
-    url = "/indices/#{URI.encode(index_name)}"
+    path = "/indices/#{URI.encode(index_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes a job.
   """
   def describe_job(client, job_id, options \\ []) do
-    url = "/jobs/#{URI.encode(job_id)}"
+    path = "/jobs/#{URI.encode(job_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes a job execution.
   """
   def describe_job_execution(client, job_id, thing_name, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}"
+    path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about a mitigation action.
+  """
+  def describe_mitigation_action(client, action_name, options \\ []) do
+    path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes a role alias.
   """
   def describe_role_alias(client, role_alias, options \\ []) do
-    url = "/role-aliases/#{URI.encode(role_alias)}"
+    path = "/role-aliases/#{URI.encode(role_alias)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets information about a scheduled audit.
   """
   def describe_scheduled_audit(client, scheduled_audit_name, options \\ []) do
-    url = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+    path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets information about a Device Defender security profile.
   """
   def describe_security_profile(client, security_profile_name, options \\ []) do
-    url = "/security-profiles/#{URI.encode(security_profile_name)}"
+    path = "/security-profiles/#{URI.encode(security_profile_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets information about a stream.
   """
   def describe_stream(client, stream_id, options \\ []) do
-    url = "/streams/#{URI.encode(stream_id)}"
+    path = "/streams/#{URI.encode(stream_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets information about the specified thing.
   """
   def describe_thing(client, thing_name, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}"
+    path = "/things/#{URI.encode(thing_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describe a thing group.
   """
   def describe_thing_group(client, thing_group_name, options \\ []) do
-    url = "/thing-groups/#{URI.encode(thing_group_name)}"
+    path = "/thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Describes a bulk thing provisioning task.
   """
   def describe_thing_registration_task(client, task_id, options \\ []) do
-    url = "/thing-registration-tasks/#{URI.encode(task_id)}"
+    path = "/thing-registration-tasks/#{URI.encode(task_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets information about the specified thing type.
   """
   def describe_thing_type(client, thing_type_name, options \\ []) do
-    url = "/thing-types/#{URI.encode(thing_type_name)}"
+    path = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Detaches a policy from the specified target.
   """
   def detach_policy(client, policy_name, input, options \\ []) do
-    url = "/target-policies/#{URI.encode(policy_name)}"
+    path = "/target-policies/#{URI.encode(policy_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -850,13 +918,15 @@ defmodule AWS.IoT do
   **Note:** This API is deprecated. Please use `DetachPolicy` instead.
   """
   def detach_principal_policy(client, policy_name, input, options \\ []) do
-    url = "/principal-policies/#{URI.encode(policy_name)}"
-    headers = []
-    if Dict.has_key?(input, "principal") do
-      headers = [{"x-amzn-iot-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
-    end
-    request(client, :delete, url, headers, input, options, nil)
+    path = "/principal-policies/#{URI.encode(policy_name)}"
+
+    {headers, input} =
+      [
+        {"principal", "x-amzn-iot-principal"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -864,9 +934,9 @@ defmodule AWS.IoT do
   this account.
   """
   def detach_security_profile(client, security_profile_name, input, options \\ []) do
-    url = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+    path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -880,31 +950,33 @@ defmodule AWS.IoT do
   </note>
   """
   def detach_thing_principal(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/principals"
-    headers = []
-    if Dict.has_key?(input, "principal") do
-      headers = [{"x-amzn-principal", input["principal"]}|headers]
-      input = Dict.delete(input, "principal")
-    end
-    request(client, :delete, url, headers, input, options, nil)
+    path = "/things/#{URI.encode(thing_name)}/principals"
+
+    {headers, input} =
+      [
+        {"principal", "x-amzn-principal"},
+      ]
+      |> AWS.Request.build_headers(input)
+    
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
   Disables the rule.
   """
   def disable_topic_rule(client, rule_name, input, options \\ []) do
-    url = "/rules/#{URI.encode(rule_name)}/disable"
+    path = "/rules/#{URI.encode(rule_name)}/disable"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Enables the rule.
   """
   def enable_topic_rule(client, rule_name, input, options \\ []) do
-    url = "/rules/#{URI.encode(rule_name)}/enable"
+    path = "/rules/#{URI.encode(rule_name)}/enable"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -913,27 +985,27 @@ defmodule AWS.IoT do
   gateway.
   """
   def get_effective_policies(client, input, options \\ []) do
-    url = "/effective-policies"
+    path = "/effective-policies"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Gets the search configuration.
   """
   def get_indexing_configuration(client, options \\ []) do
-    url = "/indexing/config"
+    path = "/indexing/config"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets a job document.
   """
   def get_job_document(client, job_id, options \\ []) do
-    url = "/jobs/#{URI.encode(job_id)}/job-document"
+    path = "/jobs/#{URI.encode(job_id)}/job-document"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -943,18 +1015,18 @@ defmodule AWS.IoT do
   instead.
   """
   def get_logging_options(client, options \\ []) do
-    url = "/loggingOptions"
+    path = "/loggingOptions"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets an OTA update.
   """
   def get_o_t_a_update(client, ota_update_id, options \\ []) do
-    url = "/otaUpdates/#{URI.encode(ota_update_id)}"
+    path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -962,72 +1034,72 @@ defmodule AWS.IoT do
   default version.
   """
   def get_policy(client, policy_name, options \\ []) do
-    url = "/policies/#{URI.encode(policy_name)}"
+    path = "/policies/#{URI.encode(policy_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets information about the specified policy version.
   """
   def get_policy_version(client, policy_name, policy_version_id, options \\ []) do
-    url = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+    path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets a registration code used to register a CA certificate with AWS IoT.
   """
   def get_registration_code(client, options \\ []) do
-    url = "/registrationcode"
+    path = "/registrationcode"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets statistics about things that match the specified query.
   """
   def get_statistics(client, input, options \\ []) do
-    url = "/indices/statistics"
+    path = "/indices/statistics"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Gets information about the rule.
   """
   def get_topic_rule(client, rule_name, options \\ []) do
-    url = "/rules/#{URI.encode(rule_name)}"
+    path = "/rules/#{URI.encode(rule_name)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Gets the fine grained logging options.
   """
   def get_v2_logging_options(client, options \\ []) do
-    url = "/v2LoggingOptions"
+    path = "/v2LoggingOptions"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the active violations for a given Device Defender security profile.
   """
   def list_active_violations(client, options \\ []) do
-    url = "/active-violations"
+    path = "/active-violations"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the policies attached to the specified thing group.
   """
   def list_attached_policies(client, target, input, options \\ []) do
-    url = "/attached-policies/#{URI.encode(target)}"
+    path = "/attached-policies/#{URI.encode(target)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1036,9 +1108,28 @@ defmodule AWS.IoT do
   days.)
   """
   def list_audit_findings(client, input, options \\ []) do
-    url = "/audit/findings"
+    path = "/audit/findings"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Gets the status of audit mitigation action tasks that were executed.
+  """
+  def list_audit_mitigation_actions_executions(client, options \\ []) do
+    path = "/audit/mitigationactions/executions"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a list of audit mitigation action tasks that match the specified
+  filters.
+  """
+  def list_audit_mitigation_actions_tasks(client, options \\ []) do
+    path = "/audit/mitigationactions/tasks"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1046,27 +1137,27 @@ defmodule AWS.IoT do
   time period.
   """
   def list_audit_tasks(client, options \\ []) do
-    url = "/audit/tasks"
+    path = "/audit/tasks"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the authorizers registered in your account.
   """
   def list_authorizers(client, options \\ []) do
-    url = "/authorizers"
+    path = "/authorizers"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the billing groups you have created.
   """
   def list_billing_groups(client, options \\ []) do
-    url = "/billing-groups"
+    path = "/billing-groups"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1076,9 +1167,9 @@ defmodule AWS.IoT do
   returned marker to retrieve additional results.
   """
   def list_c_a_certificates(client, options \\ []) do
-    url = "/cacertificates"
+    path = "/cacertificates"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1088,81 +1179,91 @@ defmodule AWS.IoT do
   returned marker to retrieve additional results.
   """
   def list_certificates(client, options \\ []) do
-    url = "/certificates"
+    path = "/certificates"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   List the device certificates signed by the specified CA certificate.
   """
   def list_certificates_by_c_a(client, ca_certificate_id, options \\ []) do
-    url = "/certificates-by-ca/#{URI.encode(ca_certificate_id)}"
+    path = "/certificates-by-ca/#{URI.encode(ca_certificate_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the search indices.
   """
   def list_indices(client, options \\ []) do
-    url = "/indices"
+    path = "/indices"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the job executions for a job.
   """
   def list_job_executions_for_job(client, job_id, options \\ []) do
-    url = "/jobs/#{URI.encode(job_id)}/things"
+    path = "/jobs/#{URI.encode(job_id)}/things"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the job executions for the specified thing.
   """
   def list_job_executions_for_thing(client, thing_name, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/jobs"
+    path = "/things/#{URI.encode(thing_name)}/jobs"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists jobs.
   """
   def list_jobs(client, options \\ []) do
-    url = "/jobs"
+    path = "/jobs"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a list of all mitigation actions that match the specified filter
+  criteria.
+  """
+  def list_mitigation_actions(client, options \\ []) do
+    path = "/mitigationactions/actions"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists OTA updates.
   """
   def list_o_t_a_updates(client, options \\ []) do
-    url = "/otaUpdates"
+    path = "/otaUpdates"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists certificates that are being transferred but not yet accepted.
   """
   def list_outgoing_certificates(client, options \\ []) do
-    url = "/certificates-out-going"
+    path = "/certificates-out-going"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists your policies.
   """
   def list_policies(client, options \\ []) do
-    url = "/policies"
+    path = "/policies"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1172,12 +1273,14 @@ defmodule AWS.IoT do
   instead.
   """
   def list_policy_principals(client, policy_name \\ nil, options \\ []) do
-    url = "/policy-principals"
+    path = "/policy-principals"
     headers = []
-    if !is_nil(policy_name) do
-      headers = [{"x-amzn-iot-policy", policy_name}|headers]
+    headers = if !is_nil(policy_name) do
+      [{"x-amzn-iot-policy", policy_name} | headers]
+    else
+      headers
     end
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1185,9 +1288,9 @@ defmodule AWS.IoT do
   version.
   """
   def list_policy_versions(client, policy_name, options \\ []) do
-    url = "/policies/#{URI.encode(policy_name)}/version"
+    path = "/policies/#{URI.encode(policy_name)}/version"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1199,12 +1302,14 @@ defmodule AWS.IoT do
   instead.
   """
   def list_principal_policies(client, principal \\ nil, options \\ []) do
-    url = "/principal-policies"
+    path = "/principal-policies"
     headers = []
-    if !is_nil(principal) do
-      headers = [{"x-amzn-iot-principal", principal}|headers]
+    headers = if !is_nil(principal) do
+      [{"x-amzn-iot-principal", principal} | headers]
+    else
+      headers
     end
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1213,30 +1318,32 @@ defmodule AWS.IoT do
   identities or federated identities.
   """
   def list_principal_things(client, principal \\ nil, options \\ []) do
-    url = "/principals/things"
+    path = "/principals/things"
     headers = []
-    if !is_nil(principal) do
-      headers = [{"x-amzn-principal", principal}|headers]
+    headers = if !is_nil(principal) do
+      [{"x-amzn-principal", principal} | headers]
+    else
+      headers
     end
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the role aliases registered in your account.
   """
   def list_role_aliases(client, options \\ []) do
-    url = "/role-aliases"
+    path = "/role-aliases"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists all of your scheduled audits.
   """
   def list_scheduled_audits(client, options \\ []) do
-    url = "/audit/scheduledaudits"
+    path = "/audit/scheduledaudits"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1245,9 +1352,9 @@ defmodule AWS.IoT do
   or only those associated with your account.
   """
   def list_security_profiles(client, options \\ []) do
-    url = "/security-profiles"
+    path = "/security-profiles"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1255,36 +1362,36 @@ defmodule AWS.IoT do
   group).
   """
   def list_security_profiles_for_target(client, options \\ []) do
-    url = "/security-profiles-for-target"
+    path = "/security-profiles-for-target"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists all of the streams in your AWS account.
   """
   def list_streams(client, options \\ []) do
-    url = "/streams"
+    path = "/streams"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
   """
   def list_tags_for_resource(client, options \\ []) do
-    url = "/tags"
+    path = "/tags"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   List targets for the specified policy.
   """
   def list_targets_for_policy(client, policy_name, input, options \\ []) do
-    url = "/policy-targets/#{URI.encode(policy_name)}"
+    path = "/policy-targets/#{URI.encode(policy_name)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1292,27 +1399,27 @@ defmodule AWS.IoT do
   security profile.
   """
   def list_targets_for_security_profile(client, security_profile_name, options \\ []) do
-    url = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+    path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   List the thing groups in your account.
   """
   def list_thing_groups(client, options \\ []) do
-    url = "/thing-groups"
+    path = "/thing-groups"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   List the thing groups to which the specified thing belongs.
   """
   def list_thing_groups_for_thing(client, thing_name, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/thing-groups"
+    path = "/things/#{URI.encode(thing_name)}/thing-groups"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1321,36 +1428,36 @@ defmodule AWS.IoT do
   identities or federated identities.
   """
   def list_thing_principals(client, thing_name, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/principals"
+    path = "/things/#{URI.encode(thing_name)}/principals"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Information about the thing registration tasks.
   """
   def list_thing_registration_task_reports(client, task_id, options \\ []) do
-    url = "/thing-registration-tasks/#{URI.encode(task_id)}/reports"
+    path = "/thing-registration-tasks/#{URI.encode(task_id)}/reports"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   List bulk thing provisioning tasks.
   """
   def list_thing_registration_tasks(client, options \\ []) do
-    url = "/thing-registration-tasks"
+    path = "/thing-registration-tasks"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the existing thing types.
   """
   def list_thing_types(client, options \\ []) do
-    url = "/thing-types"
+    path = "/thing-types"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1360,56 +1467,56 @@ defmodule AWS.IoT do
   registry that contain an attribute **Color** with the value **Red**.
   """
   def list_things(client, options \\ []) do
-    url = "/things"
+    path = "/things"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the things you have added to the given billing group.
   """
   def list_things_in_billing_group(client, billing_group_name, options \\ []) do
-    url = "/billing-groups/#{URI.encode(billing_group_name)}/things"
+    path = "/billing-groups/#{URI.encode(billing_group_name)}/things"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the things in the specified group.
   """
   def list_things_in_thing_group(client, thing_group_name, options \\ []) do
-    url = "/thing-groups/#{URI.encode(thing_group_name)}/things"
+    path = "/thing-groups/#{URI.encode(thing_group_name)}/things"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the rules for the specific topic.
   """
   def list_topic_rules(client, options \\ []) do
-    url = "/rules"
+    path = "/rules"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists logging levels.
   """
   def list_v2_logging_levels(client, options \\ []) do
-    url = "/v2LoggingLevel"
+    path = "/v2LoggingLevel"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   Lists the Device Defender security profile violations discovered during the
   given time period. You can use filters to limit the results to those alerts
-  issued for a particular security profile, behavior or thing (device).
+  issued for a particular security profile, behavior, or thing (device).
   """
   def list_violation_events(client, options \\ []) do
-    url = "/violation-events"
+    path = "/violation-events"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -1422,9 +1529,9 @@ defmodule AWS.IoT do
   register your device certificates with the RegisterCertificate API.
   """
   def register_c_a_certificate(client, input, options \\ []) do
-    url = "/cacertificate"
+    path = "/cacertificate"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1433,18 +1540,18 @@ defmodule AWS.IoT do
   certificate that was used to sign the device certificate being registered.
   """
   def register_certificate(client, input, options \\ []) do
-    url = "/certificate/register"
+    path = "/certificate/register"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Provisions a thing.
   """
   def register_thing(client, input, options \\ []) do
-    url = "/things"
+    path = "/things"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1460,27 +1567,27 @@ defmodule AWS.IoT do
   INACTIVE state.
   """
   def reject_certificate_transfer(client, certificate_id, input, options \\ []) do
-    url = "/reject-certificate-transfer/#{URI.encode(certificate_id)}"
+    path = "/reject-certificate-transfer/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Removes the given thing from the billing group.
   """
   def remove_thing_from_billing_group(client, input, options \\ []) do
-    url = "/billing-groups/removeThingFromBillingGroup"
+    path = "/billing-groups/removeThingFromBillingGroup"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
   Remove the specified thing from the specified group.
   """
   def remove_thing_from_thing_group(client, input, options \\ []) do
-    url = "/thing-groups/removeThingFromThingGroup"
+    path = "/thing-groups/removeThingFromThingGroup"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1490,18 +1597,18 @@ defmodule AWS.IoT do
   rule.
   """
   def replace_topic_rule(client, rule_name, input, options \\ []) do
-    url = "/rules/#{URI.encode(rule_name)}"
+    path = "/rules/#{URI.encode(rule_name)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   The query search index.
   """
   def search_index(client, input, options \\ []) do
-    url = "/indices/search"
+    path = "/indices/search"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1509,9 +1616,9 @@ defmodule AWS.IoT do
   made without specifying an authorizer.
   """
   def set_default_authorizer(client, input, options \\ []) do
-    url = "/default-authorizer"
+    path = "/default-authorizer"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1521,9 +1628,9 @@ defmodule AWS.IoT do
   the ListPrincipalPolicy API.
   """
   def set_default_policy_version(client, policy_name, policy_version_id, input, options \\ []) do
-    url = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+    path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1533,54 +1640,64 @@ defmodule AWS.IoT do
   instead.
   """
   def set_logging_options(client, input, options \\ []) do
-    url = "/loggingOptions"
+    path = "/loggingOptions"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Sets the logging level.
   """
   def set_v2_logging_level(client, input, options \\ []) do
-    url = "/v2LoggingLevel"
+    path = "/v2LoggingLevel"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Sets the logging options for the V2 logging service.
   """
   def set_v2_logging_options(client, input, options \\ []) do
-    url = "/v2LoggingOptions"
+    path = "/v2LoggingOptions"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Starts a task that applies a set of mitigation actions to the specified
+  target.
+  """
+  def start_audit_mitigation_actions_task(client, task_id, input, options \\ []) do
+    path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Starts an on-demand Device Defender audit.
   """
   def start_on_demand_audit_task(client, input, options \\ []) do
-    url = "/audit/tasks"
+    path = "/audit/tasks"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a bulk thing provisioning task.
   """
   def start_thing_registration_task(client, input, options \\ []) do
-    url = "/thing-registration-tasks"
+    path = "/thing-registration-tasks"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Cancels a bulk thing provisioning task.
   """
   def stop_thing_registration_task(client, task_id, input, options \\ []) do
-    url = "/thing-registration-tasks/#{URI.encode(task_id)}/cancel"
+    path = "/thing-registration-tasks/#{URI.encode(task_id)}/cancel"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1588,9 +1705,9 @@ defmodule AWS.IoT do
   can be used to manage a resource.
   """
   def tag_resource(client, input, options \\ []) do
-    url = "/tags"
+    path = "/tags"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1599,9 +1716,9 @@ defmodule AWS.IoT do
   behavior of devices that connect to the AWS IoT device gateway.
   """
   def test_authorization(client, input, options \\ []) do
-    url = "/test-authorization"
+    path = "/test-authorization"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1610,9 +1727,9 @@ defmodule AWS.IoT do
   devices that connect to the AWS IoT device gateway.
   """
   def test_invoke_authorizer(client, authorizer_name, input, options \\ []) do
-    url = "/authorizer/#{URI.encode(authorizer_name)}/test"
+    path = "/authorizer/#{URI.encode(authorizer_name)}/test"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1630,18 +1747,18 @@ defmodule AWS.IoT do
   DetachPrincipalPolicy API to detach them.
   """
   def transfer_certificate(client, certificate_id, input, options \\ []) do
-    url = "/transfer-certificate/#{URI.encode(certificate_id)}"
+    path = "/transfer-certificate/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Removes the given tags (metadata) from the resource.
   """
   def untag_resource(client, input, options \\ []) do
-    url = "/untag"
+    path = "/untag"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1650,36 +1767,36 @@ defmodule AWS.IoT do
   checks are enabled or disabled.
   """
   def update_account_audit_configuration(client, input, options \\ []) do
-    url = "/audit/configuration"
+    path = "/audit/configuration"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Updates an authorizer.
   """
   def update_authorizer(client, authorizer_name, input, options \\ []) do
-    url = "/authorizer/#{URI.encode(authorizer_name)}"
+    path = "/authorizer/#{URI.encode(authorizer_name)}"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
   Updates information about the billing group.
   """
   def update_billing_group(client, billing_group_name, input, options \\ []) do
-    url = "/billing-groups/#{URI.encode(billing_group_name)}"
+    path = "/billing-groups/#{URI.encode(billing_group_name)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Updates a registered CA certificate.
   """
   def update_c_a_certificate(client, certificate_id, input, options \\ []) do
-    url = "/cacertificate/#{URI.encode(certificate_id)}"
+    path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
@@ -1694,127 +1811,149 @@ defmodule AWS.IoT do
   using a certificate.
   """
   def update_certificate(client, certificate_id, input, options \\ []) do
-    url = "/certificates/#{URI.encode(certificate_id)}"
+    path = "/certificates/#{URI.encode(certificate_id)}"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
   Updates a dynamic thing group.
   """
   def update_dynamic_thing_group(client, thing_group_name, input, options \\ []) do
-    url = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+    path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Updates the event configurations.
   """
   def update_event_configurations(client, input, options \\ []) do
-    url = "/event-configurations"
+    path = "/event-configurations"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Updates the search configuration.
   """
   def update_indexing_configuration(client, input, options \\ []) do
-    url = "/indexing/config"
+    path = "/indexing/config"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Updates supported fields of the specified job.
   """
   def update_job(client, job_id, input, options \\ []) do
-    url = "/jobs/#{URI.encode(job_id)}"
+    path = "/jobs/#{URI.encode(job_id)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the definition for the specified mitigation action.
+  """
+  def update_mitigation_action(client, action_name, input, options \\ []) do
+    path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Updates a role alias.
   """
   def update_role_alias(client, role_alias, input, options \\ []) do
-    url = "/role-aliases/#{URI.encode(role_alias)}"
+    path = "/role-aliases/#{URI.encode(role_alias)}"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
-  Updates a scheduled audit, including what checks are performed and how
+  Updates a scheduled audit, including which checks are performed and how
   often the audit takes place.
   """
   def update_scheduled_audit(client, scheduled_audit_name, input, options \\ []) do
-    url = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+    path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Updates a Device Defender security profile.
   """
   def update_security_profile(client, security_profile_name, input, options \\ []) do
-    url = "/security-profiles/#{URI.encode(security_profile_name)}"
+    path = "/security-profiles/#{URI.encode(security_profile_name)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Updates an existing stream. The stream version will be incremented by one.
   """
   def update_stream(client, stream_id, input, options \\ []) do
-    url = "/streams/#{URI.encode(stream_id)}"
+    path = "/streams/#{URI.encode(stream_id)}"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
   Updates the data for a thing.
   """
   def update_thing(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}"
+    path = "/things/#{URI.encode(thing_name)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Update a thing group.
   """
   def update_thing_group(client, thing_group_name, input, options \\ []) do
-    url = "/thing-groups/#{URI.encode(thing_group_name)}"
+    path = "/thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    request(client, :patch, url, headers, input, options, nil)
+    request(client, :patch, path, headers, input, options, nil)
   end
 
   @doc """
   Updates the groups to which the thing belongs.
   """
   def update_thing_groups_for_thing(client, input, options \\ []) do
-    url = "/thing-groups/updateThingGroupsForThing"
+    path = "/thing-groups/updateThingGroupsForThing"
     headers = []
-    request(client, :put, url, headers, input, options, nil)
+    request(client, :put, path, headers, input, options, nil)
   end
 
   @doc """
   Validates a Device Defender security profile behaviors specification.
   """
   def validate_security_profile_behaviors(client, input, options \\ []) do
-    url = "/security-profile-behaviors/validate"
+    path = "/security-profile-behaviors/validate"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "execute-api"}
     host = get_host("iot", client)
-    url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+    url = get_url(host, path, client)
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token} | headers]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -1822,17 +1961,17 @@ defmodule AWS.IoT do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204 ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1840,13 +1979,16 @@ defmodule AWS.IoT do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -1860,15 +2002,11 @@ defmodule AWS.IoT do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}/"
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
   end
 end

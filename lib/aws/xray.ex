@@ -13,18 +13,18 @@ defmodule AWS.XRay do
   `GetTraceSummaries` to get a list of trace IDs.
   """
   def batch_get_traces(client, input, options \\ []) do
-    url = "/Traces"
+    path = "/Traces"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Creates a group resource with a name and a filter expression.
   """
   def create_group(client, input, options \\ []) do
-    url = "/CreateGroup"
+    path = "/CreateGroup"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -37,72 +37,72 @@ defmodule AWS.XRay do
   quota that the service can use instead of borrowing from the reservoir.
   """
   def create_sampling_rule(client, input, options \\ []) do
-    url = "/CreateSamplingRule"
+    path = "/CreateSamplingRule"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a group resource.
   """
   def delete_group(client, input, options \\ []) do
-    url = "/DeleteGroup"
+    path = "/DeleteGroup"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Deletes a sampling rule.
   """
   def delete_sampling_rule(client, input, options \\ []) do
-    url = "/DeleteSamplingRule"
+    path = "/DeleteSamplingRule"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Retrieves the current encryption configuration for X-Ray data.
   """
   def get_encryption_config(client, input, options \\ []) do
-    url = "/EncryptionConfig"
+    path = "/EncryptionConfig"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Retrieves group resource details.
   """
   def get_group(client, input, options \\ []) do
-    url = "/GetGroup"
+    path = "/GetGroup"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Retrieves all active group details.
   """
   def get_groups(client, input, options \\ []) do
-    url = "/Groups"
+    path = "/Groups"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Retrieves all sampling rules.
   """
   def get_sampling_rules(client, input, options \\ []) do
-    url = "/GetSamplingRules"
+    path = "/GetSamplingRules"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Retrieves information about recent sampling results for all sampling rules.
   """
   def get_sampling_statistic_summaries(client, input, options \\ []) do
-    url = "/SamplingStatisticSummaries"
+    path = "/SamplingStatisticSummaries"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -110,9 +110,9 @@ defmodule AWS.XRay do
   requests.
   """
   def get_sampling_targets(client, input, options \\ []) do
-    url = "/SamplingTargets"
+    path = "/SamplingTargets"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -123,18 +123,27 @@ defmodule AWS.XRay do
   can be other applications, AWS resources, HTTP web APIs, or SQL databases.
   """
   def get_service_graph(client, input, options \\ []) do
-    url = "/ServiceGraph"
+    path = "/ServiceGraph"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Get an aggregation of service statistics defined by a specific time range.
+  """
+  def get_time_series_service_statistics(client, input, options \\ []) do
+    path = "/TimeSeriesServiceStatistics"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Retrieves a service graph for one or more specific trace IDs.
   """
   def get_trace_graph(client, input, options \\ []) do
-    url = "/TraceGraph"
+    path = "/TraceGraph"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -156,31 +165,31 @@ defmodule AWS.XRay do
 
   For a full list of indexed fields and keywords that you can use in filter
   expressions, see [Using Filter
-  Expressions](http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html)
+  Expressions](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html)
   in the *AWS X-Ray Developer Guide*.
   """
   def get_trace_summaries(client, input, options \\ []) do
-    url = "/TraceSummaries"
+    path = "/TraceSummaries"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Updates the encryption configuration for X-Ray data.
   """
   def put_encryption_config(client, input, options \\ []) do
-    url = "/PutEncryptionConfig"
+    path = "/PutEncryptionConfig"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Used by the AWS X-Ray daemon to upload telemetry.
   """
   def put_telemetry_records(client, input, options \\ []) do
-    url = "/TelemetryRecords"
+    path = "/TelemetryRecords"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -236,36 +245,49 @@ defmodule AWS.XRay do
   </li> </ul>
   """
   def put_trace_segments(client, input, options \\ []) do
-    url = "/TraceSegments"
+    path = "/TraceSegments"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Updates a group resource.
   """
   def update_group(client, input, options \\ []) do
-    url = "/UpdateGroup"
+    path = "/UpdateGroup"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Modifies a sampling rule's configuration.
   """
   def update_sampling_rule(client, input, options \\ []) do
-    url = "/UpdateSamplingRule"
+    path = "/UpdateSamplingRule"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "xray"}
     host = get_host("xray", client)
-    url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+    url = get_url(host, path, client)
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token} | headers]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -273,17 +295,17 @@ defmodule AWS.XRay do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204 ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -291,13 +313,16 @@ defmodule AWS.XRay do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -311,15 +336,11 @@ defmodule AWS.XRay do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}/"
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
   end
 end

@@ -1,19 +1,25 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.AppStream do
   @moduledoc """
   Amazon AppStream 2.0
 
-  This is the *Amazon AppStream 2.0 API Reference*. This reference provides
-  descriptions and syntax for each of the actions and data types in AppStream
-  2.0. AppStream 2.0 is a fully managed application streaming service. You
-  centrally manage your desktop applications on AppStream 2.0 and securely
-  deliver them to any computer. AppStream 2.0 manages the AWS resources
-  required to host and run your applications, scales automatically, and
-  provides access to your users on demand.
+  This is the *Amazon AppStream 2.0 API Reference*. This documentation
+  provides descriptions and syntax for each of the actions and data types in
+  AppStream 2.0. AppStream 2.0 is a fully managed, secure application
+  streaming service that lets you stream desktop applications to users
+  without rewriting applications. AppStream 2.0 manages the AWS resources
+  that are required to host and run your applications, scales automatically,
+  and provides access to your users on demand.
 
-  To learn more about AppStream 2.0, see the following resources:
+  <note> You can call the AppStream 2.0 API operations by using an interface
+  VPC endpoint (interface endpoint). For more information, see [Access
+  AppStream 2.0 API Operations and CLI Commands Through an Interface VPC
+  Endpoint](https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html)
+  in the *Amazon AppStream 2.0 Administration Guide*.
+
+  </note> To learn more about AppStream 2.0, see the following resources:
 
   <ul> <li> [Amazon AppStream 2.0 product
   page](http://aws.amazon.com/appstream2)
@@ -57,8 +63,8 @@ defmodule AWS.AppStream do
 
   @doc """
   Creates a Directory Config object in AppStream 2.0. This object includes
-  the information required to join streaming instances to an Active Directory
-  domain.
+  the configuration information required to join fleets and image builders to
+  Microsoft Active Directory domains.
   """
   def create_directory_config(client, input, options \\ []) do
     request(client, "CreateDirectoryConfig", input, options)
@@ -105,6 +111,13 @@ defmodule AWS.AppStream do
   """
   def create_streaming_u_r_l(client, input, options \\ []) do
     request(client, "CreateStreamingURL", input, options)
+  end
+
+  @doc """
+  Creates a usage report subscription. Usage reports are generated daily.
+  """
+  def create_usage_report_subscription(client, input, options \\ []) do
+    request(client, "CreateUsageReportSubscription", input, options)
   end
 
   @doc """
@@ -166,6 +179,13 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Disables usage report generation.
+  """
+  def delete_usage_report_subscription(client, input, options \\ []) do
+    request(client, "DeleteUsageReportSubscription", input, options)
+  end
+
+  @doc """
   Deletes a user from the user pool.
   """
   def delete_user(client, input, options \\ []) do
@@ -176,8 +196,8 @@ defmodule AWS.AppStream do
   Retrieves a list that describes one or more specified Directory Config
   objects for AppStream 2.0, if the names for these objects are provided.
   Otherwise, all Directory Config objects in the account are described. These
-  objects include the information required to join streaming instances to an
-  Active Directory domain.
+  objects include the configuration information required to join fleets and
+  image builders to Microsoft Active Directory domains.
 
   Although the response syntax in this topic includes the account password,
   this password is not returned in the actual response.
@@ -221,11 +241,11 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Retrieves a list that describes the active streaming sessions for a
-  specified stack and fleet. If a value for `UserId` is provided for the
-  stack and fleet, only streaming sessions for that user are described. If an
-  authentication type is not provided, the default is to authenticate users
-  using a streaming URL.
+  Retrieves a list that describes the streaming sessions for a specified
+  stack and fleet. If a UserId is provided for the stack and fleet, only
+  streaming sessions for that user are described. If an authentication type
+  is not provided, the default is to authenticate users using a streaming
+  URL.
   """
   def describe_sessions(client, input, options \\ []) do
     request(client, "DescribeSessions", input, options)
@@ -237,6 +257,13 @@ defmodule AWS.AppStream do
   """
   def describe_stacks(client, input, options \\ []) do
     request(client, "DescribeStacks", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes one or more usage report subscriptions.
+  """
+  def describe_usage_report_subscriptions(client, input, options \\ []) do
+    request(client, "DescribeUsageReportSubscriptions", input, options)
   end
 
   @doc """
@@ -316,7 +343,7 @@ defmodule AWS.AppStream do
 
   For more information about tags, see [Tagging Your
   Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Developer Guide*.
+  in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -363,7 +390,7 @@ defmodule AWS.AppStream do
 
   For more information about tags, see [Tagging Your
   Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Developer Guide*.
+  in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
@@ -377,7 +404,7 @@ defmodule AWS.AppStream do
 
   For more information about tags, see [Tagging Your
   Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
-  in the *Amazon AppStream 2.0 Developer Guide*.
+  in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def untag_resource(client, input, options \\ []) do
     request(client, "UntagResource", input, options)
@@ -385,8 +412,8 @@ defmodule AWS.AppStream do
 
   @doc """
   Updates the specified Directory Config object in AppStream 2.0. This object
-  includes the information required to join streaming instances to an Active
-  Directory domain.
+  includes the configuration information required to join fleets and image
+  builders to Microsoft Active Directory domains.
   """
   def update_directory_config(client, input, options \\ []) do
     request(client, "UpdateDirectoryConfig", input, options)
@@ -397,8 +424,10 @@ defmodule AWS.AppStream do
 
   If the fleet is in the `STOPPED` state, you can update any attribute except
   the fleet name. If the fleet is in the `RUNNING` state, you can update the
-  `DisplayName` and `ComputeCapacity` attributes. If the fleet is in the
-  `STARTING` or `STOPPING` state, you can't update it.
+  `DisplayName`, `ComputeCapacity`, `ImageARN`, `ImageName`,
+  `IdleDisconnectTimeoutInSeconds`, and `DisconnectTimeoutInSeconds`
+  attributes. If the fleet is in the `STARTING` or `STOPPING` state, you
+  can't update it.
   """
   def update_fleet(client, input, options \\ []) do
     request(client, "UpdateFleet", input, options)
@@ -418,29 +447,42 @@ defmodule AWS.AppStream do
     request(client, "UpdateStack", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "appstream2"}
     host = get_host("appstream2", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "PhotonAdminProxyService.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "PhotonAdminProxyService.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -457,5 +499,4 @@ defmodule AWS.AppStream do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

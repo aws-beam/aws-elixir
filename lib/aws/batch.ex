@@ -31,9 +31,9 @@ defmodule AWS.Batch do
   the `TerminateJob` operation.
   """
   def cancel_job(client, input, options \\ []) do
-    url = "/v1/canceljob"
+    path = "/v1/canceljob"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -85,9 +85,9 @@ defmodule AWS.Batch do
   </li> </ol> </note>
   """
   def create_compute_environment(client, input, options \\ []) do
-    url = "/v1/createcomputeenvironment"
+    path = "/v1/createcomputeenvironment"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -102,9 +102,9 @@ defmodule AWS.Batch do
   preference for scheduling jobs to that compute environment.
   """
   def create_job_queue(client, input, options \\ []) do
-    url = "/v1/createjobqueue"
+    path = "/v1/createjobqueue"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -116,9 +116,9 @@ defmodule AWS.Batch do
   operation.
   """
   def delete_compute_environment(client, input, options \\ []) do
-    url = "/v1/deletecomputeenvironment"
+    path = "/v1/deletecomputeenvironment"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -130,18 +130,18 @@ defmodule AWS.Batch do
   before submitting a `DeleteJobQueue` request.
   """
   def delete_job_queue(client, input, options \\ []) do
-    url = "/v1/deletejobqueue"
+    path = "/v1/deletejobqueue"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Deregisters an AWS Batch job definition.
   """
   def deregister_job_definition(client, input, options \\ []) do
-    url = "/v1/deregisterjobdefinition"
+    path = "/v1/deregisterjobdefinition"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -152,9 +152,9 @@ defmodule AWS.Batch do
   that you should launch your Amazon ECS container instances into.
   """
   def describe_compute_environments(client, input, options \\ []) do
-    url = "/v1/describecomputeenvironments"
+    path = "/v1/describecomputeenvironments"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -162,27 +162,27 @@ defmodule AWS.Batch do
   `ACTIVE`) to only return job definitions that match that status.
   """
   def describe_job_definitions(client, input, options \\ []) do
-    url = "/v1/describejobdefinitions"
+    path = "/v1/describejobdefinitions"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Describes one or more of your job queues.
   """
   def describe_job_queues(client, input, options \\ []) do
-    url = "/v1/describejobqueues"
+    path = "/v1/describejobqueues"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Describes a list of AWS Batch jobs.
   """
   def describe_jobs(client, input, options \\ []) do
-    url = "/v1/describejobs"
+    path = "/v1/describejobs"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -202,18 +202,18 @@ defmodule AWS.Batch do
   returned.
   """
   def list_jobs(client, input, options \\ []) do
-    url = "/v1/listjobs"
+    path = "/v1/listjobs"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Registers an AWS Batch job definition.
   """
   def register_job_definition(client, input, options \\ []) do
-    url = "/v1/registerjobdefinition"
+    path = "/v1/registerjobdefinition"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -221,9 +221,9 @@ defmodule AWS.Batch do
   `SubmitJob` override parameters defined in the job definition.
   """
   def submit_job(client, input, options \\ []) do
-    url = "/v1/submitjob"
+    path = "/v1/submitjob"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -233,36 +233,49 @@ defmodule AWS.Batch do
   cancelled.
   """
   def terminate_job(client, input, options \\ []) do
-    url = "/v1/terminatejob"
+    path = "/v1/terminatejob"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Updates an AWS Batch compute environment.
   """
   def update_compute_environment(client, input, options \\ []) do
-    url = "/v1/updatecomputeenvironment"
+    path = "/v1/updatecomputeenvironment"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
   Updates a job queue.
   """
   def update_job_queue(client, input, options \\ []) do
-    url = "/v1/updatejobqueue"
+    path = "/v1/updatejobqueue"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "batch"}
     host = get_host("batch", client)
-    url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+    url = get_url(host, path, client)
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token} | headers]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -270,17 +283,17 @@ defmodule AWS.Batch do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204 ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -288,13 +301,16 @@ defmodule AWS.Batch do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -308,15 +324,11 @@ defmodule AWS.Batch do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}/"
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
   end
 end

@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.CodeDeploy do
   @moduledoc """
@@ -95,14 +95,16 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Gets information about one or more application revisions.
+  Gets information about one or more application revisions. The maximum
+  number of application revisions that can be returned is 25.
   """
   def batch_get_application_revisions(client, input, options \\ []) do
     request(client, "BatchGetApplicationRevisions", input, options)
   end
 
   @doc """
-  Gets information about one or more applications.
+  Gets information about one or more applications. The maximum number of
+  applications that can be returned is 25.
   """
   def batch_get_applications(client, input, options \\ []) do
     request(client, "BatchGetApplications", input, options)
@@ -119,18 +121,20 @@ defmodule AWS.CodeDeploy do
   <note> This method works, but is deprecated. Use
   `BatchGetDeploymentTargets` instead.
 
-  </note> Returns an array of instances associated with a deployment. This
-  method works with EC2/On-premises and AWS Lambda compute platforms. The
-  newer `BatchGetDeploymentTargets` works with all compute platforms.
+  </note> Returns an array of one or more instances associated with a
+  deployment. This method works with EC2/On-premises and AWS Lambda compute
+  platforms. The newer `BatchGetDeploymentTargets` works with all compute
+  platforms. The maximum number of instances that can be returned is 25.
   """
   def batch_get_deployment_instances(client, input, options \\ []) do
     request(client, "BatchGetDeploymentInstances", input, options)
   end
 
   @doc """
-  Returns an array of targets associated with a deployment. This method works
-  with all compute types and should be used instead of the deprecated
-  `BatchGetDeploymentInstances`.
+  Returns an array of one or more targets associated with a deployment. This
+  method works with all compute types and should be used instead of the
+  deprecated `BatchGetDeploymentInstances`. The maximum number of targets
+  that can be returned is 25.
 
   The type of targets returned depends on the deployment's compute platform:
 
@@ -147,14 +151,16 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Gets information about one or more deployments.
+  Gets information about one or more deployments. The maximum number of
+  deployments that can be returned is 25.
   """
   def batch_get_deployments(client, input, options \\ []) do
     request(client, "BatchGetDeployments", input, options)
   end
 
   @doc """
-  Gets information about one or more on-premises instances.
+  Gets information about one or more on-premises instances. The maximum
+  number of on-premises instances that can be returned is 25.
   """
   def batch_get_on_premises_instances(client, input, options \\ []) do
     request(client, "BatchGetOnPremisesInstances", input, options)
@@ -379,6 +385,14 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
+  Returns a list of tags for the resource identified by a specified ARN. Tags
+  are used to organize and categorize your CodeDeploy resources.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Sets the result of a Lambda validation function. The function validates one
   or both lifecycle events (`BeforeAllowTraffic` and `AfterAllowTraffic`) and
   returns `Succeeded` or `Failed`.
@@ -429,6 +443,23 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
+  Associates the list of tags in the input `Tags` parameter with the resource
+  identified by the `ResourceArn` input parameter.
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
+  end
+
+  @doc """
+  Disassociates a resource from a list of tags. The resource is identified by
+  the `ResourceArn` input parameter. The tags are identfied by the list of
+  keys in the `TagKeys` input parameter.
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
+  end
+
+  @doc """
   Changes the name of an application.
   """
   def update_application(client, input, options \\ []) do
@@ -442,29 +473,42 @@ defmodule AWS.CodeDeploy do
     request(client, "UpdateDeploymentGroup", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "codedeploy"}
     host = get_host("codedeploy", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "CodeDeploy_20141006.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "CodeDeploy_20141006.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -481,5 +525,4 @@ defmodule AWS.CodeDeploy do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

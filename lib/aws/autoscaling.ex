@@ -1,59 +1,49 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.AutoScaling do
   @moduledoc """
-  With Application Auto Scaling, you can configure automatic scaling for your
-  scalable resources. You can use Application Auto Scaling to accomplish the
-  following tasks:
+  With Application Auto Scaling, you can configure automatic scaling for the
+  following resources:
 
-  <ul> <li> Define scaling policies to automatically scale your AWS or custom
-  resources
+  <ul> <li> Amazon ECS services
 
-  </li> <li> Scale your resources in response to CloudWatch alarms
+  </li> <li> Amazon EC2 Spot Fleet requests
 
-  </li> <li> Schedule one-time or recurring scaling actions
+  </li> <li> Amazon EMR clusters
 
-  </li> <li> View the history of your scaling events
+  </li> <li> Amazon AppStream 2.0 fleets
 
-  </li> </ul> Application Auto Scaling can scale the following resources:
+  </li> <li> Amazon DynamoDB tables and global secondary indexes throughput
+  capacity
 
-  <ul> <li> Amazon ECS services. For more information, see [Service Auto
-  Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html)
-  in the *Amazon Elastic Container Service Developer Guide*.
+  </li> <li> Amazon Aurora Replicas
 
-  </li> <li> Amazon EC2 Spot fleets. For more information, see [Automatic
-  Scaling for Spot
-  Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-auto-scaling.html)
-  in the *Amazon EC2 User Guide*.
+  </li> <li> Amazon SageMaker endpoint variants
 
-  </li> <li> Amazon EMR clusters. For more information, see [Using Automatic
-  Scaling in Amazon
-  EMR](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-automatic-scaling.html)
-  in the *Amazon EMR Management Guide*.
+  </li> <li> Custom resources provided by your own applications or services
 
-  </li> <li> AppStream 2.0 fleets. For more information, see [Fleet Auto
-  Scaling for Amazon AppStream
-  2.0](https://docs.aws.amazon.com/appstream2/latest/developerguide/autoscaling.html)
-  in the *Amazon AppStream 2.0 Developer Guide*.
+  </li> </ul> **API Summary**
 
-  </li> <li> Provisioned read and write capacity for Amazon DynamoDB tables
-  and global secondary indexes. For more information, see [Managing
-  Throughput Capacity Automatically with DynamoDB Auto
-  Scaling](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html)
-  in the *Amazon DynamoDB Developer Guide*.
+  The Application Auto Scaling service API includes three key sets of
+  actions:
 
-  </li> <li> Amazon Aurora Replicas. For more information, see [Using Amazon
-  Aurora Auto Scaling with Aurora
-  Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html).
+  <ul> <li> Register and manage scalable targets - Register AWS or custom
+  resources as scalable targets (a resource that Application Auto Scaling can
+  scale), set minimum and maximum capacity limits, and retrieve information
+  on existing scalable targets.
 
-  </li> <li> Amazon SageMaker endpoint variants. For more information, see
-  [Automatically Scaling Amazon SageMaker
-  Models](https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html).
+  </li> <li> Configure and manage automatic scaling - Define scaling policies
+  to dynamically scale your resources in response to CloudWatch alarms,
+  schedule one-time or recurring scaling actions, and retrieve your recent
+  scaling activity history.
 
-  </li> <li> Custom resources provided by your own applications or services.
-  More information is available in our [GitHub
-  repository](https://github.com/aws/aws-auto-scaling-custom-resource).
+  </li> <li> Suspend and resume scaling - Temporarily suspend and later
+  resume automatic scaling by calling the `RegisterScalableTarget` action for
+  any Application Auto Scaling scalable target. You can suspend and resume,
+  individually or in combination, scale-out activities triggered by a scaling
+  policy, scale-in activities triggered by a scaling policy, and scheduled
+  scaling.
 
   </li> </ul> To learn more about Application Auto Scaling, including
   information about granting IAM users required permissions for Application
@@ -62,11 +52,18 @@ defmodule AWS.AutoScaling do
   """
 
   @doc """
-  Deletes the specified Application Auto Scaling scaling policy.
+  Deletes the specified scaling policy for an Application Auto Scaling
+  scalable target.
 
-  Deleting a policy deletes the underlying alarm action, but does not delete
-  the CloudWatch alarm associated with the scaling policy, even if it no
-  longer has an associated action.
+  Deleting a step scaling policy deletes the underlying alarm action, but
+  does not delete the CloudWatch alarm associated with the scaling policy,
+  even if it no longer has an associated action.
+
+  For more information, see [Delete a Step Scaling
+  Policy](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#delete-step-scaling-policy)
+  and [Delete a Target Tracking Scaling
+  Policy](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#delete-target-tracking-policy)
+  in the *Application Auto Scaling User Guide*.
 
   To create a scaling policy or update an existing one, see
   `PutScalingPolicy`.
@@ -76,14 +73,19 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Deletes the specified Application Auto Scaling scheduled action.
+  Deletes the specified scheduled action for an Application Auto Scaling
+  scalable target.
+
+  For more information, see [Delete a Scheduled
+  Action](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html#delete-scheduled-action)
+  in the *Application Auto Scaling User Guide*.
   """
   def delete_scheduled_action(client, input, options \\ []) do
     request(client, "DeleteScheduledAction", input, options)
   end
 
   @doc """
-  Deregisters a scalable target.
+  Deregisters an Application Auto Scaling scalable target.
 
   Deregistering a scalable target deletes the scaling policies that are
   associated with it.
@@ -98,8 +100,7 @@ defmodule AWS.AutoScaling do
   @doc """
   Gets information about the scalable targets in the specified namespace.
 
-  You can filter the results using the `ResourceIds` and `ScalableDimension`
-  parameters.
+  You can filter the results using `ResourceIds` and `ScalableDimension`.
 
   To create a scalable target or update an existing one, see
   `RegisterScalableTarget`. If you are no longer using a scalable target, you
@@ -113,8 +114,7 @@ defmodule AWS.AutoScaling do
   Provides descriptive information about the scaling activities in the
   specified namespace from the previous six weeks.
 
-  You can filter the results using the `ResourceId` and `ScalableDimension`
-  parameters.
+  You can filter the results using `ResourceId` and `ScalableDimension`.
 
   Scaling activities are triggered by CloudWatch alarms that are associated
   with scaling policies. To view the scaling policies for a service
@@ -126,10 +126,11 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Describes the scaling policies for the specified service namespace.
+  Describes the Application Auto Scaling scaling policies for the specified
+  service namespace.
 
-  You can filter the results using the `ResourceId`, `ScalableDimension`, and
-  `PolicyNames` parameters.
+  You can filter the results using `ResourceId`, `ScalableDimension`, and
+  `PolicyNames`.
 
   To create a scaling policy or update an existing one, see
   `PutScalingPolicy`. If you are no longer using a scaling policy, you can
@@ -140,7 +141,8 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Describes the scheduled actions for the specified service namespace.
+  Describes the Application Auto Scaling scheduled actions for the specified
+  service namespace.
 
   You can filter the results using the `ResourceId`, `ScalableDimension`, and
   `ScheduledActionNames` parameters.
@@ -176,8 +178,8 @@ defmodule AWS.AutoScaling do
   one or more step scaling policies, or both. However, there is a chance that
   multiple policies could conflict, instructing the scalable target to scale
   out or in at the same time. Application Auto Scaling gives precedence to
-  the policy that provides the largest capacity for both scale in and scale
-  out. For example, if one policy increases capacity by 3, another policy
+  the policy that provides the largest capacity for both scale out and scale
+  in. For example, if one policy increases capacity by 3, another policy
   increases capacity by 200 percent, and the current capacity is 10,
   Application Auto Scaling uses the policy with the highest calculated
   capacity (200% of 10 = 20) and scales out to 30.
@@ -219,45 +221,68 @@ defmodule AWS.AutoScaling do
 
   @doc """
   Registers or updates a scalable target. A scalable target is a resource
-  that Application Auto Scaling can scale out and scale in. Each scalable
-  target has a resource ID, scalable dimension, and namespace, as well as
-  values for minimum and maximum capacity.
+  that Application Auto Scaling can scale out and scale in. Scalable targets
+  are uniquely identified by the combination of resource ID, scalable
+  dimension, and namespace.
+
+  When you register a new scalable target, you must specify values for
+  minimum and maximum capacity. Application Auto Scaling will not scale
+  capacity to values that are outside of this range.
+
+  To update a scalable target, specify the parameter that you want to change
+  as well as the following parameters that identify the scalable target:
+  resource ID, scalable dimension, and namespace. Any parameters that you
+  don't specify are not changed by this update request.
 
   After you register a scalable target, you do not need to register it again
   to use other Application Auto Scaling operations. To see which resources
   have been registered, use `DescribeScalableTargets`. You can also view the
-  scaling policies for a service namespace using `DescribeScalableTargets`.
+  scaling policies for a service namespace by using
+  `DescribeScalableTargets`.
 
-  If you no longer need a scalable target, you can deregister it using
+  If you no longer need a scalable target, you can deregister it by using
   `DeregisterScalableTarget`.
   """
   def register_scalable_target(client, input, options \\ []) do
     request(client, "RegisterScalableTarget", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "autoscaling"}
     host = get_host("autoscaling", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AnyScaleFrontendService.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AnyScaleFrontendService.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -274,5 +299,4 @@ defmodule AWS.AutoScaling do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

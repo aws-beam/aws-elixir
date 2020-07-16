@@ -65,9 +65,9 @@ defmodule AWS.EFS do
   `elasticfilesystem:CreateFileSystem` action.
   """
   def create_file_system(client, input, options \\ []) do
-    url = "/2015-02-01/file-systems"
+    path = "/2015-02-01/file-systems"
     headers = []
-    request(client, :post, url, headers, input, options, 201)
+    request(client, :post, path, headers, input, options, 201)
   end
 
   @doc """
@@ -181,9 +181,9 @@ defmodule AWS.EFS do
   </li> </ul>
   """
   def create_mount_target(client, input, options \\ []) do
-    url = "/2015-02-01/mount-targets"
+    path = "/2015-02-01/mount-targets"
     headers = []
-    request(client, :post, url, headers, input, options, 200)
+    request(client, :post, path, headers, input, options, 200)
   end
 
   @doc """
@@ -197,9 +197,9 @@ defmodule AWS.EFS do
   action.
   """
   def create_tags(client, file_system_id, input, options \\ []) do
-    url = "/2015-02-01/create-tags/#{URI.encode(file_system_id)}"
+    path = "/2015-02-01/create-tags/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :post, url, headers, input, options, 204)
+    request(client, :post, path, headers, input, options, 204)
   end
 
   @doc """
@@ -222,9 +222,9 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteFileSystem` action.
   """
   def delete_file_system(client, file_system_id, input, options \\ []) do
-    url = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, path, headers, input, options, 204)
   end
 
   @doc """
@@ -258,9 +258,9 @@ defmodule AWS.EFS do
   </li> </ul>
   """
   def delete_mount_target(client, mount_target_id, input, options \\ []) do
-    url = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}"
+    path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 204)
+    request(client, :delete, path, headers, input, options, 204)
   end
 
   @doc """
@@ -275,9 +275,9 @@ defmodule AWS.EFS do
   action.
   """
   def delete_tags(client, file_system_id, input, options \\ []) do
-    url = "/2015-02-01/delete-tags/#{URI.encode(file_system_id)}"
+    path = "/2015-02-01/delete-tags/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :post, url, headers, input, options, 204)
+    request(client, :post, path, headers, input, options, 204)
   end
 
   @doc """
@@ -307,9 +307,9 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeFileSystems` action.
   """
   def describe_file_systems(client, options \\ []) do
-    url = "/2015-02-01/file-systems"
+    path = "/2015-02-01/file-systems"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, path, headers, nil, options, 200)
   end
 
   @doc """
@@ -324,9 +324,9 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeLifecycleConfiguration` operation.
   """
   def describe_lifecycle_configuration(client, file_system_id, options \\ []) do
-    url = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, path, headers, nil, options, 200)
   end
 
   @doc """
@@ -345,9 +345,9 @@ defmodule AWS.EFS do
   </li> </ul>
   """
   def describe_mount_target_security_groups(client, mount_target_id, options \\ []) do
-    url = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
+    path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, path, headers, nil, options, 200)
   end
 
   @doc """
@@ -362,9 +362,9 @@ defmodule AWS.EFS do
   target that you specify in `MountTargetId`.
   """
   def describe_mount_targets(client, options \\ []) do
-    url = "/2015-02-01/mount-targets"
+    path = "/2015-02-01/mount-targets"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, path, headers, nil, options, 200)
   end
 
   @doc """
@@ -377,9 +377,9 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeTags` action.
   """
   def describe_tags(client, file_system_id, options \\ []) do
-    url = "/2015-02-01/tags/#{URI.encode(file_system_id)}"
+    path = "/2015-02-01/tags/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, 200)
+    request(client, :get, path, headers, nil, options, 200)
   end
 
   @doc """
@@ -403,9 +403,9 @@ defmodule AWS.EFS do
   </li> </ul>
   """
   def modify_mount_target_security_groups(client, mount_target_id, input, options \\ []) do
-    url = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
+    path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
-    request(client, :put, url, headers, input, options, 204)
+    request(client, :put, path, headers, input, options, 204)
   end
 
   @doc """
@@ -423,17 +423,14 @@ defmodule AWS.EFS do
   the request body deletes any existing `LifecycleConfiguration` and disables
   lifecycle management.
 
-  <note> You can enable lifecycle management only for EFS file systems
-  created after the release of EFS infrequent access.
+  In the request, specify the following:
 
-  </note> In the request, specify the following:
-
-  <ul> <li> The ID for the file system for which you are creating a lifecycle
-  management configuration.
+  <ul> <li> The ID for the file system for which you are enabling, disabling,
+  or modifying lifecycle management.
 
   </li> <li> A `LifecyclePolicies` array of `LifecyclePolicy` objects that
   define when files are moved to the IA storage class. The array can contain
-  only one `"TransitionToIA": "AFTER_30_DAYS"` `LifecyclePolicy` item.
+  only one `LifecyclePolicy` item.
 
   </li> </ul> This operation requires permissions for the
   `elasticfilesystem:PutLifecycleConfiguration` operation.
@@ -443,9 +440,9 @@ defmodule AWS.EFS do
   created the encrypted file system.
   """
   def put_lifecycle_configuration(client, file_system_id, input, options \\ []) do
-    url = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
     headers = []
-    request(client, :put, url, headers, input, options, 200)
+    request(client, :put, path, headers, input, options, 200)
   end
 
   @doc """
@@ -453,18 +450,31 @@ defmodule AWS.EFS do
   existing file system.
   """
   def update_file_system(client, file_system_id, input, options \\ []) do
-    url = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :put, url, headers, input, options, 202)
+    request(client, :put, path, headers, input, options, 202)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "elasticfilesystem"}
     host = get_host("elasticfilesystem", client)
-    url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+    url = get_url(host, path, client)
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token} | headers]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -472,17 +482,17 @@ defmodule AWS.EFS do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204 ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -490,13 +500,16 @@ defmodule AWS.EFS do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -510,15 +523,11 @@ defmodule AWS.EFS do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}/"
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
   end
 end

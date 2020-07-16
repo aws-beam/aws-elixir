@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.DirectConnect do
   @moduledoc """
@@ -15,8 +15,8 @@ defmodule AWS.DirectConnect do
   """
 
   @doc """
-  Accepts a proposal request to attach a virtual private gateway to a Direct
-  Connect gateway.
+  Accepts a proposal request to attach a virtual private gateway or transit
+  gateway to a Direct Connect gateway.
   """
   def accept_direct_connect_gateway_association_proposal(client, input, options \\ []) do
     request(client, "AcceptDirectConnectGatewayAssociationProposal", input, options)
@@ -86,6 +86,23 @@ defmodule AWS.DirectConnect do
   """
   def allocate_public_virtual_interface(client, input, options \\ []) do
     request(client, "AllocatePublicVirtualInterface", input, options)
+  end
+
+  @doc """
+  Provisions a transit virtual interface to be owned by the specified AWS
+  account. Use this type of interface to connect a transit gateway to your
+  Direct Connect gateway.
+
+  The owner of a connection provisions a transit virtual interface to be
+  owned by the specified AWS account.
+
+  After you create a transit virtual interface, it must be confirmed by the
+  owner using `ConfirmTransitVirtualInterface`. Until this step has been
+  completed, the transit virtual interface is in the `requested` state and is
+  not available to handle traffic.
+  """
+  def allocate_transit_virtual_interface(client, input, options \\ []) do
+    request(client, "AllocateTransitVirtualInterface", input, options)
   end
 
   @doc """
@@ -183,6 +200,18 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+  Accepts ownership of a transit virtual interface created by another AWS
+  account.
+
+  After the owner of the transit virtual interface makes this call, the
+  specified transit virtual interface is created and made available to handle
+  traffic.
+  """
+  def confirm_transit_virtual_interface(client, input, options \\ []) do
+    request(client, "ConfirmTransitVirtualInterface", input, options)
+  end
+
+  @doc """
   Creates a BGP peer on the specified virtual interface.
 
   You must create a BGP peer for the corresponding address family (IPv4/IPv6)
@@ -247,12 +276,13 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Creates a proposal to associate the specified virtual private gateway with
-  the specified Direct Connect gateway.
+  Creates a proposal to associate the specified virtual private gateway or
+  transit gateway with the specified Direct Connect gateway.
 
   You can only associate a Direct Connect gateway and virtual private gateway
-  when the account that owns the Direct Connect gateway and the account that
-  owns the virtual private gateway have the same payer ID.
+  or transit gateway when the account that owns the Direct Connect gateway
+  and the account that owns the virtual private gateway or transit gateway
+  have the same AWS Payer ID.
   """
   def create_direct_connect_gateway_association_proposal(client, input, options \\ []) do
     request(client, "CreateDirectConnectGatewayAssociationProposal", input, options)
@@ -349,6 +379,24 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+  Creates a transit virtual interface. A transit virtual interface should be
+  used to access one or more transit gateways associated with Direct Connect
+  gateways. A transit virtual interface enables the connection of multiple
+  VPCs attached to a transit gateway to a Direct Connect gateway.
+
+  <important> If you associate your transit gateway with one or more Direct
+  Connect gateways, the Autonomous System Number (ASN) used by the transit
+  gateway and the Direct Connect gateway must be different. For example, if
+  you use the default ASN 64512 for both your the transit gateway and Direct
+  Connect gateway, the association request fails.
+
+  </important>
+  """
+  def create_transit_virtual_interface(client, input, options \\ []) do
+    request(client, "CreateTransitVirtualInterface", input, options)
+  end
+
+  @doc """
   Deletes the specified BGP peer on the specified virtual interface with the
   specified customer address and ASN.
 
@@ -373,8 +421,8 @@ defmodule AWS.DirectConnect do
   @doc """
   Deletes the specified Direct Connect gateway. You must first delete all
   virtual interfaces that are attached to the Direct Connect gateway and
-  disassociate all virtual private gateways that are associated with the
-  Direct Connect gateway.
+  disassociate all virtual private gateways associated with the Direct
+  Connect gateway.
   """
   def delete_direct_connect_gateway(client, input, options \\ []) do
     request(client, "DeleteDirectConnectGateway", input, options)
@@ -383,6 +431,11 @@ defmodule AWS.DirectConnect do
   @doc """
   Deletes the association between the specified Direct Connect gateway and
   virtual private gateway.
+
+  We recommend that you specify the `associationID` to delete the
+  association. Alternatively, if you own virtual gateway and a Direct Connect
+  gateway association, you can specify the `virtualGatewayId` and
+  `directConnectGatewayId` to delete an association.
   """
   def delete_direct_connect_gateway_association(client, input, options \\ []) do
     request(client, "DeleteDirectConnectGatewayAssociation", input, options)
@@ -390,7 +443,7 @@ defmodule AWS.DirectConnect do
 
   @doc """
   Deletes the association proposal request between the specified Direct
-  Connect gateway and virtual private gateway.
+  Connect gateway and virtual private gateway or transit gateway.
   """
   def delete_direct_connect_gateway_association_proposal(client, input, options \\ []) do
     request(client, "DeleteDirectConnectGatewayAssociationProposal", input, options)
@@ -461,7 +514,7 @@ defmodule AWS.DirectConnect do
 
   @doc """
   Describes one or more association proposals for connection between a
-  virtual private gateway and a Direct Connect gateway.
+  virtual private gateway or transit gateway and a Direct Connect gateway.
   """
   def describe_direct_connect_gateway_association_proposals(client, input, options \\ []) do
     request(client, "DescribeDirectConnectGatewayAssociationProposals", input, options)
@@ -685,29 +738,42 @@ defmodule AWS.DirectConnect do
     request(client, "UpdateVirtualInterfaceAttributes", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "directconnect"}
     host = get_host("directconnect", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "OvertureService.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "OvertureService.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -724,5 +790,4 @@ defmodule AWS.DirectConnect do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

@@ -21,9 +21,9 @@ defmodule AWS.IoT.DataPlane do
   in the *AWS IoT Developer Guide*.
   """
   def delete_thing_shadow(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/shadow"
+    path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :delete, url, headers, input, options, nil)
+    request(client, :delete, path, headers, input, options, nil)
   end
 
   @doc """
@@ -34,9 +34,9 @@ defmodule AWS.IoT.DataPlane do
   in the *AWS IoT Developer Guide*.
   """
   def get_thing_shadow(client, thing_name, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/shadow"
+    path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -47,9 +47,9 @@ defmodule AWS.IoT.DataPlane do
   in the *AWS IoT Developer Guide*.
   """
   def publish(client, topic, input, options \\ []) do
-    url = "/topics/#{URI.encode(topic)}"
+    path = "/topics/#{URI.encode(topic)}"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -60,18 +60,31 @@ defmodule AWS.IoT.DataPlane do
   in the *AWS IoT Developer Guide*.
   """
   def update_thing_shadow(client, thing_name, input, options \\ []) do
-    url = "/things/#{URI.encode(thing_name)}/shadow"
+    path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "iotdata"}
     host = get_host("data.iot", client)
-    url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+    url = get_url(host, path, client)
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token} | headers]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -79,17 +92,17 @@ defmodule AWS.IoT.DataPlane do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204 ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -97,13 +110,16 @@ defmodule AWS.IoT.DataPlane do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -117,15 +133,11 @@ defmodule AWS.IoT.DataPlane do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
   end
 end

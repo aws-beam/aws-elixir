@@ -19,9 +19,9 @@ defmodule AWS.Transcoder do
   </note>
   """
   def cancel_job(client, id, input, options \\ []) do
-    url = "/2012-09-25/jobs/#{URI.encode(id)}"
+    path = "/2012-09-25/jobs/#{URI.encode(id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 202)
+    request(client, :delete, path, headers, input, options, 202)
   end
 
   @doc """
@@ -35,9 +35,9 @@ defmodule AWS.Transcoder do
   to the AWS Console).
   """
   def create_job(client, input, options \\ []) do
-    url = "/2012-09-25/jobs"
+    path = "/2012-09-25/jobs"
     headers = []
-    request(client, :post, url, headers, input, options, 201)
+    request(client, :post, path, headers, input, options, 201)
   end
 
   @doc """
@@ -45,9 +45,9 @@ defmodule AWS.Transcoder do
   specify.
   """
   def create_pipeline(client, input, options \\ []) do
-    url = "/2012-09-25/pipelines"
+    path = "/2012-09-25/pipelines"
     headers = []
-    request(client, :post, url, headers, input, options, 201)
+    request(client, :post, path, headers, input, options, 201)
   end
 
   @doc """
@@ -70,9 +70,9 @@ defmodule AWS.Transcoder do
   audiovisual services*.
   """
   def create_preset(client, input, options \\ []) do
-    url = "/2012-09-25/presets"
+    path = "/2012-09-25/presets"
     headers = []
-    request(client, :post, url, headers, input, options, 201)
+    request(client, :post, path, headers, input, options, 201)
   end
 
   @doc """
@@ -83,9 +83,9 @@ defmodule AWS.Transcoder do
   currently in use, `DeletePipeline` returns an error.
   """
   def delete_pipeline(client, id, input, options \\ []) do
-    url = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    path = "/2012-09-25/pipelines/#{URI.encode(id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 202)
+    request(client, :delete, path, headers, input, options, 202)
   end
 
   @doc """
@@ -98,9 +98,9 @@ defmodule AWS.Transcoder do
   </note>
   """
   def delete_preset(client, id, input, options \\ []) do
-    url = "/2012-09-25/presets/#{URI.encode(id)}"
+    path = "/2012-09-25/presets/#{URI.encode(id)}"
     headers = []
-    request(client, :delete, url, headers, input, options, 202)
+    request(client, :delete, path, headers, input, options, 202)
   end
 
   @doc """
@@ -112,9 +112,9 @@ defmodule AWS.Transcoder do
   satisfies the search criteria.
   """
   def list_jobs_by_pipeline(client, pipeline_id, options \\ []) do
-    url = "/2012-09-25/jobsByPipeline/#{URI.encode(pipeline_id)}"
+    path = "/2012-09-25/jobsByPipeline/#{URI.encode(pipeline_id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -123,9 +123,9 @@ defmodule AWS.Transcoder do
   the search criteria.
   """
   def list_jobs_by_status(client, status, options \\ []) do
-    url = "/2012-09-25/jobsByStatus/#{URI.encode(status)}"
+    path = "/2012-09-25/jobsByStatus/#{URI.encode(status)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -133,9 +133,9 @@ defmodule AWS.Transcoder do
   the current AWS account.
   """
   def list_pipelines(client, options \\ []) do
-    url = "/2012-09-25/pipelines"
+    path = "/2012-09-25/pipelines"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -143,36 +143,36 @@ defmodule AWS.Transcoder do
   Elastic Transcoder and the presets that you've added in an AWS region.
   """
   def list_presets(client, options \\ []) do
-    url = "/2012-09-25/presets"
+    path = "/2012-09-25/presets"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   The ReadJob operation returns detailed information about a job.
   """
   def read_job(client, id, options \\ []) do
-    url = "/2012-09-25/jobs/#{URI.encode(id)}"
+    path = "/2012-09-25/jobs/#{URI.encode(id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   The ReadPipeline operation gets detailed information about a pipeline.
   """
   def read_pipeline(client, id, options \\ []) do
-    url = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    path = "/2012-09-25/pipelines/#{URI.encode(id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
   The ReadPreset operation gets detailed information about a preset.
   """
   def read_preset(client, id, options \\ []) do
-    url = "/2012-09-25/presets/#{URI.encode(id)}"
+    path = "/2012-09-25/presets/#{URI.encode(id)}"
     headers = []
-    request(client, :get, url, headers, nil, options, nil)
+    request(client, :get, path, headers, nil, options, nil)
   end
 
   @doc """
@@ -185,9 +185,9 @@ defmodule AWS.Transcoder do
   tries to send a test notification to Amazon SNS topics that you specify.
   """
   def test_role(client, input, options \\ []) do
-    url = "/2012-09-25/roleTests"
+    path = "/2012-09-25/roleTests"
     headers = []
-    request(client, :post, url, headers, input, options, 200)
+    request(client, :post, path, headers, input, options, 200)
   end
 
   @doc """
@@ -201,9 +201,9 @@ defmodule AWS.Transcoder do
   </important>
   """
   def update_pipeline(client, id, input, options \\ []) do
-    url = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    path = "/2012-09-25/pipelines/#{URI.encode(id)}"
     headers = []
-    request(client, :put, url, headers, input, options, 200)
+    request(client, :put, path, headers, input, options, 200)
   end
 
   @doc """
@@ -214,9 +214,9 @@ defmodule AWS.Transcoder do
   the values that you specified in the request.
   """
   def update_pipeline_notifications(client, id, input, options \\ []) do
-    url = "/2012-09-25/pipelines/#{URI.encode(id)}/notifications"
+    path = "/2012-09-25/pipelines/#{URI.encode(id)}/notifications"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
   @doc """
@@ -230,18 +230,31 @@ defmodule AWS.Transcoder do
   send a `CancelJob` request.
   """
   def update_pipeline_status(client, id, input, options \\ []) do
-    url = "/2012-09-25/pipelines/#{URI.encode(id)}/status"
+    path = "/2012-09-25/pipelines/#{URI.encode(id)}/status"
     headers = []
-    request(client, :post, url, headers, input, options, nil)
+    request(client, :post, path, headers, input, options, nil)
   end
 
-  defp request(client, method, url, headers, input, options, success_status_code) do
+  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
+  defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "elastictranscoder"}
     host = get_host("elastictranscoder", client)
-    url = get_url(host, url, client)
-    headers = Enum.concat([{"Host", host},
-                           {"Content-Type", "application/x-amz-json-1.1"}],
-                          headers)
+    url = get_url(host, path, client)
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token} | headers]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"} | headers
+    ]
+
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     perform_request(method, url, payload, headers, options, success_status_code)
@@ -249,17 +262,17 @@ defmodule AWS.Transcoder do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 202, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, response=%HTTPoison.Response{status_code: 204, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
+      when status_code == 200 or status_code == 202 or status_code == 204 ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -267,13 +280,16 @@ defmodule AWS.Transcoder do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: ^success_status_code, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body)["message"]
+
+      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        reason = Poison.Parser.parse!(body, %{})["message"]
         {:error, reason}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -287,15 +303,11 @@ defmodule AWS.Transcoder do
     end
   end
 
-  defp get_url(host, url, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{url}/"
+  defp get_url(host, path, %{:proto => proto, :port => port}) do
+    "#{proto}://#{host}:#{port}#{path}/"
   end
 
   defp encode_payload(input) do
-    if input != nil do
-      Poison.Encoder.encode(input, [])
-    else
-      ""
-    end
+    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
   end
 end

@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Kinesis.Firehose do
   @moduledoc """
@@ -72,7 +72,7 @@ defmodule AWS.Kinesis.Firehose do
   principal to assume the role, and the role should have permissions that
   allow the service to deliver the data. For more information, see [Grant
   Kinesis Data Firehose Access to an Amazon S3
-  Destination](http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3)
+  Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3)
   in the *Amazon Kinesis Data Firehose Developer Guide*.
   """
   def create_delivery_stream(client, input, options \\ []) do
@@ -143,7 +143,7 @@ defmodule AWS.Kinesis.Firehose do
   `PutRecord` and `PutRecordBatch`, the limits are an aggregate across these
   two operations for each delivery stream. For more information about limits
   and how to request an increase, see [Amazon Kinesis Data Firehose
-  Limits](http://docs.aws.amazon.com/firehose/latest/dev/limits.html).
+  Limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html).
 
   You must specify the name of the delivery stream and the data record when
   using `PutRecord`. The data record consists of a data blob that can be up
@@ -193,7 +193,7 @@ defmodule AWS.Kinesis.Firehose do
   `PutRecord` and `PutRecordBatch`, the limits are an aggregate across these
   two operations for each delivery stream. For more information about limits,
   see [Amazon Kinesis Data Firehose
-  Limits](http://docs.aws.amazon.com/firehose/latest/dev/limits.html).
+  Limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html).
 
   Each `PutRecordBatch` request supports up to 500 records. Each record in
   the request can be as large as 1,000 KB (before 64-bit encoding), up to a
@@ -383,29 +383,42 @@ defmodule AWS.Kinesis.Firehose do
     request(client, "UpdateDestination", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "firehose"}
     host = get_host("firehose", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "Firehose_20150804.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "Firehose_20150804.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -422,5 +435,4 @@ defmodule AWS.Kinesis.Firehose do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.ServiceCatalog do
   @moduledoc """
@@ -17,6 +17,13 @@ defmodule AWS.ServiceCatalog do
   """
   def accept_portfolio_share(client, input, options \\ []) do
     request(client, "AcceptPortfolioShare", input, options)
+  end
+
+  @doc """
+  Associates the specified budget with the specified resource.
+  """
+  def associate_budget_with_resource(client, input, options \\ []) do
+    request(client, "AssociateBudgetWithResource", input, options)
   end
 
   @doc """
@@ -316,6 +323,15 @@ defmodule AWS.ServiceCatalog do
   Use this operation after calling a request operation (for example,
   `ProvisionProduct`, `TerminateProvisionedProduct`, or
   `UpdateProvisionedProduct`).
+
+  <note> If a provisioned product was transferred to a new owner using
+  `UpdateProvisionedProductProperties`, the new owner will be able to
+  describe all past records for that product. The previous owner will no
+  longer be able to describe the records, but will be able to use
+  `ListRecordHistory` to see the product's history from when he was the
+  owner.
+
+  </note>
   """
   def describe_record(client, input, options \\ []) do
     request(client, "DescribeRecord", input, options)
@@ -326,6 +342,13 @@ defmodule AWS.ServiceCatalog do
   """
   def describe_service_action(client, input, options \\ []) do
     request(client, "DescribeServiceAction", input, options)
+  end
+
+  @doc """
+
+  """
+  def describe_service_action_execution_parameters(client, input, options \\ []) do
+    request(client, "DescribeServiceActionExecutionParameters", input, options)
   end
 
   @doc """
@@ -344,6 +367,13 @@ defmodule AWS.ServiceCatalog do
   """
   def disable_a_w_s_organizations_access(client, input, options \\ []) do
     request(client, "DisableAWSOrganizationsAccess", input, options)
+  end
+
+  @doc """
+  Disassociates the specified budget from the specified resource.
+  """
+  def disassociate_budget_from_resource(client, input, options \\ []) do
+    request(client, "DisassociateBudgetFromResource", input, options)
   end
 
   @doc """
@@ -418,6 +448,13 @@ defmodule AWS.ServiceCatalog do
   """
   def list_accepted_portfolio_shares(client, input, options \\ []) do
     request(client, "ListAcceptedPortfolioShares", input, options)
+  end
+
+  @doc """
+  Lists all the budgets associated to the specified resource.
+  """
+  def list_budgets_for_resource(client, input, options \\ []) do
+    request(client, "ListBudgetsForResource", input, options)
   end
 
   @doc """
@@ -523,6 +560,16 @@ defmodule AWS.ServiceCatalog do
   """
   def list_service_actions_for_provisioning_artifact(client, input, options \\ []) do
     request(client, "ListServiceActionsForProvisioningArtifact", input, options)
+  end
+
+  @doc """
+  Returns summary information about stack instances that are associated with
+  the specified `CFN_STACKSET` type provisioned product. You can filter for
+  stack instances that are associated with a specific AWS account name or
+  region.
+  """
+  def list_stack_instances_for_provisioned_product(client, input, options \\ []) do
+    request(client, "ListStackInstancesForProvisionedProduct", input, options)
   end
 
   @doc """
@@ -638,6 +685,13 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
+  Requests updates to the properties of the specified provisioned product.
+  """
+  def update_provisioned_product_properties(client, input, options \\ []) do
+    request(client, "UpdateProvisionedProductProperties", input, options)
+  end
+
+  @doc """
   Updates the specified provisioning artifact (also known as a version) for
   the specified product.
 
@@ -662,29 +716,42 @@ defmodule AWS.ServiceCatalog do
     request(client, "UpdateTagOption", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "servicecatalog"}
     host = get_host("servicecatalog", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AWS242ServiceCatalogService.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AWS242ServiceCatalogService.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -701,5 +768,4 @@ defmodule AWS.ServiceCatalog do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

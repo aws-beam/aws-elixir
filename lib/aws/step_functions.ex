@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.StepFunctions do
   @moduledoc """
@@ -37,6 +37,13 @@ defmodule AWS.StepFunctions do
   <note> This operation is eventually consistent. The results are best effort
   and may not reflect very recent updates and changes.
 
+  </note> <note> `CreateActivity` is an idempotent API. Subsequent requests
+  won’t create a duplicate resource if it was already created.
+  `CreateActivity`'s idempotency check is based on the activity `name`. If a
+  following request has different `tags` values, Step Functions will ignore
+  these differences and treat it as an idempotent request of the previous. In
+  this case, `tags` will not be updated, even if they are different.
+
   </note>
   """
   def create_activity(client, input, options \\ []) do
@@ -52,6 +59,14 @@ defmodule AWS.StepFunctions do
 
   <note> This operation is eventually consistent. The results are best effort
   and may not reflect very recent updates and changes.
+
+  </note> <note> `CreateStateMachine` is an idempotent API. Subsequent
+  requests won’t create a duplicate resource if it was already created.
+  `CreateStateMachine`'s idempotency check is based on the state machine
+  `name` and `definition`. If a following request has a different `roleArn`
+  or `tags`, Step Functions will ignore these differences and treat it as an
+  idempotent request of the previous. In this case, `roleArn` and `tags` will
+  not be updated, even if they are different.
 
   </note>
   """
@@ -226,33 +241,43 @@ defmodule AWS.StepFunctions do
 
   @doc """
   List tags for a given resource.
+
+  Tags may only contain Unicode letters, digits, white space, or these
+  symbols: `_ . : / = + - @`.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Used by workers to report that the task identified by the `taskToken`
-  failed.
+  Used by activity workers and task states using the
+  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
+  pattern to report that the task identified by the `taskToken` failed.
   """
   def send_task_failure(client, input, options \\ []) do
     request(client, "SendTaskFailure", input, options)
   end
 
   @doc """
-  Used by workers to report to the service that the task represented by the
+  Used by activity workers and task states using the
+  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
+  pattern to report to Step Functions that the task represented by the
   specified `taskToken` is still making progress. This action resets the
   `Heartbeat` clock. The `Heartbeat` threshold is specified in the state
-  machine's Amazon States Language definition. This action does not in itself
-  create an event in the execution history. However, if the task times out,
-  the execution history contains an `ActivityTimedOut` event.
+  machine's Amazon States Language definition (`HeartbeatSeconds`). This
+  action does not in itself create an event in the execution history.
+  However, if the task times out, the execution history contains an
+  `ActivityTimedOut` entry for activities, or a `TaskTimedOut` entry for for
+  tasks using the [job
+  run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
+  or
+  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
+  pattern.
 
   <note> The `Timeout` of a task, defined in the state machine's Amazon
   States Language definition, is its maximum allowed duration, regardless of
-  the number of `SendTaskHeartbeat` requests received.
-
-  </note> <note> This operation is only useful for long-lived tasks to report
-  the liveliness of the task.
+  the number of `SendTaskHeartbeat` requests received. Use `HeartbeatSeconds`
+  to configure the timeout interval for heartbeats.
 
   </note>
   """
@@ -261,8 +286,10 @@ defmodule AWS.StepFunctions do
   end
 
   @doc """
-  Used by workers to report that the task identified by the `taskToken`
-  completed successfully.
+  Used by activity workers and task states using the
+  [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
+  pattern to report that the task identified by the `taskToken` completed
+  successfully.
   """
   def send_task_success(client, input, options \\ []) do
     request(client, "SendTaskSuccess", input, options)
@@ -292,6 +319,16 @@ defmodule AWS.StepFunctions do
 
   @doc """
   Add a tag to a Step Functions resource.
+
+  An array of key-value pairs. For more information, see [Using Cost
+  Allocation
+  Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  in the *AWS Billing and Cost Management User Guide*, and [Controlling
+  Access Using IAM
+  Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html).
+
+  Tags may only contain Unicode letters, digits, white space, or these
+  symbols: `_ . : / = + - @`.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
@@ -321,29 +358,42 @@ defmodule AWS.StepFunctions do
     request(client, "UpdateStateMachine", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "states"}
     host = get_host("states", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.0"},
-               {"X-Amz-Target", "AWSStepFunctions.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.0"},
+      {"X-Amz-Target", "AWSStepFunctions.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -360,5 +410,4 @@ defmodule AWS.StepFunctions do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

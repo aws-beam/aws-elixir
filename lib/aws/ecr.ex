@@ -1,8 +1,10 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.ECR do
   @moduledoc """
+  Amazon Elastic Container Registry
+
   Amazon Elastic Container Registry (Amazon ECR) is a managed Docker registry
   service. Customers can use the familiar Docker CLI to push, pull, and
   manage images. Amazon ECR provides a secure, scalable, and reliable
@@ -214,9 +216,16 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Updates the image tag mutability settings for a repository.
+  """
+  def put_image_tag_mutability(client, input, options \\ []) do
+    request(client, "PutImageTagMutability", input, options)
+  end
+
+  @doc """
   Creates or updates a lifecycle policy. For information about lifecycle
   policy syntax, see [Lifecycle Policy
-  Template](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+  Template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
   """
   def put_lifecycle_policy(client, input, options \\ []) do
     request(client, "PutLifecyclePolicy", input, options)
@@ -224,7 +233,9 @@ defmodule AWS.ECR do
 
   @doc """
   Applies a repository policy on a specified repository to control access
-  permissions.
+  permissions. For more information, see [Amazon ECR Repository
+  Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicies.html)
+  in the *Amazon Elastic Container Registry User Guide*.
   """
   def set_repository_policy(client, input, options \\ []) do
     request(client, "SetRepositoryPolicy", input, options)
@@ -267,29 +278,42 @@ defmodule AWS.ECR do
     request(client, "UploadLayerPart", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "api.ecr"}
     host = get_host("api.ecr", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AmazonEC2ContainerRegistry_V20150921.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AmazonEC2ContainerRegistry_V20150921.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -306,5 +330,4 @@ defmodule AWS.ECR do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

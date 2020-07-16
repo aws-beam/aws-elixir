@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.OpsWorks.ChefAutomate do
   @moduledoc """
@@ -23,8 +23,8 @@ defmodule AWS.OpsWorks.ChefAutomate do
   they are deleted.
 
   </li> <li> **Engine**: The engine is the specific configuration manager
-  that you want to use. Valid values in this release include `Chef` and
-  `Puppet`.
+  that you want to use. Valid values in this release include `ChefAutomate`
+  and `Puppet`.
 
   </li> <li> **Backup**: This is an application-level backup of the data that
   the configuration manager stores. AWS OpsWorks CM creates an S3 bucket for
@@ -188,8 +188,7 @@ defmodule AWS.OpsWorks.ChefAutomate do
   end
 
   @doc """
-  Describes your account attributes, and creates requests to increase limits
-  before they are reached or exceeded.
+  Describes your OpsWorks-CM account attributes.
 
   This operation is synchronous.
   """
@@ -348,29 +347,42 @@ defmodule AWS.OpsWorks.ChefAutomate do
     request(client, "UpdateServerEngineAttributes", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "opsworks-cm"}
     host = get_host("opsworks-cm", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "OpsWorksCM_V2016_11_01.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "OpsWorksCM_V2016_11_01.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -387,5 +399,4 @@ defmodule AWS.OpsWorks.ChefAutomate do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

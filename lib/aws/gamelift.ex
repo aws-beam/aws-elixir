@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.GameLift do
   @moduledoc """
@@ -12,318 +12,35 @@ defmodule AWS.GameLift do
   automatically scale your resources to meet player demand and manage costs,
   and (4) track in-depth metrics on game server performance and player usage.
 
-  The Amazon GameLift service API includes two important function sets:
-
-  <ul> <li> **Manage game sessions and player access** -- Retrieve
-  information on available game sessions; create new game sessions; send
-  player requests to join a game session.
-
-  </li> <li> **Configure and manage game server resources** -- Manage builds,
-  fleets, queues, and aliases; set auto-scaling policies; retrieve logs and
-  metrics.
-
-  </li> </ul> This reference guide describes the low-level service API for
-  Amazon GameLift. You can use the API functionality with these tools:
-
-  <ul> <li> The Amazon Web Services software development kit ([AWS
-  SDK](http://aws.amazon.com/tools/#sdk)) is available in [multiple
-  languages](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-supported.html#gamelift-supported-clients)
-  including C++ and C#. Use the SDK to access the API programmatically from
-  an application, such as a game client.
-
-  </li> <li> The [AWS command-line
-  interface](https://docs.aws.amazon.com/cli/latest/userguide/) (CLI) tool is
-  primarily useful for handling administrative actions, such as setting up
-  and managing Amazon GameLift settings and resources. You can use the AWS
-  CLI to manage all of your AWS services.
-
-  </li> <li> The [AWS Management
-  Console](https://console.aws.amazon.com/gamelift/home) for Amazon GameLift
-  provides a web interface to manage your Amazon GameLift settings and
-  resources. The console includes a dashboard for tracking key resources,
-  including builds and fleets, and displays usage and performance metrics for
-  your games as customizable graphs.
-
-  </li> <li> Amazon GameLift Local is a tool for testing your game's
-  integration with Amazon GameLift before deploying it on the service. This
-  tools supports a subset of key API actions, which can be called from either
-  the AWS CLI or programmatically. See [Testing an
-  Integration](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing-local.html).
-
-  </li> </ul> **Learn more**
-
-  <ul> <li> [ Developer
-  Guide](https://docs.aws.amazon.com/gamelift/latest/developerguide/) -- Read
-  about Amazon GameLift features and how to use them.
-
-  </li> <li> [Tutorials](https://gamedev.amazon.com/forums/tutorials) -- Get
-  started fast with walkthroughs and sample projects.
-
-  </li> <li> [GameDev Blog](https://gamedev.amazon.com/blogs/gamedev/) --
-  Stay up to date with new features and techniques.
-
-  </li> <li> [GameDev
-  Forums](https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html)
-  -- Connect with the GameDev community.
-
-  </li> <li> [Release
-  notes](https://aws.amazon.com/releasenotes/Amazon-GameLift/) and [document
-  history](https://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html)
-  -- Stay current with updates to the Amazon GameLift service, SDKs, and
-  documentation.
-
-  </li> </ul> **API SUMMARY**
-
-  This list offers a functional overview of the Amazon GameLift service API.
-
-  **Managing Games and Players**
-
-  Use these actions to start new game sessions, find existing game sessions,
-  track game session status and other information, and enable player access
-  to game sessions.
-
-  <ul> <li> **Discover existing game sessions**
-
-  <ul> <li> `SearchGameSessions` -- Retrieve all available game sessions or
-  search for game sessions that match a set of criteria.
-
-  </li> </ul> </li> <li> **Start new game sessions**
-
-  <ul> <li> Start new games with Queues to find the best available hosting
-  resources across multiple regions, minimize player latency, and balance
-  game session activity for efficiency and cost effectiveness.
-
-  <ul> <li> `StartGameSessionPlacement` -- Request a new game session
-  placement and add one or more players to it.
-
-  </li> <li> `DescribeGameSessionPlacement` -- Get details on a placement
-  request, including status.
-
-  </li> <li> `StopGameSessionPlacement` -- Cancel a placement request.
-
-  </li> </ul> </li> <li> `CreateGameSession` -- Start a new game session on a
-  specific fleet. *Available in Amazon GameLift Local.*
-
-  </li> </ul> </li> <li> **Match players to game sessions with FlexMatch
-  matchmaking**
-
-  <ul> <li> `StartMatchmaking` -- Request matchmaking for one players or a
-  group who want to play together.
-
-  </li> <li> `StartMatchBackfill` - Request additional player matches to fill
-  empty slots in an existing game session.
-
-  </li> <li> `DescribeMatchmaking` -- Get details on a matchmaking request,
-  including status.
-
-  </li> <li> `AcceptMatch` -- Register that a player accepts a proposed
-  match, for matches that require player acceptance.
-
-  </li> <li> `StopMatchmaking` -- Cancel a matchmaking request.
-
-  </li> </ul> </li> <li> **Manage game session data**
-
-  <ul> <li> `DescribeGameSessions` -- Retrieve metadata for one or more game
-  sessions, including length of time active and current player count.
-  *Available in Amazon GameLift Local.*
-
-  </li> <li> `DescribeGameSessionDetails` -- Retrieve metadata and the game
-  session protection setting for one or more game sessions.
-
-  </li> <li> `UpdateGameSession` -- Change game session settings, such as
-  maximum player count and join policy.
-
-  </li> <li> `GetGameSessionLogUrl` -- Get the location of saved logs for a
-  game session.
-
-  </li> </ul> </li> <li> **Manage player sessions**
-
-  <ul> <li> `CreatePlayerSession` -- Send a request for a player to join a
-  game session. *Available in Amazon GameLift Local.*
-
-  </li> <li> `CreatePlayerSessions` -- Send a request for multiple players to
-  join a game session. *Available in Amazon GameLift Local.*
-
-  </li> <li> `DescribePlayerSessions` -- Get details on player activity,
-  including status, playing time, and player data. *Available in Amazon
-  GameLift Local.*
-
-  </li> </ul> </li> </ul> **Setting Up and Managing Game Servers**
-
-  When setting up Amazon GameLift resources for your game, you first [create
-  a game
-  build](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html)
-  and upload it to Amazon GameLift. You can then use these actions to
-  configure and manage a fleet of resources to run your game servers, scale
-  capacity to meet player demand, access performance and utilization metrics,
-  and more.
-
-  <ul> <li> **Manage game builds**
-
-  <ul> <li> `CreateBuild` -- Create a new build using files stored in an
-  Amazon S3 bucket. To create a build and upload files from a local path, use
-  the AWS CLI command `upload-build`.
-
-  </li> <li> `ListBuilds` -- Get a list of all builds uploaded to a Amazon
-  GameLift region.
-
-  </li> <li> `DescribeBuild` -- Retrieve information associated with a build.
-
-  </li> <li> `UpdateBuild` -- Change build metadata, including build name and
-  version.
-
-  </li> <li> `DeleteBuild` -- Remove a build from Amazon GameLift.
-
-  </li> </ul> </li> <li> **Manage fleets**
-
-  <ul> <li> `CreateFleet` -- Configure and activate a new fleet to run a
-  build's game servers.
-
-  </li> <li> `ListFleets` -- Get a list of all fleet IDs in a Amazon GameLift
-  region (all statuses).
-
-  </li> <li> `DeleteFleet` -- Terminate a fleet that is no longer running
-  game servers or hosting players.
-
-  </li> <li> View / update fleet configurations.
-
-  <ul> <li> `DescribeFleetAttributes` / `UpdateFleetAttributes` -- View or
-  change a fleet's metadata and settings for game session protection and
-  resource creation limits.
-
-  </li> <li> `DescribeFleetPortSettings` / `UpdateFleetPortSettings` -- View
-  or change the inbound permissions (IP address and port setting ranges)
-  allowed for a fleet.
-
-  </li> <li> `DescribeRuntimeConfiguration` / `UpdateRuntimeConfiguration` --
-  View or change what server processes (and how many) to run on each instance
-  in a fleet.
-
-  </li> </ul> </li> </ul> </li> <li> **Control fleet capacity**
-
-  <ul> <li> `DescribeEC2InstanceLimits` -- Retrieve maximum number of
-  instances allowed for the current AWS account and the current usage level.
-
-  </li> <li> `DescribeFleetCapacity` / `UpdateFleetCapacity` -- Retrieve the
-  capacity settings and the current number of instances in a fleet; adjust
-  fleet capacity settings to scale up or down.
-
-  </li> <li> Autoscale -- Manage auto-scaling rules and apply them to a
-  fleet.
-
-  <ul> <li> `PutScalingPolicy` -- Create a new auto-scaling policy, or update
-  an existing one.
-
-  </li> <li> `DescribeScalingPolicies` -- Retrieve an existing auto-scaling
-  policy.
-
-  </li> <li> `DeleteScalingPolicy` -- Delete an auto-scaling policy and stop
-  it from affecting a fleet's capacity.
-
-  </li> <li> `StartFleetActions` -- Restart a fleet's auto-scaling policies.
-
-  </li> <li> `StopFleetActions` -- Suspend a fleet's auto-scaling policies.
-
-  </li> </ul> </li> </ul> </li> <li> **Manage game session queues**
-
-  <ul> <li> `CreateGameSessionQueue` -- Create a queue for processing
-  requests for new game sessions.
-
-  </li> <li> `DescribeGameSessionQueues` -- Retrieve game session queues
-  defined in a Amazon GameLift region.
-
-  </li> <li> `UpdateGameSessionQueue` -- Change the configuration of a game
-  session queue.
-
-  </li> <li> `DeleteGameSessionQueue` -- Remove a game session queue from the
-  region.
-
-  </li> </ul> </li> <li> **Manage FlexMatch resources**
-
-  <ul> <li> `CreateMatchmakingConfiguration` -- Create a matchmaking
-  configuration with instructions for building a player group and placing in
-  a new game session.
-
-  </li> <li> `DescribeMatchmakingConfigurations` -- Retrieve matchmaking
-  configurations defined a Amazon GameLift region.
-
-  </li> <li> `UpdateMatchmakingConfiguration` -- Change settings for
-  matchmaking configuration. queue.
-
-  </li> <li> `DeleteMatchmakingConfiguration` -- Remove a matchmaking
-  configuration from the region.
-
-  </li> <li> `CreateMatchmakingRuleSet` -- Create a set of rules to use when
-  searching for player matches.
-
-  </li> <li> `DescribeMatchmakingRuleSets` -- Retrieve matchmaking rule sets
-  defined in a Amazon GameLift region.
-
-  </li> <li> `ValidateMatchmakingRuleSet` -- Verify syntax for a set of
-  matchmaking rules.
-
-  </li> <li> `DeleteMatchmakingRuleSet` -- Remove a matchmaking rule set from
-  the region.
-
-  </li> </ul> </li> <li> **Access fleet activity statistics**
-
-  <ul> <li> `DescribeFleetUtilization` -- Get current data on the number of
-  server processes, game sessions, and players currently active on a fleet.
-
-  </li> <li> `DescribeFleetEvents` -- Get a fleet's logged events for a
-  specified time span.
-
-  </li> <li> `DescribeGameSessions` -- Retrieve metadata associated with one
-  or more game sessions, including length of time active and current player
-  count.
-
-  </li> </ul> </li> <li> **Remotely access an instance**
-
-  <ul> <li> `DescribeInstances` -- Get information on each instance in a
-  fleet, including instance ID, IP address, and status.
-
-  </li> <li> `GetInstanceAccess` -- Request access credentials needed to
-  remotely connect to a specified instance in a fleet.
-
-  </li> </ul> </li> <li> **Manage fleet aliases**
-
-  <ul> <li> `CreateAlias` -- Define a new alias and optionally assign it to a
-  fleet.
-
-  </li> <li> `ListAliases` -- Get all fleet aliases defined in a Amazon
-  GameLift region.
-
-  </li> <li> `DescribeAlias` -- Retrieve information on an existing alias.
-
-  </li> <li> `UpdateAlias` -- Change settings for a alias, such as
-  redirecting it from one fleet to another.
-
-  </li> <li> `DeleteAlias` -- Remove an alias from the region.
-
-  </li> <li> `ResolveAlias` -- Get the fleet ID that a specified alias points
-  to.
-
-  </li> </ul> </li> <li> **Manage VPC peering connections for fleets**
-
-  <ul> <li> `CreateVpcPeeringAuthorization` -- Authorize a peering connection
-  to one of your VPCs.
-
-  </li> <li> `DescribeVpcPeeringAuthorizations` -- Retrieve valid peering
-  connection authorizations.
-
-  </li> <li> `DeleteVpcPeeringAuthorization` -- Delete a peering connection
-  authorization.
-
-  </li> <li> `CreateVpcPeeringConnection` -- Establish a peering connection
-  between the VPC for a Amazon GameLift fleet and one of your VPCs.
-
-  </li> <li> `DescribeVpcPeeringConnections` -- Retrieve information on
-  active or pending VPC peering connections with a Amazon GameLift fleet.
-
-  </li> <li> `DeleteVpcPeeringConnection` -- Delete a VPC peering connection
-  with a Amazon GameLift fleet.
-
-  </li> </ul> </li> </ul>
+  When setting up hosting resources, you can deploy your custom game server
+  or use the Amazon GameLift Realtime Servers. Realtime Servers gives you the
+  ability to quickly stand up lightweight, efficient game servers with the
+  core Amazon GameLift infrastructure already built in.
+
+  **Get Amazon GameLift Tools and Resources**
+
+  This reference guide describes the low-level service API for Amazon
+  GameLift and provides links to language-specific SDK reference topics. See
+  also [ Amazon GameLift Tools and
+  Resources](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-components.html).
+
+  **API Summary**
+
+  The Amazon GameLift service API includes two key sets of actions:
+
+  <ul> <li> Manage game sessions and player access -- Integrate this
+  functionality into game client services in order to create new game
+  sessions, retrieve information on existing game sessions; reserve a player
+  slot in a game session, request matchmaking, etc.
+
+  </li> <li> Configure and manage game server resources -- Manage your Amazon
+  GameLift hosting resources, including builds, scripts, fleets, queues, and
+  aliases. Set up matchmakers, configure auto-scaling, retrieve game logs,
+  and get hosting and game metrics.
+
+  </li> </ul> ** [ Task-based list of API
+  actions](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html)
+  **
   """
 
   @doc """
@@ -345,11 +62,21 @@ defmodule AWS.GameLift do
 
   If any player rejects the match, or if acceptances are not received before
   a specified timeout, the proposed match is dropped. The matchmaking tickets
-  are then handled in one of two ways: For tickets where all players accepted
-  the match, the ticket status is returned to `SEARCHING` to find a new
-  match. For tickets where one or more players failed to accept the match,
-  the ticket status is set to `FAILED`, and processing is terminated. A new
+  are then handled in one of two ways: For tickets where one or more players
+  rejected the match, the ticket status is returned to `SEARCHING` to find a
+  new match. For tickets where one or more players failed to respond, the
+  ticket status is set to `CANCELLED`, and processing is terminated. A new
   matchmaking request for these players can be submitted as needed.
+
+  **Learn more**
+
+  [ Add FlexMatch to a Game
+  Client](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html)
+
+  [ FlexMatch Events
+  Reference](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-events.html)
+
+  **Related operations**
 
   <ul> <li> `StartMatchmaking`
 
@@ -471,22 +198,28 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Creates a new fleet to run your game servers. A fleet is a set of Amazon
-  Elastic Compute Cloud (Amazon EC2) instances, each of which can run
-  multiple server processes to host game sessions. You set up a fleet to use
-  instances with certain hardware specifications (see [Amazon EC2 Instance
-  Types](http://aws.amazon.com/ec2/instance-types/)), and deploy your game
-  build to the fleet.
+  Creates a new fleet to run your game servers. whether they are custom game
+  builds or Realtime Servers with game-specific script. A fleet is a set of
+  Amazon Elastic Compute Cloud (Amazon EC2) instances, each of which can host
+  multiple game sessions. When creating a fleet, you choose the hardware
+  specifications, set some configuration options, and specify the game server
+  to deploy on the new fleet.
 
   To create a new fleet, you must provide the following: (1) a fleet name,
-  (2) an EC2 instance type, (3) the build ID for your game build, and (4) a
-  run-time configuration, which specifies the server processes to run on each
-  instance in the fleet. If fleet type is not set, the new fleet will use
-  on-demand instances by default.
+  (2) an EC2 instance type and fleet type (spot or on-demand), (3) the build
+  ID for your game build or script ID if using Realtime Servers, and (4) a
+  run-time configuration, which determines how game servers will run on each
+  instance in the fleet.
 
-  If the `CreateFleet` call is successful, Amazon GameLift performs the
-  following tasks. You can track the process of a fleet by checking the fleet
-  status or by monitoring fleet creation events:
+  <note> When creating a Realtime Servers fleet, we recommend using a minimal
+  version of the Realtime script (see this [ working code example
+  ](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-script.html#realtime-script-examples)).
+  This will make it much easier to troubleshoot any fleet creation issues.
+  Once the fleet is active, you can update your Realtime script as needed.
+
+  </note> If the `CreateFleet` call is successful, Amazon GameLift performs
+  the following tasks. You can track the process of a fleet by checking the
+  fleet status or by monitoring fleet creation events:
 
   <ul> <li> Creates a fleet record. Status: `NEW`.
 
@@ -496,8 +229,8 @@ defmodule AWS.GameLift do
   Sets the fleet's target capacity to 1 (desired instances), which triggers
   Amazon GameLift to start one new EC2 instance.
 
-  </li> <li> Downloads the game build to the new instance and installs it.
-  Statuses: `DOWNLOADING`, `VALIDATING`, `BUILDING`.
+  </li> <li> Downloads the game build or Realtime script to the new instance
+  and installs it. Statuses: `DOWNLOADING`, `VALIDATING`, `BUILDING`.
 
   </li> <li> Starts launching server processes on the instance. If the fleet
   is configured to run multiple server processes per instance, Amazon
@@ -509,7 +242,10 @@ defmodule AWS.GameLift do
   </li> </ul> **Learn more**
 
   [ Working with
-  Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html).
+  Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+
+  [ Debug Fleet Creation
+  Issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
 
   **Related operations**
 
@@ -680,23 +416,24 @@ defmodule AWS.GameLift do
   placing a new game session for the match; and the maximum time allowed for
   a matchmaking attempt.
 
-  **Player acceptance** -- In each configuration, you have the option to
-  require that all players accept participation in a proposed match. To
-  enable this feature, set *AcceptanceRequired* to true and specify a time
-  limit for player acceptance. Players have the option to accept or reject a
-  proposed match, and a match does not move ahead to game session placement
-  unless all matched players accept.
-
-  **Matchmaking status notification** -- There are two ways to track the
-  progress of matchmaking tickets: (1) polling ticket status with
-  `DescribeMatchmaking`; or (2) receiving notifications with Amazon Simple
-  Notification Service (SNS). To use notifications, you first need to set up
-  an SNS topic to receive the notifications, and provide the topic ARN in the
-  matchmaking configuration (see [ Setting up Notifications for
-  Matchmaking](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html)).
+  There are two ways to track the progress of matchmaking tickets: (1)
+  polling ticket status with `DescribeMatchmaking`; or (2) receiving
+  notifications with Amazon Simple Notification Service (SNS). To use
+  notifications, you first need to set up an SNS topic to receive the
+  notifications, and provide the topic ARN in the matchmaking configuration.
   Since notifications promise only "best effort" delivery, we recommend
   calling `DescribeMatchmaking` if no notifications are received within 30
   seconds.
+
+  **Learn more**
+
+  [ Design a FlexMatch
+  Matchmaker](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html)
+
+  [ Setting up Notifications for
+  Matchmaking](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html)
+
+  **Related operations**
 
   <ul> <li> `CreateMatchmakingConfiguration`
 
@@ -728,7 +465,7 @@ defmodule AWS.GameLift do
 
   To create a matchmaking rule set, provide unique rule set name and the rule
   set body in JSON format. Rule sets must be defined in the same region as
-  the matchmaking configuration they will be used with.
+  the matchmaking configuration they are used with.
 
   Since matchmaking rule sets cannot be edited, it is a good idea to check
   the rule set syntax using `ValidateMatchmakingRuleSet` before creating a
@@ -770,15 +507,18 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Adds a player to a game session and creates a player session record. Before
-  a player can be added, a game session must have an `ACTIVE` status, have a
-  creation policy of `ALLOW_ALL`, and have an open player slot. To add a
-  group of players to a game session, use `CreatePlayerSessions`.
+  Reserves an open player slot in an active game session. Before a player can
+  be added, a game session must have an `ACTIVE` status, have a creation
+  policy of `ALLOW_ALL`, and have an open player slot. To add a group of
+  players to a game session, use `CreatePlayerSessions`. When the player
+  connects to the game server and references a player session ID, the game
+  server contacts the Amazon GameLift service to validate the player
+  reservation and accept the player.
 
   To create a player session, specify a game session ID, player ID, and
-  optionally a string of player data. If successful, the player is added to
-  the game session and a new `PlayerSession` object is returned. Player
-  sessions cannot be updated.
+  optionally a string of player data. If successful, a slot is reserved in
+  the game session for the player and a new `PlayerSession` object is
+  returned. Player sessions cannot be updated.
 
   *Available in Amazon GameLift Local.*
 
@@ -803,16 +543,18 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Adds a group of players to a game session. This action is useful with a
-  team matching feature. Before players can be added, a game session must
-  have an `ACTIVE` status, have a creation policy of `ALLOW_ALL`, and have an
-  open player slot. To add a single player to a game session, use
-  `CreatePlayerSession`.
+  Reserves open slots in a game session for a group of players. Before
+  players can be added, a game session must have an `ACTIVE` status, have a
+  creation policy of `ALLOW_ALL`, and have an open player slot. To add a
+  single player to a game session, use `CreatePlayerSession`. When a player
+  connects to the game server and references a player session ID, the game
+  server contacts the Amazon GameLift service to validate the player
+  reservation and accept the player.
 
   To create player sessions, specify a game session ID, a list of player IDs,
-  and optionally a set of player data strings. If successful, the players are
-  added to the game session and a set of new `PlayerSession` objects is
-  returned. Player sessions cannot be updated.
+  and optionally a set of player data strings. If successful, a slot is
+  reserved in the game session for each player and a set of new
+  `PlayerSession` objects is returned. Player sessions cannot be updated.
 
   *Available in Amazon GameLift Local.*
 
@@ -834,6 +576,58 @@ defmodule AWS.GameLift do
   """
   def create_player_sessions(client, input, options \\ []) do
     request(client, "CreatePlayerSessions", input, options)
+  end
+
+  @doc """
+  Creates a new script record for your Realtime Servers script. Realtime
+  scripts are JavaScript that provide configuration settings and optional
+  custom game logic for your game. The script is deployed when you create a
+  Realtime Servers fleet to host your game sessions. Script logic is executed
+  during an active game session.
+
+  To create a new script record, specify a script name and provide the script
+  file(s). The script files and all dependencies must be zipped into a single
+  file. You can pull the zip file from either of these locations:
+
+  <ul> <li> A locally available directory. Use the *ZipFile* parameter for
+  this option.
+
+  </li> <li> An Amazon Simple Storage Service (Amazon S3) bucket under your
+  AWS account. Use the *StorageLocation* parameter for this option. You'll
+  need to have an Identity Access Management (IAM) role that allows the
+  Amazon GameLift service to access your S3 bucket.
+
+  </li> </ul> If the call is successful, a new script record is created with
+  a unique script ID. If the script file is provided as a local file, the
+  file is uploaded to an Amazon GameLift-owned S3 bucket and the script
+  record's storage location reflects this location. If the script file is
+  provided as an S3 bucket, Amazon GameLift accesses the file at this storage
+  location as needed for deployment.
+
+  **Learn more**
+
+  [Amazon GameLift Realtime
+  Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+
+  [Set Up a Role for Amazon GameLift
+  Access](https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html)
+
+  **Related operations**
+
+  <ul> <li> `CreateScript`
+
+  </li> <li> `ListScripts`
+
+  </li> <li> `DescribeScript`
+
+  </li> <li> `UpdateScript`
+
+  </li> <li> `DeleteScript`
+
+  </li> </ul>
+  """
+  def create_script(client, input, options \\ []) do
+    request(client, "CreateScript", input, options)
   end
 
   @doc """
@@ -988,6 +782,11 @@ defmodule AWS.GameLift do
   Deletes everything related to a fleet. Before deleting a fleet, you must
   set the fleet's desired capacity to zero. See `UpdateFleetCapacity`.
 
+  If the fleet being deleted has a VPC peering connection, you first need to
+  get a valid authorization (good for 24 hours) by calling
+  `CreateVpcPeeringAuthorization`. You do not need to explicitly delete the
+  VPC peering connection--this is done as part of the delete fleet process.
+
   This action removes the fleet's resources and the fleet record. Once a
   fleet is deleted, you can no longer use that fleet.
 
@@ -1065,6 +864,8 @@ defmodule AWS.GameLift do
   Permanently removes a FlexMatch matchmaking configuration. To delete,
   specify the configuration name. A matchmaking configuration cannot be
   deleted if it is being used in any active matchmaking tickets.
+
+  **Related operations**
 
   <ul> <li> `CreateMatchmakingConfiguration`
 
@@ -1158,9 +959,43 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Cancels a pending VPC peering authorization for the specified VPC. If the
-  authorization has already been used to create a peering connection, call
-  `DeleteVpcPeeringConnection` to remove the connection.
+  Deletes a Realtime script. This action permanently deletes the script
+  record. If script files were uploaded, they are also deleted (files stored
+  in an S3 bucket are not deleted).
+
+  To delete a script, specify the script ID. Before deleting a script, be
+  sure to terminate all fleets that are deployed with the script being
+  deleted. Fleet instances periodically check for script updates, and if the
+  script record no longer exists, the instance will go into an error state
+  and be unable to host game sessions.
+
+  **Learn more**
+
+  [Amazon GameLift Realtime
+  Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+
+  **Related operations**
+
+  <ul> <li> `CreateScript`
+
+  </li> <li> `ListScripts`
+
+  </li> <li> `DescribeScript`
+
+  </li> <li> `UpdateScript`
+
+  </li> <li> `DeleteScript`
+
+  </li> </ul>
+  """
+  def delete_script(client, input, options \\ []) do
+    request(client, "DeleteScript", input, options)
+  end
+
+  @doc """
+  Cancels a pending VPC peering authorization for the specified VPC. If you
+  need to delete an existing VPC peering connection, call
+  `DeleteVpcPeeringConnection`.
 
   <ul> <li> `CreateVpcPeeringAuthorization`
 
@@ -1797,6 +1632,16 @@ defmodule AWS.GameLift do
   the request is successful, a ticket object is returned for each requested
   ID that currently exists.
 
+  **Learn more**
+
+  [ Add FlexMatch to a Game
+  Client](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html)
+
+  [ Set Up FlexMatch Event
+  Notification](https://docs.aws.amazon.com/gamelift/latest/developerguidematch-notification.html)
+
+  **Related operations**
+
   <ul> <li> `StartMatchmaking`
 
   </li> <li> `DescribeMatchmaking`
@@ -1814,7 +1659,7 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves the details of FlexMatch matchmaking configurations. with this
+  Retrieves the details of FlexMatch matchmaking configurations. With this
   operation, you have the following options: (1) retrieve all existing
   configurations, (2) provide the names of one or more configurations to
   retrieve, or (3) retrieve all configurations that use a specified rule set
@@ -1822,6 +1667,13 @@ defmodule AWS.GameLift do
   retrieve results as a set of sequential pages. If successful, a
   configuration is returned for each requested name. When specifying a list
   of names, only configurations that currently exist are returned.
+
+  **Learn more**
+
+  [ Setting Up FlexMatch
+  Matchmakers](https://docs.aws.amazon.com/gamelift/latest/developerguide/matchmaker-build.html)
+
+  **Related operations**
 
   <ul> <li> `CreateMatchmakingConfiguration`
 
@@ -2015,6 +1867,35 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+  Retrieves properties for a Realtime script.
+
+  To request a script record, specify the script ID. If successful, an object
+  containing the script properties is returned.
+
+  **Learn more**
+
+  [Amazon GameLift Realtime
+  Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+
+  **Related operations**
+
+  <ul> <li> `CreateScript`
+
+  </li> <li> `ListScripts`
+
+  </li> <li> `DescribeScript`
+
+  </li> <li> `UpdateScript`
+
+  </li> <li> `DeleteScript`
+
+  </li> </ul>
+  """
+  def describe_script(client, input, options \\ []) do
+    request(client, "DescribeScript", input, options)
+  end
+
+  @doc """
   Retrieves valid VPC peering authorizations that are pending for the AWS
   account. This operation returns all VPC peering authorizations and requests
   for peering. This includes those initiated and received by this account.
@@ -2186,14 +2067,15 @@ defmodule AWS.GameLift do
 
   @doc """
   Retrieves a collection of fleet records for this AWS account. You can
-  filter the result set by build ID. Use the pagination parameters to
-  retrieve results in sequential pages.
+  filter the result set to find only those fleets that are deployed with a
+  specific build or script. Use the pagination parameters to retrieve results
+  in sequential pages.
 
-  <note> Fleet records are not listed in any particular order.
+  <note> Fleet records are not listed in a particular order.
 
   </note> **Learn more**
 
-  [ Working with
+  [ Set Up
   Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html).
 
   **Related operations**
@@ -2240,6 +2122,33 @@ defmodule AWS.GameLift do
   """
   def list_fleets(client, input, options \\ []) do
     request(client, "ListFleets", input, options)
+  end
+
+  @doc """
+  Retrieves script records for all Realtime scripts that are associated with
+  the AWS account in use.
+
+  **Learn more**
+
+  [Amazon GameLift Realtime
+  Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+
+  **Related operations**
+
+  <ul> <li> `CreateScript`
+
+  </li> <li> `ListScripts`
+
+  </li> <li> `DescribeScript`
+
+  </li> <li> `UpdateScript`
+
+  </li> <li> `DeleteScript`
+
+  </li> </ul>
+  """
+  def list_scripts(client, input, options \\ []) do
+    request(client, "ListScripts", input, options)
   end
 
   @doc """
@@ -2632,9 +2541,7 @@ defmodule AWS.GameLift do
   describes all current players in the game session. If successful, a match
   backfill ticket is created and returned with status set to QUEUED. The
   ticket is placed in the matchmaker's ticket pool and processed. Track the
-  status of the ticket to respond as needed. For more detail how to set up
-  backfilling, see [ Backfill Existing Games with
-  FlexMatch](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html).
+  status of the ticket to respond as needed.
 
   The process of finding backfill matches is essentially identical to the
   initial matchmaking process. The matchmaker searches the pool and groups
@@ -2645,7 +2552,17 @@ defmodule AWS.GameLift do
   `GameSession` object is updated to include matchmaker data on the new
   players. For more detail on how match backfill requests are processed, see
   [ How Amazon GameLift FlexMatch
-  Works](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html).
+  Works](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html).
+
+  **Learn more**
+
+  [ Backfill Existing Games with
+  FlexMatch](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html)
+
+  [ How GameLift FlexMatch
+  Works](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html)
+
+  **Related operations**
 
   <ul> <li> `StartMatchmaking`
 
@@ -2673,9 +2590,7 @@ defmodule AWS.GameLift do
   single player or a group of players who want to play together. FlexMatch
   finds additional players as needed to fill the match. Match type, rules,
   and the queue used to place a new game session are defined in a
-  `MatchmakingConfiguration`. For complete information on setting up and
-  using FlexMatch, see the topic [ Adding FlexMatch to Your
-  Game](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html).
+  `MatchmakingConfiguration`.
 
   To start matchmaking, provide a unique ticket ID, specify a matchmaking
   configuration, and include the players to be matched. You must also include
@@ -2728,7 +2643,23 @@ defmodule AWS.GameLift do
   session endpoint and player session) is added to the matchmaking tickets.
   Matched players can use the connection information to join the game.
 
-  </li> </ol> <ul> <li> `StartMatchmaking`
+  </li> </ol> **Learn more**
+
+  [ Add FlexMatch to a Game
+  Client](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html)
+
+  [ Set Up FlexMatch Event
+  Notification](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html)
+
+  [ FlexMatch Integration
+  Roadmap](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-tasks.html)
+
+  [ How GameLift FlexMatch
+  Works](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html)
+
+  **Related operations**
+
+  <ul> <li> `StartMatchmaking`
 
   </li> <li> `DescribeMatchmaking`
 
@@ -2841,9 +2772,26 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Cancels a matchmaking ticket that is currently being processed. To stop the
-  matchmaking operation, specify the ticket ID. If successful, work on the
-  ticket is stopped, and the ticket status is changed to `CANCELLED`.
+  Cancels a matchmaking ticket or match backfill ticket that is currently
+  being processed. To stop the matchmaking operation, specify the ticket ID.
+  If successful, work on the ticket is stopped, and the ticket status is
+  changed to `CANCELLED`.
+
+  This call is also used to turn off automatic backfill for an individual
+  game session. This is for game sessions that are created with a matchmaking
+  configuration that has automatic backfill enabled. The ticket ID is
+  included in the `MatchmakerData` of an updated game session object, which
+  is provided to the game server.
+
+  <note> If the action is successful, the service sends back an empty JSON
+  struct with the HTTP 200 response (not an empty HTTP body).
+
+  </note> **Learn more**
+
+  [ Add FlexMatch to a Game
+  Client](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html)
+
+  **Related operations**
 
   <ul> <li> `StartMatchmaking`
 
@@ -3155,9 +3103,17 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Updates settings for a FlexMatch matchmaking configuration. To update
-  settings, specify the configuration name to be updated and provide the new
-  settings.
+  Updates settings for a FlexMatch matchmaking configuration. These changes
+  affect all matches and game sessions that are created after the update. To
+  update settings, specify the configuration name to be updated and provide
+  the new settings.
+
+  **Learn more**
+
+  [ Design a FlexMatch
+  Matchmaker](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html)
+
+  **Related operations**
 
   <ul> <li> `CreateMatchmakingConfiguration`
 
@@ -3188,16 +3144,14 @@ defmodule AWS.GameLift do
   the fleet is created; it does not need to be in an `ACTIVE` status.
 
   To update run-time configuration, specify the fleet ID and provide a
-  `RuntimeConfiguration` object with the updated collection of server process
+  `RuntimeConfiguration` object with an updated set of server process
   configurations.
 
   Each instance in a Amazon GameLift fleet checks regularly for an updated
   run-time configuration and changes how it launches server processes to
   comply with the latest version. Existing server processes are not affected
-  by the update; they continue to run until they end, while Amazon GameLift
-  simply adds new server processes to fit the current run-time configuration.
-  As a result, the run-time configuration changes are applied gradually as
-  existing processes shut down and new processes are launched in Amazon
+  by the update; run-time configuration changes are applied gradually as
+  existing processes shut down and new processes are launched during Amazon
   GameLift's normal process recycling activity.
 
   **Learn more**
@@ -3252,6 +3206,45 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+  Updates Realtime script metadata and content.
+
+  To update script metadata, specify the script ID and provide updated name
+  and/or version values.
+
+  To update script content, provide an updated zip file by pointing to either
+  a local file or an Amazon S3 bucket location. You can use either method
+  regardless of how the original script was uploaded. Use the *Version*
+  parameter to track updates to the script.
+
+  If the call is successful, the updated metadata is stored in the script
+  record and a revised script is uploaded to the Amazon GameLift service.
+  Once the script is updated and acquired by a fleet instance, the new
+  version is used for all new game sessions.
+
+  **Learn more**
+
+  [Amazon GameLift Realtime
+  Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+
+  **Related operations**
+
+  <ul> <li> `CreateScript`
+
+  </li> <li> `ListScripts`
+
+  </li> <li> `DescribeScript`
+
+  </li> <li> `UpdateScript`
+
+  </li> <li> `DeleteScript`
+
+  </li> </ul>
+  """
+  def update_script(client, input, options \\ []) do
+    request(client, "UpdateScript", input, options)
+  end
+
+  @doc """
   Validates the syntax of a matchmaking rule or rule set. This operation
   checks that the rule set is using syntactically correct JSON and that it
   conforms to allowed property expressions. To validate syntax, provide a
@@ -3286,29 +3279,42 @@ defmodule AWS.GameLift do
     request(client, "ValidateMatchmakingRuleSet", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "gamelift"}
     host = get_host("gamelift", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "GameLift.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "GameLift.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -3325,5 +3331,4 @@ defmodule AWS.GameLift do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

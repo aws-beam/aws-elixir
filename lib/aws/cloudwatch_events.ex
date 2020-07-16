@@ -1,9 +1,9 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.CloudWatch.Events do
   @moduledoc """
-  Amazon CloudWatch Events helps you to respond to state changes in your AWS
+  Amazon EventBridge helps you to respond to state changes in your AWS
   resources. When your resources change state, they automatically send events
   into an event stream. You can create rules that match selected events in
   the stream and route them to targets to take action. You can also use rules
@@ -12,19 +12,123 @@ defmodule AWS.CloudWatch.Events do
 
   <ul> <li> Automatically invoke an AWS Lambda function to update DNS entries
   when an event notifies you that Amazon EC2 instance enters the running
-  state.
+  state
 
   </li> <li> Direct specific API records from AWS CloudTrail to an Amazon
   Kinesis data stream for detailed analysis of potential security or
-  availability risks.
+  availability risks
 
   </li> <li> Periodically invoke a built-in target to create a snapshot of an
-  Amazon EBS volume.
+  Amazon EBS volume
 
-  </li> </ul> For more information about the features of Amazon CloudWatch
-  Events, see the [Amazon CloudWatch Events User
-  Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events).
+  </li> </ul> For more information about the features of Amazon EventBridge,
+  see the [Amazon EventBridge User
+  Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/).
   """
+
+  @doc """
+  Activates a partner event source that has been deactivated. Once activated,
+  your matching event bus will start receiving events from the event source.
+
+  <note> This operation is performed by AWS customers, not by SaaS partners.
+
+  </note>
+  """
+  def activate_event_source(client, input, options \\ []) do
+    request(client, "ActivateEventSource", input, options)
+  end
+
+  @doc """
+  Creates a new event bus within your account. This can be a custom event bus
+  which you can use to receive events from your own custom applications and
+  services, or it can be a partner event bus which can be matched to a
+  partner event source.
+
+  <note> This operation is used by AWS customers, not by SaaS partners.
+
+  </note>
+  """
+  def create_event_bus(client, input, options \\ []) do
+    request(client, "CreateEventBus", input, options)
+  end
+
+  @doc """
+  Called by an SaaS partner to create a partner event source.
+
+  <note> This operation is not used by AWS customers.
+
+  </note> Each partner event source can be used by one AWS account to create
+  a matching partner event bus in that AWS account. A SaaS partner must
+  create one partner event source for each AWS account that wants to receive
+  those event types.
+
+  A partner event source creates events based on resources in the SaaS
+  partner's service or application.
+
+  An AWS account that creates a partner event bus that matches the partner
+  event source can use that event bus to receive events from the partner, and
+  then process them using AWS Events rules and targets.
+
+  Partner event source names follow this format:
+
+  `aws.partner/*partner_name*/*event_namespace*/*event_name* `
+
+  <ul> <li> *partner_name* is determined during partner registration and
+  identifies the partner to AWS customers.
+
+  </li> <li> For *event_namespace*, we recommend that partners use a string
+  that identifies the AWS customer within the partner's system. This should
+  not be the customer's AWS account ID.
+
+  </li> <li> *event_name* is determined by the partner, and should uniquely
+  identify an event-generating resource within the partner system. This
+  should help AWS customers decide whether to create an event bus to receive
+  these events.
+
+  </li> </ul>
+  """
+  def create_partner_event_source(client, input, options \\ []) do
+    request(client, "CreatePartnerEventSource", input, options)
+  end
+
+  @doc """
+  An AWS customer uses this operation to temporarily stop receiving events
+  from the specified partner event source. The matching event bus isn't
+  deleted.
+
+  When you deactivate a partner event source, the source goes into `PENDING`
+  state. If it remains in `PENDING` state for more than two weeks, it's
+  deleted.
+
+  To activate a deactivated partner event source, use `ActivateEventSource`.
+  """
+  def deactivate_event_source(client, input, options \\ []) do
+    request(client, "DeactivateEventSource", input, options)
+  end
+
+  @doc """
+  Deletes the specified custom event bus or partner event bus. All rules
+  associated with this event bus are also deleted. You can't delete your
+  account's default event bus.
+
+  <note> This operation is performed by AWS customers, not by SaaS partners.
+
+  </note>
+  """
+  def delete_event_bus(client, input, options \\ []) do
+    request(client, "DeleteEventBus", input, options)
+  end
+
+  @doc """
+  This operation is used by SaaS partners to delete a partner event source.
+  AWS customers don't use this operation.
+
+  When you delete an event source, the status of the corresponding partner
+  event bus in the AWS customer account becomes `DELETED`.
+  """
+  def delete_partner_event_source(client, input, options \\ []) do
+    request(client, "DeletePartnerEventSource", input, options)
+  end
 
   @doc """
   Deletes the specified rule.
@@ -38,27 +142,58 @@ defmodule AWS.CloudWatch.Events do
   Managed rules are rules created and managed by another AWS service on your
   behalf. These rules are created by those other AWS services to support
   functionality in those services. You can delete these rules using the
-  `Force` option, but you should do so only if you are sure the other service
-  is not still using that rule.
+  `Force` option, but you should do so only if you're sure that the other
+  service isn't still using that rule.
   """
   def delete_rule(client, input, options \\ []) do
     request(client, "DeleteRule", input, options)
   end
 
   @doc """
-  Displays the external AWS accounts that are permitted to write events to
-  your account using your account's event bus, and the associated policy. To
-  enable your account to receive events from other accounts, use
-  `PutPermission`.
+  Displays details about an event bus in your account. This can include the
+  external AWS accounts that are permitted to write events to your default
+  event bus, and the associated policy. For custom event buses and partner
+  event buses, it displays the name, ARN, policy, state, and creation time.
+
+  To enable your account to receive events from other accounts on its default
+  event bus, use `PutPermission`.
+
+  For more information about partner event buses, see `CreateEventBus`.
   """
   def describe_event_bus(client, input, options \\ []) do
     request(client, "DescribeEventBus", input, options)
   end
 
   @doc """
+  This operation lists details about a partner event source that is shared
+  with your account.
+
+  <note> This operation is run by AWS customers, not by SaaS partners.
+
+  </note>
+  """
+  def describe_event_source(client, input, options \\ []) do
+    request(client, "DescribeEventSource", input, options)
+  end
+
+  @doc """
+  An SaaS partner can use this operation to list details about a partner
+  event source that they have created.
+
+  <note> AWS customers do not use this operation. Instead, AWS customers can
+  use `DescribeEventSource` to see details about a partner event source that
+  is shared with them.
+
+  </note>
+  """
+  def describe_partner_event_source(client, input, options \\ []) do
+    request(client, "DescribePartnerEventSource", input, options)
+  end
+
+  @doc """
   Describes the specified rule.
 
-  DescribeRule does not list the targets of a rule. To see the targets
+  `DescribeRule` doesn't list the targets of a rule. To see the targets
   associated with a rule, use `ListTargetsByRule`.
   """
   def describe_rule(client, input, options \\ []) do
@@ -66,7 +201,7 @@ defmodule AWS.CloudWatch.Events do
   end
 
   @doc """
-  Disables the specified rule. A disabled rule won't match any events, and
+  Disables the specified rule. A disabled rule won't match any events and
   won't self-trigger if it has a schedule expression.
 
   When you disable a rule, incoming events might continue to match to the
@@ -77,8 +212,7 @@ defmodule AWS.CloudWatch.Events do
   end
 
   @doc """
-  Enables the specified rule. If the rule does not exist, the operation
-  fails.
+  Enables the specified rule. If the rule doesn't exist, the operation fails.
 
   When you enable a rule, incoming events might not immediately start
   matching to a newly enabled rule. Allow a short period of time for changes
@@ -89,18 +223,67 @@ defmodule AWS.CloudWatch.Events do
   end
 
   @doc """
-  Lists the rules for the specified target. You can see which of the rules in
-  Amazon CloudWatch Events can invoke a specific target in your account.
+  Lists all the event buses in your account, including the default event bus,
+  custom event buses, and partner event buses.
+
+  <note> This operation is run by AWS customers, not by SaaS partners.
+
+  </note>
+  """
+  def list_event_buses(client, input, options \\ []) do
+    request(client, "ListEventBuses", input, options)
+  end
+
+  @doc """
+  You can use this to see all the partner event sources that have been shared
+  with your AWS account. For more information about partner event sources,
+  see `CreateEventBus`.
+
+  <note> This operation is run by AWS customers, not by SaaS partners.
+
+  </note>
+  """
+  def list_event_sources(client, input, options \\ []) do
+    request(client, "ListEventSources", input, options)
+  end
+
+  @doc """
+  An SaaS partner can use this operation to display the AWS account ID that a
+  particular partner event source name is associated with.
+
+  <note> This operation is used by SaaS partners, not by AWS customers.
+
+  </note>
+  """
+  def list_partner_event_source_accounts(client, input, options \\ []) do
+    request(client, "ListPartnerEventSourceAccounts", input, options)
+  end
+
+  @doc """
+  An SaaS partner can use this operation to list all the partner event source
+  names that they have created.
+
+  <note> This operation is not used by AWS customers.
+
+  </note>
+  """
+  def list_partner_event_sources(client, input, options \\ []) do
+    request(client, "ListPartnerEventSources", input, options)
+  end
+
+  @doc """
+  Lists the rules for the specified target. You can see which rules can
+  invoke a specific target in your account.
   """
   def list_rule_names_by_target(client, input, options \\ []) do
     request(client, "ListRuleNamesByTarget", input, options)
   end
 
   @doc """
-  Lists your Amazon CloudWatch Events rules. You can either list all the
-  rules or you can provide a prefix to match to the rule names.
+  Lists your EventBridge rules. You can either list all the rules or provide
+  a prefix to match to the rule names.
 
-  ListRules does not list the targets of a rule. To see the targets
+  `ListRules` doesn't list the targets of a rule. To see the targets
   associated with a rule, use `ListTargetsByRule`.
   """
   def list_rules(client, input, options \\ []) do
@@ -108,8 +291,8 @@ defmodule AWS.CloudWatch.Events do
   end
 
   @doc """
-  Displays the tags associated with a CloudWatch Events resource. In
-  CloudWatch Events, rules can be tagged.
+  Displays the tags associated with an EventBridge resource. In EventBridge,
+  rules can be tagged.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -123,61 +306,80 @@ defmodule AWS.CloudWatch.Events do
   end
 
   @doc """
-  Sends custom events to Amazon CloudWatch Events so that they can be matched
-  to rules.
+  Sends custom events to EventBridge so that they can be matched to rules.
+  These events can be from your custom applications and services.
   """
   def put_events(client, input, options \\ []) do
     request(client, "PutEvents", input, options)
   end
 
   @doc """
+  This is used by SaaS partners to write events to a customer's partner event
+  bus.
+
+  <note> AWS customers do not use this operation. Instead, AWS customers can
+  use `PutEvents` to write custom events from their own applications to an
+  event bus.
+
+  </note>
+  """
+  def put_partner_events(client, input, options \\ []) do
+    request(client, "PutPartnerEvents", input, options)
+  end
+
+  @doc """
   Running `PutPermission` permits the specified AWS account or AWS
-  organization to put events to your account's default *event bus*.
-  CloudWatch Events rules in your account are triggered by these events
-  arriving to your default event bus.
+  organization to put events to the specified *event bus*. Rules in your
+  account are triggered by these events arriving to an event bus in your
+  account.
 
   For another account to send events to your account, that external account
-  must have a CloudWatch Events rule with your account's default event bus as
-  a target.
+  must have a rule with your account's event bus as a target.
 
-  To enable multiple AWS accounts to put events to your default event bus,
-  run `PutPermission` once for each of these accounts. Or, if all the
-  accounts are members of the same AWS organization, you can run
-  `PutPermission` once specifying `Principal` as "*" and specifying the AWS
-  organization ID in `Condition`, to grant permissions to all accounts in
-  that organization.
+  To enable multiple AWS accounts to put events to an event bus, run
+  `PutPermission` once for each of these accounts. Or, if all the accounts
+  are members of the same AWS organization, you can run `PutPermission` once
+  specifying `Principal` as "*" and specifying the AWS organization ID in
+  `Condition`, to grant permissions to all accounts in that organization.
 
   If you grant permissions using an organization, then accounts in that
   organization must specify a `RoleArn` with proper permissions when they use
   `PutTarget` to add your account's event bus as a target. For more
   information, see [Sending and Receiving Events Between AWS
-  Accounts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html)
-  in the *Amazon CloudWatch Events User Guide*.
+  Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html)
+  in the *Amazon EventBridge User Guide*.
 
-  The permission policy on the default event bus cannot exceed 10 KB in size.
+  The permission policy on an event bus can't exceed 10 KB in size.
   """
   def put_permission(client, input, options \\ []) do
     request(client, "PutPermission", input, options)
   end
 
   @doc """
-  Creates or updates the specified rule. Rules are enabled by default, or
+  Creates or updates the specified rule. Rules are enabled by default or
   based on value of the state. You can disable a rule using `DisableRule`.
 
-  If you are updating an existing rule, the rule is replaced with what you
+  A single rule watches for events from a single event bus. Events generated
+  by AWS services go to your account's default event bus. Events generated by
+  SaaS partner services or applications go to the matching partner event bus.
+  If you have custom applications or services, you can specify whether their
+  events go to your default event bus or a custom event bus that you have
+  created. For more information, see `CreateEventBus`.
+
+  If you're updating an existing rule, the rule is replaced with what you
   specify in this `PutRule` command. If you omit arguments in `PutRule`, the
-  old values for those arguments are not kept. Instead, they are replaced
-  with null values.
+  old values for those arguments aren't kept. Instead, they're replaced with
+  null values.
 
   When you create or update a rule, incoming events might not immediately
   start matching to new or updated rules. Allow a short period of time for
   changes to take effect.
 
-  A rule must contain at least an EventPattern or ScheduleExpression. Rules
-  with EventPatterns are triggered when a matching event is observed. Rules
-  with ScheduleExpressions self-trigger based on the given schedule. A rule
-  can have both an EventPattern and a ScheduleExpression, in which case the
-  rule triggers on matching events as well as on a schedule.
+  A rule must contain at least an `EventPattern` or `ScheduleExpression`.
+  Rules with `EventPatterns` are triggered when a matching event is observed.
+  Rules with `ScheduleExpressions` self-trigger based on the given schedule.
+  A rule can have both an `EventPattern` and a `ScheduleExpression`, in which
+  case the rule triggers on matching events as well as on a schedule.
 
   When you initially create a rule, you can optionally assign one or more
   tags to the rule. Tags can help you organize and categorize your resources.
@@ -190,21 +392,21 @@ defmodule AWS.CloudWatch.Events do
   operation are ignored. To update the tags of an existing rule, use
   `TagResource` and `UntagResource`.
 
-  Most services in AWS treat : or / as the same character in Amazon Resource
-  Names (ARNs). However, CloudWatch Events uses an exact match in event
+  Most services in AWS treat `:` or `/` as the same character in Amazon
+  Resource Names (ARNs). However, EventBridge uses an exact match in event
   patterns and rules. Be sure to use the correct ARN characters when creating
-  event patterns so that they match the ARN syntax in the event you want to
-  match.
+  event patterns so that they match the ARN syntax in the event that you want
+  to match.
 
-  In CloudWatch Events, it is possible to create rules that lead to infinite
-  loops, where a rule is fired repeatedly. For example, a rule might detect
-  that ACLs have changed on an S3 bucket, and trigger software to change them
-  to the desired state. If the rule is not written carefully, the subsequent
-  change to the ACLs fires the rule again, creating an infinite loop.
+  In EventBridge, you could create rules that lead to infinite loops, where a
+  rule is fired repeatedly. For example, a rule might detect that ACLs have
+  changed on an S3 bucket, and trigger software to change them to the desired
+  state. If you don't write the rule carefully, the subsequent change to the
+  ACLs fires the rule again, creating an infinite loop.
 
-  To prevent this, write the rules so that the triggered actions do not
-  re-fire the same rule. For example, your rule could fire only if ACLs are
-  found to be in a bad state, instead of after any change.
+  To prevent this, write the rules so that the triggered actions don't refire
+  the same rule. For example, your rule could fire only if ACLs are found to
+  be in a bad state, instead of after any change.
 
   An infinite loop can quickly cause higher than expected charges. We
   recommend that you use budgeting, which alerts you when charges exceed your
@@ -217,11 +419,11 @@ defmodule AWS.CloudWatch.Events do
 
   @doc """
   Adds the specified targets to the specified rule, or updates the targets if
-  they are already associated with the rule.
+  they're already associated with the rule.
 
   Targets are the resources that are invoked when a rule is triggered.
 
-  You can configure the following as targets for CloudWatch Events:
+  You can configure the following as targets in EventBridge:
 
   <ul> <li> EC2 instances
 
@@ -253,7 +455,7 @@ defmodule AWS.CloudWatch.Events do
 
   </li> <li> The default event bus of another AWS account
 
-  </li> </ul> Creating rules with built-in targets is supported only in the
+  </li> </ul> Creating rules with built-in targets is supported only on the
   AWS Management Console. The built-in targets are `EC2 CreateSnapshot API
   call`, `EC2 RebootInstances API call`, `EC2 StopInstances API call`, and
   `EC2 TerminateInstances API call`.
@@ -265,54 +467,53 @@ defmodule AWS.CloudWatch.Events do
   `RunCommandParameters` field.
 
   To be able to make API calls against the resources that you own, Amazon
-  CloudWatch Events needs the appropriate permissions. For AWS Lambda and
-  Amazon SNS resources, CloudWatch Events relies on resource-based policies.
-  For EC2 instances, Kinesis data streams, and AWS Step Functions state
-  machines, CloudWatch Events relies on IAM roles that you specify in the
-  `RoleARN` argument in `PutTargets`. For more information, see
-  [Authentication and Access
-  Control](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html)
-  in the *Amazon CloudWatch Events User Guide*.
+  EventBridge needs the appropriate permissions. For AWS Lambda and Amazon
+  SNS resources, EventBridge relies on resource-based policies. For EC2
+  instances, Kinesis data streams, and AWS Step Functions state machines,
+  EventBridge relies on IAM roles that you specify in the `RoleARN` argument
+  in `PutTargets`. For more information, see [Authentication and Access
+  Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html)
+  in the *Amazon EventBridge User Guide*.
 
-  If another AWS account is in the same region and has granted you permission
+  If another AWS account is in the same Region and has granted you permission
   (using `PutPermission`), you can send events to that account. Set that
   account's event bus as a target of the rules in your account. To send the
   matched events to the other account, specify that account's event bus as
   the `Arn` value when you run `PutTargets`. If your account sends events to
   another account, your account is charged for each sent event. Each event
   sent to another account is charged as a custom event. The account receiving
-  the event is not charged. For more information, see [Amazon CloudWatch
-  Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+  the event isn't charged. For more information, see [Amazon EventBridge
+  Pricing](https://aws.amazon.com/eventbridge/pricing/).
 
-  If you are setting the event bus of another account as the target, and that
+  If you're setting an event bus in another account as the target and that
   account granted permission to your account through an organization instead
-  of directly by the account ID, then you must specify a `RoleArn` with
-  proper permissions in the `Target` structure. For more information, see
-  [Sending and Receiving Events Between AWS
-  Accounts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html)
-  in the *Amazon CloudWatch Events User Guide*.
+  of directly by the account ID, you must specify a `RoleArn` with proper
+  permissions in the `Target` structure. For more information, see [Sending
+  and Receiving Events Between AWS
+  Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html)
+  in the *Amazon EventBridge User Guide*.
 
   For more information about enabling cross-account events, see
   `PutPermission`.
 
-  **Input**, **InputPath**, and **InputTransformer** are mutually exclusive
-  and optional parameters of a target. When a rule is triggered due to a
-  matched event:
+  `Input`, `InputPath`, and `InputTransformer` are mutually exclusive and
+  optional parameters of a target. When a rule is triggered due to a matched
+  event:
 
   <ul> <li> If none of the following arguments are specified for a target,
-  then the entire event is passed to the target in JSON format (unless the
-  target is Amazon EC2 Run Command or Amazon ECS task, in which case nothing
-  from the event is passed to the target).
+  the entire event is passed to the target in JSON format (unless the target
+  is Amazon EC2 Run Command or Amazon ECS task, in which case nothing from
+  the event is passed to the target).
 
-  </li> <li> If **Input** is specified in the form of valid JSON, then the
+  </li> <li> If `Input` is specified in the form of valid JSON, then the
   matched event is overridden with this constant.
 
-  </li> <li> If **InputPath** is specified in the form of JSONPath (for
-  example, `$.detail`), then only the part of the event specified in the path
-  is passed to the target (for example, only the detail part of the event is
+  </li> <li> If `InputPath` is specified in the form of JSONPath (for
+  example, `$.detail`), only the part of the event specified in the path is
+  passed to the target (for example, only the detail part of the event is
   passed).
 
-  </li> <li> If **InputTransformer** is specified, then one or more specified
+  </li> <li> If `InputTransformer` is specified, one or more specified
   JSONPaths are extracted from the event and used as values in a template
   that you specify as the input to the target.
 
@@ -324,7 +525,7 @@ defmodule AWS.CloudWatch.Events do
   period of time for changes to take effect.
 
   This action can partially fail if too many requests are made at the same
-  time. If that happens, `FailedEntryCount` is non-zero in the response and
+  time. If that happens, `FailedEntryCount` is nonzero in the response, and
   each entry in `FailedEntries` provides the ID of the failed target and the
   error code.
   """
@@ -334,7 +535,7 @@ defmodule AWS.CloudWatch.Events do
 
   @doc """
   Revokes the permission of another AWS account to be able to put events to
-  your default event bus. Specify the account to revoke by the `StatementId`
+  the specified event bus. Specify the account to revoke by the `StatementId`
   value that you associated with the account when you granted it permission
   with `PutPermission`. You can find the `StatementId` by using
   `DescribeEventBus`.
@@ -361,11 +562,11 @@ defmodule AWS.CloudWatch.Events do
   end
 
   @doc """
-  Assigns one or more tags (key-value pairs) to the specified CloudWatch
-  Events resource. Tags can help you organize and categorize your resources.
-  You can also use them to scope user permissions by granting a user
-  permission to access or change only resources with certain tag values. In
-  CloudWatch Events, rules can be tagged.
+  Assigns one or more tags (key-value pairs) to the specified EventBridge
+  resource. Tags can help you organize and categorize your resources. You can
+  also use them to scope user permissions by granting a user permission to
+  access or change only resources with certain tag values. In EventBridge,
+  rules can be tagged.
 
   Tags don't have any semantic meaning to AWS and are interpreted strictly as
   strings of characters.
@@ -385,47 +586,60 @@ defmodule AWS.CloudWatch.Events do
   @doc """
   Tests whether the specified event pattern matches the provided event.
 
-  Most services in AWS treat : or / as the same character in Amazon Resource
-  Names (ARNs). However, CloudWatch Events uses an exact match in event
+  Most services in AWS treat `:` or `/` as the same character in Amazon
+  Resource Names (ARNs). However, EventBridge uses an exact match in event
   patterns and rules. Be sure to use the correct ARN characters when creating
-  event patterns so that they match the ARN syntax in the event you want to
-  match.
+  event patterns so that they match the ARN syntax in the event that you want
+  to match.
   """
   def test_event_pattern(client, input, options \\ []) do
     request(client, "TestEventPattern", input, options)
   end
 
   @doc """
-  Removes one or more tags from the specified CloudWatch Events resource. In
-  CloudWatch Events, rules can be tagged.
+  Removes one or more tags from the specified EventBridge resource. In
+  EventBridge, rules can be tagged.
   """
   def untag_resource(client, input, options \\ []) do
     request(client, "UntagResource", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "events"}
     host = get_host("events", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AWSEvents.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AWSEvents.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -442,5 +656,4 @@ defmodule AWS.CloudWatch.Events do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

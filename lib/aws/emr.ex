@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.EMR do
   @moduledoc """
@@ -146,6 +146,17 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Returns the Amazon EMR block public access configuration for your AWS
+  account in the current Region. For more information see [Configure Block
+  Public Access for Amazon
+  EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html)
+  in the *Amazon EMR Management Guide*.
+  """
+  def get_block_public_access_configuration(client, input, options \\ []) do
+    request(client, "GetBlockPublicAccessConfiguration", input, options)
+  end
+
+  @doc """
   Provides information about the bootstrap actions associated with a cluster.
   """
   def list_bootstrap_actions(client, input, options \\ []) do
@@ -245,6 +256,17 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Creates or updates an Amazon EMR block public access configuration for your
+  AWS account in the current Region. For more information see [Configure
+  Block Public Access for Amazon
+  EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html)
+  in the *Amazon EMR Management Guide*.
+  """
+  def put_block_public_access_configuration(client, input, options \\ []) do
+    request(client, "PutBlockPublicAccessConfiguration", input, options)
+  end
+
+  @doc """
   Removes an automatic scaling policy from a specified instance group within
   an EMR cluster.
   """
@@ -330,6 +352,8 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  *This member will be deprecated.*
+
   Sets whether all AWS Identity and Access Management (IAM) users under your
   account can access the specified clusters (job flows). This action works on
   running clusters. You can also set the visibility of a cluster when you
@@ -357,29 +381,42 @@ defmodule AWS.EMR do
     request(client, "TerminateJobFlows", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "elasticmapreduce"}
     host = get_host("elasticmapreduce", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "ElasticMapReduce.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "ElasticMapReduce.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -396,5 +433,4 @@ defmodule AWS.EMR do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.ECS do
   @moduledoc """
@@ -13,7 +13,7 @@ defmodule AWS.ECS do
   tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances
   that you manage by using the EC2 launch type. For more information about
   launch types, see [Amazon ECS Launch
-  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html).
+  Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html).
 
   Amazon ECS lets you launch and stop container-based applications with
   simple API calls, allows you to get the state of your cluster from a
@@ -39,7 +39,7 @@ defmodule AWS.ECS do
   the IAM user that makes the call does not have permissions to create the
   service-linked role, it is not created. For more information, see [Using
   Service-Linked Roles for Amazon
-  ECS](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
+  ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   </note>
@@ -51,13 +51,13 @@ defmodule AWS.ECS do
   @doc """
   Runs and maintains a desired number of tasks from a specified task
   definition. If the number of tasks running in a service drops below the
-  `desiredCount`, Amazon ECS spawns another copy of the task in the specified
+  `desiredCount`, Amazon ECS runs another copy of the task in the specified
   cluster. To update an existing service, see `UpdateService`.
 
   In addition to maintaining the desired count of tasks in your service, you
-  can optionally run your service behind a load balancer. The load balancer
-  distributes traffic across the tasks that are associated with the service.
-  For more information, see [Service Load
+  can optionally run your service behind one or more load balancers. The load
+  balancers distribute traffic across the tasks that are associated with the
+  service. For more information, see [Service Load
   Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
@@ -168,7 +168,7 @@ defmodule AWS.ECS do
   Create a task set in the specified cluster and service. This is used when a
   service uses the `EXTERNAL` deployment controller type. For more
   information, see [Amazon ECS Deployment
-  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def create_task_set(client, input, options \\ []) do
@@ -176,10 +176,8 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Modifies the ARN and resource ID format of a resource for a specified IAM
-  user, IAM role, or the root user for an account. You can specify whether
-  the new ARN and resource ID format are disabled for new resources that are
-  created.
+  Disables an account setting for a specified IAM user, IAM role, or the root
+  user for an account.
   """
   def delete_account_setting(client, input, options \\ []) do
     request(client, "DeleteAccountSetting", input, options)
@@ -212,12 +210,13 @@ defmodule AWS.ECS do
   <note> When you delete a service, if there are still running tasks that
   require cleanup, the service status moves from `ACTIVE` to `DRAINING`, and
   the service is no longer visible in the console or in the `ListServices`
-  API operation. After the tasks have stopped, then the service status moves
-  from `DRAINING` to `INACTIVE`. Services in the `DRAINING` or `INACTIVE`
-  status can still be viewed with the `DescribeServices` API operation.
-  However, in the future, `INACTIVE` services may be cleaned up and purged
-  from Amazon ECS record keeping, and `DescribeServices` calls on those
-  services return a `ServiceNotFoundException` error.
+  API operation. After all tasks have transitioned to either `STOPPING` or
+  `STOPPED` status, the service status moves from `DRAINING` to `INACTIVE`.
+  Services in the `DRAINING` or `INACTIVE` status can still be viewed with
+  the `DescribeServices` API operation. However, in the future, `INACTIVE`
+  services may be cleaned up and purged from Amazon ECS record keeping, and
+  `DescribeServices` calls on those services return a
+  `ServiceNotFoundException` error.
 
   </note> <important> If you attempt to create a new service with the same
   name as an existing service in either `ACTIVE` or `DRAINING` status, you
@@ -233,7 +232,7 @@ defmodule AWS.ECS do
   Deletes a specified task set within a service. This is used when a service
   uses the `EXTERNAL` deployment controller type. For more information, see
   [Amazon ECS Deployment
-  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def delete_task_set(client, input, options \\ []) do
@@ -331,7 +330,7 @@ defmodule AWS.ECS do
   Describes the task sets in the specified cluster and service. This is used
   when a service uses the `EXTERNAL` deployment controller type. For more
   information, see [Amazon ECS Deployment
-  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def describe_task_sets(client, input, options \\ []) do
@@ -356,8 +355,7 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Lists the account settings for an Amazon ECS resource for a specified
-  principal.
+  Lists the account settings for a specified principal.
   """
   def list_account_settings(client, input, options \\ []) do
     request(client, "ListAccountSettings", input, options)
@@ -447,17 +445,39 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Modifies the ARN and resource ID format of a resource type for a specified
-  IAM user, IAM role, or the root user for an account. If the account setting
-  for the root user is changed, it sets the default setting for all of the
-  IAM users and roles for which no individual account setting has been set.
-  The opt-in and opt-out account setting can be set for each Amazon ECS
-  resource separately. The ARN and resource ID format of a resource will be
-  defined by the opt-in status of the IAM user or role that created the
-  resource. Enabling this setting is required to use new Amazon ECS features
-  such as resource tagging. For more information, see [Amazon Resource Names
-  (ARNs) and
-  IDs](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-resource-ids.html)
+  Modifies an account setting. Account settings are set on a per-Region
+  basis.
+
+  If you change the account setting for the root user, the default settings
+  for all of the IAM users and roles for which no individual account setting
+  has been specified are reset. For more information, see [Account
+  Settings](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  When `serviceLongArnFormat`, `taskLongArnFormat`, or
+  `containerInstanceLongArnFormat` are specified, the Amazon Resource Name
+  (ARN) and resource ID format of the resource type for a specified IAM user,
+  IAM role, or the root user for an account is affected. The opt-in and
+  opt-out account setting must be set for each Amazon ECS resource
+  separately. The ARN and resource ID format of a resource will be defined by
+  the opt-in status of the IAM user or role that created the resource. You
+  must enable this setting to use Amazon ECS features such as resource
+  tagging.
+
+  When `awsvpcTrunking` is specified, the elastic network interface (ENI)
+  limit for any new container instances that support the feature is changed.
+  If `awsvpcTrunking` is enabled, any new container instances that support
+  the feature are launched have the increased ENI limits available to them.
+  For more information, see [Elastic Network Interface
+  Trunking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  When `containerInsights` is specified, the default setting indicating
+  whether CloudWatch Container Insights is enabled for your clusters is
+  changed. If `containerInsights` is enabled, any new clusters that are
+  created will have Container Insights enabled unless you disable it during
+  cluster creation. For more information, see [CloudWatch Container
+  Insights](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def put_account_setting(client, input, options \\ []) do
@@ -465,10 +485,9 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Modifies the ARN and resource ID format of a resource type for all IAM
-  users on an account for which no individual account setting has been set.
-  Enabling this setting is required to use new Amazon ECS features such as
-  resource tagging.
+  Modifies an account setting for all IAM users on an account for whom no
+  individual account setting has been specified. Account settings are set on
+  a per-Region basis.
   """
   def put_account_setting_default(client, input, options \\ []) do
     request(client, "PutAccountSettingDefault", input, options)
@@ -521,7 +540,7 @@ defmodule AWS.ECS do
   task is allocated an elastic network interface, and you must specify a
   `NetworkConfiguration` when you create a service or run a task with the
   task definition. For more information, see [Task
-  Networking](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+  Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def register_task_definition(client, input, options \\ []) do
@@ -606,6 +625,16 @@ defmodule AWS.ECS do
   <note> This action is only used by the Amazon ECS agent, and it is not
   intended for use outside of the agent.
 
+  </note> Sent to acknowledge that an attachment changed states.
+  """
+  def submit_attachment_state_changes(client, input, options \\ []) do
+    request(client, "SubmitAttachmentStateChanges", input, options)
+  end
+
+  @doc """
+  <note> This action is only used by the Amazon ECS agent, and it is not
+  intended for use outside of the agent.
+
   </note> Sent to acknowledge that a container changed states.
   """
   def submit_container_state_change(client, input, options \\ []) do
@@ -640,6 +669,13 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Modifies the settings to use for a cluster.
+  """
+  def update_cluster_settings(client, input, options \\ []) do
+    request(client, "UpdateClusterSettings", input, options)
+  end
+
+  @doc """
   Updates the Amazon ECS container agent on a specified container instance.
   Updating the Amazon ECS container agent does not interrupt running tasks or
   services on the container instance. The process for updating the agent
@@ -660,15 +696,21 @@ defmodule AWS.ECS do
   @doc """
   Modifies the status of an Amazon ECS container instance.
 
-  You can change the status of a container instance to `DRAINING` to manually
-  remove an instance from a cluster, for example to perform system updates,
-  update the Docker daemon, or scale down the cluster size.
+  Once a container instance has reached an `ACTIVE` state, you can change the
+  status of a container instance to `DRAINING` to manually remove an instance
+  from a cluster, for example to perform system updates, update the Docker
+  daemon, or scale down the cluster size.
 
-  When you set a container instance to `DRAINING`, Amazon ECS prevents new
-  tasks from being scheduled for placement on the container instance and
-  replacement service tasks are started on other container instances in the
-  cluster if the resources are available. Service tasks on the container
-  instance that are in the `PENDING` state are stopped immediately.
+  <important> A container instance cannot be changed to `DRAINING` until it
+  has reached an `ACTIVE` status. If the instance is in any other status, an
+  error will be received.
+
+  </important> When you set a container instance to `DRAINING`, Amazon ECS
+  prevents new tasks from being scheduled for placement on the container
+  instance and replacement service tasks are started on other container
+  instances in the cluster if the resources are available. Service tasks on
+  the container instance that are in the `PENDING` state are stopped
+  immediately.
 
   Service tasks on the container instance that are in the `RUNNING` state are
   stopped and replaced according to the service's deployment configuration
@@ -701,8 +743,9 @@ defmodule AWS.ECS do
   A container instance has completed draining when it has no more `RUNNING`
   tasks. You can verify this using `ListTasks`.
 
-  When you set a container instance to `ACTIVE`, the Amazon ECS scheduler can
-  begin scheduling tasks on the instance again.
+  When a container instance has been drained, you can set a container
+  instance to `ACTIVE` status and once it has reached that status the Amazon
+  ECS scheduler can begin scheduling tasks on the instance again.
   """
   def update_container_instances_state(client, input, options \\ []) do
     request(client, "UpdateContainerInstancesState", input, options)
@@ -821,7 +864,7 @@ defmodule AWS.ECS do
   transition to the service. This is used when a service uses the `EXTERNAL`
   deployment controller type. For more information, see [Amazon ECS
   Deployment
-  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def update_service_primary_task_set(client, input, options \\ []) do
@@ -832,36 +875,49 @@ defmodule AWS.ECS do
   Modifies a task set. This is used when a service uses the `EXTERNAL`
   deployment controller type. For more information, see [Amazon ECS
   Deployment
-  Types](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def update_task_set(client, input, options \\ []) do
     request(client, "UpdateTaskSet", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "ecs"}
     host = get_host("ecs", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AmazonEC2ContainerServiceV20141113.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AmazonEC2ContainerServiceV20141113.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -878,5 +934,4 @@ defmodule AWS.ECS do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

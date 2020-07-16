@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Workspaces do
   @moduledoc """
@@ -28,6 +28,13 @@ defmodule AWS.Workspaces do
   end
 
   @doc """
+  Copies the specified image from the specified Region to the current Region.
+  """
+  def copy_workspace_image(client, input, options \\ []) do
+    request(client, "CopyWorkspaceImage", input, options)
+  end
+
+  @doc """
   Creates an IP access control group.
 
   An IP access control group provides you with the ability to control the IP
@@ -47,7 +54,7 @@ defmodule AWS.Workspaces do
   end
 
   @doc """
-  Creates the specified tags for the specified WorkSpace.
+  Creates the specified tags for the specified WorkSpaces resource.
   """
   def create_tags(client, input, options \\ []) do
     request(client, "CreateTags", input, options)
@@ -74,7 +81,7 @@ defmodule AWS.Workspaces do
   end
 
   @doc """
-  Deletes the specified tags from the specified WorkSpace.
+  Deletes the specified tags from the specified WorkSpaces resource.
   """
   def delete_tags(client, input, options \\ []) do
     request(client, "DeleteTags", input, options)
@@ -82,7 +89,8 @@ defmodule AWS.Workspaces do
 
   @doc """
   Deletes the specified image from your account. To delete an image, you must
-  first delete any bundles that are associated with the image.
+  first delete any bundles that are associated with the image and un-share
+  the image if it is shared with other accounts.
   """
   def delete_workspace_image(client, input, options \\ []) do
     request(client, "DeleteWorkspaceImage", input, options)
@@ -120,7 +128,7 @@ defmodule AWS.Workspaces do
   end
 
   @doc """
-  Describes the specified tags for the specified WorkSpace.
+  Describes the specified tags for the specified WorkSpaces resource.
   """
   def describe_tags(client, input, options \\ []) do
     request(client, "DescribeTags", input, options)
@@ -150,6 +158,13 @@ defmodule AWS.Workspaces do
   """
   def describe_workspace_images(client, input, options \\ []) do
     request(client, "DescribeWorkspaceImages", input, options)
+  end
+
+  @doc """
+  Describes the snapshots for the specified WorkSpace.
+  """
+  def describe_workspace_snapshots(client, input, options \\ []) do
+    request(client, "DescribeWorkspaceSnapshots", input, options)
   end
 
   @doc """
@@ -227,9 +242,9 @@ defmodule AWS.Workspaces do
 
   To maintain a WorkSpace without being interrupted, set the WorkSpace state
   to `ADMIN_MAINTENANCE`. WorkSpaces in this state do not respond to requests
-  to reboot, stop, start, or rebuild. An AutoStop WorkSpace in this state is
-  not stopped. Users can log into a WorkSpace in the `ADMIN_MAINTENANCE`
-  state.
+  to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this
+  state is not stopped. Users cannot log into a WorkSpace in the
+  `ADMIN_MAINTENANCE` state.
   """
   def modify_workspace_state(client, input, options \\ []) do
     request(client, "ModifyWorkspaceState", input, options)
@@ -263,6 +278,23 @@ defmodule AWS.Workspaces do
   """
   def rebuild_workspaces(client, input, options \\ []) do
     request(client, "RebuildWorkspaces", input, options)
+  end
+
+  @doc """
+  Restores the specified WorkSpace to its last known healthy state.
+
+  You cannot restore a WorkSpace unless its state is ` AVAILABLE`, `ERROR`,
+  or `UNHEALTHY`.
+
+  Restoring a WorkSpace is a potentially destructive action that can result
+  in the loss of data. For more information, see [Restore a
+  WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html).
+
+  This operation is asynchronous and returns before the WorkSpace is
+  completely restored.
+  """
+  def restore_workspace(client, input, options \\ []) do
+    request(client, "RestoreWorkspace", input, options)
   end
 
   @doc """
@@ -316,29 +348,42 @@ defmodule AWS.Workspaces do
     request(client, "UpdateRulesOfIpGroup", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "workspaces"}
     host = get_host("workspaces", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "WorkspacesService.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "WorkspacesService.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -355,5 +400,4 @@ defmodule AWS.Workspaces do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Budgets do
   @moduledoc """
@@ -52,6 +52,15 @@ defmodule AWS.Budgets do
 
   @doc """
   Creates a budget and, if included, notifications and subscribers.
+
+  <important> Only one of `BudgetLimit` or `PlannedBudgetLimits` can be
+  present in the syntax at one time. Use the syntax that matches your case.
+  The Request Syntax section shows the `BudgetLimit` syntax. For
+  `PlannedBudgetLimits`, see the
+  [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples)
+  section.
+
+  </important>
   """
   def create_budget(client, input, options \\ []) do
     request(client, "CreateBudget", input, options)
@@ -111,6 +120,13 @@ defmodule AWS.Budgets do
 
   @doc """
   Describes a budget.
+
+  <important> The Request Syntax section shows the `BudgetLimit` syntax. For
+  `PlannedBudgetLimits`, see the
+  [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples)
+  section.
+
+  </important>
   """
   def describe_budget(client, input, options \\ []) do
     request(client, "DescribeBudget", input, options)
@@ -126,6 +142,13 @@ defmodule AWS.Budgets do
 
   @doc """
   Lists the budgets that are associated with an account.
+
+  <important> The Request Syntax section shows the `BudgetLimit` syntax. For
+  `PlannedBudgetLimits`, see the
+  [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples)
+  section.
+
+  </important>
   """
   def describe_budgets(client, input, options \\ []) do
     request(client, "DescribeBudgets", input, options)
@@ -150,6 +173,15 @@ defmodule AWS.Budgets do
   `budgetName` and the `calculatedSpend`. When you modify a budget, the
   `calculatedSpend` drops to zero until AWS has new usage data to use for
   forecasting.
+
+  <important> Only one of `BudgetLimit` or `PlannedBudgetLimits` can be
+  present in the syntax at one time. Use the syntax that matches your case.
+  The Request Syntax section shows the `BudgetLimit` syntax. For
+  `PlannedBudgetLimits`, see the
+  [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples)
+  section.
+
+  </important>
   """
   def update_budget(client, input, options \\ []) do
     request(client, "UpdateBudget", input, options)
@@ -169,29 +201,42 @@ defmodule AWS.Budgets do
     request(client, "UpdateSubscriber", input, options)
   end
 
-  @spec request(map(), binary(), map(), list()) ::
-    {:ok, Poison.Parser.t | nil, Poison.Response.t} |
-    {:error, Poison.Parser.t} |
-    {:error, HTTPoison.Error.t}
+  @spec request(AWS.Client.t(), binary(), map(), list()) ::
+          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          | {:error, Poison.Parser.t()}
+          | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "budgets"}
     host = get_host("budgets", client)
     url = get_url(host, client)
-    headers = [{"Host", host},
-               {"Content-Type", "application/x-amz-json-1.1"},
-               {"X-Amz-Target", "AWSBudgetServiceGateway.#{action}"}]
-    payload = Poison.Encoder.encode(input, [])
+
+    headers = if client.session_token do
+      [{"X-Amz-Security-Token", client.session_token}]
+    else
+      []
+    end
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-amz-json-1.1"},
+      {"X-Amz-Target", "AWSBudgetServiceGateway.#{action}"} | headers]
+
+    payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
+    
     case HTTPoison.post(url, payload, headers, options) do
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: ""}} ->
+      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
-      {:ok, response=%HTTPoison.Response{status_code: 200, body: body}} ->
-        {:ok, Poison.Parser.parse!(body), response}
-      {:ok, _response=%HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body)
+
+      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
+        {:ok, Poison.Parser.parse!(body, %{}), response}
+    
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]
         message = error["message"]
         {:error, {exception, message}}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
     end
@@ -208,5 +253,4 @@ defmodule AWS.Budgets do
   defp get_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
-
 end

@@ -104,7 +104,7 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about one or more applications. The maximum number of
-  applications that can be returned is 25.
+  applications that can be returned is 100.
   """
   def batch_get_applications(client, input, options \\ []) do
     request(client, "BatchGetApplications", input, options)
@@ -136,13 +136,17 @@ defmodule AWS.CodeDeploy do
   deprecated `BatchGetDeploymentInstances`. The maximum number of targets
   that can be returned is 25.
 
-  The type of targets returned depends on the deployment's compute platform:
+  The type of targets returned depends on the deployment's compute platform
+  or deployment method:
 
   <ul> <li> **EC2/On-premises**: Information about EC2 instance targets.
 
   </li> <li> **AWS Lambda**: Information about Lambda functions targets.
 
   </li> <li> **Amazon ECS**: Information about Amazon ECS service targets.
+
+  </li> <li> **CloudFormation**: Information about targets of blue/green
+  deployments initiated by a CloudFormation stack update.
 
   </li> </ul>
   """
@@ -237,6 +241,13 @@ defmodule AWS.CodeDeploy do
   """
   def delete_git_hub_account_token(client, input, options \\ []) do
     request(client, "DeleteGitHubAccountToken", input, options)
+  end
+
+  @doc """
+  Deletes resources linked to an external ID.
+  """
+  def delete_resources_by_external_id(client, input, options \\ []) do
+    request(client, "DeleteResourcesByExternalId", input, options)
   end
 
   @doc """
@@ -339,7 +350,7 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  <note> The newer BatchGetDeploymentTargets should be used instead because
+  <note> The newer `BatchGetDeploymentTargets` should be used instead because
   it works with all compute types. `ListDeploymentInstances` throws an
   exception if it is used with a compute platform other than EC2/On-premises
   or AWS Lambda.
@@ -385,17 +396,27 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Returns a list of tags for the resource identified by a specified ARN. Tags
-  are used to organize and categorize your CodeDeploy resources.
+  Returns a list of tags for the resource identified by a specified Amazon
+  Resource Name (ARN). Tags are used to organize and categorize your
+  CodeDeploy resources.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Sets the result of a Lambda validation function. The function validates one
-  or both lifecycle events (`BeforeAllowTraffic` and `AfterAllowTraffic`) and
-  returns `Succeeded` or `Failed`.
+  Sets the result of a Lambda validation function. The function validates
+  lifecycle hooks during a deployment that uses the AWS Lambda or Amazon ECS
+  compute platform. For AWS Lambda deployments, the available lifecycle hooks
+  are `BeforeAllowTraffic` and `AfterAllowTraffic`. For Amazon ECS
+  deployments, the available lifecycle hooks are `BeforeInstall`,
+  `AfterInstall`, `AfterAllowTestTraffic`, `BeforeAllowTraffic`, and
+  `AfterAllowTraffic`. Lambda validation functions return `Succeeded` or
+  `Failed`. For more information, see [AppSpec 'hooks' Section for an AWS
+  Lambda Deployment
+  ](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda)
+  and [AppSpec 'hooks' Section for an Amazon ECS
+  Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs).
   """
   def put_lifecycle_event_hook_execution_status(client, input, options \\ []) do
     request(client, "PutLifecycleEventHookExecutionStatus", input, options)
@@ -452,7 +473,7 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Disassociates a resource from a list of tags. The resource is identified by
-  the `ResourceArn` input parameter. The tags are identfied by the list of
+  the `ResourceArn` input parameter. The tags are identified by the list of
   keys in the `TagKeys` input parameter.
   """
   def untag_resource(client, input, options \\ []) do

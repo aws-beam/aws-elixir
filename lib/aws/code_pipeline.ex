@@ -49,6 +49,9 @@ defmodule AWS.CodePipeline do
   </li> <li> `StartPipelineExecution`, which runs the most recent revision of
   an artifact through the pipeline.
 
+  </li> <li> `StopPipelineExecution`, which stops the specified pipeline
+  execution from continuing through the pipeline.
+
   </li> <li> `UpdatePipeline`, which updates a pipeline with edits or changes
   to the structure of the pipeline.
 
@@ -244,10 +247,9 @@ defmodule AWS.CodePipeline do
   Returns information about a job. Used for custom actions only.
 
   <important> When this API is called, AWS CodePipeline returns temporary
-  credentials for the Amazon S3 bucket used to store artifacts for the
-  pipeline, if the action requires access to that Amazon S3 bucket for input
-  or output artifacts. This API also returns any secret values defined for
-  the action.
+  credentials for the S3 bucket used to store artifacts for the pipeline, if
+  the action requires access to that S3 bucket for input or output artifacts.
+  This API also returns any secret values defined for the action.
 
   </important>
   """
@@ -293,10 +295,9 @@ defmodule AWS.CodePipeline do
   actions only.
 
   <important> When this API is called, AWS CodePipeline returns temporary
-  credentials for the Amazon S3 bucket used to store artifacts for the
-  pipeline, if the action requires access to that Amazon S3 bucket for input
-  or output artifacts. This API also returns any secret values defined for
-  the action.
+  credentials for the S3 bucket used to store artifacts for the pipeline, if
+  the action requires access to that S3 bucket for input or output artifacts.
+  This API also returns any secret values defined for the action.
 
   </important>
   """
@@ -357,10 +358,9 @@ defmodule AWS.CodePipeline do
   field, the `PollForJobs` action returns an error.
 
   <important> When this API is called, AWS CodePipeline returns temporary
-  credentials for the Amazon S3 bucket used to store artifacts for the
-  pipeline, if the action requires access to that Amazon S3 bucket for input
-  or output artifacts. This API also returns any secret values defined for
-  the action.
+  credentials for the S3 bucket used to store artifacts for the pipeline, if
+  the action requires access to that S3 bucket for input or output artifacts.
+  This API also returns any secret values defined for the action.
 
   </important>
   """
@@ -373,9 +373,8 @@ defmodule AWS.CodePipeline do
   on. Used for partner actions only.
 
   <important> When this API is called, AWS CodePipeline returns temporary
-  credentials for the Amazon S3 bucket used to store artifacts for the
-  pipeline, if the action requires access to that Amazon S3 bucket for input
-  or output artifacts.
+  credentials for the S3 bucket used to store artifacts for the pipeline, if
+  the action requires access to that S3 bucket for input or output artifacts.
 
   </important>
   """
@@ -469,6 +468,18 @@ defmodule AWS.CodePipeline do
   """
   def start_pipeline_execution(client, input, options \\ []) do
     request(client, "StartPipelineExecution", input, options)
+  end
+
+  @doc """
+  Stops the specified pipeline execution. You choose to either stop the
+  pipeline execution by completing in-progress actions without starting
+  subsequent actions, or by abandoning in-progress actions. While completing
+  or abandoning in-progress actions, the pipeline execution is in a
+  `Stopping` state. After all in-progress actions are completed or abandoned,
+  the pipeline execution is in a `Stopped` state.
+  """
+  def stop_pipeline_execution(client, input, options \\ []) do
+    request(client, "StopPipelineExecution", input, options)
   end
 
   @doc """

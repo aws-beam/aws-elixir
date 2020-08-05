@@ -279,10 +279,8 @@ defmodule AWS.DirectConnect do
   Creates a proposal to associate the specified virtual private gateway or
   transit gateway with the specified Direct Connect gateway.
 
-  You can only associate a Direct Connect gateway and virtual private gateway
-  or transit gateway when the account that owns the Direct Connect gateway
-  and the account that owns the virtual private gateway or transit gateway
-  have the same AWS Payer ID.
+  You can associate a Direct Connect gateway and virtual private gateway or
+  transit gateway that is owned by any AWS account.
   """
   def create_direct_connect_gateway_association_proposal(client, input, options \\ []) do
     request(client, "CreateDirectConnectGatewayAssociationProposal", input, options)
@@ -360,6 +358,14 @@ defmodule AWS.DirectConnect do
   enables the possibility for connecting to multiple VPCs, including VPCs in
   different AWS Regions. Connecting the private virtual interface to a VGW
   only provides access to a single VPC within the same Region.
+
+  Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an
+  update to the underlying physical connection if it wasn't updated to
+  support jumbo frames. Updating the connection disrupts network connectivity
+  for all virtual interfaces associated with the connection for up to 30
+  seconds. To check whether your connection supports jumbo frames, call
+  `DescribeConnections`. To check whether your virtual interface supports
+  jumbo frames, call `DescribeVirtualInterfaces`.
   """
   def create_private_virtual_interface(client, input, options \\ []) do
     request(client, "CreatePrivateVirtualInterface", input, options)
@@ -390,7 +396,13 @@ defmodule AWS.DirectConnect do
   you use the default ASN 64512 for both your the transit gateway and Direct
   Connect gateway, the association request fails.
 
-  </important>
+  </important> Setting the MTU of a virtual interface to 8500 (jumbo frames)
+  can cause an update to the underlying physical connection if it wasn't
+  updated to support jumbo frames. Updating the connection disrupts network
+  connectivity for all virtual interfaces associated with the connection for
+  up to 30 seconds. To check whether your connection supports jumbo frames,
+  call `DescribeConnections`. To check whether your virtual interface
+  supports jumbo frames, call `DescribeVirtualInterfaces`.
   """
   def create_transit_virtual_interface(client, input, options \\ []) do
     request(client, "CreateTransitVirtualInterface", input, options)
@@ -675,6 +687,40 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
+  Lists the virtual interface failover test history.
+  """
+  def list_virtual_interface_test_history(client, input, options \\ []) do
+    request(client, "ListVirtualInterfaceTestHistory", input, options)
+  end
+
+  @doc """
+  Starts the virtual interface failover test that verifies your configuration
+  meets your resiliency requirements by placing the BGP peering session in
+  the DOWN state. You can then send traffic to verify that there are no
+  outages.
+
+  You can run the test on public, private, transit, and hosted virtual
+  interfaces.
+
+  You can use
+  [ListVirtualInterfaceTestHistory](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html)
+  to view the virtual interface test history.
+
+  If you need to stop the test before the test interval completes, use
+  [StopBgpFailoverTest](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StopBgpFailoverTest.html).
+  """
+  def start_bgp_failover_test(client, input, options \\ []) do
+    request(client, "StartBgpFailoverTest", input, options)
+  end
+
+  @doc """
+  Stops the virtual interface failover test.
+  """
+  def stop_bgp_failover_test(client, input, options \\ []) do
+    request(client, "StopBgpFailoverTest", input, options)
+  end
+
+  @doc """
   Adds the specified tags to the specified AWS Direct Connect resource. Each
   resource can have a maximum of 50 tags.
 
@@ -731,7 +777,7 @@ defmodule AWS.DirectConnect do
   support jumbo frames. Updating the connection disrupts network connectivity
   for all virtual interfaces associated with the connection for up to 30
   seconds. To check whether your connection supports jumbo frames, call
-  `DescribeConnections`. To check whether your virtual interface supports
+  `DescribeConnections`. To check whether your virtual q interface supports
   jumbo frames, call `DescribeVirtualInterfaces`.
   """
   def update_virtual_interface_attributes(client, input, options \\ []) do

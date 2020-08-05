@@ -117,7 +117,9 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Creates a Simple AD directory.
+  Creates a Simple AD directory. For more information, see [Simple Active
+  Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html)
+  in the *AWS Directory Service Admin Guide*.
 
   Before you call `CreateDirectory`, ensure that all of the required
   permissions have been explicitly granted through a policy. For details
@@ -131,16 +133,19 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Creates a subscription to forward real time Directory Service domain
-  controller security logs to the specified CloudWatch log group in your AWS
-  account.
+  Creates a subscription to forward real-time Directory Service domain
+  controller security logs to the specified Amazon CloudWatch log group in
+  your AWS account.
   """
   def create_log_subscription(client, input, options \\ []) do
     request(client, "CreateLogSubscription", input, options)
   end
 
   @doc """
-  Creates an AWS Managed Microsoft AD directory.
+  Creates a Microsoft AD directory in the AWS Cloud. For more information,
+  see [AWS Managed Microsoft
+  AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html)
+  in the *AWS Directory Service Admin Guide*.
 
   Before you call *CreateMicrosoftAD*, ensure that all of the required
   permissions have been explicitly granted through a policy. For details
@@ -226,10 +231,26 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Deletes from the system the certificate that was registered for a secured
+  LDAP connection.
+  """
+  def deregister_certificate(client, input, options \\ []) do
+    request(client, "DeregisterCertificate", input, options)
+  end
+
+  @doc """
   Removes the specified directory as a publisher to the specified SNS topic.
   """
   def deregister_event_topic(client, input, options \\ []) do
     request(client, "DeregisterEventTopic", input, options)
+  end
+
+  @doc """
+  Displays information about the certificate registered for a secured LDAP
+  connection.
+  """
+  def describe_certificate(client, input, options \\ []) do
+    request(client, "DescribeCertificate", input, options)
   end
 
   @doc """
@@ -281,6 +302,13 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Describes the status of LDAP security for the specified directory.
+  """
+  def describe_l_d_a_p_s_settings(client, input, options \\ []) do
+    request(client, "DescribeLDAPSSettings", input, options)
+  end
+
+  @doc """
   Returns the shared directories in your account.
   """
   def describe_shared_directories(client, input, options \\ []) do
@@ -314,6 +342,13 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Deactivates LDAP secure calls for the specified directory.
+  """
+  def disable_l_d_a_p_s(client, input, options \\ []) do
+    request(client, "DisableLDAPS", input, options)
+  end
+
+  @doc """
   Disables multi-factor authentication (MFA) with the Remote Authentication
   Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD
   directory.
@@ -330,6 +365,14 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
+  Activates the switch for the specific directory to always use LDAP secure
+  calls.
+  """
+  def enable_l_d_a_p_s(client, input, options \\ []) do
+    request(client, "EnableLDAPS", input, options)
+  end
+
+  @doc """
   Enables multi-factor authentication (MFA) with the Remote Authentication
   Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD
   directory.
@@ -339,14 +382,16 @@ defmodule AWS.DirectoryService do
   end
 
   @doc """
-  Enables single sign-on for a directory.
+  Enables single sign-on for a directory. Single sign-on allows users in your
+  directory to access certain AWS services from a computer joined to the
+  directory without having to enter their credentials separately.
   """
   def enable_sso(client, input, options \\ []) do
     request(client, "EnableSso", input, options)
   end
 
   @doc """
-  Obtains directory limit information for the current region.
+  Obtains directory limit information for the current Region.
   """
   def get_directory_limits(client, input, options \\ []) do
     request(client, "GetDirectoryLimits", input, options)
@@ -357,6 +402,14 @@ defmodule AWS.DirectoryService do
   """
   def get_snapshot_limits(client, input, options \\ []) do
     request(client, "GetSnapshotLimits", input, options)
+  end
+
+  @doc """
+  For the specified directory, lists all the certificates registered for a
+  secured LDAP connection.
+  """
+  def list_certificates(client, input, options \\ []) do
+    request(client, "ListCertificates", input, options)
   end
 
   @doc """
@@ -385,6 +438,13 @@ defmodule AWS.DirectoryService do
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Registers a certificate for secured LDAP connection.
+  """
+  def register_certificate(client, input, options \\ []) do
+    request(client, "RegisterCertificate", input, options)
   end
 
   @doc """
@@ -424,6 +484,23 @@ defmodule AWS.DirectoryService do
   @doc """
   Resets the password for any user in your AWS Managed Microsoft AD or Simple
   AD directory.
+
+  You can reset the password for any user in your directory with the
+  following exceptions:
+
+  <ul> <li> For Simple AD, you cannot reset the password for any user that is
+  a member of either the **Domain Admins** or **Enterprise Admins** group
+  except for the administrator user.
+
+  </li> <li> For AWS Managed Microsoft AD, you can only reset the password
+  for a user that is in an OU based off of the NetBIOS name that you typed
+  when you created your directory. For example, you cannot reset the password
+  for a user in the **AWS Reserved** OU. For more information about the OU
+  structure for an AWS Managed Microsoft AD directory, see [What Gets
+  Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html)
+  in the *AWS Directory Service Administration Guide*.
+
+  </li> </ul>
   """
   def reset_user_password(client, input, options \\ []) do
     request(client, "ResetUserPassword", input, options)

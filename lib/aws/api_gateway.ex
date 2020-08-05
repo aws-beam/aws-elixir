@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.APIGateway do
   @moduledoc """
@@ -544,7 +544,7 @@ defmodule AWS.APIGateway do
   @doc """
   Exports a deployed version of a `RestApi` in a specified format.
   """
-  def get_export(client, export_type, rest_api_id, stage_name, accepts \\ nil, options \\ []) do
+  def get_export(client, export_type, rest_api_id, stage_name, accepts, options \\ []) do
     path = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/exports/#{URI.encode(export_type)}"
     headers = []
     headers = if !is_nil(accepts) do
@@ -565,7 +565,7 @@ defmodule AWS.APIGateway do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -732,7 +732,7 @@ defmodule AWS.APIGateway do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -1218,7 +1218,7 @@ defmodule AWS.APIGateway do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -1235,7 +1235,7 @@ defmodule AWS.APIGateway do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

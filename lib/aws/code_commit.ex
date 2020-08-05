@@ -31,13 +31,12 @@ defmodule AWS.CodeCommit do
 
   </li> <li> `UpdateRepositoryName`, which changes the name of the
   repository. If you change the name of a repository, no other users of that
-  repository will be able to access it until you send them the new HTTPS or
-  SSH URL to use.
+  repository can access it until you send them the new HTTPS or SSH URL to
+  use.
 
   </li> </ul> Branches, by calling the following:
 
-  <ul> <li> `CreateBranch`, which creates a new branch in a specified
-  repository.
+  <ul> <li> `CreateBranch`, which creates a branch in a specified repository.
 
   </li> <li> `DeleteBranch`, which deletes the specified branch in a
   repository unless it is the default branch.
@@ -56,7 +55,7 @@ defmodule AWS.CodeCommit do
   a specified branch.
 
   </li> <li> `GetBlob`, which returns the base-64 encoded content of an
-  individual Git blob object within a repository.
+  individual Git blob object in a repository.
 
   </li> <li> `GetFile`, which returns the base-64 encoded content of a
   specified file.
@@ -70,7 +69,7 @@ defmodule AWS.CodeCommit do
   </li> </ul> Commits, by calling the following:
 
   <ul> <li> `BatchGetCommits`, which returns information about one or more
-  commits in a repository
+  commits in a repository.
 
   </li> <li> `CreateCommit`, which creates a commit for changes to a
   repository.
@@ -80,7 +79,7 @@ defmodule AWS.CodeCommit do
 
   </li> <li> `GetDifferences`, which returns information about the
   differences in a valid commit specifier (such as a branch, tag, HEAD,
-  commit ID or other fully qualified reference).
+  commit ID, or other fully qualified reference).
 
   </li> </ul> Merges, by calling the following:
 
@@ -118,14 +117,32 @@ defmodule AWS.CodeCommit do
   <ul> <li> `CreatePullRequest`, which creates a pull request in a specified
   repository.
 
+  </li> <li> `CreatePullRequestApprovalRule`, which creates an approval rule
+  for a specified pull request.
+
+  </li> <li> `DeletePullRequestApprovalRule`, which deletes an approval rule
+  for a specified pull request.
+
   </li> <li> `DescribePullRequestEvents`, which returns information about one
   or more pull request events.
+
+  </li> <li> `EvaluatePullRequestApprovalRules`, which evaluates whether a
+  pull request has met all the conditions specified in its associated
+  approval rules.
 
   </li> <li> `GetCommentsForPullRequest`, which returns information about
   comments on a specified pull request.
 
   </li> <li> `GetPullRequest`, which returns information about a specified
   pull request.
+
+  </li> <li> `GetPullRequestApprovalStates`, which returns information about
+  the approval states for a specified pull request.
+
+  </li> <li> `GetPullRequestOverrideState`, which returns information about
+  whether approval rules have been set aside (overriden) for a pull request,
+  and if so, the Amazon Resource Name (ARN) of the user or identity that
+  overrode the rules and their requirements for the pull request.
 
   </li> <li> `ListPullRequests`, which lists all pull requests for a
   repository.
@@ -142,8 +159,17 @@ defmodule AWS.CodeCommit do
   destination branch of a pull request into the specified destination branch
   for that pull request using the three-way merge option.
 
+  </li> <li> `OverridePullRequestApprovalRules`, which sets aside all
+  approval rule requirements for a pull request.
+
   </li> <li> `PostCommentForPullRequest`, which posts a comment to a pull
   request at the specified line, file, or request.
+
+  </li> <li> `UpdatePullRequestApprovalRuleContent`, which updates the
+  structure of an approval rule for a pull request.
+
+  </li> <li> `UpdatePullRequestApprovalState`, which updates the state of an
+  approval on a pull request.
 
   </li> <li> `UpdatePullRequestDescription`, which updates the description of
   a pull request.
@@ -154,6 +180,59 @@ defmodule AWS.CodeCommit do
   </li> <li> `UpdatePullRequestTitle`, which updates the title of a pull
   request.
 
+  </li> </ul> Approval rule templates, by calling the following:
+
+  <ul> <li> `AssociateApprovalRuleTemplateWithRepository`, which associates a
+  template with a specified repository. After the template is associated with
+  a repository, AWS CodeCommit creates approval rules that match the template
+  conditions on every pull request created in the specified repository.
+
+  </li> <li> `BatchAssociateApprovalRuleTemplateWithRepositories`, which
+  associates a template with one or more specified repositories. After the
+  template is associated with a repository, AWS CodeCommit creates approval
+  rules that match the template conditions on every pull request created in
+  the specified repositories.
+
+  </li> <li> `BatchDisassociateApprovalRuleTemplateFromRepositories`, which
+  removes the association between a template and specified repositories so
+  that approval rules based on the template are not automatically created
+  when pull requests are created in those repositories.
+
+  </li> <li> `CreateApprovalRuleTemplate`, which creates a template for
+  approval rules that can then be associated with one or more repositories in
+  your AWS account.
+
+  </li> <li> `DeleteApprovalRuleTemplate`, which deletes the specified
+  template. It does not remove approval rules on pull requests already
+  created with the template.
+
+  </li> <li> `DisassociateApprovalRuleTemplateFromRepository`, which removes
+  the association between a template and a repository so that approval rules
+  based on the template are not automatically created when pull requests are
+  created in the specified repository.
+
+  </li> <li> `GetApprovalRuleTemplate`, which returns information about an
+  approval rule template.
+
+  </li> <li> `ListApprovalRuleTemplates`, which lists all approval rule
+  templates in the AWS Region in your AWS account.
+
+  </li> <li> `ListAssociatedApprovalRuleTemplatesForRepository`, which lists
+  all approval rule templates that are associated with a specified
+  repository.
+
+  </li> <li> `ListRepositoriesForApprovalRuleTemplate`, which lists all
+  repositories associated with the specified approval rule template.
+
+  </li> <li> `UpdateApprovalRuleTemplateDescription`, which updates the
+  description of an approval rule template.
+
+  </li> <li> `UpdateApprovalRuleTemplateName`, which updates the name of an
+  approval rule template.
+
+  </li> <li> `UpdateApprovalRuleTemplateContent`, which updates the content
+  of an approval rule template.
+
   </li> </ul> Comments in a repository, by calling the following:
 
   <ul> <li> `DeleteCommentContent`, which deletes the content of a comment on
@@ -162,6 +241,9 @@ defmodule AWS.CodeCommit do
   </li> <li> `GetComment`, which returns information about a comment on a
   commit.
 
+  </li> <li> `GetCommentReactions`, which returns information about emoji
+  reactions to comments.
+
   </li> <li> `GetCommentsForComparedCommit`, which returns information about
   comments on the comparison between two commit specifiers in a repository.
 
@@ -169,6 +251,9 @@ defmodule AWS.CodeCommit do
   comparison between two commit specifiers in a repository.
 
   </li> <li> `PostCommentReply`, which creates a reply to a comment.
+
+  </li> <li> `PutCommentReaction`, which creates or updates an emoji reaction
+  to a comment.
 
   </li> <li> `UpdateComment`, which updates the content of a comment on a
   commit in a repository.
@@ -202,12 +287,42 @@ defmodule AWS.CodeCommit do
   """
 
   @doc """
+  Creates an association between an approval rule template and a specified
+  repository. Then, the next time a pull request is created in the repository
+  where the destination reference (if specified) matches the destination
+  reference (branch) for the pull request, an approval rule that matches the
+  template conditions is automatically created for that pull request. If no
+  destination references are specified in the template, an approval rule that
+  matches the template contents is created for all pull requests in that
+  repository.
+  """
+  def associate_approval_rule_template_with_repository(client, input, options \\ []) do
+    request(client, "AssociateApprovalRuleTemplateWithRepository", input, options)
+  end
+
+  @doc """
+  Creates an association between an approval rule template and one or more
+  specified repositories.
+  """
+  def batch_associate_approval_rule_template_with_repositories(client, input, options \\ []) do
+    request(client, "BatchAssociateApprovalRuleTemplateWithRepositories", input, options)
+  end
+
+  @doc """
   Returns information about one or more merge conflicts in the attempted
   merge of two commit specifiers using the squash or three-way merge
   strategy.
   """
   def batch_describe_merge_conflicts(client, input, options \\ []) do
     request(client, "BatchDescribeMergeConflicts", input, options)
+  end
+
+  @doc """
+  Removes the association between an approval rule template and one or more
+  specified repositories.
+  """
+  def batch_disassociate_approval_rule_template_from_repositories(client, input, options \\ []) do
+    request(client, "BatchDisassociateApprovalRuleTemplateFromRepositories", input, options)
   end
 
   @doc """
@@ -223,10 +338,10 @@ defmodule AWS.CodeCommit do
 
   <note> The description field for a repository accepts all HTML characters
   and all valid Unicode characters. Applications that do not HTML-encode the
-  description and display it in a web page could expose users to potentially
+  description and display it in a webpage can expose users to potentially
   malicious code. Make sure that you HTML-encode the description field in any
   application that uses this API to display the repository description on a
-  web page.
+  webpage.
 
   </note>
   """
@@ -235,7 +350,19 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Creates a new branch in a repository and points the branch to a commit.
+  Creates a template for approval rules that can then be associated with one
+  or more repositories in your AWS account. When you associate a template
+  with a repository, AWS CodeCommit creates an approval rule that matches the
+  conditions of the template for all pull requests that meet the conditions
+  of the template. For more information, see
+  `AssociateApprovalRuleTemplateWithRepository`.
+  """
+  def create_approval_rule_template(client, input, options \\ []) do
+    request(client, "CreateApprovalRuleTemplate", input, options)
+  end
+
+  @doc """
+  Creates a branch in a repository and points the branch to a commit.
 
   <note> Calling the create branch operation does not set a repository's
   default branch. To do this, call the update default branch operation.
@@ -261,6 +388,13 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Creates an approval rule for a pull request.
+  """
+  def create_pull_request_approval_rule(client, input, options \\ []) do
+    request(client, "CreatePullRequestApprovalRule", input, options)
+  end
+
+  @doc """
   Creates a new, empty repository.
   """
   def create_repository(client, input, options \\ []) do
@@ -271,7 +405,7 @@ defmodule AWS.CodeCommit do
   Creates an unreferenced commit that represents the result of merging two
   branches using a specified merge strategy. This can help you determine the
   outcome of a potential merge. This API cannot be used with the fast-forward
-  merge strategy, as that strategy does not create a merge commit.
+  merge strategy because that strategy does not create a merge commit.
 
   <note> This unreferenced merge commit can only be accessed using the
   GetCommit API or through git commands such as git fetch. To retrieve this
@@ -281,6 +415,14 @@ defmodule AWS.CodeCommit do
   """
   def create_unreferenced_merge_commit(client, input, options \\ []) do
     request(client, "CreateUnreferencedMergeCommit", input, options)
+  end
+
+  @doc """
+  Deletes a specified approval rule template. Deleting a template does not
+  remove approval rules on pull requests already created with the template.
+  """
+  def delete_approval_rule_template(client, input, options \\ []) do
+    request(client, "DeleteApprovalRuleTemplate", input, options)
   end
 
   @doc """
@@ -301,20 +443,32 @@ defmodule AWS.CodeCommit do
 
   @doc """
   Deletes a specified file from a specified branch. A commit is created on
-  the branch that contains the revision. The file will still exist in the
-  commits prior to the commit that contains the deletion.
+  the branch that contains the revision. The file still exists in the commits
+  earlier to the commit that contains the deletion.
   """
   def delete_file(client, input, options \\ []) do
     request(client, "DeleteFile", input, options)
   end
 
   @doc """
+  Deletes an approval rule from a specified pull request. Approval rules can
+  be deleted from a pull request only if the pull request is open, and if the
+  approval rule was created specifically for a pull request and not generated
+  from an approval rule template associated with the repository where the
+  pull request was created. You cannot delete an approval rule from a merged
+  or closed pull request.
+  """
+  def delete_pull_request_approval_rule(client, input, options \\ []) do
+    request(client, "DeletePullRequestApprovalRule", input, options)
+  end
+
+  @doc """
   Deletes a repository. If a specified repository was already deleted, a null
-  repository ID will be returned.
+  repository ID is returned.
 
   <important> Deleting a repository also deletes all associated objects and
   metadata. After a repository is deleted, all future push calls to the
-  deleted repository will fail.
+  deleted repository fail.
 
   </important>
   """
@@ -326,7 +480,7 @@ defmodule AWS.CodeCommit do
   Returns information about one or more merge conflicts in the attempted
   merge of two commit specifiers using the squash or three-way merge
   strategy. If the merge option for the attempted merge is specified as
-  FAST_FORWARD_MERGE, an exception will be thrown.
+  FAST_FORWARD_MERGE, an exception is thrown.
   """
   def describe_merge_conflicts(client, input, options \\ []) do
     request(client, "DescribeMergeConflicts", input, options)
@@ -340,8 +494,33 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Returns the base-64 encoded content of an individual blob within a
-  repository.
+  Removes the association between a template and a repository so that
+  approval rules based on the template are not automatically created when
+  pull requests are created in the specified repository. This does not delete
+  any approval rules previously created for pull requests through the
+  template association.
+  """
+  def disassociate_approval_rule_template_from_repository(client, input, options \\ []) do
+    request(client, "DisassociateApprovalRuleTemplateFromRepository", input, options)
+  end
+
+  @doc """
+  Evaluates whether a pull request has met all the conditions specified in
+  its associated approval rules.
+  """
+  def evaluate_pull_request_approval_rules(client, input, options \\ []) do
+    request(client, "EvaluatePullRequestApprovalRules", input, options)
+  end
+
+  @doc """
+  Returns information about a specified approval rule template.
+  """
+  def get_approval_rule_template(client, input, options \\ []) do
+    request(client, "GetApprovalRuleTemplate", input, options)
+  end
+
+  @doc """
+  Returns the base-64 encoded content of an individual blob in a repository.
   """
   def get_blob(client, input, options \\ []) do
     request(client, "GetBlob", input, options)
@@ -358,14 +537,34 @@ defmodule AWS.CodeCommit do
   @doc """
   Returns the content of a comment made on a change, file, or commit in a
   repository.
+
+  <note> Reaction counts might include numbers from user identities who were
+  deleted after the reaction was made. For a count of reactions from active
+  identities, use GetCommentReactions.
+
+  </note>
   """
   def get_comment(client, input, options \\ []) do
     request(client, "GetComment", input, options)
   end
 
   @doc """
+  Returns information about reactions to a specified comment ID. Reactions
+  from users who have been deleted will not be included in the count.
+  """
+  def get_comment_reactions(client, input, options \\ []) do
+    request(client, "GetCommentReactions", input, options)
+  end
+
+  @doc """
   Returns information about comments made on the comparison between two
   commits.
+
+  <note> Reaction counts might include numbers from user identities who were
+  deleted after the reaction was made. For a count of reactions from active
+  identities, use GetCommentReactions.
+
+  </note>
   """
   def get_comments_for_compared_commit(client, input, options \\ []) do
     request(client, "GetCommentsForComparedCommit", input, options)
@@ -373,6 +572,12 @@ defmodule AWS.CodeCommit do
 
   @doc """
   Returns comments made on a pull request.
+
+  <note> Reaction counts might include numbers from user identities who were
+  deleted after the reaction was made. For a count of reactions from active
+  identities, use GetCommentReactions.
+
+  </note>
   """
   def get_comments_for_pull_request(client, input, options \\ []) do
     request(client, "GetCommentsForPullRequest", input, options)
@@ -388,7 +593,7 @@ defmodule AWS.CodeCommit do
 
   @doc """
   Returns information about the differences in a valid commit specifier (such
-  as a branch, tag, HEAD, commit ID or other fully qualified reference).
+  as a branch, tag, HEAD, commit ID, or other fully qualified reference).
   Results can be limited to a specified path.
   """
   def get_differences(client, input, options \\ []) do
@@ -426,8 +631,8 @@ defmodule AWS.CodeCommit do
 
   @doc """
   Returns information about the merge options available for merging two
-  specified branches. For details about why a particular merge option is not
-  available, use GetMergeConflicts or DescribeMergeConflicts.
+  specified branches. For details about why a merge option is not available,
+  use GetMergeConflicts or DescribeMergeConflicts.
   """
   def get_merge_options(client, input, options \\ []) do
     request(client, "GetMergeOptions", input, options)
@@ -441,14 +646,33 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Gets information about the approval states for a specified pull request.
+  Approval states only apply to pull requests that have one or more approval
+  rules applied to them.
+  """
+  def get_pull_request_approval_states(client, input, options \\ []) do
+    request(client, "GetPullRequestApprovalStates", input, options)
+  end
+
+  @doc """
+  Returns information about whether approval rules have been set aside
+  (overridden) for a pull request, and if so, the Amazon Resource Name (ARN)
+  of the user or identity that overrode the rules and their requirements for
+  the pull request.
+  """
+  def get_pull_request_override_state(client, input, options \\ []) do
+    request(client, "GetPullRequestOverrideState", input, options)
+  end
+
+  @doc """
   Returns information about a repository.
 
   <note> The description field for a repository accepts all HTML characters
   and all valid Unicode characters. Applications that do not HTML-encode the
-  description and display it in a web page could expose users to potentially
+  description and display it in a webpage can expose users to potentially
   malicious code. Make sure that you HTML-encode the description field in any
   application that uses this API to display the repository description on a
-  web page.
+  webpage.
 
   </note>
   """
@@ -461,6 +685,23 @@ defmodule AWS.CodeCommit do
   """
   def get_repository_triggers(client, input, options \\ []) do
     request(client, "GetRepositoryTriggers", input, options)
+  end
+
+  @doc """
+  Lists all approval rule templates in the specified AWS Region in your AWS
+  account. If an AWS Region is not specified, the AWS Region where you are
+  signed in is used.
+  """
+  def list_approval_rule_templates(client, input, options \\ []) do
+    request(client, "ListApprovalRuleTemplates", input, options)
+  end
+
+  @doc """
+  Lists all approval rule templates that are associated with a specified
+  repository.
+  """
+  def list_associated_approval_rule_templates_for_repository(client, input, options \\ []) do
+    request(client, "ListAssociatedApprovalRuleTemplatesForRepository", input, options)
   end
 
   @doc """
@@ -486,11 +727,19 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Lists all repositories associated with the specified approval rule
+  template.
+  """
+  def list_repositories_for_approval_rule_template(client, input, options \\ []) do
+    request(client, "ListRepositoriesForApprovalRuleTemplate", input, options)
+  end
+
+  @doc """
   Gets information about AWS tags for a specified Amazon Resource Name (ARN)
   in AWS CodeCommit. For a list of valid resources in AWS CodeCommit, see
   [CodeCommit Resources and
   Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the AWS CodeCommit User Guide.
+  in the* AWS CodeCommit User Guide*.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -548,6 +797,14 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Sets aside (overrides) all approval rule requirements for a specified pull
+  request.
+  """
+  def override_pull_request_approval_rules(client, input, options \\ []) do
+    request(client, "OverridePullRequestApprovalRules", input, options)
+  end
+
+  @doc """
   Posts a comment on the comparison between two commits.
   """
   def post_comment_for_compared_commit(client, input, options \\ []) do
@@ -570,6 +827,16 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
+  Adds or updates a reaction to a specified comment for the user whose
+  identity is used to make the request. You can only add or update a reaction
+  for yourself. You cannot add, modify, or delete a reaction for another
+  user.
+  """
+  def put_comment_reaction(client, input, options \\ []) do
+    request(client, "PutCommentReaction", input, options)
+  end
+
+  @doc """
   Adds or updates a file in a branch in an AWS CodeCommit repository, and
   generates a commit for the addition in the specified branch.
   """
@@ -578,8 +845,7 @@ defmodule AWS.CodeCommit do
   end
 
   @doc """
-  Replaces all triggers for a repository. This can be used to create or
-  delete triggers.
+  Replaces all triggers for a repository. Used to create or delete triggers.
   """
   def put_repository_triggers(client, input, options \\ []) do
     request(client, "PutRepositoryTriggers", input, options)
@@ -589,7 +855,7 @@ defmodule AWS.CodeCommit do
   Adds or updates tags for a resource in AWS CodeCommit. For a list of valid
   resources in AWS CodeCommit, see [CodeCommit Resources and
   Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the AWS CodeCommit User Guide.
+  in the *AWS CodeCommit User Guide*.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
@@ -598,8 +864,8 @@ defmodule AWS.CodeCommit do
   @doc """
   Tests the functionality of repository triggers by sending information to
   the trigger target. If real data is available in the repository, the test
-  will send data from the last commit. If no data is available, sample data
-  will be generated.
+  sends data from the last commit. If no data is available, sample data is
+  generated.
   """
   def test_repository_triggers(client, input, options \\ []) do
     request(client, "TestRepositoryTriggers", input, options)
@@ -609,10 +875,33 @@ defmodule AWS.CodeCommit do
   Removes tags for a resource in AWS CodeCommit. For a list of valid
   resources in AWS CodeCommit, see [CodeCommit Resources and
   Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)
-  in the AWS CodeCommit User Guide.
+  in the *AWS CodeCommit User Guide*.
   """
   def untag_resource(client, input, options \\ []) do
     request(client, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates the content of an approval rule template. You can change the number
+  of required approvals, the membership of the approval rule, and whether an
+  approval pool is defined.
+  """
+  def update_approval_rule_template_content(client, input, options \\ []) do
+    request(client, "UpdateApprovalRuleTemplateContent", input, options)
+  end
+
+  @doc """
+  Updates the description for a specified approval rule template.
+  """
+  def update_approval_rule_template_description(client, input, options \\ []) do
+    request(client, "UpdateApprovalRuleTemplateDescription", input, options)
+  end
+
+  @doc """
+  Updates the name of a specified approval rule template.
+  """
+  def update_approval_rule_template_name(client, input, options \\ []) do
+    request(client, "UpdateApprovalRuleTemplateName", input, options)
   end
 
   @doc """
@@ -633,6 +922,23 @@ defmodule AWS.CodeCommit do
   """
   def update_default_branch(client, input, options \\ []) do
     request(client, "UpdateDefaultBranch", input, options)
+  end
+
+  @doc """
+  Updates the structure of an approval rule created specifically for a pull
+  request. For example, you can change the number of required approvers and
+  the approval pool for approvers.
+  """
+  def update_pull_request_approval_rule_content(client, input, options \\ []) do
+    request(client, "UpdatePullRequestApprovalRuleContent", input, options)
+  end
+
+  @doc """
+  Updates the state of a user's approval on a pull request. The user is
+  derived from the signed-in account when the request is made.
+  """
+  def update_pull_request_approval_state(client, input, options \\ []) do
+    request(client, "UpdatePullRequestApprovalState", input, options)
   end
 
   @doc """
@@ -661,10 +967,10 @@ defmodule AWS.CodeCommit do
 
   <note> The description field for a repository accepts all HTML characters
   and all valid Unicode characters. Applications that do not HTML-encode the
-  description and display it in a web page could expose users to potentially
+  description and display it in a webpage can expose users to potentially
   malicious code. Make sure that you HTML-encode the description field in any
   application that uses this API to display the repository description on a
-  web page.
+  webpage.
 
   </note>
   """
@@ -674,10 +980,10 @@ defmodule AWS.CodeCommit do
 
   @doc """
   Renames a repository. The repository name must be unique across the calling
-  AWS account. In addition, repository names are limited to 100 alphanumeric,
-  dash, and underscore characters, and cannot include certain characters. The
-  suffix ".git" is prohibited. For a full description of the limits on
-  repository names, see
+  AWS account. Repository names are limited to 100 alphanumeric, dash, and
+  underscore characters, and cannot include certain characters. The suffix
+  .git is prohibited. For more information about the limits on repository
+  names, see
   [Limits](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html)
   in the AWS CodeCommit User Guide.
   """

@@ -63,26 +63,26 @@ defmodule AWS.CertificateManager do
 
   @doc """
   Exports a private certificate issued by a private certificate authority
-  (CA) for use anywhere. You can export the certificate, the certificate
-  chain, and the encrypted private key associated with the public key
-  embedded in the certificate. You must store the private key securely. The
-  private key is a 2048 bit RSA key. You must provide a passphrase for the
-  private key when exporting it. You can use the following OpenSSL command to
-  decrypt it later. Provide the passphrase when prompted.
+  (CA) for use anywhere. The exported file contains the certificate, the
+  certificate chain, and the encrypted private 2048-bit RSA key associated
+  with the public key that is embedded in the certificate. For security, you
+  must assign a passphrase for the private key when exporting it.
 
-  `openssl rsa -in encrypted_key.pem -out decrypted_key.pem`
+  For information about exporting and formatting a certificate using the ACM
+  console or CLI, see [Export a Private
+  Certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html).
   """
   def export_certificate(client, input, options \\ []) do
     request(client, "ExportCertificate", input, options)
   end
 
   @doc """
-  Retrieves a certificate specified by an ARN and its certificate chain . The
-  chain is an ordered list of certificates that contains the end entity
-  certificate, intermediate certificates of subordinate CAs, and the root
-  certificate in that order. The certificate and certificate chain are base64
-  encoded. If you want to decode the certificate to see the individual
-  fields, you can use OpenSSL.
+  Retrieves an Amazon-issued certificate and its certificate chain. The chain
+  consists of the certificate of the issuing CA and the intermediate
+  certificates of any other subordinate CAs. All of the certificates are
+  base64 encoded. You can use
+  [OpenSSL](https://wiki.openssl.org/index.php/Command_Line_Utilities) to
+  decode the certificates and inspect individual fields.
   """
   def get_certificate(client, input, options \\ []) do
     request(client, "GetCertificate", input, options)
@@ -132,7 +132,7 @@ defmodule AWS.CertificateManager do
 
   </li> <li> To import a new certificate, omit the `CertificateArn` argument.
   Include this argument only when you want to replace a previously imported
-  certificate.
+  certifica
 
   </li> <li> When you import a certificate by using the CLI, you must specify
   the certificate, the certificate chain, and the private key by their file
@@ -145,6 +145,10 @@ defmodule AWS.CertificateManager do
   the certificate, the certificate chain, and the private key files in the
   manner required by the programming language you're using.
 
+  </li> <li> The cryptographic algorithm of an imported certificate must
+  match the algorithm of the signing CA. For example, if the signing CA key
+  type is RSA, then the certificate key type must also be RSA.
+
   </li> </ul> This operation returns the [Amazon Resource Name
   (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
   of the imported certificate.
@@ -156,7 +160,8 @@ defmodule AWS.CertificateManager do
   @doc """
   Retrieves a list of certificate ARNs and domain names. You can request that
   only certificates that match a specific status be listed. You can also
-  filter by specific attributes of the certificate.
+  filter by specific attributes of the certificate. Default filtering returns
+  only `RSA_2048` certificates. For more information, see `Filters`.
   """
   def list_certificates(client, input, options \\ []) do
     request(client, "ListCertificates", input, options)

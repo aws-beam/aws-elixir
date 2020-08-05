@@ -28,17 +28,31 @@ defmodule AWS.ECS do
   """
 
   @doc """
+  Creates a new capacity provider. Capacity providers are associated with an
+  Amazon ECS cluster and are used in capacity provider strategies to
+  facilitate cluster auto scaling.
+
+  Only capacity providers using an Auto Scaling group can be created. Amazon
+  ECS tasks on AWS Fargate use the `FARGATE` and `FARGATE_SPOT` capacity
+  providers which are already created and available to all accounts in
+  Regions supported by AWS Fargate.
+  """
+  def create_capacity_provider(client, input, options \\ []) do
+    request(client, "CreateCapacityProvider", input, options)
+  end
+
+  @doc """
   Creates a new Amazon ECS cluster. By default, your account receives a
   `default` cluster when you launch your first container instance. However,
   you can create your own cluster with a unique name with the `CreateCluster`
   action.
 
   <note> When you call the `CreateCluster` API operation, Amazon ECS attempts
-  to create the service-linked role for your account so that required
-  resources in other AWS services can be managed on your behalf. However, if
-  the IAM user that makes the call does not have permissions to create the
-  service-linked role, it is not created. For more information, see [Using
-  Service-Linked Roles for Amazon
+  to create the Amazon ECS service-linked role for your account so that
+  required resources in other AWS services can be managed on your behalf.
+  However, if the IAM user that makes the call does not have permissions to
+  create the service-linked role, it is not created. For more information,
+  see [Using Service-Linked Roles for Amazon
   ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
@@ -52,7 +66,7 @@ defmodule AWS.ECS do
   Runs and maintains a desired number of tasks from a specified task
   definition. If the number of tasks running in a service drops below the
   `desiredCount`, Amazon ECS runs another copy of the task in the specified
-  cluster. To update an existing service, see `UpdateService`.
+  cluster. To update an existing service, see the UpdateService action.
 
   In addition to maintaining the desired count of tasks in your service, you
   can optionally run your service behind one or more load balancers. The load
@@ -79,10 +93,12 @@ defmodule AWS.ECS do
 
   </li> <li> `DAEMON` - The daemon scheduling strategy deploys exactly one
   task on each active container instance that meets all of the task placement
-  constraints that you specify in your cluster. When using this strategy, you
-  don't need to specify a desired number of tasks, a task placement strategy,
-  or use Service Auto Scaling policies. For more information, see [Service
-  Scheduler
+  constraints that you specify in your cluster. The service scheduler also
+  evaluates the task placement constraints for running tasks and will stop
+  tasks that do not meet the placement constraints. When using this strategy,
+  you don't need to specify a desired number of tasks, a task placement
+  strategy, or use Service Auto Scaling policies. For more information, see
+  [Service Scheduler
   Concepts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
@@ -191,10 +207,38 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Deletes the specified cluster. You must deregister all container instances
-  from this cluster before you may delete it. You can list the container
-  instances in a cluster with `ListContainerInstances` and deregister them
-  with `DeregisterContainerInstance`.
+  Deletes the specified capacity provider.
+
+  <note> The `FARGATE` and `FARGATE_SPOT` capacity providers are reserved and
+  cannot be deleted. You can disassociate them from a cluster using either
+  the `PutClusterCapacityProviders` API or by deleting the cluster.
+
+  </note> Prior to a capacity provider being deleted, the capacity provider
+  must be removed from the capacity provider strategy from all services. The
+  `UpdateService` API can be used to remove a capacity provider from a
+  service's capacity provider strategy. When updating a service, the
+  `forceNewDeployment` option can be used to ensure that any tasks using the
+  Amazon EC2 instance capacity provided by the capacity provider are
+  transitioned to use the capacity from the remaining capacity providers.
+  Only capacity providers that are not associated with a cluster can be
+  deleted. To remove a capacity provider from a cluster, you can either use
+  `PutClusterCapacityProviders` or delete the cluster.
+  """
+  def delete_capacity_provider(client, input, options \\ []) do
+    request(client, "DeleteCapacityProvider", input, options)
+  end
+
+  @doc """
+  Deletes the specified cluster. The cluster will transition to the
+  `INACTIVE` state. Clusters with an `INACTIVE` status may remain
+  discoverable in your account for a period of time. However, this behavior
+  is subject to change in the future, so you should not rely on `INACTIVE`
+  clusters persisting.
+
+  You must deregister all container instances from this cluster before you
+  may delete it. You can list the container instances in a cluster with
+  `ListContainerInstances` and deregister them with
+  `DeregisterContainerInstance`.
   """
   def delete_cluster(client, input, options \\ []) do
     request(client, "DeleteCluster", input, options)
@@ -287,6 +331,13 @@ defmodule AWS.ECS do
   """
   def deregister_task_definition(client, input, options \\ []) do
     request(client, "DeregisterTaskDefinition", input, options)
+  end
+
+  @doc """
+  Describes one or more of your capacity providers.
+  """
+  def describe_capacity_providers(client, input, options \\ []) do
+    request(client, "DescribeCapacityProviders", input, options)
   end
 
   @doc """
@@ -503,6 +554,29 @@ defmodule AWS.ECS do
   """
   def put_attributes(client, input, options \\ []) do
     request(client, "PutAttributes", input, options)
+  end
+
+  @doc """
+  Modifies the available capacity providers and the default capacity provider
+  strategy for a cluster.
+
+  You must specify both the available capacity providers and a default
+  capacity provider strategy for the cluster. If the specified cluster has
+  existing capacity providers associated with it, you must specify all
+  existing capacity providers in addition to any new ones you want to add.
+  Any existing capacity providers associated with a cluster that are omitted
+  from a `PutClusterCapacityProviders` API call will be disassociated with
+  the cluster. You can only disassociate an existing capacity provider from a
+  cluster if it's not being used by any existing tasks.
+
+  When creating a service or running a task on a cluster, if no capacity
+  provider or launch type is specified, then the cluster's default capacity
+  provider strategy is used. It is recommended to define a default capacity
+  provider strategy for your cluster, however you may specify an empty array
+  (`[]`) to bypass defining a default strategy.
+  """
+  def put_cluster_capacity_providers(client, input, options \\ []) do
+    request(client, "PutClusterCapacityProviders", input, options)
   end
 
   @doc """
@@ -752,25 +826,35 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Modifies the parameters of a service.
+  <important> Updating the task placement strategies and constraints on an
+  Amazon ECS service remains in preview and is a Beta Service as defined by
+  and subject to the Beta Service Participation Service Terms located at
+  [https://aws.amazon.com/service-terms](https://aws.amazon.com/service-terms)
+  ("Beta Terms"). These Beta Terms apply to your participation in this
+  preview.
+
+  </important> Modifies the parameters of a service.
 
   For services using the rolling update (`ECS`) deployment controller, the
-  desired count, deployment configuration, network configuration, or task
-  definition used can be updated.
+  desired count, deployment configuration, network configuration, task
+  placement constraints and strategies, or task definition used can be
+  updated.
 
   For services using the blue/green (`CODE_DEPLOY`) deployment controller,
-  only the desired count, deployment configuration, and health check grace
-  period can be updated using this API. If the network configuration,
-  platform version, or task definition need to be updated, a new AWS
-  CodeDeploy deployment should be created. For more information, see
+  only the desired count, deployment configuration, task placement
+  constraints and strategies, and health check grace period can be updated
+  using this API. If the network configuration, platform version, or task
+  definition need to be updated, a new AWS CodeDeploy deployment should be
+  created. For more information, see
   [CreateDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html)
   in the *AWS CodeDeploy API Reference*.
 
   For services using an external deployment controller, you can update only
-  the desired count and health check grace period using this API. If the
-  launch type, load balancer, network configuration, platform version, or
-  task definition need to be updated, you should create a new task set. For
-  more information, see `CreateTaskSet`.
+  the desired count, task placement constraints and strategies, and health
+  check grace period using this API. If the launch type, load balancer,
+  network configuration, platform version, or task definition need to be
+  updated, you should create a new task set. For more information, see
+  `CreateTaskSet`.
 
   You can add to or subtract from the number of instantiations of a task
   definition in a service by specifying the cluster that the service is

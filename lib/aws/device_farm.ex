@@ -3,9 +3,24 @@
 
 defmodule AWS.DeviceFarm do
   @moduledoc """
-  AWS Device Farm is a service that enables mobile app developers to test
-  Android, iOS, and Fire OS apps on physical phones, tablets, and other
-  devices in the cloud.
+  Welcome to the AWS Device Farm API documentation, which contains APIs for:
+
+  <ul> <li> Testing on desktop browsers
+
+  Device Farm makes it possible for you to test your web applications on
+  desktop browsers using Selenium. The APIs for desktop browser testing
+  contain `TestGrid` in their names. For more information, see [Testing Web
+  Applications on Selenium with Device
+  Farm](https://docs.aws.amazon.com/devicefarm/latest/testgrid/).
+
+  </li> <li> Testing on real mobile devices
+
+  Device Farm makes it possible for you to test apps on physical phones,
+  tablets, and other devices in the cloud. For more information, see the
+  [Device Farm Developer
+  Guide](https://docs.aws.amazon.com/devicefarm/latest/developerguide/).
+
+  </li> </ul>
   """
 
   @doc """
@@ -31,7 +46,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Creates a new project.
+  Creates a project.
   """
   def create_project(client, input, options \\ []) do
     request(client, "CreateProject", input, options)
@@ -42,6 +57,22 @@ defmodule AWS.DeviceFarm do
   """
   def create_remote_access_session(client, input, options \\ []) do
     request(client, "CreateRemoteAccessSession", input, options)
+  end
+
+  @doc """
+  Creates a Selenium testing project. Projects are used to track
+  `TestGridSession` instances.
+  """
+  def create_test_grid_project(client, input, options \\ []) do
+    request(client, "CreateTestGridProject", input, options)
+  end
+
+  @doc """
+  Creates a signed, short-term URL that can be passed to a Selenium
+  `RemoteWebDriver` constructor.
+  """
+  def create_test_grid_url(client, input, options \\ []) do
+    request(client, "CreateTestGridUrl", input, options)
   end
 
   @doc """
@@ -85,7 +116,7 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes an AWS Device Farm project, given the project ARN.
 
-  **Note** Deleting this resource does not stop an in-progress run.
+  Deleting this resource does not stop an in-progress run.
   """
   def delete_project(client, input, options \\ []) do
     request(client, "DeleteProject", input, options)
@@ -101,10 +132,23 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes the run, given the run ARN.
 
-  **Note** Deleting this resource does not stop an in-progress run.
+  Deleting this resource does not stop an in-progress run.
   """
   def delete_run(client, input, options \\ []) do
     request(client, "DeleteRun", input, options)
+  end
+
+  @doc """
+  Deletes a Selenium testing project and all content generated under it.
+
+  <important> You cannot undo this operation.
+
+  </important> <note> You cannot delete a project if it has active sessions.
+
+  </note>
+  """
+  def delete_test_grid_project(client, input, options \\ []) do
+    request(client, "DeleteTestGridProject", input, options)
   end
 
   @doc """
@@ -123,8 +167,8 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Returns the number of unmetered iOS and/or unmetered Android devices that
-  have been purchased by the account.
+  Returns the number of unmetered iOS or unmetered Android devices that have
+  been purchased by the account.
   """
   def get_account_settings(client, input, options \\ []) do
     request(client, "GetAccountSettings", input, options)
@@ -138,8 +182,8 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Returns information about a device instance belonging to a private device
-  fleet.
+  Returns information about a device instance that belongs to a private
+  device fleet.
   """
   def get_device_instance(client, input, options \\ []) do
     request(client, "GetDeviceInstance", input, options)
@@ -185,9 +229,8 @@ defmodule AWS.DeviceFarm do
   AWS account. The response indicates how many offerings are currently
   available and the offerings that will be available in the next period. The
   API returns a `NotEligible` error if the user is not permitted to invoke
-  the operation. Please contact
-  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
-  if you believe that you should be able to invoke this operation.
+  the operation. If you must be able to invoke this operation, contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def get_offering_status(client, input, options \\ []) do
     request(client, "GetOfferingStatus", input, options)
@@ -226,6 +269,30 @@ defmodule AWS.DeviceFarm do
   """
   def get_test(client, input, options \\ []) do
     request(client, "GetTest", input, options)
+  end
+
+  @doc """
+  Retrieves information about a Selenium testing project.
+  """
+  def get_test_grid_project(client, input, options \\ []) do
+    request(client, "GetTestGridProject", input, options)
+  end
+
+  @doc """
+  A session is an instance of a browser created through a `RemoteWebDriver`
+  with the URL from `CreateTestGridUrlResult$url`. You can use the following
+  to look up sessions:
+
+  <ul> <li> The session ARN (`GetTestGridSessionRequest$sessionArn`).
+
+  </li> <li> The project ARN and a session ID
+  (`GetTestGridSessionRequest$projectArn` and
+  `GetTestGridSessionRequest$sessionId`).
+
+  </li> </ul> <p/>
+  """
+  def get_test_grid_session(client, input, options \\ []) do
+    request(client, "GetTestGridSession", input, options)
   end
 
   @doc """
@@ -308,7 +375,7 @@ defmodule AWS.DeviceFarm do
   `NotEligible` error if the caller is not permitted to invoke the operation.
   Contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
-  if you believe that you should be able to invoke this operation.
+  if you must be able to invoke this operation.
   """
   def list_offering_promotions(client, input, options \\ []) do
     request(client, "ListOfferingPromotions", input, options)
@@ -319,9 +386,8 @@ defmodule AWS.DeviceFarm do
   transactions for an AWS account. The list is paginated and ordered by a
   descending timestamp (most recent transactions are first). The API returns
   a `NotEligible` error if the user is not permitted to invoke the operation.
-  Please contact
-  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
-  if you believe that you should be able to invoke this operation.
+  If you must be able to invoke this operation, contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def list_offering_transactions(client, input, options \\ []) do
     request(client, "ListOfferingTransactions", input, options)
@@ -331,9 +397,9 @@ defmodule AWS.DeviceFarm do
   Returns a list of products or offerings that the user can manage through
   the API. Each offering record indicates the recurring price per unit and
   the frequency for that offering. The API returns a `NotEligible` error if
-  the user is not permitted to invoke the operation. Please contact
-  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
-  if you believe that you should be able to invoke this operation.
+  the user is not permitted to invoke the operation. If you must be able to
+  invoke this operation, contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def list_offerings(client, input, options \\ []) do
     request(client, "ListOfferings", input, options)
@@ -382,6 +448,34 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
+  Gets a list of all Selenium testing projects in your account.
+  """
+  def list_test_grid_projects(client, input, options \\ []) do
+    request(client, "ListTestGridProjects", input, options)
+  end
+
+  @doc """
+  Returns a list of the actions taken in a `TestGridSession`.
+  """
+  def list_test_grid_session_actions(client, input, options \\ []) do
+    request(client, "ListTestGridSessionActions", input, options)
+  end
+
+  @doc """
+  Retrieves a list of artifacts created during the session.
+  """
+  def list_test_grid_session_artifacts(client, input, options \\ []) do
+    request(client, "ListTestGridSessionArtifacts", input, options)
+  end
+
+  @doc """
+  Retrieves a list of sessions for a `TestGridProject`.
+  """
+  def list_test_grid_sessions(client, input, options \\ []) do
+    request(client, "ListTestGridSessions", input, options)
+  end
+
+  @doc """
   Gets information about tests in a given test suite.
   """
   def list_tests(client, input, options \\ []) do
@@ -389,7 +483,13 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Gets information about unique problems.
+  Gets information about unique problems, such as exceptions or crashes.
+
+  Unique problems are defined as a single instance of an error across a run,
+  job, or suite. For example, if a call in your application consistently
+  raises an exception (`OutOfBoundsException in MyActivity.java:386`),
+  `ListUniqueProblems` returns a single entry instead of many individual
+  entries for that exception.
   """
   def list_unique_problems(client, input, options \\ []) do
     request(client, "ListUniqueProblems", input, options)
@@ -414,9 +514,9 @@ defmodule AWS.DeviceFarm do
   Immediately purchases offerings for an AWS account. Offerings renew with
   the latest total purchased quantity for an offering, unless the renewal was
   overridden. The API returns a `NotEligible` error if the user is not
-  permitted to invoke the operation. Please contact
-  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
-  if you believe that you should be able to invoke this operation.
+  permitted to invoke the operation. If you must be able to invoke this
+  operation, contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def purchase_offering(client, input, options \\ []) do
     request(client, "PurchaseOffering", input, options)
@@ -426,9 +526,8 @@ defmodule AWS.DeviceFarm do
   Explicitly sets the quantity of devices to renew for an offering, starting
   from the `effectiveDate` of the next period. The API returns a
   `NotEligible` error if the user is not permitted to invoke the operation.
-  Please contact
-  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
-  if you believe that you should be able to invoke this operation.
+  If you must be able to invoke this operation, contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   def renew_offering(client, input, options \\ []) do
     request(client, "RenewOffering", input, options)
@@ -442,12 +541,11 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Initiates a stop request for the current job. AWS Device Farm will
-  immediately stop the job on the device where tests have not started
-  executing, and you will not be billed for this device. On the device where
-  tests have started executing, Setup Suite and Teardown Suite tests will run
-  to completion before stopping execution on the device. You will be billed
-  for Setup, Teardown, and any tests that were in progress or already
+  Initiates a stop request for the current job. AWS Device Farm immediately
+  stops the job on the device where tests have not started. You are not
+  billed for this device. On the device where tests have started, setup suite
+  and teardown suite tests run to completion on the device. You are billed
+  for setup, teardown, and any tests that were in progress or already
   completed.
   """
   def stop_job(client, input, options \\ []) do
@@ -462,13 +560,12 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Initiates a stop request for the current test run. AWS Device Farm will
-  immediately stop the run on devices where tests have not started executing,
-  and you will not be billed for these devices. On devices where tests have
-  started executing, Setup Suite and Teardown Suite tests will run to
-  completion before stopping execution on those devices. You will be billed
-  for Setup, Teardown, and any tests that were in progress or already
-  completed.
+  Initiates a stop request for the current test run. AWS Device Farm
+  immediately stops the run on devices where tests have not started. You are
+  not billed for these devices. On devices where tests have started
+  executing, setup suite and teardown suite tests run to completion on those
+  devices. You are billed for setup, teardown, and any tests that were in
+  progress or already completed.
   """
   def stop_run(client, input, options \\ []) do
     request(client, "StopRun", input, options)
@@ -478,7 +575,7 @@ defmodule AWS.DeviceFarm do
   Associates the specified tags to a resource with the specified
   `resourceArn`. If existing tags on a resource are not specified in the
   request parameters, they are not changed. When a resource is deleted, the
-  tags associated with that resource are deleted as well.
+  tags associated with that resource are also deleted.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
@@ -492,7 +589,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Updates information about an existing private device instance.
+  Updates information about a private device instance.
   """
   def update_device_instance(client, input, options \\ []) do
     request(client, "UpdateDeviceInstance", input, options)
@@ -515,7 +612,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Updates the network profile with specific settings.
+  Updates the network profile.
   """
   def update_network_profile(client, input, options \\ []) do
     request(client, "UpdateNetworkProfile", input, options)
@@ -529,15 +626,22 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Update an uploaded test specification (test spec).
+  Change details of a project.
+  """
+  def update_test_grid_project(client, input, options \\ []) do
+    request(client, "UpdateTestGridProject", input, options)
+  end
+
+  @doc """
+  Updates an uploaded test spec.
   """
   def update_upload(client, input, options \\ []) do
     request(client, "UpdateUpload", input, options)
   end
 
   @doc """
-  Updates information about an existing Amazon Virtual Private Cloud (VPC)
-  endpoint configuration.
+  Updates information about an Amazon Virtual Private Cloud (VPC) endpoint
+  configuration.
   """
   def update_v_p_c_e_configuration(client, input, options \\ []) do
     request(client, "UpdateVPCEConfiguration", input, options)

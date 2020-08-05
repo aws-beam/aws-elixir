@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.LexRuntime do
   @moduledoc """
@@ -116,7 +116,9 @@ defmodule AWS.LexRuntime do
             {"x-amz-lex-intent-name", "intentName"},
             {"x-amz-lex-message", "message"},
             {"x-amz-lex-message-format", "messageFormat"},
+            {"x-amz-lex-sentiment", "sentimentResponse"},
             {"x-amz-lex-session-attributes", "sessionAttributes"},
+            {"x-amz-lex-session-id", "sessionId"},
             {"x-amz-lex-slot-to-elicit", "slotToElicit"},
             {"x-amz-lex-slots", "slots"},
           ]
@@ -126,7 +128,7 @@ defmodule AWS.LexRuntime do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -231,7 +233,7 @@ defmodule AWS.LexRuntime do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -274,7 +276,7 @@ defmodule AWS.LexRuntime do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -291,7 +293,7 @@ defmodule AWS.LexRuntime do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

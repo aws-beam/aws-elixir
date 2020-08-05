@@ -157,6 +157,13 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Fetches the attached managed scaling policy for an Amazon EMR cluster.
+  """
+  def get_managed_scaling_policy(client, input, options \\ []) do
+    request(client, "GetManagedScalingPolicy", input, options)
+  end
+
+  @doc """
   Provides information about the bootstrap actions associated with a cluster.
   """
   def list_bootstrap_actions(client, input, options \\ []) do
@@ -215,10 +222,19 @@ defmodule AWS.EMR do
 
   @doc """
   Provides a list of steps for the cluster in reverse order unless you
-  specify stepIds with the request.
+  specify `stepIds` with the request of filter by `StepStates`. You can
+  specify a maximum of ten `stepIDs`.
   """
   def list_steps(client, input, options \\ []) do
     request(client, "ListSteps", input, options)
+  end
+
+  @doc """
+  Modifies the number of steps that can be executed concurrently for the
+  cluster specified using ClusterID.
+  """
+  def modify_cluster(client, input, options \\ []) do
+    request(client, "ModifyCluster", input, options)
   end
 
   @doc """
@@ -267,11 +283,29 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Creates or updates a managed scaling policy for an Amazon EMR cluster. The
+  managed scaling policy defines the limits for resources, such as EC2
+  instances that can be added or terminated from a cluster. The policy only
+  applies to the core and task nodes. The master node cannot be scaled after
+  initial configuration.
+  """
+  def put_managed_scaling_policy(client, input, options \\ []) do
+    request(client, "PutManagedScalingPolicy", input, options)
+  end
+
+  @doc """
   Removes an automatic scaling policy from a specified instance group within
   an EMR cluster.
   """
   def remove_auto_scaling_policy(client, input, options \\ []) do
     request(client, "RemoveAutoScalingPolicy", input, options)
+  end
+
+  @doc """
+  Removes a managed scaling policy from a specified EMR cluster.
+  """
+  def remove_managed_scaling_policy(client, input, options \\ []) do
+    request(client, "RemoveManagedScalingPolicy", input, options)
   end
 
   @doc """
@@ -352,14 +386,15 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  *This member will be deprecated.*
-
-  Sets whether all AWS Identity and Access Management (IAM) users under your
-  account can access the specified clusters (job flows). This action works on
-  running clusters. You can also set the visibility of a cluster when you
-  launch it using the `VisibleToAllUsers` parameter of `RunJobFlow`. The
-  SetVisibleToAllUsers action can be called only by an IAM user who created
-  the cluster or the AWS account that owns the cluster.
+  Sets the `Cluster$VisibleToAllUsers` value, which determines whether the
+  cluster is visible to all IAM users of the AWS account associated with the
+  cluster. Only the IAM user who created the cluster or the AWS account root
+  user can call this action. The default value, `true`, indicates that all
+  IAM users in the AWS account can perform cluster actions if they have the
+  proper IAM policy permissions. If set to `false`, only the IAM user that
+  created the cluster can perform actions. This action works on running
+  clusters. You can override the default `true` setting when you create a
+  cluster by using the `VisibleToAllUsers` parameter with `RunJobFlow`.
   """
   def set_visible_to_all_users(client, input, options \\ []) do
     request(client, "SetVisibleToAllUsers", input, options)

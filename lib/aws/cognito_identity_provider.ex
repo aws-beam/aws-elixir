@@ -338,7 +338,10 @@ defmodule AWS.Cognito.IdentityProvider do
   end
 
   @doc """
-  Signs out users from all devices, as an administrator.
+  Signs out users from all devices, as an administrator. It also invalidates
+  all refresh tokens issued to a user. The user's current access and Id
+  tokens remain valid until their expiry. Access and Id tokens expire one
+  hour after they are issued.
 
   Calling this action requires developer credentials.
   """
@@ -555,12 +558,13 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Calling this API causes a message to be sent to the end user with a
   confirmation code that is required to change the user's password. For the
-  `Username` parameter, you can use the username or user alias. If a verified
-  phone number exists for the user, the confirmation code is sent to the
-  phone number. Otherwise, if a verified email exists, the confirmation code
-  is sent to the email. If neither a verified phone number nor a verified
-  email exists, `InvalidParameterException` is thrown. To use the
-  confirmation code for resetting the password, call .
+  `Username` parameter, you can use the username or user alias. The method
+  used to send the confirmation code is sent according to the specified
+  AccountRecoverySetting. For more information, see <a href="">Recovering
+  User Accounts` in the *Amazon Cognito Developer Guide*. If neither a
+  verified phone number nor a verified email exists, an
+  `InvalidParameterException` is thrown. To use the confirmation code for
+  resetting the password, call .
   """
   def forgot_password(client, input, options \\ []) do
     request(client, "ForgotPassword", input, options)
@@ -637,7 +641,10 @@ defmodule AWS.Cognito.IdentityProvider do
   end
 
   @doc """
-  Signs out users from all devices.
+  Signs out users from all devices. It also invalidates all refresh tokens
+  issued to a user. The user's current access and Id tokens remain valid
+  until their expiry. Access and Id tokens expire one hour after they are
+  issued.
   """
   def global_sign_out(client, input, options \\ []) do
     request(client, "GlobalSignOut", input, options)
@@ -881,6 +888,11 @@ defmodule AWS.Cognito.IdentityProvider do
   Updates the specified group with the specified attributes.
 
   Calling this action requires developer credentials.
+
+  <important> If you don't provide a value for an attribute, it will be set
+  to the default value.
+
+  </important>
   """
   def update_group(client, input, options \\ []) do
     request(client, "UpdateGroup", input, options)
@@ -896,6 +908,11 @@ defmodule AWS.Cognito.IdentityProvider do
   @doc """
   Updates the name and scopes of resource server. All other fields are
   read-only.
+
+  <important> If you don't provide a value for an attribute, it will be set
+  to the default value.
+
+  </important>
   """
   def update_resource_server(client, input, options \\ []) do
     request(client, "UpdateResourceServer", input, options)
@@ -909,9 +926,13 @@ defmodule AWS.Cognito.IdentityProvider do
   end
 
   @doc """
-  Updates the specified user pool with the specified attributes. If you don't
-  provide a value for an attribute, it will be set to the default value. You
-  can get a list of the current user pool settings with .
+  Updates the specified user pool with the specified attributes. You can get
+  a list of the current user pool settings with .
+
+  <important> If you don't provide a value for an attribute, it will be set
+  to the default value.
+
+  </important>
   """
   def update_user_pool(client, input, options \\ []) do
     request(client, "UpdateUserPool", input, options)
@@ -919,9 +940,12 @@ defmodule AWS.Cognito.IdentityProvider do
 
   @doc """
   Updates the specified user pool app client with the specified attributes.
-  If you don't provide a value for an attribute, it will be set to the
-  default value. You can get a list of the current user pool app client
-  settings with .
+  You can get a list of the current user pool app client settings with .
+
+  <important> If you don't provide a value for an attribute, it will be set
+  to the default value.
+
+  </important>
   """
   def update_user_pool_client(client, input, options \\ []) do
     request(client, "UpdateUserPoolClient", input, options)

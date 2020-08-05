@@ -46,46 +46,21 @@ defmodule AWS.Organizations do
 
   @doc """
   Attaches a policy to a root, an organizational unit (OU), or an individual
-  account. How the policy affects accounts depends on the type of policy:
+  account. How the policy affects accounts depends on the type of policy.
+  Refer to the *AWS Organizations User Guide* for information about each
+  policy type:
 
-  <ul> <li> **Service control policy (SCP)** - An SCP specifies what
-  permissions can be delegated to users in affected member accounts. The
-  scope of influence for a policy depends on what you attach the policy to:
+  <ul> <li>
+  [AISERVICES_OPT_OUT_POLICY](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html)
 
-  <ul> <li> If you attach an SCP to a root, it affects all accounts in the
-  organization.
+  </li> <li>
+  [BACKUP_POLICY](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html)
 
-  </li> <li> If you attach an SCP to an OU, it affects all accounts in that
-  OU and in any child OUs.
+  </li> <li>
+  [SERVICE_CONTROL_POLICY](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)
 
-  </li> <li> If you attach the policy directly to an account, it affects only
-  that account.
-
-  </li> </ul> SCPs are JSON policies that specify the maximum permissions for
-  an organization or organizational unit (OU). You can attach one SCP to a
-  higher level root or OU, and a different SCP to a child OU or to an
-  account. The child policy can further restrict only the permissions that
-  pass through the parent filter and are available to the child. An SCP that
-  is attached to a child can't grant a permission that the parent hasn't
-  already granted. For example, imagine that the parent SCP allows
-  permissions A, B, C, D, and E. The child SCP allows C, D, E, F, and G. The
-  result is that the accounts affected by the child SCP are allowed to use
-  only C, D, and E. They can't use A or B because the child OU filtered them
-  out. They also can't use F and G because the parent OU filtered them out.
-  They can't be granted back by the child SCP; child SCPs can only filter the
-  permissions they receive from the parent SCP.
-
-  AWS Organizations attaches a default SCP named `"FullAWSAccess` to every
-  root, OU, and account. This default SCP allows all services and actions,
-  enabling any new child OU or account to inherit the permissions of the
-  parent root or OU. If you detach the default policy, you must replace it
-  with a policy that specifies the permissions that you want to allow in that
-  OU or account.
-
-  For more information about how AWS Organizations policies permissions work,
-  see [Using Service Control
-  Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)
-  in the *AWS Organizations User Guide.*
+  </li> <li>
+  [TAG_POLICY](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
 
   </li> </ul> This operation can be called only from the organization's
   master account.
@@ -274,9 +249,9 @@ defmodule AWS.Organizations do
 
   <important> <ul> <li> When you create an account in an organization using
   the AWS Organizations console, API, or CLI commands, the information
-  required for the account to operate as a standalone account, such as a
-  payment method and signing the end user license agreement (EULA) is *not*
-  automatically collected. If you must remove an account from your
+  required for the account to operate as a standalone account is *not*
+  automatically collected. This includes a payment method and signing the end
+  user license agreement (EULA). If you must remove an account from your
   organization later, you can do so only after you provide the missing
   information. Follow the steps at [ To leave an organization as a member
   account](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
@@ -329,7 +304,7 @@ defmodule AWS.Organizations do
   policies automatically enabled in the root. If you instead choose to create
   the organization supporting only the consolidated billing features by
   setting the `FeatureSet` parameter to `CONSOLIDATED_BILLING"`, no policy
-  types are enabled by default, and you can't use organization policies.
+  types are enabled by default, and you can't use organization policies
   """
   def create_organization(client, input, options \\ []) do
     request(client, "CreateOrganization", input, options)
@@ -414,10 +389,33 @@ defmodule AWS.Organizations do
   end
 
   @doc """
+  Removes the specified member AWS account as a delegated administrator for
+  the specified AWS service.
+
+  <important> Deregistering a delegated administrator can have unintended
+  impacts on the functionality of the enabled AWS service. See the
+  documentation for the enabled service before you deregister a delegated
+  administrator so that you understand any potential impacts.
+
+  </important> You can run this action only for AWS services that support
+  this feature. For a current list of services that support it, see the
+  column *Supports Delegated Administrator* in the table at [AWS Services
+  that you can use with AWS
+  Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html)
+  in the *AWS Organizations User Guide.*
+
+  This operation can be called only from the organization's master account.
+  """
+  def deregister_delegated_administrator(client, input, options \\ []) do
+    request(client, "DeregisterDelegatedAdministrator", input, options)
+  end
+
+  @doc """
   Retrieves AWS Organizations-related information about the specified
   account.
 
-  This operation can be called only from the organization's master account.
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
   """
   def describe_account(client, input, options \\ []) do
     request(client, "DescribeAccount", input, options)
@@ -427,10 +425,31 @@ defmodule AWS.Organizations do
   Retrieves the current status of an asynchronous request to create an
   account.
 
-  This operation can be called only from the organization's master account.
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
   """
   def describe_create_account_status(client, input, options \\ []) do
     request(client, "DescribeCreateAccountStatus", input, options)
+  end
+
+  @doc """
+  Returns the contents of the effective policy for specified policy type and
+  account. The effective policy is the aggregation of any policies of the
+  specified type that the account inherits, plus any policy of that type that
+  is directly attached to the account.
+
+  This operation applies only to policy types *other* than service control
+  policies (SCPs).
+
+  For more information about policy inheritance, see [How Policy Inheritance
+  Works](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html)
+  in the *AWS Organizations User Guide*.
+
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
+  """
+  def describe_effective_policy(client, input, options \\ []) do
+    request(client, "DescribeEffectivePolicy", input, options)
   end
 
   @doc """
@@ -467,7 +486,8 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves information about an organizational unit (OU).
 
-  This operation can be called only from the organization's master account.
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
   """
   def describe_organizational_unit(client, input, options \\ []) do
     request(client, "DescribeOrganizationalUnit", input, options)
@@ -476,7 +496,8 @@ defmodule AWS.Organizations do
   @doc """
   Retrieves information about a policy.
 
-  This operation can be called only from the organization's master account.
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
   """
   def describe_policy(client, input, options \\ []) do
     request(client, "DescribePolicy", input, options)
@@ -484,21 +505,22 @@ defmodule AWS.Organizations do
 
   @doc """
   Detaches a policy from a target root, organizational unit (OU), or account.
-  If the policy being detached is a service control policy (SCP), the changes
-  to permissions for IAM users and roles in affected accounts are immediate.
 
-  **Note:** Every root, OU, and account must have at least one SCP attached.
-  If you want to replace the default `FullAWSAccess` policy with one that
-  limits the permissions that can be delegated, you must attach the
-  replacement policy before you can remove the default one. This is the
-  authorization strategy of
-  [whitelisting](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist).
+  <important> If the policy being detached is a service control policy (SCP),
+  the changes to permissions for AWS Identity and Access Management (IAM)
+  users and roles in affected accounts are immediate.
+
+  </important> Every root, OU, and account must have at least one SCP
+  attached. If you want to replace the default `FullAWSAccess` policy with an
+  SCP that limits the permissions that can be delegated, you must attach the
+  replacement SCP before you can remove the default SCP. This is the
+  authorization strategy of an "[allow
+  list](https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_allowlist)".
   If you instead attach a second SCP and leave the `FullAWSAccess` SCP still
   attached, and specify `"Effect": "Deny"` in the second SCP to override the
   `"Effect": "Allow"` in the `FullAWSAccess` policy (or any other attached
-  SCP), you're using the authorization strategy of
-  [blacklisting](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist)
-  .
+  SCP), you're using the authorization strategy of a "[deny
+  list](https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist)".
 
   This operation can be called only from the organization's master account.
   """
@@ -542,16 +564,16 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Disables an organizational control policy type in a root. A policy of a
-  certain type can be attached to entities in a root only if that type is
-  enabled in the root. After you perform this operation, you no longer can
-  attach policies of the specified type to that root or to any organizational
-  unit (OU) or account in that root. You can undo this by using the
+  Disables an organizational policy type in a root. A policy of a certain
+  type can be attached to entities in a root only if that type is enabled in
+  the root. After you perform this operation, you no longer can attach
+  policies of the specified type to that root or to any organizational unit
+  (OU) or account in that root. You can undo this by using the
   `EnablePolicyType` operation.
 
   This is an asynchronous request that AWS performs in the background. If you
-  disable a policy for a root, it still appears enabled for the organization
-  if [all
+  disable a policy type for a root, it still appears enabled for the
+  organization if [all
   features](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
   are enabled for the organization. AWS recommends that you first use
   `ListRoots` to see the status of policy types for a specified root, and
@@ -692,21 +714,29 @@ defmodule AWS.Organizations do
 
   <important> <ul> <li> The master account in an organization with all
   features enabled can set service control policies (SCPs) that can restrict
-  what administrators of member accounts can do, including preventing them
-  from successfully calling `LeaveOrganization` and leaving the organization.
+  what administrators of member accounts can do. This includes preventing
+  them from successfully calling `LeaveOrganization` and leaving the
+  organization.
 
   </li> <li> You can leave an organization as a member account only if the
   account is configured with the information required to operate as a
   standalone account. When you create an account in an organization using the
   AWS Organizations console, API, or CLI commands, the information required
   of standalone accounts is *not* automatically collected. For each account
-  that you want to make standalone, you must accept the end user license
-  agreement (EULA), choose a support plan, provide and verify the required
-  contact information, and provide a current payment method. AWS uses the
-  payment method to charge for any billable (not free tier) AWS activity that
-  occurs while the account isn't attached to an organization. Follow the
-  steps at [ To leave an organization when all required account information
-  has not yet been
+  that you want to make standalone, you must do the following steps:
+
+  <ul> <li> Accept the end user license agreement (EULA)
+
+  </li> <li> Choose a support plan
+
+  </li> <li> Provide and verify the required contact information
+
+  </li> <li> Provide a current payment method
+
+  </li> </ul> AWS uses the payment method to charge for any billable (not
+  free tier) AWS activity that occurs while the account isn't attached to an
+  organization. Follow the steps at [ To leave an organization when all
+  required account information has not yet been
   provided](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
   in the *AWS Organizations User Guide.*
 
@@ -734,7 +764,8 @@ defmodule AWS.Organizations do
   Services](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
   in the *AWS Organizations User Guide.*
 
-  This operation can be called only from the organization's master account.
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
   """
   def list_a_w_s_service_access_for_organization(client, input, options \\ []) do
     request(client, "ListAWSServiceAccessForOrganization", input, options)
@@ -752,7 +783,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_accounts(client, input, options \\ []) do
     request(client, "ListAccounts", input, options)
@@ -773,7 +805,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_accounts_for_parent(client, input, options \\ []) do
     request(client, "ListAccountsForParent", input, options)
@@ -792,7 +825,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_children(client, input, options \\ []) do
     request(client, "ListChildren", input, options)
@@ -809,10 +843,33 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_create_account_status(client, input, options \\ []) do
     request(client, "ListCreateAccountStatus", input, options)
+  end
+
+  @doc """
+  Lists the AWS accounts that are designated as delegated administrators in
+  this organization.
+
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
+  """
+  def list_delegated_administrators(client, input, options \\ []) do
+    request(client, "ListDelegatedAdministrators", input, options)
+  end
+
+  @doc """
+  List the AWS services for which the specified account is a delegated
+  administrator.
+
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
+  """
+  def list_delegated_services_for_account(client, input, options \\ []) do
+    request(client, "ListDelegatedServicesForAccount", input, options)
   end
 
   @doc """
@@ -829,7 +886,9 @@ defmodule AWS.Organizations do
   `NextToken` response parameter value is `null` *only* when there are no
   more results to display.
 
-  </note> This operation can be called from any account in the organization.
+  </note> This operation can be called only from the organization's master
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_handshakes_for_account(client, input, options \\ []) do
     request(client, "ListHandshakesForAccount", input, options)
@@ -852,7 +911,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_handshakes_for_organization(client, input, options \\ []) do
     request(client, "ListHandshakesForOrganization", input, options)
@@ -869,7 +929,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_organizational_units_for_parent(client, input, options \\ []) do
     request(client, "ListOrganizationalUnitsForParent", input, options)
@@ -888,7 +949,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
 
   <note> In the current release, a child can have only a single parent.
 
@@ -908,7 +970,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_policies(client, input, options \\ []) do
     request(client, "ListPolicies", input, options)
@@ -926,7 +989,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_policies_for_target(client, input, options \\ []) do
     request(client, "ListPoliciesForTarget", input, options)
@@ -942,7 +1006,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
 
   <note> Policy types can be enabled and disabled in roots. This is distinct
   from whether they're available in the organization. When you enable all
@@ -962,7 +1027,8 @@ defmodule AWS.Organizations do
 
   Currently, you can list tags on an account in AWS Organizations.
 
-  This operation can be called only from the organization's master account.
+  This operation can be called only from the organization's master account or
+  by a member account that is a delegated administrator for an AWS service.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -979,7 +1045,8 @@ defmodule AWS.Organizations do
   more results to display.
 
   </note> This operation can be called only from the organization's master
-  account.
+  account or by a member account that is a delegated administrator for an AWS
+  service.
   """
   def list_targets_for_policy(client, input, options \\ []) do
     request(client, "ListTargetsForPolicy", input, options)
@@ -993,6 +1060,25 @@ defmodule AWS.Organizations do
   """
   def move_account(client, input, options \\ []) do
     request(client, "MoveAccount", input, options)
+  end
+
+  @doc """
+  Enables the specified member account to administer the Organizations
+  features of the specified AWS service. It grants read-only access to AWS
+  Organizations service data. The account still requires IAM permissions to
+  access and administer the AWS service.
+
+  You can run this action only for AWS services that support this feature.
+  For a current list of services that support it, see the column *Supports
+  Delegated Administrator* in the table at [AWS Services that you can use
+  with AWS
+  Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html)
+  in the *AWS Organizations User Guide.*
+
+  This operation can be called only from the organization's master account.
+  """
+  def register_delegated_administrator(client, input, options \\ []) do
+    request(client, "RegisterDelegatedAdministrator", input, options)
   end
 
   @doc """

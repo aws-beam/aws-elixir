@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Glacier do
   @moduledoc """
@@ -188,7 +188,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -264,7 +264,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -519,7 +519,7 @@ defmodule AWS.Glacier do
   and [Get Job Output
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html)
   """
-  def get_job_output(client, account_id, job_id, vault_name, range \\ nil, options \\ []) do
+  def get_job_output(client, account_id, job_id, vault_name, range, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}/output"
     headers = []
     headers = if !is_nil(range) do
@@ -543,7 +543,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -655,7 +655,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -728,7 +728,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -786,7 +786,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -991,7 +991,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -1159,7 +1159,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -1240,7 +1240,7 @@ defmodule AWS.Glacier do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -1283,7 +1283,7 @@ defmodule AWS.Glacier do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -1300,7 +1300,7 @@ defmodule AWS.Glacier do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

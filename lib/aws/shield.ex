@@ -14,7 +14,7 @@ defmodule AWS.Shield do
   """
 
   @doc """
-  Authorizes the DDoS Response team (DRT) to access the specified Amazon S3
+  Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3
   bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3
   buckets with your subscription.
 
@@ -29,7 +29,7 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Authorizes the DDoS Response team (DRT), using the specified role, to
+  Authorizes the DDoS Response Team (DRT), using the specified role, to
   access your AWS account to assist with DDoS attack mitigation during
   potential attacks. This enables the DRT to inspect your AWS WAF
   configuration and create or update AWS WAF rules and web ACLs.
@@ -69,6 +69,47 @@ defmodule AWS.Shield do
   end
 
   @doc """
+  Adds health-based detection to the Shield Advanced protection for a
+  resource. Shield Advanced health-based detection uses the health of your
+  AWS resource to improve responsiveness and accuracy in attack detection and
+  mitigation.
+
+  You define the health check in Route 53 and then associate it with your
+  Shield Advanced protection. For more information, see [Shield Advanced
+  Health-Based
+  Detection](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option)
+  in the [AWS WAF and AWS Shield Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  """
+  def associate_health_check(client, input, options \\ []) do
+    request(client, "AssociateHealthCheck", input, options)
+  end
+
+  @doc """
+  Initializes proactive engagement and sets the list of contacts for the DDoS
+  Response Team (DRT) to use. You must provide at least one phone number in
+  the emergency contact list.
+
+  After you have initialized proactive engagement using this call, to disable
+  or enable proactive engagement, use the calls `DisableProactiveEngagement`
+  and `EnableProactiveEngagement`.
+
+  <note> This call defines the list of email addresses and phone numbers that
+  the DDoS Response Team (DRT) can use to contact you for escalations to the
+  DRT and to initiate proactive customer support.
+
+  The contacts that you provide in the request replace any contacts that were
+  already defined. If you already have contacts defined and want to use them,
+  retrieve the list using `DescribeEmergencyContactSettings` and then provide
+  it to this call.
+
+  </note>
+  """
+  def associate_proactive_engagement_details(client, input, options \\ []) do
+    request(client, "AssociateProactiveEngagementDetails", input, options)
+  end
+
+  @doc """
   Enables AWS Shield Advanced for a specific AWS resource. The resource can
   be an Amazon CloudFront distribution, Elastic Load Balancing load balancer,
   AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route
@@ -88,17 +129,6 @@ defmodule AWS.Shield do
 
   @doc """
   Activates AWS Shield Advanced for an account.
-
-  As part of this request you can specify `EmergencySettings` that
-  automaticaly grant the DDoS response team (DRT) needed permissions to
-  assist you during a suspected DDoS attack. For more information see
-  [Authorize the DDoS Response Team to Create Rules and Web ACLs on Your
-  Behalf](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-DRT.html).
-
-  To use the services of the DRT, you must be subscribed to the [Business
-  Support plan](https://aws.amazon.com/premiumsupport/business-support/) or
-  the [Enterprise Support
-  plan](https://aws.amazon.com/premiumsupport/enterprise-support/).
 
   When you initally create a subscription, your subscription is set to be
   automatically renewed at the end of the existing subscription period. You
@@ -133,7 +163,7 @@ defmodule AWS.Shield do
 
   @doc """
   Returns the current role and list of Amazon S3 log buckets used by the DDoS
-  Response team (DRT) to access your AWS account while assisting with attack
+  Response Team (DRT) to access your AWS account while assisting with attack
   mitigation.
   """
   def describe_d_r_t_access(client, input, options \\ []) do
@@ -141,8 +171,9 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Lists the email addresses that the DRT can use to contact you during a
-  suspected attack.
+  A list of email addresses and phone numbers that the DDoS Response Team
+  (DRT) can use to contact you if you have proactive engagement enabled, for
+  escalations to the DRT and to initiate proactive customer support.
   """
   def describe_emergency_contact_settings(client, input, options \\ []) do
     request(client, "DescribeEmergencyContactSettings", input, options)
@@ -163,7 +194,15 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Removes the DDoS Response team's (DRT) access to the specified Amazon S3
+  Removes authorization from the DDoS Response Team (DRT) to notify contacts
+  about escalations to the DRT and to initiate proactive customer support.
+  """
+  def disable_proactive_engagement(client, input, options \\ []) do
+    request(client, "DisableProactiveEngagement", input, options)
+  end
+
+  @doc """
+  Removes the DDoS Response Team's (DRT) access to the specified Amazon S3
   bucket containing your AWS WAF logs.
 
   To make a `DisassociateDRTLogBucket` request, you must be subscribed to the
@@ -180,7 +219,7 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Removes the DDoS Response team's (DRT) access to your AWS account.
+  Removes the DDoS Response Team's (DRT) access to your AWS account.
 
   To make a `DisassociateDRTRole` request, you must be subscribed to the
   [Business Support
@@ -193,6 +232,32 @@ defmodule AWS.Shield do
   """
   def disassociate_d_r_t_role(client, input, options \\ []) do
     request(client, "DisassociateDRTRole", input, options)
+  end
+
+  @doc """
+  Removes health-based detection from the Shield Advanced protection for a
+  resource. Shield Advanced health-based detection uses the health of your
+  AWS resource to improve responsiveness and accuracy in attack detection and
+  mitigation.
+
+  You define the health check in Route 53 and then associate or disassociate
+  it with your Shield Advanced protection. For more information, see [Shield
+  Advanced Health-Based
+  Detection](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option)
+  in the [AWS WAF and AWS Shield Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  """
+  def disassociate_health_check(client, input, options \\ []) do
+    request(client, "DisassociateHealthCheck", input, options)
+  end
+
+  @doc """
+  Authorizes the DDoS Response Team (DRT) to use email and phone to notify
+  contacts about escalations to the DRT and to initiate proactive customer
+  support.
+  """
+  def enable_proactive_engagement(client, input, options \\ []) do
+    request(client, "EnableProactiveEngagement", input, options)
   end
 
   @doc """
@@ -218,8 +283,10 @@ defmodule AWS.Shield do
   end
 
   @doc """
-  Updates the details of the list of email addresses that the DRT can use to
-  contact you during a suspected attack.
+  Updates the details of the list of email addresses and phone numbers that
+  the DDoS Response Team (DRT) can use to contact you if you have proactive
+  engagement enabled, for escalations to the DRT and to initiate proactive
+  customer support.
   """
   def update_emergency_contact_settings(client, input, options \\ []) do
     request(client, "UpdateEmergencyContactSettings", input, options)

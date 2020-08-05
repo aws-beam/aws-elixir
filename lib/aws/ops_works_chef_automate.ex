@@ -65,7 +65,11 @@ defmodule AWS.OpsWorks.ChefAutomate do
 
   </li> <li> opsworks-cm.eu-west-1.amazonaws.com
 
-  </li> </ul> **Throttling limits**
+  </li> </ul> For more information, see [AWS OpsWorks endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/opsworks-service.html)
+  in the AWS General Reference.
+
+  **Throttling limits**
 
   All API operations allow for five requests per second with a burst of 10
   requests per second.
@@ -85,7 +89,7 @@ defmodule AWS.OpsWorks.ChefAutomate do
   On a Puppet server, this command is an alternative to the `puppet cert
   sign` command that signs a Puppet node CSR.
 
-  Example (Chef): `aws opsworks-cm associate-node --server-name *MyServer*
+  Example (Puppet): `aws opsworks-cm associate-node --server-name *MyServer*
   --node-name *MyManagedNode* --engine-attributes
   "Name=*PUPPET_NODE_CSR*,Value=*csr-pem*"`
 
@@ -151,6 +155,10 @@ defmodule AWS.OpsWorks.ChefAutomate do
   that you update your security group rules to allow access from known IP
   addresses and address ranges only. To edit security group rules, open
   Security Groups in the navigation pane of the EC2 management console.
+
+  To specify your own domain for a server, and provide your own self-signed
+  or CA-signed certificate and private key, specify values for
+  `CustomDomain`, `CustomCertificate`, and `CustomPrivateKey`.
   """
   def create_server(client, input, options \\ []) do
     request(client, "CreateServer", input, options)
@@ -286,11 +294,25 @@ defmodule AWS.OpsWorks.ChefAutomate do
   end
 
   @doc """
+  Returns a list of tags that are applied to the specified AWS OpsWorks for
+  Chef Automate or AWS OpsWorks for Puppet Enterprise servers or backups.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Restores a backup to a server that is in a `CONNECTION_LOST`, `HEALTHY`,
   `RUNNING`, `UNHEALTHY`, or `TERMINATED` state. When you run RestoreServer,
   the server's EC2 instance is deleted, and a new EC2 instance is configured.
   RestoreServer maintains the existing server endpoint, so configuration
   management of the server's client devices (nodes) should continue to work.
+
+  Restoring from a backup is performed by creating a new EC2 instance. If
+  restoration is successful, and the server is in a `HEALTHY` state, AWS
+  OpsWorks CM switches traffic over to the new instance. After restoration is
+  finished, the old EC2 instance is maintained in a `Running` or `Stopped`
+  state, but is eventually terminated.
 
   This operation is asynchronous.
 
@@ -317,6 +339,21 @@ defmodule AWS.OpsWorks.ChefAutomate do
   """
   def start_maintenance(client, input, options \\ []) do
     request(client, "StartMaintenance", input, options)
+  end
+
+  @doc """
+  Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for
+  Puppet Enterprise server, or to server backups.
+  """
+  def tag_resource(client, input, options \\ []) do
+    request(client, "TagResource", input, options)
+  end
+
+  @doc """
+  Removes specified tags from an AWS OpsWorks-CM server or backup.
+  """
+  def untag_resource(client, input, options \\ []) do
+    request(client, "UntagResource", input, options)
   end
 
   @doc """

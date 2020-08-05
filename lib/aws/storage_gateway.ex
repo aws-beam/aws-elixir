@@ -9,23 +9,23 @@ defmodule AWS.StorageGateway do
   appliance with cloud-based storage to provide seamless and secure
   integration between an organization's on-premises IT environment and the
   AWS storage infrastructure. The service enables you to securely upload data
-  to the AWS cloud for cost effective backup and rapid disaster recovery.
+  to the AWS Cloud for cost effective backup and rapid disaster recovery.
 
   Use the following links to get started using the *AWS Storage Gateway
   Service API Reference*:
 
-  <ul> <li> [AWS Storage Gateway Required Request
-  Headers](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders):
+  <ul> <li> [AWS Storage Gateway required request
+  headers](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders):
   Describes the required headers that you must send with every POST request
   to AWS Storage Gateway.
 
   </li> <li> [Signing
-  Requests](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests):
+  requests](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests):
   AWS Storage Gateway requires that you authenticate every request you send;
   this topic describes how sign such a request.
 
   </li> <li> [Error
-  Responses](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses):
+  responses](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses):
   Provides reference information about AWS Storage Gateway errors.
 
   </li> <li> [Operations in AWS Storage
@@ -34,10 +34,10 @@ defmodule AWS.StorageGateway do
   request parameters, response elements, possible errors, and examples of
   requests and responses.
 
-  </li> <li> [AWS Storage Gateway Regions and
-  Endpoints:](http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region)
-  Provides a list of each AWS Region and the endpoints available for use with
-  AWS Storage Gateway.
+  </li> <li> [AWS Storage Gateway endpoints and
+  quotas:](https://docs.aws.amazon.com/general/latest/gr/sg.html) Provides a
+  list of each AWS Region and the endpoints available for use with AWS
+  Storage Gateway.
 
   </li> </ul> <note> AWS Storage Gateway resource IDs are in uppercase. When
   you use these resource IDs with the Amazon EC2 API, EC2 expects resource
@@ -52,8 +52,8 @@ defmodule AWS.StorageGateway do
   Starting in December 2016, all new volumes and snapshots will be created
   with a 17-character string. Starting in April 2016, you will be able to use
   these longer IDs so you can test your systems with the new format. For more
-  information, see [Longer EC2 and EBS Resource
-  IDs](https://aws.amazon.com/ec2/faqs/#longer-ids).
+  information, see [Longer EC2 and EBS resource
+  IDs](http://aws.amazon.com/ec2/faqs/#longer-ids).
 
   For example, a volume Amazon Resource Name (ARN) with the longer volume ID
   format looks like the following:
@@ -65,7 +65,7 @@ defmodule AWS.StorageGateway do
 
   For more information, see [Announcement: Heads-up – Longer AWS Storage
   Gateway volume and snapshot IDs coming in
-  2016](https://forums.aws.amazon.com/ann.jspa?annID=3557).
+  2016](http://forums.aws.amazon.com/ann.jspa?annID=3557).
 
   </important>
   """
@@ -76,7 +76,7 @@ defmodule AWS.StorageGateway do
   want to use for storing snapshots or tapes, the time zone for scheduled
   snapshots the gateway snapshot schedule window, an activation key, and a
   name for your gateway. The activation process also associates your gateway
-  with your account; for more information, see `UpdateGatewayInformation`.
+  with your account. For more information, see `UpdateGatewayInformation`.
 
   <note> You must turn on the gateway VM before you can activate your
   gateway.
@@ -89,9 +89,9 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Configures one or more gateway local disks as cache for a gateway. This
-  operation is only supported in the cached volume, tape and file gateway
-  type (see [Storage Gateway
-  Concepts](https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html)).
+  operation is only supported in the cached volume, tape, and file gateway
+  type (see [How AWS Storage Gateway works
+  (architecture)](https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html).
 
   In the request, you specify the gateway Amazon Resource Name (ARN) to which
   you want to add cache, and one or more disk IDs that you want to configure
@@ -159,10 +159,10 @@ defmodule AWS.StorageGateway do
   Assigns a tape to a tape pool for archiving. The tape assigned to a pool is
   archived in the S3 storage class that is associated with the pool. When you
   use your backup application to eject the tape, the tape is archived
-  directly into the S3 storage class (Glacier or Deep Archive) that
-  corresponds to the pool.
+  directly into the S3 storage class (S3 Glacier or S3 Glacier Deep Archive)
+  that corresponds to the pool.
 
-  Valid values: "GLACIER", "DEEP_ARCHIVE"
+  Valid Values: `GLACIER` | `DEEP_ARCHIVE`
   """
   def assign_tape_pool(client, input, options \\ []) do
     request(client, "AssignTapePool", input, options)
@@ -225,15 +225,16 @@ defmodule AWS.StorageGateway do
   @doc """
   Creates a Network File System (NFS) file share on an existing file gateway.
   In Storage Gateway, a file share is a file system mount point backed by
-  Amazon S3 cloud storage. Storage Gateway exposes file shares using a NFS
+  Amazon S3 cloud storage. Storage Gateway exposes file shares using an NFS
   interface. This operation is only supported for file gateways.
 
   <important> File gateway requires AWS Security Token Service (AWS STS) to
-  be activated to enable you create a file share. Make sure AWS STS is
+  be activated to enable you to create a file share. Make sure AWS STS is
   activated in the AWS Region you are creating your file gateway in. If AWS
   STS is not activated in the AWS Region, activate it. For information about
-  how to activate AWS STS, see Activating and Deactivating AWS STS in an AWS
-  Region in the AWS Identity and Access Management User Guide.
+  how to activate AWS STS, see [Activating and deactivating AWS STS in an AWS
+  Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
+  in the *AWS Identity and Access Management User Guide*.
 
   File gateway does not support creating hard or symbolic links on a file
   share.
@@ -248,16 +249,16 @@ defmodule AWS.StorageGateway do
   Creates a Server Message Block (SMB) file share on an existing file
   gateway. In Storage Gateway, a file share is a file system mount point
   backed by Amazon S3 cloud storage. Storage Gateway expose file shares using
-  a SMB interface. This operation is only supported for file gateways.
+  an SMB interface. This operation is only supported for file gateways.
 
   <important> File gateways require AWS Security Token Service (AWS STS) to
   be activated to enable you to create a file share. Make sure that AWS STS
   is activated in the AWS Region you are creating your file gateway in. If
   AWS STS is not activated in this AWS Region, activate it. For information
-  about how to activate AWS STS, see [Activating and Deactivating AWS STS in
+  about how to activate AWS STS, see [Activating and deactivating AWS STS in
   an AWS
   Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
-  in the *AWS Identity and Access Management User Guide.*
+  in the *AWS Identity and Access Management User Guide*.
 
   File gateways don't support creating hard or symbolic links on a file
   share.
@@ -272,12 +273,12 @@ defmodule AWS.StorageGateway do
   Initiates a snapshot of a volume.
 
   AWS Storage Gateway provides the ability to back up point-in-time snapshots
-  of your data to Amazon Simple Storage (S3) for durable off-site recovery,
-  as well as import the data to an Amazon Elastic Block Store (EBS) volume in
-  Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway
-  volume on a scheduled or ad hoc basis. This API enables you to take ad-hoc
-  snapshot. For more information, see [Editing a Snapshot
-  Schedule](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot).
+  of your data to Amazon Simple Storage (Amazon S3) for durable off-site
+  recovery, as well as import the data to an Amazon Elastic Block Store (EBS)
+  volume in Amazon Elastic Compute Cloud (EC2). You can take snapshots of
+  your gateway volume on a scheduled or ad hoc basis. This API enables you to
+  take ad-hoc snapshot. For more information, see [Editing a snapshot
+  schedule](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot).
 
   In the CreateSnapshot request you identify the volume by providing its
   Amazon Resource Name (ARN). You must also provide description for the
@@ -289,8 +290,11 @@ defmodule AWS.StorageGateway do
   and cached volume gateway type.
 
   <note> To list or delete a snapshot, you must use the Amazon EC2 API. For
-  more information, see DescribeSnapshots or DeleteSnapshot in the [EC2 API
-  reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html).
+  more information, see
+  [DescribeSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html)
+  or
+  [DeleteSnapshot](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html)
+  in the *Amazon Elastic Compute Cloud API Reference*.
 
   </note> <important> Volume and snapshot IDs are changing to a longer length
   ID format. For more information, see the important note on the
@@ -321,7 +325,11 @@ defmodule AWS.StorageGateway do
   use it when you want to create a volume from a snapshot.
 
   <note> To list or delete a snapshot, you must use the Amazon EC2 API. For
-  more information, in *Amazon Elastic Compute Cloud API Reference*.
+  more information, see
+  [DescribeSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html)
+  or
+  [DeleteSnapshot](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html)
+  in the *Amazon Elastic Compute Cloud API Reference*.
 
   </note>
   """
@@ -351,8 +359,8 @@ defmodule AWS.StorageGateway do
   @doc """
   Creates a virtual tape by using your own barcode. You write data to the
   virtual tape and then archive the tape. A barcode is unique and can not be
-  reused if it has already been used on a tape . This applies to barcodes
-  used on deleted tapes. This operation is only supported in the tape gateway
+  reused if it has already been used on a tape. This applies to barcodes used
+  on deleted tapes. This operation is only supported in the tape gateway
   type.
 
   <note> Cache storage must be allocated to the gateway before you can create
@@ -381,11 +389,21 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Deletes the automatic tape creation policy of a gateway. If you delete this
+  policy, new virtual tapes must be created manually. Use the Amazon Resource
+  Name (ARN) of the gateway in your request to remove the policy.
+  """
+  def delete_automatic_tape_creation_policy(client, input, options \\ []) do
+    request(client, "DeleteAutomaticTapeCreationPolicy", input, options)
+  end
+
+  @doc """
   Deletes the bandwidth rate limits of a gateway. You can delete either the
   upload and download bandwidth rate limit, or you can delete both. If you
   delete only one of the limits, the other limit remains unchanged. To
   specify which gateway to work with, use the Amazon Resource Name (ARN) of
-  the gateway in your request.
+  the gateway in your request. This operation is supported for the stored
+  volume, cached volume and tape gateway types.
   """
   def delete_bandwidth_rate_limit(client, input, options \\ []) do
     request(client, "DeleteBandwidthRateLimit", input, options)
@@ -393,7 +411,8 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for
-  a specified iSCSI target and initiator pair.
+  a specified iSCSI target and initiator pair. This operation is supported in
+  volume and tape gateway types.
   """
   def delete_chap_credentials(client, input, options \\ []) do
     request(client, "DeleteChapCredentials", input, options)
@@ -424,7 +443,7 @@ defmodule AWS.StorageGateway do
   remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription.
   If you prefer not to cancel your Amazon EC2 subscription, you can delete
   your snapshots using the Amazon EC2 console. For more information, see the
-  [ AWS Storage Gateway Detail Page](http://aws.amazon.com/storagegateway).
+  [AWS Storage Gateway detail page](http://aws.amazon.com/storagegateway).
 
   </important>
   """
@@ -437,14 +456,16 @@ defmodule AWS.StorageGateway do
 
   You can take snapshots of your gateway volumes on a scheduled or ad hoc
   basis. This API action enables you to delete a snapshot schedule for a
-  volume. For more information, see [Working with
-  Snapshots](https://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html).
+  volume. For more information, see [Backing up your
+  volumes](https://docs.aws.amazon.com/storagegatewaylatest/userguide/backing-up-volumes.html).
   In the `DeleteSnapshotSchedule` request, you identify the volume by
   providing its Amazon Resource Name (ARN). This operation is only supported
   in stored and cached volume gateway types.
 
-  <note> To list or delete a snapshot, you must use the Amazon EC2 API. in
-  *Amazon Elastic Compute Cloud API Reference*.
+  <note> To list or delete a snapshot, you must use the Amazon EC2 API. For
+  more information, go to
+  [DescribeSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html)
+  in the *Amazon Elastic Compute Cloud API Reference*.
 
   </note>
   """
@@ -492,8 +513,19 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Returns information about the most recent High Availability monitoring test
+  that was performed on the host in a cluster. If a test isn't performed, the
+  status and start time in the response would be null.
+  """
+  def describe_availability_monitor_test(client, input, options \\ []) do
+    request(client, "DescribeAvailabilityMonitorTest", input, options)
+  end
+
+  @doc """
   Returns the bandwidth rate limits of a gateway. By default, these limits
-  are not set, which means no bandwidth rate limiting is in effect.
+  are not set, which means no bandwidth rate limiting is in effect. This
+  operation is supported for the stored volume, cached volume and tape
+  gateway types.
 
   This operation only returns a value for a bandwidth rate limit only if the
   limit is set. If no limits are set for the gateway, then this operation
@@ -507,7 +539,7 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Returns information about the cache of a gateway. This operation is only
-  supported in the cached volume, tape and file gateway types.
+  supported in the cached volume, tape, and file gateway types.
 
   The response includes disk IDs that are configured as cache, and it
   includes the amount of cache allocated and used.
@@ -521,7 +553,7 @@ defmodule AWS.StorageGateway do
   operation is only supported in the cached volume gateway types.
 
   The list of gateway volumes in the request must be from one gateway. In the
-  response Amazon Storage Gateway returns volume information sorted by volume
+  response, AWS Storage Gateway returns volume information sorted by volume
   Amazon Resource Name (ARN).
   """
   def describe_cached_iscsi_volumes(client, input, options \\ []) do
@@ -531,7 +563,8 @@ defmodule AWS.StorageGateway do
   @doc """
   Returns an array of Challenge-Handshake Authentication Protocol (CHAP)
   credentials information for a specified iSCSI target, one for each
-  target-initiator pair.
+  target-initiator pair. This operation is supported in the volume and tape
+  gateway types.
   """
   def describe_chap_credentials(client, input, options \\ []) do
     request(client, "DescribeChapCredentials", input, options)
@@ -592,7 +625,7 @@ defmodule AWS.StorageGateway do
   @doc """
   Returns the description of the gateway volumes specified in the request.
   The list of gateway volumes in the request must be from one gateway. In the
-  response Amazon Storage Gateway returns volume information sorted by volume
+  response, AWS Storage Gateway returns volume information sorted by volume
   ARNs. This operation is only supported in stored volume gateway type.
   """
   def describe_stored_iscsi_volumes(client, input, options \\ []) do
@@ -636,7 +669,7 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Returns information about the upload buffer of a gateway. This operation is
-  supported for the stored volume, cached volume and tape gateway types.
+  supported for the stored volume, cached volume, and tape gateway types.
 
   The response includes disk IDs that are configured as upload buffer space,
   and it includes the amount of upload buffer space allocated and used.
@@ -678,7 +711,8 @@ defmodule AWS.StorageGateway do
   from the specified gateway. Detaching and attaching a volume enables you to
   recover your data from one gateway to a different gateway without creating
   a snapshot. It also makes it easier to move your volumes from an
-  on-premises gateway to a gateway hosted on an Amazon EC2 instance.
+  on-premises gateway to a gateway hosted on an Amazon EC2 instance. This
+  operation is only supported in the volume gateway type.
   """
   def detach_volume(client, input, options \\ []) do
     request(client, "DetachVolume", input, options)
@@ -692,7 +726,7 @@ defmodule AWS.StorageGateway do
   Use this operation for a tape gateway that is not reachable or not
   functioning. This operation is only supported in the tape gateway type.
 
-  <important> Once a gateway is disabled it cannot be enabled.
+  <important> After a gateway is disabled, it cannot be enabled.
 
   </important>
   """
@@ -706,6 +740,16 @@ defmodule AWS.StorageGateway do
   """
   def join_domain(client, input, options \\ []) do
     request(client, "JoinDomain", input, options)
+  end
+
+  @doc """
+  Lists the automatic tape creation policies for a gateway. If there are no
+  automatic tape creation policies for the gateway, it returns an empty list.
+
+  This operation is only supported for tape gateways.
+  """
+  def list_automatic_tape_creation_policies(client, input, options \\ []) do
+    request(client, "ListAutomaticTapeCreationPolicies", input, options)
   end
 
   @doc """
@@ -753,8 +797,7 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Lists the tags that have been added to the specified resource. This
-  operation is only supported in the cached volume, stored volume and tape
-  gateway type.
+  operation is supported in storage gateways of all types.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -833,9 +876,9 @@ defmodule AWS.StorageGateway do
   notification through event targets such as Amazon SNS or AWS Lambda
   function. This operation is only supported for file gateways.
 
-  For more information, see Getting File Upload Notification in the Storage
-  Gateway User Guide
-  (https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification).
+  For more information, see [Getting file upload
+  notification](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification)
+  in the *AWS Storage Gateway User Guide*.
   """
   def notify_when_uploaded(client, input, options \\ []) do
     request(client, "NotifyWhenUploaded", input, options)
@@ -843,12 +886,13 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Refreshes the cache for the specified file share. This operation finds
-  objects in the Amazon S3 bucket that were added, removed or replaced since
+  objects in the Amazon S3 bucket that were added, removed, or replaced since
   the gateway last listed the bucket's contents and cached the results. This
   operation is only supported in the file gateway type. You can subscribe to
   be notified through an Amazon CloudWatch event when your RefreshCache
-  operation completes. For more information, see [Getting Notified About File
-  Operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification).
+  operation completes. For more information, see [Getting notified about file
+  operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
+  in the *AWS Storage Gateway User Guide*.
 
   When this API is called, it only initiates the refresh operation. When the
   API call completes and returns a success code, it doesn't necessarily mean
@@ -856,6 +900,21 @@ defmodule AWS.StorageGateway do
   notification to determine that the operation has completed before you check
   for new files on the gateway file share. You can subscribe to be notified
   through an CloudWatch event when your `RefreshCache` operation completes.
+
+  Throttle limit: This API is asynchronous so the gateway will accept no more
+  than two refreshes at any time. We recommend using the refresh-complete
+  CloudWatch event notification before issuing additional requests. For more
+  information, see [Getting notified about file
+  operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
+  in the *AWS Storage Gateway User Guide*.
+
+  If you invoke the RefreshCache API when two requests are already being
+  processed, any new request will cause an `InvalidGatewayRequestException`
+  error because too many requests were sent to the server.
+
+  For more information, see [Getting notified about file
+  operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
+  in the *AWS Storage Gateway User Guide*.
   """
   def refresh_cache(client, input, options \\ []) do
     request(client, "RefreshCache", input, options)
@@ -863,19 +922,19 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Removes one or more tags from the specified resource. This operation is
-  only supported in the cached volume, stored volume and tape gateway types.
+  supported in storage gateways of all types.
   """
   def remove_tags_from_resource(client, input, options \\ []) do
     request(client, "RemoveTagsFromResource", input, options)
   end
 
   @doc """
-  Resets all cache disks that have encountered a error and makes the disks
+  Resets all cache disks that have encountered an error and makes the disks
   available for reconfiguration as cache storage. If your cache disk
-  encounters a error, the gateway prevents read and write operations on
+  encounters an error, the gateway prevents read and write operations on
   virtual tapes in the gateway. For example, an error can occur when a disk
   is corrupted or removed from the gateway. When a cache is reset, the
-  gateway loses its cache storage. At this point you can reconfigure the
+  gateway loses its cache storage. At this point, you can reconfigure the
   disks as cache disks. This operation is only supported in the cached volume
   and tape types.
 
@@ -974,6 +1033,22 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Start a test that verifies that the specified gateway is configured for
+  High Availability monitoring in your host environment. This request only
+  initiates the test and that a successful response only indicates that the
+  test was started. It doesn't indicate that the test passed. For the status
+  of the test, invoke the `DescribeAvailabilityMonitorTest` API.
+
+  <note> Starting this test will cause your gateway to go offline for a brief
+  period.
+
+  </note>
+  """
+  def start_availability_monitor_test(client, input, options \\ []) do
+    request(client, "StartAvailabilityMonitorTest", input, options)
+  end
+
+  @doc """
   Starts a gateway that you previously shut down (see `ShutdownGateway`).
   After the gateway starts, you can then make other API calls, your
   applications can read from or write to the gateway's storage volumes and
@@ -993,9 +1068,26 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Updates the automatic tape creation policy of a gateway. Use this to update
+  the policy with a new set of automatic tape creation rules. This is only
+  supported for tape gateways.
+
+  By default, there is no automatic tape creation policy.
+
+  <note> A gateway can have only one automatic tape creation policy.
+
+  </note>
+  """
+  def update_automatic_tape_creation_policy(client, input, options \\ []) do
+    request(client, "UpdateAutomaticTapeCreationPolicy", input, options)
+  end
+
+  @doc """
   Updates the bandwidth rate limits of a gateway. You can update both the
   upload and download bandwidth rate limit or specify only one of the two. If
-  you don't set a bandwidth rate limit, the existing rate limit remains.
+  you don't set a bandwidth rate limit, the existing rate limit remains. This
+  operation is supported for the stored volume, cached volume, and tape
+  gateway types.
 
   By default, a gateway's bandwidth rate limits are not set. If you don't set
   any limit, the gateway does not have any limitations on its bandwidth usage
@@ -1011,7 +1103,8 @@ defmodule AWS.StorageGateway do
   @doc """
   Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials
   for a specified iSCSI target. By default, a gateway does not have CHAP
-  enabled; however, for added security, you might use it.
+  enabled; however, for added security, you might use it. This operation is
+  supported in the volume and tape gateway types.
 
   <important> When you update CHAP credentials, all existing connections on
   the target are closed and initiators must reconnect with the new
@@ -1051,10 +1144,10 @@ defmodule AWS.StorageGateway do
   gateway. You can minimize the chance of any disruption to your applications
   by increasing your iSCSI Initiators' timeouts. For more information about
   increasing iSCSI Initiator timeouts for Windows and Linux, see [Customizing
-  Your Windows iSCSI
-  Settings](https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings)
-  and [Customizing Your Linux iSCSI
-  Settings](https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings),
+  your Windows iSCSI
+  settings](https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings)
+  and [Customizing your Linux iSCSI
+  settings](https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings),
   respectively.
 
   </important>
@@ -1111,10 +1204,10 @@ defmodule AWS.StorageGateway do
   STS) to be activated to enable you to create a file share. Make sure that
   AWS STS is activated in the AWS Region you are creating your file gateway
   in. If AWS STS is not activated in this AWS Region, activate it. For
-  information about how to activate AWS STS, see [Activating and Deactivating
+  information about how to activate AWS STS, see [Activating and deactivating
   AWS STS in an AWS
   Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
-  in the *AWS Identity and Access Management User Guide.*
+  in the *AWS Identity and Access Management User Guide*.
 
   File gateways don't support creating hard or symbolic links on a file
   share.

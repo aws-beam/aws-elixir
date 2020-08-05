@@ -3,23 +3,47 @@
 
 defmodule AWS.WAF do
   @moduledoc """
-  This is the *AWS WAF API Reference* for using AWS WAF with Amazon
-  CloudFront. The AWS WAF actions and data types listed in the reference are
-  available for protecting Amazon CloudFront distributions. You can use these
-  actions and data types via the endpoint *waf.amazonaws.com*. This guide is
-  for developers who need detailed information about the AWS WAF API actions,
-  data types, and errors. For detailed information about AWS WAF features and
-  an overview of how to use the AWS WAF API, see the [AWS WAF Developer
-  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> This is the *AWS WAF Classic API Reference* for using AWS WAF
+  Classic with Amazon CloudFront. The AWS WAF Classic actions and data types
+  listed in the reference are available for protecting Amazon CloudFront
+  distributions. You can use these actions and data types via the endpoint
+  *waf.amazonaws.com*. This guide is for developers who need detailed
+  information about the AWS WAF Classic API actions, data types, and errors.
+  For detailed information about AWS WAF Classic features and an overview of
+  how to use the AWS WAF Classic API, see the [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
   """
 
   @doc """
-  Creates a `ByteMatchSet`. You then use `UpdateByteMatchSet` to identify the
-  part of a web request that you want AWS WAF to inspect, such as the values
-  of the `User-Agent` header or the query string. For example, you can create
-  a `ByteMatchSet` that matches any requests with `User-Agent` headers that
-  contain the string `BadBot`. You can then configure AWS WAF to reject those
-  requests.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `ByteMatchSet`. You then use `UpdateByteMatchSet` to
+  identify the part of a web request that you want AWS WAF to inspect, such
+  as the values of the `User-Agent` header or the query string. For example,
+  you can create a `ByteMatchSet` that matches any requests with `User-Agent`
+  headers that contain the string `BadBot`. You can then configure AWS WAF to
+  reject those requests.
 
   To create and configure a `ByteMatchSet`, perform the following steps:
 
@@ -44,10 +68,21 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates an `GeoMatchSet`, which you use to specify which web requests you
-  want to allow or block based on the country that the requests originate
-  from. For example, if you're receiving a lot of requests from one or more
-  countries and you want to block the requests, you can create an
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates an `GeoMatchSet`, which you use to specify which web
+  requests you want to allow or block based on the country that the requests
+  originate from. For example, if you're receiving a lot of requests from one
+  or more countries and you want to block the requests, you can create an
   `GeoMatchSet` that contains those countries and then configure AWS WAF to
   block the requests.
 
@@ -73,8 +108,19 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates an `IPSet`, which you use to specify which web requests that you
-  want to allow or block based on the IP addresses that the requests
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates an `IPSet`, which you use to specify which web requests
+  that you want to allow or block based on the IP addresses that the requests
   originate from. For example, if you're receiving a lot of requests from one
   or more individual IP addresses or one or more ranges of IP addresses and
   you want to block the requests, you can create an `IPSet` that contains
@@ -102,16 +148,27 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates a `RateBasedRule`. The `RateBasedRule` contains a `RateLimit`,
-  which specifies the maximum number of requests that AWS WAF allows from a
-  specified IP address in a five-minute period. The `RateBasedRule` also
-  contains the `IPSet` objects, `ByteMatchSet` objects, and other predicates
-  that identify the requests that you want to count or block if these
-  requests exceed the `RateLimit`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `RateBasedRule`. The `RateBasedRule` contains a
+  `RateLimit`, which specifies the maximum number of requests that AWS WAF
+  allows from a specified IP address in a five-minute period. The
+  `RateBasedRule` also contains the `IPSet` objects, `ByteMatchSet` objects,
+  and other predicates that identify the requests that you want to count or
+  block if these requests exceed the `RateLimit`.
 
   If you add more than one predicate to a `RateBasedRule`, a request not only
-  must exceed the `RateLimit`, but it also must match all the specifications
-  to be counted or blocked. For example, suppose you add the following to a
+  must exceed the `RateLimit`, but it also must match all the conditions to
+  be counted or blocked. For example, suppose you add the following to a
   `RateBasedRule`:
 
   <ul> <li> An `IPSet` that matches the IP address `192.0.2.44/32`
@@ -119,16 +176,16 @@ defmodule AWS.WAF do
   </li> <li> A `ByteMatchSet` that matches `BadBot` in the `User-Agent`
   header
 
-  </li> </ul> Further, you specify a `RateLimit` of 15,000.
+  </li> </ul> Further, you specify a `RateLimit` of 1,000.
 
   You then add the `RateBasedRule` to a `WebACL` and specify that you want to
   block requests that meet the conditions in the rule. For a request to be
   blocked, it must come from the IP address 192.0.2.44 *and* the `User-Agent`
   header in the request must contain the value `BadBot`. Further, requests
   that match these two conditions must be received at a rate of more than
-  15,000 requests every five minutes. If both conditions are met and the rate
-  is exceeded, AWS WAF blocks the requests. If the rate drops below 15,000
-  for a five-minute period, AWS WAF no longer blocks the requests.
+  1,000 requests every five minutes. If both conditions are met and the rate
+  is exceeded, AWS WAF blocks the requests. If the rate drops below 1,000 for
+  a five-minute period, AWS WAF no longer blocks the requests.
 
   As a second example, suppose you want to limit requests to a particular
   page on your site. To do this, you could add the following to a
@@ -140,7 +197,7 @@ defmodule AWS.WAF do
 
   </li> <li> A `TargetString` of `login`
 
-  </li> </ul> Further, you specify a `RateLimit` of 15,000.
+  </li> </ul> Further, you specify a `RateLimit` of 1,000.
 
   By adding this `RateBasedRule` to a `WebACL`, you could limit requests to
   your login page without affecting the rest of your site.
@@ -174,13 +231,24 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates a `RegexMatchSet`. You then use `UpdateRegexMatchSet` to identify
-  the part of a web request that you want AWS WAF to inspect, such as the
-  values of the `User-Agent` header or the query string. For example, you can
-  create a `RegexMatchSet` that contains a `RegexMatchTuple` that looks for
-  any requests with `User-Agent` headers that match a `RegexPatternSet` with
-  pattern `B[a@]dB[o0]t`. You can then configure AWS WAF to reject those
-  requests.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `RegexMatchSet`. You then use `UpdateRegexMatchSet` to
+  identify the part of a web request that you want AWS WAF to inspect, such
+  as the values of the `User-Agent` header or the query string. For example,
+  you can create a `RegexMatchSet` that contains a `RegexMatchTuple` that
+  looks for any requests with `User-Agent` headers that match a
+  `RegexPatternSet` with pattern `B[a@]dB[o0]t`. You can then configure AWS
+  WAF to reject those requests.
 
   To create and configure a `RegexMatchSet`, perform the following steps:
 
@@ -206,8 +274,19 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates a `RegexPatternSet`. You then use `UpdateRegexPatternSet` to
-  specify the regular expression (regex) pattern that you want AWS WAF to
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `RegexPatternSet`. You then use `UpdateRegexPatternSet`
+  to specify the regular expression (regex) pattern that you want AWS WAF to
   search for, such as `B[a@]dB[o0]t`. You can then configure AWS WAF to
   reject those requests.
 
@@ -233,11 +312,22 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates a `Rule`, which contains the `IPSet` objects, `ByteMatchSet`
-  objects, and other predicates that identify the requests that you want to
-  block. If you add more than one predicate to a `Rule`, a request must match
-  all of the specifications to be allowed or blocked. For example, suppose
-  that you add the following to a `Rule`:
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `Rule`, which contains the `IPSet` objects,
+  `ByteMatchSet` objects, and other predicates that identify the requests
+  that you want to block. If you add more than one predicate to a `Rule`, a
+  request must match all of the specifications to be allowed or blocked. For
+  example, suppose that you add the following to a `Rule`:
 
   <ul> <li> An `IPSet` that matches the IP address `192.0.2.44/32`
 
@@ -278,9 +368,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates a `RuleGroup`. A rule group is a collection of predefined rules
-  that you add to a web ACL. You use `UpdateRuleGroup` to add rules to the
-  rule group.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `RuleGroup`. A rule group is a collection of predefined
+  rules that you add to a web ACL. You use `UpdateRuleGroup` to add rules to
+  the rule group.
 
   Rule groups are subject to the following limits:
 
@@ -300,12 +401,24 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates a `SizeConstraintSet`. You then use `UpdateSizeConstraintSet` to
-  identify the part of a web request that you want AWS WAF to check for
-  length, such as the length of the `User-Agent` header or the length of the
-  query string. For example, you can create a `SizeConstraintSet` that
-  matches any requests that have a query string that is longer than 100
-  bytes. You can then configure AWS WAF to reject those requests.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `SizeConstraintSet`. You then use
+  `UpdateSizeConstraintSet` to identify the part of a web request that you
+  want AWS WAF to check for length, such as the length of the `User-Agent`
+  header or the length of the query string. For example, you can create a
+  `SizeConstraintSet` that matches any requests that have a query string that
+  is longer than 100 bytes. You can then configure AWS WAF to reject those
+  requests.
 
   To create and configure a `SizeConstraintSet`, perform the following steps:
 
@@ -330,8 +443,19 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates a `SqlInjectionMatchSet`, which you use to allow, block, or count
-  requests that contain snippets of SQL code in a specified part of web
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `SqlInjectionMatchSet`, which you use to allow, block, or
+  count requests that contain snippets of SQL code in a specified part of web
   requests. AWS WAF searches for character sequences that are likely to be
   malicious strings.
 
@@ -359,9 +483,21 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates a `WebACL`, which contains the `Rules` that identify the CloudFront
-  web requests that you want to allow, block, or count. AWS WAF evaluates
-  `Rules` in order based on the value of `Priority` for each `Rule`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates a `WebACL`, which contains the `Rules` that identify the
+  CloudFront web requests that you want to allow, block, or count. AWS WAF
+  evaluates `Rules` in order based on the value of `Priority` for each
+  `Rule`.
 
   You also specify a default action, either `ALLOW` or `BLOCK`. If a web
   request doesn't match any of the `Rules` in a `WebACL`, AWS WAF responds to
@@ -398,10 +534,40 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Creates an `XssMatchSet`, which you use to allow, block, or count requests
-  that contain cross-site scripting attacks in the specified part of web
-  requests. AWS WAF searches for character sequences that are likely to be
-  malicious strings.
+  Creates an AWS CloudFormation WAFV2 template for the specified web ACL in
+  the specified Amazon S3 bucket. Then, in CloudFormation, you create a stack
+  from the template, to create the web ACL and its resources in AWS WAFV2.
+  Use this to migrate your AWS WAF Classic web ACL to the latest version of
+  AWS WAF.
+
+  This is part of a larger migration procedure for web ACLs from AWS WAF
+  Classic to the latest version of AWS WAF. For the full procedure, including
+  caveats and manual steps to complete the migration and switch over to the
+  new web ACL, see [Migrating your AWS WAF Classic resources to AWS
+  WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-migrating-from-classic.html)
+  in the [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  """
+  def create_web_a_c_l_migration_stack(client, input, options \\ []) do
+    request(client, "CreateWebACLMigrationStack", input, options)
+  end
+
+  @doc """
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Creates an `XssMatchSet`, which you use to allow, block, or count
+  requests that contain cross-site scripting attacks in the specified part of
+  web requests. AWS WAF searches for character sequences that are likely to
+  be malicious strings.
 
   To create and configure an `XssMatchSet`, perform the following steps:
 
@@ -426,9 +592,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `ByteMatchSet`. You can't delete a `ByteMatchSet` if
-  it's still used in any `Rules` or if it still includes any `ByteMatchTuple`
-  objects (any filters).
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `ByteMatchSet`. You can't delete a
+  `ByteMatchSet` if it's still used in any `Rules` or if it still includes
+  any `ByteMatchTuple` objects (any filters).
 
   If you just want to remove a `ByteMatchSet` from a `Rule`, use
   `UpdateRule`.
@@ -450,8 +627,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `GeoMatchSet`. You can't delete a `GeoMatchSet` if
-  it's still used in any `Rules` or if it still includes any countries.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `GeoMatchSet`. You can't delete a
+  `GeoMatchSet` if it's still used in any `Rules` or if it still includes any
+  countries.
 
   If you just want to remove a `GeoMatchSet` from a `Rule`, use `UpdateRule`.
 
@@ -473,8 +662,19 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes an `IPSet`. You can't delete an `IPSet` if it's still
-  used in any `Rules` or if it still includes any IP addresses.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes an `IPSet`. You can't delete an `IPSet` if it's
+  still used in any `Rules` or if it still includes any IP addresses.
 
   If you just want to remove an `IPSet` from a `Rule`, use `UpdateRule`.
 
@@ -495,14 +695,37 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes the `LoggingConfiguration` from the specified web ACL.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes the `LoggingConfiguration` from the specified
+  web ACL.
   """
   def delete_logging_configuration(client, input, options \\ []) do
     request(client, "DeleteLoggingConfiguration", input, options)
   end
 
   @doc """
-  Permanently deletes an IAM policy from the specified RuleGroup.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes an IAM policy from the specified RuleGroup.
 
   The user making the request must be the owner of the RuleGroup.
   """
@@ -511,9 +734,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `RateBasedRule`. You can't delete a rule if it's
-  still used in any `WebACL` objects or if it still includes any predicates,
-  such as `ByteMatchSet` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `RateBasedRule`. You can't delete a rule if
+  it's still used in any `WebACL` objects or if it still includes any
+  predicates, such as `ByteMatchSet` objects.
 
   If you just want to remove a rule from a `WebACL`, use `UpdateWebACL`.
 
@@ -535,9 +769,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `RegexMatchSet`. You can't delete a `RegexMatchSet`
-  if it's still used in any `Rules` or if it still includes any
-  `RegexMatchTuples` objects (any filters).
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `RegexMatchSet`. You can't delete a
+  `RegexMatchSet` if it's still used in any `Rules` or if it still includes
+  any `RegexMatchTuples` objects (any filters).
 
   If you just want to remove a `RegexMatchSet` from a `Rule`, use
   `UpdateRule`.
@@ -559,7 +804,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `RegexPatternSet`. You can't delete a
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `RegexPatternSet`. You can't delete a
   `RegexPatternSet` if it's still used in any `RegexMatchSet` or if the
   `RegexPatternSet` is not empty.
   """
@@ -568,9 +824,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `Rule`. You can't delete a `Rule` if it's still used
-  in any `WebACL` objects or if it still includes any predicates, such as
-  `ByteMatchSet` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `Rule`. You can't delete a `Rule` if it's
+  still used in any `WebACL` objects or if it still includes any predicates,
+  such as `ByteMatchSet` objects.
 
   If you just want to remove a `Rule` from a `WebACL`, use `UpdateWebACL`.
 
@@ -591,8 +858,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `RuleGroup`. You can't delete a `RuleGroup` if it's
-  still used in any `WebACL` objects or if it still includes any rules.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `RuleGroup`. You can't delete a `RuleGroup`
+  if it's still used in any `WebACL` objects or if it still includes any
+  rules.
 
   If you just want to remove a `RuleGroup` from a `WebACL`, use
   `UpdateWebACL`.
@@ -615,7 +894,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `SizeConstraintSet`. You can't delete a
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `SizeConstraintSet`. You can't delete a
   `SizeConstraintSet` if it's still used in any `Rules` or if it still
   includes any `SizeConstraint` objects (any filters).
 
@@ -639,7 +929,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `SqlInjectionMatchSet`. You can't delete a
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `SqlInjectionMatchSet`. You can't delete a
   `SqlInjectionMatchSet` if it's still used in any `Rules` or if it still
   contains any `SqlInjectionMatchTuple` objects.
 
@@ -664,8 +965,19 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes a `WebACL`. You can't delete a `WebACL` if it still
-  contains any `Rules`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes a `WebACL`. You can't delete a `WebACL` if it
+  still contains any `Rules`.
 
   To delete a `WebACL`, perform the following steps:
 
@@ -684,9 +996,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Permanently deletes an `XssMatchSet`. You can't delete an `XssMatchSet` if
-  it's still used in any `Rules` or if it still contains any `XssMatchTuple`
-  objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Permanently deletes an `XssMatchSet`. You can't delete an
+  `XssMatchSet` if it's still used in any `Rules` or if it still contains any
+  `XssMatchTuple` objects.
 
   If you just want to remove an `XssMatchSet` from a `Rule`, use
   `UpdateRule`.
@@ -709,15 +1032,37 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Returns the `ByteMatchSet` specified by `ByteMatchSetId`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `ByteMatchSet` specified by `ByteMatchSetId`.
   """
   def get_byte_match_set(client, input, options \\ []) do
     request(client, "GetByteMatchSet", input, options)
   end
 
   @doc """
-  When you want to create, update, or delete AWS WAF objects, get a change
-  token and include the change token in the create, update, or delete
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> When you want to create, update, or delete AWS WAF objects, get a
+  change token and include the change token in the create, update, or delete
   request. Change tokens ensure that your application doesn't submit
   conflicting requests to AWS WAF.
 
@@ -737,7 +1082,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Returns the status of a `ChangeToken` that you got by calling
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the status of a `ChangeToken` that you got by calling
   `GetChangeToken`. `ChangeTokenStatus` is one of the following values:
 
   <ul> <li> `PROVISIONED`: You requested the change token by calling
@@ -756,43 +1112,109 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Returns the `GeoMatchSet` that is specified by `GeoMatchSetId`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `GeoMatchSet` that is specified by `GeoMatchSetId`.
   """
   def get_geo_match_set(client, input, options \\ []) do
     request(client, "GetGeoMatchSet", input, options)
   end
 
   @doc """
-  Returns the `IPSet` that is specified by `IPSetId`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `IPSet` that is specified by `IPSetId`.
   """
   def get_i_p_set(client, input, options \\ []) do
     request(client, "GetIPSet", input, options)
   end
 
   @doc """
-  Returns the `LoggingConfiguration` for the specified web ACL.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `LoggingConfiguration` for the specified web ACL.
   """
   def get_logging_configuration(client, input, options \\ []) do
     request(client, "GetLoggingConfiguration", input, options)
   end
 
   @doc """
-  Returns the IAM policy attached to the RuleGroup.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the IAM policy attached to the RuleGroup.
   """
   def get_permission_policy(client, input, options \\ []) do
     request(client, "GetPermissionPolicy", input, options)
   end
 
   @doc """
-  Returns the `RateBasedRule` that is specified by the `RuleId` that you
-  included in the `GetRateBasedRule` request.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `RateBasedRule` that is specified by the `RuleId` that
+  you included in the `GetRateBasedRule` request.
   """
   def get_rate_based_rule(client, input, options \\ []) do
     request(client, "GetRateBasedRule", input, options)
   end
 
   @doc """
-  Returns an array of IP addresses currently being blocked by the
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of IP addresses currently being blocked by the
   `RateBasedRule` that is specified by the `RuleId`. The maximum number of
   managed keys that will be blocked is 10,000. If more than 10,000 addresses
   exceed the rate limit, the 10,000 addresses with the highest rates will be
@@ -803,30 +1225,74 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Returns the `RegexMatchSet` specified by `RegexMatchSetId`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `RegexMatchSet` specified by `RegexMatchSetId`.
   """
   def get_regex_match_set(client, input, options \\ []) do
     request(client, "GetRegexMatchSet", input, options)
   end
 
   @doc """
-  Returns the `RegexPatternSet` specified by `RegexPatternSetId`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `RegexPatternSet` specified by `RegexPatternSetId`.
   """
   def get_regex_pattern_set(client, input, options \\ []) do
     request(client, "GetRegexPatternSet", input, options)
   end
 
   @doc """
-  Returns the `Rule` that is specified by the `RuleId` that you included in
-  the `GetRule` request.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `Rule` that is specified by the `RuleId` that you
+  included in the `GetRule` request.
   """
   def get_rule(client, input, options \\ []) do
     request(client, "GetRule", input, options)
   end
 
   @doc """
-  Returns the `RuleGroup` that is specified by the `RuleGroupId` that you
-  included in the `GetRuleGroup` request.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `RuleGroup` that is specified by the `RuleGroupId` that
+  you included in the `GetRuleGroup` request.
 
   To view the rules in a rule group, use `ListActivatedRulesInRuleGroup`.
   """
@@ -835,7 +1301,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Gets detailed information about a specified number of requests--a
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Gets detailed information about a specified number of requests--a
   sample--that AWS WAF randomly selects from among the first 5,000 requests
   that your AWS resource received during a time range that you choose. You
   can specify a sample size of up to 500 requests, and you can specify any
@@ -853,14 +1330,36 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Returns the `SizeConstraintSet` specified by `SizeConstraintSetId`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `SizeConstraintSet` specified by `SizeConstraintSetId`.
   """
   def get_size_constraint_set(client, input, options \\ []) do
     request(client, "GetSizeConstraintSet", input, options)
   end
 
   @doc """
-  Returns the `SqlInjectionMatchSet` that is specified by
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `SqlInjectionMatchSet` that is specified by
   `SqlInjectionMatchSetId`.
   """
   def get_sql_injection_match_set(client, input, options \\ []) do
@@ -868,133 +1367,351 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Returns the `WebACL` that is specified by `WebACLId`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `WebACL` that is specified by `WebACLId`.
   """
   def get_web_a_c_l(client, input, options \\ []) do
     request(client, "GetWebACL", input, options)
   end
 
   @doc """
-  Returns the `XssMatchSet` that is specified by `XssMatchSetId`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns the `XssMatchSet` that is specified by `XssMatchSetId`.
   """
   def get_xss_match_set(client, input, options \\ []) do
     request(client, "GetXssMatchSet", input, options)
   end
 
   @doc """
-  Returns an array of `ActivatedRule` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `ActivatedRule` objects.
   """
   def list_activated_rules_in_rule_group(client, input, options \\ []) do
     request(client, "ListActivatedRulesInRuleGroup", input, options)
   end
 
   @doc """
-  Returns an array of `ByteMatchSetSummary` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `ByteMatchSetSummary` objects.
   """
   def list_byte_match_sets(client, input, options \\ []) do
     request(client, "ListByteMatchSets", input, options)
   end
 
   @doc """
-  Returns an array of `GeoMatchSetSummary` objects in the response.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `GeoMatchSetSummary` objects in the response.
   """
   def list_geo_match_sets(client, input, options \\ []) do
     request(client, "ListGeoMatchSets", input, options)
   end
 
   @doc """
-  Returns an array of `IPSetSummary` objects in the response.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `IPSetSummary` objects in the response.
   """
   def list_i_p_sets(client, input, options \\ []) do
     request(client, "ListIPSets", input, options)
   end
 
   @doc """
-  Returns an array of `LoggingConfiguration` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `LoggingConfiguration` objects.
   """
   def list_logging_configurations(client, input, options \\ []) do
     request(client, "ListLoggingConfigurations", input, options)
   end
 
   @doc """
-  Returns an array of `RuleSummary` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `RuleSummary` objects.
   """
   def list_rate_based_rules(client, input, options \\ []) do
     request(client, "ListRateBasedRules", input, options)
   end
 
   @doc """
-  Returns an array of `RegexMatchSetSummary` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `RegexMatchSetSummary` objects.
   """
   def list_regex_match_sets(client, input, options \\ []) do
     request(client, "ListRegexMatchSets", input, options)
   end
 
   @doc """
-  Returns an array of `RegexPatternSetSummary` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `RegexPatternSetSummary` objects.
   """
   def list_regex_pattern_sets(client, input, options \\ []) do
     request(client, "ListRegexPatternSets", input, options)
   end
 
   @doc """
-  Returns an array of `RuleGroup` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `RuleGroup` objects.
   """
   def list_rule_groups(client, input, options \\ []) do
     request(client, "ListRuleGroups", input, options)
   end
 
   @doc """
-  Returns an array of `RuleSummary` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `RuleSummary` objects.
   """
   def list_rules(client, input, options \\ []) do
     request(client, "ListRules", input, options)
   end
 
   @doc """
-  Returns an array of `SizeConstraintSetSummary` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `SizeConstraintSetSummary` objects.
   """
   def list_size_constraint_sets(client, input, options \\ []) do
     request(client, "ListSizeConstraintSets", input, options)
   end
 
   @doc """
-  Returns an array of `SqlInjectionMatchSet` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `SqlInjectionMatchSet` objects.
   """
   def list_sql_injection_match_sets(client, input, options \\ []) do
     request(client, "ListSqlInjectionMatchSets", input, options)
   end
 
   @doc """
-  Returns an array of `RuleGroup` objects that you are subscribed to.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `RuleGroup` objects that you are subscribed to.
   """
   def list_subscribed_rule_groups(client, input, options \\ []) do
     request(client, "ListSubscribedRuleGroups", input, options)
   end
 
   @doc """
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
 
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Retrieves the tags associated with the specified AWS resource. Tags
+  are key:value pairs that you can use to categorize and manage your
+  resources, for purposes like billing. For example, you might set the tag
+  key to "customer" and the value to the customer name or ID. You can specify
+  one or more tags to add to each AWS resource, up to 50 tags for a resource.
+
+  Tagging is only available through the API, SDKs, and CLI. You can't manage
+  or view tags through the AWS WAF Classic console. You can tag the AWS
+  resources that you manage through AWS WAF Classic: web ACLs, rule groups,
+  and rules.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Returns an array of `WebACLSummary` objects in the response.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `WebACLSummary` objects in the response.
   """
   def list_web_a_c_ls(client, input, options \\ []) do
     request(client, "ListWebACLs", input, options)
   end
 
   @doc """
-  Returns an array of `XssMatchSet` objects.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Returns an array of `XssMatchSet` objects.
   """
   def list_xss_match_sets(client, input, options \\ []) do
     request(client, "ListXssMatchSets", input, options)
   end
 
   @doc """
-  Associates a `LoggingConfiguration` with a specified web ACL.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Associates a `LoggingConfiguration` with a specified web ACL.
 
   You can access information about all traffic that AWS WAF inspects using
   the following steps:
@@ -1023,8 +1740,19 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Attaches a IAM policy to the specified resource. The only supported use for
-  this action is to share a RuleGroup across accounts.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Attaches an IAM policy to the specified resource. The only
+  supported use for this action is to share a RuleGroup across accounts.
 
   The `PutPermissionPolicy` is subject to the following restrictions:
 
@@ -1061,22 +1789,65 @@ defmodule AWS.WAF do
   end
 
   @doc """
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
 
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Associates tags with the specified AWS resource. Tags are key:value
+  pairs that you can use to categorize and manage your resources, for
+  purposes like billing. For example, you might set the tag key to "customer"
+  and the value to the customer name or ID. You can specify one or more tags
+  to add to each AWS resource, up to 50 tags for a resource.
+
+  Tagging is only available through the API, SDKs, and CLI. You can't manage
+  or view tags through the AWS WAF Classic console. You can use this action
+  to tag the AWS resources that you manage through AWS WAF Classic: web ACLs,
+  rule groups, and rules.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
   end
 
   @doc """
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
 
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> <p/>
   """
   def untag_resource(client, input, options \\ []) do
     request(client, "UntagResource", input, options)
   end
 
   @doc """
-  Inserts or deletes `ByteMatchTuple` objects (filters) in a `ByteMatchSet`.
-  For each `ByteMatchTuple` object, you specify the following values:
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `ByteMatchTuple` objects (filters) in a
+  `ByteMatchSet`. For each `ByteMatchTuple` object, you specify the following
+  values:
 
   <ul> <li> Whether to insert or delete the object from the array. If you
   want to change a `ByteMatchSetUpdate` object, you delete the existing
@@ -1121,8 +1892,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `GeoMatchConstraint` objects in an `GeoMatchSet`. For
-  each `GeoMatchConstraint` object, you specify the following values:
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `GeoMatchConstraint` objects in an
+  `GeoMatchSet`. For each `GeoMatchConstraint` object, you specify the
+  following values:
 
   <ul> <li> Whether to insert or delete the object from the array. If you
   want to change an `GeoMatchConstraint` object, you delete the existing
@@ -1158,8 +1941,19 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `IPSetDescriptor` objects in an `IPSet`. For each
-  `IPSetDescriptor` object, you specify the following values:
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `IPSetDescriptor` objects in an `IPSet`. For
+  each `IPSetDescriptor` object, you specify the following values:
 
   <ul> <li> Whether to insert or delete the object from the array. If you
   want to change an `IPSetDescriptor` object, you delete the existing object
@@ -1220,7 +2014,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `Predicate` objects in a rule and updates the
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `Predicate` objects in a rule and updates the
   `RateLimit` in the rule.
 
   Each `Predicate` object identifies a predicate, such as a `ByteMatchSet` or
@@ -1237,13 +2042,13 @@ defmodule AWS.WAF do
   </li> <li> A `ByteMatchSet` that matches `BadBot` in the `User-Agent`
   header
 
-  </li> </ul> Further, you specify a `RateLimit` of 15,000.
+  </li> </ul> Further, you specify a `RateLimit` of 1,000.
 
   You then add the `RateBasedRule` to a `WebACL` and specify that you want to
   block requests that satisfy the rule. For a request to be blocked, it must
   come from the IP address 192.0.2.44 *and* the `User-Agent` header in the
   request must contain the value `BadBot`. Further, requests that match these
-  two conditions much be received at a rate of more than 15,000 every five
+  two conditions much be received at a rate of more than 1,000 every five
   minutes. If the rate drops below this limit, AWS WAF no longer blocks the
   requests.
 
@@ -1257,7 +2062,7 @@ defmodule AWS.WAF do
 
   </li> <li> A `TargetString` of `login`
 
-  </li> </ul> Further, you specify a `RateLimit` of 15,000.
+  </li> </ul> Further, you specify a `RateLimit` of 1,000.
 
   By adding this `RateBasedRule` to a `WebACL`, you could limit requests to
   your login page without affecting the rest of your site.
@@ -1267,7 +2072,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `RegexMatchTuple` objects (filters) in a
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `RegexMatchTuple` objects (filters) in a
   `RegexMatchSet`. For each `RegexMatchSetUpdate` object, you specify the
   following values:
 
@@ -1311,8 +2127,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `RegexPatternString` objects in a `RegexPatternSet`. For
-  each `RegexPatternString` object, you specify the following values:
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `RegexPatternString` objects in a
+  `RegexPatternSet`. For each `RegexPatternString` object, you specify the
+  following values:
 
   <ul> <li> Whether to insert or delete the `RegexPatternString`.
 
@@ -1351,12 +2179,23 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `Predicate` objects in a `Rule`. Each `Predicate` object
-  identifies a predicate, such as a `ByteMatchSet` or an `IPSet`, that
-  specifies the web requests that you want to allow, block, or count. If you
-  add more than one predicate to a `Rule`, a request must match all of the
-  specifications to be allowed, blocked, or counted. For example, suppose
-  that you add the following to a `Rule`:
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `Predicate` objects in a `Rule`. Each
+  `Predicate` object identifies a predicate, such as a `ByteMatchSet` or an
+  `IPSet`, that specifies the web requests that you want to allow, block, or
+  count. If you add more than one predicate to a `Rule`, a request must match
+  all of the specifications to be allowed, blocked, or counted. For example,
+  suppose that you add the following to a `Rule`:
 
   <ul> <li> A `ByteMatchSet` that matches the value `BadBot` in the
   `User-Agent` header
@@ -1395,7 +2234,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `ActivatedRule` objects in a `RuleGroup`.
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `ActivatedRule` objects in a `RuleGroup`.
 
   You can only insert `REGULAR` rules into a rule group.
 
@@ -1427,7 +2277,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `SizeConstraint` objects (filters) in a
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `SizeConstraint` objects (filters) in a
   `SizeConstraintSet`. For each `SizeConstraint` object, you specify the
   following values:
 
@@ -1480,7 +2341,18 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `SqlInjectionMatchTuple` objects (filters) in a
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `SqlInjectionMatchTuple` objects (filters) in a
   `SqlInjectionMatchSet`. For each `SqlInjectionMatchTuple` object, you
   specify the following values:
 
@@ -1526,9 +2398,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `ActivatedRule` objects in a `WebACL`. Each `Rule`
-  identifies web requests that you want to allow, block, or count. When you
-  update a `WebACL`, you specify the following values:
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `ActivatedRule` objects in a `WebACL`. Each
+  `Rule` identifies web requests that you want to allow, block, or count.
+  When you update a `WebACL`, you specify the following values:
 
   <ul> <li> A default action for the `WebACL`, either `ALLOW` or `BLOCK`. AWS
   WAF performs the default action if a request doesn't match the criteria in
@@ -1571,13 +2454,13 @@ defmodule AWS.WAF do
   associate the `WebACL` with a CloudFront distribution.
 
   The `ActivatedRule` can be a rule group. If you specify a rule group as
-  your `ActivatedRule`, you can exclude specific rules from that rule group.
+  your `ActivatedRule` , you can exclude specific rules from that rule group.
 
   If you already have a rule group associated with a web ACL and want to
   submit an `UpdateWebACL` request to exclude certain rules from that rule
   group, you must first remove the rule group from the web ACL, the re-insert
   it again, specifying the excluded rules. For details, see
-  `ActivatedRule$ExcludedRules`.
+  `ActivatedRule$ExcludedRules` .
 
   </li> </ol> Be aware that if you try to add a RATE_BASED rule to a web ACL
   without setting the rule type when first creating the rule, the
@@ -1593,8 +2476,20 @@ defmodule AWS.WAF do
   end
 
   @doc """
-  Inserts or deletes `XssMatchTuple` objects (filters) in an `XssMatchSet`.
-  For each `XssMatchTuple` object, you specify the following values:
+  <note> This is **AWS WAF Classic** documentation. For more information, see
+  [AWS WAF
+  Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
+  in the developer guide.
+
+  **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the
+  [AWS WAF Developer
+  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
+  With the latest version, AWS WAF has a single set of endpoints for regional
+  and global use.
+
+  </note> Inserts or deletes `XssMatchTuple` objects (filters) in an
+  `XssMatchSet`. For each `XssMatchTuple` object, you specify the following
+  values:
 
   <ul> <li> `Action`: Whether to insert the object into or delete the object
   from the array. To change an `XssMatchTuple`, you delete the existing

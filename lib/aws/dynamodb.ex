@@ -216,8 +216,12 @@ defmodule AWS.DynamoDB do
   replication relationship between two or more DynamoDB tables with the same
   table name in the provided Regions.
 
-  If you want to add a new replica table to a global table, each of the
-  following conditions must be true:
+  <note> This operation only applies to [Version
+  2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables.
+
+  </note> If you want to add a new replica table to a global table, each of
+  the following conditions must be true:
 
   <ul> <li> The table must have the same primary key as all of the other
   replicas.
@@ -237,6 +241,14 @@ defmodule AWS.DynamoDB do
 
   </li> <li> The global secondary indexes must have the same hash key and
   sort key (if present).
+
+  </li> </ul> If local secondary indexes are specified, then the following
+  conditions must also be met:
+
+  <ul> <li> The local secondary indexes must have the same name.
+
+  </li> <li> The local secondary indexes must have the same hash key and sort
+  key (if present).
 
   </li> </ul> <important> Write capacity settings should be set consistently
   across your replica tables and secondary indexes. DynamoDB strongly
@@ -363,6 +375,14 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Returns information about contributor insights, for a given table or global
+  secondary index.
+  """
+  def describe_contributor_insights(client, input, options \\ []) do
+    request(client, "DescribeContributorInsights", input, options)
+  end
+
+  @doc """
   Returns the regional endpoint information.
   """
   def describe_endpoints(client, input, options \\ []) do
@@ -371,6 +391,16 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Returns information about the specified global table.
+
+  <note> This operation only applies to [Version
+  2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables. If you are using global tables [Version
+  2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  you can use
+  [DescribeTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html)
+  instead.
+
+  </note>
   """
   def describe_global_table(client, input, options \\ []) do
     request(client, "DescribeGlobalTable", input, options)
@@ -378,6 +408,12 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Describes Region-specific settings for a global table.
+
+  <note> This operation only applies to [Version
+  2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables.
+
+  </note>
   """
   def describe_global_table_settings(client, input, options \\ []) do
     request(client, "DescribeGlobalTableSettings", input, options)
@@ -469,6 +505,20 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Describes auto scaling settings across replicas of the global table at
+  once.
+
+  <note> This operation only applies to [Version
+  2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  of global tables.
+
+  </note>
+  """
+  def describe_table_replica_auto_scaling(client, input, options \\ []) do
+    request(client, "DescribeTableReplicaAutoScaling", input, options)
+  end
+
+  @doc """
   Gives a description of the Time to Live (TTL) status on the specified
   table.
   """
@@ -507,7 +557,21 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Returns a list of ContributorInsightsSummary for a table and all its global
+  secondary indexes.
+  """
+  def list_contributor_insights(client, input, options \\ []) do
+    request(client, "ListContributorInsights", input, options)
+  end
+
+  @doc """
   Lists all global tables that have a replica in the specified Region.
+
+  <note> This operation only applies to [Version
+  2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
+  of global tables.
+
+  </note>
   """
   def list_global_tables(client, input, options \\ []) do
     request(client, "ListGlobalTables", input, options)
@@ -577,10 +641,15 @@ defmodule AWS.DynamoDB do
   V2](http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem)
 
   </li> </ul> </important> When you add an item, the primary key attributes
-  are the only required attributes. Attribute values cannot be null. String
-  and Binary type attributes must have lengths greater than zero. Set type
-  attributes cannot be empty. Requests with empty values will be rejected
-  with a `ValidationException` exception.
+  are the only required attributes. Attribute values cannot be null.
+
+  Empty String and Binary attribute values are allowed. Attribute values of
+  type String and Binary must have a length greater than zero if the
+  attribute is used as a key attribute for a table or index. Set type
+  attributes cannot be empty.
+
+  Invalid Requests with empty values will be rejected with a
+  `ValidationException` exception.
 
   <note> To prevent a new item from replacing an existing item, use a
   conditional expression that contains the `attribute_not_exists` function
@@ -793,18 +862,8 @@ defmodule AWS.DynamoDB do
   one AWS account or Region. The aggregate size of the items in the
   transaction cannot exceed 4 MB.
 
-  <note> All AWS Regions and AWS GovCloud (US) support up to 25 items per
-  transaction with up to 4 MB of data, except the following AWS Regions:
-
-  <ul> <li> China (Beijing)
-
-  </li> <li> China (Ningxia)
-
-  </li> </ul> The China (Beijing) and China (Ningxia) Regions support up to
-  10 items per transaction with up to 4 MB of data.
-
-  </note> DynamoDB rejects the entire `TransactGetItems` request if any of
-  the following is true:
+  DynamoDB rejects the entire `TransactGetItems` request if any of the
+  following is true:
 
   <ul> <li> A conflicting operation is in the process of updating an item to
   be read.
@@ -831,18 +890,8 @@ defmodule AWS.DynamoDB do
   same item. The aggregate size of the items in the transaction cannot exceed
   4 MB.
 
-  <note> All AWS Regions and AWS GovCloud (US) support up to 25 items per
-  transaction with up to 4 MB of data, except the following AWS Regions:
-
-  <ul> <li> China (Beijing)
-
-  </li> <li> China (Ningxia)
-
-  </li> </ul> The China (Beijing) and China (Ningxia) Regions support up to
-  10 items per transaction with up to 4 MB of data.
-
-  </note> The actions are completed atomically so that either all of them
-  succeed, or all of them fail. They are defined by the following objects:
+  The actions are completed atomically so that either all of them succeed, or
+  all of them fail. They are defined by the following objects:
 
   <ul> <li> `Put`  &#x97;   Initiates a `PutItem` operation to write a new
   item. This structure specifies the primary key of the item to be written,
@@ -928,6 +977,13 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Updates the status for contributor insights for a specific table or index.
+  """
+  def update_contributor_insights(client, input, options \\ []) do
+    request(client, "UpdateContributorInsights", input, options)
+  end
+
+  @doc """
   Adds or removes replicas in the specified global table. The global table
   must already exist to be able to use this operation. Any replica to be
   added must be empty, have the same name as the global table, have the same
@@ -1000,6 +1056,19 @@ defmodule AWS.DynamoDB do
   """
   def update_table(client, input, options \\ []) do
     request(client, "UpdateTable", input, options)
+  end
+
+  @doc """
+  Updates auto scaling settings on your global tables at once.
+
+  <note> This operation only applies to [Version
+  2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
+  of global tables.
+
+  </note>
+  """
+  def update_table_replica_auto_scaling(client, input, options \\ []) do
+    request(client, "UpdateTableReplicaAutoScaling", input, options)
   end
 
   @doc """

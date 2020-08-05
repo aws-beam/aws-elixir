@@ -24,18 +24,19 @@ defmodule AWS.CloudTrail do
   Services page](http://aws.amazon.com/tools/).
 
   </note> See the [AWS CloudTrail User
-  Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
+  Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
   for information about the data that is included with each AWS API call
   listed in the log files.
   """
 
   @doc """
-  Adds one or more tags to a trail, up to a limit of 50. Tags must be unique
-  per trail. Overwrites an existing tag's value when a new value is specified
-  for an existing tag key. If you specify a key without a value, the tag will
-  be created with the specified key and a value of null. You can tag a trail
-  that applies to all regions only from the region in which the trail was
-  created (that is, from its home region).
+  Adds one or more tags to a trail, up to a limit of 50. Overwrites an
+  existing tag's value when a new value is specified for an existing tag key.
+  Tag key names must be unique for a trail; you cannot have two keys with the
+  same name but different values. If you specify a key without a value, the
+  tag will be created with the specified key and a value of null. You can tag
+  a trail that applies to all AWS Regions only from the Region in which the
+  trail was created (also known as its home region).
   """
   def add_tags(client, input, options \\ []) do
     request(client, "AddTags", input, options)
@@ -43,8 +44,7 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Creates a trail that specifies the settings for delivery of log data to an
-  Amazon S3 bucket. A maximum of five trails can exist in a region,
-  irrespective of the region in which they were created.
+  Amazon S3 bucket.
   """
   def create_trail(client, input, options \\ []) do
     request(client, "CreateTrail", input, options)
@@ -61,8 +61,8 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Retrieves settings for the trail associated with the current region for
-  your account.
+  Retrieves settings for one or more trails associated with the current
+  region for your account.
   """
   def describe_trails(client, input, options \\ []) do
     request(client, "DescribeTrails", input, options)
@@ -84,11 +84,34 @@ defmodule AWS.CloudTrail do
 
   </li> </ul> For more information, see [Logging Data and Management Events
   for Trails
-  ](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
+  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
   in the *AWS CloudTrail User Guide*.
   """
   def get_event_selectors(client, input, options \\ []) do
     request(client, "GetEventSelectors", input, options)
+  end
+
+  @doc """
+  Describes the settings for the Insights event selectors that you configured
+  for your trail. `GetInsightSelectors` shows if CloudTrail Insights event
+  logging is enabled on the trail, and if it is, which insight types are
+  enabled. If you run `GetInsightSelectors` on a trail that does not have
+  Insights events enabled, the operation throws the exception
+  `InsightNotEnabledException`
+
+  For more information, see [Logging CloudTrail Insights Events for Trails
+  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
+  in the *AWS CloudTrail User Guide*.
+  """
+  def get_insight_selectors(client, input, options \\ []) do
+    request(client, "GetInsightSelectors", input, options)
+  end
+
+  @doc """
+  Returns settings information for a specified trail.
+  """
+  def get_trail(client, input, options \\ []) do
+    request(client, "GetTrail", input, options)
   end
 
   @doc """
@@ -126,10 +149,20 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Lists trails that are in the current account.
+  """
+  def list_trails(client, input, options \\ []) do
+    request(client, "ListTrails", input, options)
+  end
+
+  @doc """
   Looks up [management
   events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events)
-  captured by CloudTrail. Events for a region can be looked up in that region
-  during the last 90 days. Lookup supports the following attributes:
+  or [CloudTrail Insights
+  events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events)
+  that are captured by CloudTrail. You can look up events that occurred in a
+  region within the last 90 days. Lookup supports the following attributes
+  for management events:
 
   <ul> <li> AWS access key
 
@@ -147,16 +180,20 @@ defmodule AWS.CloudTrail do
 
   </li> <li> User name
 
+  </li> </ul> Lookup supports the following attributes for Insights events:
+
+  <ul> <li> Event ID
+
+  </li> <li> Event name
+
+  </li> <li> Event source
+
   </li> </ul> All attributes are optional. The default number of results
   returned is 50, with a maximum of 50 possible. The response includes a
   token that you can use to get the next page of results.
 
-  <important> The rate of lookup requests is limited to one per second per
+  <important> The rate of lookup requests is limited to two per second per
   account. If this limit is exceeded, a throttling error occurs.
-
-  </important> <important> Events that occurred during the selected time
-  range will not be available for lookup if CloudTrail logging was not
-  enabled when the events occurred.
 
   </important>
   """
@@ -198,13 +235,24 @@ defmodule AWS.CloudTrail do
 
   You can configure up to five event selectors for each trail. For more
   information, see [Logging Data and Management Events for Trails
-  ](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
+  ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
   and [Limits in AWS
   CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html)
   in the *AWS CloudTrail User Guide*.
   """
   def put_event_selectors(client, input, options \\ []) do
     request(client, "PutEventSelectors", input, options)
+  end
+
+  @doc """
+  Lets you enable Insights event logging by specifying the Insights selectors
+  that you want to enable on an existing trail. You also use
+  `PutInsightSelectors` to turn off Insights event logging, by passing an
+  empty list of insight types. In this release, only `ApiCallRateInsight` is
+  supported as an Insights selector.
+  """
+  def put_insight_selectors(client, input, options \\ []) do
+    request(client, "PutInsightSelectors", input, options)
   end
 
   @doc """

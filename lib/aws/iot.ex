@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.IoT do
   @moduledoc """
@@ -12,6 +12,16 @@ defmodule AWS.IoT do
   and integration with other services, organize resources associated with
   each device (Registry), configure logging, and create and manage policies
   and credentials to authenticate devices.
+
+  The service endpoints that expose this API are listed in [AWS IoT Core
+  Endpoints and
+  Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html). You
+  must use the endpoint for the region that has the resources you want to
+  access.
+
+  The service name used by [AWS Signature Version
+  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
+  to sign the request is: *execute-api*.
 
   For more information about how AWS IoT works, see the [Developer
   Guide](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html).
@@ -194,6 +204,19 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Confirms a topic rule destination. When you create a rule requiring a
+  destination, AWS IoT sends a confirmation message to the endpoint or base
+  address you specify. The message includes a token which you pass back when
+  calling `ConfirmTopicRuleDestination` to confirm that you own or have
+  access to the endpoint.
+  """
+  def confirm_topic_rule_destination(client, confirmation_token, options \\ []) do
+    path = "/confirmdestination/#{URI.encode(confirmation_token)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
   Creates an authorizer.
   """
   def create_authorizer(client, authorizer_name, input, options \\ []) do
@@ -265,6 +288,32 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Create a dimension that you can use to limit the scope of a metric used in
+  a security profile for AWS IoT Device Defender. For example, using a
+  `TOPIC_FILTER` dimension, you can narrow down the scope of the metric only
+  to MQTT topics whose name match the pattern specified in the dimension.
+  """
+  def create_dimension(client, name, input, options \\ []) do
+    path = "/dimensions/#{URI.encode(name)}"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a domain configuration.
+
+  <note> The domain configuration feature is in public preview and is subject
+  to change.
+
+  </note>
+  """
+  def create_domain_configuration(client, domain_configuration_name, input, options \\ []) do
+    path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
   Creates a dynamic thing group.
   """
   def create_dynamic_thing_group(client, thing_group_name, input, options \\ []) do
@@ -284,7 +333,9 @@ defmodule AWS.IoT do
 
   @doc """
   Creates a 2048-bit RSA key pair and issues an X.509 certificate using the
-  issued public key.
+  issued public key. You can also call `CreateKeysAndCertificate` over MQTT
+  from a device, for more information, see [Provisioning MQTT
+  API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
 
   **Note** This is the only time AWS IoT issues the private key for this
   certificate, so it is important to keep it in a secure location.
@@ -345,6 +396,33 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Creates a provisioning claim.
+  """
+  def create_provisioning_claim(client, template_name, input, options \\ []) do
+    path = "/provisioning-templates/#{URI.encode(template_name)}/provisioning-claim"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a fleet provisioning template.
+  """
+  def create_provisioning_template(client, input, options \\ []) do
+    path = "/provisioning-templates"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a new version of a fleet provisioning template.
+  """
+  def create_provisioning_template_version(client, template_name, input, options \\ []) do
+    path = "/provisioning-templates/#{URI.encode(template_name)}/versions"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
   Creates a role alias.
   """
   def create_role_alias(client, role_alias, input, options \\ []) do
@@ -375,11 +453,7 @@ defmodule AWS.IoT do
   Creates a stream for delivering one or more large files in chunks over
   MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT
   messages from a source like S3. You can have one or more files associated
-  with a stream. The total size of a file associated with the stream cannot
-  exceed more than 2 MB. The stream will be created with version 0. If a
-  stream is created with the same streamID as a stream that existed and was
-  deleted within last 90 days, we will resurrect that old stream by
-  incrementing the version by 1.
+  with a stream.
   """
   def create_stream(client, stream_id, input, options \\ []) do
     path = "/streams/#{URI.encode(stream_id)}"
@@ -394,7 +468,7 @@ defmodule AWS.IoT do
   `ResourceAlreadyExistsException` is thrown.
 
   <note> This is a control plane operation. See
-  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html)
+  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html)
   for information about authorizing control plane actions.
 
   </note>
@@ -409,7 +483,7 @@ defmodule AWS.IoT do
   Create a thing group.
 
   <note> This is a control plane operation. See
-  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html)
+  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html)
   for information about authorizing control plane actions.
 
   </note>
@@ -443,6 +517,16 @@ defmodule AWS.IoT do
       ]
       |> AWS.Request.build_headers(input)
     
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a topic rule destination. The destination must be confirmed prior
+  to use.
+  """
+  def create_topic_rule_destination(client, input, options \\ []) do
+    path = "/destinations"
+    headers = []
     request(client, :post, path, headers, input, options, nil)
   end
 
@@ -494,6 +578,29 @@ defmodule AWS.IoT do
   """
   def delete_certificate(client, certificate_id, input, options \\ []) do
     path = "/certificates/#{URI.encode(certificate_id)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Removes the specified dimension from your AWS account.
+  """
+  def delete_dimension(client, name, input, options \\ []) do
+    path = "/dimensions/#{URI.encode(name)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes the specified domain configuration.
+
+  <note> The domain configuration feature is in public preview and is subject
+  to change.
+
+  </note>
+  """
+  def delete_domain_configuration(client, domain_configuration_name, input, options \\ []) do
+    path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
     headers = []
     request(client, :delete, path, headers, input, options, nil)
   end
@@ -585,6 +692,24 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Deletes a fleet provisioning template.
+  """
+  def delete_provisioning_template(client, template_name, input, options \\ []) do
+    path = "/provisioning-templates/#{URI.encode(template_name)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes a fleet provisioning template version.
+  """
+  def delete_provisioning_template_version(client, template_name, version_id, input, options \\ []) do
+    path = "/provisioning-templates/#{URI.encode(template_name)}/versions/#{URI.encode(version_id)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, nil)
+  end
+
+  @doc """
   Deletes a CA certificate registration code.
   """
   def delete_registration_code(client, input, options \\ []) do
@@ -666,6 +791,15 @@ defmodule AWS.IoT do
   """
   def delete_topic_rule(client, rule_name, input, options \\ []) do
     path = "/rules/#{URI.encode(rule_name)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes a topic rule destination.
+  """
+  def delete_topic_rule_destination(client, arn, input, options \\ []) do
+    path = "/destinations/#{URI.encode(arn)}"
     headers = []
     request(client, :delete, path, headers, input, options, nil)
   end
@@ -778,6 +912,29 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Provides details about a dimension that is defined in your AWS account.
+  """
+  def describe_dimension(client, name, options \\ []) do
+    path = "/dimensions/#{URI.encode(name)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets summary information about a domain configuration.
+
+  <note> The domain configuration feature is in public preview and is subject
+  to change.
+
+  </note>
+  """
+  def describe_domain_configuration(client, domain_configuration_name, options \\ []) do
+    path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
   Returns a unique endpoint specific to the AWS account making the call.
   """
   def describe_endpoint(client, options \\ []) do
@@ -827,6 +984,24 @@ defmodule AWS.IoT do
   """
   def describe_mitigation_action(client, action_name, options \\ []) do
     path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns information about a fleet provisioning template.
+  """
+  def describe_provisioning_template(client, template_name, options \\ []) do
+    path = "/provisioning-templates/#{URI.encode(template_name)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Returns information about a fleet provisioning template version.
+  """
+  def describe_provisioning_template_version(client, template_name, version_id, options \\ []) do
+    path = "/provisioning-templates/#{URI.encode(template_name)}/versions/#{URI.encode(version_id)}"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -980,6 +1155,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Returns the approximate count of unique values that match the query.
+  """
+  def get_cardinality(client, input, options \\ []) do
+    path = "/indices/cardinality"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
   Gets a list of the policies that have an effect on the authorization
   behavior of the specified device when it connects to the AWS IoT device
   gateway.
@@ -991,7 +1175,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets the search configuration.
+  Gets the indexing configuration.
   """
   def get_indexing_configuration(client, options \\ []) do
     path = "/indexing/config"
@@ -1030,6 +1214,24 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Groups the aggregated values that match the query into percentile
+  groupings. The default percentile groupings are: 1,5,25,50,75,95,99,
+  although you can specify your own when you call `GetPercentiles`. This
+  function returns a value for each percentile group specified (or the
+  default percentile groupings). The percentile group "1" contains the
+  aggregated field value that occurs in approximately one percent of the
+  values that match the query. The percentile group "5" contains the
+  aggregated field value that occurs in approximately five percent of the
+  values that match the query, and so on. The result is an approximation, the
+  more values that match the query, the more accurate the percentile values.
+  """
+  def get_percentiles(client, input, options \\ []) do
+    path = "/indices/percentiles"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
   Gets information about the specified policy with the policy document of the
   default version.
   """
@@ -1058,7 +1260,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets statistics about things that match the specified query.
+  Returns the count, average, sum, minimum, maximum, sum of squares,
+  variance, and standard deviation for the specified aggregated field. If the
+  aggregation field is of type `String`, only the count statistic is
+  returned.
   """
   def get_statistics(client, input, options \\ []) do
     path = "/indices/statistics"
@@ -1071,6 +1276,15 @@ defmodule AWS.IoT do
   """
   def get_topic_rule(client, rule_name, options \\ []) do
     path = "/rules/#{URI.encode(rule_name)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about a topic rule destination.
+  """
+  def get_topic_rule_destination(client, arn, options \\ []) do
+    path = "/destinations/#{URI.encode(arn)}"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -1194,6 +1408,30 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  List the set of dimensions that are defined for your AWS account.
+  """
+  def list_dimensions(client, options \\ []) do
+    path = "/dimensions"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a list of domain configurations for the user. This list is sorted
+  alphabetically by domain configuration name.
+
+  <note> The domain configuration feature is in public preview and is subject
+  to change.
+
+  </note>
+  """
+  def list_domain_configurations(client, options \\ []) do
+    path = "/domainConfigurations"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the search indices.
   """
   def list_indices(client, options \\ []) do
@@ -1272,7 +1510,7 @@ defmodule AWS.IoT do
   **Note:** This API is deprecated. Please use `ListTargetsForPolicy`
   instead.
   """
-  def list_policy_principals(client, policy_name \\ nil, options \\ []) do
+  def list_policy_principals(client, policy_name, options \\ []) do
     path = "/policy-principals"
     headers = []
     headers = if !is_nil(policy_name) do
@@ -1301,7 +1539,7 @@ defmodule AWS.IoT do
   **Note:** This API is deprecated. Please use `ListAttachedPolicies`
   instead.
   """
-  def list_principal_policies(client, principal \\ nil, options \\ []) do
+  def list_principal_policies(client, principal, options \\ []) do
     path = "/principal-policies"
     headers = []
     headers = if !is_nil(principal) do
@@ -1317,7 +1555,7 @@ defmodule AWS.IoT do
   be X.509 certificates, IAM users, groups, and roles, Amazon Cognito
   identities or federated identities.
   """
-  def list_principal_things(client, principal \\ nil, options \\ []) do
+  def list_principal_things(client, principal, options \\ []) do
     path = "/principals/things"
     headers = []
     headers = if !is_nil(principal) do
@@ -1325,6 +1563,24 @@ defmodule AWS.IoT do
     else
       headers
     end
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  A list of fleet provisioning template versions.
+  """
+  def list_provisioning_template_versions(client, template_name, options \\ []) do
+    path = "/provisioning-templates/#{URI.encode(template_name)}/versions"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists the fleet provisioning templates in your AWS account.
+  """
+  def list_provisioning_templates(client, options \\ []) do
+    path = "/provisioning-templates"
+    headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
 
@@ -1491,6 +1747,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Lists all the topic rule destinations in your AWS account.
+  """
+  def list_topic_rule_destinations(client, options \\ []) do
+    path = "/destinations"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
   Lists the rules for the specific topic.
   """
   def list_topic_rules(client, options \\ []) do
@@ -1546,7 +1811,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Provisions a thing.
+  Register a certificate that does not have a certificate authority (CA).
+  """
+  def register_certificate_without_c_a(client, input, options \\ []) do
+    path = "/certificate/register-no-ca"
+    headers = []
+    request(client, :post, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Provisions a thing in the device registry. RegisterThing calls other AWS
+  IoT control plane APIs. These calls might exceed your account level [ AWS
+  IoT Throttling
+  Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot)
+  and cause throttle errors. Please contact [AWS Customer
+  Support](https://console.aws.amazon.com/support/home) to raise your
+  throttling limits if necessary.
   """
   def register_thing(client, input, options \\ []) do
     path = "/things"
@@ -1583,6 +1863,10 @@ defmodule AWS.IoT do
 
   @doc """
   Remove the specified thing from the specified group.
+
+  You must specify either a `thingGroupArn` or a `thingGroupName` to identify
+  the thing group and either a `thingArn` or a `thingName` to identify the
+  thing to remove from the thing group.
   """
   def remove_thing_from_thing_group(client, input, options \\ []) do
     path = "/thing-groups/removeThingFromThingGroup"
@@ -1817,6 +2101,31 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Updates the definition for a dimension. You cannot change the type of a
+  dimension after it is created (you can delete it and re-create it).
+  """
+  def update_dimension(client, name, input, options \\ []) do
+    path = "/dimensions/#{URI.encode(name)}"
+    headers = []
+    request(client, :patch, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates values stored in the domain configuration. Domain configurations
+  for default endpoints can't be updated.
+
+  <note> The domain configuration feature is in public preview and is subject
+  to change.
+
+  </note>
+  """
+  def update_domain_configuration(client, domain_configuration_name, input, options \\ []) do
+    path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+    headers = []
+    request(client, :put, path, headers, input, options, nil)
+  end
+
+  @doc """
   Updates a dynamic thing group.
   """
   def update_dynamic_thing_group(client, thing_group_name, input, options \\ []) do
@@ -1857,6 +2166,15 @@ defmodule AWS.IoT do
   """
   def update_mitigation_action(client, action_name, input, options \\ []) do
     path = "/mitigationactions/actions/#{URI.encode(action_name)}"
+    headers = []
+    request(client, :patch, path, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates a fleet provisioning template.
+  """
+  def update_provisioning_template(client, template_name, input, options \\ []) do
+    path = "/provisioning-templates/#{URI.encode(template_name)}"
     headers = []
     request(client, :patch, path, headers, input, options, nil)
   end
@@ -1926,6 +2244,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Updates a topic rule destination. You use this to change the status,
+  endpoint URL, or confirmation URL of the destination.
+  """
+  def update_topic_rule_destination(client, input, options \\ []) do
+    path = "/destinations"
+    headers = []
+    request(client, :patch, path, headers, input, options, nil)
+  end
+
+  @doc """
   Validates a Device Defender security profile behaviors specification.
   """
   def validate_security_profile_behaviors(client, input, options \\ []) do
@@ -1969,7 +2297,7 @@ defmodule AWS.IoT do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -1986,7 +2314,7 @@ defmodule AWS.IoT do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

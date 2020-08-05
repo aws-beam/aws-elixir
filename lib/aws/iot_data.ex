@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.IoT.DataPlane do
   @moduledoc """
@@ -9,16 +9,25 @@ defmodule AWS.IoT.DataPlane do
   Internet-connected things (such as sensors, actuators, embedded devices, or
   smart appliances) and the AWS cloud. It implements a broker for
   applications and things to publish messages over HTTP (Publish) and
-  retrieve, update, and delete thing shadows. A thing shadow is a persistent
+  retrieve, update, and delete shadows. A shadow is a persistent
   representation of your things and their state in the AWS cloud.
+
+  Find the endpoint address for actions in the AWS IoT data plane by running
+  this CLI command:
+
+  `aws iot describe-endpoint --endpoint-type iot:Data-ATS`
+
+  The service name used by [AWS Signature Version
+  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
+  to sign requests is: *iotdevicegateway*.
   """
 
   @doc """
-  Deletes the thing shadow for the specified thing.
+  Deletes the shadow for the specified thing.
 
   For more information, see
   [DeleteThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html)
-  in the *AWS IoT Developer Guide*.
+  in the AWS IoT Developer Guide.
   """
   def delete_thing_shadow(client, thing_name, input, options \\ []) do
     path = "/things/#{URI.encode(thing_name)}/shadow"
@@ -27,14 +36,23 @@ defmodule AWS.IoT.DataPlane do
   end
 
   @doc """
-  Gets the thing shadow for the specified thing.
+  Gets the shadow for the specified thing.
 
   For more information, see
   [GetThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html)
-  in the *AWS IoT Developer Guide*.
+  in the AWS IoT Developer Guide.
   """
   def get_thing_shadow(client, thing_name, options \\ []) do
     path = "/things/#{URI.encode(thing_name)}/shadow"
+    headers = []
+    request(client, :get, path, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists the shadows for the specified thing.
+  """
+  def list_named_shadows_for_thing(client, thing_name, options \\ []) do
+    path = "/api/things/shadow/ListNamedShadowsForThing/#{URI.encode(thing_name)}"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -44,7 +62,7 @@ defmodule AWS.IoT.DataPlane do
 
   For more information, see [HTTP
   Protocol](http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http)
-  in the *AWS IoT Developer Guide*.
+  in the AWS IoT Developer Guide.
   """
   def publish(client, topic, input, options \\ []) do
     path = "/topics/#{URI.encode(topic)}"
@@ -53,11 +71,11 @@ defmodule AWS.IoT.DataPlane do
   end
 
   @doc """
-  Updates the thing shadow for the specified thing.
+  Updates the shadow for the specified thing.
 
   For more information, see
   [UpdateThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html)
-  in the *AWS IoT Developer Guide*.
+  in the AWS IoT Developer Guide.
   """
   def update_thing_shadow(client, thing_name, input, options \\ []) do
     path = "/things/#{URI.encode(thing_name)}/shadow"
@@ -100,7 +118,7 @@ defmodule AWS.IoT.DataPlane do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -117,7 +135,7 @@ defmodule AWS.IoT.DataPlane do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Batch do
   @moduledoc """
@@ -136,7 +136,8 @@ defmodule AWS.Batch do
   end
 
   @doc """
-  Deregisters an AWS Batch job definition.
+  Deregisters an AWS Batch job definition. Job definitions will be
+  permanently deleted after 180 days.
   """
   def deregister_job_definition(client, input, options \\ []) do
     path = "/v1/deregisterjobdefinition"
@@ -291,7 +292,7 @@ defmodule AWS.Batch do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -308,7 +309,7 @@ defmodule AWS.Batch do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

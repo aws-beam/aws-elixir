@@ -35,6 +35,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Associates the specified product with the specified portfolio.
+
+  A delegated admin is authorized to invoke this command.
   """
   def associate_product_with_portfolio(client, input, options \\ []) do
     request(client, "AssociateProductWithPortfolio", input, options)
@@ -85,6 +87,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Creates a constraint.
+
+  A delegated admin is authorized to invoke this command.
   """
   def create_constraint(client, input, options \\ []) do
     request(client, "CreateConstraint", input, options)
@@ -92,6 +96,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Creates a portfolio.
+
+  A delegated admin is authorized to invoke this command.
   """
   def create_portfolio(client, input, options \\ []) do
     request(client, "CreatePortfolio", input, options)
@@ -100,8 +106,18 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Shares the specified portfolio with the specified account or organization
   node. Shares to an organization node can only be created by the master
-  account of an Organization. AWSOrganizationsAccess must be enabled in order
-  to create a portfolio share to an organization node.
+  account of an organization or by a delegated administrator. You can share
+  portfolios to an organization, an organizational unit, or a specific
+  account.
+
+  Note that if a delegated admin is de-registered, they can no longer create
+  portfolio shares.
+
+  `AWSOrganizationsAccess` must be enabled in order to create a portfolio
+  share to an organization node.
+
+  You can't share a shared resource. This includes portfolios that contain a
+  shared product.
   """
   def create_portfolio_share(client, input, options \\ []) do
     request(client, "CreatePortfolioShare", input, options)
@@ -109,6 +125,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Creates a product.
+
+  A delegated admin is authorized to invoke this command.
   """
   def create_product(client, input, options \\ []) do
     request(client, "CreateProduct", input, options)
@@ -158,6 +176,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Deletes the specified constraint.
+
+  A delegated admin is authorized to invoke this command.
   """
   def delete_constraint(client, input, options \\ []) do
     request(client, "DeleteConstraint", input, options)
@@ -168,6 +188,8 @@ defmodule AWS.ServiceCatalog do
 
   You cannot delete a portfolio if it was shared with you or if it has
   associated products, users, constraints, or shared accounts.
+
+  A delegated admin is authorized to invoke this command.
   """
   def delete_portfolio(client, input, options \\ []) do
     request(client, "DeletePortfolio", input, options)
@@ -176,7 +198,10 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Stops sharing the specified portfolio with the specified account or
   organization node. Shares to an organization node can only be deleted by
-  the master account of an Organization.
+  the master account of an organization or by a delegated administrator.
+
+  Note that if a delegated admin is de-registered, portfolio shares created
+  from that account are removed.
   """
   def delete_portfolio_share(client, input, options \\ []) do
     request(client, "DeletePortfolioShare", input, options)
@@ -187,6 +212,8 @@ defmodule AWS.ServiceCatalog do
 
   You cannot delete a product if it was shared with you or is associated with
   a portfolio.
+
+  A delegated admin is authorized to invoke this command.
   """
   def delete_product(client, input, options \\ []) do
     request(client, "DeleteProduct", input, options)
@@ -244,6 +271,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Gets information about the specified portfolio.
+
+  A delegated admin is authorized to invoke this command.
   """
   def describe_portfolio(client, input, options \\ []) do
     request(client, "DescribePortfolio", input, options)
@@ -251,7 +280,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Gets the status of the specified portfolio share operation. This API can
-  only be called by the master account in the organization.
+  only be called by the master account in the organization or by a delegated
+  admin.
   """
   def describe_portfolio_share_status(client, input, options \\ []) do
     request(client, "DescribePortfolioShareStatus", input, options)
@@ -345,7 +375,8 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-
+  Finds the default parameters for a specific self-service action on a
+  specific provisioned product and returns a map of the results to the user.
   """
   def describe_service_action_execution_parameters(client, input, options \\ []) do
     request(client, "DescribeServiceActionExecutionParameters", input, options)
@@ -364,6 +395,12 @@ defmodule AWS.ServiceCatalog do
   new shares throughout your organization. Current shares will not be in sync
   with your organization structure if it changes after calling this API. This
   API can only be called by the master account in the organization.
+
+  This API can't be invoked if there are active delegated administrators in
+  the organization.
+
+  Note that a delegated administrator is not authorized to invoke
+  `DisableAWSOrganizationsAccess`.
   """
   def disable_a_w_s_organizations_access(client, input, options \\ []) do
     request(client, "DisableAWSOrganizationsAccess", input, options)
@@ -386,6 +423,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Disassociates the specified product from the specified portfolio.
+
+  A delegated admin is authorized to invoke this command.
   """
   def disassociate_product_from_portfolio(client, input, options \\ []) do
     request(client, "DisassociateProductFromPortfolio", input, options)
@@ -415,6 +454,9 @@ defmodule AWS.ServiceCatalog do
   By calling this API Service Catalog will make a call to
   organizations:EnableAWSServiceAccess on your behalf so that your shares can
   be in sync with any changes in your AWS Organizations structure.
+
+  Note that a delegated administrator is not authorized to invoke
+  `EnableAWSOrganizationsAccess`.
   """
   def enable_a_w_s_organizations_access(client, input, options \\ []) do
     request(client, "EnableAWSOrganizationsAccess", input, options)
@@ -437,7 +479,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Get the Access Status for AWS Organization portfolio share feature. This
-  API can only be called by the master account in the organization.
+  API can only be called by the master account in the organization or by a
+  delegated admin.
   """
   def get_a_w_s_organizations_access_status(client, input, options \\ []) do
     request(client, "GetAWSOrganizationsAccessStatus", input, options)
@@ -475,7 +518,11 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Lists the organization nodes that have access to the specified portfolio.
-  This API can only be called by the master account in the organization.
+  This API can only be called by the master account in the organization or by
+  a delegated admin.
+
+  If a delegated admin is de-registered, they can no longer perform this
+  operation.
   """
   def list_organization_portfolio_access(client, input, options \\ []) do
     request(client, "ListOrganizationPortfolioAccess", input, options)
@@ -483,6 +530,10 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Lists the account IDs that have access to the specified portfolio.
+
+  A delegated admin can list the accounts that have access to the shared
+  portfolio. Note that if a delegated admin is de-registered, they can no
+  longer perform this operation.
   """
   def list_portfolio_access(client, input, options \\ []) do
     request(client, "ListPortfolioAccess", input, options)

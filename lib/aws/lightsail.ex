@@ -3,20 +3,25 @@
 
 defmodule AWS.Lightsail do
   @moduledoc """
-  Amazon Lightsail is the easiest way to get started with AWS for developers
-  who just need virtual private servers. Lightsail includes everything you
-  need to launch your project quickly - a virtual machine, a managed
-  database, SSD-based storage, data transfer, DNS management, and a static IP
-  - for a low, predictable price. You manage those Lightsail servers through
-  the Lightsail console or by using the API or command-line interface (CLI).
+  Amazon Lightsail is the easiest way to get started with Amazon Web Services
+  (AWS) for developers who need to build websites or web applications. It
+  includes everything you need to launch your project quickly – instances
+  (virtual private servers), managed databases, SSD-based block storage,
+  static IP addresses, load balancers, content delivery network (CDN)
+  distributions, DNS management of registered domains, and snapshots
+  (backups) – for a low, predictable monthly price.
 
-  For more information about Lightsail concepts and tasks, see the [Lightsail
-  Dev Guide](https://lightsail.aws.amazon.com/ls/docs/all).
-
-  To use the Lightsail API or the CLI, you will need to use AWS Identity and
-  Access Management (IAM) to generate access keys. For details about how to
-  set this up, see the [Lightsail Dev
+  You can manage your Lightsail resources using the Lightsail console,
+  Lightsail API, AWS Command Line Interface (AWS CLI), or SDKs. For more
+  information about Lightsail concepts and tasks, see the [Lightsail Dev
   Guide](http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).
+
+  This API Reference provides detailed information about the actions, data
+  types, parameters, and errors of the Lightsail service. For more
+  information about the supported AWS Regions, endpoints, and service quotas
+  for the Lightsail service, see [Amazon Lightsail Endpoints and
+  Quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in
+  the *AWS General Reference*.
   """
 
   @doc """
@@ -24,6 +29,28 @@ defmodule AWS.Lightsail do
   """
   def allocate_static_ip(client, input, options \\ []) do
     request(client, "AllocateStaticIp", input, options)
+  end
+
+  @doc """
+  Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery
+  network (CDN) distribution.
+
+  After the certificate is attached, your distribution accepts HTTPS traffic
+  for all of the domains that are associated with the certificate.
+
+  Use the `CreateCertificate` action to create a certificate that you can
+  attach to your distribution.
+
+  <important> Only certificates created in the `us-east-1` AWS Region can be
+  attached to Lightsail distributions. Lightsail distributions are global
+  resources that can reference an origin in any AWS Region, and distribute
+  its content globally. However, all distributions are located in the
+  `us-east-1` Region.
+
+  </important>
+  """
+  def attach_certificate_to_distribution(client, input, options \\ []) do
+    request(client, "AttachCertificateToDistribution", input, options)
   end
 
   @doc """
@@ -61,13 +88,13 @@ defmodule AWS.Lightsail do
 
   Once you create and validate your certificate, you can attach it to your
   load balancer. You can also use this API to rotate the certificates on your
-  account. Use the `attach load balancer tls certificate` operation with the
+  account. Use the `AttachLoadBalancerTlsCertificate` action with the
   non-attached certificate, and it will replace the existing one and become
   the attached certificate.
 
-  The `attach load balancer tls certificate` operation supports tag-based
-  access control via resource tags applied to the resource identified by
-  `load balancer name`. For more information, see the [Lightsail Dev
+  The `AttachLoadBalancerTlsCertificate` operation supports tag-based access
+  control via resource tags applied to the resource identified by `load
+  balancer name`. For more information, see the [Lightsail Dev
   Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def attach_load_balancer_tls_certificate(client, input, options \\ []) do
@@ -82,11 +109,11 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Closes the public ports on a specific Amazon Lightsail instance.
+  Closes ports for a specific Amazon Lightsail instance.
 
-  The `close instance public ports` operation supports tag-based access
-  control via resource tags applied to the resource identified by `instance
-  name`. For more information, see the [Lightsail Dev
+  The `CloseInstancePublicPorts` action supports tag-based access control via
+  resource tags applied to the resource identified by `instanceName`. For
+  more information, see the [Lightsail Dev
   Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def close_instance_public_ports(client, input, options \\ []) do
@@ -94,10 +121,11 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Copies a manual instance or disk snapshot as another manual snapshot, or
-  copies an automatic instance or disk snapshot as a manual snapshot. This
-  operation can also be used to copy a manual or automatic snapshot of an
-  instance or a disk from one AWS Region to another in Amazon Lightsail.
+  Copies a manual snapshot of an instance or disk as another manual snapshot,
+  or copies an automatic snapshot of an instance or disk as a manual
+  snapshot. This operation can also be used to copy a manual or automatic
+  snapshot of an instance or a disk from one AWS Region to another in Amazon
+  Lightsail.
 
   When copying a *manual snapshot*, be sure to define the `source region`,
   `source snapshot name`, and `target snapshot name` parameters.
@@ -105,13 +133,28 @@ defmodule AWS.Lightsail do
   When copying an *automatic snapshot*, be sure to define the `source
   region`, `source resource name`, `target snapshot name`, and either the
   `restore date` or the `use latest restorable auto snapshot` parameters.
-
-  <note> Database snapshots cannot be copied at this time.
-
-  </note>
   """
   def copy_snapshot(client, input, options \\ []) do
     request(client, "CopySnapshot", input, options)
+  end
+
+  @doc """
+  Creates an SSL/TLS certificate for a Amazon Lightsail content delivery
+  network (CDN) distribution.
+
+  After the certificate is created, use the `AttachCertificateToDistribution`
+  action to attach the certificate to your distribution.
+
+  <important> Only certificates created in the `us-east-1` AWS Region can be
+  attached to Lightsail distributions. Lightsail distributions are global
+  resources that can reference an origin in any AWS Region, and distribute
+  its content globally. However, all distributions are located in the
+  `us-east-1` Region.
+
+  </important>
+  """
+  def create_certificate(client, input, options \\ []) do
+    request(client, "CreateCertificate", input, options)
   end
 
   @doc """
@@ -129,6 +172,20 @@ defmodule AWS.Lightsail do
   """
   def create_cloud_formation_stack(client, input, options \\ []) do
     request(client, "CreateCloudFormationStack", input, options)
+  end
+
+  @doc """
+  Creates an email or SMS text message contact method.
+
+  A contact method is used to send you notifications about your Amazon
+  Lightsail resources. You can add one email address and one mobile phone
+  number contact method in each AWS Region. However, SMS text messaging is
+  not supported in some AWS Regions, and SMS text messages cannot be sent to
+  some countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  """
+  def create_contact_method(client, input, options \\ []) do
+    request(client, "CreateContactMethod", input, options)
   end
 
   @doc """
@@ -189,6 +246,19 @@ defmodule AWS.Lightsail do
   """
   def create_disk_snapshot(client, input, options \\ []) do
     request(client, "CreateDiskSnapshot", input, options)
+  end
+
+  @doc """
+  Creates an Amazon Lightsail content delivery network (CDN) distribution.
+
+  A distribution is a globally distributed network of caching servers that
+  improve the performance of your website or web application hosted on a
+  Lightsail instance. For more information, see [Content delivery networks in
+  Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-networks).
+  """
+  def create_distribution(client, input, options \\ []) do
+    request(client, "CreateDistribution", input, options)
   end
 
   @doc """
@@ -288,9 +358,9 @@ defmodule AWS.Lightsail do
 
   TLS is just an updated, more secure version of Secure Socket Layer (SSL).
 
-  The `create load balancer tls certificate` operation supports tag-based
-  access control via resource tags applied to the resource identified by
-  `load balancer name`. For more information, see the [Lightsail Dev
+  The `CreateLoadBalancerTlsCertificate` operation supports tag-based access
+  control via resource tags applied to the resource identified by `load
+  balancer name`. For more information, see the [Lightsail Dev
   Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_load_balancer_tls_certificate(client, input, options \\ []) do
@@ -341,10 +411,51 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Deletes an automatic snapshot for an instance or disk.
+  Deletes an alarm.
+
+  An alarm is used to monitor a single metric for one of your resources. When
+  a metric condition is met, the alarm can notify you by email, SMS text
+  message, and a banner displayed on the Amazon Lightsail console. For more
+  information, see [Alarms in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  """
+  def delete_alarm(client, input, options \\ []) do
+    request(client, "DeleteAlarm", input, options)
+  end
+
+  @doc """
+  Deletes an automatic snapshot of an instance or disk. For more information,
+  see the [Lightsail Dev
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   def delete_auto_snapshot(client, input, options \\ []) do
     request(client, "DeleteAutoSnapshot", input, options)
+  end
+
+  @doc """
+  Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery
+  network (CDN) distribution.
+
+  Certificates that are currently attached to a distribution cannot be
+  deleted. Use the `DetachCertificateFromDistribution` action to detach a
+  certificate from a distribution.
+  """
+  def delete_certificate(client, input, options \\ []) do
+    request(client, "DeleteCertificate", input, options)
+  end
+
+  @doc """
+  Deletes a contact method.
+
+  A contact method is used to send you notifications about your Amazon
+  Lightsail resources. You can add one email address and one mobile phone
+  number contact method in each AWS Region. However, SMS text messaging is
+  not supported in some AWS Regions, and SMS text messages cannot be sent to
+  some countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  """
+  def delete_contact_method(client, input, options \\ []) do
+    request(client, "DeleteContactMethod", input, options)
   end
 
   @doc """
@@ -379,6 +490,13 @@ defmodule AWS.Lightsail do
   """
   def delete_disk_snapshot(client, input, options \\ []) do
     request(client, "DeleteDiskSnapshot", input, options)
+  end
+
+  @doc """
+  Deletes your Amazon Lightsail content delivery network (CDN) distribution.
+  """
+  def delete_distribution(client, input, options \\ []) do
+    request(client, "DeleteDistribution", input, options)
   end
 
   @doc """
@@ -477,9 +595,9 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes an SSL/TLS certificate associated with a Lightsail load balancer.
 
-  The `delete load balancer tls certificate` operation supports tag-based
-  access control via resource tags applied to the resource identified by
-  `load balancer name`. For more information, see the [Lightsail Dev
+  The `DeleteLoadBalancerTlsCertificate` operation supports tag-based access
+  control via resource tags applied to the resource identified by `load
+  balancer name`. For more information, see the [Lightsail Dev
   Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_load_balancer_tls_certificate(client, input, options \\ []) do
@@ -508,6 +626,17 @@ defmodule AWS.Lightsail do
   """
   def delete_relational_database_snapshot(client, input, options \\ []) do
     request(client, "DeleteRelationalDatabaseSnapshot", input, options)
+  end
+
+  @doc """
+  Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery
+  network (CDN) distribution.
+
+  After the certificate is detached, your distribution stops accepting
+  traffic for all of the domains that are associated with the certificate.
+  """
+  def detach_certificate_from_distribution(client, input, options \\ []) do
+    request(client, "DetachCertificateFromDistribution", input, options)
   end
 
   @doc """
@@ -606,8 +735,24 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the available automatic snapshots for the specified resource name.
-  For more information, see the [Lightsail Dev
+  Returns information about the configured alarms. Specify an alarm name in
+  your request to return information about a specific alarm, or specify a
+  monitored resource name to return information about all alarms for a
+  specific resource.
+
+  An alarm is used to monitor a single metric for one of your resources. When
+  a metric condition is met, the alarm can notify you by email, SMS text
+  message, and a banner displayed on the Amazon Lightsail console. For more
+  information, see [Alarms in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  """
+  def get_alarms(client, input, options \\ []) do
+    request(client, "GetAlarms", input, options)
+  end
+
+  @doc """
+  Returns the available automatic snapshots for an instance or disk. For more
+  information, see the [Lightsail Dev
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   def get_auto_snapshots(client, input, options \\ []) do
@@ -641,6 +786,20 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
+  Returns information about one or more Amazon Lightsail SSL/TLS
+  certificates.
+
+  <note> To get a summary of a certificate, ommit `includeCertificateDetails`
+  from your request. The response will include only the certificate Amazon
+  Resource Name (ARN), certificate name, domain name, and tags.
+
+  </note>
+  """
+  def get_certificates(client, input, options \\ []) do
+    request(client, "GetCertificates", input, options)
+  end
+
+  @doc """
   Returns the CloudFormation stack record created as a result of the `create
   cloud formation stack` operation.
 
@@ -649,6 +808,22 @@ defmodule AWS.Lightsail do
   """
   def get_cloud_formation_stack_records(client, input, options \\ []) do
     request(client, "GetCloudFormationStackRecords", input, options)
+  end
+
+  @doc """
+  Returns information about the configured contact methods. Specify a
+  protocol in your request to return information about a specific contact
+  method.
+
+  A contact method is used to send you notifications about your Amazon
+  Lightsail resources. You can add one email address and one mobile phone
+  number contact method in each AWS Region. However, SMS text messaging is
+  not supported in some AWS Regions, and SMS text messages cannot be sent to
+  some countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  """
+  def get_contact_methods(client, input, options \\ []) do
+    request(client, "GetContactMethods", input, options)
   end
 
   @doc """
@@ -668,10 +843,6 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all block storage disk snapshots in your AWS
   account and region.
-
-  If you are describing a long list of disk snapshots, you can paginate the
-  output to make the list more manageable. You can use the pageToken and
-  nextPageToken values to retrieve the next items in the list.
   """
   def get_disk_snapshots(client, input, options \\ []) do
     request(client, "GetDiskSnapshots", input, options)
@@ -680,13 +851,48 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all block storage disks in your AWS account and
   region.
-
-  If you are describing a long list of disks, you can paginate the output to
-  make the list more manageable. You can use the pageToken and nextPageToken
-  values to retrieve the next items in the list.
   """
   def get_disks(client, input, options \\ []) do
     request(client, "GetDisks", input, options)
+  end
+
+  @doc """
+  Returns the list bundles that can be applied to you Amazon Lightsail
+  content delivery network (CDN) distributions.
+
+  A distribution bundle specifies the monthly network transfer quota and
+  monthly cost of your dsitribution.
+  """
+  def get_distribution_bundles(client, input, options \\ []) do
+    request(client, "GetDistributionBundles", input, options)
+  end
+
+  @doc """
+  Returns the timestamp and status of the last cache reset of a specific
+  Amazon Lightsail content delivery network (CDN) distribution.
+  """
+  def get_distribution_latest_cache_reset(client, input, options \\ []) do
+    request(client, "GetDistributionLatestCacheReset", input, options)
+  end
+
+  @doc """
+  Returns the data points of a specific metric for an Amazon Lightsail
+  content delivery network (CDN) distribution.
+
+  Metrics report the utilization of your resources, and the error counts
+  generated by them. Monitor and collect metric data regularly to maintain
+  the reliability, availability, and performance of your resources.
+  """
+  def get_distribution_metric_data(client, input, options \\ []) do
+    request(client, "GetDistributionMetricData", input, options)
+  end
+
+  @doc """
+  Returns information about one or more of your Amazon Lightsail content
+  delivery network (CDN) distributions.
+  """
+  def get_distributions(client, input, options \\ []) do
+    request(client, "GetDistributions", input, options)
   end
 
   @doc """
@@ -739,14 +945,19 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the data points for the specified Amazon Lightsail instance metric,
   given an instance name.
+
+  Metrics report the utilization of your resources, and the error counts
+  generated by them. Monitor and collect metric data regularly to maintain
+  the reliability, availability, and performance of your resources.
   """
   def get_instance_metric_data(client, input, options \\ []) do
     request(client, "GetInstanceMetricData", input, options)
   end
 
   @doc """
-  Returns the port states for a specific virtual private server, or
-  *instance*.
+  Returns the firewall port states for a specific Amazon Lightsail instance,
+  the IP addresses allowed to connect to the instance through the ports, and
+  the protocol.
   """
   def get_instance_port_states(client, input, options \\ []) do
     request(client, "GetInstancePortStates", input, options)
@@ -804,6 +1015,10 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about health metrics for your Lightsail load balancer.
+
+  Metrics report the utilization of your resources, and the error counts
+  generated by them. Monitor and collect metric data regularly to maintain
+  the reliability, availability, and performance of your resources.
   """
   def get_load_balancer_metric_data(client, input, options \\ []) do
     request(client, "GetLoadBalancerMetricData", input, options)
@@ -824,10 +1039,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all load balancers in an account.
-
-  If you are describing a long list of load balancers, you can paginate the
-  output to make the list more manageable. You can use the pageToken and
-  nextPageToken values to retrieve the next items in the list.
   """
   def get_load_balancers(client, input, options \\ []) do
     request(client, "GetLoadBalancers", input, options)
@@ -935,6 +1146,10 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the data points of the specified metric for a database in Amazon
   Lightsail.
+
+  Metrics report the utilization of your resources, and the error counts
+  generated by them. Monitor and collect metric data regularly to maintain
+  the reliability, availability, and performance of your resources.
   """
   def get_relational_database_metric_data(client, input, options \\ []) do
     request(client, "GetRelationalDatabaseMetricData", input, options)
@@ -1004,11 +1219,13 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Adds public ports to an Amazon Lightsail instance.
+  Opens ports for a specific Amazon Lightsail instance, and specifies the IP
+  addresses allowed to connect to the instance through the ports, and the
+  protocol.
 
-  The `open instance public ports` operation supports tag-based access
-  control via resource tags applied to the resource identified by `instance
-  name`. For more information, see the [Lightsail Dev
+  The `OpenInstancePublicPorts` action supports tag-based access control via
+  resource tags applied to the resource identified by `instanceName`. For
+  more information, see the [Lightsail Dev
   Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def open_instance_public_ports(client, input, options \\ []) do
@@ -1023,12 +1240,38 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Sets the specified open ports for an Amazon Lightsail instance, and closes
-  all ports for every protocol not included in the current request.
+  Creates or updates an alarm, and associates it with the specified metric.
 
-  The `put instance public ports` operation supports tag-based access control
-  via resource tags applied to the resource identified by `instance name`.
-  For more information, see the [Lightsail Dev
+  An alarm is used to monitor a single metric for one of your resources. When
+  a metric condition is met, the alarm can notify you by email, SMS text
+  message, and a banner displayed on the Amazon Lightsail console. For more
+  information, see [Alarms in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+
+  When this action creates an alarm, the alarm state is immediately set to
+  `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
+  appropriately. Any actions associated with the new state are then executed.
+
+  When you update an existing alarm, its state is left unchanged, but the
+  update completely overwrites the previous configuration of the alarm. The
+  alarm is then evaluated with the updated configuration.
+  """
+  def put_alarm(client, input, options \\ []) do
+    request(client, "PutAlarm", input, options)
+  end
+
+  @doc """
+  Opens ports for a specific Amazon Lightsail instance, and specifies the IP
+  addresses allowed to connect to the instance through the ports, and the
+  protocol. This action also closes all currently open ports that are not
+  included in the request. Include all of the ports and the protocols you
+  want to open in your `PutInstancePublicPorts`request. Or use the
+  `OpenInstancePublicPorts` action to open ports without closing currently
+  open ports.
+
+  The `PutInstancePublicPorts` action supports tag-based access control via
+  resource tags applied to the resource identified by `instanceName`. For
+  more information, see the [Lightsail Dev
   Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def put_instance_public_ports(client, input, options \\ []) do
@@ -1064,6 +1307,41 @@ defmodule AWS.Lightsail do
   """
   def release_static_ip(client, input, options \\ []) do
     request(client, "ReleaseStaticIp", input, options)
+  end
+
+  @doc """
+  Deletes currently cached content from your Amazon Lightsail content
+  delivery network (CDN) distribution.
+
+  After resetting the cache, the next time a content request is made, your
+  distribution pulls, serves, and caches it from the origin.
+  """
+  def reset_distribution_cache(client, input, options \\ []) do
+    request(client, "ResetDistributionCache", input, options)
+  end
+
+  @doc """
+  Sends a verification request to an email contact method to ensure it's
+  owned by the requester. SMS contact methods don't need to be verified.
+
+  A contact method is used to send you notifications about your Amazon
+  Lightsail resources. You can add one email address and one mobile phone
+  number contact method in each AWS Region. However, SMS text messaging is
+  not supported in some AWS Regions, and SMS text messages cannot be sent to
+  some countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+
+  A verification request is sent to the contact method when you initially
+  create it. Use this action to send another verification request if a
+  previous verification request was deleted, or has expired.
+
+  <important> Notifications are not sent to an email contact method until
+  after it is verified, and confirmed as valid.
+
+  </important>
+  """
+  def send_contact_method_verification(client, input, options \\ []) do
+    request(client, "SendContactMethodVerification", input, options)
   end
 
   @doc """
@@ -1145,6 +1423,22 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
+  Tests an alarm by displaying a banner on the Amazon Lightsail console. If a
+  notification trigger is configured for the specified alarm, the test also
+  sends a notification to the notification protocol (`Email` and/or `SMS`)
+  configured for the alarm.
+
+  An alarm is used to monitor a single metric for one of your resources. When
+  a metric condition is met, the alarm can notify you by email, SMS text
+  message, and a banner displayed on the Amazon Lightsail console. For more
+  information, see [Alarms in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  """
+  def test_alarm(client, input, options \\ []) do
+    request(client, "TestAlarm", input, options)
+  end
+
+  @doc """
   Attempts to unpeer the Lightsail VPC from the user's default VPC.
   """
   def unpeer_vpc(client, input, options \\ []) do
@@ -1162,6 +1456,36 @@ defmodule AWS.Lightsail do
   """
   def untag_resource(client, input, options \\ []) do
     request(client, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an existing Amazon Lightsail content delivery network (CDN)
+  distribution.
+
+  Use this action to update the configuration of your existing distribution
+  """
+  def update_distribution(client, input, options \\ []) do
+    request(client, "UpdateDistribution", input, options)
+  end
+
+  @doc """
+  Updates the bundle of your Amazon Lightsail content delivery network (CDN)
+  distribution.
+
+  A distribution bundle specifies the monthly network transfer quota and
+  monthly cost of your dsitribution.
+
+  Update your distribution's bundle if your distribution is going over its
+  monthly network transfer quota and is incurring an overage fee.
+
+  You can update your distribution's bundle only one time within your monthly
+  AWS billing cycle. To determine if you can update your distribution's
+  bundle, use the `GetDistributions` action. The `ableToUpdateBundle`
+  parameter in the result will indicate whether you can currently update your
+  distribution's bundle.
+  """
+  def update_distribution_bundle(client, input, options \\ []) do
+    request(client, "UpdateDistributionBundle", input, options)
   end
 
   @doc """
@@ -1212,7 +1536,7 @@ defmodule AWS.Lightsail do
 
   Parameter updates don't cause outages; therefore, their application is not
   subject to the preferred maintenance window. However, there are two ways in
-  which paramater updates are applied: `dynamic` or `pending-reboot`.
+  which parameter updates are applied: `dynamic` or `pending-reboot`.
   Parameters marked with a `dynamic` apply type are applied immediately.
   Parameters marked with a `pending-reboot` apply type are applied only after
   the database is rebooted using the `reboot relational database` operation.

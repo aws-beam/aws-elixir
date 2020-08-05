@@ -5,69 +5,13 @@ defmodule AWS.IAM do
   @moduledoc """
   AWS Identity and Access Management
 
-  AWS Identity and Access Management (IAM) is a web service that you can use
-  to manage users and user permissions under your AWS account. This guide
-  provides descriptions of IAM actions that you can call programmatically.
-  For general information about IAM, see [AWS Identity and Access Management
-  (IAM)](http://aws.amazon.com/iam/). For the user guide for IAM, see [Using
-  IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
-
-  <note> AWS provides SDKs that consist of libraries and sample code for
-  various programming languages and platforms (Java, Ruby, .NET, iOS,
-  Android, etc.). The SDKs provide a convenient way to create programmatic
-  access to IAM and AWS. For example, the SDKs take care of tasks such as
-  cryptographically signing requests (see below), managing errors, and
-  retrying requests automatically. For information about the AWS SDKs,
-  including how to download and install them, see the [Tools for Amazon Web
-  Services](http://aws.amazon.com/tools/) page.
-
-  </note> We recommend that you use the AWS SDKs to make programmatic API
-  calls to IAM. However, you can also use the IAM Query API to make direct
-  calls to the IAM web service. To learn more about the IAM Query API, see
-  [Making Query
-  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
-  in the *Using IAM* guide. IAM supports GET and POST requests for all
-  actions. That is, the API does not require you to use GET for some actions
-  and POST for others. However, GET requests are subject to the limitation
-  size of a URL. Therefore, for operations that require larger sizes, use a
-  POST request.
-
-  **Signing Requests**
-
-  Requests must be signed using an access key ID and a secret access key. We
-  strongly recommend that you do not use your AWS account access key ID and
-  secret access key for everyday work with IAM. You can use the access key ID
-  and secret access key for an IAM user or you can use the AWS Security Token
-  Service to generate temporary security credentials and use those to sign
-  requests.
-
-  To sign requests, we recommend that you use [Signature Version
-  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
-  If you have an existing application that uses Signature Version 2, you do
-  not have to update it to use Signature Version 4. However, some operations
-  now require Signature Version 4. The documentation for operations that
-  require version 4 indicate this requirement.
-
-  **Additional Resources**
-
-  For more information, see the following:
-
-  <ul> <li> [AWS Security
-  Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html).
-  This topic provides general information about the types of credentials used
-  for accessing AWS.
-
-  </li> <li> [IAM Best
-  Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html).
-  This topic presents a list of suggestions for using the IAM service to help
-  secure your AWS resources.
-
-  </li> <li> [Signing AWS API
-  Requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html).
-  This set of topics walk you through the process of signing a request using
-  an access key ID and secret access key.
-
-  </li> </ul>
+  AWS Identity and Access Management (IAM) is a web service for securely
+  controlling access to AWS services. With IAM, you can centrally manage
+  users, security credentials such as access keys, and permissions that
+  control which AWS resources users and applications can access. For more
+  information about IAM, see [AWS Identity and Access Management
+  (IAM)](http://aws.amazon.com/iam/) and the [AWS Identity and Access
+  Management User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
   """
 
   @doc """
@@ -84,10 +28,12 @@ defmodule AWS.IAM do
 
   @doc """
   Adds the specified IAM role to the specified instance profile. An instance
-  profile can contain only one role, and this limit cannot be increased. You
-  can remove the existing role and then add a different role to an instance
-  profile. You must then wait for the change to appear across all of AWS
-  because of [eventual
+  profile can contain only one role. (The number and size of IAM resources in
+  an AWS account are limited. For more information, see [IAM and STS
+  Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  in the *IAM User Guide*.) You can remove the existing role and then add a
+  different role to an instance profile. You must then wait for the change to
+  appear across all of AWS because of [eventual
   consistency](https://en.wikipedia.org/wiki/Eventual_consistency). To force
   the change, you must [disassociate the instance
   profile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html)
@@ -185,9 +131,9 @@ defmodule AWS.IAM do
   operation to manage AWS account root user credentials. This is true even if
   the AWS account has no associated users.
 
-  For information about limits on the number of keys you can create, see
-  [Limitations on IAM
-  Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  The number and size of IAM resources in an AWS account are limited. For
+  more information, see [IAM and STS
+  Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
   <important> To ensure the security of your AWS account, the secret access
@@ -215,9 +161,9 @@ defmodule AWS.IAM do
   @doc """
   Creates a new group.
 
-  For information about the number of groups you can create, see [Limitations
-  on IAM
-  Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  The number and size of IAM resources in an AWS account are limited. For
+  more information, see [IAM and STS
+  Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_group(client, input, options \\ []) do
@@ -229,9 +175,9 @@ defmodule AWS.IAM do
   to [About Instance
   Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
 
-  For information about the number of instance profiles you can create, see
-  [Limitations on IAM
-  Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  The number and size of IAM resources in an AWS account are limited. For
+  more information, see [IAM and STS
+  Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_instance_profile(client, input, options \\ []) do
@@ -265,8 +211,8 @@ defmodule AWS.IAM do
   application or applications that are allowed to authenticate using the OIDC
   provider
 
-  </li> <li> A list of thumbprints of the server certificate(s) that the IdP
-  uses
+  </li> <li> A list of thumbprints of one or more server certificates that
+  the IdP uses
 
   </li> </ul> You get all of this information from the OIDC IdP that you want
   to use to access AWS.
@@ -322,9 +268,9 @@ defmodule AWS.IAM do
   Creates a new role for your AWS account. For more information about roles,
   go to [IAM
   Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
-  For information about limitations on role names and the number of roles you
-  can create, go to [Limitations on IAM
-  Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  The number and size of IAM resources in an AWS account are limited. For
+  more information, see [IAM and STS
+  Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_role(client, input, options \\ []) do
@@ -406,9 +352,9 @@ defmodule AWS.IAM do
   @doc """
   Creates a new IAM user for your AWS account.
 
-  For information about limitations on the number of IAM users you can
-  create, see [Limitations on IAM
-  Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  The number and size of IAM resources in an AWS account are limited. For
+  more information, see [IAM and STS
+  Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_user(client, input, options \\ []) do
@@ -423,9 +369,9 @@ defmodule AWS.IAM do
   Device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
 
-  For information about limits on the number of MFA devices you can create,
-  see [Limitations on
-  Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  The number and size of IAM resources in an AWS account are limited. For
+  more information, see [IAM and STS
+  Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
   <important> The seed information contained in the QR code and the Base32
@@ -1039,6 +985,10 @@ defmodule AWS.IAM do
   could access using permissions policies. For each service, the response
   includes information about the most recent access attempt.
 
+  The `JobId` returned by `GenerateServiceLastAccessedDetail` must be used by
+  the same role within a session, or by the same user when used to call
+  `GetServiceLastAccessedDetail`.
+
   </li> <li> `GetServiceLastAccessedDetailsWithEntities` – Use this operation
   for groups and policies to list information about the associated entities
   (users or roles) that attempted to access a specific AWS service.
@@ -1060,9 +1010,9 @@ defmodule AWS.IAM do
   Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*.
 
-  </note> For more information about service last accessed data, see
-  [Reducing Policy Scope by Viewing User
-  Activity](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  </note> For more information about service and action last accessed data,
+  see [Reducing Permissions Using Service Last Accessed
+  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
   """
   def generate_service_last_accessed_details(client, input, options \\ []) do
@@ -1112,8 +1062,9 @@ defmodule AWS.IAM do
   Retrieves information about IAM entity usage and IAM quotas in the AWS
   account.
 
-  For information about limitations on IAM entities, see [Limitations on IAM
-  Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  The number and size of IAM resources in an AWS account are limited. For
+  more information, see [IAM and STS
+  Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def get_account_summary(client, input, options \\ []) do
@@ -1445,6 +1396,16 @@ defmodule AWS.IAM do
   the policy to attempt to access the service
 
   </li> </ul> By default, the list is sorted by service namespace.
+
+  If you specified `ACTION_LEVEL` granularity when you generated the report,
+  this operation returns service and action last accessed data. This includes
+  the most recent access attempt for each tracked action within a service.
+  Otherwise, this operation returns only service data.
+
+  For more information about service and action last accessed data, see
+  [Reducing Permissions Using Service Last Accessed
+  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  in the *IAM User Guide*.
   """
   def get_service_last_accessed_details(client, input, options \\ []) do
     request(client, "GetServiceLastAccessedDetails", input, options)
@@ -2212,14 +2173,14 @@ defmodule AWS.IAM do
   authorization to determine if the simulated policies allow or deny the
   operations.
 
-  If you want to simulate existing policies attached to an IAM user, group,
-  or role, use `SimulatePrincipalPolicy` instead.
+  If you want to simulate existing policies that are attached to an IAM user,
+  group, or role, use `SimulatePrincipalPolicy` instead.
 
-  Context keys are variables maintained by AWS and its services that provide
-  details about the context of an API query request. You can use the
-  `Condition` element of an IAM policy to evaluate context keys. To get the
-  list of context keys that the policies require for correct simulation, use
-  `GetContextKeysForCustomPolicy`.
+  Context keys are variables that are maintained by AWS and its services and
+  which provide details about the context of an API query request. You can
+  use the `Condition` element of an IAM policy to evaluate context keys. To
+  get the list of context keys that the policies require for correct
+  simulation, use `GetContextKeysForCustomPolicy`.
 
   If the output is long, you can use `MaxItems` and `Marker` parameters to
   paginate the results.

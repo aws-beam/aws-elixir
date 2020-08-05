@@ -36,7 +36,17 @@ defmodule AWS.Rekognition do
   about the face in the source image, including the bounding box of the face
   and confidence value.
 
-  If the image doesn't contain Exif metadata, `CompareFaces` returns
+  The `QualityFilter` input parameter allows you to filter out detected faces
+  that don’t meet a required quality bar. The quality bar is based on a
+  variety of common use cases. Use `QualityFilter` to set the quality bar by
+  specifying `LOW`, `MEDIUM`, or `HIGH`. If you do not want to filter
+  detected faces, specify `NONE`. The default value is `NONE`.
+
+  <note> To use quality filtering, you need a collection associated with
+  version 3 of the face model or higher. To get the version of the face model
+  associated with a collection, call `DescribeCollection`.
+
+  </note> If the image doesn't contain Exif metadata, `CompareFaces` returns
   orientation information for the source and target images. Use these values
   to display the images with the correct image orientation.
 
@@ -75,6 +85,41 @@ defmodule AWS.Rekognition do
   """
   def create_collection(client, input, options \\ []) do
     request(client, "CreateCollection", input, options)
+  end
+
+  @doc """
+  Creates a new Amazon Rekognition Custom Labels project. A project is a
+  logical grouping of resources (images, Labels, models) and operations
+  (training, evaluation and detection).
+
+  This operation requires permissions to perform the
+  `rekognition:CreateProject` action.
+  """
+  def create_project(client, input, options \\ []) do
+    request(client, "CreateProject", input, options)
+  end
+
+  @doc """
+  Creates a new version of a model and begins training. Models are managed as
+  part of an Amazon Rekognition Custom Labels project. You can specify one
+  training dataset and one testing dataset. The response from
+  `CreateProjectVersion` is an Amazon Resource Name (ARN) for the version of
+  the model.
+
+  Training takes a while to complete. You can get the current status by
+  calling `DescribeProjectVersions`.
+
+  Once training has successfully completed, call `DescribeProjectVersions` to
+  get the training results and evaluate the model.
+
+  After evaluating the model, you start the model by calling
+  `StartProjectVersion`.
+
+  This operation requires permissions to perform the
+  `rekognition:CreateProjectVersion` action.
+  """
+  def create_project_version(client, input, options \\ []) do
+    request(client, "CreateProjectVersion", input, options)
   end
 
   @doc """
@@ -124,6 +169,33 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Deletes an Amazon Rekognition Custom Labels project. To delete a project
+  you must first delete all models associated with the project. To delete a
+  model, see `DeleteProjectVersion`.
+
+  This operation requires permissions to perform the
+  `rekognition:DeleteProject` action.
+  """
+  def delete_project(client, input, options \\ []) do
+    request(client, "DeleteProject", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon Rekognition Custom Labels model.
+
+  You can't delete a model if it is running or if it is training. To check
+  the status of a model, use the `Status` field returned from
+  `DescribeProjectVersions`. To stop a running model call
+  `StopProjectVersion`. If the model is training, wait until it finishes.
+
+  This operation requires permissions to perform the
+  `rekognition:DeleteProjectVersion` action.
+  """
+  def delete_project_version(client, input, options \\ []) do
+    request(client, "DeleteProjectVersion", input, options)
+  end
+
+  @doc """
   Deletes the stream processor identified by `Name`. You assign the value for
   `Name` when you create the stream processor with `CreateStreamProcessor`.
   You might not be able to use the same name for a stream processor for a few
@@ -146,6 +218,29 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Lists and describes the models in an Amazon Rekognition Custom Labels
+  project. You can specify up to 10 model versions in `ProjectVersionArns`.
+  If you don't specify a value, descriptions for all models are returned.
+
+  This operation requires permissions to perform the
+  `rekognition:DescribeProjectVersions` action.
+  """
+  def describe_project_versions(client, input, options \\ []) do
+    request(client, "DescribeProjectVersions", input, options)
+  end
+
+  @doc """
+  Lists and gets information about your Amazon Rekognition Custom Labels
+  projects.
+
+  This operation requires permissions to perform the
+  `rekognition:DescribeProjects` action.
+  """
+  def describe_projects(client, input, options \\ []) do
+    request(client, "DescribeProjects", input, options)
+  end
+
+  @doc """
   Provides information about a stream processor created by
   `CreateStreamProcessor`. You can get information about the input and output
   streams, the input parameters for the face recognition being performed, and
@@ -156,23 +251,63 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Detects custom labels in a supplied image by using an Amazon Rekognition
+  Custom Labels model.
+
+  You specify which version of a model version to use by using the
+  `ProjectVersionArn` input parameter.
+
+  You pass the input image as base64-encoded image bytes or as a reference to
+  an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon
+  Rekognition operations, passing image bytes is not supported. The image
+  must be either a PNG or JPEG formatted file.
+
+  For each object that the model version detects on an image, the API returns
+  a (`CustomLabel`) object in an array (`CustomLabels`). Each `CustomLabel`
+  object provides the label name (`Name`), the level of confidence that the
+  image contains the object (`Confidence`), and object location information,
+  if it exists, for the label on the image (`Geometry`).
+
+  During training model calculates a threshold value that determines if a
+  prediction for a label is true. By default, `DetectCustomLabels` doesn't
+  return labels whose confidence value is below the model's calculated
+  threshold value. To filter labels that are returned, specify a value for
+  `MinConfidence` that is higher than the model's calculated threshold. You
+  can get the model's calculated threshold from the model's training results
+  shown in the Amazon Rekognition Custom Labels console. To get all labels,
+  regardless of confidence, specify a `MinConfidence` value of 0.
+
+  You can also add the `MaxResults` parameter to limit the number of labels
+  returned.
+
+  This is a stateless API operation. That is, the operation does not persist
+  any data.
+
+  This operation requires permissions to perform the
+  `rekognition:DetectCustomLabels` action.
+  """
+  def detect_custom_labels(client, input, options \\ []) do
+    request(client, "DetectCustomLabels", input, options)
+  end
+
+  @doc """
   Detects faces within an image that is provided as input.
 
   `DetectFaces` detects the 100 largest faces in the image. For each face
   detected, the operation returns face details. These details include a
   bounding box of the face, a confidence value (that the bounding box
   contains a face), and a fixed set of attributes such as facial landmarks
-  (for example, coordinates of eye and mouth), gender, presence of beard,
-  sunglasses, and so on.
+  (for example, coordinates of eye and mouth), presence of beard, sunglasses,
+  and so on.
 
   The face-detection algorithm is most effective on frontal faces. For
   non-frontal or obscured faces, the algorithm might not detect the faces or
   might detect faces with lower confidence.
 
   You pass the input image either as base64-encoded image bytes or as a
-  reference to an image in an Amazon S3 bucket. If you use the to call Amazon
-  Rekognition operations, passing image bytes is not supported. The image
-  must be either a PNG or JPEG formatted file.
+  reference to an image in an Amazon S3 bucket. If you use the AWS CLI to
+  call Amazon Rekognition operations, passing image bytes is not supported.
+  The image must be either a PNG or JPEG formatted file.
 
   <note> This is a stateless API operation. That is, the operation does not
   persist any data.
@@ -576,6 +711,78 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Gets the segment detection results of a Amazon Rekognition Video analysis
+  started by `StartSegmentDetection`.
+
+  Segment detection with Amazon Rekognition Video is an asynchronous
+  operation. You start segment detection by calling `StartSegmentDetection`
+  which returns a job identifier (`JobId`). When the segment detection
+  operation finishes, Amazon Rekognition publishes a completion status to the
+  Amazon Simple Notification Service topic registered in the initial call to
+  `StartSegmentDetection`. To get the results of the segment detection
+  operation, first check that the status value published to the Amazon SNS
+  topic is `SUCCEEDED`. if so, call `GetSegmentDetection` and pass the job
+  identifier (`JobId`) from the initial call of `StartSegmentDetection`.
+
+  `GetSegmentDetection` returns detected segments in an array (`Segments`) of
+  `SegmentDetection` objects. `Segments` is sorted by the segment types
+  specified in the `SegmentTypes` input parameter of `StartSegmentDetection`.
+  Each element of the array includes the detected segment, the precentage
+  confidence in the acuracy of the detected segment, the type of the segment,
+  and the frame in which the segment was detected.
+
+  Use `SelectedSegmentTypes` to find out the type of segment detection
+  requested in the call to `StartSegmentDetection`.
+
+  Use the `MaxResults` parameter to limit the number of segment detections
+  returned. If there are more results than specified in `MaxResults`, the
+  value of `NextToken` in the operation response contains a pagination token
+  for getting the next set of results. To get the next page of results, call
+  `GetSegmentDetection` and populate the `NextToken` request parameter with
+  the token value returned from the previous call to `GetSegmentDetection`.
+
+  For more information, see Detecting Video Segments in Stored Video in the
+  Amazon Rekognition Developer Guide.
+  """
+  def get_segment_detection(client, input, options \\ []) do
+    request(client, "GetSegmentDetection", input, options)
+  end
+
+  @doc """
+  Gets the text detection results of a Amazon Rekognition Video analysis
+  started by `StartTextDetection`.
+
+  Text detection with Amazon Rekognition Video is an asynchronous operation.
+  You start text detection by calling `StartTextDetection` which returns a
+  job identifier (`JobId`) When the text detection operation finishes, Amazon
+  Rekognition publishes a completion status to the Amazon Simple Notification
+  Service topic registered in the initial call to `StartTextDetection`. To
+  get the results of the text detection operation, first check that the
+  status value published to the Amazon SNS topic is `SUCCEEDED`. if so, call
+  `GetTextDetection` and pass the job identifier (`JobId`) from the initial
+  call of `StartLabelDetection`.
+
+  `GetTextDetection` returns an array of detected text (`TextDetections`)
+  sorted by the time the text was detected, up to 50 words per frame of
+  video.
+
+  Each element of the array includes the detected text, the precentage
+  confidence in the acuracy of the detected text, the time the text was
+  detected, bounding box information for where the text was located, and
+  unique identifiers for words and their lines.
+
+  Use MaxResults parameter to limit the number of text detections returned.
+  If there are more results than specified in `MaxResults`, the value of
+  `NextToken` in the operation response contains a pagination token for
+  getting the next set of results. To get the next page of results, call
+  `GetTextDetection` and populate the `NextToken` request parameter with the
+  token value returned from the previous call to `GetTextDetection`.
+  """
+  def get_text_detection(client, input, options \\ []) do
+    request(client, "GetTextDetection", input, options)
+  end
+
+  @doc """
   Detects faces in the input image and adds them to the specified collection.
 
   Amazon Rekognition doesn't save the actual faces that are detected.
@@ -605,7 +812,7 @@ defmodule AWS.Rekognition do
   For more information, see Model Versioning in the Amazon Rekognition
   Developer Guide.
 
-  If you provide the optional `ExternalImageID` for the input image you
+  If you provide the optional `ExternalImageId` for the input image you
   provided, Amazon Rekognition associates this ID with all faces that it
   detects. When you call the `ListFaces` operation, the response returns the
   external ID. You can use this external image ID to create a client-side
@@ -618,14 +825,15 @@ defmodule AWS.Rekognition do
   people standing in the background.
 
   The `QualityFilter` input parameter allows you to filter out detected faces
-  that don’t meet the required quality bar chosen by Amazon Rekognition. The
-  quality bar is based on a variety of common use cases. By default,
-  `IndexFaces` filters detected faces. You can also explicitly filter
-  detected faces by specifying `AUTO` for the value of `QualityFilter`. If
-  you do not want to filter detected faces, specify `NONE`.
+  that don’t meet a required quality bar. The quality bar is based on a
+  variety of common use cases. By default, `IndexFaces` chooses the quality
+  bar that's used to filter faces. You can also explicitly choose the quality
+  bar. Use `QualityFilter`, to set the quality bar by specifying `LOW`,
+  `MEDIUM`, or `HIGH`. If you do not want to filter detected faces, specify
+  `NONE`.
 
   <note> To use quality filtering, you need a collection associated with
-  version 3 of the face model. To get the version of the face model
+  version 3 of the face model or higher. To get the version of the face model
   associated with a collection, call `DescribeCollection`.
 
   </note> Information about faces detected in an image, but not indexed, is
@@ -642,6 +850,9 @@ defmodule AWS.Rekognition do
   </li> <li> The image is too dark.
 
   </li> <li> The face has an extreme pose.
+
+  </li> <li> The face doesn’t have enough detail to be suitable for face
+  search.
 
   </li> </ul> In response, the `IndexFaces` operation returns an array of
   metadata for all detected faces, `FaceRecords`. This includes:
@@ -660,8 +871,8 @@ defmodule AWS.Rekognition do
   </li> </ul> If you request all facial attributes (by using the
   `detectionAttributes` parameter), Amazon Rekognition returns detailed
   facial attributes, such as facial landmarks (for example, location of eye
-  and mouth) and other facial attributes like gender. If you provide the same
-  image, specify the same collection, and use the same external ID in the
+  and mouth) and other facial attributes. If you provide the same image,
+  specify the same collection, and use the same external ID in the
   `IndexFaces` operation, Amazon Rekognition doesn't save duplicate face
   metadata.
 
@@ -806,7 +1017,17 @@ defmodule AWS.Rekognition do
   For an example, Searching for a Face Using an Image in the Amazon
   Rekognition Developer Guide.
 
-  This operation requires permissions to perform the
+  The `QualityFilter` input parameter allows you to filter out detected faces
+  that don’t meet a required quality bar. The quality bar is based on a
+  variety of common use cases. Use `QualityFilter` to set the quality bar for
+  filtering by specifying `LOW`, `MEDIUM`, or `HIGH`. If you do not want to
+  filter detected faces, specify `NONE`. The default value is `NONE`.
+
+  <note> To use quality filtering, you need a collection associated with
+  version 3 of the face model or higher. To get the version of the face model
+  associated with a collection, call `DescribeCollection`.
+
+  </note> This operation requires permissions to perform the
   `rekognition:SearchFacesByImage` action.
   """
   def search_faces_by_image(client, input, options \\ []) do
@@ -946,6 +1167,53 @@ defmodule AWS.Rekognition do
   end
 
   @doc """
+  Starts the running of the version of a model. Starting a model takes a
+  while to complete. To check the current state of the model, use
+  `DescribeProjectVersions`.
+
+  Once the model is running, you can detect custom labels in new images by
+  calling `DetectCustomLabels`.
+
+  <note> You are charged for the amount of time that the model is running. To
+  stop a running model, call `StopProjectVersion`.
+
+  </note> This operation requires permissions to perform the
+  `rekognition:StartProjectVersion` action.
+  """
+  def start_project_version(client, input, options \\ []) do
+    request(client, "StartProjectVersion", input, options)
+  end
+
+  @doc """
+  Starts asynchronous detection of segment detection in a stored video.
+
+  Amazon Rekognition Video can detect segments in a video stored in an Amazon
+  S3 bucket. Use `Video` to specify the bucket name and the filename of the
+  video. `StartSegmentDetection` returns a job identifier (`JobId`) which you
+  use to get the results of the operation. When segment detection is
+  finished, Amazon Rekognition Video publishes a completion status to the
+  Amazon Simple Notification Service topic that you specify in
+  `NotificationChannel`.
+
+  You can use the `Filters` (`StartSegmentDetectionFilters`) input parameter
+  to specify the minimum detection confidence returned in the response.
+  Within `Filters`, use `ShotFilter` (`StartShotDetectionFilter`) to filter
+  detected shots. Use `TechnicalCueFilter`
+  (`StartTechnicalCueDetectionFilter`) to filter technical cues.
+
+  To get the results of the segment detection operation, first check that the
+  status value published to the Amazon SNS topic is `SUCCEEDED`. if so, call
+  `GetSegmentDetection` and pass the job identifier (`JobId`) from the
+  initial call to `StartSegmentDetection`.
+
+  For more information, see Detecting Video Segments in Stored Video in the
+  Amazon Rekognition Developer Guide.
+  """
+  def start_segment_detection(client, input, options \\ []) do
+    request(client, "StartSegmentDetection", input, options)
+  end
+
+  @doc """
   Starts processing a stream processor. You create a stream processor by
   calling `CreateStreamProcessor`. To tell `StartStreamProcessor` which
   stream processor to start, use the value of the `Name` field specified in
@@ -953,6 +1221,33 @@ defmodule AWS.Rekognition do
   """
   def start_stream_processor(client, input, options \\ []) do
     request(client, "StartStreamProcessor", input, options)
+  end
+
+  @doc """
+  Starts asynchronous detection of text in a stored video.
+
+  Amazon Rekognition Video can detect text in a video stored in an Amazon S3
+  bucket. Use `Video` to specify the bucket name and the filename of the
+  video. `StartTextDetection` returns a job identifier (`JobId`) which you
+  use to get the results of the operation. When text detection is finished,
+  Amazon Rekognition Video publishes a completion status to the Amazon Simple
+  Notification Service topic that you specify in `NotificationChannel`.
+
+  To get the results of the text detection operation, first check that the
+  status value published to the Amazon SNS topic is `SUCCEEDED`. if so, call
+  `GetTextDetection` and pass the job identifier (`JobId`) from the initial
+  call to `StartTextDetection`.
+  """
+  def start_text_detection(client, input, options \\ []) do
+    request(client, "StartTextDetection", input, options)
+  end
+
+  @doc """
+  Stops a running model. The operation might take a while to complete. To
+  check the current status, call `DescribeProjectVersions`.
+  """
+  def stop_project_version(client, input, options \\ []) do
+    request(client, "StopProjectVersion", input, options)
   end
 
   @doc """

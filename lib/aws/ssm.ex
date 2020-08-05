@@ -10,23 +10,24 @@ defmodule AWS.SSM do
   system (OS) patches, automating the creation of Amazon Machine Images
   (AMIs), and configuring operating systems (OSs) and applications at scale.
   Systems Manager lets you remotely and securely manage the configuration of
-  your managed instances. A *managed instance* is any Amazon EC2 instance or
-  on-premises machine in your hybrid environment that has been configured for
-  Systems Manager.
+  your managed instances. A *managed instance* is any Amazon Elastic Compute
+  Cloud instance (EC2 instance), or any on-premises server or virtual machine
+  (VM) in your hybrid environment that has been configured for Systems
+  Manager.
 
   This reference is intended to be used with the [AWS Systems Manager User
-  Guide](http://docs.aws.amazon.com/systems-manager/latest/userguide/).
+  Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/).
 
   To get started, verify prerequisites and configure managed instances. For
-  more information, see [Setting Up AWS Systems
-  Manager](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)
+  more information, see [Setting up AWS Systems
+  Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)
   in the *AWS Systems Manager User Guide*.
 
-  For information about other API actions you can perform on Amazon EC2
-  instances, see the [Amazon EC2 API
-  Reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/). For
+  For information about other API actions you can perform on EC2 instances,
+  see the [Amazon EC2 API
+  Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/). For
   information about how to use a Query API, see [Making API
-  Requests](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html).
+  requests](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html).
   """
 
   @doc """
@@ -46,11 +47,12 @@ defmodule AWS.SSM do
   We recommend that you devise a set of tag keys that meets your needs for
   each resource type. Using a consistent set of tag keys makes it easier for
   you to manage your resources. You can search and filter the resources based
-  on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and
-  are interpreted strictly as a string of characters.
+  on the tags you add. Tags don't have any semantic meaning to and are
+  interpreted strictly as a string of characters.
 
-  For more information about tags, see [Tagging Your Amazon EC2
-  Resources](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
+  For more information about using tags with EC2 instances, see [Tagging your
+  Amazon EC2
+  resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
   in the *Amazon EC2 User Guide*.
   """
   def add_tags_to_resource(client, input, options \\ []) do
@@ -76,27 +78,39 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Registers your on-premises server or virtual machine with Amazon EC2 so
-  that you can manage these resources using Run Command. An on-premises
-  server or virtual machine that has been registered with EC2 is called a
-  managed instance. For more information about activations, see [Setting Up
-  AWS Systems Manager for Hybrid
-  Environments](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html).
+  Generates an activation code and activation ID you can use to register your
+  on-premises server or virtual machine (VM) with Systems Manager.
+  Registering these machines with Systems Manager makes it possible to manage
+  them using Systems Manager capabilities. You use the activation code and ID
+  when installing SSM Agent on machines in your hybrid environment. For more
+  information about requirements for managing on-premises instances and VMs
+  using Systems Manager, see [Setting up AWS Systems Manager for hybrid
+  environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html)
+  in the *AWS Systems Manager User Guide*.
+
+  <note> On-premises servers or VMs that are registered with Systems Manager
+  and EC2 instances that you manage with Systems Manager are all called
+  *managed instances*.
+
+  </note>
   """
   def create_activation(client, input, options \\ []) do
     request(client, "CreateActivation", input, options)
   end
 
   @doc """
-  Associates the specified Systems Manager document with the specified
-  instances or targets.
-
-  When you associate a document with one or more instances using instance IDs
-  or tags, SSM Agent running on the instance processes the document and
-  configures the instance as specified.
-
-  If you associate a document with an instance that already has an associated
-  document, the system returns the AssociationAlreadyExists exception.
+  A State Manager association defines the state that you want to maintain on
+  your instances. For example, an association can specify that anti-virus
+  software must be installed and running on your instances, or that certain
+  ports must be closed. For static targets, the association specifies a
+  schedule for when the configuration is reapplied. For dynamic targets, such
+  as an AWS Resource Group or an AWS Autoscaling Group, State Manager applies
+  the configuration when new instances are added to the group. The
+  association also specifies actions to take when applying the configuration.
+  For example, an association for anti-virus software might run once a day.
+  If the software is not installed, then State Manager installs it. If the
+  software is installed, but the service is not running, then the association
+  might instruct State Manager to start the service.
   """
   def create_association(client, input, options \\ []) do
     request(client, "CreateAssociation", input, options)
@@ -118,10 +132,12 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Creates a Systems Manager document.
-
-  After you create a document, you can use CreateAssociation to associate it
-  with one or more running instances.
+  Creates a Systems Manager (SSM) document. An SSM document defines the
+  actions that Systems Manager performs on your managed instances. For more
+  information about SSM documents, including information about supported
+  schemas, features, and syntax, see [AWS Systems Manager
+  Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html)
+  in the *AWS Systems Manager User Guide*.
   """
   def create_document(client, input, options \\ []) do
     request(client, "CreateDocument", input, options)
@@ -147,15 +163,15 @@ defmodule AWS.SSM do
   @doc """
   Creates a new OpsItem. You must have permission in AWS Identity and Access
   Management (IAM) to create a new OpsItem. For more information, see
-  [Getting Started with
-  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  [Getting started with
+  OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
   in the *AWS Systems Manager User Guide*.
 
   Operations engineers and IT professionals use OpsCenter to view,
   investigate, and remediate operational issues impacting the performance and
   health of their AWS resources. For more information, see [AWS Systems
   Manager
-  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the *AWS Systems Manager User Guide*.
   """
   def create_ops_item(client, input, options \\ []) do
@@ -176,19 +192,36 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Creates a resource data sync configuration to a single bucket in Amazon S3.
-  This is an asynchronous operation that returns immediately. After a
-  successful initial sync is completed, the system continuously syncs data to
-  the Amazon S3 bucket. To check the status of the sync, use the
-  `ListResourceDataSync`.
+  A resource data sync helps you view data from multiple sources in a single
+  location. Systems Manager offers two types of resource data sync:
+  `SyncToDestination` and `SyncFromSource`.
 
-  By default, data is not encrypted in Amazon S3. We strongly recommend that
-  you enable encryption in Amazon S3 to ensure secure data storage. We also
-  recommend that you secure access to the Amazon S3 bucket by creating a
-  restrictive bucket policy. For more information, see [Configuring Resource
-  Data Sync for
-  Inventory](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html)
+  You can configure Systems Manager Inventory to use the `SyncToDestination`
+  type to synchronize Inventory data from multiple AWS Regions to a single S3
+  bucket. For more information, see [Configuring Resource Data Sync for
+  Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html)
   in the *AWS Systems Manager User Guide*.
+
+  You can configure Systems Manager Explorer to use the `SyncFromSource` type
+  to synchronize operational work items (OpsItems) and operational data
+  (OpsData) from multiple AWS Regions to a single S3 bucket. This type can
+  synchronize OpsItems and OpsData from multiple AWS accounts and Regions or
+  `EntireOrganization` by using AWS Organizations. For more information, see
+  [Setting up Systems Manager Explorer to display data from multiple accounts
+  and
+  Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html)
+  in the *AWS Systems Manager User Guide*.
+
+  A resource data sync is an asynchronous operation that returns immediately.
+  After a successful initial sync is completed, the system continuously syncs
+  data. To check the status of a sync, use the `ListResourceDataSync`.
+
+  <note> By default, data is not encrypted in Amazon S3. We strongly
+  recommend that you enable encryption in Amazon S3 to ensure secure data
+  storage. We also recommend that you secure access to the Amazon S3 bucket
+  by creating a restrictive bucket policy.
+
+  </note>
   """
   def create_resource_data_sync(client, input, options \\ []) do
     request(client, "CreateResourceDataSync", input, options)
@@ -268,9 +301,8 @@ defmodule AWS.SSM do
 
   @doc """
   Deletes a Resource Data Sync configuration. After the configuration is
-  deleted, changes to inventory data on managed instances are no longer
-  synced with the target Amazon S3 bucket. Deleting a sync configuration does
-  not delete data in the target Amazon S3 bucket.
+  deleted, changes to data on managed instances are no longer synced to or
+  from the target. Deleting a sync configuration does not delete data.
   """
   def delete_resource_data_sync(client, input, options \\ []) do
     request(client, "DeleteResourceDataSync", input, options)
@@ -406,17 +438,18 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Describes one or more of your instances. You can use this to get
-  information about instances like the operating system platform, the SSM
-  Agent version (Linux), status etc. If you specify one or more instance IDs,
-  it returns information for those instances. If you do not specify instance
-  IDs, it returns information for all your instances. If you specify an
-  instance ID that is not valid or an instance that you do not own, you
-  receive an error.
+  Describes one or more of your instances, including information about the
+  operating system platform, the version of SSM Agent installed on the
+  instance, instance status, and so on.
+
+  If you specify one or more instance IDs, it returns information for those
+  instances. If you do not specify instance IDs, it returns information for
+  all your instances. If you specify an instance ID that is not valid or an
+  instance that you do not own, you receive an error.
 
   <note> The IamRole field for this API action is the Amazon Identity and
   Access Management (IAM) role assigned to on-premises instances. This call
-  does not return the IAM role for Amazon EC2 instances.
+  does not return the IAM role for EC2 instances.
 
   </note>
   """
@@ -517,15 +550,15 @@ defmodule AWS.SSM do
   @doc """
   Query a set of OpsItems. You must have permission in AWS Identity and
   Access Management (IAM) to query a list of OpsItems. For more information,
-  see [Getting Started with
-  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  see [Getting started with
+  OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
   in the *AWS Systems Manager User Guide*.
 
   Operations engineers and IT professionals use OpsCenter to view,
   investigate, and remediate operational issues impacting the performance and
   health of their AWS resources. For more information, see [AWS Systems
   Manager
-  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the *AWS Systems Manager User Guide*.
   """
   def describe_ops_items(client, input, options \\ []) do
@@ -535,13 +568,15 @@ defmodule AWS.SSM do
   @doc """
   Get information about a parameter.
 
-  Request results are returned on a best-effort basis. If you specify
+  <note> Request results are returned on a best-effort basis. If you specify
   `MaxResults` in the request, the response includes information up to the
   limit specified. The number of items returned, however, can be between zero
   and the value of `MaxResults`. If the service reaches an internal limit
   while processing the results, it stops the operation and returns the
   matching values up to that point and a `NextToken`. You can specify the
   `NextToken` in a subsequent call to get the next set of results.
+
+  </note>
   """
   def describe_parameters(client, input, options \\ []) do
     request(client, "DescribeParameters", input, options)
@@ -620,6 +655,21 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Gets the state of the AWS Systems Manager Change Calendar at an optional,
+  specified time. If you specify a time, `GetCalendarState` returns the state
+  of the calendar at a specific time, and returns the next time that the
+  Change Calendar state will transition. If you do not specify a time,
+  `GetCalendarState` assumes the current time. Change Calendar entries have
+  two possible states: `OPEN` or `CLOSED`. For more information about Systems
+  Manager Change Calendar, see [AWS Systems Manager Change
+  Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html)
+  in the *AWS Systems Manager User Guide*.
+  """
+  def get_calendar_state(client, input, options \\ []) do
+    request(client, "GetCalendarState", input, options)
+  end
+
+  @doc """
   Returns detailed information about command execution for an invocation or
   plugin.
   """
@@ -629,7 +679,7 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves the Session Manager connection status for an instance to
-  determine whether it is connected and ready to receive Session Manager
+  determine whether it is running and ready to receive Session Manager
   connections.
   """
   def get_connection_status(client, input, options \\ []) do
@@ -718,15 +768,15 @@ defmodule AWS.SSM do
   @doc """
   Get information about an OpsItem by using the ID. You must have permission
   in AWS Identity and Access Management (IAM) to view information about an
-  OpsItem. For more information, see [Getting Started with
-  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  OpsItem. For more information, see [Getting started with
+  OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
   in the *AWS Systems Manager User Guide*.
 
   Operations engineers and IT professionals use OpsCenter to view,
   investigate, and remediate operational issues impacting the performance and
   health of their AWS resources. For more information, see [AWS Systems
   Manager
-  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the *AWS Systems Manager User Guide*.
   """
   def get_ops_item(client, input, options \\ []) do
@@ -764,20 +814,15 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Retrieve parameters in a specific hierarchy. For more information, see
-  [Working with Systems Manager
-  Parameters](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html)
-  in the *AWS Systems Manager User Guide*.
+  Retrieve information about one or more parameters in a specific hierarchy.
 
-  Request results are returned on a best-effort basis. If you specify
+  <note> Request results are returned on a best-effort basis. If you specify
   `MaxResults` in the request, the response includes information up to the
   limit specified. The number of items returned, however, can be between zero
   and the value of `MaxResults`. If the service reaches an internal limit
   while processing the results, it stops the operation and returns the
   matching values up to that point and a `NextToken`. You can specify the
   `NextToken` in a subsequent call to get the next set of results.
-
-  <note> This API action doesn't support filtering by tags.
 
   </note>
   """
@@ -871,8 +916,9 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Lists the associations for the specified Systems Manager document or
-  instance.
+  Returns all State Manager associations in the current AWS account and
+  Region. You can limit the results to a specific State Manager association
+  document or instance by specifying a filter.
   """
   def list_associations(client, input, options \\ []) do
     request(client, "ListAssociations", input, options)
@@ -924,7 +970,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Describes one or more of your Systems Manager documents.
+  Returns all Systems Manager (SSM) documents in the current AWS account and
+  Region. You can limit the results of this request by using a filter.
   """
   def list_documents(client, input, options \\ []) do
     request(client, "ListDocuments", input, options)
@@ -1165,9 +1212,9 @@ defmodule AWS.SSM do
 
   <note> AWS CLI usage: `start-session` is an interactive command that
   requires the Session Manager plugin to be installed on the client machine
-  making the call. For information, see [ Install the Session Manager Plugin
+  making the call. For information, see [Install the Session Manager plugin
   for the AWS
-  CLI](http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
+  CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
   in the *AWS Systems Manager User Guide*.
 
   AWS Tools for PowerShell usage: Start-SSMSession is not currently supported
@@ -1310,8 +1357,10 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Assigns or changes an Amazon Identity and Access Management (IAM) role for
-  the managed instance.
+  Changes the Amazon Identity and Access Management (IAM) role that is
+  assigned to the on-premises instance or virtual machines (VM). IAM roles
+  are first assigned to these hybrid instances during the activation process.
+  For more information, see `CreateActivation`.
   """
   def update_managed_instance_role(client, input, options \\ []) do
     request(client, "UpdateManagedInstanceRole", input, options)
@@ -1320,15 +1369,15 @@ defmodule AWS.SSM do
   @doc """
   Edit or change an OpsItem. You must have permission in AWS Identity and
   Access Management (IAM) to update an OpsItem. For more information, see
-  [Getting Started with
-  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  [Getting started with
+  OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
   in the *AWS Systems Manager User Guide*.
 
   Operations engineers and IT professionals use OpsCenter to view,
   investigate, and remediate operational issues impacting the performance and
   health of their AWS resources. For more information, see [AWS Systems
   Manager
-  OpsCenter](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the *AWS Systems Manager User Guide*.
   """
   def update_ops_item(client, input, options \\ []) do
@@ -1347,6 +1396,24 @@ defmodule AWS.SSM do
   """
   def update_patch_baseline(client, input, options \\ []) do
     request(client, "UpdatePatchBaseline", input, options)
+  end
+
+  @doc """
+  Update a resource data sync. After you create a resource data sync for a
+  Region, you can't change the account options for that sync. For example, if
+  you create a sync in the us-east-2 (Ohio) Region and you choose the Include
+  only the current account option, you can't edit that sync later and choose
+  the Include all accounts from my AWS Organizations configuration option.
+  Instead, you must delete the first resource data sync, and create a new
+  one.
+
+  <note> This API action only supports a resource data sync that was created
+  with a SyncFromSource `SyncType`.
+
+  </note>
+  """
+  def update_resource_data_sync(client, input, options \\ []) do
+    request(client, "UpdateResourceDataSync", input, options)
   end
 
   @doc """

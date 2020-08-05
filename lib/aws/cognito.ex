@@ -28,9 +28,8 @@ defmodule AWS.Cognito do
 
   @doc """
   Creates a new identity pool. The identity pool is a store of user identity
-  information that is specific to your AWS account. The limit on identity
-  pools is 60 per account. The keys for `SupportedLoginProviders` are as
-  follows:
+  information that is specific to your AWS account. The keys for
+  `SupportedLoginProviders` are as follows:
 
   <ul> <li> Facebook: `graph.facebook.com`
 

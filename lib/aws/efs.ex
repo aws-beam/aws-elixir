@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.EFS do
   @moduledoc """
@@ -12,6 +12,26 @@ defmodule AWS.EFS do
   when they need it. For more information, see the [User
   Guide](https://docs.aws.amazon.com/efs/latest/ug/api-reference.html).
   """
+
+  @doc """
+  Creates an EFS access point. An access point is an application-specific
+  view into an EFS file system that applies an operating system user and
+  group, and a file system path, to any file system request made through the
+  access point. The operating system user and group override any identity
+  information provided by the NFS client. The file system path is exposed as
+  the access point's root directory. Applications using the access point can
+  only access data in its own directory and below. To learn more, see
+  [Mounting a File System Using EFS Access
+  Points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
+
+  This operation requires permissions for the
+  `elasticfilesystem:CreateAccessPoint` action.
+  """
+  def create_access_point(client, input, options \\ []) do
+    path = "/2015-02-01/access-points"
+    headers = []
+    request(client, :post, path, headers, input, options, 200)
+  end
 
   @doc """
   Creates a new, empty file system. The operation requires a creation token
@@ -203,6 +223,21 @@ defmodule AWS.EFS do
   end
 
   @doc """
+  Deletes the specified access point. After deletion is complete, new clients
+  can no longer connect to the access points. Clients connected to the access
+  point at the time of deletion will continue to function until they
+  terminate their connection.
+
+  This operation requires permissions for the
+  `elasticfilesystem:DeleteAccessPoint` action.
+  """
+  def delete_access_point(client, access_point_id, input, options \\ []) do
+    path = "/2015-02-01/access-points/#{URI.encode(access_point_id)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, 204)
+  end
+
+  @doc """
   Deletes a file system, permanently severing access to its contents. Upon
   return, the file system no longer exists and you can't access any contents
   of the deleted file system.
@@ -225,6 +260,22 @@ defmodule AWS.EFS do
     path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
     headers = []
     request(client, :delete, path, headers, input, options, 204)
+  end
+
+  @doc """
+  Deletes the `FileSystemPolicy` for the specified file system. The default
+  `FileSystemPolicy` goes into effect once the existing policy is deleted.
+  For more information about the default file system policy, see [Using
+  Resource-based Policies with
+  EFS](https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html).
+
+  This operation requires permissions for the
+  `elasticfilesystem:DeleteFileSystemPolicy` action.
+  """
+  def delete_file_system_policy(client, file_system_id, input, options \\ []) do
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    headers = []
+    request(client, :delete, path, headers, input, options, 200)
   end
 
   @doc """
@@ -278,6 +329,43 @@ defmodule AWS.EFS do
     path = "/2015-02-01/delete-tags/#{URI.encode(file_system_id)}"
     headers = []
     request(client, :post, path, headers, input, options, 204)
+  end
+
+  @doc """
+  Returns the description of a specific Amazon EFS access point if the
+  `AccessPointId` is provided. If you provide an EFS `FileSystemId`, it
+  returns descriptions of all access points for that file system. You can
+  provide either an `AccessPointId` or a `FileSystemId` in the request, but
+  not both.
+
+  This operation requires permissions for the
+  `elasticfilesystem:DescribeAccessPoints` action.
+  """
+  def describe_access_points(client, options \\ []) do
+    path = "/2015-02-01/access-points"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the backup policy for the specified EFS file system.
+  """
+  def describe_backup_policy(client, file_system_id, options \\ []) do
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the `FileSystemPolicy` for the specified EFS file system.
+
+  This operation requires permissions for the
+  `elasticfilesystem:DescribeFileSystemPolicy` action.
+  """
+  def describe_file_system_policy(client, file_system_id, options \\ []) do
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
   end
 
   @doc """
@@ -383,6 +471,19 @@ defmodule AWS.EFS do
   end
 
   @doc """
+  Lists all tags for a top-level EFS resource. You must provide the ID of the
+  resource that you want to retrieve the tags for.
+
+  This operation requires permissions for the
+  `elasticfilesystem:DescribeAccessPoints` action.
+  """
+  def list_tags_for_resource(client, resource_id, options \\ []) do
+    path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
+  end
+
+  @doc """
   Modifies the set of security groups in effect for a mount target.
 
   When you create a mount target, Amazon EFS also creates a new network
@@ -406,6 +507,35 @@ defmodule AWS.EFS do
     path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
     request(client, :put, path, headers, input, options, 204)
+  end
+
+  @doc """
+  Updates the file system's backup policy. Use this action to start or stop
+  automatic backups of the file system.
+  """
+  def put_backup_policy(client, file_system_id, input, options \\ []) do
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
+    headers = []
+    request(client, :put, path, headers, input, options, 200)
+  end
+
+  @doc """
+  Applies an Amazon EFS `FileSystemPolicy` to an Amazon EFS file system. A
+  file system policy is an IAM resource-based policy and can contain multiple
+  policy statements. A file system always has exactly one file system policy,
+  which can be the default policy or an explicit policy set or updated using
+  this API operation. When an explicit policy is set, it overrides the
+  default policy. For more information about the default file system policy,
+  see [Default EFS File System
+  Policy](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy).
+
+  This operation requires permissions for the
+  `elasticfilesystem:PutFileSystemPolicy` action.
+  """
+  def put_file_system_policy(client, file_system_id, input, options \\ []) do
+    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    headers = []
+    request(client, :put, path, headers, input, options, 200)
   end
 
   @doc """
@@ -443,6 +573,32 @@ defmodule AWS.EFS do
     path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
     headers = []
     request(client, :put, path, headers, input, options, 200)
+  end
+
+  @doc """
+  Creates a tag for an EFS resource. You can create tags for EFS file systems
+  and access points using this API operation.
+
+  This operation requires permissions for the `elasticfilesystem:TagResource`
+  action.
+  """
+  def tag_resource(client, resource_id, input, options \\ []) do
+    path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+    headers = []
+    request(client, :post, path, headers, input, options, 200)
+  end
+
+  @doc """
+  Removes tags from an EFS resource. You can remove tags from EFS file
+  systems and access points using this API operation.
+
+  This operation requires permissions for the
+  `elasticfilesystem:UntagResource` action.
+  """
+  def untag_resource(client, resource_id, input, options \\ []) do
+    path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, 200)
   end
 
   @doc """
@@ -490,7 +646,7 @@ defmodule AWS.EFS do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -507,7 +663,7 @@ defmodule AWS.EFS do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

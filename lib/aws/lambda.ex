@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.Lambda do
   @moduledoc """
@@ -42,13 +42,12 @@ defmodule AWS.Lambda do
   To grant permission to another account, specify the account ID as the
   `Principal`. For AWS services, the principal is a domain-style identifier
   defined by the service, like `s3.amazonaws.com` or `sns.amazonaws.com`. For
-  AWS services, you can also specify the ARN or owning account of the
-  associated resource as the `SourceArn` or `SourceAccount`. If you grant
-  permission to a service principal without specifying the source, other
-  accounts could potentially configure resources in their account to invoke
-  your Lambda function.
+  AWS services, you can also specify the ARN of the associated resource as
+  the `SourceArn`. If you grant permission to a service principal without
+  specifying the source, other accounts could potentially configure resources
+  in their account to invoke your Lambda function.
 
-  This action adds a statement to a resource-based permission policy for the
+  This action adds a statement to a resource-based permissions policy for the
   function. For more information about function policies, see [Lambda
   Function
   Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
@@ -82,13 +81,31 @@ defmodule AWS.Lambda do
   For details about each event source type, see the following topics.
 
   <ul> <li> [Using AWS Lambda with Amazon
+  DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html)
+
+  </li> <li> [Using AWS Lambda with Amazon
   Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)
 
   </li> <li> [Using AWS Lambda with Amazon
   SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html)
 
-  </li> <li> [Using AWS Lambda with Amazon
-  DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html)
+  </li> </ul> The following error handling options are only available for
+  stream sources (DynamoDB and Kinesis):
+
+  <ul> <li> `BisectBatchOnFunctionError` - If the function returns an error,
+  split the batch in two and retry.
+
+  </li> <li> `DestinationConfig` - Send discarded records to an Amazon SQS
+  queue or Amazon SNS topic.
+
+  </li> <li> `MaximumRecordAgeInSeconds` - Discard records older than the
+  specified age.
+
+  </li> <li> `MaximumRetryAttempts` - Discard records after the specified
+  number of retries.
+
+  </li> <li> `ParallelizationFactor` - Process multiple batches from each
+  shard concurrently.
 
   </li> </ul>
   """
@@ -106,6 +123,14 @@ defmodule AWS.Lambda do
   The deployment package contains your function code. The execution role
   grants the function permission to use AWS services, such as Amazon
   CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
+
+  When you create a function, Lambda provisions an instance of the function
+  and its supporting resources. If your function connects to a VPC, this
+  process can take a minute or so. During this time, you can't invoke or
+  modify the function. The `State`, `StateReason`, and `StateReasonCode`
+  fields in the response from `GetFunctionConfiguration` indicate when the
+  function is ready to invoke. For more information, see [Function
+  States](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
 
   A function has an unpublished version, and can have published versions and
   aliases. The unpublished version changes when you update your function's
@@ -131,7 +156,7 @@ defmodule AWS.Lambda do
   response to events in other AWS services, create an event source mapping
   (`CreateEventSourceMapping`), or configure a function trigger in the other
   service. For more information, see [Invoking
-  Functions](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-functions.html).
+  Functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
   """
   def create_function(client, input, options \\ []) do
     path = "/2015-03-31/functions"
@@ -154,6 +179,9 @@ defmodule AWS.Lambda do
   mapping](https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html).
   You can get the identifier of a mapping from the output of
   `ListEventSourceMappings`.
+
+  When you delete an event source mapping, it enters a `Deleting` state and
+  might not be completely deleted for several seconds.
   """
   def delete_event_source_mapping(client, uuid, input, options \\ []) do
     path = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
@@ -186,6 +214,19 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Deletes the configuration for asynchronous invocation for a function,
+  version, or alias.
+
+  To configure options for asynchronous invocation, use
+  `PutFunctionEventInvokeConfig`.
+  """
+  def delete_function_event_invoke_config(client, function_name, input, options \\ []) do
+    path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
+    headers = []
+    request(client, :delete, path, headers, input, options, 204)
+  end
+
+  @doc """
   Deletes a version of an [AWS Lambda
   layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
   Deleted versions can no longer be viewed or added to functions. To avoid
@@ -194,6 +235,15 @@ defmodule AWS.Lambda do
   """
   def delete_layer_version(client, layer_name, version_number, input, options \\ []) do
     path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}"
+    headers = []
+    request(client, :delete, path, headers, input, options, 204)
+  end
+
+  @doc """
+  Deletes the provisioned concurrency configuration for a function.
+  """
+  def delete_provisioned_concurrency_config(client, function_name, input, options \\ []) do
+    path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
     headers = []
     request(client, :delete, path, headers, input, options, 204)
   end
@@ -242,6 +292,17 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Returns details about the reserved concurrency configuration for a
+  function. To set a concurrency limit for a function, use
+  `PutFunctionConcurrency`.
+  """
+  def get_function_concurrency(client, function_name, options \\ []) do
+    path = "/2019-09-30/functions/#{URI.encode(function_name)}/concurrency"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the version-specific settings of a Lambda function or version. The
   output includes only options that can vary between versions of a function.
   To modify these settings, use `UpdateFunctionConfiguration`.
@@ -251,6 +312,19 @@ defmodule AWS.Lambda do
   """
   def get_function_configuration(client, function_name, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the configuration for asynchronous invocation for a function,
+  version, or alias.
+
+  To configure options for asynchronous invocation, use
+  `PutFunctionEventInvokeConfig`.
+  """
+  def get_function_event_invoke_config(client, function_name, options \\ []) do
+    path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
     headers = []
     request(client, :get, path, headers, nil, options, 200)
   end
@@ -300,18 +374,28 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Retrieves the provisioned concurrency configuration for a function's alias
+  or version.
+  """
+  def get_provisioned_concurrency_config(client, function_name, options \\ []) do
+    path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
+  end
+
+  @doc """
   Invokes a Lambda function. You can invoke a function synchronously (and
   wait for the response), or asynchronously. To invoke a function
   asynchronously, set `InvocationType` to `Event`.
 
-  For synchronous invocation, details about the function response, including
-  errors, are included in the response body and headers. For either
-  invocation type, you can find more information in the [execution
+  For [synchronous
+  invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html),
+  details about the function response, including errors, are included in the
+  response body and headers. For either invocation type, you can find more
+  information in the [execution
   log](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html)
-  and [trace](https://docs.aws.amazon.com/lambda/latest/dg/dlq.html). To
-  record function errors for asynchronous invocations, configure your
-  function with a [dead letter
-  queue](https://docs.aws.amazon.com/lambda/latest/dg/dlq.html).
+  and
+  [trace](https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html).
 
   When an error occurs, your function may be invoked multiple times. Retry
   behavior varies by error type, client, event source, and invocation type.
@@ -319,6 +403,15 @@ defmodule AWS.Lambda do
   error, Lambda executes the function up to two more times. For more
   information, see [Retry
   Behavior](https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html).
+
+  For [asynchronous
+  invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html),
+  Lambda adds events to a queue before sending them to your function. If your
+  function does not have enough capacity to keep up with the queue, events
+  may be lost. Occasionally, your function may receive the same event
+  multiple times, even if no error occurs. To retain events that were not
+  processed, configure your function with a [dead-letter
+  queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq).
 
   The status code in the API response doesn't reflect function errors. Error
   codes are reserved for errors that prevent your function from executing,
@@ -335,7 +428,9 @@ defmodule AWS.Lambda do
   client, SDK, firewall, proxy, or operating system to allow for long
   connections with timeout or keep-alive settings.
 
-  This operation requires permission for the `lambda:InvokeFunction` action.
+  This operation requires permission for the
+  [lambda:InvokeFunction](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html)
+  action.
   """
   def invoke(client, function_name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/invocations"
@@ -362,7 +457,7 @@ defmodule AWS.Lambda do
               {_header_name, value} -> Map.put(acc, key, value)
             end
           end)
-        
+
         {:ok, body, response}
 
       result ->
@@ -403,8 +498,21 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Retrieves a list of configurations for asynchronous invocation for a
+  function.
+
+  To configure options for asynchronous invocation, use
+  `PutFunctionEventInvokeConfig`.
+  """
+  def list_function_event_invoke_configs(client, function_name, options \\ []) do
+    path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config/list"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of Lambda functions, with the version-specific configuration
-  of each.
+  of each. Lambda returns up to 50 functions per call.
 
   Set `FunctionVersion` to `ALL` to include all published versions of each
   function in addition to the unpublished version. To get more information
@@ -445,6 +553,15 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Retrieves a list of provisioned concurrency configurations for a function.
+  """
+  def list_provisioned_concurrency_configs(client, function_name, options \\ []) do
+    path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency?List=ALL"
+    headers = []
+    request(client, :get, path, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a function's
   [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html). You can
   also view tags with `GetFunction`.
@@ -458,7 +575,8 @@ defmodule AWS.Lambda do
   @doc """
   Returns a list of
   [versions](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html),
-  with the version-specific configuration of each.
+  with the version-specific configuration of each. Lambda returns up to 50
+  versions per call.
   """
   def list_versions_by_function(client, function_name, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
@@ -470,7 +588,7 @@ defmodule AWS.Lambda do
   Creates an [AWS Lambda
   layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
   from a ZIP archive. Each time you call `PublishLayerVersion` with the same
-  version name, a new version is created.
+  layer name, a new version is created.
 
   Add layers to your function with `CreateFunction` or
   `UpdateFunctionConfiguration`.
@@ -512,7 +630,7 @@ defmodule AWS.Lambda do
   events simultaneously, and prevents it from scaling beyond that level. Use
   `GetFunction` to see the current setting for a function.
 
-  Use `GetAccountSettings` to see your regional concurrency limit. You can
+  Use `GetAccountSettings` to see your Regional concurrency limit. You can
   reserve concurrency for as many functions as you like, as long as you leave
   at least 100 simultaneous executions unreserved for functions that aren't
   configured with a per-function limit. For more information, see [Managing
@@ -522,6 +640,44 @@ defmodule AWS.Lambda do
     path = "/2017-10-31/functions/#{URI.encode(function_name)}/concurrency"
     headers = []
     request(client, :put, path, headers, input, options, 200)
+  end
+
+  @doc """
+  Configures options for [asynchronous
+  invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html)
+  on a function, version, or alias. If a configuration already exists for a
+  function, version, or alias, this operation overwrites it. If you exclude
+  any settings, they are removed. To set one option without affecting
+  existing settings for other options, use `UpdateFunctionEventInvokeConfig`.
+
+  By default, Lambda retries an asynchronous invocation twice if the function
+  returns an error. It retains events in a queue for up to six hours. When an
+  event fails all processing attempts or stays in the asynchronous invocation
+  queue for too long, Lambda discards it. To retain discarded events,
+  configure a dead-letter queue with `UpdateFunctionConfiguration`.
+
+  To send an invocation record to a queue, topic, function, or event bus,
+  specify a
+  [destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations).
+  You can configure separate destinations for successful invocations
+  (on-success) and events that fail all processing attempts (on-failure). You
+  can configure destinations in addition to or instead of a dead-letter
+  queue.
+  """
+  def put_function_event_invoke_config(client, function_name, input, options \\ []) do
+    path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
+    headers = []
+    request(client, :put, path, headers, input, options, 200)
+  end
+
+  @doc """
+  Adds a provisioned concurrency configuration to a function's alias or
+  version.
+  """
+  def put_provisioned_concurrency_config(client, function_name, input, options \\ []) do
+    path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
+    headers = []
+    request(client, :put, path, headers, input, options, 202)
   end
 
   @doc """
@@ -580,6 +736,26 @@ defmodule AWS.Lambda do
   Updates an event source mapping. You can change the function that AWS
   Lambda invokes, or pause invocation and resume later from the same
   location.
+
+  The following error handling options are only available for stream sources
+  (DynamoDB and Kinesis):
+
+  <ul> <li> `BisectBatchOnFunctionError` - If the function returns an error,
+  split the batch in two and retry.
+
+  </li> <li> `DestinationConfig` - Send discarded records to an Amazon SQS
+  queue or Amazon SNS topic.
+
+  </li> <li> `MaximumRecordAgeInSeconds` - Discard records older than the
+  specified age.
+
+  </li> <li> `MaximumRetryAttempts` - Discard records after the specified
+  number of retries.
+
+  </li> <li> `ParallelizationFactor` - Process multiple batches from each
+  shard concurrently.
+
+  </li> </ul>
   """
   def update_event_source_mapping(client, uuid, input, options \\ []) do
     path = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
@@ -602,6 +778,16 @@ defmodule AWS.Lambda do
   @doc """
   Modify the version-specific settings of a Lambda function.
 
+  When you update a function, Lambda provisions an instance of the function
+  and its supporting resources. If your function connects to a VPC, this
+  process can take a minute. During this time, you can't modify the function,
+  but you can still invoke it. The `LastUpdateStatus`,
+  `LastUpdateStatusReason`, and `LastUpdateStatusReasonCode` fields in the
+  response from `GetFunctionConfiguration` indicate when the update is
+  complete and the function is processing events with the new configuration.
+  For more information, see [Function
+  States](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html).
+
   These settings can vary between versions of a function and are locked when
   you publish a version. You can't modify the configuration of a published
   version, only the unpublished version.
@@ -613,6 +799,19 @@ defmodule AWS.Lambda do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
     headers = []
     request(client, :put, path, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the configuration for asynchronous invocation for a function,
+  version, or alias.
+
+  To configure options for asynchronous invocation, use
+  `PutFunctionEventInvokeConfig`.
+  """
+  def update_function_event_invoke_config(client, function_name, input, options \\ []) do
+    path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
+    headers = []
+    request(client, :post, path, headers, input, options, 200)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
@@ -650,7 +849,7 @@ defmodule AWS.Lambda do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -667,7 +866,7 @@ defmodule AWS.Lambda do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

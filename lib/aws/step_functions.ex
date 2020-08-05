@@ -55,7 +55,9 @@ defmodule AWS.StepFunctions do
   that can do work (`Task` states), determine to which states to transition
   next (`Choice` states), stop an execution with an error (`Fail` states),
   and so on. State machines are specified using a JSON-based, structured
-  language.
+  language. For more information, see [Amazon States
+  Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html)
+  in the AWS Step Functions User Guide.
 
   <note> This operation is eventually consistent. The results are best effort
   and may not reflect very recent updates and changes.
@@ -63,10 +65,11 @@ defmodule AWS.StepFunctions do
   </note> <note> `CreateStateMachine` is an idempotent API. Subsequent
   requests won’t create a duplicate resource if it was already created.
   `CreateStateMachine`'s idempotency check is based on the state machine
-  `name` and `definition`. If a following request has a different `roleArn`
-  or `tags`, Step Functions will ignore these differences and treat it as an
-  idempotent request of the previous. In this case, `roleArn` and `tags` will
-  not be updated, even if they are different.
+  `name`, `definition`, `type`, and `LoggingConfiguration`. If a following
+  request has a different `roleArn` or `tags`, Step Functions will ignore
+  these differences and treat it as an idempotent request of the previous. In
+  this case, `roleArn` and `tags` will not be updated, even if they are
+  different.
 
   </note>
   """
@@ -83,12 +86,11 @@ defmodule AWS.StepFunctions do
 
   @doc """
   Deletes a state machine. This is an asynchronous operation: It sets the
-  state machine's status to `DELETING` and begins the deletion process. Each
-  state machine execution is deleted the next time it makes a state
-  transition.
+  state machine's status to `DELETING` and begins the deletion process.
 
-  <note> The state machine itself is deleted after all executions are
-  completed or deleted.
+  <note> For `EXPRESS`state machines, the deletion will happen eventually
+  (usually less than a minute). Running executions may emit logs after
+  `DeleteStateMachine` API is called.
 
   </note>
   """
@@ -114,7 +116,7 @@ defmodule AWS.StepFunctions do
   <note> This operation is eventually consistent. The results are best effort
   and may not reflect very recent updates and changes.
 
-  </note>
+  </note> This API action is not supported by `EXPRESS` state machines.
   """
   def describe_execution(client, input, options \\ []) do
     request(client, "DescribeExecution", input, options)
@@ -138,7 +140,7 @@ defmodule AWS.StepFunctions do
   <note> This operation is eventually consistent. The results are best effort
   and may not reflect very recent updates and changes.
 
-  </note>
+  </note> This API action is not supported by `EXPRESS` state machines.
   """
   def describe_state_machine_for_execution(client, input, options \\ []) do
     request(client, "DescribeStateMachineForExecution", input, options)
@@ -179,6 +181,8 @@ defmodule AWS.StepFunctions do
   using the returned token to retrieve the next page. Keep all other
   arguments unchanged. Each pagination token expires after 24 hours. Using an
   expired pagination token will return an *HTTP 400 InvalidToken* error.
+
+  This API action is not supported by `EXPRESS` state machines.
   """
   def get_execution_history(client, input, options \\ []) do
     request(client, "GetExecutionHistory", input, options)
@@ -215,7 +219,7 @@ defmodule AWS.StepFunctions do
   <note> This operation is eventually consistent. The results are best effort
   and may not reflect very recent updates and changes.
 
-  </note>
+  </note> This API action is not supported by `EXPRESS` state machines.
   """
   def list_executions(client, input, options \\ []) do
     request(client, "ListExecutions", input, options)
@@ -312,6 +316,8 @@ defmodule AWS.StepFunctions do
 
   @doc """
   Stops an execution.
+
+  This API action is not supported by `EXPRESS` state machines.
   """
   def stop_execution(client, input, options \\ []) do
     request(client, "StopExecution", input, options)
@@ -342,10 +348,11 @@ defmodule AWS.StepFunctions do
   end
 
   @doc """
-  Updates an existing state machine by modifying its `definition` and/or
-  `roleArn`. Running executions will continue to use the previous
-  `definition` and `roleArn`. You must include at least one of `definition`
-  or `roleArn` or you will receive a `MissingRequiredParameter` error.
+  Updates an existing state machine by modifying its `definition`, `roleArn`,
+  or `loggingConfiguration`. Running executions will continue to use the
+  previous `definition` and `roleArn`. You must include at least one of
+  `definition` or `roleArn` or you will receive a `MissingRequiredParameter`
+  error.
 
   <note> All `StartExecution` calls within a few seconds will use the updated
   `definition` and `roleArn`. Executions started immediately after calling

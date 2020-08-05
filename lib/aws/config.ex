@@ -114,6 +114,19 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Deletes the specified conformance pack and all the AWS Config rules,
+  remediation actions, and all evaluation results within that conformance
+  pack.
+
+  AWS Config sets the conformance pack to `DELETE_IN_PROGRESS` until the
+  deletion is complete. You cannot update a conformance pack while it is in
+  this state.
+  """
+  def delete_conformance_pack(client, input, options \\ []) do
+    request(client, "DeleteConformancePack", input, options)
+  end
+
+  @doc """
   Deletes the delivery channel.
 
   Before you can delete the delivery channel, you must stop the configuration
@@ -135,14 +148,36 @@ defmodule AWS.Config do
 
   @doc """
   Deletes the specified organization config rule and all of its evaluation
-  results from all member accounts in that organization. Only a master
-  account can delete an organization config rule.
+  results from all member accounts in that organization.
+
+  Only a master account and a delegated administrator account can delete an
+  organization config rule. When calling this API with a delegated
+  administrator, you must ensure AWS Organizations
+  `ListDelegatedAdministrator` permissions are added.
 
   AWS Config sets the state of a rule to DELETE_IN_PROGRESS until the
   deletion is complete. You cannot update a rule while it is in this state.
   """
   def delete_organization_config_rule(client, input, options \\ []) do
     request(client, "DeleteOrganizationConfigRule", input, options)
+  end
+
+  @doc """
+  Deletes the specified organization conformance pack and all of the config
+  rules and remediation actions from all member accounts in that
+  organization.
+
+  Only a master account or a delegated administrator account can delete an
+  organization conformance pack. When calling this API with a delegated
+  administrator, you must ensure AWS Organizations
+  `ListDelegatedAdministrator` permissions are added.
+
+  AWS Config sets the state of a conformance pack to DELETE_IN_PROGRESS until
+  the deletion is complete. You cannot update a conformance pack while it is
+  in this state.
+  """
+  def delete_organization_conformance_pack(client, input, options \\ []) do
+    request(client, "DeleteOrganizationConformancePack", input, options)
   end
 
   @doc """
@@ -162,9 +197,25 @@ defmodule AWS.Config do
 
   @doc """
   Deletes one or more remediation exceptions mentioned in the resource keys.
+
+  <note> AWS Config generates a remediation exception when a problem occurs
+  executing a remediation action to a specific resource. Remediation
+  exceptions blocks auto-remediation until the exception is cleared.
+
+  </note>
   """
   def delete_remediation_exceptions(client, input, options \\ []) do
     request(client, "DeleteRemediationExceptions", input, options)
+  end
+
+  @doc """
+  Records the configuration state for a custom resource that has been
+  deleted. This API records a new ConfigurationItem with a ResourceDeleted
+  status. You can retrieve the ConfigurationItems recorded for this resource
+  in your AWS Config History.
+  """
+  def delete_resource_config(client, input, options \\ []) do
+    request(client, "DeleteResourceConfig", input, options)
   end
 
   @doc """
@@ -344,6 +395,35 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Returns compliance details for each rule in that conformance pack.
+
+  <note> You must provide exact rule names.
+
+  </note>
+  """
+  def describe_conformance_pack_compliance(client, input, options \\ []) do
+    request(client, "DescribeConformancePackCompliance", input, options)
+  end
+
+  @doc """
+  Provides one or more conformance packs deployment status.
+
+  <note> If there are no conformance packs then you will see an empty result.
+
+  </note>
+  """
+  def describe_conformance_pack_status(client, input, options \\ []) do
+    request(client, "DescribeConformancePackStatus", input, options)
+  end
+
+  @doc """
+  Returns a list of one or more conformance packs.
+  """
+  def describe_conformance_packs(client, input, options \\ []) do
+    request(client, "DescribeConformancePacks", input, options)
+  end
+
+  @doc """
   Returns the current status of the specified delivery channel. If a delivery
   channel is not specified, this action returns the current status of all
   delivery channels associated with the account.
@@ -374,6 +454,10 @@ defmodule AWS.Config do
   @doc """
   Provides organization config rule deployment status for an organization.
 
+  Only a master account and a delegated administrator account can call this
+  API. When calling this API with a delegated administrator, you must ensure
+  AWS Organizations `ListDelegatedAdministrator` permissions are added.
+
   <note> The status is not considered successful until organization config
   rule is successfully deployed in all the member accounts with an exception
   of excluded accounts.
@@ -382,8 +466,6 @@ defmodule AWS.Config do
   response. Limit and next token are not applicable if you specify
   organization config rule names. It is only applicable, when you request all
   the organization config rules.
-
-  Only a master account can call this API.
 
   </note>
   """
@@ -394,17 +476,63 @@ defmodule AWS.Config do
   @doc """
   Returns a list of organization config rules.
 
+  Only a master account and a delegated administrator account can call this
+  API. When calling this API with a delegated administrator, you must ensure
+  AWS Organizations `ListDelegatedAdministrator` permissions are
+  added.&#x2028;
+
   <note> When you specify the limit and the next token, you receive a
   paginated response. Limit and next token are not applicable if you specify
   organization config rule names. It is only applicable, when you request all
   the organization config rules.
 
-  Only a master account can call this API.
-
   </note>
   """
   def describe_organization_config_rules(client, input, options \\ []) do
     request(client, "DescribeOrganizationConfigRules", input, options)
+  end
+
+  @doc """
+  Provides organization conformance pack deployment status for an
+  organization.
+
+  Only a master account and a delegated administrator account can call this
+  API. When calling this API with a delegated administrator, you must ensure
+  AWS Organizations `ListDelegatedAdministrator` permissions are added.
+
+  <note> The status is not considered successful until organization
+  conformance pack is successfully deployed in all the member accounts with
+  an exception of excluded accounts.
+
+  When you specify the limit and the next token, you receive a paginated
+  response. Limit and next token are not applicable if you specify
+  organization conformance pack names. They are only applicable, when you
+  request all the organization conformance packs.
+
+  </note>
+  """
+  def describe_organization_conformance_pack_statuses(client, input, options \\ []) do
+    request(client, "DescribeOrganizationConformancePackStatuses", input, options)
+  end
+
+  @doc """
+  Returns a list of organization conformance packs.
+
+  Only a master account and a delegated administrator account can call this
+  API. When calling this API with a delegated administrator, you must ensure
+  AWS Organizations `ListDelegatedAdministrator` permissions are added.
+
+  <note> When you specify the limit and the next token, you receive a
+  paginated response.
+
+  Limit and next token are not applicable if you specify organization
+  conformance packs names. They are only applicable, when you request all the
+  organization conformance packs.
+
+  </note>
+  """
+  def describe_organization_conformance_packs(client, input, options \\ []) do
+    request(client, "DescribeOrganizationConformancePacks", input, options)
   end
 
   @doc """
@@ -428,8 +556,12 @@ defmodule AWS.Config do
   deleted. When you specify the limit and the next token, you receive a
   paginated response.
 
-  <note> When you specify the limit and the next token, you receive a
-  paginated response.
+  <note> AWS Config generates a remediation exception when a problem occurs
+  executing a remediation action to a specific resource. Remediation
+  exceptions blocks auto-remediation until the exception is cleared.
+
+  When you specify the limit and the next token, you receive a paginated
+  response.
 
   Limit and next token are not applicable if you request resources in batch.
   It is only applicable, when you request all resources.
@@ -552,6 +684,22 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Returns compliance details of a conformance pack for all AWS resources that
+  are monitered by conformance pack.
+  """
+  def get_conformance_pack_compliance_details(client, input, options \\ []) do
+    request(client, "GetConformancePackComplianceDetails", input, options)
+  end
+
+  @doc """
+  Returns compliance details for the conformance pack based on the cumulative
+  compliance results of all the rules in that conformance pack.
+  """
+  def get_conformance_pack_compliance_summary(client, input, options \\ []) do
+    request(client, "GetConformancePackComplianceSummary", input, options)
+  end
+
+  @doc """
   Returns the resource types, the number of each resource type, and the total
   number of resources that AWS Config is recording in this region for your
   AWS account.
@@ -600,12 +748,24 @@ defmodule AWS.Config do
   Returns detailed status for each member account within an organization for
   a given organization config rule.
 
-  <note> Only a master account can call this API.
-
-  </note>
+  Only a master account and a delegated administrator account can call this
+  API. When calling this API with a delegated administrator, you must ensure
+  AWS Organizations `ListDelegatedAdministrator` permissions are added.
   """
   def get_organization_config_rule_detailed_status(client, input, options \\ []) do
     request(client, "GetOrganizationConfigRuleDetailedStatus", input, options)
+  end
+
+  @doc """
+  Returns detailed status for each member account within an organization for
+  a given organization conformance pack.
+
+  Only a master account and a delegated administrator account can call this
+  API. When calling this API with a delegated administrator, you must ensure
+  AWS Organizations `ListDelegatedAdministrator` permissions are added.
+  """
+  def get_organization_conformance_pack_detailed_status(client, input, options \\ []) do
+    request(client, "GetOrganizationConformancePackDetailedStatus", input, options)
   end
 
   @doc """
@@ -769,6 +929,25 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Creates or updates a conformance pack. A conformance pack is a collection
+  of AWS Config rules that can be easily deployed in an account and a region
+  and across AWS Organization.
+
+  This API creates a service linked role `AWSServiceRoleForConfigConforms` in
+  your account. The service linked role is created only when the role does
+  not exist in your account.
+
+  <note> You must specify either the `TemplateS3Uri` or the `TemplateBody`
+  parameter, but not both. If you provide both AWS Config uses the
+  `TemplateS3Uri` parameter and ignores the `TemplateBody` parameter.
+
+  </note>
+  """
+  def put_conformance_pack(client, input, options \\ []) do
+    request(client, "PutConformancePack", input, options)
+  end
+
+  @doc """
   Creates a delivery channel object to deliver configuration information to
   an Amazon S3 bucket and Amazon SNS topic.
 
@@ -802,29 +981,41 @@ defmodule AWS.Config do
   @doc """
   Adds or updates organization config rule for your entire organization
   evaluating whether your AWS resources comply with your desired
-  configurations. Only a master account can create or update an organization
-  config rule.
+  configurations.
+
+  Only a master account and a delegated administrator can create or update an
+  organization config rule. When calling this API with a delegated
+  administrator, you must ensure AWS Organizations
+  `ListDelegatedAdministrator` permissions are added.
 
   This API enables organization service access through the
   `EnableAWSServiceAccess` action and creates a service linked role
-  `AWSServiceRoleForConfigMultiAccountSetup` in the master account of your
-  organization. The service linked role is created only when the role does
-  not exist in the master account. AWS Config verifies the existence of role
-  with `GetRole` action.
+  `AWSServiceRoleForConfigMultiAccountSetup` in the master or delegated
+  administrator account of your organization. The service linked role is
+  created only when the role does not exist in the caller account. AWS Config
+  verifies the existence of role with `GetRole` action.
+
+  To use this API with delegated administrator, register a delegated
+  administrator by calling AWS Organization
+  `register-delegated-administrator` for
+  `config-multiaccountsetup.amazonaws.com`.
 
   You can use this action to create both custom AWS Config rules and AWS
   managed Config rules. If you are adding a new custom AWS Config rule, you
-  must first create AWS Lambda function in the master account that the rule
-  invokes to evaluate your resources. When you use the
-  `PutOrganizationConfigRule` action to add the rule to AWS Config, you must
-  specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the
-  function. If you are adding an AWS managed Config rule, specify the rule's
-  identifier for the `RuleIdentifier` key.
+  must first create AWS Lambda function in the master account or a delegated
+  administrator that the rule invokes to evaluate your resources. When you
+  use the `PutOrganizationConfigRule` action to add the rule to AWS Config,
+  you must specify the Amazon Resource Name (ARN) that AWS Lambda assigns to
+  the function. If you are adding an AWS managed Config rule, specify the
+  rule's identifier for the `RuleIdentifier` key.
 
   The maximum number of organization config rules that AWS Config supports is
-  150.
+  150 and 3 delegated administrator per organization.
 
-  <note> Specify either `OrganizationCustomRuleMetadata` or
+  <note> Prerequisite: Ensure you call `EnableAllFeatures` API to enable all
+  features in an organization.
+
+  Specify either `OrganizationCustomRuleMetadata` or
   `OrganizationManagedRuleMetadata`.
 
   </note>
@@ -834,11 +1025,53 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Deploys conformance packs across member accounts in an AWS Organization.
+
+  Only a master account and a delegated administrator can call this API. When
+  calling this API with a delegated administrator, you must ensure AWS
+  Organizations `ListDelegatedAdministrator` permissions are added.
+
+  This API enables organization service access for
+  `config-multiaccountsetup.amazonaws.com` through the
+  `EnableAWSServiceAccess` action and creates a service linked role
+  `AWSServiceRoleForConfigMultiAccountSetup` in the master or delegated
+  administrator account of your organization. The service linked role is
+  created only when the role does not exist in the caller account. To use
+  this API with delegated administrator, register a delegated administrator
+  by calling AWS Organization `register-delegate-admin` for
+  `config-multiaccountsetup.amazonaws.com`.
+
+  <note> Prerequisite: Ensure you call `EnableAllFeatures` API to enable all
+  features in an organization.
+
+  You must specify either the `TemplateS3Uri` or the `TemplateBody`
+  parameter, but not both. If you provide both AWS Config uses the
+  `TemplateS3Uri` parameter and ignores the `TemplateBody` parameter.
+
+  AWS Config sets the state of a conformance pack to CREATE_IN_PROGRESS and
+  UPDATE_IN_PROGRESS until the conformance pack is created or updated. You
+  cannot update a conformance pack while it is in this state.
+
+  You can create 6 conformance packs with 25 AWS Config rules in each pack
+  and 3 delegated administrator per organization.
+
+  </note>
+  """
+  def put_organization_conformance_pack(client, input, options \\ []) do
+    request(client, "PutOrganizationConformancePack", input, options)
+  end
+
+  @doc """
   Adds or updates the remediation configuration with a specific AWS Config
   rule with the selected target or action. The API creates the
   `RemediationConfiguration` object for the AWS Config rule. The AWS Config
   rule must already exist for you to add a remediation configuration. The
   target (SSM document) must exist and have permissions to use the target.
+
+  <note> If you make backward incompatible changes to the SSM document, you
+  must call this again to ensure the remediations can run.
+
+  </note>
   """
   def put_remediation_configurations(client, input, options \\ []) do
     request(client, "PutRemediationConfigurations", input, options)
@@ -848,9 +1081,38 @@ defmodule AWS.Config do
   A remediation exception is when a specific resource is no longer considered
   for auto-remediation. This API adds a new exception or updates an exisiting
   exception for a specific resource with a specific AWS Config rule.
+
+  <note> AWS Config generates a remediation exception when a problem occurs
+  executing a remediation action to a specific resource. Remediation
+  exceptions blocks auto-remediation until the exception is cleared.
+
+  </note>
   """
   def put_remediation_exceptions(client, input, options \\ []) do
     request(client, "PutRemediationExceptions", input, options)
+  end
+
+  @doc """
+  Records the configuration state for the resource provided in the request.
+  The configuration state of a resource is represented in AWS Config as
+  Configuration Items. Once this API records the configuration item, you can
+  retrieve the list of configuration items for the custom resource type using
+  existing AWS Config APIs.
+
+  <note> The custom resource type must be registered with AWS CloudFormation.
+  This API accepts the configuration item registered with AWS CloudFormation.
+
+  When you call this API, AWS Config only stores configuration state of the
+  resource provided in the request. This API does not change or remediate the
+  configuration of the resource.
+
+  Write-only schema properites are not recorded as part of the published
+  configuration item.
+
+  </note>
+  """
+  def put_resource_config(client, input, options \\ []) do
+    request(client, "PutResourceConfig", input, options)
   end
 
   @doc """
@@ -867,6 +1129,20 @@ defmodule AWS.Config do
   """
   def put_retention_configuration(client, input, options \\ []) do
     request(client, "PutRetentionConfiguration", input, options)
+  end
+
+  @doc """
+  Accepts a structured query language (SQL) SELECT command and an aggregator
+  to query configuration state of AWS resources across multiple accounts and
+  regions, performs the corresponding search, and returns resource
+  configurations matching the properties.
+
+  For more information about query components, see the [ **Query Components**
+  ](https://docs.aws.amazon.com/config/latest/developerguide/query-components.html)
+  section in the AWS Config Developer Guide.
+  """
+  def select_aggregate_resource_config(client, input, options \\ []) do
+    request(client, "SelectAggregateResourceConfig", input, options)
   end
 
   @doc """

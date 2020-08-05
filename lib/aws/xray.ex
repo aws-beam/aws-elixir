@@ -1,5 +1,5 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
-# See https://github.com/jkakar/aws-codegen for more details.
+# See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.XRay do
   @moduledoc """
@@ -119,8 +119,9 @@ defmodule AWS.XRay do
   Retrieves a document that describes services that process incoming
   requests, and downstream services that they call as a result. Root services
   process incoming requests and make calls to downstream services. Root
-  services are applications that use the AWS X-Ray SDK. Downstream services
-  can be other applications, AWS resources, HTTP web APIs, or SQL databases.
+  services are applications that use the [AWS X-Ray
+  SDK](https://docs.aws.amazon.com/xray/index.html). Downstream services can
+  be other applications, AWS resources, HTTP web APIs, or SQL databases.
   """
   def get_service_graph(client, input, options \\ []) do
     path = "/ServiceGraph"
@@ -147,9 +148,9 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Retrieves IDs and metadata for traces available for a specified time frame
-  using an optional filter. To get the full traces, pass the trace IDs to
-  `BatchGetTraces`.
+  Retrieves IDs and annotations for traces available for a specified time
+  frame using an optional filter. To get the full traces, pass the trace IDs
+  to `BatchGetTraces`.
 
   A filter expression can target traced requests that hit specific service
   nodes or edges, have errors, or come from a known user. For example, the
@@ -193,7 +194,8 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Uploads segment documents to AWS X-Ray. The X-Ray SDK generates segment
+  Uploads segment documents to AWS X-Ray. The [X-Ray
+  SDK](https://docs.aws.amazon.com/xray/index.html) generates segment
   documents and sends them to the X-Ray daemon, which uploads them in
   batches. A segment document can be a completed segment, an in-progress
   segment, or an array of subsegments.
@@ -303,7 +305,7 @@ defmodule AWS.XRay do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -320,7 +322,7 @@ defmodule AWS.XRay do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["message"]
+        reason = Poison.Parser.parse!(body, %{})["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

@@ -8,6 +8,46 @@ defmodule AWS.Route53.Domains do
   """
 
   @doc """
+  Accepts the transfer of a domain from another AWS account to the current
+  AWS account. You initiate a transfer between AWS accounts using
+  [TransferDomainToAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html).
+
+  Use either
+  [ListOperations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html)
+  or
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  to determine whether the operation succeeded.
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  provides additional information, for example, `Domain Transfer from Aws
+  Account 111122223333 has been cancelled`.
+  """
+  def accept_domain_transfer_from_another_aws_account(client, input, options \\ []) do
+    request(client, "AcceptDomainTransferFromAnotherAwsAccount", input, options)
+  end
+
+  @doc """
+  Cancels the transfer of a domain from the current AWS account to another
+  AWS account. You initiate a transfer between AWS accounts using
+  [TransferDomainToAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html).
+
+  <important> You must cancel the transfer before the other AWS account
+  accepts the transfer using
+  [AcceptDomainTransferFromAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html).
+
+  </important> Use either
+  [ListOperations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html)
+  or
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  to determine whether the operation succeeded.
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  provides additional information, for example, `Domain Transfer from Aws
+  Account 111122223333 has been cancelled`.
+  """
+  def cancel_domain_transfer_to_another_aws_account(client, input, options \\ []) do
+    request(client, "CancelDomainTransferToAnotherAwsAccount", input, options)
+  end
+
+  @doc """
   This operation checks the availability of one domain name. Note that if the
   availability status of a domain is pending, you must submit another request
   to determine the availability of the domain name.
@@ -60,12 +100,12 @@ defmodule AWS.Route53.Domains do
   renewing your domain registration is billed to your AWS account.
 
   The period during which you can renew a domain name varies by TLD. For a
-  list of TLDs and their renewal policies, see ["Renewal, restoration, and
-  deletion
-  times"](http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times)
-  on the website for our registrar associate, Gandi. Amazon Route 53 requires
-  that you renew before the end of the renewal period that is listed on the
-  Gandi website so we can complete processing before the deadline.
+  list of TLDs and their renewal policies, see [Domains That You Can Register
+  with Amazon Route
+  53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html)
+  in the *Amazon Route 53 Developer Guide*. Route 53 requires that you renew
+  before the end of the renewal period so we can complete processing before
+  the deadline.
   """
   def enable_domain_auto_renew(client, input, options \\ []) do
     request(client, "EnableDomainAutoRenew", input, options)
@@ -105,9 +145,8 @@ defmodule AWS.Route53.Domains do
   end
 
   @doc """
-  The GetDomainSuggestions operation returns a list of suggested domain names
-  given a string, which can either be a domain name or simply a word or
-  phrase (without spaces).
+  The GetDomainSuggestions operation returns a list of suggested domain
+  names.
   """
   def get_domain_suggestions(client, input, options \\ []) do
     request(client, "GetDomainSuggestions", input, options)
@@ -130,8 +169,9 @@ defmodule AWS.Route53.Domains do
   end
 
   @doc """
-  This operation returns the operation IDs of operations that are not yet
-  complete.
+  Returns information about all of the operations that return an operation ID
+  and that have ever been performed on domains that were registered by the
+  current account.
   """
   def list_operations(client, input, options \\ []) do
     request(client, "ListOperations", input, options)
@@ -156,10 +196,10 @@ defmodule AWS.Route53.Domains do
 
   When you register a domain, Amazon Route 53 does the following:
 
-  <ul> <li> Creates a Amazon Route 53 hosted zone that has the same name as
-  the domain. Amazon Route 53 assigns four name servers to your hosted zone
-  and automatically updates your domain registration with the names of these
-  name servers.
+  <ul> <li> Creates a Route 53 hosted zone that has the same name as the
+  domain. Route 53 assigns four name servers to your hosted zone and
+  automatically updates your domain registration with the names of these name
+  servers.
 
   </li> <li> Enables autorenew, so your domain registration will renew
   automatically each year. We'll notify you in advance of the renewal date so
@@ -186,6 +226,24 @@ defmodule AWS.Route53.Domains do
   end
 
   @doc """
+  Rejects the transfer of a domain from another AWS account to the current
+  AWS account. You initiate a transfer between AWS accounts using
+  [TransferDomainToAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html).
+
+  Use either
+  [ListOperations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html)
+  or
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  to determine whether the operation succeeded.
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  provides additional information, for example, `Domain Transfer from Aws
+  Account 111122223333 has been cancelled`.
+  """
+  def reject_domain_transfer_from_another_aws_account(client, input, options \\ []) do
+    request(client, "RejectDomainTransferFromAnotherAwsAccount", input, options)
+  end
+
+  @doc """
   This operation renews a domain for the specified number of years. The cost
   of renewing your domain is billed to your AWS account.
 
@@ -193,8 +251,8 @@ defmodule AWS.Route53.Domains do
   date. Some TLD registries delete domains before the expiration date if you
   haven't renewed far enough in advance. For more information about renewing
   domain registration, see [Renewing Registration for a
-  Domain](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html)
-  in the Amazon Route 53 Developer Guide.
+  Domain](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html)
+  in the *Amazon Route 53 Developer Guide*.
   """
   def renew_domain(client, input, options \\ []) do
     request(client, "RenewDomain", input, options)
@@ -219,20 +277,31 @@ defmodule AWS.Route53.Domains do
   end
 
   @doc """
-  This operation transfers a domain from another registrar to Amazon Route
-  53. When the transfer is complete, the domain is registered either with
-  Amazon Registrar (for .com, .net, and .org domains) or with our registrar
-  associate, Gandi (for all other TLDs).
+  Transfers a domain from another registrar to Amazon Route 53. When the
+  transfer is complete, the domain is registered either with Amazon Registrar
+  (for .com, .net, and .org domains) or with our registrar associate, Gandi
+  (for all other TLDs).
 
-  For transfer requirements, a detailed procedure, and information about
-  viewing the status of a domain transfer, see [Transferring Registration for
-  a Domain to Amazon Route
-  53](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html)
+  For more information about transferring domains, see the following topics:
+
+  <ul> <li> For transfer requirements, a detailed procedure, and information
+  about viewing the status of a domain that you're transferring to Route 53,
+  see [Transferring Registration for a Domain to Amazon Route
+  53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html)
   in the *Amazon Route 53 Developer Guide*.
 
-  If the registrar for your domain is also the DNS service provider for the
-  domain, we highly recommend that you consider transferring your DNS service
-  to Amazon Route 53 or to another DNS service provider before you transfer
+  </li> <li> For information about how to transfer a domain from one AWS
+  account to another, see
+  [TransferDomainToAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html).
+
+  </li> <li> For information about how to transfer a domain to another domain
+  registrar, see [Transferring a Domain from Amazon Route 53 to Another
+  Registrar](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-from-route-53.html)
+  in the *Amazon Route 53 Developer Guide*.
+
+  </li> </ul> If the registrar for your domain is also the DNS service
+  provider for the domain, we highly recommend that you transfer your DNS
+  service to Route 53 or to another DNS service provider before you transfer
   your registration. Some registrars provide free DNS service when you
   purchase a domain registration. When you transfer the registration, the
   previous registrar will not renew your domain registration and could end
@@ -250,6 +319,44 @@ defmodule AWS.Route53.Domains do
   """
   def transfer_domain(client, input, options \\ []) do
     request(client, "TransferDomain", input, options)
+  end
+
+  @doc """
+  Transfers a domain from the current AWS account to another AWS account.
+  Note the following:
+
+  <ul> <li> The AWS account that you're transferring the domain to must
+  accept the transfer. If the other account doesn't accept the transfer
+  within 3 days, we cancel the transfer. See
+  [AcceptDomainTransferFromAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html).
+
+  </li> <li> You can cancel the transfer before the other account accepts it.
+  See
+  [CancelDomainTransferToAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_CancelDomainTransferToAnotherAwsAccount.html).
+
+  </li> <li> The other account can reject the transfer. See
+  [RejectDomainTransferFromAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RejectDomainTransferFromAnotherAwsAccount.html).
+
+  </li> </ul> <important> When you transfer a domain from one AWS account to
+  another, Route 53 doesn't transfer the hosted zone that is associated with
+  the domain. DNS resolution isn't affected if the domain and the hosted zone
+  are owned by separate accounts, so transferring the hosted zone is
+  optional. For information about transferring the hosted zone to another AWS
+  account, see [Migrating a Hosted Zone to a Different AWS
+  Account](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html)
+  in the *Amazon Route 53 Developer Guide*.
+
+  </important> Use either
+  [ListOperations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html)
+  or
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  to determine whether the operation succeeded.
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  provides additional information, for example, `Domain Transfer from Aws
+  Account 111122223333 has been cancelled`.
+  """
+  def transfer_domain_to_another_aws_account(client, input, options \\ []) do
+    request(client, "TransferDomainToAnotherAwsAccount", input, options)
   end
 
   @doc """
@@ -276,9 +383,21 @@ defmodule AWS.Route53.Domains do
   This operation affects only the contact information for the specified
   contact type (registrant, administrator, or tech). If the request succeeds,
   Amazon Route 53 returns an operation ID that you can use with
-  `GetOperationDetail` to track the progress and completion of the action. If
-  the request doesn't complete successfully, the domain registrant will be
-  notified by email.
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  to track the progress and completion of the action. If the request doesn't
+  complete successfully, the domain registrant will be notified by email.
+
+  <important> By disabling the privacy service via API, you consent to the
+  publication of the contact information provided for this domain via the
+  public WHOIS database. You certify that you are the registrant of this
+  domain name and have the authority to make this decision. You may withdraw
+  your consent at any time by enabling privacy protection using either
+  `UpdateDomainContactPrivacy` or the Route 53 console. Enabling privacy
+  protection removes the contact information provided for this domain from
+  the WHOIS database. For more information on our privacy practices, see
+  [https://aws.amazon.com/privacy/](https://aws.amazon.com/privacy/).
+
+  </important>
   """
   def update_domain_contact_privacy(client, input, options \\ []) do
     request(client, "UpdateDomainContactPrivacy", input, options)

@@ -13,12 +13,15 @@ defmodule AWS.CodeBuild do
   such as Apache Maven, Gradle, and more. You can also fully customize build
   environments in AWS CodeBuild to use your own build tools. AWS CodeBuild
   scales automatically to meet peak build requests. You pay only for the
-  build time you consume. For more information about AWS CodeBuild, see the
-  *AWS CodeBuild User Guide*.
+  build time you consume. For more information about AWS CodeBuild, see the *
+  [AWS CodeBuild User
+  Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html).*
 
   AWS CodeBuild supports these operations:
 
   <ul> <li> `BatchDeleteBuilds`: Deletes one or more builds.
+
+  </li> <li> `BatchGetBuilds`: Gets information about one or more builds.
 
   </li> <li> `BatchGetProjects`: Gets information about one or more build
   projects. A *build project* defines how AWS CodeBuild runs a build. This
@@ -29,29 +32,48 @@ defmodule AWS.CodeBuild do
   run a build. You can add tags to build projects to help manage your
   resources and costs.
 
+  </li> <li> `BatchGetReportGroups`: Returns an array of report groups.
+
+  </li> <li> `BatchGetReports`: Returns an array of reports.
+
   </li> <li> `CreateProject`: Creates a build project.
+
+  </li> <li> `CreateReportGroup`: Creates a report group. A report group
+  contains a collection of reports.
 
   </li> <li> `CreateWebhook`: For an existing AWS CodeBuild build project
   that has its source code stored in a GitHub or Bitbucket repository,
   enables AWS CodeBuild to start rebuilding the source code every time a code
   change is pushed to the repository.
 
-  </li> <li> `UpdateWebhook`: Changes the settings of an existing webhook.
-
   </li> <li> `DeleteProject`: Deletes a build project.
+
+  </li> <li> `DeleteReport`: Deletes a report.
+
+  </li> <li> `DeleteReportGroup`: Deletes a report group.
+
+  </li> <li> `DeleteResourcePolicy`: Deletes a resource policy that is
+  identified by its resource ARN.
+
+  </li> <li> `DeleteSourceCredentials`: Deletes a set of GitHub, GitHub
+  Enterprise, or Bitbucket source credentials.
 
   </li> <li> `DeleteWebhook`: For an existing AWS CodeBuild build project
   that has its source code stored in a GitHub or Bitbucket repository, stops
   AWS CodeBuild from rebuilding the source code every time a code change is
   pushed to the repository.
 
-  </li> <li> `ListProjects`: Gets a list of build project names, with each
-  build project name representing a single build project.
+  </li> <li> `DescribeTestCases`: Returns a list of details about test cases
+  for a report.
 
-  </li> <li> `UpdateProject`: Changes the settings of an existing build
-  project.
+  </li> <li> `GetResourcePolicy`: Gets a resource policy that is identified
+  by its resource ARN.
 
-  </li> <li> `BatchGetBuilds`: Gets information about one or more builds.
+  </li> <li> `ImportSourceCredentials`: Imports the source repository
+  credentials for an AWS CodeBuild project that has its source code stored in
+  a GitHub, GitHub Enterprise, or Bitbucket repository.
+
+  </li> <li> `InvalidateProjectCache`: Resets the cache for a project.
 
   </li> <li> `ListBuilds`: Gets a list of build IDs, with each build ID
   representing a single build.
@@ -59,24 +81,45 @@ defmodule AWS.CodeBuild do
   </li> <li> `ListBuildsForProject`: Gets a list of build IDs for the
   specified build project, with each build ID representing a single build.
 
-  </li> <li> `StartBuild`: Starts running a build.
-
-  </li> <li> `StopBuild`: Attempts to stop running a build.
-
   </li> <li> `ListCuratedEnvironmentImages`: Gets information about Docker
   images that are managed by AWS CodeBuild.
 
-  </li> <li> `DeleteSourceCredentials`: Deletes a set of GitHub, GitHub
-  Enterprise, or Bitbucket source credentials.
+  </li> <li> `ListProjects`: Gets a list of build project names, with each
+  build project name representing a single build project.
 
-  </li> <li> `ImportSourceCredentials`: Imports the source repository
-  credentials for an AWS CodeBuild project that has its source code stored in
-  a GitHub, GitHub Enterprise, or Bitbucket repository.
+  </li> <li> `ListReportGroups`: Gets a list ARNs for the report groups in
+  the current AWS account.
+
+  </li> <li> `ListReports`: Gets a list ARNs for the reports in the current
+  AWS account.
+
+  </li> <li> `ListReportsForReportGroup`: Returns a list of ARNs for the
+  reports that belong to a `ReportGroup`.
+
+  </li> <li> `ListSharedProjects`: Gets a list of ARNs associated with
+  projects shared with the current AWS account or user.
+
+  </li> <li> `ListSharedReportGroups`: Gets a list of ARNs associated with
+  report groups shared with the current AWS account or user
 
   </li> <li> `ListSourceCredentials`: Returns a list of
   `SourceCredentialsInfo` objects. Each `SourceCredentialsInfo` object
   includes the authentication type, token ARN, and type of source provider
   for one set of credentials.
+
+  </li> <li> `PutResourcePolicy`: Stores a resource policy for the ARN of a
+  `Project` or `ReportGroup` object.
+
+  </li> <li> `StartBuild`: Starts running a build.
+
+  </li> <li> `StopBuild`: Attempts to stop running a build.
+
+  </li> <li> `UpdateProject`: Changes the settings of an existing build
+  project.
+
+  </li> <li> `UpdateReportGroup`: Changes a report group.
+
+  </li> <li> `UpdateWebhook`: Changes the settings of an existing webhook.
 
   </li> </ul>
   """
@@ -89,17 +132,38 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  Gets information about builds.
+  Retrieves information about one or more batch builds.
+  """
+  def batch_get_build_batches(client, input, options \\ []) do
+    request(client, "BatchGetBuildBatches", input, options)
+  end
+
+  @doc """
+  Gets information about one or more builds.
   """
   def batch_get_builds(client, input, options \\ []) do
     request(client, "BatchGetBuilds", input, options)
   end
 
   @doc """
-  Gets information about build projects.
+  Gets information about one or more build projects.
   """
   def batch_get_projects(client, input, options \\ []) do
     request(client, "BatchGetProjects", input, options)
+  end
+
+  @doc """
+  Returns an array of report groups.
+  """
+  def batch_get_report_groups(client, input, options \\ []) do
+    request(client, "BatchGetReportGroups", input, options)
+  end
+
+  @doc """
+  Returns an array of reports.
+  """
+  def batch_get_reports(client, input, options \\ []) do
+    request(client, "BatchGetReports", input, options)
   end
 
   @doc """
@@ -107,6 +171,13 @@ defmodule AWS.CodeBuild do
   """
   def create_project(client, input, options \\ []) do
     request(client, "CreateProject", input, options)
+  end
+
+  @doc """
+  Creates a report group. A report group contains a collection of reports.
+  """
+  def create_report_group(client, input, options \\ []) do
+    request(client, "CreateReportGroup", input, options)
   end
 
   @doc """
@@ -132,10 +203,45 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  Deletes a build project.
+  Deletes a batch build.
+  """
+  def delete_build_batch(client, input, options \\ []) do
+    request(client, "DeleteBuildBatch", input, options)
+  end
+
+  @doc """
+  Deletes a build project. When you delete a project, its builds are not
+  deleted.
   """
   def delete_project(client, input, options \\ []) do
     request(client, "DeleteProject", input, options)
+  end
+
+  @doc """
+  Deletes a report.
+  """
+  def delete_report(client, input, options \\ []) do
+    request(client, "DeleteReport", input, options)
+  end
+
+  @doc """
+  `DeleteReportGroup`: Deletes a report group. Before you delete a report
+  group, you must delete its reports. Use
+  [ListReportsForReportGroup](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html)
+  to get the reports in a report group. Use
+  [DeleteReport](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html)
+  to delete the reports. If you call `DeleteReportGroup` for a report group
+  that contains one or more reports, an exception is thrown.
+  """
+  def delete_report_group(client, input, options \\ []) do
+    request(client, "DeleteReportGroup", input, options)
+  end
+
+  @doc """
+  Deletes a resource policy that is identified by its resource ARN.
+  """
+  def delete_resource_policy(client, input, options \\ []) do
+    request(client, "DeleteResourcePolicy", input, options)
   end
 
   @doc """
@@ -156,6 +262,27 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Retrieves one or more code coverage reports.
+  """
+  def describe_code_coverages(client, input, options \\ []) do
+    request(client, "DescribeCodeCoverages", input, options)
+  end
+
+  @doc """
+  Returns a list of details about test cases for a report.
+  """
+  def describe_test_cases(client, input, options \\ []) do
+    request(client, "DescribeTestCases", input, options)
+  end
+
+  @doc """
+  Gets a resource policy that is identified by its resource ARN.
+  """
+  def get_resource_policy(client, input, options \\ []) do
+    request(client, "GetResourcePolicy", input, options)
+  end
+
+  @doc """
   Imports the source repository credentials for an AWS CodeBuild project that
   has its source code stored in a GitHub, GitHub Enterprise, or Bitbucket
   repository.
@@ -169,6 +296,20 @@ defmodule AWS.CodeBuild do
   """
   def invalidate_project_cache(client, input, options \\ []) do
     request(client, "InvalidateProjectCache", input, options)
+  end
+
+  @doc """
+  Retrieves the identifiers of your build batches in the current region.
+  """
+  def list_build_batches(client, input, options \\ []) do
+    request(client, "ListBuildBatches", input, options)
+  end
+
+  @doc """
+  Retrieves the identifiers of the build batches for a specific project.
+  """
+  def list_build_batches_for_project(client, input, options \\ []) do
+    request(client, "ListBuildBatchesForProject", input, options)
   end
 
   @doc """
@@ -202,10 +343,68 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Gets a list ARNs for the report groups in the current AWS account.
+  """
+  def list_report_groups(client, input, options \\ []) do
+    request(client, "ListReportGroups", input, options)
+  end
+
+  @doc """
+  Returns a list of ARNs for the reports in the current AWS account.
+  """
+  def list_reports(client, input, options \\ []) do
+    request(client, "ListReports", input, options)
+  end
+
+  @doc """
+  Returns a list of ARNs for the reports that belong to a `ReportGroup`.
+  """
+  def list_reports_for_report_group(client, input, options \\ []) do
+    request(client, "ListReportsForReportGroup", input, options)
+  end
+
+  @doc """
+  Gets a list of projects that are shared with other AWS accounts or users.
+  """
+  def list_shared_projects(client, input, options \\ []) do
+    request(client, "ListSharedProjects", input, options)
+  end
+
+  @doc """
+  Gets a list of report groups that are shared with other AWS accounts or
+  users.
+  """
+  def list_shared_report_groups(client, input, options \\ []) do
+    request(client, "ListSharedReportGroups", input, options)
+  end
+
+  @doc """
   Returns a list of `SourceCredentialsInfo` objects.
   """
   def list_source_credentials(client, input, options \\ []) do
     request(client, "ListSourceCredentials", input, options)
+  end
+
+  @doc """
+  Stores a resource policy for the ARN of a `Project` or `ReportGroup`
+  object.
+  """
+  def put_resource_policy(client, input, options \\ []) do
+    request(client, "PutResourcePolicy", input, options)
+  end
+
+  @doc """
+  Restarts a build.
+  """
+  def retry_build(client, input, options \\ []) do
+    request(client, "RetryBuild", input, options)
+  end
+
+  @doc """
+  Restarts a batch build.
+  """
+  def retry_build_batch(client, input, options \\ []) do
+    request(client, "RetryBuildBatch", input, options)
   end
 
   @doc """
@@ -216,6 +415,13 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Starts a batch build for a project.
+  """
+  def start_build_batch(client, input, options \\ []) do
+    request(client, "StartBuildBatch", input, options)
+  end
+
+  @doc """
   Attempts to stop running a build.
   """
   def stop_build(client, input, options \\ []) do
@@ -223,10 +429,24 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Stops a running batch build.
+  """
+  def stop_build_batch(client, input, options \\ []) do
+    request(client, "StopBuildBatch", input, options)
+  end
+
+  @doc """
   Changes the settings of a build project.
   """
   def update_project(client, input, options \\ []) do
     request(client, "UpdateProject", input, options)
+  end
+
+  @doc """
+  Updates a report group.
+  """
+  def update_report_group(client, input, options \\ []) do
+    request(client, "UpdateReportGroup", input, options)
   end
 
   @doc """

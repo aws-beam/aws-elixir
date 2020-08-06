@@ -2661,25 +2661,29 @@ defmodule AWS.IAM do
       []
     end
 
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-"},
-      {"X-Amz-Target", ".#{action}"} | headers]
+    headers =
+      [ {"Host", host},
+        {"Content-Type", "application/x-www-form-urlencoded"}
+        | headers
+      ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    input = %{ input
+               | "Action" => action, "Version" => "2010-05-08"
+             }
+    payload = :uri_string.compose_query(Map.to_list(input))
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    
+
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
 
       {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-    
+        {:ok, AWS.Util.decode_xml(body), response}
+
       {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        exception = error["__type"]
-        message = error["message"]
+        error = AWS.Util.decode_xml(body)
+        exception = error[:ErrorResponse][:Error][:Code]
+        message = error[:ErrorResponse][:Error][:Message]
         {:error, {exception, message}}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

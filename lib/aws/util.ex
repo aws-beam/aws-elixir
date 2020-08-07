@@ -1,7 +1,7 @@
 defmodule AWS.Util do
   import Record
 
-  @text :__text
+  @text "__text"
 
   defrecord(:xmlElement, extract(:xmlElement, from_lib: "xmerl/include/xmerl.hrl"))
   defrecord(:xmlText, extract(:xmlText, from_lib: "xmerl/include/xmerl.hrl"))
@@ -51,7 +51,7 @@ defmodule AWS.Util do
                 end
               v -> v
             end
-    {%{tag => value}, global_state}
+    {%{Atom.to_string(tag) => value}, global_state}
   end
 
   defp hook_fun(text, global_state) when Record.is_record(text, :xmlText) do
@@ -84,12 +84,12 @@ defmodule AWS.Util do
           v -> [value, v]
         end
         Map.update!(acc, tag, update_fun)
-      false -> Map.merge(acc, x)
+      false -> Map.put(acc, tag, value)
     end
   end
 
   defp content_to_map(x, %{@text => text} = acc) when is_binary(x) and is_map(acc) do
-    Map.put(acc, @text, <<x::binary, text::binary>>)
+    %{acc | @text => <<x::binary, text::binary>>}
   end
 
   defp content_to_map(x, acc) when is_binary(x) and is_map(acc) do

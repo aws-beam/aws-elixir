@@ -2682,8 +2682,8 @@ defmodule AWS.IAM do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        exception = error[:ErrorResponse][:Error][:Code]
-        message = error[:ErrorResponse][:Error][:Message]
+        exception = error["ErrorResponse"]["Error"]["Code"]
+        message = error["ErrorResponse"]["Error"]["Message"]
         {:error, {exception, message}}
 
       {:error, %HTTPoison.Error{reason: reason}} ->

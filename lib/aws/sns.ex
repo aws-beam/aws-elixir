@@ -470,21 +470,12 @@ defmodule AWS.SNS do
     host = get_host("sns", client)
     url = get_url(host, client)
 
-    headers = if client.session_token do
-      [{"X-Amz-Security-Token", client.session_token}]
-    else
-      []
-    end
+    headers = [
+      {"Host", host},
+      {"Content-Type", "application/x-www-form-urlencoded"}
+    ]
 
-    headers =
-      [ {"Host", host},
-        {"Content-Type", "application/x-www-form-urlencoded"}
-        | headers
-      ]
-
-    input = %{ input
-               | "Action" => action, "Version" => "2010-03-31"
-             }
+    input = Map.merge(input, %{"Action" => action, "Version" => "2010-03-31"})
     payload = :uri_string.compose_query(Map.to_list(input))
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
 
@@ -506,12 +497,11 @@ defmodule AWS.SNS do
     end
   end
 
-  defp get_host(endpoint_prefix, client) do
-    if client.region == "local" do
-      "localhost"
-    else
-      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp get_host(_endpoint_prefix, %{region: "local"}) do
+    "localhost"
+  end
+  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+    "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
   defp get_url(host, %{:proto => proto, :port => port}) do

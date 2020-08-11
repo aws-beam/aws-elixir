@@ -20,6 +20,7 @@ defmodule AWS.Request do
     headers =
       headers
       |> Internal.add_date_header(long_date)
+      |> Internal.add_content_hash(body)
       |> Internal.add_security_token(client)
 
     canonical_request = Internal.canonical_request(method, url, headers, body)
@@ -120,6 +121,15 @@ defmodule AWS.Request.Internal do
   def add_security_token(headers, %AWS.Client{session_token: nil}), do: headers
   def add_security_token(headers, %AWS.Client{session_token: session_token}),
     do: [{"X-Amz-Security-Token", session_token}|headers]
+
+  @doc """
+  Add an X-Amz-Content-SHA256 header which is the hash of the payload.
+  This header is required for S3 when using the v4 signature. Adding it
+  in requests for all services does not cause any issues.
+  """
+  def add_content_hash(headers, body) do
+    [{"X-Amz-Content-SHA256", AWS.Util.sha256_hexdigest(body)} | headers]
+  end
 
   @doc """
   Generate an AWS4-HMAC-SHA256 authorization signature.

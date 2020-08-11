@@ -71,14 +71,14 @@ defmodule AWS.CostAndUsageReport do
 
     payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    
+
     case HTTPoison.post(url, payload, headers, options) do
       {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
         {:ok, nil, response}
 
       {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
         {:ok, Poison.Parser.parse!(body, %{}), response}
-    
+
       {:ok, %HTTPoison.Response{body: body}} ->
         error = Poison.Parser.parse!(body, %{})
         exception = error["__type"]

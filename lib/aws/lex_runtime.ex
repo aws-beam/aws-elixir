@@ -30,7 +30,7 @@ defmodule AWS.LexRuntime do
   Returns session information for a specified bot, alias, and user ID.
   """
   def get_session(client, bot_alias, bot_name, user_id, options \\ []) do
-    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session/"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -250,15 +250,10 @@ defmodule AWS.LexRuntime do
     host = get_host("runtime.lex", client)
     url = get_url(host, path, client)
 
-    headers = if client.session_token do
-      [{"X-Amz-Security-Token", client.session_token} | headers]
-    else
-      []
-    end
-
     headers = [
       {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"} | headers
+      {"Content-Type", "application/x-amz-json-1.1"}
+      | headers
     ]
 
     payload = encode_payload(input)
@@ -301,16 +296,15 @@ defmodule AWS.LexRuntime do
     end
   end
 
-  defp get_host(endpoint_prefix, client) do
-    if client.region == "local" do
-      "localhost"
-    else
-      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp get_host(_endpoint_prefix, %{region: "local"}) do
+    "localhost"
+  end
+  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+    "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

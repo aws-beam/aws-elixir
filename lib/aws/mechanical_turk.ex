@@ -577,20 +577,16 @@ defmodule AWS.MechanicalTurk do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "mturk-requester"}
+    client = %{client | service: "mturk-requester",
+                        region:  ""}
     host = get_host("mturk-requester", client)
     url = get_url(host, client)
-
-    headers = if client.session_token do
-      [{"X-Amz-Security-Token", client.session_token}]
-    else
-      []
-    end
 
     headers = [
       {"Host", host},
       {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "MTurkRequesterServiceV20170117.#{action}"} | headers]
+      {"X-Amz-Target", "MTurkRequesterServiceV20170117.#{action}"}
+    ]
 
     payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
@@ -613,12 +609,11 @@ defmodule AWS.MechanicalTurk do
     end
   end
 
-  defp get_host(endpoint_prefix, client) do
-    if client.region == "local" do
-      "localhost"
-    else
-      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp get_host(_endpoint_prefix, %{region: "local"}) do
+    "localhost"
+  end
+  defp get_host(endpoint_prefix, %{endpoint: endpoint}) do
+    "#{endpoint_prefix}.#{endpoint}"
   end
 
   defp get_url(host, %{:proto => proto, :port => port}) do

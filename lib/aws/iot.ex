@@ -1360,7 +1360,7 @@ defmodule AWS.IoT do
   Lists the authorizers registered in your account.
   """
   def list_authorizers(client, options \\ []) do
-    path = "/authorizers"
+    path = "/authorizers/"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -2271,15 +2271,10 @@ defmodule AWS.IoT do
     host = get_host("iot", client)
     url = get_url(host, path, client)
 
-    headers = if client.session_token do
-      [{"X-Amz-Security-Token", client.session_token} | headers]
-    else
-      []
-    end
-
     headers = [
       {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"} | headers
+      {"Content-Type", "application/x-amz-json-1.1"}
+      | headers
     ]
 
     payload = encode_payload(input)
@@ -2322,16 +2317,15 @@ defmodule AWS.IoT do
     end
   end
 
-  defp get_host(endpoint_prefix, client) do
-    if client.region == "local" do
-      "localhost"
-    else
-      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp get_host(_endpoint_prefix, %{region: "local"}) do
+    "localhost"
+  end
+  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+    "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

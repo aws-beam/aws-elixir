@@ -2536,20 +2536,16 @@ defmodule AWS.WAF do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "waf"}
+    client = %{client | service: "waf",
+                        region:  "us-east-1"}
     host = get_host("waf", client)
     url = get_url(host, client)
-
-    headers = if client.session_token do
-      [{"X-Amz-Security-Token", client.session_token}]
-    else
-      []
-    end
 
     headers = [
       {"Host", host},
       {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSWAF_20150824.#{action}"} | headers]
+      {"X-Amz-Target", "AWSWAF_20150824.#{action}"}
+    ]
 
     payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
@@ -2572,12 +2568,11 @@ defmodule AWS.WAF do
     end
   end
 
-  defp get_host(endpoint_prefix, client) do
-    if client.region == "local" do
-      "localhost"
-    else
-      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp get_host(_endpoint_prefix, %{region: "local"}) do
+    "localhost"
+  end
+  defp get_host(endpoint_prefix, %{endpoint: endpoint}) do
+    "#{endpoint_prefix}.#{endpoint}"
   end
 
   defp get_url(host, %{:proto => proto, :port => port}) do

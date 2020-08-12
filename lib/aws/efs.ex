@@ -465,7 +465,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeTags` action.
   """
   def describe_tags(client, file_system_id, options \\ []) do
-    path = "/2015-02-01/tags/#{URI.encode(file_system_id)}"
+    path = "/2015-02-01/tags/#{URI.encode(file_system_id)}/"
     headers = []
     request(client, :get, path, headers, nil, options, 200)
   end
@@ -620,15 +620,10 @@ defmodule AWS.EFS do
     host = get_host("elasticfilesystem", client)
     url = get_url(host, path, client)
 
-    headers = if client.session_token do
-      [{"X-Amz-Security-Token", client.session_token} | headers]
-    else
-      []
-    end
-
     headers = [
       {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"} | headers
+      {"Content-Type", "application/x-amz-json-1.1"}
+      | headers
     ]
 
     payload = encode_payload(input)
@@ -671,16 +666,15 @@ defmodule AWS.EFS do
     end
   end
 
-  defp get_host(endpoint_prefix, client) do
-    if client.region == "local" do
-      "localhost"
-    else
-      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp get_host(_endpoint_prefix, %{region: "local"}) do
+    "localhost"
+  end
+  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+    "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

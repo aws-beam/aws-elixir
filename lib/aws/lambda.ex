@@ -110,7 +110,7 @@ defmodule AWS.Lambda do
   </li> </ul>
   """
   def create_event_source_mapping(client, input, options \\ []) do
-    path = "/2015-03-31/event-source-mappings"
+    path = "/2015-03-31/event-source-mappings/"
     headers = []
     request(client, :post, path, headers, input, options, 202)
   end
@@ -254,7 +254,7 @@ defmodule AWS.Lambda do
   usage in an AWS Region.
   """
   def get_account_settings(client, options \\ []) do
-    path = "/2016-08-19/account-settings"
+    path = "/2016-08-19/account-settings/"
     headers = []
     request(client, :get, path, headers, nil, options, 200)
   end
@@ -471,7 +471,7 @@ defmodule AWS.Lambda do
   </important> Invokes a function asynchronously.
   """
   def invoke_async(client, function_name, input, options \\ []) do
-    path = "/2014-11-13/functions/#{URI.encode(function_name)}/invoke-async"
+    path = "/2014-11-13/functions/#{URI.encode(function_name)}/invoke-async/"
     headers = []
     request(client, :post, path, headers, input, options, 202)
   end
@@ -492,7 +492,7 @@ defmodule AWS.Lambda do
   source mappings for a single event source.
   """
   def list_event_source_mappings(client, options \\ []) do
-    path = "/2015-03-31/event-source-mappings"
+    path = "/2015-03-31/event-source-mappings/"
     headers = []
     request(client, :get, path, headers, nil, options, 200)
   end
@@ -519,7 +519,7 @@ defmodule AWS.Lambda do
   about a function or version, use `GetFunction`.
   """
   def list_functions(client, options \\ []) do
-    path = "/2015-03-31/functions"
+    path = "/2015-03-31/functions/"
     headers = []
     request(client, :get, path, headers, nil, options, 200)
   end
@@ -823,15 +823,10 @@ defmodule AWS.Lambda do
     host = get_host("lambda", client)
     url = get_url(host, path, client)
 
-    headers = if client.session_token do
-      [{"X-Amz-Security-Token", client.session_token} | headers]
-    else
-      []
-    end
-
     headers = [
       {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"} | headers
+      {"Content-Type", "application/x-amz-json-1.1"}
+      | headers
     ]
 
     payload = encode_payload(input)
@@ -874,16 +869,15 @@ defmodule AWS.Lambda do
     end
   end
 
-  defp get_host(endpoint_prefix, client) do
-    if client.region == "local" do
-      "localhost"
-    else
-      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp get_host(_endpoint_prefix, %{region: "local"}) do
+    "localhost"
+  end
+  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+    "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

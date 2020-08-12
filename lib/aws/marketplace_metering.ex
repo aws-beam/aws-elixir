@@ -140,20 +140,15 @@ defmodule AWS.Marketplace.Metering do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "metering.marketplace"}
+    client = %{client | service: "aws-marketplace"}
     host = get_host("metering.marketplace", client)
     url = get_url(host, client)
-
-    headers = if client.session_token do
-      [{"X-Amz-Security-Token", client.session_token}]
-    else
-      []
-    end
 
     headers = [
       {"Host", host},
       {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSMPMeteringService.#{action}"} | headers]
+      {"X-Amz-Target", "AWSMPMeteringService.#{action}"}
+    ]
 
     payload = Poison.Encoder.encode(input, %{})
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
@@ -176,12 +171,11 @@ defmodule AWS.Marketplace.Metering do
     end
   end
 
-  defp get_host(endpoint_prefix, client) do
-    if client.region == "local" do
-      "localhost"
-    else
-      "#{endpoint_prefix}.#{client.region}.#{client.endpoint}"
-    end
+  defp get_host(_endpoint_prefix, %{region: "local"}) do
+    "localhost"
+  end
+  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+    "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
   defp get_url(host, %{:proto => proto, :port => port}) do

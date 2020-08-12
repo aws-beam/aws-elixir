@@ -28,6 +28,16 @@ defmodule AWS.Util do
   end
 
   @doc """
+  Encode map into XML.
+  """
+  def encode_xml(map) do
+    map
+    |> Map.to_list
+    |> Enum.map(&encode_xml_key_value/1)
+    |> :erlang.iolist_to_binary
+  end
+
+  @doc """
   Decode XML.
   """
   def decode_xml(xml) do
@@ -35,6 +45,29 @@ defmodule AWS.Util do
     opts = [{:hook_fun, &hook_fun/2}]
     {element, []} = :xmerl_scan.string(xml_str, opts)
     element
+  end
+
+  defp encode_xml_key_value({k, v}) when is_binary(k) and is_binary(v) do
+    ["<", k, ">", v, "</", k, ">"]
+  end
+  defp encode_xml_key_value({k, values}) when is_binary(k) and is_list(values) do
+    for v <- values do
+      encode_xml_key_value({k, v})
+    end
+  end
+  defp encode_xml_key_value({k, v}) when is_binary(k) and is_integer(v) do
+    ["<", k, ">", Integer.to_charlist(v), "</", k, ">"]
+  end
+  defp encode_xml_key_value({k, v}) when is_binary(k) and is_float(v) do
+    ["<", k, ">", Float.to_charlist(v), "</", k, ">"]
+  end
+  defp encode_xml_key_value({k, v}) when is_binary(k) and is_map(v) do
+    [ "<", k, ">",
+      v
+      |> Map.to_list
+      |> Enum.map(&encode_xml_key_value/1),
+      "</", k, ">"
+    ]
   end
 
   _ = """

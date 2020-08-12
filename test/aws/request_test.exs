@@ -13,7 +13,8 @@ defmodule AWS.RequestTest do
     url = "https://ec2.us-east-1.amazonaws.com?Action=DescribeInstances&Version=2014-10-01"
     headers = [{"Host", "ec2.us-east-1.amazonaws.com"}, {"Header", "Value"}]
     actual = Request.sign_v4(client, now, method, url, headers, "")
-    expected = [{"Authorization", "AWS4-HMAC-SHA256 Credential=access-key-id/20150514/us-east-1/ec2/aws4_request, SignedHeaders=header;host;x-amz-date, Signature=32dd2650e0c0f5f39e2747881a89e18f275a20d8eba1b69dc548f4369c24a29c"},
+    expected = [{"Authorization", "AWS4-HMAC-SHA256 Credential=access-key-id/20150514/us-east-1/ec2/aws4_request, SignedHeaders=header;host;x-amz-content-sha256;x-amz-date, Signature=0d8cc4ca3b83dbd62a9b1870d04005dc03ab2fc5f6d1398513e197c04f5cbb53"},
+                {"X-Amz-Content-SHA256", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
                 {"X-Amz-Date", "20150514T165005Z"},
                 {"Host", "ec2.us-east-1.amazonaws.com"},
                 {"Header", "Value"}]

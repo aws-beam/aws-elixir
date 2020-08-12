@@ -465,7 +465,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeTags` action.
   """
   def describe_tags(client, file_system_id, options \\ []) do
-    path = "/2015-02-01/tags/#{URI.encode(file_system_id)}"
+    path = "/2015-02-01/tags/#{URI.encode(file_system_id)}/"
     headers = []
     request(client, :get, path, headers, nil, options, 200)
   end
@@ -674,7 +674,7 @@ defmodule AWS.EFS do
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

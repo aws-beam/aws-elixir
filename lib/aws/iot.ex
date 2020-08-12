@@ -1360,7 +1360,7 @@ defmodule AWS.IoT do
   Lists the authorizers registered in your account.
   """
   def list_authorizers(client, options \\ []) do
-    path = "/authorizers"
+    path = "/authorizers/"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -2325,7 +2325,7 @@ defmodule AWS.IoT do
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

@@ -2702,7 +2702,7 @@ defmodule AWS.S3 do
   request.
   """
   def list_buckets(client, options \\ []) do
-    path = ""
+    path = "/"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end

@@ -30,7 +30,7 @@ defmodule AWS.LexRuntime do
   Returns session information for a specified bot, alias, and user ID.
   """
   def get_session(client, bot_alias, bot_name, user_id, options \\ []) do
-    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session/"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -304,7 +304,7 @@ defmodule AWS.LexRuntime do
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

@@ -130,7 +130,7 @@ defmodule AWS.Route53 do
   in the *Amazon Route 53 Developer Guide*.
   """
   def change_resource_record_sets(client, hosted_zone_id, input, options \\ []) do
-    path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset"
+    path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset/"
     headers = []
     request(client, :post, path, headers, input, options, nil)
   end

@@ -305,7 +305,8 @@ defmodule AWS.Shield do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "shield"}
+    client = %{client | service: "shield",
+                        region:  "us-east-1"}
     host = get_host("shield", client)
     url = get_url(host, client)
 

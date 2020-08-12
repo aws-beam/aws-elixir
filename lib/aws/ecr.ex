@@ -343,7 +343,7 @@ defmodule AWS.ECR do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "api.ecr"}
+    client = %{client | service: "ecr"}
     host = get_host("api.ecr", client)
     url = get_url(host, client)
 

@@ -1250,7 +1250,7 @@ defmodule AWS.Email do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "email"}
+    client = %{client | service: "ses"}
     host = get_host("email", client)
     url = get_url(host, client)
 

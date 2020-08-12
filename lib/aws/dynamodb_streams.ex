@@ -83,7 +83,7 @@ defmodule AWS.DynamoDB.Streams do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "streams.dynamodb"}
+    client = %{client | service: "dynamodb"}
     host = get_host("streams.dynamodb", client)
     url = get_url(host, client)
 

@@ -2651,7 +2651,8 @@ defmodule AWS.IAM do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "iam"}
+    client = %{client | service: "iam",
+                        region:  "us-east-1"}
     host = get_host("iam", client)
     url = get_url(host, client)
 

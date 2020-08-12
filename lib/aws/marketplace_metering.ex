@@ -140,7 +140,7 @@ defmodule AWS.Marketplace.Metering do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "metering.marketplace"}
+    client = %{client | service: "aws-marketplace"}
     host = get_host("metering.marketplace", client)
     url = get_url(host, client)
 

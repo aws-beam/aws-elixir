@@ -1164,7 +1164,8 @@ defmodule AWS.Organizations do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "organizations"}
+    client = %{client | service: "organizations",
+                        region:  "us-east-1"}
     host = get_host("organizations", client)
     url = get_url(host, client)
 

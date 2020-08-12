@@ -5383,7 +5383,7 @@ defmodule AWS.S3 do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        reason = error["Error"]["Message"]
+        reason = error["ErrorResponse"]["Error"]["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -5401,7 +5401,7 @@ defmodule AWS.S3 do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        reason = error["Error"]["Message"]
+        reason = error["ErrorResponse"]["Error"]["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -5417,7 +5417,7 @@ defmodule AWS.S3 do
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

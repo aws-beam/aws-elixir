@@ -452,7 +452,7 @@ defmodule AWS.AppStream do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "appstream2"}
+    client = %{client | service: "appstream"}
     host = get_host("appstream2", client)
     url = get_url(host, client)
 

@@ -2536,7 +2536,8 @@ defmodule AWS.WAF do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "waf"}
+    client = %{client | service: "waf",
+                        region:  "us-east-1"}
     host = get_host("waf", client)
     url = get_url(host, client)
 

@@ -77,7 +77,8 @@ defmodule AWS.ImportExport do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "importexport"}
+    client = %{client | service: "importexport",
+                        region:  "us-east-1"}
     host = get_host("importexport", client)
     url = get_url(host, client)
 

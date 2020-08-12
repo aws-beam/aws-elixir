@@ -577,7 +577,8 @@ defmodule AWS.MechanicalTurk do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "mturk-requester"}
+    client = %{client | service: "mturk-requester",
+                        region:  ""}
     host = get_host("mturk-requester", client)
     url = get_url(host, client)
 

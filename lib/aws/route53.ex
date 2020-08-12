@@ -1456,7 +1456,8 @@ defmodule AWS.Route53 do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, headers, input, options, success_status_code) do
-    client = %{client | service: "route53"}
+    client = %{client | service: "route53",
+                        region:  "us-east-1"}
     host = get_host("route53", client)
     url = get_url(host, path, client)
 
@@ -1482,7 +1483,7 @@ defmodule AWS.Route53 do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        reason = error["Error"]["Message"]
+        reason = error["ErrorResponse"]["Error"]["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -1500,7 +1501,7 @@ defmodule AWS.Route53 do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        reason = error["Error"]["Message"]
+        reason = error["ErrorResponse"]["Error"]["Message"]
         {:error, reason}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -1516,7 +1517,7 @@ defmodule AWS.Route53 do
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}/"
+    "#{proto}://#{host}:#{port}#{path}"
   end
 
   defp encode_payload(input) do

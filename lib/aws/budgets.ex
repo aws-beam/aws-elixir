@@ -206,7 +206,8 @@ defmodule AWS.Budgets do
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
-    client = %{client | service: "budgets"}
+    client = %{client | service: "budgets",
+                        region:  "us-east-1"}
     host = get_host("budgets", client)
     url = get_url(host, client)
 

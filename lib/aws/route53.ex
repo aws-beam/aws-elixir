@@ -1452,7 +1452,7 @@ defmodule AWS.Route53 do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, headers, input, options, success_status_code) do
@@ -1483,8 +1483,7 @@ defmodule AWS.Route53 do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        reason = error["ErrorResponse"]["Error"]["Message"]
-        {:error, reason}
+        {:error, error}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
@@ -1494,15 +1493,14 @@ defmodule AWS.Route53 do
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
       {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, nil, response}
+        {:ok, %{}, response}
 
       {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
         {:ok, AWS.Util.decode_xml(body), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        reason = error["ErrorResponse"]["Error"]["Message"]
-        {:error, reason}
+        {:error, error}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}

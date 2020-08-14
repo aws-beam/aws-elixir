@@ -610,9 +610,7 @@ defmodule AWS.ElasticBeanstalk do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        exception = error["ErrorResponse"]["Error"]["Code"]
-        message = error["ErrorResponse"]["Error"]["Message"]
-        {:error, {exception, message}}
+        {:error, error}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}

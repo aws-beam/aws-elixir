@@ -1,0 +1,26 @@
+name: Build
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+        elixir: ['1.8.2', '1.9.4', '1.10.4']
+    runs-on: ${{ matrix.platform }}
+    container:
+      image: elixir:${{ matrix.elixir }}-slim
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          mix local.rebar --force
+          mix local.hex --force
+          mix deps.get
+      - run: mix deps.get
+      - run: mix test

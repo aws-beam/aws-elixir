@@ -1,6 +1,6 @@
 # AWS clients for Elixir
 
-[![Build Status](https://travis-ci.org/aws-beam/aws-elixir.svg?branch=master)](https://travis-ci.org/aws-beam/aws-elixir)
+[![Actions Status](https://github.com/aws-beam/aws-elixir/workflows/Build/badge.svg)](https://github.com/aws-beam/aws-elixir/actions)
 
 ## Features
 

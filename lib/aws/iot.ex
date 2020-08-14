@@ -211,7 +211,7 @@ defmodule AWS.IoT do
   access to the endpoint.
   """
   def confirm_topic_rule_destination(client, confirmation_token, options \\ []) do
-    path = "/confirmdestination/#{URI.encode(confirmation_token)}"
+    path = "/confirmdestination/#{AWS.Util.encode_uri(confirmation_token, true)}"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -799,7 +799,7 @@ defmodule AWS.IoT do
   Deletes a topic rule destination.
   """
   def delete_topic_rule_destination(client, arn, input, options \\ []) do
-    path = "/destinations/#{URI.encode(arn)}"
+    path = "/destinations/#{AWS.Util.encode_uri(arn, true)}"
     headers = []
     request(client, :delete, path, headers, input, options, nil)
   end
@@ -1284,7 +1284,7 @@ defmodule AWS.IoT do
   Gets information about a topic rule destination.
   """
   def get_topic_rule_destination(client, arn, options \\ []) do
-    path = "/destinations/#{URI.encode(arn)}"
+    path = "/destinations/#{AWS.Util.encode_uri(arn, true)}"
     headers = []
     request(client, :get, path, headers, nil, options, nil)
   end
@@ -2263,7 +2263,7 @@ defmodule AWS.IoT do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, headers, input, options, success_status_code) do
@@ -2292,8 +2292,8 @@ defmodule AWS.IoT do
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["Message"]
-        {:error, reason}
+        error = Poison.Parser.parse!(body, %{})
+        {:error, error}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
@@ -2303,14 +2303,14 @@ defmodule AWS.IoT do
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
       {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, nil, response}
+        {:ok, %{}, response}
 
       {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
         {:ok, Poison.Parser.parse!(body, %{}), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
-        reason = Poison.Parser.parse!(body, %{})["Message"]
-        {:error, reason}
+        error = Poison.Parser.parse!(body, %{})
+        {:error, error}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}

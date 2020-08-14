@@ -449,9 +449,7 @@ defmodule AWS.Kinesis.Firehose do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = Poison.Parser.parse!(body, %{})
-        exception = error["__type"]
-        message = error["message"]
-        {:error, {exception, message}}
+        {:error, error}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}

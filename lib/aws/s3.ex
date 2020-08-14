@@ -38,7 +38,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def abort_multipart_upload(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
 
     {headers, input} =
       [
@@ -149,7 +149,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def complete_multipart_upload(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
 
     {headers, input} =
       [
@@ -347,7 +347,7 @@ defmodule AWS.S3 do
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html).
   """
   def copy_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
 
     {headers, input} =
       [
@@ -763,7 +763,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def create_multipart_upload(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?uploads"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?uploads"
 
     {headers, input} =
       [
@@ -1184,7 +1184,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
 
     {headers, input} =
       [
@@ -1237,7 +1237,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_object_tagging(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?tagging"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
     headers = []
     case request(client, :delete, path, headers, input, options, 204) do
       {:ok, body, response} ->
@@ -2092,7 +2092,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_object(client, bucket, key, if_match, if_modified_since, if_none_match, if_unmodified_since, range, request_payer, s_s_e_customer_algorithm, s_s_e_customer_key, s_s_e_customer_key_m_d5, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     headers = []
     headers = if !is_nil(if_match) do
       [{"If-Match", if_match} | headers]
@@ -2208,7 +2208,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_object_acl(client, bucket, key, request_payer, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?acl"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
@@ -2241,7 +2241,7 @@ defmodule AWS.S3 do
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
   """
   def get_object_legal_hold(client, bucket, key, request_payer, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?legal-hold"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
@@ -2269,7 +2269,7 @@ defmodule AWS.S3 do
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
   """
   def get_object_retention(client, bucket, key, request_payer, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?retention"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
@@ -2303,7 +2303,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_object_tagging(client, bucket, key, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?tagging"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
     headers = []
     case request(client, :get, path, headers, nil, options, nil) do
       {:ok, body, response} ->
@@ -2344,7 +2344,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_object_torrent(client, bucket, key, request_payer, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?torrent"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?torrent"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
@@ -2506,7 +2506,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def head_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
 
     {headers, input} =
       [
@@ -2902,7 +2902,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_parts(client, bucket, key, request_payer, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
@@ -4175,7 +4175,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
 
     {headers, input} =
       [
@@ -4381,7 +4381,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_acl(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?acl"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
 
     {headers, input} =
       [
@@ -4427,7 +4427,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_legal_hold(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?legal-hold"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
 
     {headers, input} =
       [
@@ -4513,7 +4513,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_retention(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?retention"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
 
     {headers, input} =
       [
@@ -4601,7 +4601,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_tagging(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?tagging"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
 
     {headers, input} =
       [
@@ -4909,7 +4909,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def restore_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?restore"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?restore"
 
     {headers, input} =
       [
@@ -5038,7 +5038,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def select_object_content(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}?select&select-type=2"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?select&select-type=2"
 
     {headers, input} =
       [
@@ -5149,7 +5149,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def upload_part(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
 
     {headers, input} =
       [
@@ -5307,7 +5307,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def upload_part_copy(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{URI.encode(key)}"
+    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
 
     {headers, input} =
       [
@@ -5353,7 +5353,7 @@ defmodule AWS.S3 do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
+          {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, headers, input, options, success_status_code) do
@@ -5383,8 +5383,7 @@ defmodule AWS.S3 do
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        reason = error["ErrorResponse"]["Error"]["Message"]
-        {:error, reason}
+        {:error, error}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}
@@ -5394,15 +5393,14 @@ defmodule AWS.S3 do
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case HTTPoison.request(method, url, payload, headers, options) do
       {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, nil, response}
+        {:ok, %{}, response}
 
       {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
         {:ok, AWS.Util.decode_xml(body), response}
 
       {:ok, %HTTPoison.Response{body: body}} ->
         error = AWS.Util.decode_xml(body)
-        reason = error["ErrorResponse"]["Error"]["Message"]
-        {:error, reason}
+        {:error, error}
 
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, %HTTPoison.Error{reason: reason}}

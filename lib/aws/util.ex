@@ -28,6 +28,18 @@ defmodule AWS.Util do
   end
 
   @doc """
+  Encode URI.
+  """
+  def encode_uri(value, false = _multi_segment) do
+    :http_uri.encode(value)
+  end
+  def encode_uri(value, true = _multi_segment) do
+    String.split(value, "/")
+    |> Enum.map(&URI.encode/1)
+    |> Enum.join("/")
+  end
+
+  @doc """
   Encode map into XML.
   """
   def encode_xml(map) do

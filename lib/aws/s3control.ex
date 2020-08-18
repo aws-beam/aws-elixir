@@ -461,11 +461,8 @@ defmodule AWS.S3Control do
     host = get_host(account_id, "s3-control", client)
     url = get_url(host, path, client)
 
-    headers = [
-      {"Host", host},
-      {"Content-Type", "text/xml"}
-      | headers
-    ]
+    additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
+    headers = AWS.Request.add_headers(additional_headers, headers)
 
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)

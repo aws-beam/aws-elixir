@@ -96,6 +96,19 @@ defmodule AWS.Request do
         {headers, params}
     end
   end
+
+  @doc """
+  Include additions only if they do not already exist in the provided list.
+  """
+  def add_headers([], headers) do
+    headers
+  end
+  def add_headers([{name, _} = header | additions], headers) do
+    case List.keyfind(headers, name, 0) do
+      nil -> add_headers(additions, [header | headers])
+      {_, _} -> add_headers(additions, headers)
+    end
+  end
 end
 
 defmodule AWS.Request.Internal do

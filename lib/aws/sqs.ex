@@ -634,7 +634,7 @@ defmodule AWS.SQS do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2012-11-05"})
-    payload = :uri_string.compose_query(Map.to_list(input))
+    payload = AWS.Util.encode_query(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
 
     case HTTPoison.post(url, payload, headers, options) do

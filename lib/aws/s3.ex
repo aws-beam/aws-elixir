@@ -5361,11 +5361,8 @@ defmodule AWS.S3 do
     host = get_host("s3", client)
     url = get_url(host, path, client)
 
-    headers = [
-      {"Host", host},
-      {"Content-Type", "text/xml"}
-      | headers
-    ]
+    additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
+    headers = AWS.Request.add_headers(additional_headers, headers)
 
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)

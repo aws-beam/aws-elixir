@@ -1192,11 +1192,8 @@ defmodule AWS.APIGateway do
     host = get_host("apigateway", client)
     url = get_url(host, path, client)
 
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"}
-      | headers
-    ]
+    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
+    headers = AWS.Request.add_headers(additional_headers, headers)
 
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)

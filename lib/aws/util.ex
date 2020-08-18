@@ -40,6 +40,15 @@ defmodule AWS.Util do
   end
 
   @doc """
+  Encode map into querystring.
+  """
+  def encode_query(value) do
+    value
+    |> Enum.map(fn {k, v} -> {k, to_string(v)} end)
+    |> :uri_string.compose_query
+  end
+
+  @doc """
   Encode map into XML.
   """
   def encode_xml(map) do

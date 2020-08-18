@@ -457,7 +457,8 @@ defmodule AWS.S3Control do
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, headers, input, options, success_status_code) do
     client = %{client | service: "s3"}
-    host = get_host("s3-control", client)
+    account_id = :proplists.get_value("x-amz-account-id", headers)
+    host = get_host(account_id, "s3-control", client)
     url = get_url(host, path, client)
 
     headers = [
@@ -506,11 +507,14 @@ defmodule AWS.S3Control do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp get_host(_account_id, _endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
+  defp get_host(:undefined, _endpoint_prefix, _client) do
+    raise "missing account_id"
+  end
+  defp get_host(account_id, endpoint_prefix, %{region: region, endpoint: endpoint}) do
+    "#{account_id}.#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do

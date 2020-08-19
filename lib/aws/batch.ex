@@ -33,7 +33,8 @@ defmodule AWS.Batch do
   def cancel_job(client, input, options \\ []) do
     path = "/v1/canceljob"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -87,7 +88,8 @@ defmodule AWS.Batch do
   def create_compute_environment(client, input, options \\ []) do
     path = "/v1/createcomputeenvironment"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -104,7 +106,8 @@ defmodule AWS.Batch do
   def create_job_queue(client, input, options \\ []) do
     path = "/v1/createjobqueue"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -118,7 +121,8 @@ defmodule AWS.Batch do
   def delete_compute_environment(client, input, options \\ []) do
     path = "/v1/deletecomputeenvironment"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -132,7 +136,8 @@ defmodule AWS.Batch do
   def delete_job_queue(client, input, options \\ []) do
     path = "/v1/deletejobqueue"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -142,7 +147,8 @@ defmodule AWS.Batch do
   def deregister_job_definition(client, input, options \\ []) do
     path = "/v1/deregisterjobdefinition"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -155,7 +161,8 @@ defmodule AWS.Batch do
   def describe_compute_environments(client, input, options \\ []) do
     path = "/v1/describecomputeenvironments"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -165,7 +172,8 @@ defmodule AWS.Batch do
   def describe_job_definitions(client, input, options \\ []) do
     path = "/v1/describejobdefinitions"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -174,7 +182,8 @@ defmodule AWS.Batch do
   def describe_job_queues(client, input, options \\ []) do
     path = "/v1/describejobqueues"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -183,7 +192,8 @@ defmodule AWS.Batch do
   def describe_jobs(client, input, options \\ []) do
     path = "/v1/describejobs"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -205,7 +215,8 @@ defmodule AWS.Batch do
   def list_jobs(client, input, options \\ []) do
     path = "/v1/listjobs"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -214,7 +225,8 @@ defmodule AWS.Batch do
   def register_job_definition(client, input, options \\ []) do
     path = "/v1/registerjobdefinition"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -224,7 +236,8 @@ defmodule AWS.Batch do
   def submit_job(client, input, options \\ []) do
     path = "/v1/submitjob"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -236,7 +249,8 @@ defmodule AWS.Batch do
   def terminate_job(client, input, options \\ []) do
     path = "/v1/terminatejob"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -245,7 +259,8 @@ defmodule AWS.Batch do
   def update_compute_environment(client, input, options \\ []) do
     path = "/v1/updatecomputeenvironment"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -254,17 +269,20 @@ defmodule AWS.Batch do
   def update_job_queue(client, input, options \\ []) do
     path = "/v1/updatejobqueue"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "batch"}
     host = get_host("batch", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -318,6 +336,14 @@ defmodule AWS.Batch do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

@@ -24,7 +24,8 @@ defmodule AWS.Connect do
   def create_user(client, instance_id, input, options \\ []) do
     path = "/users/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :put, path, headers, input, options, nil)
+    query = []
+    request(client, :put, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -33,7 +34,8 @@ defmodule AWS.Connect do
   def delete_user(client, instance_id, user_id, input, options \\ []) do
     path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, nil)
+    query = []
+    request(client, :delete, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -42,36 +44,40 @@ defmodule AWS.Connect do
   user IDs. Instead, list the users and note the IDs provided in the output.
   """
   def describe_user(client, instance_id, user_id, options \\ []) do
-    path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
+    path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Describes the specified hierarchy group.
   """
   def describe_user_hierarchy_group(client, hierarchy_group_id, instance_id, options \\ []) do
-    path = "/user-hierarchy-groups/#{URI.encode(instance_id)}/#{URI.encode(hierarchy_group_id)}"
+    path_ = "/user-hierarchy-groups/#{URI.encode(instance_id)}/#{URI.encode(hierarchy_group_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Describes the hierarchy structure of the specified Amazon Connect instance.
   """
   def describe_user_hierarchy_structure(client, instance_id, options \\ []) do
-    path = "/user-hierarchy-structure/#{URI.encode(instance_id)}"
+    path_ = "/user-hierarchy-structure/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Retrieves the contact attributes for the specified contact.
   """
   def get_contact_attributes(client, initial_contact_id, instance_id, options \\ []) do
-    path = "/contact/attributes/#{URI.encode(instance_id)}/#{URI.encode(initial_contact_id)}"
+    path_ = "/contact/attributes/#{URI.encode(instance_id)}/#{URI.encode(initial_contact_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -84,16 +90,18 @@ defmodule AWS.Connect do
   def get_current_metric_data(client, instance_id, input, options \\ []) do
     path = "/metrics/current/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
   Retrieves a token for federation.
   """
   def get_federation_token(client, instance_id, options \\ []) do
-    path = "/user/federate/#{URI.encode(instance_id)}"
+    path_ = "/user/federate/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -106,96 +114,206 @@ defmodule AWS.Connect do
   def get_metric_data(client, instance_id, input, options \\ []) do
     path = "/metrics/historical/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
   Provides information about the contact flows for the specified Amazon
   Connect instance.
   """
-  def list_contact_flows(client, instance_id, options \\ []) do
-    path = "/contact-flows-summary/#{URI.encode(instance_id)}"
+  def list_contact_flows(client, instance_id, contact_flow_types \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/contact-flows-summary/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(contact_flow_types) do
+      [{"contactFlowTypes", contact_flow_types} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Provides information about the hours of operation for the specified Amazon
   Connect instance.
   """
-  def list_hours_of_operations(client, instance_id, options \\ []) do
-    path = "/hours-of-operations-summary/#{URI.encode(instance_id)}"
+  def list_hours_of_operations(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/hours-of-operations-summary/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Provides information about the phone numbers for the specified Amazon
   Connect instance.
   """
-  def list_phone_numbers(client, instance_id, options \\ []) do
-    path = "/phone-numbers-summary/#{URI.encode(instance_id)}"
+  def list_phone_numbers(client, instance_id, max_results \\ nil, next_token \\ nil, phone_number_country_codes \\ nil, phone_number_types \\ nil, options \\ []) do
+    path_ = "/phone-numbers-summary/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(phone_number_country_codes) do
+      [{"phoneNumberCountryCodes", phone_number_country_codes} | query]
+    else
+      query
+    end
+    query = if !is_nil(phone_number_types) do
+      [{"phoneNumberTypes", phone_number_types} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Provides information about the queues for the specified Amazon Connect
   instance.
   """
-  def list_queues(client, instance_id, options \\ []) do
-    path = "/queues-summary/#{URI.encode(instance_id)}"
+  def list_queues(client, instance_id, max_results \\ nil, next_token \\ nil, queue_types \\ nil, options \\ []) do
+    path_ = "/queues-summary/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(queue_types) do
+      [{"queueTypes", queue_types} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Provides summary information about the routing profiles for the specified
   Amazon Connect instance.
   """
-  def list_routing_profiles(client, instance_id, options \\ []) do
-    path = "/routing-profiles-summary/#{URI.encode(instance_id)}"
+  def list_routing_profiles(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/routing-profiles-summary/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Provides summary information about the security profiles for the specified
   Amazon Connect instance.
   """
-  def list_security_profiles(client, instance_id, options \\ []) do
-    path = "/security-profiles-summary/#{URI.encode(instance_id)}"
+  def list_security_profiles(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/security-profiles-summary/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Lists the tags for the specified resource.
   """
   def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path = "/tags/#{URI.encode(resource_arn)}"
+    path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Provides summary information about the hierarchy groups for the specified
   Amazon Connect instance.
   """
-  def list_user_hierarchy_groups(client, instance_id, options \\ []) do
-    path = "/user-hierarchy-groups-summary/#{URI.encode(instance_id)}"
+  def list_user_hierarchy_groups(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/user-hierarchy-groups-summary/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Provides summary information about the users for the specified Amazon
   Connect instance.
   """
-  def list_users(client, instance_id, options \\ []) do
-    path = "/users-summary/#{URI.encode(instance_id)}"
+  def list_users(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/users-summary/#{URI.encode(instance_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -207,7 +325,8 @@ defmodule AWS.Connect do
   def resume_contact_recording(client, input, options \\ []) do
     path = "/contact/resume-recording"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -225,7 +344,8 @@ defmodule AWS.Connect do
   def start_chat_contact(client, input, options \\ []) do
     path = "/contact/chat"
     headers = []
-    request(client, :put, path, headers, input, options, nil)
+    query = []
+    request(client, :put, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -247,7 +367,8 @@ defmodule AWS.Connect do
   def start_contact_recording(client, input, options \\ []) do
     path = "/contact/start-recording"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -266,7 +387,8 @@ defmodule AWS.Connect do
   def start_outbound_voice_contact(client, input, options \\ []) do
     path = "/contact/outbound-voice"
     headers = []
-    request(client, :put, path, headers, input, options, nil)
+    query = []
+    request(client, :put, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -275,7 +397,8 @@ defmodule AWS.Connect do
   def stop_contact(client, input, options \\ []) do
     path = "/contact/stop"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -292,7 +415,8 @@ defmodule AWS.Connect do
   def stop_contact_recording(client, input, options \\ []) do
     path = "/contact/stop-recording"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -309,7 +433,8 @@ defmodule AWS.Connect do
   def suspend_contact_recording(client, input, options \\ []) do
     path = "/contact/suspend-recording"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -320,7 +445,8 @@ defmodule AWS.Connect do
   def tag_resource(client, resource_arn, input, options \\ []) do
     path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -329,7 +455,12 @@ defmodule AWS.Connect do
   def untag_resource(client, resource_arn, input, options \\ []) do
     path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    request(client, :delete, path, headers, input, options, nil)
+    {query, input} =
+      [
+        {"tagKeys", "tagKeys"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -359,7 +490,8 @@ defmodule AWS.Connect do
   def update_contact_attributes(client, input, options \\ []) do
     path = "/contact/attributes"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -368,7 +500,8 @@ defmodule AWS.Connect do
   def update_user_hierarchy(client, instance_id, user_id, input, options \\ []) do
     path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/hierarchy"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -377,7 +510,8 @@ defmodule AWS.Connect do
   def update_user_identity_info(client, instance_id, user_id, input, options \\ []) do
     path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/identity-info"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -386,7 +520,8 @@ defmodule AWS.Connect do
   def update_user_phone_config(client, instance_id, user_id, input, options \\ []) do
     path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/phone-config"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -395,7 +530,8 @@ defmodule AWS.Connect do
   def update_user_routing_profile(client, instance_id, user_id, input, options \\ []) do
     path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/routing-profile"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -404,17 +540,20 @@ defmodule AWS.Connect do
   def update_user_security_profiles(client, instance_id, user_id, input, options \\ []) do
     path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/security-profiles"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "connect"}
     host = get_host("connect", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -468,6 +607,14 @@ defmodule AWS.Connect do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

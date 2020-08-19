@@ -78,11 +78,12 @@ defmodule AWS.Request do
   end
 
   @doc """
-  Build request headers based on a list key-value pairs representing the mappings
-  from param names to header names and a map qith the `params`.
+  Build request params (header or querystring) based on a list of key-value
+  pairs representing the `mapping` from the input name (key) to the param
+  name (value) and a map with the input `params`.
   """
-  def build_headers(params_to_headers, %{} = params) when is_list(params_to_headers) do
-    Enum.reduce(params_to_headers, {[], params}, &move_param_to_header/2)
+  def build_params(mapping, %{} = params) when is_list(mapping) do
+    Enum.reduce(mapping, {[], params}, &move_param_to_header/2)
   end
 
   defp move_param_to_header({param_name, header_name}, {headers, params}) do

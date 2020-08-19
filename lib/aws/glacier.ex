@@ -69,7 +69,8 @@ defmodule AWS.Glacier do
   def abort_multipart_upload(client, account_id, upload_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -96,7 +97,8 @@ defmodule AWS.Glacier do
   def abort_vault_lock(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -111,7 +113,8 @@ defmodule AWS.Glacier do
   def add_tags_to_vault(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags?operation=add"
     headers = []
-    request(client, :post, path, headers, input, options, 204)
+    query = []
+    request(client, :post, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -166,15 +169,14 @@ defmodule AWS.Glacier do
   """
   def complete_multipart_upload(client, account_id, upload_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
-
     {headers, input} =
       [
         {"archiveSize", "x-amz-archive-size"},
         {"checksum", "x-amz-sha256-tree-hash"},
       ]
-      |> AWS.Request.build_headers(input)
-    
-    case request(client, :post, path, headers, input, options, 201) do
+      |> AWS.Request.build_params(input)
+    query = []
+    case request(client, :post, path, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -217,7 +219,8 @@ defmodule AWS.Glacier do
   def complete_vault_lock(client, account_id, lock_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy/#{URI.encode(lock_id)}"
     headers = []
-    request(client, :post, path, headers, input, options, 204)
+    query = []
+    request(client, :post, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -252,7 +255,8 @@ defmodule AWS.Glacier do
   def create_vault(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
     headers = []
-    case request(client, :put, path, headers, input, options, 201) do
+    query = []
+    case request(client, :put, path, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -306,7 +310,8 @@ defmodule AWS.Glacier do
   def delete_archive(client, account_id, archive_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives/#{URI.encode(archive_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -341,7 +346,8 @@ defmodule AWS.Glacier do
   def delete_vault(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -359,7 +365,8 @@ defmodule AWS.Glacier do
   def delete_vault_access_policy(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -386,7 +393,8 @@ defmodule AWS.Glacier do
   def delete_vault_notifications(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -417,9 +425,10 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
   """
   def describe_job(client, account_id, job_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}"
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -450,9 +459,10 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
   """
   def describe_vault(client, account_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -462,9 +472,10 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
   """
   def get_data_retrieval_policy(client, account_id, options \\ []) do
-    path = "/#{URI.encode(account_id)}/policies/data-retrieval"
+    path_ = "/#{URI.encode(account_id)}/policies/data-retrieval"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -519,15 +530,16 @@ defmodule AWS.Glacier do
   and [Get Job Output
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html)
   """
-  def get_job_output(client, account_id, job_id, vault_name, range, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}/output"
+  def get_job_output(client, account_id, job_id, vault_name, range \\ nil, options \\ []) do
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}/output"
     headers = []
     headers = if !is_nil(range) do
       [{"Range", range} | headers]
     else
       headers
     end
-    case request(client, :get, path, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -562,9 +574,10 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
   def get_vault_access_policy(client, account_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -595,9 +608,10 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
   """
   def get_vault_lock(client, account_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -626,9 +640,10 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
   """
   def get_vault_notifications(client, account_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -641,7 +656,8 @@ defmodule AWS.Glacier do
   def initiate_job(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
     headers = []
-    case request(client, :post, path, headers, input, options, 202) do
+    query = []
+    case request(client, :post, path, query, headers, input, options, 202) do
       {:ok, body, response} ->
         body =
           [
@@ -707,15 +723,14 @@ defmodule AWS.Glacier do
   """
   def initiate_multipart_upload(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
-
     {headers, input} =
       [
         {"archiveDescription", "x-amz-archive-description"},
         {"partSize", "x-amz-part-size"},
       ]
-      |> AWS.Request.build_headers(input)
-    
-    case request(client, :post, path, headers, input, options, 201) do
+      |> AWS.Request.build_params(input)
+    query = []
+    case request(client, :post, path, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -774,7 +789,8 @@ defmodule AWS.Glacier do
   def initiate_vault_lock(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
     headers = []
-    case request(client, :post, path, headers, input, options, 201) do
+    query = []
+    case request(client, :post, path, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -833,10 +849,31 @@ defmodule AWS.Glacier do
   the underlying REST API [List
   Jobs](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html).
   """
-  def list_jobs(client, account_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
+  def list_jobs(client, account_id, vault_name, completed \\ nil, limit \\ nil, marker \\ nil, statuscode \\ nil, options \\ []) do
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(completed) do
+      [{"completed", completed} | query]
+    else
+      query
+    end
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(statuscode) do
+      [{"statuscode", statuscode} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -875,10 +912,21 @@ defmodule AWS.Glacier do
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def list_multipart_uploads(client, account_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
+  def list_multipart_uploads(client, account_id, vault_name, limit \\ nil, marker \\ nil, options \\ []) do
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -912,10 +960,21 @@ defmodule AWS.Glacier do
   Parts](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def list_parts(client, account_id, upload_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
+  def list_parts(client, account_id, upload_id, vault_name, limit \\ nil, marker \\ nil, options \\ []) do
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -923,9 +982,10 @@ defmodule AWS.Glacier do
   account.
   """
   def list_provisioned_capacity(client, account_id, options \\ []) do
-    path = "/#{URI.encode(account_id)}/provisioned-capacity"
+    path_ = "/#{URI.encode(account_id)}/provisioned-capacity"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -935,9 +995,10 @@ defmodule AWS.Glacier do
   Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
   def list_tags_for_vault(client, account_id, vault_name, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags"
+    path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -967,10 +1028,21 @@ defmodule AWS.Glacier do
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  def list_vaults(client, account_id, options \\ []) do
-    path = "/#{URI.encode(account_id)}/vaults"
+  def list_vaults(client, account_id, limit \\ nil, marker \\ nil, options \\ []) do
+    path_ = "/#{URI.encode(account_id)}/vaults"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -979,7 +1051,8 @@ defmodule AWS.Glacier do
   def purchase_provisioned_capacity(client, account_id, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/provisioned-capacity"
     headers = []
-    case request(client, :post, path, headers, input, options, 201) do
+    query = []
+    case request(client, :post, path, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -1009,7 +1082,8 @@ defmodule AWS.Glacier do
   def remove_tags_from_vault(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags?operation=remove"
     headers = []
-    request(client, :post, path, headers, input, options, 204)
+    query = []
+    request(client, :post, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1026,7 +1100,8 @@ defmodule AWS.Glacier do
   def set_data_retrieval_policy(client, account_id, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/policies/data-retrieval"
     headers = []
-    request(client, :put, path, headers, input, options, 204)
+    query = []
+    request(client, :put, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1042,7 +1117,8 @@ defmodule AWS.Glacier do
   def set_vault_access_policy(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
     headers = []
-    request(client, :put, path, headers, input, options, 204)
+    query = []
+    request(client, :put, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1088,7 +1164,8 @@ defmodule AWS.Glacier do
   def set_vault_notifications(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
     headers = []
-    request(client, :put, path, headers, input, options, 204)
+    query = []
+    request(client, :put, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1137,15 +1214,14 @@ defmodule AWS.Glacier do
   """
   def upload_archive(client, account_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives"
-
     {headers, input} =
       [
         {"archiveDescription", "x-amz-archive-description"},
         {"checksum", "x-amz-sha256-tree-hash"},
       ]
-      |> AWS.Request.build_headers(input)
-    
-    case request(client, :post, path, headers, input, options, 201) do
+      |> AWS.Request.build_params(input)
+    query = []
+    case request(client, :post, path, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -1220,15 +1296,14 @@ defmodule AWS.Glacier do
   """
   def upload_multipart_part(client, account_id, upload_id, vault_name, input, options \\ []) do
     path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
-
     {headers, input} =
       [
         {"checksum", "x-amz-sha256-tree-hash"},
         {"range", "Content-Range"},
       ]
-      |> AWS.Request.build_headers(input)
-    
-    case request(client, :put, path, headers, input, options, 204) do
+      |> AWS.Request.build_params(input)
+    query = []
+    case request(client, :put, path, query, headers, input, options, 204) do
       {:ok, body, response} ->
         body =
           [
@@ -1248,14 +1323,16 @@ defmodule AWS.Glacier do
     end
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "glacier"}
     host = get_host("glacier", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -1309,6 +1386,14 @@ defmodule AWS.Glacier do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

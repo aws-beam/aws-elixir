@@ -30,7 +30,8 @@ defmodule AWS.EFS do
   def create_access_point(client, input, options \\ []) do
     path = "/2015-02-01/access-points"
     headers = []
-    request(client, :post, path, headers, input, options, 200)
+    query = []
+    request(client, :post, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -87,7 +88,8 @@ defmodule AWS.EFS do
   def create_file_system(client, input, options \\ []) do
     path = "/2015-02-01/file-systems"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    query = []
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -203,7 +205,8 @@ defmodule AWS.EFS do
   def create_mount_target(client, input, options \\ []) do
     path = "/2015-02-01/mount-targets"
     headers = []
-    request(client, :post, path, headers, input, options, 200)
+    query = []
+    request(client, :post, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -219,7 +222,8 @@ defmodule AWS.EFS do
   def create_tags(client, file_system_id, input, options \\ []) do
     path = "/2015-02-01/create-tags/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :post, path, headers, input, options, 204)
+    query = []
+    request(client, :post, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -234,7 +238,8 @@ defmodule AWS.EFS do
   def delete_access_point(client, access_point_id, input, options \\ []) do
     path = "/2015-02-01/access-points/#{URI.encode(access_point_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -259,7 +264,8 @@ defmodule AWS.EFS do
   def delete_file_system(client, file_system_id, input, options \\ []) do
     path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -275,7 +281,8 @@ defmodule AWS.EFS do
   def delete_file_system_policy(client, file_system_id, input, options \\ []) do
     path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
     headers = []
-    request(client, :delete, path, headers, input, options, 200)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -311,7 +318,8 @@ defmodule AWS.EFS do
   def delete_mount_target(client, mount_target_id, input, options \\ []) do
     path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -328,7 +336,8 @@ defmodule AWS.EFS do
   def delete_tags(client, file_system_id, input, options \\ []) do
     path = "/2015-02-01/delete-tags/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :post, path, headers, input, options, 204)
+    query = []
+    request(client, :post, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -341,19 +350,41 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DescribeAccessPoints` action.
   """
-  def describe_access_points(client, options \\ []) do
-    path = "/2015-02-01/access-points"
+  def describe_access_points(client, access_point_id \\ nil, file_system_id \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/2015-02-01/access-points"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(access_point_id) do
+      [{"AccessPointId", access_point_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(file_system_id) do
+      [{"FileSystemId", file_system_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"MaxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
   Returns the backup policy for the specified EFS file system.
   """
   def describe_backup_policy(client, file_system_id, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -363,9 +394,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeFileSystemPolicy` action.
   """
   def describe_file_system_policy(client, file_system_id, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -394,10 +426,31 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DescribeFileSystems` action.
   """
-  def describe_file_systems(client, options \\ []) do
-    path = "/2015-02-01/file-systems"
+  def describe_file_systems(client, creation_token \\ nil, file_system_id \\ nil, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2015-02-01/file-systems"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(creation_token) do
+      [{"CreationToken", creation_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(file_system_id) do
+      [{"FileSystemId", file_system_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -412,9 +465,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeLifecycleConfiguration` operation.
   """
   def describe_lifecycle_configuration(client, file_system_id, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -433,9 +487,10 @@ defmodule AWS.EFS do
   </li> </ul>
   """
   def describe_mount_target_security_groups(client, mount_target_id, options \\ []) do
-    path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
+    path_ = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -449,10 +504,36 @@ defmodule AWS.EFS do
   ID that you specify in `FileSystemId`, or on the file system of the mount
   target that you specify in `MountTargetId`.
   """
-  def describe_mount_targets(client, options \\ []) do
-    path = "/2015-02-01/mount-targets"
+  def describe_mount_targets(client, access_point_id \\ nil, file_system_id \\ nil, marker \\ nil, max_items \\ nil, mount_target_id \\ nil, options \\ []) do
+    path_ = "/2015-02-01/mount-targets"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(access_point_id) do
+      [{"AccessPointId", access_point_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(file_system_id) do
+      [{"FileSystemId", file_system_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    query = if !is_nil(mount_target_id) do
+      [{"MountTargetId", mount_target_id} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -464,10 +545,21 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DescribeTags` action.
   """
-  def describe_tags(client, file_system_id, options \\ []) do
-    path = "/2015-02-01/tags/#{URI.encode(file_system_id)}/"
+  def describe_tags(client, file_system_id, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2015-02-01/tags/#{URI.encode(file_system_id)}/"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -477,10 +569,21 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DescribeAccessPoints` action.
   """
-  def list_tags_for_resource(client, resource_id, options \\ []) do
-    path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+  def list_tags_for_resource(client, resource_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"MaxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -506,7 +609,8 @@ defmodule AWS.EFS do
   def modify_mount_target_security_groups(client, mount_target_id, input, options \\ []) do
     path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
-    request(client, :put, path, headers, input, options, 204)
+    query = []
+    request(client, :put, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -516,7 +620,8 @@ defmodule AWS.EFS do
   def put_backup_policy(client, file_system_id, input, options \\ []) do
     path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -535,7 +640,8 @@ defmodule AWS.EFS do
   def put_file_system_policy(client, file_system_id, input, options \\ []) do
     path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -572,7 +678,8 @@ defmodule AWS.EFS do
   def put_lifecycle_configuration(client, file_system_id, input, options \\ []) do
     path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -585,7 +692,8 @@ defmodule AWS.EFS do
   def tag_resource(client, resource_id, input, options \\ []) do
     path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
     headers = []
-    request(client, :post, path, headers, input, options, 200)
+    query = []
+    request(client, :post, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -598,7 +706,12 @@ defmodule AWS.EFS do
   def untag_resource(client, resource_id, input, options \\ []) do
     path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 200)
+    {query, input} =
+      [
+        {"TagKeys", "tagKeys"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -608,17 +721,20 @@ defmodule AWS.EFS do
   def update_file_system(client, file_system_id, input, options \\ []) do
     path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
     headers = []
-    request(client, :put, path, headers, input, options, 202)
+    query = []
+    request(client, :put, path, query, headers, input, options, 202)
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "elasticfilesystem"}
     host = get_host("elasticfilesystem", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -672,6 +788,14 @@ defmodule AWS.EFS do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

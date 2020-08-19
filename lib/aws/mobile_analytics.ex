@@ -14,25 +14,26 @@ defmodule AWS.MobileAnalytics do
   """
   def put_events(client, input, options \\ []) do
     path = "/2014-06-05/events"
-
     {headers, input} =
       [
         {"clientContext", "x-amz-Client-Context"},
         {"clientContextEncoding", "x-amz-Client-Context-Encoding"},
       ]
-      |> AWS.Request.build_headers(input)
-    
-    request(client, :post, path, headers, input, options, 202)
+      |> AWS.Request.build_params(input)
+    query = []
+    request(client, :post, path, query, headers, input, options, 202)
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "mobileanalytics"}
     host = get_host("mobileanalytics", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -86,6 +87,14 @@ defmodule AWS.MobileAnalytics do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

@@ -29,7 +29,12 @@ defmodule AWS.Lambda do
   def add_layer_version_permission(client, layer_name, version_number, input, options \\ []) do
     path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    {query, input} =
+      [
+        {"RevisionId", "RevisionId"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -55,7 +60,12 @@ defmodule AWS.Lambda do
   def add_permission(client, function_name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/policy"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -71,7 +81,8 @@ defmodule AWS.Lambda do
   def create_alias(client, function_name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    query = []
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -112,7 +123,8 @@ defmodule AWS.Lambda do
   def create_event_source_mapping(client, input, options \\ []) do
     path = "/2015-03-31/event-source-mappings/"
     headers = []
-    request(client, :post, path, headers, input, options, 202)
+    query = []
+    request(client, :post, path, query, headers, input, options, 202)
   end
 
   @doc """
@@ -161,7 +173,8 @@ defmodule AWS.Lambda do
   def create_function(client, input, options \\ []) do
     path = "/2015-03-31/functions"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    query = []
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -171,7 +184,8 @@ defmodule AWS.Lambda do
   def delete_alias(client, function_name, name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -186,7 +200,8 @@ defmodule AWS.Lambda do
   def delete_event_source_mapping(client, uuid, input, options \\ []) do
     path = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 202)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 202)
   end
 
   @doc """
@@ -201,7 +216,12 @@ defmodule AWS.Lambda do
   def delete_function(client, function_name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -210,7 +230,8 @@ defmodule AWS.Lambda do
   def delete_function_concurrency(client, function_name, input, options \\ []) do
     path = "/2017-10-31/functions/#{URI.encode(function_name)}/concurrency"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -223,7 +244,12 @@ defmodule AWS.Lambda do
   def delete_function_event_invoke_config(client, function_name, input, options \\ []) do
     path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -236,7 +262,8 @@ defmodule AWS.Lambda do
   def delete_layer_version(client, layer_name, version_number, input, options \\ []) do
     path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -245,7 +272,12 @@ defmodule AWS.Lambda do
   def delete_provisioned_concurrency_config(client, function_name, input, options \\ []) do
     path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -254,9 +286,10 @@ defmodule AWS.Lambda do
   usage in an AWS Region.
   """
   def get_account_settings(client, options \\ []) do
-    path = "/2016-08-19/account-settings/"
+    path_ = "/2016-08-19/account-settings/"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -264,9 +297,10 @@ defmodule AWS.Lambda do
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
   """
   def get_alias(client, function_name, name, options \\ []) do
-    path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
+    path_ = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -274,9 +308,10 @@ defmodule AWS.Lambda do
   of a mapping from the output of `ListEventSourceMappings`.
   """
   def get_event_source_mapping(client, uuid, options \\ []) do
-    path = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
+    path_ = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -285,10 +320,16 @@ defmodule AWS.Lambda do
   a function version, only details that are specific to that version are
   returned.
   """
-  def get_function(client, function_name, options \\ []) do
-    path = "/2015-03-31/functions/#{URI.encode(function_name)}"
+  def get_function(client, function_name, qualifier \\ nil, options \\ []) do
+    path_ = "/2015-03-31/functions/#{URI.encode(function_name)}"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(qualifier) do
+      [{"Qualifier", qualifier} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -297,9 +338,10 @@ defmodule AWS.Lambda do
   `PutFunctionConcurrency`.
   """
   def get_function_concurrency(client, function_name, options \\ []) do
-    path = "/2019-09-30/functions/#{URI.encode(function_name)}/concurrency"
+    path_ = "/2019-09-30/functions/#{URI.encode(function_name)}/concurrency"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -310,10 +352,16 @@ defmodule AWS.Lambda do
   To get all of a function's details, including function-level settings, use
   `GetFunction`.
   """
-  def get_function_configuration(client, function_name, options \\ []) do
-    path = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
+  def get_function_configuration(client, function_name, qualifier \\ nil, options \\ []) do
+    path_ = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(qualifier) do
+      [{"Qualifier", qualifier} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -323,10 +371,16 @@ defmodule AWS.Lambda do
   To configure options for asynchronous invocation, use
   `PutFunctionEventInvokeConfig`.
   """
-  def get_function_event_invoke_config(client, function_name, options \\ []) do
-    path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
+  def get_function_event_invoke_config(client, function_name, qualifier \\ nil, options \\ []) do
+    path_ = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(qualifier) do
+      [{"Qualifier", qualifier} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -335,9 +389,10 @@ defmodule AWS.Lambda do
   with a link to download the layer archive that's valid for 10 minutes.
   """
   def get_layer_version(client, layer_name, version_number, options \\ []) do
-    path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}"
+    path_ = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -345,10 +400,16 @@ defmodule AWS.Lambda do
   layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
   with a link to download the layer archive that's valid for 10 minutes.
   """
-  def get_layer_version_by_arn(client, options \\ []) do
-    path = "/2018-10-31/layers?find=LayerVersion"
+  def get_layer_version_by_arn(client, arn, options \\ []) do
+    path_ = "/2018-10-31/layers?find=LayerVersion"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(arn) do
+      [{"Arn", arn} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -357,9 +418,10 @@ defmodule AWS.Lambda do
   For more information, see `AddLayerVersionPermission`.
   """
   def get_layer_version_policy(client, layer_name, version_number, options \\ []) do
-    path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy"
+    path_ = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -367,20 +429,32 @@ defmodule AWS.Lambda do
   policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
   for a function, version, or alias.
   """
-  def get_policy(client, function_name, options \\ []) do
-    path = "/2015-03-31/functions/#{URI.encode(function_name)}/policy"
+  def get_policy(client, function_name, qualifier \\ nil, options \\ []) do
+    path_ = "/2015-03-31/functions/#{URI.encode(function_name)}/policy"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(qualifier) do
+      [{"Qualifier", qualifier} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the provisioned concurrency configuration for a function's alias
   or version.
   """
-  def get_provisioned_concurrency_config(client, function_name, options \\ []) do
-    path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
+  def get_provisioned_concurrency_config(client, function_name, qualifier, options \\ []) do
+    path_ = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(qualifier) do
+      [{"Qualifier", qualifier} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -434,16 +508,19 @@ defmodule AWS.Lambda do
   """
   def invoke(client, function_name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/invocations"
-
     {headers, input} =
       [
         {"ClientContext", "X-Amz-Client-Context"},
         {"InvocationType", "X-Amz-Invocation-Type"},
         {"LogType", "X-Amz-Log-Type"},
       ]
-      |> AWS.Request.build_headers(input)
-    
-    case request(client, :post, path, headers, input, options, nil) do
+      |> AWS.Request.build_params(input)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+      ]
+      |> AWS.Request.build_params(input)
+    case request(client, :post, path, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -473,7 +550,8 @@ defmodule AWS.Lambda do
   def invoke_async(client, function_name, input, options \\ []) do
     path = "/2014-11-13/functions/#{URI.encode(function_name)}/invoke-async/"
     headers = []
-    request(client, :post, path, headers, input, options, 202)
+    query = []
+    request(client, :post, path, query, headers, input, options, 202)
   end
 
   @doc """
@@ -481,20 +559,57 @@ defmodule AWS.Lambda do
   [aliases](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html)
   for a Lambda function.
   """
-  def list_aliases(client, function_name, options \\ []) do
-    path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
+  def list_aliases(client, function_name, function_version \\ nil, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(function_version) do
+      [{"FunctionVersion", function_version} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
   Lists event source mappings. Specify an `EventSourceArn` to only show event
   source mappings for a single event source.
   """
-  def list_event_source_mappings(client, options \\ []) do
-    path = "/2015-03-31/event-source-mappings/"
+  def list_event_source_mappings(client, event_source_arn \\ nil, function_name \\ nil, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2015-03-31/event-source-mappings/"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(event_source_arn) do
+      [{"EventSourceArn", event_source_arn} | query]
+    else
+      query
+    end
+    query = if !is_nil(function_name) do
+      [{"FunctionName", function_name} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -504,10 +619,21 @@ defmodule AWS.Lambda do
   To configure options for asynchronous invocation, use
   `PutFunctionEventInvokeConfig`.
   """
-  def list_function_event_invoke_configs(client, function_name, options \\ []) do
-    path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config/list"
+  def list_function_event_invoke_configs(client, function_name, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config/list"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -518,10 +644,31 @@ defmodule AWS.Lambda do
   function in addition to the unpublished version. To get more information
   about a function or version, use `GetFunction`.
   """
-  def list_functions(client, options \\ []) do
-    path = "/2015-03-31/functions/"
+  def list_functions(client, function_version \\ nil, marker \\ nil, master_region \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2015-03-31/functions/"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(function_version) do
+      [{"FunctionVersion", function_version} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(master_region) do
+      [{"MasterRegion", master_region} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -532,10 +679,26 @@ defmodule AWS.Lambda do
   to list only versions that indicate that they're compatible with that
   runtime.
   """
-  def list_layer_versions(client, layer_name, options \\ []) do
-    path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions"
+  def list_layer_versions(client, layer_name, compatible_runtime \\ nil, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(compatible_runtime) do
+      [{"CompatibleRuntime", compatible_runtime} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -546,19 +709,46 @@ defmodule AWS.Lambda do
   to list only layers that indicate that they're compatible with that
   runtime.
   """
-  def list_layers(client, options \\ []) do
-    path = "/2018-10-31/layers"
+  def list_layers(client, compatible_runtime \\ nil, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2018-10-31/layers"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(compatible_runtime) do
+      [{"CompatibleRuntime", compatible_runtime} | query]
+    else
+      query
+    end
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a list of provisioned concurrency configurations for a function.
   """
-  def list_provisioned_concurrency_configs(client, function_name, options \\ []) do
-    path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency?List=ALL"
+  def list_provisioned_concurrency_configs(client, function_name, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency?List=ALL"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -567,9 +757,10 @@ defmodule AWS.Lambda do
   also view tags with `GetFunction`.
   """
   def list_tags(client, resource, options \\ []) do
-    path = "/2017-03-31/tags/#{URI.encode(resource)}"
+    path_ = "/2017-03-31/tags/#{URI.encode(resource)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -578,10 +769,21 @@ defmodule AWS.Lambda do
   with the version-specific configuration of each. Lambda returns up to 50
   versions per call.
   """
-  def list_versions_by_function(client, function_name, options \\ []) do
-    path = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
+  def list_versions_by_function(client, function_name, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -596,7 +798,8 @@ defmodule AWS.Lambda do
   def publish_layer_version(client, layer_name, input, options \\ []) do
     path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    query = []
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -617,7 +820,8 @@ defmodule AWS.Lambda do
   def publish_version(client, function_name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    query = []
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -639,7 +843,8 @@ defmodule AWS.Lambda do
   def put_function_concurrency(client, function_name, input, options \\ []) do
     path = "/2017-10-31/functions/#{URI.encode(function_name)}/concurrency"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -667,7 +872,12 @@ defmodule AWS.Lambda do
   def put_function_event_invoke_config(client, function_name, input, options \\ []) do
     path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -677,7 +887,12 @@ defmodule AWS.Lambda do
   def put_provisioned_concurrency_config(client, function_name, input, options \\ []) do
     path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
     headers = []
-    request(client, :put, path, headers, input, options, 202)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :put, path, query, headers, input, options, 202)
   end
 
   @doc """
@@ -689,7 +904,12 @@ defmodule AWS.Lambda do
   def remove_layer_version_permission(client, layer_name, statement_id, version_number, input, options \\ []) do
     path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy/#{URI.encode(statement_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    {query, input} =
+      [
+        {"RevisionId", "RevisionId"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -699,7 +919,13 @@ defmodule AWS.Lambda do
   def remove_permission(client, function_name, statement_id, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/policy/#{URI.encode(statement_id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+        {"RevisionId", "RevisionId"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -709,7 +935,8 @@ defmodule AWS.Lambda do
   def tag_resource(client, resource, input, options \\ []) do
     path = "/2017-03-31/tags/#{URI.encode(resource)}"
     headers = []
-    request(client, :post, path, headers, input, options, 204)
+    query = []
+    request(client, :post, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -719,7 +946,12 @@ defmodule AWS.Lambda do
   def untag_resource(client, resource, input, options \\ []) do
     path = "/2017-03-31/tags/#{URI.encode(resource)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 204)
+    {query, input} =
+      [
+        {"TagKeys", "tagKeys"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, 204)
   end
 
   @doc """
@@ -729,7 +961,8 @@ defmodule AWS.Lambda do
   def update_alias(client, function_name, name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -760,7 +993,8 @@ defmodule AWS.Lambda do
   def update_event_source_mapping(client, uuid, input, options \\ []) do
     path = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
     headers = []
-    request(client, :put, path, headers, input, options, 202)
+    query = []
+    request(client, :put, path, query, headers, input, options, 202)
   end
 
   @doc """
@@ -772,7 +1006,8 @@ defmodule AWS.Lambda do
   def update_function_code(client, function_name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/code"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -798,7 +1033,8 @@ defmodule AWS.Lambda do
   def update_function_configuration(client, function_name, input, options \\ []) do
     path = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -811,17 +1047,24 @@ defmodule AWS.Lambda do
   def update_function_event_invoke_config(client, function_name, input, options \\ []) do
     path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
     headers = []
-    request(client, :post, path, headers, input, options, 200)
+    {query, input} =
+      [
+        {"Qualifier", "Qualifier"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :post, path, query, headers, input, options, 200)
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "lambda"}
     host = get_host("lambda", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -875,6 +1118,14 @@ defmodule AWS.Lambda do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

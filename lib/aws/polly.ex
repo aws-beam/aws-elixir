@@ -24,7 +24,8 @@ defmodule AWS.Polly do
   def delete_lexicon(client, name, input, options \\ []) do
     path = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 200)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -49,10 +50,31 @@ defmodule AWS.Polly do
   This operation requires permissions to perform the `polly:DescribeVoices`
   action.
   """
-  def describe_voices(client, options \\ []) do
-    path = "/v1/voices"
+  def describe_voices(client, engine \\ nil, include_additional_language_codes \\ nil, language_code \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/v1/voices"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(engine) do
+      [{"Engine", engine} | query]
+    else
+      query
+    end
+    query = if !is_nil(include_additional_language_codes) do
+      [{"IncludeAdditionalLanguageCodes", include_additional_language_codes} | query]
+    else
+      query
+    end
+    query = if !is_nil(language_code) do
+      [{"LanguageCode", language_code} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -61,9 +83,10 @@ defmodule AWS.Polly do
   Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def get_lexicon(client, name, options \\ []) do
-    path = "/v1/lexicons/#{URI.encode(name)}"
+    path_ = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -73,9 +96,10 @@ defmodule AWS.Polly do
   the output of the task.
   """
   def get_speech_synthesis_task(client, task_id, options \\ []) do
-    path = "/v1/synthesisTasks/#{URI.encode(task_id)}"
+    path_ = "/v1/synthesisTasks/#{URI.encode(task_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -83,10 +107,16 @@ defmodule AWS.Polly do
   information, see [Managing
   Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  def list_lexicons(client, options \\ []) do
-    path = "/v1/lexicons"
+  def list_lexicons(client, next_token \\ nil, options \\ []) do
+    path_ = "/v1/lexicons"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -94,10 +124,26 @@ defmodule AWS.Polly do
   date. This operation can filter the tasks by their status, for example,
   allowing users to list only tasks that are completed.
   """
-  def list_speech_synthesis_tasks(client, options \\ []) do
-    path = "/v1/synthesisTasks"
+  def list_speech_synthesis_tasks(client, max_results \\ nil, next_token \\ nil, status \\ nil, options \\ []) do
+    path_ = "/v1/synthesisTasks"
     headers = []
-    request(client, :get, path, headers, nil, options, 200)
+    query = []
+    query = if !is_nil(max_results) do
+      [{"MaxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(status) do
+      [{"Status", status} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, 200)
   end
 
   @doc """
@@ -112,7 +158,8 @@ defmodule AWS.Polly do
   def put_lexicon(client, name, input, options \\ []) do
     path = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -127,7 +174,8 @@ defmodule AWS.Polly do
   def start_speech_synthesis_task(client, input, options \\ []) do
     path = "/v1/synthesisTasks"
     headers = []
-    request(client, :post, path, headers, input, options, 200)
+    query = []
+    request(client, :post, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -141,7 +189,8 @@ defmodule AWS.Polly do
   def synthesize_speech(client, input, options \\ []) do
     path = "/v1/speech"
     headers = []
-    case request(client, :post, path, headers, input, options, 200) do
+    query = []
+    case request(client, :post, path, query, headers, input, options, 200) do
       {:ok, body, response} ->
         body =
           [
@@ -162,14 +211,16 @@ defmodule AWS.Polly do
     end
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "polly"}
     host = get_host("polly", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -223,6 +274,14 @@ defmodule AWS.Polly do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

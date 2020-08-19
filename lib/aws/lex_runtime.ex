@@ -23,16 +23,23 @@ defmodule AWS.LexRuntime do
   def delete_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
     path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
     headers = []
-    request(client, :delete, path, headers, input, options, nil)
+    query = []
+    request(client, :delete, path, query, headers, input, options, nil)
   end
 
   @doc """
   Returns session information for a specified bot, alias, and user ID.
   """
-  def get_session(client, bot_alias, bot_name, user_id, options \\ []) do
-    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session/"
+  def get_session(client, bot_alias, bot_name, user_id, checkpoint_label_filter \\ nil, options \\ []) do
+    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session/"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(checkpoint_label_filter) do
+      [{"checkpointLabelFilter", checkpoint_label_filter} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -96,7 +103,6 @@ defmodule AWS.LexRuntime do
   """
   def post_content(client, bot_alias, bot_name, user_id, input, options \\ []) do
     path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
-
     {headers, input} =
       [
         {"accept", "Accept"},
@@ -104,9 +110,9 @@ defmodule AWS.LexRuntime do
         {"requestAttributes", "x-amz-lex-request-attributes"},
         {"sessionAttributes", "x-amz-lex-session-attributes"},
       ]
-      |> AWS.Request.build_headers(input)
-    
-    case request(client, :post, path, headers, input, options, nil) do
+      |> AWS.Request.build_params(input)
+    query = []
+    case request(client, :post, path, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -193,7 +199,8 @@ defmodule AWS.LexRuntime do
   def post_text(client, bot_alias, bot_name, user_id, input, options \\ []) do
     path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -206,14 +213,13 @@ defmodule AWS.LexRuntime do
   """
   def put_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
     path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
-
     {headers, input} =
       [
         {"accept", "Accept"},
       ]
-      |> AWS.Request.build_headers(input)
-    
-    case request(client, :post, path, headers, input, options, nil) do
+      |> AWS.Request.build_params(input)
+    query = []
+    case request(client, :post, path, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -241,14 +247,16 @@ defmodule AWS.LexRuntime do
     end
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "lex"}
     host = get_host("runtime.lex", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -302,6 +310,14 @@ defmodule AWS.LexRuntime do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

@@ -21,7 +21,8 @@ defmodule AWS.Transcoder do
   def cancel_job(client, id, input, options \\ []) do
     path = "/2012-09-25/jobs/#{URI.encode(id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 202)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 202)
   end
 
   @doc """
@@ -37,7 +38,8 @@ defmodule AWS.Transcoder do
   def create_job(client, input, options \\ []) do
     path = "/2012-09-25/jobs"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    query = []
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -47,7 +49,8 @@ defmodule AWS.Transcoder do
   def create_pipeline(client, input, options \\ []) do
     path = "/2012-09-25/pipelines"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    query = []
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -72,7 +75,8 @@ defmodule AWS.Transcoder do
   def create_preset(client, input, options \\ []) do
     path = "/2012-09-25/presets"
     headers = []
-    request(client, :post, path, headers, input, options, 201)
+    query = []
+    request(client, :post, path, query, headers, input, options, 201)
   end
 
   @doc """
@@ -85,7 +89,8 @@ defmodule AWS.Transcoder do
   def delete_pipeline(client, id, input, options \\ []) do
     path = "/2012-09-25/pipelines/#{URI.encode(id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 202)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 202)
   end
 
   @doc """
@@ -100,7 +105,8 @@ defmodule AWS.Transcoder do
   def delete_preset(client, id, input, options \\ []) do
     path = "/2012-09-25/presets/#{URI.encode(id)}"
     headers = []
-    request(client, :delete, path, headers, input, options, 202)
+    query = []
+    request(client, :delete, path, query, headers, input, options, 202)
   end
 
   @doc """
@@ -111,10 +117,21 @@ defmodule AWS.Transcoder do
   pipeline. The response body contains one element for each job that
   satisfies the search criteria.
   """
-  def list_jobs_by_pipeline(client, pipeline_id, options \\ []) do
-    path = "/2012-09-25/jobsByPipeline/#{URI.encode(pipeline_id)}"
+  def list_jobs_by_pipeline(client, pipeline_id, ascending \\ nil, page_token \\ nil, options \\ []) do
+    path_ = "/2012-09-25/jobsByPipeline/#{URI.encode(pipeline_id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(ascending) do
+      [{"Ascending", ascending} | query]
+    else
+      query
+    end
+    query = if !is_nil(page_token) do
+      [{"PageToken", page_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -122,57 +139,93 @@ defmodule AWS.Transcoder do
   status. The response body contains one element for each job that satisfies
   the search criteria.
   """
-  def list_jobs_by_status(client, status, options \\ []) do
-    path = "/2012-09-25/jobsByStatus/#{URI.encode(status)}"
+  def list_jobs_by_status(client, status, ascending \\ nil, page_token \\ nil, options \\ []) do
+    path_ = "/2012-09-25/jobsByStatus/#{URI.encode(status)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(ascending) do
+      [{"Ascending", ascending} | query]
+    else
+      query
+    end
+    query = if !is_nil(page_token) do
+      [{"PageToken", page_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   The ListPipelines operation gets a list of the pipelines associated with
   the current AWS account.
   """
-  def list_pipelines(client, options \\ []) do
-    path = "/2012-09-25/pipelines"
+  def list_pipelines(client, ascending \\ nil, page_token \\ nil, options \\ []) do
+    path_ = "/2012-09-25/pipelines"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(ascending) do
+      [{"Ascending", ascending} | query]
+    else
+      query
+    end
+    query = if !is_nil(page_token) do
+      [{"PageToken", page_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   The ListPresets operation gets a list of the default presets included with
   Elastic Transcoder and the presets that you've added in an AWS region.
   """
-  def list_presets(client, options \\ []) do
-    path = "/2012-09-25/presets"
+  def list_presets(client, ascending \\ nil, page_token \\ nil, options \\ []) do
+    path_ = "/2012-09-25/presets"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(ascending) do
+      [{"Ascending", ascending} | query]
+    else
+      query
+    end
+    query = if !is_nil(page_token) do
+      [{"PageToken", page_token} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   The ReadJob operation returns detailed information about a job.
   """
   def read_job(client, id, options \\ []) do
-    path = "/2012-09-25/jobs/#{URI.encode(id)}"
+    path_ = "/2012-09-25/jobs/#{URI.encode(id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   The ReadPipeline operation gets detailed information about a pipeline.
   """
   def read_pipeline(client, id, options \\ []) do
-    path = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    path_ = "/2012-09-25/pipelines/#{URI.encode(id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   The ReadPreset operation gets detailed information about a preset.
   """
   def read_preset(client, id, options \\ []) do
-    path = "/2012-09-25/presets/#{URI.encode(id)}"
+    path_ = "/2012-09-25/presets/#{URI.encode(id)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -187,7 +240,8 @@ defmodule AWS.Transcoder do
   def test_role(client, input, options \\ []) do
     path = "/2012-09-25/roleTests"
     headers = []
-    request(client, :post, path, headers, input, options, 200)
+    query = []
+    request(client, :post, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -203,7 +257,8 @@ defmodule AWS.Transcoder do
   def update_pipeline(client, id, input, options \\ []) do
     path = "/2012-09-25/pipelines/#{URI.encode(id)}"
     headers = []
-    request(client, :put, path, headers, input, options, 200)
+    query = []
+    request(client, :put, path, query, headers, input, options, 200)
   end
 
   @doc """
@@ -216,7 +271,8 @@ defmodule AWS.Transcoder do
   def update_pipeline_notifications(client, id, input, options \\ []) do
     path = "/2012-09-25/pipelines/#{URI.encode(id)}/notifications"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -232,17 +288,20 @@ defmodule AWS.Transcoder do
   def update_pipeline_status(client, id, input, options \\ []) do
     path = "/2012-09-25/pipelines/#{URI.encode(id)}/status"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "elastictranscoder"}
     host = get_host("elastictranscoder", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -296,6 +355,14 @@ defmodule AWS.Transcoder do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

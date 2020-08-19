@@ -15,7 +15,8 @@ defmodule AWS.XRay do
   def batch_get_traces(client, input, options \\ []) do
     path = "/Traces"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -24,7 +25,8 @@ defmodule AWS.XRay do
   def create_group(client, input, options \\ []) do
     path = "/CreateGroup"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -39,7 +41,8 @@ defmodule AWS.XRay do
   def create_sampling_rule(client, input, options \\ []) do
     path = "/CreateSamplingRule"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -48,7 +51,8 @@ defmodule AWS.XRay do
   def delete_group(client, input, options \\ []) do
     path = "/DeleteGroup"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -57,7 +61,8 @@ defmodule AWS.XRay do
   def delete_sampling_rule(client, input, options \\ []) do
     path = "/DeleteSamplingRule"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -66,7 +71,8 @@ defmodule AWS.XRay do
   def get_encryption_config(client, input, options \\ []) do
     path = "/EncryptionConfig"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -75,7 +81,8 @@ defmodule AWS.XRay do
   def get_group(client, input, options \\ []) do
     path = "/GetGroup"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -84,7 +91,8 @@ defmodule AWS.XRay do
   def get_groups(client, input, options \\ []) do
     path = "/Groups"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -93,7 +101,8 @@ defmodule AWS.XRay do
   def get_sampling_rules(client, input, options \\ []) do
     path = "/GetSamplingRules"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -102,7 +111,8 @@ defmodule AWS.XRay do
   def get_sampling_statistic_summaries(client, input, options \\ []) do
     path = "/SamplingStatisticSummaries"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -112,7 +122,8 @@ defmodule AWS.XRay do
   def get_sampling_targets(client, input, options \\ []) do
     path = "/SamplingTargets"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -126,7 +137,8 @@ defmodule AWS.XRay do
   def get_service_graph(client, input, options \\ []) do
     path = "/ServiceGraph"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -135,7 +147,8 @@ defmodule AWS.XRay do
   def get_time_series_service_statistics(client, input, options \\ []) do
     path = "/TimeSeriesServiceStatistics"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -144,7 +157,8 @@ defmodule AWS.XRay do
   def get_trace_graph(client, input, options \\ []) do
     path = "/TraceGraph"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -172,7 +186,8 @@ defmodule AWS.XRay do
   def get_trace_summaries(client, input, options \\ []) do
     path = "/TraceSummaries"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -181,7 +196,8 @@ defmodule AWS.XRay do
   def put_encryption_config(client, input, options \\ []) do
     path = "/PutEncryptionConfig"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -190,7 +206,8 @@ defmodule AWS.XRay do
   def put_telemetry_records(client, input, options \\ []) do
     path = "/TelemetryRecords"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -249,7 +266,8 @@ defmodule AWS.XRay do
   def put_trace_segments(client, input, options \\ []) do
     path = "/TraceSegments"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -258,7 +276,8 @@ defmodule AWS.XRay do
   def update_group(client, input, options \\ []) do
     path = "/UpdateGroup"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -267,17 +286,20 @@ defmodule AWS.XRay do
   def update_sampling_rule(client, input, options \\ []) do
     path = "/UpdateSamplingRule"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    query = []
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "xray"}
     host = get_host("xray", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -331,6 +353,14 @@ defmodule AWS.XRay do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

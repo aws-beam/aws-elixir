@@ -32,7 +32,12 @@ defmodule AWS.IoT.DataPlane do
   def delete_thing_shadow(client, thing_name, input, options \\ []) do
     path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :delete, path, headers, input, options, nil)
+    {query, input} =
+      [
+        {"shadowName", "name"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -42,19 +47,36 @@ defmodule AWS.IoT.DataPlane do
   [GetThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html)
   in the AWS IoT Developer Guide.
   """
-  def get_thing_shadow(client, thing_name, options \\ []) do
-    path = "/things/#{URI.encode(thing_name)}/shadow"
+  def get_thing_shadow(client, thing_name, shadow_name \\ nil, options \\ []) do
+    path_ = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(shadow_name) do
+      [{"name", shadow_name} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Lists the shadows for the specified thing.
   """
-  def list_named_shadows_for_thing(client, thing_name, options \\ []) do
-    path = "/api/things/shadow/ListNamedShadowsForThing/#{URI.encode(thing_name)}"
+  def list_named_shadows_for_thing(client, thing_name, next_token \\ nil, page_size \\ nil, options \\ []) do
+    path_ = "/api/things/shadow/ListNamedShadowsForThing/#{URI.encode(thing_name)}"
     headers = []
-    request(client, :get, path, headers, nil, options, nil)
+    query = []
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
+    else
+      query
+    end
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -67,7 +89,12 @@ defmodule AWS.IoT.DataPlane do
   def publish(client, topic, input, options \\ []) do
     path = "/topics/#{URI.encode(topic)}"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    {query, input} =
+      [
+        {"qos", "qos"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
   @doc """
@@ -80,17 +107,24 @@ defmodule AWS.IoT.DataPlane do
   def update_thing_shadow(client, thing_name, input, options \\ []) do
     path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    request(client, :post, path, headers, input, options, nil)
+    {query, input} =
+      [
+        {"shadowName", "name"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :post, path, query, headers, input, options, nil)
   end
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), map(), list(), pos_integer()) ::
+  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, Poison.Parser.t(), Poison.Response.t()}
           | {:error, Poison.Parser.t()}
           | {:error, HTTPoison.Error.t()}
-  defp request(client, method, path, headers, input, options, success_status_code) do
+  defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "iotdata"}
     host = get_host("data.iot", client)
-    url = get_url(host, path, client)
+    url = host
+    |> get_url(path, client)
+    |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
@@ -144,6 +178,14 @@ defmodule AWS.IoT.DataPlane do
 
   defp get_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
+  end
+
+  defp add_query(url, []) do
+    url
+  end
+  defp add_query(url, query) do
+    querystring = AWS.Util.encode_query(query)
+    "#{url}?#{querystring}"
   end
 
   defp encode_payload(input) do

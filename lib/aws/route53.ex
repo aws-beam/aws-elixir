@@ -899,8 +899,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/geolocation"
     headers = []
       query = []
-    query = if !is_nil(continent_code) do
-      [{"continentcode", continent_code} | query]
+    query = if !is_nil(subdivision_code) do
+      [{"subdivisioncode", subdivision_code} | query]
     else
       query
     end
@@ -909,8 +909,8 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(subdivision_code) do
-      [{"subdivisioncode", subdivision_code} | query]
+    query = if !is_nil(continent_code) do
+      [{"continentcode", continent_code} | query]
     else
       query
     end
@@ -1097,13 +1097,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/geolocations"
     headers = []
       query = []
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
-    else
-      query
-    end
-    query = if !is_nil(start_continent_code) do
-      [{"startcontinentcode", start_continent_code} | query]
+    query = if !is_nil(start_subdivision_code) do
+      [{"startsubdivisioncode", start_subdivision_code} | query]
     else
       query
     end
@@ -1112,8 +1107,13 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(start_subdivision_code) do
-      [{"startsubdivisioncode", start_subdivision_code} | query]
+    query = if !is_nil(start_continent_code) do
+      [{"startcontinentcode", start_continent_code} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
@@ -1128,13 +1128,13 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/healthcheck"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
     else
       query
     end
@@ -1154,8 +1154,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/hostedzone"
     headers = []
       query = []
-    query = if !is_nil(delegation_set_id) do
-      [{"delegationsetid", delegation_set_id} | query]
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
@@ -1164,8 +1164,8 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
+    query = if !is_nil(delegation_set_id) do
+      [{"delegationsetid", delegation_set_id} | query]
     else
       query
     end
@@ -1233,8 +1233,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/hostedzonesbyname"
     headers = []
       query = []
-    query = if !is_nil(d_n_s_name) do
-      [{"dnsname", d_n_s_name} | query]
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
@@ -1243,8 +1243,8 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
+    query = if !is_nil(d_n_s_name) do
+      [{"dnsname", d_n_s_name} | query]
     else
       query
     end
@@ -1272,13 +1272,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/hostedzonesbyvpc"
     headers = []
       query = []
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nexttoken", next_token} | query]
+    query = if !is_nil(v_p_c_region) do
+      [{"vpcregion", v_p_c_region} | query]
     else
       query
     end
@@ -1287,8 +1282,13 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(v_p_c_region) do
-      [{"vpcregion", v_p_c_region} | query]
+    query = if !is_nil(next_token) do
+      [{"nexttoken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
@@ -1311,8 +1311,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/queryloggingconfig"
     headers = []
       query = []
-    query = if !is_nil(hosted_zone_id) do
-      [{"hostedzoneid", hosted_zone_id} | query]
+    query = if !is_nil(next_token) do
+      [{"nexttoken", next_token} | query]
     else
       query
     end
@@ -1321,8 +1321,8 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nexttoken", next_token} | query]
+    query = if !is_nil(hosted_zone_id) do
+      [{"hostedzoneid", hosted_zone_id} | query]
     else
       query
     end
@@ -1397,13 +1397,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset"
     headers = []
       query = []
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
-    else
-      query
-    end
-    query = if !is_nil(start_record_identifier) do
-      [{"identifier", start_record_identifier} | query]
+    query = if !is_nil(start_record_type) do
+      [{"type", start_record_type} | query]
     else
       query
     end
@@ -1412,8 +1407,13 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(start_record_type) do
-      [{"type", start_record_type} | query]
+    query = if !is_nil(start_record_identifier) do
+      [{"identifier", start_record_identifier} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
@@ -1428,13 +1428,13 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/delegationset"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
     else
       query
     end
@@ -1480,13 +1480,13 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/trafficpolicies"
     headers = []
       query = []
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
+    query = if !is_nil(traffic_policy_id_marker) do
+      [{"trafficpolicyid", traffic_policy_id_marker} | query]
     else
       query
     end
-    query = if !is_nil(traffic_policy_id_marker) do
-      [{"trafficpolicyid", traffic_policy_id_marker} | query]
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
@@ -1510,13 +1510,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/trafficpolicyinstances"
     headers = []
       query = []
-    query = if !is_nil(hosted_zone_id_marker) do
-      [{"hostedzoneid", hosted_zone_id_marker} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
+    query = if !is_nil(traffic_policy_instance_type_marker) do
+      [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query]
     else
       query
     end
@@ -1525,8 +1520,13 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(traffic_policy_instance_type_marker) do
-      [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query]
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
+    else
+      query
+    end
+    query = if !is_nil(hosted_zone_id_marker) do
+      [{"hostedzoneid", hosted_zone_id_marker} | query]
     else
       query
     end
@@ -1550,13 +1550,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/trafficpolicyinstances/hostedzone"
     headers = []
       query = []
-    query = if !is_nil(hosted_zone_id) do
-      [{"id", hosted_zone_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
+    query = if !is_nil(traffic_policy_instance_type_marker) do
+      [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query]
     else
       query
     end
@@ -1565,8 +1560,13 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(traffic_policy_instance_type_marker) do
-      [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query]
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
+    else
+      query
+    end
+    query = if !is_nil(hosted_zone_id) do
+      [{"id", hosted_zone_id} | query]
     else
       query
     end
@@ -1590,23 +1590,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/trafficpolicyinstances/trafficpolicy"
     headers = []
       query = []
-    query = if !is_nil(hosted_zone_id_marker) do
-      [{"hostedzoneid", hosted_zone_id_marker} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
-    else
-      query
-    end
-    query = if !is_nil(traffic_policy_id) do
-      [{"id", traffic_policy_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(traffic_policy_instance_name_marker) do
-      [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query]
+    query = if !is_nil(traffic_policy_version) do
+      [{"version", traffic_policy_version} | query]
     else
       query
     end
@@ -1615,8 +1600,23 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(traffic_policy_version) do
-      [{"version", traffic_policy_version} | query]
+    query = if !is_nil(traffic_policy_instance_name_marker) do
+      [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(traffic_policy_id) do
+      [{"id", traffic_policy_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
+    else
+      query
+    end
+    query = if !is_nil(hosted_zone_id_marker) do
+      [{"hostedzoneid", hosted_zone_id_marker} | query]
     else
       query
     end
@@ -1632,13 +1632,13 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/trafficpolicies/#{URI.encode(id)}/versions"
     headers = []
       query = []
-    query = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query]
+    query = if !is_nil(traffic_policy_version_marker) do
+      [{"trafficpolicyversion", traffic_policy_version_marker} | query]
     else
       query
     end
-    query = if !is_nil(traffic_policy_version_marker) do
-      [{"trafficpolicyversion", traffic_policy_version_marker} | query]
+    query = if !is_nil(max_items) do
+      [{"maxitems", max_items} | query]
     else
       query
     end
@@ -1657,13 +1657,13 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/authorizevpcassociation"
     headers = []
       query = []
-    query = if !is_nil(max_results) do
-      [{"maxresults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nexttoken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nexttoken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxresults", max_results} | query]
     else
       query
     end
@@ -1680,23 +1680,8 @@ defmodule AWS.Route53 do
     path = "/2013-04-01/testdnsanswer"
     headers = []
       query = []
-    query = if !is_nil(e_d_n_s0_client_subnet_i_p) do
-      [{"edns0clientsubnetip", e_d_n_s0_client_subnet_i_p} | query]
-    else
-      query
-    end
-    query = if !is_nil(e_d_n_s0_client_subnet_mask) do
-      [{"edns0clientsubnetmask", e_d_n_s0_client_subnet_mask} | query]
-    else
-      query
-    end
-    query = if !is_nil(hosted_zone_id) do
-      [{"hostedzoneid", hosted_zone_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(record_name) do
-      [{"recordname", record_name} | query]
+    query = if !is_nil(resolver_i_p) do
+      [{"resolverip", resolver_i_p} | query]
     else
       query
     end
@@ -1705,8 +1690,23 @@ defmodule AWS.Route53 do
     else
       query
     end
-    query = if !is_nil(resolver_i_p) do
-      [{"resolverip", resolver_i_p} | query]
+    query = if !is_nil(record_name) do
+      [{"recordname", record_name} | query]
+    else
+      query
+    end
+    query = if !is_nil(hosted_zone_id) do
+      [{"hostedzoneid", hosted_zone_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(e_d_n_s0_client_subnet_mask) do
+      [{"edns0clientsubnetmask", e_d_n_s0_client_subnet_mask} | query]
+    else
+      query
+    end
+    query = if !is_nil(e_d_n_s0_client_subnet_i_p) do
+      [{"edns0clientsubnetip", e_d_n_s0_client_subnet_i_p} | query]
     else
       query
     end

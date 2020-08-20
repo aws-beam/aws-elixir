@@ -446,13 +446,8 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
     headers = []
     query = []
-    query = if !is_nil(end_time) do
-      [{"end-time", end_time} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query = if !is_nil(start_time) do
+      [{"start-time", start_time} | query]
     else
       query
     end
@@ -461,8 +456,13 @@ defmodule AWS.Pinpoint do
     else
       query
     end
-    query = if !is_nil(start_time) do
-      [{"start-time", start_time} | query]
+    query = if !is_nil(next_token) do
+      [{"next-token", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(end_time) do
+      [{"end-time", end_time} | query]
     else
       query
     end
@@ -487,13 +487,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -529,13 +529,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/activities"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -550,13 +550,8 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
     headers = []
     query = []
-    query = if !is_nil(end_time) do
-      [{"end-time", end_time} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query = if !is_nil(start_time) do
+      [{"start-time", start_time} | query]
     else
       query
     end
@@ -565,8 +560,13 @@ defmodule AWS.Pinpoint do
     else
       query
     end
-    query = if !is_nil(start_time) do
-      [{"start-time", start_time} | query]
+    query = if !is_nil(next_token) do
+      [{"next-token", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(end_time) do
+      [{"end-time", end_time} | query]
     else
       query
     end
@@ -592,13 +592,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/versions"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -613,13 +613,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -704,13 +704,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/export"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -747,13 +747,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/import"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -779,13 +779,8 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
     headers = []
     query = []
-    query = if !is_nil(end_time) do
-      [{"end-time", end_time} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query = if !is_nil(start_time) do
+      [{"start-time", start_time} | query]
     else
       query
     end
@@ -794,8 +789,13 @@ defmodule AWS.Pinpoint do
     else
       query
     end
-    query = if !is_nil(start_time) do
-      [{"start-time", start_time} | query]
+    query = if !is_nil(next_token) do
+      [{"next-token", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(end_time) do
+      [{"end-time", end_time} | query]
     else
       query
     end
@@ -810,13 +810,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/activities/#{URI.encode(journey_activity_id)}/execution-metrics"
     headers = []
     query = []
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(next_token) do
+      [{"next-token", next_token} | query]
     else
       query
     end
@@ -831,13 +831,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/execution-metrics"
     headers = []
     query = []
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(next_token) do
+      [{"next-token", next_token} | query]
     else
       query
     end
@@ -879,13 +879,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/recommenders"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -911,13 +911,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/jobs/export"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -932,13 +932,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/jobs/import"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -966,13 +966,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/versions"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -987,13 +987,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -1073,13 +1073,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys"
     headers = []
     query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(token) do
+      [{"token", token} | query]
     else
       query
     end
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
@@ -1105,13 +1105,13 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/templates/#{URI.encode(template_name)}/#{URI.encode(template_type)}/versions"
     headers = []
     query = []
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(next_token) do
+      [{"next-token", next_token} | query]
     else
       query
     end
@@ -1126,13 +1126,8 @@ defmodule AWS.Pinpoint do
     path_ = "/v1/templates"
     headers = []
     query = []
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
-    else
-      query
-    end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query = if !is_nil(template_type) do
+      [{"template-type", template_type} | query]
     else
       query
     end
@@ -1141,8 +1136,13 @@ defmodule AWS.Pinpoint do
     else
       query
     end
-    query = if !is_nil(template_type) do
-      [{"template-type", template_type} | query]
+    query = if !is_nil(page_size) do
+      [{"page-size", page_size} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"next-token", next_token} | query]
     else
       query
     end

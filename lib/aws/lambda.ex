@@ -563,8 +563,8 @@ defmodule AWS.Lambda do
     path_ = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
     headers = []
     query = []
-    query = if !is_nil(function_version) do
-      [{"FunctionVersion", function_version} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
@@ -573,8 +573,8 @@ defmodule AWS.Lambda do
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(function_version) do
+      [{"FunctionVersion", function_version} | query]
     else
       query
     end
@@ -589,13 +589,8 @@ defmodule AWS.Lambda do
     path_ = "/2015-03-31/event-source-mappings/"
     headers = []
     query = []
-    query = if !is_nil(event_source_arn) do
-      [{"EventSourceArn", event_source_arn} | query]
-    else
-      query
-    end
-    query = if !is_nil(function_name) do
-      [{"FunctionName", function_name} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
@@ -604,8 +599,13 @@ defmodule AWS.Lambda do
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(function_name) do
+      [{"FunctionName", function_name} | query]
+    else
+      query
+    end
+    query = if !is_nil(event_source_arn) do
+      [{"EventSourceArn", event_source_arn} | query]
     else
       query
     end
@@ -623,13 +623,13 @@ defmodule AWS.Lambda do
     path_ = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config/list"
     headers = []
     query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -648,13 +648,8 @@ defmodule AWS.Lambda do
     path_ = "/2015-03-31/functions/"
     headers = []
     query = []
-    query = if !is_nil(function_version) do
-      [{"FunctionVersion", function_version} | query]
-    else
-      query
-    end
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
@@ -663,8 +658,13 @@ defmodule AWS.Lambda do
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(function_version) do
+      [{"FunctionVersion", function_version} | query]
     else
       query
     end
@@ -683,8 +683,8 @@ defmodule AWS.Lambda do
     path_ = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions"
     headers = []
     query = []
-    query = if !is_nil(compatible_runtime) do
-      [{"CompatibleRuntime", compatible_runtime} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
@@ -693,8 +693,8 @@ defmodule AWS.Lambda do
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(compatible_runtime) do
+      [{"CompatibleRuntime", compatible_runtime} | query]
     else
       query
     end
@@ -713,8 +713,8 @@ defmodule AWS.Lambda do
     path_ = "/2018-10-31/layers"
     headers = []
     query = []
-    query = if !is_nil(compatible_runtime) do
-      [{"CompatibleRuntime", compatible_runtime} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
@@ -723,8 +723,8 @@ defmodule AWS.Lambda do
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(compatible_runtime) do
+      [{"CompatibleRuntime", compatible_runtime} | query]
     else
       query
     end
@@ -738,13 +738,13 @@ defmodule AWS.Lambda do
     path_ = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency?List=ALL"
     headers = []
     query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -773,13 +773,13 @@ defmodule AWS.Lambda do
     path_ = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
     headers = []
     query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end

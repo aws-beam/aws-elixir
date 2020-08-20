@@ -1089,8 +1089,8 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/cache-policy"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(type) do
+      [{"Type", type} | query]
     else
       query
     end
@@ -1099,8 +1099,8 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    query = if !is_nil(type) do
-      [{"Type", type} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1114,13 +1114,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/origin-access-identity/cloudfront"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1134,13 +1134,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/distribution"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1162,13 +1162,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/distributionsByCachePolicyId/#{URI.encode(cache_policy_id)}"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1190,13 +1190,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/distributionsByOriginRequestPolicyId/#{URI.encode(origin_request_policy_id)}"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1211,13 +1211,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/distributionsByWebACLId/#{URI.encode(web_a_c_l_id)}"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1232,13 +1232,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/field-level-encryption"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1253,13 +1253,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/field-level-encryption-profile"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1273,13 +1273,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1303,8 +1303,8 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/origin-request-policy"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(type) do
+      [{"Type", type} | query]
     else
       query
     end
@@ -1313,8 +1313,8 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    query = if !is_nil(type) do
-      [{"Type", type} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1328,13 +1328,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/public-key"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -1348,13 +1348,13 @@ defmodule AWS.Cloudfront do
     path = "/2020-05-31/streaming-distribution"
     headers = []
       query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end

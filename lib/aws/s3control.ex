@@ -268,8 +268,8 @@ defmodule AWS.S3Control do
       headers
     end
       query = []
-    query = if !is_nil(bucket) do
-      [{"bucket", bucket} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
@@ -278,8 +278,8 @@ defmodule AWS.S3Control do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(bucket) do
+      [{"bucket", bucket} | query]
     else
       query
     end
@@ -314,8 +314,8 @@ defmodule AWS.S3Control do
       headers
     end
       query = []
-    query = if !is_nil(job_statuses) do
-      [{"jobStatuses", job_statuses} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
@@ -324,8 +324,8 @@ defmodule AWS.S3Control do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(job_statuses) do
+      [{"jobStatuses", job_statuses} | query]
     else
       query
     end

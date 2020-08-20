@@ -853,13 +853,8 @@ defmodule AWS.Glacier do
     path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
     headers = []
     query = []
-    query = if !is_nil(completed) do
-      [{"completed", completed} | query]
-    else
-      query
-    end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(statuscode) do
+      [{"statuscode", statuscode} | query]
     else
       query
     end
@@ -868,8 +863,13 @@ defmodule AWS.Glacier do
     else
       query
     end
-    query = if !is_nil(statuscode) do
-      [{"statuscode", statuscode} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
+    else
+      query
+    end
+    query = if !is_nil(completed) do
+      [{"completed", completed} | query]
     else
       query
     end
@@ -916,13 +916,13 @@ defmodule AWS.Glacier do
     path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
     else
       query
     end
-    query = if !is_nil(marker) do
-      [{"marker", marker} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -964,13 +964,13 @@ defmodule AWS.Glacier do
     path_ = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
     else
       query
     end
-    query = if !is_nil(marker) do
-      [{"marker", marker} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -1032,13 +1032,13 @@ defmodule AWS.Glacier do
     path_ = "/#{URI.encode(account_id)}/vaults"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
     else
       query
     end
-    query = if !is_nil(marker) do
-      [{"marker", marker} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end

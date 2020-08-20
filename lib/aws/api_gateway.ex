@@ -452,18 +452,8 @@ defmodule AWS.APIGateway do
     path_ = "/apikeys"
     headers = []
     query = []
-    query = if !is_nil(customer_id) do
-      [{"customerId", customer_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(include_values) do
-      [{"includeValues", include_values} | query]
-    else
-      query
-    end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
@@ -472,8 +462,18 @@ defmodule AWS.APIGateway do
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
+    else
+      query
+    end
+    query = if !is_nil(include_values) do
+      [{"includeValues", include_values} | query]
+    else
+      query
+    end
+    query = if !is_nil(customer_id) do
+      [{"customerId", customer_id} | query]
     else
       query
     end
@@ -503,13 +503,13 @@ defmodule AWS.APIGateway do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -533,13 +533,13 @@ defmodule AWS.APIGateway do
     path_ = "/domainnames/#{URI.encode(domain_name)}/basepathmappings"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -563,13 +563,13 @@ defmodule AWS.APIGateway do
     path_ = "/clientcertificates"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -598,13 +598,13 @@ defmodule AWS.APIGateway do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/deployments"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -628,23 +628,8 @@ defmodule AWS.APIGateway do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
-    else
-      query
-    end
-    query = if !is_nil(location_status) do
-      [{"locationStatus", location_status} | query]
-    else
-      query
-    end
-    query = if !is_nil(name_query) do
-      [{"name", name_query} | query]
-    else
-      query
-    end
-    query = if !is_nil(path) do
-      [{"path", path} | query]
+    query = if !is_nil(type) do
+      [{"type", type} | query]
     else
       query
     end
@@ -653,8 +638,23 @@ defmodule AWS.APIGateway do
     else
       query
     end
-    query = if !is_nil(type) do
-      [{"type", type} | query]
+    query = if !is_nil(path) do
+      [{"path", path} | query]
+    else
+      query
+    end
+    query = if !is_nil(name_query) do
+      [{"name", name_query} | query]
+    else
+      query
+    end
+    query = if !is_nil(location_status) do
+      [{"locationStatus", location_status} | query]
+    else
+      query
+    end
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -678,13 +678,13 @@ defmodule AWS.APIGateway do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -709,13 +709,13 @@ defmodule AWS.APIGateway do
     path_ = "/domainnames"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -781,13 +781,13 @@ defmodule AWS.APIGateway do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -867,13 +867,13 @@ defmodule AWS.APIGateway do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/models"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -897,13 +897,13 @@ defmodule AWS.APIGateway do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -932,8 +932,8 @@ defmodule AWS.APIGateway do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources"
     headers = []
     query = []
-    query = if !is_nil(embed) do
-      [{"embed", embed} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
@@ -942,8 +942,8 @@ defmodule AWS.APIGateway do
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(embed) do
+      [{"embed", embed} | query]
     else
       query
     end
@@ -967,13 +967,13 @@ defmodule AWS.APIGateway do
     path_ = "/restapis"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -1030,13 +1030,13 @@ defmodule AWS.APIGateway do
     path_ = "/sdktypes"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -1075,13 +1075,13 @@ defmodule AWS.APIGateway do
     path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -1095,18 +1095,8 @@ defmodule AWS.APIGateway do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/usage"
     headers = []
     query = []
-    query = if !is_nil(end_date) do
-      [{"endDate", end_date} | query]
-    else
-      query
-    end
-    query = if !is_nil(key_id) do
-      [{"keyId", key_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(start_date) do
+      [{"startDate", start_date} | query]
     else
       query
     end
@@ -1115,8 +1105,18 @@ defmodule AWS.APIGateway do
     else
       query
     end
-    query = if !is_nil(start_date) do
-      [{"startDate", start_date} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
+    else
+      query
+    end
+    query = if !is_nil(key_id) do
+      [{"keyId", key_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(end_date) do
+      [{"endDate", end_date} | query]
     else
       query
     end
@@ -1151,8 +1151,8 @@ defmodule AWS.APIGateway do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/keys"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
@@ -1161,8 +1161,8 @@ defmodule AWS.APIGateway do
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end
@@ -1176,8 +1176,8 @@ defmodule AWS.APIGateway do
     path_ = "/usageplans"
     headers = []
     query = []
-    query = if !is_nil(key_id) do
-      [{"keyId", key_id} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
@@ -1186,8 +1186,8 @@ defmodule AWS.APIGateway do
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(key_id) do
+      [{"keyId", key_id} | query]
     else
       query
     end
@@ -1212,13 +1212,13 @@ defmodule AWS.APIGateway do
     path_ = "/vpclinks"
     headers = []
     query = []
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query = if !is_nil(position) do
+      [{"position", position} | query]
     else
       query
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query = if !is_nil(limit) do
+      [{"limit", limit} | query]
     else
       query
     end

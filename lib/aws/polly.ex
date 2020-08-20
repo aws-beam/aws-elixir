@@ -54,13 +54,8 @@ defmodule AWS.Polly do
     path_ = "/v1/voices"
     headers = []
     query = []
-    query = if !is_nil(engine) do
-      [{"Engine", engine} | query]
-    else
-      query
-    end
-    query = if !is_nil(include_additional_language_codes) do
-      [{"IncludeAdditionalLanguageCodes", include_additional_language_codes} | query]
+    query = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query]
     else
       query
     end
@@ -69,8 +64,13 @@ defmodule AWS.Polly do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query]
+    query = if !is_nil(include_additional_language_codes) do
+      [{"IncludeAdditionalLanguageCodes", include_additional_language_codes} | query]
+    else
+      query
+    end
+    query = if !is_nil(engine) do
+      [{"Engine", engine} | query]
     else
       query
     end
@@ -128,8 +128,8 @@ defmodule AWS.Polly do
     path_ = "/v1/synthesisTasks"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query]
+    query = if !is_nil(status) do
+      [{"Status", status} | query]
     else
       query
     end
@@ -138,8 +138,8 @@ defmodule AWS.Polly do
     else
       query
     end
-    query = if !is_nil(status) do
-      [{"Status", status} | query]
+    query = if !is_nil(max_results) do
+      [{"MaxResults", max_results} | query]
     else
       query
     end

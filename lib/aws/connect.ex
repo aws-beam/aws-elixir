@@ -126,8 +126,8 @@ defmodule AWS.Connect do
     path_ = "/contact-flows-summary/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    query = if !is_nil(contact_flow_types) do
-      [{"contactFlowTypes", contact_flow_types} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
@@ -136,8 +136,8 @@ defmodule AWS.Connect do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(contact_flow_types) do
+      [{"contactFlowTypes", contact_flow_types} | query]
     else
       query
     end
@@ -152,13 +152,13 @@ defmodule AWS.Connect do
     path_ = "/hours-of-operations-summary/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -173,13 +173,8 @@ defmodule AWS.Connect do
     path_ = "/phone-numbers-summary/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(phone_number_types) do
+      [{"phoneNumberTypes", phone_number_types} | query]
     else
       query
     end
@@ -188,8 +183,13 @@ defmodule AWS.Connect do
     else
       query
     end
-    query = if !is_nil(phone_number_types) do
-      [{"phoneNumberTypes", phone_number_types} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -204,8 +204,8 @@ defmodule AWS.Connect do
     path_ = "/queues-summary/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(queue_types) do
+      [{"queueTypes", queue_types} | query]
     else
       query
     end
@@ -214,8 +214,8 @@ defmodule AWS.Connect do
     else
       query
     end
-    query = if !is_nil(queue_types) do
-      [{"queueTypes", queue_types} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -230,13 +230,13 @@ defmodule AWS.Connect do
     path_ = "/routing-profiles-summary/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -251,13 +251,13 @@ defmodule AWS.Connect do
     path_ = "/security-profiles-summary/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -282,13 +282,13 @@ defmodule AWS.Connect do
     path_ = "/user-hierarchy-groups-summary/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -303,13 +303,13 @@ defmodule AWS.Connect do
     path_ = "/users-summary/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end

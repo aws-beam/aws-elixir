@@ -1505,13 +1505,8 @@ defmodule AWS.IoT do
     path_ = "/active-violations"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(thing_name) do
+      [{"thingName", thing_name} | query]
     else
       query
     end
@@ -1520,8 +1515,13 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(thing_name) do
-      [{"thingName", thing_name} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -1563,18 +1563,8 @@ defmodule AWS.IoT do
     path_ = "/audit/mitigationactions/executions"
     headers = []
     query = []
-    query = if !is_nil(action_status) do
-      [{"actionStatus", action_status} | query]
-    else
-      query
-    end
-    query = if !is_nil(finding_id) do
-      [{"findingId", finding_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(task_id) do
+      [{"taskId", task_id} | query]
     else
       query
     end
@@ -1583,8 +1573,18 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(task_id) do
-      [{"taskId", task_id} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(finding_id) do
+      [{"findingId", finding_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(action_status) do
+      [{"actionStatus", action_status} | query]
     else
       query
     end
@@ -1599,28 +1599,8 @@ defmodule AWS.IoT do
     path_ = "/audit/mitigationactions/tasks"
     headers = []
     query = []
-    query = if !is_nil(audit_task_id) do
-      [{"auditTaskId", audit_task_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(end_time) do
-      [{"endTime", end_time} | query]
-    else
-      query
-    end
-    query = if !is_nil(finding_id) do
-      [{"findingId", finding_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(task_status) do
+      [{"taskStatus", task_status} | query]
     else
       query
     end
@@ -1629,8 +1609,28 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(task_status) do
-      [{"taskStatus", task_status} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(finding_id) do
+      [{"findingId", finding_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(end_time) do
+      [{"endTime", end_time} | query]
+    else
+      query
+    end
+    query = if !is_nil(audit_task_id) do
+      [{"auditTaskId", audit_task_id} | query]
     else
       query
     end
@@ -1645,23 +1645,8 @@ defmodule AWS.IoT do
     path_ = "/audit/tasks"
     headers = []
     query = []
-    query = if !is_nil(end_time) do
-      [{"endTime", end_time} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
-    else
-      query
-    end
-    query = if !is_nil(start_time) do
-      [{"startTime", start_time} | query]
+    query = if !is_nil(task_type) do
+      [{"taskType", task_type} | query]
     else
       query
     end
@@ -1670,8 +1655,23 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(task_type) do
-      [{"taskType", task_type} | query]
+    query = if !is_nil(start_time) do
+      [{"startTime", start_time} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(end_time) do
+      [{"endTime", end_time} | query]
     else
       query
     end
@@ -1685,13 +1685,8 @@ defmodule AWS.IoT do
     path_ = "/authorizers/"
     headers = []
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
-    else
-      query
-    end
-    query = if !is_nil(marker) do
-      [{"marker", marker} | query]
+    query = if !is_nil(status) do
+      [{"status", status} | query]
     else
       query
     end
@@ -1700,8 +1695,13 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(status) do
-      [{"status", status} | query]
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -1715,8 +1715,8 @@ defmodule AWS.IoT do
     path_ = "/billing-groups"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
@@ -1725,8 +1725,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -1743,8 +1743,8 @@ defmodule AWS.IoT do
     path_ = "/cacertificates"
     headers = []
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
@@ -1753,8 +1753,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -1771,8 +1771,8 @@ defmodule AWS.IoT do
     path_ = "/certificates"
     headers = []
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
@@ -1781,8 +1781,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -1796,8 +1796,8 @@ defmodule AWS.IoT do
     path_ = "/certificates-by-ca/#{URI.encode(ca_certificate_id)}"
     headers = []
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
@@ -1806,8 +1806,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -1821,13 +1821,13 @@ defmodule AWS.IoT do
     path_ = "/dimensions"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -1847,8 +1847,8 @@ defmodule AWS.IoT do
     path_ = "/domainConfigurations"
     headers = []
     query = []
-    query = if !is_nil(marker) do
-      [{"marker", marker} | query]
+    query = if !is_nil(service_type) do
+      [{"serviceType", service_type} | query]
     else
       query
     end
@@ -1857,8 +1857,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(service_type) do
-      [{"serviceType", service_type} | query]
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
     else
       query
     end
@@ -1872,13 +1872,13 @@ defmodule AWS.IoT do
     path_ = "/indices"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -1892,8 +1892,8 @@ defmodule AWS.IoT do
     path_ = "/jobs/#{URI.encode(job_id)}/things"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(status) do
+      [{"status", status} | query]
     else
       query
     end
@@ -1902,8 +1902,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(status) do
-      [{"status", status} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -1917,8 +1917,8 @@ defmodule AWS.IoT do
     path_ = "/things/#{URI.encode(thing_name)}/jobs"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(status) do
+      [{"status", status} | query]
     else
       query
     end
@@ -1927,8 +1927,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(status) do
-      [{"status", status} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -1942,23 +1942,8 @@ defmodule AWS.IoT do
     path_ = "/jobs"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
-    else
-      query
-    end
-    query = if !is_nil(status) do
-      [{"status", status} | query]
-    else
-      query
-    end
-    query = if !is_nil(target_selection) do
-      [{"targetSelection", target_selection} | query]
+    query = if !is_nil(thing_group_name) do
+      [{"thingGroupName", thing_group_name} | query]
     else
       query
     end
@@ -1967,8 +1952,23 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(thing_group_name) do
-      [{"thingGroupName", thing_group_name} | query]
+    query = if !is_nil(target_selection) do
+      [{"targetSelection", target_selection} | query]
+    else
+      query
+    end
+    query = if !is_nil(status) do
+      [{"status", status} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -1983,8 +1983,8 @@ defmodule AWS.IoT do
     path_ = "/mitigationactions/actions"
     headers = []
     query = []
-    query = if !is_nil(action_type) do
-      [{"actionType", action_type} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
@@ -1993,8 +1993,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(action_type) do
+      [{"actionType", action_type} | query]
     else
       query
     end
@@ -2008,8 +2008,8 @@ defmodule AWS.IoT do
     path_ = "/otaUpdates"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(ota_update_status) do
+      [{"otaUpdateStatus", ota_update_status} | query]
     else
       query
     end
@@ -2018,8 +2018,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(ota_update_status) do
-      [{"otaUpdateStatus", ota_update_status} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2033,8 +2033,8 @@ defmodule AWS.IoT do
     path_ = "/certificates-out-going"
     headers = []
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
@@ -2043,8 +2043,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -2058,8 +2058,8 @@ defmodule AWS.IoT do
     path_ = "/policies"
     headers = []
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
@@ -2068,8 +2068,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -2091,8 +2091,8 @@ defmodule AWS.IoT do
       headers
     end
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
@@ -2101,8 +2101,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -2137,8 +2137,8 @@ defmodule AWS.IoT do
       headers
     end
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
@@ -2147,8 +2147,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -2169,13 +2169,13 @@ defmodule AWS.IoT do
       headers
     end
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2189,13 +2189,13 @@ defmodule AWS.IoT do
     path_ = "/provisioning-templates/#{URI.encode(template_name)}/versions"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2209,13 +2209,13 @@ defmodule AWS.IoT do
     path_ = "/provisioning-templates"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2229,8 +2229,8 @@ defmodule AWS.IoT do
     path_ = "/role-aliases"
     headers = []
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
@@ -2239,8 +2239,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -2254,13 +2254,13 @@ defmodule AWS.IoT do
     path_ = "/audit/scheduledaudits"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2276,8 +2276,8 @@ defmodule AWS.IoT do
     path_ = "/security-profiles"
     headers = []
     query = []
-    query = if !is_nil(dimension_name) do
-      [{"dimensionName", dimension_name} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
@@ -2286,8 +2286,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(dimension_name) do
+      [{"dimensionName", dimension_name} | query]
     else
       query
     end
@@ -2302,13 +2302,8 @@ defmodule AWS.IoT do
     path_ = "/security-profiles-for-target"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(security_profile_target_arn) do
+      [{"securityProfileTargetArn", security_profile_target_arn} | query]
     else
       query
     end
@@ -2317,8 +2312,13 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(security_profile_target_arn) do
-      [{"securityProfileTargetArn", security_profile_target_arn} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2332,8 +2332,8 @@ defmodule AWS.IoT do
     path_ = "/streams"
     headers = []
     query = []
-    query = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
@@ -2342,8 +2342,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(ascending_order) do
+      [{"isAscendingOrder", ascending_order} | query]
     else
       query
     end
@@ -2357,13 +2357,13 @@ defmodule AWS.IoT do
     path_ = "/tags"
     headers = []
     query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(resource_arn) do
+      [{"resourceArn", resource_arn} | query]
     else
       query
     end
-    query = if !is_nil(resource_arn) do
-      [{"resourceArn", resource_arn} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
@@ -2393,13 +2393,13 @@ defmodule AWS.IoT do
     path_ = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2413,18 +2413,8 @@ defmodule AWS.IoT do
     path_ = "/thing-groups"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(name_prefix_filter) do
-      [{"namePrefixFilter", name_prefix_filter} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(recursive) do
+      [{"recursive", recursive} | query]
     else
       query
     end
@@ -2433,8 +2423,18 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(recursive) do
-      [{"recursive", recursive} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(name_prefix_filter) do
+      [{"namePrefixFilter", name_prefix_filter} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2448,13 +2448,13 @@ defmodule AWS.IoT do
     path_ = "/things/#{URI.encode(thing_name)}/thing-groups"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2480,8 +2480,8 @@ defmodule AWS.IoT do
     path_ = "/thing-registration-tasks/#{URI.encode(task_id)}/reports"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(report_type) do
+      [{"reportType", report_type} | query]
     else
       query
     end
@@ -2490,8 +2490,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(report_type) do
-      [{"reportType", report_type} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2505,8 +2505,8 @@ defmodule AWS.IoT do
     path_ = "/thing-registration-tasks"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(status) do
+      [{"status", status} | query]
     else
       query
     end
@@ -2515,8 +2515,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(status) do
-      [{"status", status} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2530,8 +2530,8 @@ defmodule AWS.IoT do
     path_ = "/thing-types"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(thing_type_name) do
+      [{"thingTypeName", thing_type_name} | query]
     else
       query
     end
@@ -2540,8 +2540,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(thing_type_name) do
-      [{"thingTypeName", thing_type_name} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2558,18 +2558,8 @@ defmodule AWS.IoT do
     path_ = "/things"
     headers = []
     query = []
-    query = if !is_nil(attribute_name) do
-      [{"attributeName", attribute_name} | query]
-    else
-      query
-    end
-    query = if !is_nil(attribute_value) do
-      [{"attributeValue", attribute_value} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(thing_type_name) do
+      [{"thingTypeName", thing_type_name} | query]
     else
       query
     end
@@ -2578,8 +2568,18 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(thing_type_name) do
-      [{"thingTypeName", thing_type_name} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(attribute_value) do
+      [{"attributeValue", attribute_value} | query]
+    else
+      query
+    end
+    query = if !is_nil(attribute_name) do
+      [{"attributeName", attribute_name} | query]
     else
       query
     end
@@ -2593,13 +2593,13 @@ defmodule AWS.IoT do
     path_ = "/billing-groups/#{URI.encode(billing_group_name)}/things"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2613,8 +2613,8 @@ defmodule AWS.IoT do
     path_ = "/thing-groups/#{URI.encode(thing_group_name)}/things"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(recursive) do
+      [{"recursive", recursive} | query]
     else
       query
     end
@@ -2623,8 +2623,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(recursive) do
-      [{"recursive", recursive} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2638,13 +2638,13 @@ defmodule AWS.IoT do
     path_ = "/destinations"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2658,13 +2658,8 @@ defmodule AWS.IoT do
     path_ = "/rules"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(topic) do
+      [{"topic", topic} | query]
     else
       query
     end
@@ -2673,8 +2668,13 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(topic) do
-      [{"topic", topic} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2688,8 +2688,8 @@ defmodule AWS.IoT do
     path_ = "/v2LoggingLevel"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(target_type) do
+      [{"targetType", target_type} | query]
     else
       query
     end
@@ -2698,8 +2698,8 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(target_type) do
-      [{"targetType", target_type} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -2715,23 +2715,8 @@ defmodule AWS.IoT do
     path_ = "/violation-events"
     headers = []
     query = []
-    query = if !is_nil(end_time) do
-      [{"endTime", end_time} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
-    else
-      query
-    end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
-    else
-      query
-    end
-    query = if !is_nil(security_profile_name) do
-      [{"securityProfileName", security_profile_name} | query]
+    query = if !is_nil(thing_name) do
+      [{"thingName", thing_name} | query]
     else
       query
     end
@@ -2740,8 +2725,23 @@ defmodule AWS.IoT do
     else
       query
     end
-    query = if !is_nil(thing_name) do
-      [{"thingName", thing_name} | query]
+    query = if !is_nil(security_profile_name) do
+      [{"securityProfileName", security_profile_name} | query]
+    else
+      query
+    end
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
+    else
+      query
+    end
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(end_time) do
+      [{"endTime", end_time} | query]
     else
       query
     end

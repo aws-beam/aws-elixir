@@ -159,13 +159,13 @@ defmodule AWS.Cognito.Sync do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -183,13 +183,13 @@ defmodule AWS.Cognito.Sync do
     path_ = "/identitypools"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
     else
       query
     end
@@ -210,13 +210,8 @@ defmodule AWS.Cognito.Sync do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/records"
     headers = []
     query = []
-    query = if !is_nil(last_sync_count) do
-      [{"lastSyncCount", last_sync_count} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query = if !is_nil(sync_session_token) do
+      [{"syncSessionToken", sync_session_token} | query]
     else
       query
     end
@@ -225,8 +220,13 @@ defmodule AWS.Cognito.Sync do
     else
       query
     end
-    query = if !is_nil(sync_session_token) do
-      [{"syncSessionToken", sync_session_token} | query]
+    query = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query]
+    else
+      query
+    end
+    query = if !is_nil(last_sync_count) do
+      [{"lastSyncCount", last_sync_count} | query]
     else
       query
     end

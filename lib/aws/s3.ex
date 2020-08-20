@@ -2216,33 +2216,8 @@ defmodule AWS.S3 do
       headers
     end
       query = []
-    query = if !is_nil(part_number) do
-      [{"partNumber", part_number} | query]
-    else
-      query
-    end
-    query = if !is_nil(response_cache_control) do
-      [{"response-cache-control", response_cache_control} | query]
-    else
-      query
-    end
-    query = if !is_nil(response_content_disposition) do
-      [{"response-content-disposition", response_content_disposition} | query]
-    else
-      query
-    end
-    query = if !is_nil(response_content_encoding) do
-      [{"response-content-encoding", response_content_encoding} | query]
-    else
-      query
-    end
-    query = if !is_nil(response_content_language) do
-      [{"response-content-language", response_content_language} | query]
-    else
-      query
-    end
-    query = if !is_nil(response_content_type) do
-      [{"response-content-type", response_content_type} | query]
+    query = if !is_nil(version_id) do
+      [{"versionId", version_id} | query]
     else
       query
     end
@@ -2251,8 +2226,33 @@ defmodule AWS.S3 do
     else
       query
     end
-    query = if !is_nil(version_id) do
-      [{"versionId", version_id} | query]
+    query = if !is_nil(response_content_type) do
+      [{"response-content-type", response_content_type} | query]
+    else
+      query
+    end
+    query = if !is_nil(response_content_language) do
+      [{"response-content-language", response_content_language} | query]
+    else
+      query
+    end
+    query = if !is_nil(response_content_encoding) do
+      [{"response-content-encoding", response_content_encoding} | query]
+    else
+      query
+    end
+    query = if !is_nil(response_content_disposition) do
+      [{"response-content-disposition", response_content_disposition} | query]
+    else
+      query
+    end
+    query = if !is_nil(response_cache_control) do
+      [{"response-cache-control", response_cache_control} | query]
+    else
+      query
+    end
+    query = if !is_nil(part_number) do
+      [{"partNumber", part_number} | query]
     else
       query
     end
@@ -2922,23 +2922,8 @@ defmodule AWS.S3 do
     path = "/#{URI.encode(bucket)}?uploads"
     headers = []
       query = []
-    query = if !is_nil(delimiter) do
-      [{"delimiter", delimiter} | query]
-    else
-      query
-    end
-    query = if !is_nil(encoding_type) do
-      [{"encoding-type", encoding_type} | query]
-    else
-      query
-    end
-    query = if !is_nil(key_marker) do
-      [{"key-marker", key_marker} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_uploads) do
-      [{"max-uploads", max_uploads} | query]
+    query = if !is_nil(upload_id_marker) do
+      [{"upload-id-marker", upload_id_marker} | query]
     else
       query
     end
@@ -2947,8 +2932,23 @@ defmodule AWS.S3 do
     else
       query
     end
-    query = if !is_nil(upload_id_marker) do
-      [{"upload-id-marker", upload_id_marker} | query]
+    query = if !is_nil(max_uploads) do
+      [{"max-uploads", max_uploads} | query]
+    else
+      query
+    end
+    query = if !is_nil(key_marker) do
+      [{"key-marker", key_marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(encoding_type) do
+      [{"encoding-type", encoding_type} | query]
+    else
+      query
+    end
+    query = if !is_nil(delimiter) do
+      [{"delimiter", delimiter} | query]
     else
       query
     end
@@ -2982,23 +2982,8 @@ defmodule AWS.S3 do
     path = "/#{URI.encode(bucket)}?versions"
     headers = []
       query = []
-    query = if !is_nil(delimiter) do
-      [{"delimiter", delimiter} | query]
-    else
-      query
-    end
-    query = if !is_nil(encoding_type) do
-      [{"encoding-type", encoding_type} | query]
-    else
-      query
-    end
-    query = if !is_nil(key_marker) do
-      [{"key-marker", key_marker} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_keys) do
-      [{"max-keys", max_keys} | query]
+    query = if !is_nil(version_id_marker) do
+      [{"version-id-marker", version_id_marker} | query]
     else
       query
     end
@@ -3007,8 +2992,23 @@ defmodule AWS.S3 do
     else
       query
     end
-    query = if !is_nil(version_id_marker) do
-      [{"version-id-marker", version_id_marker} | query]
+    query = if !is_nil(max_keys) do
+      [{"max-keys", max_keys} | query]
+    else
+      query
+    end
+    query = if !is_nil(key_marker) do
+      [{"key-marker", key_marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(encoding_type) do
+      [{"encoding-type", encoding_type} | query]
+    else
+      query
+    end
+    query = if !is_nil(delimiter) do
+      [{"delimiter", delimiter} | query]
     else
       query
     end
@@ -3049,18 +3049,8 @@ defmodule AWS.S3 do
       headers
     end
       query = []
-    query = if !is_nil(delimiter) do
-      [{"delimiter", delimiter} | query]
-    else
-      query
-    end
-    query = if !is_nil(encoding_type) do
-      [{"encoding-type", encoding_type} | query]
-    else
-      query
-    end
-    query = if !is_nil(marker) do
-      [{"marker", marker} | query]
+    query = if !is_nil(prefix) do
+      [{"prefix", prefix} | query]
     else
       query
     end
@@ -3069,8 +3059,18 @@ defmodule AWS.S3 do
     else
       query
     end
-    query = if !is_nil(prefix) do
-      [{"prefix", prefix} | query]
+    query = if !is_nil(marker) do
+      [{"marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(encoding_type) do
+      [{"encoding-type", encoding_type} | query]
+    else
+      query
+    end
+    query = if !is_nil(delimiter) do
+      [{"delimiter", delimiter} | query]
     else
       query
     end
@@ -3121,28 +3121,8 @@ defmodule AWS.S3 do
       headers
     end
       query = []
-    query = if !is_nil(continuation_token) do
-      [{"continuation-token", continuation_token} | query]
-    else
-      query
-    end
-    query = if !is_nil(delimiter) do
-      [{"delimiter", delimiter} | query]
-    else
-      query
-    end
-    query = if !is_nil(encoding_type) do
-      [{"encoding-type", encoding_type} | query]
-    else
-      query
-    end
-    query = if !is_nil(fetch_owner) do
-      [{"fetch-owner", fetch_owner} | query]
-    else
-      query
-    end
-    query = if !is_nil(max_keys) do
-      [{"max-keys", max_keys} | query]
+    query = if !is_nil(start_after) do
+      [{"start-after", start_after} | query]
     else
       query
     end
@@ -3151,8 +3131,28 @@ defmodule AWS.S3 do
     else
       query
     end
-    query = if !is_nil(start_after) do
-      [{"start-after", start_after} | query]
+    query = if !is_nil(max_keys) do
+      [{"max-keys", max_keys} | query]
+    else
+      query
+    end
+    query = if !is_nil(fetch_owner) do
+      [{"fetch-owner", fetch_owner} | query]
+    else
+      query
+    end
+    query = if !is_nil(encoding_type) do
+      [{"encoding-type", encoding_type} | query]
+    else
+      query
+    end
+    query = if !is_nil(delimiter) do
+      [{"delimiter", delimiter} | query]
+    else
+      query
+    end
+    query = if !is_nil(continuation_token) do
+      [{"continuation-token", continuation_token} | query]
     else
       query
     end
@@ -3203,8 +3203,8 @@ defmodule AWS.S3 do
       headers
     end
       query = []
-    query = if !is_nil(max_parts) do
-      [{"max-parts", max_parts} | query]
+    query = if !is_nil(upload_id) do
+      [{"uploadId", upload_id} | query]
     else
       query
     end
@@ -3213,8 +3213,8 @@ defmodule AWS.S3 do
     else
       query
     end
-    query = if !is_nil(upload_id) do
-      [{"uploadId", upload_id} | query]
+    query = if !is_nil(max_parts) do
+      [{"max-parts", max_parts} | query]
     else
       query
     end

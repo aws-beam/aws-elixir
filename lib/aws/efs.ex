@@ -354,13 +354,8 @@ defmodule AWS.EFS do
     path_ = "/2015-02-01/access-points"
     headers = []
     query = []
-    query = if !is_nil(access_point_id) do
-      [{"AccessPointId", access_point_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(file_system_id) do
-      [{"FileSystemId", file_system_id} | query]
+    query = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query]
     else
       query
     end
@@ -369,8 +364,13 @@ defmodule AWS.EFS do
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query]
+    query = if !is_nil(file_system_id) do
+      [{"FileSystemId", file_system_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(access_point_id) do
+      [{"AccessPointId", access_point_id} | query]
     else
       query
     end
@@ -430,13 +430,8 @@ defmodule AWS.EFS do
     path_ = "/2015-02-01/file-systems"
     headers = []
     query = []
-    query = if !is_nil(creation_token) do
-      [{"CreationToken", creation_token} | query]
-    else
-      query
-    end
-    query = if !is_nil(file_system_id) do
-      [{"FileSystemId", file_system_id} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
@@ -445,8 +440,13 @@ defmodule AWS.EFS do
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(file_system_id) do
+      [{"FileSystemId", file_system_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(creation_token) do
+      [{"CreationToken", creation_token} | query]
     else
       query
     end
@@ -508,18 +508,8 @@ defmodule AWS.EFS do
     path_ = "/2015-02-01/mount-targets"
     headers = []
     query = []
-    query = if !is_nil(access_point_id) do
-      [{"AccessPointId", access_point_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(file_system_id) do
-      [{"FileSystemId", file_system_id} | query]
-    else
-      query
-    end
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(mount_target_id) do
+      [{"MountTargetId", mount_target_id} | query]
     else
       query
     end
@@ -528,8 +518,18 @@ defmodule AWS.EFS do
     else
       query
     end
-    query = if !is_nil(mount_target_id) do
-      [{"MountTargetId", mount_target_id} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
+    else
+      query
+    end
+    query = if !is_nil(file_system_id) do
+      [{"FileSystemId", file_system_id} | query]
+    else
+      query
+    end
+    query = if !is_nil(access_point_id) do
+      [{"AccessPointId", access_point_id} | query]
     else
       query
     end
@@ -549,13 +549,13 @@ defmodule AWS.EFS do
     path_ = "/2015-02-01/tags/#{URI.encode(file_system_id)}/"
     headers = []
     query = []
-    query = if !is_nil(marker) do
-      [{"Marker", marker} | query]
+    query = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query]
     else
       query
     end
-    query = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query]
+    query = if !is_nil(marker) do
+      [{"Marker", marker} | query]
     else
       query
     end
@@ -573,13 +573,13 @@ defmodule AWS.EFS do
     path_ = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
     headers = []
     query = []
-    query = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query]
+    query = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query]
     else
       query
     end
-    query = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query]
+    query = if !is_nil(max_results) do
+      [{"MaxResults", max_results} | query]
     else
       query
     end

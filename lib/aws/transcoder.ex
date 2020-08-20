@@ -121,13 +121,13 @@ defmodule AWS.Transcoder do
     path_ = "/2012-09-25/jobsByPipeline/#{URI.encode(pipeline_id)}"
     headers = []
     query = []
-    query = if !is_nil(ascending) do
-      [{"Ascending", ascending} | query]
+    query = if !is_nil(page_token) do
+      [{"PageToken", page_token} | query]
     else
       query
     end
-    query = if !is_nil(page_token) do
-      [{"PageToken", page_token} | query]
+    query = if !is_nil(ascending) do
+      [{"Ascending", ascending} | query]
     else
       query
     end
@@ -143,13 +143,13 @@ defmodule AWS.Transcoder do
     path_ = "/2012-09-25/jobsByStatus/#{URI.encode(status)}"
     headers = []
     query = []
-    query = if !is_nil(ascending) do
-      [{"Ascending", ascending} | query]
+    query = if !is_nil(page_token) do
+      [{"PageToken", page_token} | query]
     else
       query
     end
-    query = if !is_nil(page_token) do
-      [{"PageToken", page_token} | query]
+    query = if !is_nil(ascending) do
+      [{"Ascending", ascending} | query]
     else
       query
     end
@@ -164,13 +164,13 @@ defmodule AWS.Transcoder do
     path_ = "/2012-09-25/pipelines"
     headers = []
     query = []
-    query = if !is_nil(ascending) do
-      [{"Ascending", ascending} | query]
+    query = if !is_nil(page_token) do
+      [{"PageToken", page_token} | query]
     else
       query
     end
-    query = if !is_nil(page_token) do
-      [{"PageToken", page_token} | query]
+    query = if !is_nil(ascending) do
+      [{"Ascending", ascending} | query]
     else
       query
     end
@@ -185,13 +185,13 @@ defmodule AWS.Transcoder do
     path_ = "/2012-09-25/presets"
     headers = []
     query = []
-    query = if !is_nil(ascending) do
-      [{"Ascending", ascending} | query]
+    query = if !is_nil(page_token) do
+      [{"PageToken", page_token} | query]
     else
       query
     end
-    query = if !is_nil(page_token) do
-      [{"PageToken", page_token} | query]
+    query = if !is_nil(ascending) do
+      [{"Ascending", ascending} | query]
     else
       query
     end

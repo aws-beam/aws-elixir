@@ -66,13 +66,13 @@ defmodule AWS.IoT.DataPlane do
     path_ = "/api/things/shadow/ListNamedShadowsForThing/#{URI.encode(thing_name)}"
     headers = []
     query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query = if !is_nil(page_size) do
+      [{"pageSize", page_size} | query]
     else
       query
     end
-    query = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query]
+    query = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query]
     else
       query
     end

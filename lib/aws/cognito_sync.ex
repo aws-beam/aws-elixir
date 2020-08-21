@@ -39,10 +39,10 @@ defmodule AWS.Cognito.Sync do
   this API with the temporary user credentials provided by Cognito Identity.
   """
   def bulk_publish(client, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/bulkpublish"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/bulkpublish"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -55,10 +55,10 @@ defmodule AWS.Cognito.Sync do
   Identity or with developer credentials.
   """
   def delete_dataset(client, dataset_name, identity_id, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 200)
+    request(client, :delete, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -113,10 +113,10 @@ defmodule AWS.Cognito.Sync do
   this API with the temporary user credentials provided by Cognito Identity.
   """
   def get_bulk_publish_details(client, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/getBulkPublishDetails"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/getBulkPublishDetails"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -240,10 +240,10 @@ defmodule AWS.Cognito.Sync do
   Identity. You cannot call this API with developer credentials.
   """
   def register_device(client, identity_id, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/identity/#{URI.encode(identity_id)}/device"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identity/#{URI.encode(identity_id)}/device"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -256,10 +256,10 @@ defmodule AWS.Cognito.Sync do
   this API with the temporary user credentials provided by Cognito Identity.
   """
   def set_cognito_events(client, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/events"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/events"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -269,10 +269,10 @@ defmodule AWS.Cognito.Sync do
   this API with the temporary user credentials provided by Cognito Identity.
   """
   def set_identity_pool_configuration(client, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -283,10 +283,10 @@ defmodule AWS.Cognito.Sync do
   Identity. You cannot call this API with developer credentials.
   """
   def subscribe_to_dataset(client, dataset_name, device_id, identity_id, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -297,10 +297,10 @@ defmodule AWS.Cognito.Sync do
   Identity. You cannot call this API with developer credentials.
   """
   def unsubscribe_from_dataset(client, dataset_name, device_id, identity_id, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 200)
+    request(client, :delete, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -324,14 +324,14 @@ defmodule AWS.Cognito.Sync do
   Identity or with developer credentials.
   """
   def update_records(client, dataset_name, identity_id, identity_pool_id, input, options \\ []) do
-    path = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
+    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
     {headers, input} =
       [
         {"ClientContext", "x-amz-Client-Context"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

@@ -38,19 +38,18 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def abort_multipart_upload(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"UploadId", "uploadId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :delete, path, query, headers, input, options, 204) do
+    case request(client, :delete, path_, query, headers, input, options, 204) do
       {:ok, body, response} ->
         body =
           [
@@ -153,19 +152,18 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def complete_multipart_upload(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"UploadId", "uploadId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :post, path, query, headers, input, options, nil) do
+    case request(client, :post, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -355,7 +353,7 @@ defmodule AWS.S3 do
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html).
   """
   def copy_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
         {"CopySourceIfModifiedSince", "x-amz-copy-source-if-modified-since"},
@@ -394,9 +392,8 @@ defmodule AWS.S3 do
         {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -522,7 +519,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def create_bucket(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}"
+    path_ = "/#{URI.encode(bucket)}"
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -534,9 +531,8 @@ defmodule AWS.S3 do
         {"ObjectLockEnabledForBucket", "x-amz-bucket-object-lock-enabled"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -771,7 +767,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def create_multipart_upload(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?uploads"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?uploads"
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -800,9 +796,8 @@ defmodule AWS.S3 do
         {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :post, path, query, headers, input, options, nil) do
+    case request(client, :post, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -843,10 +838,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}"
+    path_ = "/#{URI.encode(bucket)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -878,14 +873,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_analytics_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?analytics"
+    path_ = "/#{URI.encode(bucket)}?analytics"
     headers = []
     {query, input} =
       [
         {"Id", "id"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -908,10 +903,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_cors(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?cors"
+    path_ = "/#{URI.encode(bucket)}?cors"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -940,10 +935,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_encryption(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?encryption"
+    path_ = "/#{URI.encode(bucket)}?encryption"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -973,14 +968,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_inventory_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?inventory"
+    path_ = "/#{URI.encode(bucket)}?inventory"
     headers = []
     {query, input} =
       [
         {"Id", "id"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1010,10 +1005,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_lifecycle(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?lifecycle"
+    path_ = "/#{URI.encode(bucket)}?lifecycle"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1048,14 +1043,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_metrics_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?metrics"
+    path_ = "/#{URI.encode(bucket)}?metrics"
     headers = []
     {query, input} =
       [
         {"Id", "id"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1087,10 +1082,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_policy(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?policy"
+    path_ = "/#{URI.encode(bucket)}?policy"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1120,10 +1115,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_replication(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?replication"
+    path_ = "/#{URI.encode(bucket)}?replication"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1142,10 +1137,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_tagging(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?tagging"
+    path_ = "/#{URI.encode(bucket)}?tagging"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1175,10 +1170,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_bucket_website(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?website"
+    path_ = "/#{URI.encode(bucket)}?website"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1215,7 +1210,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
@@ -1223,13 +1218,12 @@ defmodule AWS.S3 do
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :delete, path, query, headers, input, options, 204) do
+    case request(client, :delete, path_, query, headers, input, options, 204) do
       {:ok, body, response} ->
         body =
           [
@@ -1272,14 +1266,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_object_tagging(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
     headers = []
     {query, input} =
       [
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :delete, path, query, headers, input, options, 204) do
+    case request(client, :delete, path_, query, headers, input, options, 204) do
       {:ok, body, response} ->
         body =
           [
@@ -1348,7 +1342,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_objects(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?delete"
+    path_ = "/#{URI.encode(bucket)}?delete"
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
@@ -1356,9 +1350,8 @@ defmodule AWS.S3 do
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :post, path, query, headers, input, options, nil) do
+    case request(client, :post, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1401,10 +1394,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def delete_public_access_block(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?publicAccessBlock"
+    path_ = "/#{URI.encode(bucket)}?publicAccessBlock"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1442,10 +1435,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_accelerate_configuration(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?accelerate"
+    path_ = "/#{URI.encode(bucket)}?accelerate"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1462,10 +1455,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_acl(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?acl"
+    path_ = "/#{URI.encode(bucket)}?acl"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1498,15 +1491,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_analytics_configuration(client, bucket, id, options \\ []) do
-    path = "/#{URI.encode(bucket)}?analytics"
+    path_ = "/#{URI.encode(bucket)}?analytics"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(id) do
       [{"id", id} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1528,10 +1521,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_cors(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?cors"
+    path_ = "/#{URI.encode(bucket)}?cors"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1558,10 +1551,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_encryption(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?encryption"
+    path_ = "/#{URI.encode(bucket)}?encryption"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1590,15 +1583,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_inventory_configuration(client, bucket, id, options \\ []) do
-    path = "/#{URI.encode(bucket)}?inventory"
+    path_ = "/#{URI.encode(bucket)}?inventory"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(id) do
       [{"id", id} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1643,10 +1636,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_lifecycle(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?lifecycle"
+    path_ = "/#{URI.encode(bucket)}?lifecycle"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1693,10 +1686,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_lifecycle_configuration(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?lifecycle"
+    path_ = "/#{URI.encode(bucket)}?lifecycle"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1715,10 +1708,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_location(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?location"
+    path_ = "/#{URI.encode(bucket)}?location"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1734,10 +1727,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_logging(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?logging"
+    path_ = "/#{URI.encode(bucket)}?logging"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1771,25 +1764,25 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_metrics_configuration(client, bucket, id, options \\ []) do
-    path = "/#{URI.encode(bucket)}?metrics"
+    path_ = "/#{URI.encode(bucket)}?metrics"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(id) do
       [{"id", id} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   No longer used, see `GetBucketNotificationConfiguration`.
   """
   def get_bucket_notification(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?notification"
+    path_ = "/#{URI.encode(bucket)}?notification"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1816,10 +1809,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_notification_configuration(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?notification"
+    path_ = "/#{URI.encode(bucket)}?notification"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1849,10 +1842,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_policy(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?policy"
+    path_ = "/#{URI.encode(bucket)}?policy"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1880,10 +1873,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_policy_status(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?policyStatus"
+    path_ = "/#{URI.encode(bucket)}?policyStatus"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1918,10 +1911,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_replication(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?replication"
+    path_ = "/#{URI.encode(bucket)}?replication"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1937,10 +1930,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_request_payment(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?requestPayment"
+    path_ = "/#{URI.encode(bucket)}?requestPayment"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1966,10 +1959,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_tagging(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?tagging"
+    path_ = "/#{URI.encode(bucket)}?tagging"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1992,10 +1985,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_versioning(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?versioning"
+    path_ = "/#{URI.encode(bucket)}?versioning"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2020,10 +2013,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_bucket_website(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?website"
+    path_ = "/#{URI.encode(bucket)}?website"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2168,7 +2161,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_object(client, bucket, key, part_number \\ nil, response_cache_control \\ nil, response_content_disposition \\ nil, response_content_encoding \\ nil, response_content_language \\ nil, response_content_type \\ nil, response_expires \\ nil, version_id \\ nil, if_match \\ nil, if_modified_since \\ nil, if_none_match \\ nil, if_unmodified_since \\ nil, range \\ nil, request_payer \\ nil, s_s_e_customer_algorithm \\ nil, s_s_e_customer_key \\ nil, s_s_e_customer_key_m_d5 \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     headers = []
     headers = if !is_nil(if_match) do
       [{"If-Match", if_match} | headers]
@@ -2215,7 +2208,7 @@ defmodule AWS.S3 do
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(version_id) do
       [{"versionId", version_id} | query]
     else
@@ -2256,7 +2249,7 @@ defmodule AWS.S3 do
     else
       query
     end
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -2325,20 +2318,20 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_object_acl(client, bucket, key, version_id \\ nil, request_payer \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(version_id) do
       [{"versionId", version_id} | query]
     else
       query
     end
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -2364,20 +2357,20 @@ defmodule AWS.S3 do
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
   """
   def get_object_legal_hold(client, bucket, key, version_id \\ nil, request_payer \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(version_id) do
       [{"versionId", version_id} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2387,10 +2380,10 @@ defmodule AWS.S3 do
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
   """
   def get_object_lock_configuration(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?object-lock"
+    path_ = "/#{URI.encode(bucket)}?object-lock"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2399,20 +2392,20 @@ defmodule AWS.S3 do
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
   """
   def get_object_retention(client, bucket, key, version_id \\ nil, request_payer \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(version_id) do
       [{"versionId", version_id} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2439,15 +2432,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_object_tagging(client, bucket, key, version_id \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(version_id) do
       [{"versionId", version_id} | query]
     else
       query
     end
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -2486,15 +2479,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_object_torrent(client, bucket, key, request_payer \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?torrent"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?torrent"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
       headers
     end
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -2546,10 +2539,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def get_public_access_block(client, bucket, options \\ []) do
-    path = "/#{URI.encode(bucket)}?publicAccessBlock"
+    path_ = "/#{URI.encode(bucket)}?publicAccessBlock"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2567,10 +2560,10 @@ defmodule AWS.S3 do
   Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
   """
   def head_bucket(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}"
+    path_ = "/#{URI.encode(bucket)}"
     headers = []
     query = []
-    request(client, :head, path, query, headers, input, options, nil)
+    request(client, :head, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -2651,7 +2644,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def head_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
@@ -2665,14 +2658,13 @@ defmodule AWS.S3 do
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"PartNumber", "partNumber"},
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :head, path, query, headers, input, options, nil) do
+    case request(client, :head, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -2756,15 +2748,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_bucket_analytics_configurations(client, bucket, continuation_token \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}?analytics"
+    path_ = "/#{URI.encode(bucket)}?analytics"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(continuation_token) do
       [{"continuation-token", continuation_token} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2804,15 +2796,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_bucket_inventory_configurations(client, bucket, continuation_token \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}?inventory"
+    path_ = "/#{URI.encode(bucket)}?inventory"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(continuation_token) do
       [{"continuation-token", continuation_token} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2854,15 +2846,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_bucket_metrics_configurations(client, bucket, continuation_token \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}?metrics"
+    path_ = "/#{URI.encode(bucket)}?metrics"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(continuation_token) do
       [{"continuation-token", continuation_token} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2870,10 +2862,10 @@ defmodule AWS.S3 do
   request.
   """
   def list_buckets(client, options \\ []) do
-    path = "/"
+    path_ = "/"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2919,9 +2911,9 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_multipart_uploads(client, bucket, delimiter \\ nil, encoding_type \\ nil, key_marker \\ nil, max_uploads \\ nil, prefix \\ nil, upload_id_marker \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}?uploads"
+    path_ = "/#{URI.encode(bucket)}?uploads"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(upload_id_marker) do
       [{"upload-id-marker", upload_id_marker} | query]
     else
@@ -2952,7 +2944,7 @@ defmodule AWS.S3 do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -2979,9 +2971,9 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_object_versions(client, bucket, delimiter \\ nil, encoding_type \\ nil, key_marker \\ nil, max_keys \\ nil, prefix \\ nil, version_id_marker \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}?versions"
+    path_ = "/#{URI.encode(bucket)}?versions"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(version_id_marker) do
       [{"version-id-marker", version_id_marker} | query]
     else
@@ -3012,7 +3004,7 @@ defmodule AWS.S3 do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -3041,14 +3033,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_objects(client, bucket, delimiter \\ nil, encoding_type \\ nil, marker \\ nil, max_keys \\ nil, prefix \\ nil, request_payer \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}"
+    path_ = "/#{URI.encode(bucket)}"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(prefix) do
       [{"prefix", prefix} | query]
     else
@@ -3074,7 +3066,7 @@ defmodule AWS.S3 do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -3113,14 +3105,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_objects_v2(client, bucket, continuation_token \\ nil, delimiter \\ nil, encoding_type \\ nil, fetch_owner \\ nil, max_keys \\ nil, prefix \\ nil, start_after \\ nil, request_payer \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}?list-type=2"
+    path_ = "/#{URI.encode(bucket)}?list-type=2"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(start_after) do
       [{"start-after", start_after} | query]
     else
@@ -3156,7 +3148,7 @@ defmodule AWS.S3 do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -3195,14 +3187,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def list_parts(client, bucket, key, max_parts \\ nil, part_number_marker \\ nil, upload_id, request_payer \\ nil, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     headers = []
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(upload_id) do
       [{"uploadId", upload_id} | query]
     else
@@ -3218,7 +3210,7 @@ defmodule AWS.S3 do
     else
       query
     end
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -3283,10 +3275,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_accelerate_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?accelerate"
+    path_ = "/#{URI.encode(bucket)}?accelerate"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3438,7 +3430,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_acl(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?acl"
+    path_ = "/#{URI.encode(bucket)}?acl"
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -3450,9 +3442,8 @@ defmodule AWS.S3 do
         {"GrantWriteACP", "x-amz-grant-write-acp"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3520,14 +3511,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_analytics_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?analytics"
+    path_ = "/#{URI.encode(bucket)}?analytics"
     headers = []
     {query, input} =
       [
         {"Id", "id"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3582,15 +3573,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_cors(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?cors"
+    path_ = "/#{URI.encode(bucket)}?cors"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3626,15 +3616,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_encryption(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?encryption"
+    path_ = "/#{URI.encode(bucket)}?encryption"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3707,14 +3696,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_inventory_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?inventory"
+    path_ = "/#{URI.encode(bucket)}?inventory"
     headers = []
     {query, input} =
       [
         {"Id", "id"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3779,15 +3768,14 @@ defmodule AWS.S3 do
   </li> </ul> </li> </ul>
   """
   def put_bucket_lifecycle(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?lifecycle"
+    path_ = "/#{URI.encode(bucket)}?lifecycle"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3863,10 +3851,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_lifecycle_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?lifecycle"
+    path_ = "/#{URI.encode(bucket)}?lifecycle"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3933,15 +3921,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_logging(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?logging"
+    path_ = "/#{URI.encode(bucket)}?logging"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -3984,29 +3971,28 @@ defmodule AWS.S3 do
   </li> </ul> </li> </ul>
   """
   def put_bucket_metrics_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?metrics"
+    path_ = "/#{URI.encode(bucket)}?metrics"
     headers = []
     {query, input} =
       [
         {"Id", "id"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
   No longer used, see the `PutBucketNotificationConfiguration` operation.
   """
   def put_bucket_notification(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?notification"
+    path_ = "/#{URI.encode(bucket)}?notification"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -4068,10 +4054,10 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_notification_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?notification"
+    path_ = "/#{URI.encode(bucket)}?notification"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -4103,16 +4089,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_policy(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?policy"
+    path_ = "/#{URI.encode(bucket)}?policy"
     {headers, input} =
       [
         {"ConfirmRemoveSelfBucketAccess", "x-amz-confirm-remove-self-bucket-access"},
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -4178,16 +4163,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_replication(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?replication"
+    path_ = "/#{URI.encode(bucket)}?replication"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
         {"Token", "x-amz-bucket-object-lock-token"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -4207,15 +4191,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_request_payment(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?requestPayment"
+    path_ = "/#{URI.encode(bucket)}?requestPayment"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -4279,15 +4262,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_tagging(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?tagging"
+    path_ = "/#{URI.encode(bucket)}?tagging"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -4331,16 +4313,15 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_bucket_versioning(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?versioning"
+    path_ = "/#{URI.encode(bucket)}?versioning"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
         {"MFA", "x-amz-mfa"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -4415,15 +4396,14 @@ defmodule AWS.S3 do
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def put_bucket_website(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?website"
+    path_ = "/#{URI.encode(bucket)}?website"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -4502,7 +4482,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -4533,9 +4513,8 @@ defmodule AWS.S3 do
         {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -4708,7 +4687,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_acl(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -4721,13 +4700,12 @@ defmodule AWS.S3 do
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -4758,20 +4736,19 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_legal_hold(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -4807,7 +4784,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_lock_configuration(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?object-lock"
+    path_ = "/#{URI.encode(bucket)}?object-lock"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
@@ -4815,9 +4792,8 @@ defmodule AWS.S3 do
         {"Token", "x-amz-bucket-object-lock-token"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -4848,7 +4824,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_retention(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
@@ -4856,13 +4832,12 @@ defmodule AWS.S3 do
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -4940,19 +4915,18 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_object_tagging(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -5004,15 +4978,14 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def put_public_access_block(client, bucket, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}?publicAccessBlock"
+    path_ = "/#{URI.encode(bucket)}?publicAccessBlock"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -5252,19 +5225,18 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def restore_object(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?restore"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?restore"
     {headers, input} =
       [
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :post, path, query, headers, input, options, nil) do
+    case request(client, :post, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -5385,7 +5357,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def select_object_content(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?select&select-type=2"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?select&select-type=2"
     {headers, input} =
       [
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
@@ -5393,9 +5365,8 @@ defmodule AWS.S3 do
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -5496,7 +5467,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def upload_part(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
         {"ContentLength", "Content-Length"},
@@ -5507,14 +5478,13 @@ defmodule AWS.S3 do
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"PartNumber", "partNumber"},
         {"UploadId", "uploadId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -5659,7 +5629,7 @@ defmodule AWS.S3 do
   </li> </ul>
   """
   def upload_part_copy(client, bucket, key, input, options \\ []) do
-    path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
         {"CopySource", "x-amz-copy-source"},
@@ -5677,14 +5647,13 @@ defmodule AWS.S3 do
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"PartNumber", "partNumber"},
         {"UploadId", "uploadId"},
       ]
       |> AWS.Request.build_params(input)
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [

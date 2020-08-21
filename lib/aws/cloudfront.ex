@@ -38,10 +38,10 @@ defmodule AWS.Cloudfront do
   in the *Amazon CloudFront Developer Guide*.
   """
   def create_cache_policy(client, input, options \\ []) do
-    path = "/2020-05-31/cache-policy"
+    path_ = "/2020-05-31/cache-policy"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -72,10 +72,10 @@ defmodule AWS.Cloudfront do
   in the *Amazon CloudFront Developer Guide*.
   """
   def create_cloud_front_origin_access_identity(client, input, options \\ []) do
-    path = "/2020-05-31/origin-access-identity/cloudfront"
+    path_ = "/2020-05-31/origin-access-identity/cloudfront"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -117,10 +117,10 @@ defmodule AWS.Cloudfront do
   </important>
   """
   def create_distribution(client, input, options \\ []) do
-    path = "/2020-05-31/distribution"
+    path_ = "/2020-05-31/distribution"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -145,10 +145,10 @@ defmodule AWS.Cloudfront do
   Create a new distribution with tags.
   """
   def create_distribution_with_tags(client, input, options \\ []) do
-    path = "/2020-05-31/distribution?WithTags"
+    path_ = "/2020-05-31/distribution?WithTags"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -173,10 +173,10 @@ defmodule AWS.Cloudfront do
   Create a new field-level encryption configuration.
   """
   def create_field_level_encryption_config(client, input, options \\ []) do
-    path = "/2020-05-31/field-level-encryption"
+    path_ = "/2020-05-31/field-level-encryption"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -201,10 +201,10 @@ defmodule AWS.Cloudfront do
   Create a field-level encryption profile.
   """
   def create_field_level_encryption_profile(client, input, options \\ []) do
-    path = "/2020-05-31/field-level-encryption-profile"
+    path_ = "/2020-05-31/field-level-encryption-profile"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -229,10 +229,10 @@ defmodule AWS.Cloudfront do
   Create a new invalidation.
   """
   def create_invalidation(client, distribution_id, input, options \\ []) do
-    path = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
+    path_ = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -281,10 +281,10 @@ defmodule AWS.Cloudfront do
   in the *Amazon CloudFront Developer Guide*.
   """
   def create_origin_request_policy(client, input, options \\ []) do
-    path = "/2020-05-31/origin-request-policy"
+    path_ = "/2020-05-31/origin-request-policy"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -310,10 +310,10 @@ defmodule AWS.Cloudfront do
   encryption. You can add a maximum of 10 public keys with one AWS account.
   """
   def create_public_key(client, input, options \\ []) do
-    path = "/2020-05-31/public-key"
+    path_ = "/2020-05-31/public-key"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -368,10 +368,10 @@ defmodule AWS.Cloudfront do
   </important>
   """
   def create_streaming_distribution(client, input, options \\ []) do
-    path = "/2020-05-31/streaming-distribution"
+    path_ = "/2020-05-31/streaming-distribution"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -396,10 +396,10 @@ defmodule AWS.Cloudfront do
   Create a new streaming distribution with tags.
   """
   def create_streaming_distribution_with_tags(client, input, options \\ []) do
-    path = "/2020-05-31/streaming-distribution?WithTags"
+    path_ = "/2020-05-31/streaming-distribution?WithTags"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 201) do
+    case request(client, :post, path_, query, headers, input, options, 201) do
       {:ok, body, response} ->
         body =
           [
@@ -432,75 +432,70 @@ defmodule AWS.Cloudfront do
   `GetCachePolicy`.
   """
   def delete_cache_policy(client, id, input, options \\ []) do
-    path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+    path_ = "/2020-05-31/cache-policy/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
   Delete an origin access identity.
   """
   def delete_cloud_front_origin_access_identity(client, id, input, options \\ []) do
-    path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
+    path_ = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
   Delete a distribution.
   """
   def delete_distribution(client, id, input, options \\ []) do
-    path = "/2020-05-31/distribution/#{URI.encode(id)}"
+    path_ = "/2020-05-31/distribution/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
   Remove a field-level encryption configuration.
   """
   def delete_field_level_encryption_config(client, id, input, options \\ []) do
-    path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
+    path_ = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
   Remove a field-level encryption profile.
   """
   def delete_field_level_encryption_profile(client, id, input, options \\ []) do
-    path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
+    path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -515,30 +510,28 @@ defmodule AWS.Cloudfront do
   `ListOriginRequestPolicies` or `GetOriginRequestPolicy`.
   """
   def delete_origin_request_policy(client, id, input, options \\ []) do
-    path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+    path_ = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
   Remove a public key you previously added to CloudFront.
   """
   def delete_public_key(client, id, input, options \\ []) do
-    path = "/2020-05-31/public-key/#{URI.encode(id)}"
+    path_ = "/2020-05-31/public-key/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -584,15 +577,14 @@ defmodule AWS.Cloudfront do
   in the *Amazon CloudFront Developer Guide*.
   """
   def delete_streaming_distribution(client, id, input, options \\ []) do
-    path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
+    path_ = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -609,10 +601,10 @@ defmodule AWS.Cloudfront do
   you can get the identifier using `ListCachePolicies`.
   """
   def get_cache_policy(client, id, options \\ []) do
-    path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+    path_ = "/2020-05-31/cache-policy/#{URI.encode(id)}"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -642,10 +634,10 @@ defmodule AWS.Cloudfront do
   you can get the identifier using `ListCachePolicies`.
   """
   def get_cache_policy_config(client, id, options \\ []) do
-    path = "/2020-05-31/cache-policy/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/cache-policy/#{URI.encode(id)}/config"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -669,10 +661,10 @@ defmodule AWS.Cloudfront do
   Get the information about an origin access identity.
   """
   def get_cloud_front_origin_access_identity(client, id, options \\ []) do
-    path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
+    path_ = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -696,10 +688,10 @@ defmodule AWS.Cloudfront do
   Get the configuration information about an origin access identity.
   """
   def get_cloud_front_origin_access_identity_config(client, id, options \\ []) do
-    path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -723,10 +715,10 @@ defmodule AWS.Cloudfront do
   Get the information about a distribution.
   """
   def get_distribution(client, id, options \\ []) do
-    path = "/2020-05-31/distribution/#{URI.encode(id)}"
+    path_ = "/2020-05-31/distribution/#{URI.encode(id)}"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -750,10 +742,10 @@ defmodule AWS.Cloudfront do
   Get the configuration information about a distribution.
   """
   def get_distribution_config(client, id, options \\ []) do
-    path = "/2020-05-31/distribution/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/distribution/#{URI.encode(id)}/config"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -777,10 +769,10 @@ defmodule AWS.Cloudfront do
   Get the field-level encryption configuration information.
   """
   def get_field_level_encryption(client, id, options \\ []) do
-    path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
+    path_ = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -804,10 +796,10 @@ defmodule AWS.Cloudfront do
   Get the field-level encryption configuration information.
   """
   def get_field_level_encryption_config(client, id, options \\ []) do
-    path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -831,10 +823,10 @@ defmodule AWS.Cloudfront do
   Get the field-level encryption profile information.
   """
   def get_field_level_encryption_profile(client, id, options \\ []) do
-    path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
+    path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -858,10 +850,10 @@ defmodule AWS.Cloudfront do
   Get the field-level encryption profile configuration information.
   """
   def get_field_level_encryption_profile_config(client, id, options \\ []) do
-    path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -885,10 +877,10 @@ defmodule AWS.Cloudfront do
   Get the information about an invalidation.
   """
   def get_invalidation(client, distribution_id, id, options \\ []) do
-    path = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation/#{URI.encode(id)}"
+    path_ = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation/#{URI.encode(id)}"
     headers = []
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -906,10 +898,10 @@ defmodule AWS.Cloudfront do
   `ListOriginRequestPolicies`.
   """
   def get_origin_request_policy(client, id, options \\ []) do
-    path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+    path_ = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -940,10 +932,10 @@ defmodule AWS.Cloudfront do
   `ListOriginRequestPolicies`.
   """
   def get_origin_request_policy_config(client, id, options \\ []) do
-    path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/origin-request-policy/#{URI.encode(id)}/config"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -967,10 +959,10 @@ defmodule AWS.Cloudfront do
   Get the public key information.
   """
   def get_public_key(client, id, options \\ []) do
-    path = "/2020-05-31/public-key/#{URI.encode(id)}"
+    path_ = "/2020-05-31/public-key/#{URI.encode(id)}"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -994,10 +986,10 @@ defmodule AWS.Cloudfront do
   Return public key configuration informaation
   """
   def get_public_key_config(client, id, options \\ []) do
-    path = "/2020-05-31/public-key/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/public-key/#{URI.encode(id)}/config"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1022,10 +1014,10 @@ defmodule AWS.Cloudfront do
   distribution configuration.
   """
   def get_streaming_distribution(client, id, options \\ []) do
-    path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
+    path_ = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1049,10 +1041,10 @@ defmodule AWS.Cloudfront do
   Get the configuration information about a streaming distribution.
   """
   def get_streaming_distribution_config(client, id, options \\ []) do
-    path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
     headers = []
-      query = []
-    case request(client, :get, path, query, headers, nil, options, nil) do
+    query = []
+    case request(client, :get, path_, query, headers, nil, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1086,9 +1078,9 @@ defmodule AWS.Cloudfront do
   subsequent request.
   """
   def list_cache_policies(client, marker \\ nil, max_items \\ nil, type \\ nil, options \\ []) do
-    path = "/2020-05-31/cache-policy"
+    path_ = "/2020-05-31/cache-policy"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(type) do
       [{"Type", type} | query]
     else
@@ -1104,16 +1096,16 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Lists origin access identities.
   """
   def list_cloud_front_origin_access_identities(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/origin-access-identity/cloudfront"
+    path_ = "/2020-05-31/origin-access-identity/cloudfront"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1124,16 +1116,16 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   List CloudFront distributions.
   """
   def list_distributions(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/distribution"
+    path_ = "/2020-05-31/distribution"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1144,7 +1136,7 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1159,9 +1151,9 @@ defmodule AWS.Cloudfront do
   subsequent request.
   """
   def list_distributions_by_cache_policy_id(client, cache_policy_id, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/distributionsByCachePolicyId/#{URI.encode(cache_policy_id)}"
+    path_ = "/2020-05-31/distributionsByCachePolicyId/#{URI.encode(cache_policy_id)}"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1172,7 +1164,7 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1187,9 +1179,9 @@ defmodule AWS.Cloudfront do
   subsequent request.
   """
   def list_distributions_by_origin_request_policy_id(client, origin_request_policy_id, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/distributionsByOriginRequestPolicyId/#{URI.encode(origin_request_policy_id)}"
+    path_ = "/2020-05-31/distributionsByOriginRequestPolicyId/#{URI.encode(origin_request_policy_id)}"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1200,7 +1192,7 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1208,9 +1200,9 @@ defmodule AWS.Cloudfront do
   ACL.
   """
   def list_distributions_by_web_a_c_l_id(client, web_a_c_l_id, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/distributionsByWebACLId/#{URI.encode(web_a_c_l_id)}"
+    path_ = "/2020-05-31/distributionsByWebACLId/#{URI.encode(web_a_c_l_id)}"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1221,7 +1213,7 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1229,9 +1221,9 @@ defmodule AWS.Cloudfront do
   CloudFront for this account.
   """
   def list_field_level_encryption_configs(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/field-level-encryption"
+    path_ = "/2020-05-31/field-level-encryption"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1242,7 +1234,7 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1250,9 +1242,9 @@ defmodule AWS.Cloudfront do
   CloudFront for this account.
   """
   def list_field_level_encryption_profiles(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/field-level-encryption-profile"
+    path_ = "/2020-05-31/field-level-encryption-profile"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1263,16 +1255,16 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Lists invalidation batches.
   """
   def list_invalidations(client, distribution_id, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
+    path_ = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1283,7 +1275,7 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -1300,9 +1292,9 @@ defmodule AWS.Cloudfront do
   subsequent request.
   """
   def list_origin_request_policies(client, marker \\ nil, max_items \\ nil, type \\ nil, options \\ []) do
-    path = "/2020-05-31/origin-request-policy"
+    path_ = "/2020-05-31/origin-request-policy"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(type) do
       [{"Type", type} | query]
     else
@@ -1318,16 +1310,16 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   List all public keys that have been added to CloudFront for this account.
   """
   def list_public_keys(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/public-key"
+    path_ = "/2020-05-31/public-key"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1338,16 +1330,16 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   List streaming distributions.
   """
   def list_streaming_distributions(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path = "/2020-05-31/streaming-distribution"
+    path_ = "/2020-05-31/streaming-distribution"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(max_items) do
       [{"MaxItems", max_items} | query]
     else
@@ -1358,50 +1350,50 @@ defmodule AWS.Cloudfront do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   List tags for a CloudFront resource.
   """
   def list_tags_for_resource(client, resource, options \\ []) do
-    path = "/2020-05-31/tagging"
+    path_ = "/2020-05-31/tagging"
     headers = []
-      query = []
+    query = []
     query = if !is_nil(resource) do
       [{"Resource", resource} | query]
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Add tags to a CloudFront resource.
   """
   def tag_resource(client, input, options \\ []) do
-    path = "/2020-05-31/tagging?Operation=Tag"
+    path_ = "/2020-05-31/tagging?Operation=Tag"
     headers = []
     {query, input} =
       [
         {"Resource", "Resource"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :post, path, query, headers, input, options, 204)
+    request(client, :post, path_, query, headers, input, options, 204)
   end
 
   @doc """
   Remove tags from a CloudFront resource.
   """
   def untag_resource(client, input, options \\ []) do
-    path = "/2020-05-31/tagging?Operation=Untag"
+    path_ = "/2020-05-31/tagging?Operation=Untag"
     headers = []
     {query, input} =
       [
         {"Resource", "Resource"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :post, path, query, headers, input, options, 204)
+    request(client, :post, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -1423,15 +1415,14 @@ defmodule AWS.Cloudfront do
   </li> </ol>
   """
   def update_cache_policy(client, id, input, options \\ []) do
-    path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+    path_ = "/2020-05-31/cache-policy/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1455,15 +1446,14 @@ defmodule AWS.Cloudfront do
   Update an origin access identity.
   """
   def update_cloud_front_origin_access_identity(client, id, input, options \\ []) do
-    path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1560,15 +1550,14 @@ defmodule AWS.Cloudfront do
   </li> </ol>
   """
   def update_distribution(client, id, input, options \\ []) do
-    path = "/2020-05-31/distribution/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/distribution/#{URI.encode(id)}/config"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1592,15 +1581,14 @@ defmodule AWS.Cloudfront do
   Update a field-level encryption configuration.
   """
   def update_field_level_encryption_config(client, id, input, options \\ []) do
-    path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1624,15 +1612,14 @@ defmodule AWS.Cloudfront do
   Update a field-level encryption profile.
   """
   def update_field_level_encryption_profile(client, id, input, options \\ []) do
-    path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1673,15 +1660,14 @@ defmodule AWS.Cloudfront do
   </li> </ol>
   """
   def update_origin_request_policy(client, id, input, options \\ []) do
-    path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+    path_ = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1706,15 +1692,14 @@ defmodule AWS.Cloudfront do
   the comment.
   """
   def update_public_key(client, id, input, options \\ []) do
-    path = "/2020-05-31/public-key/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/public-key/#{URI.encode(id)}/config"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -1738,15 +1723,14 @@ defmodule AWS.Cloudfront do
   Update a streaming distribution.
   """
   def update_streaming_distribution(client, id, input, options \\ []) do
-    path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
+    path_ = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    case request(client, :put, path, query, headers, input, options, nil) do
+    case request(client, :put, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [

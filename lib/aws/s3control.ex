@@ -10,15 +10,14 @@ defmodule AWS.S3Control do
   Creates an access point and associates it with the specified bucket.
   """
   def create_access_point(client, name, input, options \\ []) do
-    path = "/v20180820/accesspoint/#{URI.encode(name)}"
+    path_ = "/v20180820/accesspoint/#{URI.encode(name)}"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -42,45 +41,42 @@ defmodule AWS.S3Control do
   </li> </ul>
   """
   def create_job(client, input, options \\ []) do
-    path = "/v20180820/jobs"
+    path_ = "/v20180820/jobs"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Deletes the specified access point.
   """
   def delete_access_point(client, name, input, options \\ []) do
-    path = "/v20180820/accesspoint/#{URI.encode(name)}"
+    path_ = "/v20180820/accesspoint/#{URI.encode(name)}"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, nil)
+    request(client, :delete, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Deletes the access point policy for the specified access point.
   """
   def delete_access_point_policy(client, name, input, options \\ []) do
-    path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+    path_ = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, nil)
+    request(client, :delete, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -101,15 +97,14 @@ defmodule AWS.S3Control do
   </li> </ul>
   """
   def delete_job_tagging(client, job_id, input, options \\ []) do
-    path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, nil)
+    request(client, :delete, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -117,15 +112,14 @@ defmodule AWS.S3Control do
   account.
   """
   def delete_public_access_block(client, input, options \\ []) do
-    path = "/v20180820/configuration/publicAccessBlock"
+    path_ = "/v20180820/configuration/publicAccessBlock"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :delete, path, query, headers, input, options, nil)
+    request(client, :delete, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -147,45 +141,45 @@ defmodule AWS.S3Control do
   </li> </ul>
   """
   def describe_job(client, job_id, account_id, options \\ []) do
-    path = "/v20180820/jobs/#{URI.encode(job_id)}"
+    path_ = "/v20180820/jobs/#{URI.encode(job_id)}"
     headers = []
     headers = if !is_nil(account_id) do
       [{"x-amz-account-id", account_id} | headers]
     else
       headers
     end
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Returns configuration information about the specified access point.
   """
   def get_access_point(client, name, account_id, options \\ []) do
-    path = "/v20180820/accesspoint/#{URI.encode(name)}"
+    path_ = "/v20180820/accesspoint/#{URI.encode(name)}"
     headers = []
     headers = if !is_nil(account_id) do
       [{"x-amz-account-id", account_id} | headers]
     else
       headers
     end
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
   Returns the access point policy associated with the specified access point.
   """
   def get_access_point_policy(client, name, account_id, options \\ []) do
-    path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+    path_ = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
     headers = []
     headers = if !is_nil(account_id) do
       [{"x-amz-account-id", account_id} | headers]
     else
       headers
     end
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -196,15 +190,15 @@ defmodule AWS.S3Control do
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def get_access_point_policy_status(client, name, account_id, options \\ []) do
-    path = "/v20180820/accesspoint/#{URI.encode(name)}/policyStatus"
+    path_ = "/v20180820/accesspoint/#{URI.encode(name)}/policyStatus"
     headers = []
     headers = if !is_nil(account_id) do
       [{"x-amz-account-id", account_id} | headers]
     else
       headers
     end
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -225,15 +219,15 @@ defmodule AWS.S3Control do
   </li> </ul>
   """
   def get_job_tagging(client, job_id, account_id, options \\ []) do
-    path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
     headers = []
     headers = if !is_nil(account_id) do
       [{"x-amz-account-id", account_id} | headers]
     else
       headers
     end
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -241,15 +235,15 @@ defmodule AWS.S3Control do
   account.
   """
   def get_public_access_block(client, account_id, options \\ []) do
-    path = "/v20180820/configuration/publicAccessBlock"
+    path_ = "/v20180820/configuration/publicAccessBlock"
     headers = []
     headers = if !is_nil(account_id) do
       [{"x-amz-account-id", account_id} | headers]
     else
       headers
     end
-      query = []
-    request(client, :get, path, query, headers, nil, options, nil)
+    query = []
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -260,14 +254,14 @@ defmodule AWS.S3Control do
   continuation token that you can use to list the additional access points.
   """
   def list_access_points(client, bucket \\ nil, max_results \\ nil, next_token \\ nil, account_id, options \\ []) do
-    path = "/v20180820/accesspoint"
+    path_ = "/v20180820/accesspoint"
     headers = []
     headers = if !is_nil(account_id) do
       [{"x-amz-account-id", account_id} | headers]
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(next_token) do
       [{"nextToken", next_token} | query]
     else
@@ -283,7 +277,7 @@ defmodule AWS.S3Control do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -306,14 +300,14 @@ defmodule AWS.S3Control do
   </li> </ul>
   """
   def list_jobs(client, job_statuses \\ nil, max_results \\ nil, next_token \\ nil, account_id, options \\ []) do
-    path = "/v20180820/jobs"
+    path_ = "/v20180820/jobs"
     headers = []
     headers = if !is_nil(account_id) do
       [{"x-amz-account-id", account_id} | headers]
     else
       headers
     end
-      query = []
+    query = []
     query = if !is_nil(next_token) do
       [{"nextToken", next_token} | query]
     else
@@ -329,7 +323,7 @@ defmodule AWS.S3Control do
     else
       query
     end
-    request(client, :get, path, query, headers, nil, options, nil)
+    request(client, :get, path_, query, headers, nil, options, nil)
   end
 
   @doc """
@@ -338,15 +332,14 @@ defmodule AWS.S3Control do
   existing policy associated with the specified access point.
   """
   def put_access_point_policy(client, name, input, options \\ []) do
-    path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+    path_ = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -401,15 +394,14 @@ defmodule AWS.S3Control do
   </li> </ul>
   """
   def put_job_tagging(client, job_id, input, options \\ []) do
-    path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -417,15 +409,14 @@ defmodule AWS.S3Control do
   Services account.
   """
   def put_public_access_block(client, input, options \\ []) do
-    path = "/v20180820/configuration/publicAccessBlock"
+    path_ = "/v20180820/configuration/publicAccessBlock"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -447,19 +438,18 @@ defmodule AWS.S3Control do
   </li> </ul>
   """
   def update_job_priority(client, job_id, input, options \\ []) do
-    path = "/v20180820/jobs/#{URI.encode(job_id)}/priority"
+    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/priority"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"Priority", "priority"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -482,20 +472,19 @@ defmodule AWS.S3Control do
   </li> </ul>
   """
   def update_job_status(client, job_id, input, options \\ []) do
-    path = "/v20180820/jobs/#{URI.encode(job_id)}/status"
+    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/status"
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
       ]
       |> AWS.Request.build_params(input)
-    
     {query, input} =
       [
         {"RequestedJobStatus", "requestedJobStatus"},
         {"StatusUpdateReason", "statusUpdateReason"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

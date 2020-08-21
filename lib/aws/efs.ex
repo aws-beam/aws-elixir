@@ -28,10 +28,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:CreateAccessPoint` action.
   """
   def create_access_point(client, input, options \\ []) do
-    path = "/2015-02-01/access-points"
+    path_ = "/2015-02-01/access-points"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -86,10 +86,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:CreateFileSystem` action.
   """
   def create_file_system(client, input, options \\ []) do
-    path = "/2015-02-01/file-systems"
+    path_ = "/2015-02-01/file-systems"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 201)
+    request(client, :post, path_, query, headers, input, options, 201)
   end
 
   @doc """
@@ -203,10 +203,10 @@ defmodule AWS.EFS do
   </li> </ul>
   """
   def create_mount_target(client, input, options \\ []) do
-    path = "/2015-02-01/mount-targets"
+    path_ = "/2015-02-01/mount-targets"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -220,10 +220,10 @@ defmodule AWS.EFS do
   action.
   """
   def create_tags(client, file_system_id, input, options \\ []) do
-    path = "/2015-02-01/create-tags/#{URI.encode(file_system_id)}"
+    path_ = "/2015-02-01/create-tags/#{URI.encode(file_system_id)}"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 204)
+    request(client, :post, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -236,10 +236,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteAccessPoint` action.
   """
   def delete_access_point(client, access_point_id, input, options \\ []) do
-    path = "/2015-02-01/access-points/#{URI.encode(access_point_id)}"
+    path_ = "/2015-02-01/access-points/#{URI.encode(access_point_id)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -262,10 +262,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteFileSystem` action.
   """
   def delete_file_system(client, file_system_id, input, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -279,10 +279,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteFileSystemPolicy` action.
   """
   def delete_file_system_policy(client, file_system_id, input, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 200)
+    request(client, :delete, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -316,10 +316,10 @@ defmodule AWS.EFS do
   </li> </ul>
   """
   def delete_mount_target(client, mount_target_id, input, options \\ []) do
-    path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}"
+    path_ = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 204)
+    request(client, :delete, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -334,10 +334,10 @@ defmodule AWS.EFS do
   action.
   """
   def delete_tags(client, file_system_id, input, options \\ []) do
-    path = "/2015-02-01/delete-tags/#{URI.encode(file_system_id)}"
+    path_ = "/2015-02-01/delete-tags/#{URI.encode(file_system_id)}"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 204)
+    request(client, :post, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -607,10 +607,10 @@ defmodule AWS.EFS do
   </li> </ul>
   """
   def modify_mount_target_security_groups(client, mount_target_id, input, options \\ []) do
-    path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
+    path_ = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 204)
+    request(client, :put, path_, query, headers, input, options, 204)
   end
 
   @doc """
@@ -618,10 +618,10 @@ defmodule AWS.EFS do
   automatic backups of the file system.
   """
   def put_backup_policy(client, file_system_id, input, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -638,10 +638,10 @@ defmodule AWS.EFS do
   `elasticfilesystem:PutFileSystemPolicy` action.
   """
   def put_file_system_policy(client, file_system_id, input, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -676,10 +676,10 @@ defmodule AWS.EFS do
   created the encrypted file system.
   """
   def put_lifecycle_configuration(client, file_system_id, input, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -690,10 +690,10 @@ defmodule AWS.EFS do
   action.
   """
   def tag_resource(client, resource_id, input, options \\ []) do
-    path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+    path_ = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -704,14 +704,14 @@ defmodule AWS.EFS do
   `elasticfilesystem:UntagResource` action.
   """
   def untag_resource(client, resource_id, input, options \\ []) do
-    path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+    path_ = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
     headers = []
     {query, input} =
       [
         {"TagKeys", "tagKeys"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path, query, headers, input, options, 200)
+    request(client, :delete, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -719,10 +719,10 @@ defmodule AWS.EFS do
   existing file system.
   """
   def update_file_system(client, file_system_id, input, options \\ []) do
-    path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
+    path_ = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 202)
+    request(client, :put, path_, query, headers, input, options, 202)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

@@ -22,20 +22,20 @@ defmodule AWS.Connect do
   Creates a user account for the specified Amazon Connect instance.
   """
   def create_user(client, instance_id, input, options \\ []) do
-    path = "/users/#{URI.encode(instance_id)}"
+    path_ = "/users/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Deletes a user account from the specified Amazon Connect instance.
   """
   def delete_user(client, instance_id, user_id, input, options \\ []) do
-    path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
+    path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, nil)
+    request(client, :delete, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -88,10 +88,10 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def get_current_metric_data(client, instance_id, input, options \\ []) do
-    path = "/metrics/current/#{URI.encode(instance_id)}"
+    path_ = "/metrics/current/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -112,10 +112,10 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def get_metric_data(client, instance_id, input, options \\ []) do
-    path = "/metrics/historical/#{URI.encode(instance_id)}"
+    path_ = "/metrics/historical/#{URI.encode(instance_id)}"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -323,10 +323,10 @@ defmodule AWS.Connect do
   Only voice recordings are supported at this time.
   """
   def resume_contact_recording(client, input, options \\ []) do
-    path = "/contact/resume-recording"
+    path_ = "/contact/resume-recording"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -342,10 +342,10 @@ defmodule AWS.Connect do
   with WEBSOCKET and CONNECTION_CREDENTIALS.
   """
   def start_chat_contact(client, input, options \\ []) do
-    path = "/contact/chat"
+    path_ = "/contact/chat"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -365,10 +365,10 @@ defmodule AWS.Connect do
   Only voice recordings are supported at this time.
   """
   def start_contact_recording(client, input, options \\ []) do
-    path = "/contact/start-recording"
+    path_ = "/contact/start-recording"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -385,20 +385,20 @@ defmodule AWS.Connect do
   connected after 60 seconds, it fails.
   """
   def start_outbound_voice_contact(client, input, options \\ []) do
-    path = "/contact/outbound-voice"
+    path_ = "/contact/outbound-voice"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, nil)
+    request(client, :put, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Ends the specified contact.
   """
   def stop_contact(client, input, options \\ []) do
-    path = "/contact/stop"
+    path_ = "/contact/stop"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -413,10 +413,10 @@ defmodule AWS.Connect do
   Only voice recordings are supported at this time.
   """
   def stop_contact_recording(client, input, options \\ []) do
-    path = "/contact/stop-recording"
+    path_ = "/contact/stop-recording"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -431,10 +431,10 @@ defmodule AWS.Connect do
   Only voice recordings are supported at this time.
   """
   def suspend_contact_recording(client, input, options \\ []) do
-    path = "/contact/suspend-recording"
+    path_ = "/contact/suspend-recording"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -443,24 +443,24 @@ defmodule AWS.Connect do
   The supported resource type is users.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
-    path = "/tags/#{URI.encode(resource_arn)}"
+    path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Removes the specified tags from the specified resource.
   """
   def untag_resource(client, resource_arn, input, options \\ []) do
-    path = "/tags/#{URI.encode(resource_arn)}"
+    path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
     {query, input} =
       [
         {"tagKeys", "tagKeys"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path, query, headers, input, options, nil)
+    request(client, :delete, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -488,60 +488,60 @@ defmodule AWS.Connect do
   are still active in your instance.
   """
   def update_contact_attributes(client, input, options \\ []) do
-    path = "/contact/attributes"
+    path_ = "/contact/attributes"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Assigns the specified hierarchy group to the specified user.
   """
   def update_user_hierarchy(client, instance_id, user_id, input, options \\ []) do
-    path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/hierarchy"
+    path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/hierarchy"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Updates the identity information for the specified user.
   """
   def update_user_identity_info(client, instance_id, user_id, input, options \\ []) do
-    path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/identity-info"
+    path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/identity-info"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Updates the phone configuration settings for the specified user.
   """
   def update_user_phone_config(client, instance_id, user_id, input, options \\ []) do
-    path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/phone-config"
+    path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/phone-config"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Assigns the specified routing profile to the specified user.
   """
   def update_user_routing_profile(client, instance_id, user_id, input, options \\ []) do
-    path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/routing-profile"
+    path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/routing-profile"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Assigns the specified security profiles to the specified user.
   """
   def update_user_security_profiles(client, instance_id, user_id, input, options \\ []) do
-    path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/security-profiles"
+    path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/security-profiles"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

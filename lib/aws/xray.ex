@@ -13,20 +13,20 @@ defmodule AWS.XRay do
   `GetTraceSummaries` to get a list of trace IDs.
   """
   def batch_get_traces(client, input, options \\ []) do
-    path = "/Traces"
+    path_ = "/Traces"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Creates a group resource with a name and a filter expression.
   """
   def create_group(client, input, options \\ []) do
-    path = "/CreateGroup"
+    path_ = "/CreateGroup"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -39,80 +39,80 @@ defmodule AWS.XRay do
   quota that the service can use instead of borrowing from the reservoir.
   """
   def create_sampling_rule(client, input, options \\ []) do
-    path = "/CreateSamplingRule"
+    path_ = "/CreateSamplingRule"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Deletes a group resource.
   """
   def delete_group(client, input, options \\ []) do
-    path = "/DeleteGroup"
+    path_ = "/DeleteGroup"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Deletes a sampling rule.
   """
   def delete_sampling_rule(client, input, options \\ []) do
-    path = "/DeleteSamplingRule"
+    path_ = "/DeleteSamplingRule"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Retrieves the current encryption configuration for X-Ray data.
   """
   def get_encryption_config(client, input, options \\ []) do
-    path = "/EncryptionConfig"
+    path_ = "/EncryptionConfig"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Retrieves group resource details.
   """
   def get_group(client, input, options \\ []) do
-    path = "/GetGroup"
+    path_ = "/GetGroup"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Retrieves all active group details.
   """
   def get_groups(client, input, options \\ []) do
-    path = "/Groups"
+    path_ = "/Groups"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Retrieves all sampling rules.
   """
   def get_sampling_rules(client, input, options \\ []) do
-    path = "/GetSamplingRules"
+    path_ = "/GetSamplingRules"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Retrieves information about recent sampling results for all sampling rules.
   """
   def get_sampling_statistic_summaries(client, input, options \\ []) do
-    path = "/SamplingStatisticSummaries"
+    path_ = "/SamplingStatisticSummaries"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -120,10 +120,10 @@ defmodule AWS.XRay do
   requests.
   """
   def get_sampling_targets(client, input, options \\ []) do
-    path = "/SamplingTargets"
+    path_ = "/SamplingTargets"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -135,30 +135,30 @@ defmodule AWS.XRay do
   be other applications, AWS resources, HTTP web APIs, or SQL databases.
   """
   def get_service_graph(client, input, options \\ []) do
-    path = "/ServiceGraph"
+    path_ = "/ServiceGraph"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Get an aggregation of service statistics defined by a specific time range.
   """
   def get_time_series_service_statistics(client, input, options \\ []) do
-    path = "/TimeSeriesServiceStatistics"
+    path_ = "/TimeSeriesServiceStatistics"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Retrieves a service graph for one or more specific trace IDs.
   """
   def get_trace_graph(client, input, options \\ []) do
-    path = "/TraceGraph"
+    path_ = "/TraceGraph"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -184,30 +184,30 @@ defmodule AWS.XRay do
   in the *AWS X-Ray Developer Guide*.
   """
   def get_trace_summaries(client, input, options \\ []) do
-    path = "/TraceSummaries"
+    path_ = "/TraceSummaries"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Updates the encryption configuration for X-Ray data.
   """
   def put_encryption_config(client, input, options \\ []) do
-    path = "/PutEncryptionConfig"
+    path_ = "/PutEncryptionConfig"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Used by the AWS X-Ray daemon to upload telemetry.
   """
   def put_telemetry_records(client, input, options \\ []) do
-    path = "/TelemetryRecords"
+    path_ = "/TelemetryRecords"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -264,30 +264,30 @@ defmodule AWS.XRay do
   </li> </ul>
   """
   def put_trace_segments(client, input, options \\ []) do
-    path = "/TraceSegments"
+    path_ = "/TraceSegments"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Updates a group resource.
   """
   def update_group(client, input, options \\ []) do
-    path = "/UpdateGroup"
+    path_ = "/UpdateGroup"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Modifies a sampling rule's configuration.
   """
   def update_sampling_rule(client, input, options \\ []) do
-    path = "/UpdateSamplingRule"
+    path_ = "/UpdateSamplingRule"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

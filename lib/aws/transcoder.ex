@@ -19,10 +19,10 @@ defmodule AWS.Transcoder do
   </note>
   """
   def cancel_job(client, id, input, options \\ []) do
-    path = "/2012-09-25/jobs/#{URI.encode(id)}"
+    path_ = "/2012-09-25/jobs/#{URI.encode(id)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 202)
+    request(client, :delete, path_, query, headers, input, options, 202)
   end
 
   @doc """
@@ -36,10 +36,10 @@ defmodule AWS.Transcoder do
   to the AWS Console).
   """
   def create_job(client, input, options \\ []) do
-    path = "/2012-09-25/jobs"
+    path_ = "/2012-09-25/jobs"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 201)
+    request(client, :post, path_, query, headers, input, options, 201)
   end
 
   @doc """
@@ -47,10 +47,10 @@ defmodule AWS.Transcoder do
   specify.
   """
   def create_pipeline(client, input, options \\ []) do
-    path = "/2012-09-25/pipelines"
+    path_ = "/2012-09-25/pipelines"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 201)
+    request(client, :post, path_, query, headers, input, options, 201)
   end
 
   @doc """
@@ -73,10 +73,10 @@ defmodule AWS.Transcoder do
   audiovisual services*.
   """
   def create_preset(client, input, options \\ []) do
-    path = "/2012-09-25/presets"
+    path_ = "/2012-09-25/presets"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 201)
+    request(client, :post, path_, query, headers, input, options, 201)
   end
 
   @doc """
@@ -87,10 +87,10 @@ defmodule AWS.Transcoder do
   currently in use, `DeletePipeline` returns an error.
   """
   def delete_pipeline(client, id, input, options \\ []) do
-    path = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    path_ = "/2012-09-25/pipelines/#{URI.encode(id)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 202)
+    request(client, :delete, path_, query, headers, input, options, 202)
   end
 
   @doc """
@@ -103,10 +103,10 @@ defmodule AWS.Transcoder do
   </note>
   """
   def delete_preset(client, id, input, options \\ []) do
-    path = "/2012-09-25/presets/#{URI.encode(id)}"
+    path_ = "/2012-09-25/presets/#{URI.encode(id)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 202)
+    request(client, :delete, path_, query, headers, input, options, 202)
   end
 
   @doc """
@@ -238,10 +238,10 @@ defmodule AWS.Transcoder do
   tries to send a test notification to Amazon SNS topics that you specify.
   """
   def test_role(client, input, options \\ []) do
-    path = "/2012-09-25/roleTests"
+    path_ = "/2012-09-25/roleTests"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -255,10 +255,10 @@ defmodule AWS.Transcoder do
   </important>
   """
   def update_pipeline(client, id, input, options \\ []) do
-    path = "/2012-09-25/pipelines/#{URI.encode(id)}"
+    path_ = "/2012-09-25/pipelines/#{URI.encode(id)}"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -269,10 +269,10 @@ defmodule AWS.Transcoder do
   the values that you specified in the request.
   """
   def update_pipeline_notifications(client, id, input, options \\ []) do
-    path = "/2012-09-25/pipelines/#{URI.encode(id)}/notifications"
+    path_ = "/2012-09-25/pipelines/#{URI.encode(id)}/notifications"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -286,10 +286,10 @@ defmodule AWS.Transcoder do
   send a `CancelJob` request.
   """
   def update_pipeline_status(client, id, input, options \\ []) do
-    path = "/2012-09-25/pipelines/#{URI.encode(id)}/status"
+    path_ = "/2012-09-25/pipelines/#{URI.encode(id)}/status"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

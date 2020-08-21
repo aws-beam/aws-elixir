@@ -13,7 +13,7 @@ defmodule AWS.MobileAnalytics do
   and metrics per custom event, and any number of attribute or metric values.
   """
   def put_events(client, input, options \\ []) do
-    path = "/2014-06-05/events"
+    path_ = "/2014-06-05/events"
     {headers, input} =
       [
         {"clientContext", "x-amz-Client-Context"},
@@ -21,7 +21,7 @@ defmodule AWS.MobileAnalytics do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 202)
+    request(client, :post, path_, query, headers, input, options, 202)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

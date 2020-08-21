@@ -20,14 +20,14 @@ defmodule AWS.CloudDirectory do
   applied on it.
   """
   def add_facet_to_object(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/facets"
+    path_ = "/amazonclouddirectory/2017-01-11/object/facets"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -35,14 +35,14 @@ defmodule AWS.CloudDirectory do
   `Directory` with the same name and version as that of the published schema.
   """
   def apply_schema(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/apply"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/apply"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -56,14 +56,14 @@ defmodule AWS.CloudDirectory do
   </li> </ol>
   """
   def attach_object(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/attach"
+    path_ = "/amazonclouddirectory/2017-01-11/object/attach"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -71,28 +71,28 @@ defmodule AWS.CloudDirectory do
   number of attached policies.
   """
   def attach_policy(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/policy/attach"
+    path_ = "/amazonclouddirectory/2017-01-11/policy/attach"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Attaches the specified object to the specified index.
   """
   def attach_to_index(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/index/attach"
+    path_ = "/amazonclouddirectory/2017-01-11/index/attach"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -101,21 +101,21 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def attach_typed_link(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/attach"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/attach"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Performs all the read operations in a batch.
   """
   def batch_read(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/batchread"
+    path_ = "/amazonclouddirectory/2017-01-11/batchread"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -123,7 +123,7 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -131,14 +131,14 @@ defmodule AWS.CloudDirectory do
   succeed or none.
   """
   def batch_write(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/batchwrite"
+    path_ = "/amazonclouddirectory/2017-01-11/batchwrite"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -151,14 +151,14 @@ defmodule AWS.CloudDirectory do
   in the *Amazon Cloud Directory Developer Guide*.
   """
   def create_directory(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/directory/create"
+    path_ = "/amazonclouddirectory/2017-01-11/directory/create"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -166,14 +166,14 @@ defmodule AWS.CloudDirectory do
   development or applied schemas.
   """
   def create_facet(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/facet/create"
+    path_ = "/amazonclouddirectory/2017-01-11/facet/create"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -182,14 +182,14 @@ defmodule AWS.CloudDirectory do
   for more information.
   """
   def create_index(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/index"
+    path_ = "/amazonclouddirectory/2017-01-11/index"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -200,14 +200,14 @@ defmodule AWS.CloudDirectory do
   a policy facet.
   """
   def create_object(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object"
+    path_ = "/amazonclouddirectory/2017-01-11/object"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -229,10 +229,10 @@ defmodule AWS.CloudDirectory do
   </li> </ul>
   """
   def create_schema(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/create"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/create"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -240,14 +240,14 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def create_typed_link_facet(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -256,14 +256,14 @@ defmodule AWS.CloudDirectory do
   directories.
   """
   def delete_directory(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/directory"
+    path_ = "/amazonclouddirectory/2017-01-11/directory"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -272,14 +272,14 @@ defmodule AWS.CloudDirectory do
   deletion.
   """
   def delete_facet(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/facet/delete"
+    path_ = "/amazonclouddirectory/2017-01-11/facet/delete"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -290,14 +290,14 @@ defmodule AWS.CloudDirectory do
   Limits](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html).
   """
   def delete_object(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/delete"
+    path_ = "/amazonclouddirectory/2017-01-11/object/delete"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -305,14 +305,14 @@ defmodule AWS.CloudDirectory do
   only be deleted.
   """
   def delete_schema(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema"
+    path_ = "/amazonclouddirectory/2017-01-11/schema"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -320,28 +320,28 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def delete_typed_link_facet(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Detaches the specified object from the specified index.
   """
   def detach_from_index(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/index/detach"
+    path_ = "/amazonclouddirectory/2017-01-11/index/detach"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -349,28 +349,28 @@ defmodule AWS.CloudDirectory do
   detached from the parent is specified by the link name.
   """
   def detach_object(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/detach"
+    path_ = "/amazonclouddirectory/2017-01-11/object/detach"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Detaches a policy from an object.
   """
   def detach_policy(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/policy/detach"
+    path_ = "/amazonclouddirectory/2017-01-11/policy/detach"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -379,14 +379,14 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def detach_typed_link(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/detach"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/detach"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -395,14 +395,14 @@ defmodule AWS.CloudDirectory do
   may be reenabled.
   """
   def disable_directory(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/directory/disable"
+    path_ = "/amazonclouddirectory/2017-01-11/directory/disable"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -410,14 +410,14 @@ defmodule AWS.CloudDirectory do
   Once enabled, the directory can then be read and written to.
   """
   def enable_directory(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/directory/enable"
+    path_ = "/amazonclouddirectory/2017-01-11/directory/enable"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -425,24 +425,24 @@ defmodule AWS.CloudDirectory do
   use.
   """
   def get_applied_schema_version(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Retrieves metadata about a directory.
   """
   def get_directory(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/directory/get"
+    path_ = "/amazonclouddirectory/2017-01-11/directory/get"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -451,35 +451,35 @@ defmodule AWS.CloudDirectory do
   development, or applied.
   """
   def get_facet(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/facet"
+    path_ = "/amazonclouddirectory/2017-01-11/facet"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Retrieves attributes that are associated with a typed link.
   """
   def get_link_attributes(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Retrieves attributes within a facet that are associated with an object.
   """
   def get_object_attributes(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/attributes/get"
+    path_ = "/amazonclouddirectory/2017-01-11/object/attributes/get"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -487,14 +487,14 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Retrieves metadata about an object.
   """
   def get_object_information(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/information"
+    path_ = "/amazonclouddirectory/2017-01-11/object/information"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -502,7 +502,7 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -511,14 +511,14 @@ defmodule AWS.CloudDirectory do
   for more information.
   """
   def get_schema_as_json(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/json"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/json"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -527,14 +527,14 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def get_typed_link_facet_information(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -542,17 +542,17 @@ defmodule AWS.CloudDirectory do
   provided, lists the minor version.
   """
   def list_applied_schema_arns(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/applied"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/applied"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Lists indices attached to the specified object.
   """
   def list_attached_indices(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/indices"
+    path_ = "/amazonclouddirectory/2017-01-11/object/indices"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -560,7 +560,7 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -568,48 +568,48 @@ defmodule AWS.CloudDirectory do
   state.
   """
   def list_development_schema_arns(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/development"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/development"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Lists directories created within an account.
   """
   def list_directories(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/directory/list"
+    path_ = "/amazonclouddirectory/2017-01-11/directory/list"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Retrieves attributes attached to the facet.
   """
   def list_facet_attributes(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/facet/attributes"
+    path_ = "/amazonclouddirectory/2017-01-11/facet/attributes"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Retrieves the names of facets that exist in a schema.
   """
   def list_facet_names(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/facet/list"
+    path_ = "/amazonclouddirectory/2017-01-11/facet/list"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -619,21 +619,21 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def list_incoming_typed_links(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/incoming"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/incoming"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Lists objects attached to the specified index.
   """
   def list_index(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/index/targets"
+    path_ = "/amazonclouddirectory/2017-01-11/index/targets"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -641,7 +641,7 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -650,17 +650,17 @@ defmodule AWS.CloudDirectory do
   are listed instead.
   """
   def list_managed_schema_arns(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/managed"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/managed"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Lists all attributes that are associated with an object.
   """
   def list_object_attributes(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/attributes"
+    path_ = "/amazonclouddirectory/2017-01-11/object/attributes"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -668,7 +668,7 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -676,7 +676,7 @@ defmodule AWS.CloudDirectory do
   object.
   """
   def list_object_children(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/children"
+    path_ = "/amazonclouddirectory/2017-01-11/object/children"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -684,7 +684,7 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -702,14 +702,14 @@ defmodule AWS.CloudDirectory do
   the target object.
   """
   def list_object_parent_paths(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/parentpaths"
+    path_ = "/amazonclouddirectory/2017-01-11/object/parentpaths"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -717,7 +717,7 @@ defmodule AWS.CloudDirectory do
   fashion.
   """
   def list_object_parents(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/parent"
+    path_ = "/amazonclouddirectory/2017-01-11/object/parent"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -725,14 +725,14 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Returns policies attached to an object in pagination fashion.
   """
   def list_object_policies(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/policy"
+    path_ = "/amazonclouddirectory/2017-01-11/object/policy"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -740,7 +740,7 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -750,21 +750,21 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def list_outgoing_typed_links(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Returns all of the `ObjectIdentifiers` to which a given policy is attached.
   """
   def list_policy_attachments(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/policy/attachment"
+    path_ = "/amazonclouddirectory/2017-01-11/policy/attachment"
     {headers, input} =
       [
         {"ConsistencyLevel", "x-amz-consistency-level"},
@@ -772,7 +772,7 @@ defmodule AWS.CloudDirectory do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -781,10 +781,10 @@ defmodule AWS.CloudDirectory do
   family are listed instead.
   """
   def list_published_schema_arns(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/published"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/published"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -793,10 +793,10 @@ defmodule AWS.CloudDirectory do
   for a given directory with this API call.
   """
   def list_tags_for_resource(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/tags"
+    path_ = "/amazonclouddirectory/2017-01-11/tags"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -805,14 +805,14 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def list_typed_link_facet_attributes(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -821,14 +821,14 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def list_typed_link_facet_names(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/facet/list"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/list"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -842,14 +842,14 @@ defmodule AWS.CloudDirectory do
   [Policies](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies).
   """
   def lookup_policy(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/policy/lookup"
+    path_ = "/amazonclouddirectory/2017-01-11/policy/lookup"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -857,14 +857,14 @@ defmodule AWS.CloudDirectory do
   version.
   """
   def publish_schema(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/publish"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/publish"
     {headers, input} =
       [
         {"DevelopmentSchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -874,48 +874,48 @@ defmodule AWS.CloudDirectory do
   for more information.
   """
   def put_schema_from_json(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/json"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/json"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Removes the specified facet from the specified object.
   """
   def remove_facet_from_object(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/facets/delete"
+    path_ = "/amazonclouddirectory/2017-01-11/object/facets/delete"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
   An API operation for adding tags to a resource.
   """
   def tag_resource(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/tags/add"
+    path_ = "/amazonclouddirectory/2017-01-11/tags/add"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
   An API operation for removing tags from a resource.
   """
   def untag_resource(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/tags/remove"
+    path_ = "/amazonclouddirectory/2017-01-11/tags/remove"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -930,14 +930,14 @@ defmodule AWS.CloudDirectory do
   </li> </ol>
   """
   def update_facet(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/facet"
+    path_ = "/amazonclouddirectory/2017-01-11/facet"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -946,28 +946,28 @@ defmodule AWS.CloudDirectory do
   `IdentityAttributeOrder`.
   """
   def update_link_attributes(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
   Updates a given object's attributes.
   """
   def update_object_attributes(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/object/update"
+    path_ = "/amazonclouddirectory/2017-01-11/object/update"
     {headers, input} =
       [
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -975,14 +975,14 @@ defmodule AWS.CloudDirectory do
   be updated.
   """
   def update_schema(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/update"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/update"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -990,14 +990,14 @@ defmodule AWS.CloudDirectory do
   Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def update_typed_link_facet(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/typedlink/facet"
+    path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet"
     {headers, input} =
       [
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -1009,10 +1009,10 @@ defmodule AWS.CloudDirectory do
   one schema, you would need to call this API on each directory.
   """
   def upgrade_applied_schema(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -1020,10 +1020,10 @@ defmodule AWS.CloudDirectory do
   current contents of `DevelopmentSchemaArn`.
   """
   def upgrade_published_schema(client, input, options \\ []) do
-    path = "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
+    path_ = "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

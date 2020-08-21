@@ -30,14 +30,14 @@ defmodule AWS.IoT.DataPlane do
   in the AWS IoT Developer Guide.
   """
   def delete_thing_shadow(client, thing_name, input, options \\ []) do
-    path = "/things/#{URI.encode(thing_name)}/shadow"
+    path_ = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
     {query, input} =
       [
         {"shadowName", "name"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path, query, headers, input, options, nil)
+    request(client, :delete, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -87,14 +87,14 @@ defmodule AWS.IoT.DataPlane do
   in the AWS IoT Developer Guide.
   """
   def publish(client, topic, input, options \\ []) do
-    path = "/topics/#{URI.encode(topic)}"
+    path_ = "/topics/#{URI.encode(topic)}"
     headers = []
     {query, input} =
       [
         {"qos", "qos"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -105,14 +105,14 @@ defmodule AWS.IoT.DataPlane do
   in the AWS IoT Developer Guide.
   """
   def update_thing_shadow(client, thing_name, input, options \\ []) do
-    path = "/things/#{URI.encode(thing_name)}/shadow"
+    path_ = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
     {query, input} =
       [
         {"shadowName", "name"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

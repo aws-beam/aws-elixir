@@ -21,10 +21,10 @@ defmodule AWS.LexRuntime do
   Removes session information for a specified bot, alias, and user ID.
   """
   def delete_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, nil)
+    request(client, :delete, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -102,7 +102,7 @@ defmodule AWS.LexRuntime do
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
   def post_content(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
+    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
     {headers, input} =
       [
         {"accept", "Accept"},
@@ -112,7 +112,7 @@ defmodule AWS.LexRuntime do
       ]
       |> AWS.Request.build_params(input)
     query = []
-    case request(client, :post, path, query, headers, input, options, nil) do
+    case request(client, :post, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [
@@ -197,10 +197,10 @@ defmodule AWS.LexRuntime do
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
   def post_text(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
+    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -212,14 +212,14 @@ defmodule AWS.LexRuntime do
   Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
   """
   def put_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    path = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
     {headers, input} =
       [
         {"accept", "Accept"},
       ]
       |> AWS.Request.build_params(input)
     query = []
-    case request(client, :post, path, query, headers, input, options, nil) do
+    case request(client, :post, path_, query, headers, input, options, nil) do
       {:ok, body, response} ->
         body =
           [

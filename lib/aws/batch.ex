@@ -31,10 +31,10 @@ defmodule AWS.Batch do
   the `TerminateJob` operation.
   """
   def cancel_job(client, input, options \\ []) do
-    path = "/v1/canceljob"
+    path_ = "/v1/canceljob"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -86,10 +86,10 @@ defmodule AWS.Batch do
   </li> </ol> </note>
   """
   def create_compute_environment(client, input, options \\ []) do
-    path = "/v1/createcomputeenvironment"
+    path_ = "/v1/createcomputeenvironment"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -104,10 +104,10 @@ defmodule AWS.Batch do
   preference for scheduling jobs to that compute environment.
   """
   def create_job_queue(client, input, options \\ []) do
-    path = "/v1/createjobqueue"
+    path_ = "/v1/createjobqueue"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -119,10 +119,10 @@ defmodule AWS.Batch do
   operation.
   """
   def delete_compute_environment(client, input, options \\ []) do
-    path = "/v1/deletecomputeenvironment"
+    path_ = "/v1/deletecomputeenvironment"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -134,10 +134,10 @@ defmodule AWS.Batch do
   before submitting a `DeleteJobQueue` request.
   """
   def delete_job_queue(client, input, options \\ []) do
-    path = "/v1/deletejobqueue"
+    path_ = "/v1/deletejobqueue"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -145,10 +145,10 @@ defmodule AWS.Batch do
   permanently deleted after 180 days.
   """
   def deregister_job_definition(client, input, options \\ []) do
-    path = "/v1/deregisterjobdefinition"
+    path_ = "/v1/deregisterjobdefinition"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -159,10 +159,10 @@ defmodule AWS.Batch do
   that you should launch your Amazon ECS container instances into.
   """
   def describe_compute_environments(client, input, options \\ []) do
-    path = "/v1/describecomputeenvironments"
+    path_ = "/v1/describecomputeenvironments"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -170,30 +170,30 @@ defmodule AWS.Batch do
   `ACTIVE`) to only return job definitions that match that status.
   """
   def describe_job_definitions(client, input, options \\ []) do
-    path = "/v1/describejobdefinitions"
+    path_ = "/v1/describejobdefinitions"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Describes one or more of your job queues.
   """
   def describe_job_queues(client, input, options \\ []) do
-    path = "/v1/describejobqueues"
+    path_ = "/v1/describejobqueues"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Describes a list of AWS Batch jobs.
   """
   def describe_jobs(client, input, options \\ []) do
-    path = "/v1/describejobs"
+    path_ = "/v1/describejobs"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -213,20 +213,20 @@ defmodule AWS.Batch do
   returned.
   """
   def list_jobs(client, input, options \\ []) do
-    path = "/v1/listjobs"
+    path_ = "/v1/listjobs"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Registers an AWS Batch job definition.
   """
   def register_job_definition(client, input, options \\ []) do
-    path = "/v1/registerjobdefinition"
+    path_ = "/v1/registerjobdefinition"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -234,10 +234,10 @@ defmodule AWS.Batch do
   `SubmitJob` override parameters defined in the job definition.
   """
   def submit_job(client, input, options \\ []) do
-    path = "/v1/submitjob"
+    path_ = "/v1/submitjob"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
@@ -247,30 +247,30 @@ defmodule AWS.Batch do
   cancelled.
   """
   def terminate_job(client, input, options \\ []) do
-    path = "/v1/terminatejob"
+    path_ = "/v1/terminatejob"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Updates an AWS Batch compute environment.
   """
   def update_compute_environment(client, input, options \\ []) do
-    path = "/v1/updatecomputeenvironment"
+    path_ = "/v1/updatecomputeenvironment"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @doc """
   Updates a job queue.
   """
   def update_job_queue(client, input, options \\ []) do
-    path = "/v1/updatejobqueue"
+    path_ = "/v1/updatejobqueue"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, nil)
+    request(client, :post, path_, query, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::

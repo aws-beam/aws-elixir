@@ -22,10 +22,10 @@ defmodule AWS.Polly do
   Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def delete_lexicon(client, name, input, options \\ []) do
-    path = "/v1/lexicons/#{URI.encode(name)}"
+    path_ = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
     query = []
-    request(client, :delete, path, query, headers, input, options, 200)
+    request(client, :delete, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -156,10 +156,10 @@ defmodule AWS.Polly do
   Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
   def put_lexicon(client, name, input, options \\ []) do
-    path = "/v1/lexicons/#{URI.encode(name)}"
+    path_ = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
     query = []
-    request(client, :put, path, query, headers, input, options, 200)
+    request(client, :put, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -172,10 +172,10 @@ defmodule AWS.Polly do
   will include an identifier of this task as well as the current status.
   """
   def start_speech_synthesis_task(client, input, options \\ []) do
-    path = "/v1/synthesisTasks"
+    path_ = "/v1/synthesisTasks"
     headers = []
     query = []
-    request(client, :post, path, query, headers, input, options, 200)
+    request(client, :post, path_, query, headers, input, options, 200)
   end
 
   @doc """
@@ -187,10 +187,10 @@ defmodule AWS.Polly do
   Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
   """
   def synthesize_speech(client, input, options \\ []) do
-    path = "/v1/speech"
+    path_ = "/v1/speech"
     headers = []
     query = []
-    case request(client, :post, path, query, headers, input, options, 200) do
+    case request(client, :post, path_, query, headers, input, options, 200) do
       {:ok, body, response} ->
         body =
           [

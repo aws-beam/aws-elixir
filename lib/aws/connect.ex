@@ -24,8 +24,8 @@ defmodule AWS.Connect do
   def create_user(client, instance_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -34,8 +34,8 @@ defmodule AWS.Connect do
   def delete_user(client, instance_id, user_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -46,8 +46,8 @@ defmodule AWS.Connect do
   def describe_user(client, instance_id, user_id, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -56,8 +56,8 @@ defmodule AWS.Connect do
   def describe_user_hierarchy_group(client, hierarchy_group_id, instance_id, options \\ []) do
     path_ = "/user-hierarchy-groups/#{URI.encode(instance_id)}/#{URI.encode(hierarchy_group_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -66,8 +66,8 @@ defmodule AWS.Connect do
   def describe_user_hierarchy_structure(client, instance_id, options \\ []) do
     path_ = "/user-hierarchy-structure/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -76,8 +76,8 @@ defmodule AWS.Connect do
   def get_contact_attributes(client, initial_contact_id, instance_id, options \\ []) do
     path_ = "/contact/attributes/#{URI.encode(instance_id)}/#{URI.encode(initial_contact_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -90,8 +90,8 @@ defmodule AWS.Connect do
   def get_current_metric_data(client, instance_id, input, options \\ []) do
     path_ = "/metrics/current/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -100,8 +100,8 @@ defmodule AWS.Connect do
   def get_federation_token(client, instance_id, options \\ []) do
     path_ = "/user/federate/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -114,8 +114,8 @@ defmodule AWS.Connect do
   def get_metric_data(client, instance_id, input, options \\ []) do
     path_ = "/metrics/historical/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -125,23 +125,23 @@ defmodule AWS.Connect do
   def list_contact_flows(client, instance_id, contact_flow_types \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/contact-flows-summary/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(contact_flow_types) do
-      [{"contactFlowTypes", contact_flow_types} | query]
+    query_ = if !is_nil(contact_flow_types) do
+      [{"contactFlowTypes", contact_flow_types} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -151,18 +151,18 @@ defmodule AWS.Connect do
   def list_hours_of_operations(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/hours-of-operations-summary/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -172,28 +172,28 @@ defmodule AWS.Connect do
   def list_phone_numbers(client, instance_id, max_results \\ nil, next_token \\ nil, phone_number_country_codes \\ nil, phone_number_types \\ nil, options \\ []) do
     path_ = "/phone-numbers-summary/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    query = if !is_nil(phone_number_types) do
-      [{"phoneNumberTypes", phone_number_types} | query]
+    query_ = []
+    query_ = if !is_nil(phone_number_types) do
+      [{"phoneNumberTypes", phone_number_types} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(phone_number_country_codes) do
-      [{"phoneNumberCountryCodes", phone_number_country_codes} | query]
+    query_ = if !is_nil(phone_number_country_codes) do
+      [{"phoneNumberCountryCodes", phone_number_country_codes} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -203,23 +203,23 @@ defmodule AWS.Connect do
   def list_queues(client, instance_id, max_results \\ nil, next_token \\ nil, queue_types \\ nil, options \\ []) do
     path_ = "/queues-summary/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    query = if !is_nil(queue_types) do
-      [{"queueTypes", queue_types} | query]
+    query_ = []
+    query_ = if !is_nil(queue_types) do
+      [{"queueTypes", queue_types} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -229,18 +229,18 @@ defmodule AWS.Connect do
   def list_routing_profiles(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/routing-profiles-summary/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -250,18 +250,18 @@ defmodule AWS.Connect do
   def list_security_profiles(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/security-profiles-summary/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -270,8 +270,8 @@ defmodule AWS.Connect do
   def list_tags_for_resource(client, resource_arn, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -281,18 +281,18 @@ defmodule AWS.Connect do
   def list_user_hierarchy_groups(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/user-hierarchy-groups-summary/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -302,18 +302,18 @@ defmodule AWS.Connect do
   def list_users(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/users-summary/#{URI.encode(instance_id)}"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -325,8 +325,8 @@ defmodule AWS.Connect do
   def resume_contact_recording(client, input, options \\ []) do
     path_ = "/contact/resume-recording"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -344,8 +344,8 @@ defmodule AWS.Connect do
   def start_chat_contact(client, input, options \\ []) do
     path_ = "/contact/chat"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -367,8 +367,8 @@ defmodule AWS.Connect do
   def start_contact_recording(client, input, options \\ []) do
     path_ = "/contact/start-recording"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -387,8 +387,8 @@ defmodule AWS.Connect do
   def start_outbound_voice_contact(client, input, options \\ []) do
     path_ = "/contact/outbound-voice"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -397,8 +397,8 @@ defmodule AWS.Connect do
   def stop_contact(client, input, options \\ []) do
     path_ = "/contact/stop"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -415,8 +415,8 @@ defmodule AWS.Connect do
   def stop_contact_recording(client, input, options \\ []) do
     path_ = "/contact/stop-recording"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -433,8 +433,8 @@ defmodule AWS.Connect do
   def suspend_contact_recording(client, input, options \\ []) do
     path_ = "/contact/suspend-recording"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -445,8 +445,8 @@ defmodule AWS.Connect do
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -455,12 +455,12 @@ defmodule AWS.Connect do
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"tagKeys", "tagKeys"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query, headers, input, options, nil)
+    request(client, :delete, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -490,8 +490,8 @@ defmodule AWS.Connect do
   def update_contact_attributes(client, input, options \\ []) do
     path_ = "/contact/attributes"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -500,8 +500,8 @@ defmodule AWS.Connect do
   def update_user_hierarchy(client, instance_id, user_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/hierarchy"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -510,8 +510,8 @@ defmodule AWS.Connect do
   def update_user_identity_info(client, instance_id, user_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/identity-info"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -520,8 +520,8 @@ defmodule AWS.Connect do
   def update_user_phone_config(client, instance_id, user_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/phone-config"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -530,8 +530,8 @@ defmodule AWS.Connect do
   def update_user_routing_profile(client, instance_id, user_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/routing-profile"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -540,8 +540,8 @@ defmodule AWS.Connect do
   def update_user_security_profiles(client, instance_id, user_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/security-profiles"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
@@ -550,9 +550,9 @@ defmodule AWS.Connect do
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "connect"}
-    host = get_host("connect", client)
+    host = build_host("connect", client)
     url = host
-    |> get_url(path, client)
+    |> build_url(path, client)
     |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
@@ -598,14 +598,14 @@ defmodule AWS.Connect do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, path, %{:proto => proto, :port => port}) do
+  defp build_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
   end
 

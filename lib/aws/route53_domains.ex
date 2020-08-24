@@ -1,7 +1,7 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
 # See https://github.com/aws-beam/aws-codegen for more details.
 
-defmodule AWS.Route53.Domains do
+defmodule AWS.Route53Domains do
   @moduledoc """
   Amazon Route 53 API actions let you register domain names and perform
   related operations.
@@ -441,8 +441,8 @@ defmodule AWS.Route53.Domains do
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "route53domains"}
-    host = get_host("route53domains", client)
-    url = get_url(host, client)
+    host = build_host("route53domains", client)
+    url = build_url(host, client)
 
     headers = [
       {"Host", host},
@@ -469,14 +469,14 @@ defmodule AWS.Route53.Domains do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, %{:proto => proto, :port => port}) do
+  defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
 end

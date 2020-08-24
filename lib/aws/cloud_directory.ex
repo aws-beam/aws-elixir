@@ -26,8 +26,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -41,8 +41,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -62,8 +62,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -77,8 +77,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -91,8 +91,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -107,8 +107,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -122,8 +122,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -137,8 +137,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -157,8 +157,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -172,8 +172,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -188,8 +188,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -206,8 +206,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -231,8 +231,8 @@ defmodule AWS.CloudDirectory do
   def create_schema(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/create"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -246,8 +246,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -262,8 +262,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -278,8 +278,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -296,8 +296,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -311,8 +311,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -326,8 +326,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -340,8 +340,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -355,8 +355,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -369,8 +369,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -385,8 +385,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -401,8 +401,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -416,8 +416,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -427,8 +427,8 @@ defmodule AWS.CloudDirectory do
   def get_applied_schema_version(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -441,8 +441,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -457,8 +457,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -471,8 +471,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -486,8 +486,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -501,8 +501,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -517,8 +517,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -533,8 +533,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -544,8 +544,8 @@ defmodule AWS.CloudDirectory do
   def list_applied_schema_arns(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/applied"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -559,8 +559,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -570,8 +570,8 @@ defmodule AWS.CloudDirectory do
   def list_development_schema_arns(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/development"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -580,8 +580,8 @@ defmodule AWS.CloudDirectory do
   def list_directories(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/directory/list"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -594,8 +594,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -608,8 +608,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -625,8 +625,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -640,8 +640,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -652,8 +652,8 @@ defmodule AWS.CloudDirectory do
   def list_managed_schema_arns(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/managed"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -667,8 +667,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -683,8 +683,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -708,8 +708,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -724,8 +724,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -739,8 +739,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -756,8 +756,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -771,8 +771,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -783,8 +783,8 @@ defmodule AWS.CloudDirectory do
   def list_published_schema_arns(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/published"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -795,8 +795,8 @@ defmodule AWS.CloudDirectory do
   def list_tags_for_resource(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/tags"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -811,8 +811,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -827,8 +827,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -848,8 +848,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -863,8 +863,8 @@ defmodule AWS.CloudDirectory do
         {"DevelopmentSchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -880,8 +880,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -894,8 +894,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -904,8 +904,8 @@ defmodule AWS.CloudDirectory do
   def tag_resource(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/tags/add"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -914,8 +914,8 @@ defmodule AWS.CloudDirectory do
   def untag_resource(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/tags/remove"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -936,8 +936,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -952,8 +952,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -966,8 +966,8 @@ defmodule AWS.CloudDirectory do
         {"DirectoryArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -981,8 +981,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -996,8 +996,8 @@ defmodule AWS.CloudDirectory do
         {"SchemaArn", "x-amz-data-partition"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1011,8 +1011,8 @@ defmodule AWS.CloudDirectory do
   def upgrade_applied_schema(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1022,8 +1022,8 @@ defmodule AWS.CloudDirectory do
   def upgrade_published_schema(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
@@ -1032,9 +1032,9 @@ defmodule AWS.CloudDirectory do
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "clouddirectory"}
-    host = get_host("clouddirectory", client)
+    host = build_host("clouddirectory", client)
     url = host
-    |> get_url(path, client)
+    |> build_url(path, client)
     |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
@@ -1080,14 +1080,14 @@ defmodule AWS.CloudDirectory do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, path, %{:proto => proto, :port => port}) do
+  defp build_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
   end
 

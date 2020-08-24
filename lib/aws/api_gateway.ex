@@ -21,8 +21,8 @@ defmodule AWS.APIGateway do
   def create_api_key(client, input, options \\ []) do
     path_ = "/apikeys"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -34,8 +34,8 @@ defmodule AWS.APIGateway do
   def create_authorizer(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -44,8 +44,8 @@ defmodule AWS.APIGateway do
   def create_base_path_mapping(client, domain_name, input, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}/basepathmappings"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -55,8 +55,8 @@ defmodule AWS.APIGateway do
   def create_deployment(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/deployments"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -65,8 +65,8 @@ defmodule AWS.APIGateway do
   def create_documentation_part(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -75,8 +75,8 @@ defmodule AWS.APIGateway do
   def create_documentation_version(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -85,8 +85,8 @@ defmodule AWS.APIGateway do
   def create_domain_name(client, input, options \\ []) do
     path_ = "/domainnames"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -95,8 +95,8 @@ defmodule AWS.APIGateway do
   def create_model(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/models"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -105,8 +105,8 @@ defmodule AWS.APIGateway do
   def create_request_validator(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -115,8 +115,8 @@ defmodule AWS.APIGateway do
   def create_resource(client, parent_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(parent_id)}"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -125,8 +125,8 @@ defmodule AWS.APIGateway do
   def create_rest_api(client, input, options \\ []) do
     path_ = "/restapis"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -136,8 +136,8 @@ defmodule AWS.APIGateway do
   def create_stage(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -147,8 +147,8 @@ defmodule AWS.APIGateway do
   def create_usage_plan(client, input, options \\ []) do
     path_ = "/usageplans"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -157,8 +157,8 @@ defmodule AWS.APIGateway do
   def create_usage_plan_key(client, usage_plan_id, input, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/keys"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -170,8 +170,8 @@ defmodule AWS.APIGateway do
   def create_vpc_link(client, input, options \\ []) do
     path_ = "/vpclinks"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -180,8 +180,8 @@ defmodule AWS.APIGateway do
   def delete_api_key(client, api_key, input, options \\ []) do
     path_ = "/apikeys/#{URI.encode(api_key)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -193,8 +193,8 @@ defmodule AWS.APIGateway do
   def delete_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -203,8 +203,8 @@ defmodule AWS.APIGateway do
   def delete_base_path_mapping(client, base_path, domain_name, input, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}/basepathmappings/#{URI.encode(base_path)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -213,8 +213,8 @@ defmodule AWS.APIGateway do
   def delete_client_certificate(client, client_certificate_id, input, options \\ []) do
     path_ = "/clientcertificates/#{URI.encode(client_certificate_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -224,8 +224,8 @@ defmodule AWS.APIGateway do
   def delete_deployment(client, deployment_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/deployments/#{URI.encode(deployment_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -234,8 +234,8 @@ defmodule AWS.APIGateway do
   def delete_documentation_part(client, documentation_part_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -244,8 +244,8 @@ defmodule AWS.APIGateway do
   def delete_documentation_version(client, documentation_version, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -254,8 +254,8 @@ defmodule AWS.APIGateway do
   def delete_domain_name(client, domain_name, input, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -265,8 +265,8 @@ defmodule AWS.APIGateway do
   def delete_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -275,8 +275,8 @@ defmodule AWS.APIGateway do
   def delete_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 204)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -285,8 +285,8 @@ defmodule AWS.APIGateway do
   def delete_integration_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 204)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -295,8 +295,8 @@ defmodule AWS.APIGateway do
   def delete_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 204)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -305,8 +305,8 @@ defmodule AWS.APIGateway do
   def delete_method_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 204)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -315,8 +315,8 @@ defmodule AWS.APIGateway do
   def delete_model(client, model_name, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -325,8 +325,8 @@ defmodule AWS.APIGateway do
   def delete_request_validator(client, request_validator_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -335,8 +335,8 @@ defmodule AWS.APIGateway do
   def delete_resource(client, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -345,8 +345,8 @@ defmodule AWS.APIGateway do
   def delete_rest_api(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -355,8 +355,8 @@ defmodule AWS.APIGateway do
   def delete_stage(client, rest_api_id, stage_name, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -365,8 +365,8 @@ defmodule AWS.APIGateway do
   def delete_usage_plan(client, usage_plan_id, input, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -376,8 +376,8 @@ defmodule AWS.APIGateway do
   def delete_usage_plan_key(client, key_id, usage_plan_id, input, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -386,8 +386,8 @@ defmodule AWS.APIGateway do
   def delete_vpc_link(client, vpc_link_id, input, options \\ []) do
     path_ = "/vpclinks/#{URI.encode(vpc_link_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -396,8 +396,8 @@ defmodule AWS.APIGateway do
   def flush_stage_authorizers_cache(client, rest_api_id, stage_name, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/cache/authorizers"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -406,8 +406,8 @@ defmodule AWS.APIGateway do
   def flush_stage_cache(client, rest_api_id, stage_name, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/cache/data"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -416,8 +416,8 @@ defmodule AWS.APIGateway do
   def generate_client_certificate(client, input, options \\ []) do
     path_ = "/clientcertificates"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -426,8 +426,8 @@ defmodule AWS.APIGateway do
   def get_account(client, options \\ []) do
     path_ = "/account"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -436,13 +436,13 @@ defmodule AWS.APIGateway do
   def get_api_key(client, api_key, include_value \\ nil, options \\ []) do
     path_ = "/apikeys/#{URI.encode(api_key)}"
     headers = []
-    query = []
-    query = if !is_nil(include_value) do
-      [{"includeValue", include_value} | query]
+    query_ = []
+    query_ = if !is_nil(include_value) do
+      [{"includeValue", include_value} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -451,33 +451,33 @@ defmodule AWS.APIGateway do
   def get_api_keys(client, customer_id \\ nil, include_values \\ nil, limit \\ nil, name_query \\ nil, position \\ nil, options \\ []) do
     path_ = "/apikeys"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(name_query) do
-      [{"name", name_query} | query]
+    query_ = if !is_nil(name_query) do
+      [{"name", name_query} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(include_values) do
-      [{"includeValues", include_values} | query]
+    query_ = if !is_nil(include_values) do
+      [{"includeValues", include_values} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(customer_id) do
-      [{"customerId", customer_id} | query]
+    query_ = if !is_nil(customer_id) do
+      [{"customerId", customer_id} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -489,8 +489,8 @@ defmodule AWS.APIGateway do
   def get_authorizer(client, authorizer_id, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -502,18 +502,18 @@ defmodule AWS.APIGateway do
   def get_authorizers(client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -522,8 +522,8 @@ defmodule AWS.APIGateway do
   def get_base_path_mapping(client, base_path, domain_name, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}/basepathmappings/#{URI.encode(base_path)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -532,18 +532,18 @@ defmodule AWS.APIGateway do
   def get_base_path_mappings(client, domain_name, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}/basepathmappings"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -552,8 +552,8 @@ defmodule AWS.APIGateway do
   def get_client_certificate(client, client_certificate_id, options \\ []) do
     path_ = "/clientcertificates/#{URI.encode(client_certificate_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -562,18 +562,18 @@ defmodule AWS.APIGateway do
   def get_client_certificates(client, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/clientcertificates"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -582,13 +582,13 @@ defmodule AWS.APIGateway do
   def get_deployment(client, deployment_id, rest_api_id, embed \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/deployments/#{URI.encode(deployment_id)}"
     headers = []
-    query = []
-    query = if !is_nil(embed) do
-      [{"embed", embed} | query]
+    query_ = []
+    query_ = if !is_nil(embed) do
+      [{"embed", embed} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -597,18 +597,18 @@ defmodule AWS.APIGateway do
   def get_deployments(client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/deployments"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -617,8 +617,8 @@ defmodule AWS.APIGateway do
   def get_documentation_part(client, documentation_part_id, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -627,38 +627,38 @@ defmodule AWS.APIGateway do
   def get_documentation_parts(client, rest_api_id, limit \\ nil, location_status \\ nil, name_query \\ nil, path \\ nil, position \\ nil, type \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
     headers = []
-    query = []
-    query = if !is_nil(type) do
-      [{"type", type} | query]
+    query_ = []
+    query_ = if !is_nil(type) do
+      [{"type", type} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(path) do
-      [{"path", path} | query]
+    query_ = if !is_nil(path) do
+      [{"path", path} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(name_query) do
-      [{"name", name_query} | query]
+    query_ = if !is_nil(name_query) do
+      [{"name", name_query} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(location_status) do
-      [{"locationStatus", location_status} | query]
+    query_ = if !is_nil(location_status) do
+      [{"locationStatus", location_status} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -667,8 +667,8 @@ defmodule AWS.APIGateway do
   def get_documentation_version(client, documentation_version, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -677,18 +677,18 @@ defmodule AWS.APIGateway do
   def get_documentation_versions(client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -698,8 +698,8 @@ defmodule AWS.APIGateway do
   def get_domain_name(client, domain_name, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -708,18 +708,18 @@ defmodule AWS.APIGateway do
   def get_domain_names(client, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/domainnames"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -733,13 +733,13 @@ defmodule AWS.APIGateway do
     else
       headers
     end
-    query = []
-    query = if !is_nil(parameters) do
-      [{"", parameters} | query]
+    query_ = []
+    query_ = if !is_nil(parameters) do
+      [{"", parameters} | query_]
     else
-      query
+      query_
     end
-    case request(client, :get, path_, query, headers, nil, options, 200) do
+    case request(client, :get, path_, query_, headers, nil, options, 200) do
       {:ok, body, response} ->
         body =
           [
@@ -767,8 +767,8 @@ defmodule AWS.APIGateway do
   def get_gateway_response(client, response_type, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -780,18 +780,18 @@ defmodule AWS.APIGateway do
   def get_gateway_responses(client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -800,8 +800,8 @@ defmodule AWS.APIGateway do
   def get_integration(client, http_method, resource_id, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -810,8 +810,8 @@ defmodule AWS.APIGateway do
   def get_integration_response(client, http_method, resource_id, rest_api_id, status_code, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -820,8 +820,8 @@ defmodule AWS.APIGateway do
   def get_method(client, http_method, resource_id, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -830,8 +830,8 @@ defmodule AWS.APIGateway do
   def get_method_response(client, http_method, resource_id, rest_api_id, status_code, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -840,13 +840,13 @@ defmodule AWS.APIGateway do
   def get_model(client, model_name, rest_api_id, flatten \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}"
     headers = []
-    query = []
-    query = if !is_nil(flatten) do
-      [{"flatten", flatten} | query]
+    query_ = []
+    query_ = if !is_nil(flatten) do
+      [{"flatten", flatten} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -856,8 +856,8 @@ defmodule AWS.APIGateway do
   def get_model_template(client, model_name, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}/default_template"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -866,18 +866,18 @@ defmodule AWS.APIGateway do
   def get_models(client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/models"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -886,8 +886,8 @@ defmodule AWS.APIGateway do
   def get_request_validator(client, request_validator_id, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -896,18 +896,18 @@ defmodule AWS.APIGateway do
   def get_request_validators(client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -916,13 +916,13 @@ defmodule AWS.APIGateway do
   def get_resource(client, resource_id, rest_api_id, embed \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}"
     headers = []
-    query = []
-    query = if !is_nil(embed) do
-      [{"embed", embed} | query]
+    query_ = []
+    query_ = if !is_nil(embed) do
+      [{"embed", embed} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -931,23 +931,23 @@ defmodule AWS.APIGateway do
   def get_resources(client, rest_api_id, embed \\ nil, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(embed) do
-      [{"embed", embed} | query]
+    query_ = if !is_nil(embed) do
+      [{"embed", embed} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -956,8 +956,8 @@ defmodule AWS.APIGateway do
   def get_rest_api(client, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -966,18 +966,18 @@ defmodule AWS.APIGateway do
   def get_rest_apis(client, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -986,13 +986,13 @@ defmodule AWS.APIGateway do
   def get_sdk(client, rest_api_id, sdk_type, stage_name, parameters \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/sdks/#{URI.encode(sdk_type)}"
     headers = []
-    query = []
-    query = if !is_nil(parameters) do
-      [{"", parameters} | query]
+    query_ = []
+    query_ = if !is_nil(parameters) do
+      [{"", parameters} | query_]
     else
-      query
+      query_
     end
-    case request(client, :get, path_, query, headers, nil, options, 200) do
+    case request(client, :get, path_, query_, headers, nil, options, 200) do
       {:ok, body, response} ->
         body =
           [
@@ -1019,8 +1019,8 @@ defmodule AWS.APIGateway do
   def get_sdk_type(client, id, options \\ []) do
     path_ = "/sdktypes/#{URI.encode(id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1029,18 +1029,18 @@ defmodule AWS.APIGateway do
   def get_sdk_types(client, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/sdktypes"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1049,8 +1049,8 @@ defmodule AWS.APIGateway do
   def get_stage(client, rest_api_id, stage_name, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1059,13 +1059,13 @@ defmodule AWS.APIGateway do
   def get_stages(client, rest_api_id, deployment_id \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages"
     headers = []
-    query = []
-    query = if !is_nil(deployment_id) do
-      [{"deploymentId", deployment_id} | query]
+    query_ = []
+    query_ = if !is_nil(deployment_id) do
+      [{"deploymentId", deployment_id} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1074,18 +1074,18 @@ defmodule AWS.APIGateway do
   def get_tags(client, resource_arn, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1094,33 +1094,33 @@ defmodule AWS.APIGateway do
   def get_usage(client, usage_plan_id, end_date, key_id \\ nil, limit \\ nil, position \\ nil, start_date, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/usage"
     headers = []
-    query = []
-    query = if !is_nil(start_date) do
-      [{"startDate", start_date} | query]
+    query_ = []
+    query_ = if !is_nil(start_date) do
+      [{"startDate", start_date} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(key_id) do
-      [{"keyId", key_id} | query]
+    query_ = if !is_nil(key_id) do
+      [{"keyId", key_id} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(end_date) do
-      [{"endDate", end_date} | query]
+    query_ = if !is_nil(end_date) do
+      [{"endDate", end_date} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1129,8 +1129,8 @@ defmodule AWS.APIGateway do
   def get_usage_plan(client, usage_plan_id, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1139,8 +1139,8 @@ defmodule AWS.APIGateway do
   def get_usage_plan_key(client, key_id, usage_plan_id, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1150,23 +1150,23 @@ defmodule AWS.APIGateway do
   def get_usage_plan_keys(client, usage_plan_id, limit \\ nil, name_query \\ nil, position \\ nil, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/keys"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(name_query) do
-      [{"name", name_query} | query]
+    query_ = if !is_nil(name_query) do
+      [{"name", name_query} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1175,23 +1175,23 @@ defmodule AWS.APIGateway do
   def get_usage_plans(client, key_id \\ nil, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/usageplans"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(key_id) do
-      [{"keyId", key_id} | query]
+    query_ = if !is_nil(key_id) do
+      [{"keyId", key_id} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1200,8 +1200,8 @@ defmodule AWS.APIGateway do
   def get_vpc_link(client, vpc_link_id, options \\ []) do
     path_ = "/vpclinks/#{URI.encode(vpc_link_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, nil)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1211,18 +1211,18 @@ defmodule AWS.APIGateway do
   def get_vpc_links(client, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/vpclinks"
     headers = []
-    query = []
-    query = if !is_nil(position) do
-      [{"position", position} | query]
+    query_ = []
+    query_ = if !is_nil(position) do
+      [{"position", position} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(limit) do
-      [{"limit", limit} | query]
+    query_ = if !is_nil(limit) do
+      [{"limit", limit} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, nil)
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -1231,13 +1231,13 @@ defmodule AWS.APIGateway do
   def import_api_keys(client, input, options \\ []) do
     path_ = "/apikeys?mode=import"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"failOnWarnings", "failonwarnings"},
         {"format", "format"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :post, path_, query, headers, input, options, 201)
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -1246,13 +1246,13 @@ defmodule AWS.APIGateway do
   def import_documentation_parts(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"failOnWarnings", "failonwarnings"},
         {"mode", "mode"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path_, query, headers, input, options, nil)
+    request(client, :put, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1262,13 +1262,13 @@ defmodule AWS.APIGateway do
   def import_rest_api(client, input, options \\ []) do
     path_ = "/restapis?mode=import"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"failOnWarnings", "failonwarnings"},
         {"parameters", ""},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :post, path_, query, headers, input, options, 201)
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -1278,8 +1278,8 @@ defmodule AWS.APIGateway do
   def put_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -1288,8 +1288,8 @@ defmodule AWS.APIGateway do
   def put_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -1298,8 +1298,8 @@ defmodule AWS.APIGateway do
   def put_integration_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -1308,8 +1308,8 @@ defmodule AWS.APIGateway do
   def put_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -1318,8 +1318,8 @@ defmodule AWS.APIGateway do
   def put_method_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -1331,14 +1331,14 @@ defmodule AWS.APIGateway do
   def put_rest_api(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"failOnWarnings", "failonwarnings"},
         {"mode", "mode"},
         {"parameters", ""},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path_, query, headers, input, options, nil)
+    request(client, :put, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1347,8 +1347,8 @@ defmodule AWS.APIGateway do
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 204)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -1364,8 +1364,8 @@ defmodule AWS.APIGateway do
   def test_invoke_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1375,8 +1375,8 @@ defmodule AWS.APIGateway do
   def test_invoke_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1385,12 +1385,12 @@ defmodule AWS.APIGateway do
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"tagKeys", "tagKeys"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query, headers, input, options, 204)
+    request(client, :delete, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -1399,8 +1399,8 @@ defmodule AWS.APIGateway do
   def update_account(client, input, options \\ []) do
     path_ = "/account"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1409,8 +1409,8 @@ defmodule AWS.APIGateway do
   def update_api_key(client, api_key, input, options \\ []) do
     path_ = "/apikeys/#{URI.encode(api_key)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1422,8 +1422,8 @@ defmodule AWS.APIGateway do
   def update_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1432,8 +1432,8 @@ defmodule AWS.APIGateway do
   def update_base_path_mapping(client, base_path, domain_name, input, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}/basepathmappings/#{URI.encode(base_path)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1442,8 +1442,8 @@ defmodule AWS.APIGateway do
   def update_client_certificate(client, client_certificate_id, input, options \\ []) do
     path_ = "/clientcertificates/#{URI.encode(client_certificate_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1452,8 +1452,8 @@ defmodule AWS.APIGateway do
   def update_deployment(client, deployment_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/deployments/#{URI.encode(deployment_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1462,8 +1462,8 @@ defmodule AWS.APIGateway do
   def update_documentation_part(client, documentation_part_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1472,8 +1472,8 @@ defmodule AWS.APIGateway do
   def update_documentation_version(client, documentation_version, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1482,8 +1482,8 @@ defmodule AWS.APIGateway do
   def update_domain_name(client, domain_name, input, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1493,8 +1493,8 @@ defmodule AWS.APIGateway do
   def update_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1503,8 +1503,8 @@ defmodule AWS.APIGateway do
   def update_integration(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1513,8 +1513,8 @@ defmodule AWS.APIGateway do
   def update_integration_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1523,8 +1523,8 @@ defmodule AWS.APIGateway do
   def update_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1533,8 +1533,8 @@ defmodule AWS.APIGateway do
   def update_method_response(client, http_method, resource_id, rest_api_id, status_code, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -1543,8 +1543,8 @@ defmodule AWS.APIGateway do
   def update_model(client, model_name, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1553,8 +1553,8 @@ defmodule AWS.APIGateway do
   def update_request_validator(client, request_validator_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/requestvalidators/#{URI.encode(request_validator_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1563,8 +1563,8 @@ defmodule AWS.APIGateway do
   def update_resource(client, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1573,8 +1573,8 @@ defmodule AWS.APIGateway do
   def update_rest_api(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1583,8 +1583,8 @@ defmodule AWS.APIGateway do
   def update_stage(client, rest_api_id, stage_name, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1594,8 +1594,8 @@ defmodule AWS.APIGateway do
   def update_usage(client, key_id, usage_plan_id, input, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}/usage"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1604,8 +1604,8 @@ defmodule AWS.APIGateway do
   def update_usage_plan(client, usage_plan_id, input, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1614,8 +1614,8 @@ defmodule AWS.APIGateway do
   def update_vpc_link(client, vpc_link_id, input, options \\ []) do
     path_ = "/vpclinks/#{URI.encode(vpc_link_id)}"
     headers = []
-    query = []
-    request(client, :patch, path_, query, headers, input, options, nil)
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
@@ -1624,9 +1624,9 @@ defmodule AWS.APIGateway do
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "apigateway"}
-    host = get_host("apigateway", client)
+    host = build_host("apigateway", client)
     url = host
-    |> get_url(path, client)
+    |> build_url(path, client)
     |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
@@ -1672,14 +1672,14 @@ defmodule AWS.APIGateway do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, path, %{:proto => proto, :port => port}) do
+  defp build_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
   end
 

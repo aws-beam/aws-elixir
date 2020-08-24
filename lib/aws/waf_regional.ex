@@ -1,7 +1,7 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
 # See https://github.com/aws-beam/aws-codegen for more details.
 
-defmodule AWS.WAF.Regional do
+defmodule AWS.WAFRegional do
   @moduledoc """
   <note> This is **AWS WAF Classic Regional** documentation. For more
   information, see [AWS WAF
@@ -2617,8 +2617,8 @@ defmodule AWS.WAF.Regional do
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "waf-regional"}
-    host = get_host("waf-regional", client)
-    url = get_url(host, client)
+    host = build_host("waf-regional", client)
+    url = build_url(host, client)
 
     headers = [
       {"Host", host},
@@ -2645,14 +2645,14 @@ defmodule AWS.WAF.Regional do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, %{:proto => proto, :port => port}) do
+  defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
 end

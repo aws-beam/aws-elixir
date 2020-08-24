@@ -1,7 +1,7 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
 # See https://github.com/aws-beam/aws-codegen for more details.
 
-defmodule AWS.Kinesis.Analytics do
+defmodule AWS.KinesisAnalytics do
   @moduledoc """
   Amazon Kinesis Analytics
 
@@ -460,8 +460,8 @@ defmodule AWS.Kinesis.Analytics do
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "kinesisanalytics"}
-    host = get_host("kinesisanalytics", client)
-    url = get_url(host, client)
+    host = build_host("kinesisanalytics", client)
+    url = build_url(host, client)
 
     headers = [
       {"Host", host},
@@ -488,14 +488,14 @@ defmodule AWS.Kinesis.Analytics do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, %{:proto => proto, :port => port}) do
+  defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
 end

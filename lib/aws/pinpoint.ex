@@ -12,8 +12,8 @@ defmodule AWS.Pinpoint do
   def create_app(client, input, options \\ []) do
     path_ = "/v1/apps"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -23,8 +23,8 @@ defmodule AWS.Pinpoint do
   def create_campaign(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -34,8 +34,8 @@ defmodule AWS.Pinpoint do
   def create_email_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/email"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -44,8 +44,8 @@ defmodule AWS.Pinpoint do
   def create_export_job(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/export"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -54,8 +54,8 @@ defmodule AWS.Pinpoint do
   def create_import_job(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/import"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -64,8 +64,8 @@ defmodule AWS.Pinpoint do
   def create_journey(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -75,8 +75,8 @@ defmodule AWS.Pinpoint do
   def create_push_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/push"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -85,8 +85,8 @@ defmodule AWS.Pinpoint do
   def create_recommender_configuration(client, input, options \\ []) do
     path_ = "/v1/recommenders"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -97,8 +97,8 @@ defmodule AWS.Pinpoint do
   def create_segment(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -108,8 +108,8 @@ defmodule AWS.Pinpoint do
   def create_sms_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/sms"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -119,8 +119,8 @@ defmodule AWS.Pinpoint do
   def create_voice_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/voice"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 201)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -130,8 +130,8 @@ defmodule AWS.Pinpoint do
   def delete_adm_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/adm"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -141,8 +141,8 @@ defmodule AWS.Pinpoint do
   def delete_apns_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -152,8 +152,8 @@ defmodule AWS.Pinpoint do
   def delete_apns_sandbox_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_sandbox"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -163,8 +163,8 @@ defmodule AWS.Pinpoint do
   def delete_apns_voip_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -174,8 +174,8 @@ defmodule AWS.Pinpoint do
   def delete_apns_voip_sandbox_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip_sandbox"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -184,8 +184,8 @@ defmodule AWS.Pinpoint do
   def delete_app(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -195,8 +195,8 @@ defmodule AWS.Pinpoint do
   def delete_baidu_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/baidu"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -205,8 +205,8 @@ defmodule AWS.Pinpoint do
   def delete_campaign(client, application_id, campaign_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -216,8 +216,8 @@ defmodule AWS.Pinpoint do
   def delete_email_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/email"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -227,12 +227,12 @@ defmodule AWS.Pinpoint do
   def delete_email_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/email"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"Version", "version"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query, headers, input, options, 202)
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -241,8 +241,8 @@ defmodule AWS.Pinpoint do
   def delete_endpoint(client, application_id, endpoint_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/endpoints/#{URI.encode(endpoint_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -251,8 +251,8 @@ defmodule AWS.Pinpoint do
   def delete_event_stream(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/eventstream"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -262,8 +262,8 @@ defmodule AWS.Pinpoint do
   def delete_gcm_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/gcm"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -272,8 +272,8 @@ defmodule AWS.Pinpoint do
   def delete_journey(client, application_id, journey_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -283,12 +283,12 @@ defmodule AWS.Pinpoint do
   def delete_push_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/push"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"Version", "version"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query, headers, input, options, 202)
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -297,8 +297,8 @@ defmodule AWS.Pinpoint do
   def delete_recommender_configuration(client, recommender_id, input, options \\ []) do
     path_ = "/v1/recommenders/#{URI.encode(recommender_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -307,8 +307,8 @@ defmodule AWS.Pinpoint do
   def delete_segment(client, application_id, segment_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -318,8 +318,8 @@ defmodule AWS.Pinpoint do
   def delete_sms_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/sms"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -329,12 +329,12 @@ defmodule AWS.Pinpoint do
   def delete_sms_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/sms"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"Version", "version"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query, headers, input, options, 202)
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -343,8 +343,8 @@ defmodule AWS.Pinpoint do
   def delete_user_endpoints(client, application_id, user_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/users/#{URI.encode(user_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -354,8 +354,8 @@ defmodule AWS.Pinpoint do
   def delete_voice_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/voice"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -365,12 +365,12 @@ defmodule AWS.Pinpoint do
   def delete_voice_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/voice"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"Version", "version"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query, headers, input, options, 202)
+    request(client, :delete, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -380,8 +380,8 @@ defmodule AWS.Pinpoint do
   def get_adm_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/adm"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -391,8 +391,8 @@ defmodule AWS.Pinpoint do
   def get_apns_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -402,8 +402,8 @@ defmodule AWS.Pinpoint do
   def get_apns_sandbox_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_sandbox"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -413,8 +413,8 @@ defmodule AWS.Pinpoint do
   def get_apns_voip_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -424,8 +424,8 @@ defmodule AWS.Pinpoint do
   def get_apns_voip_sandbox_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip_sandbox"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -434,8 +434,8 @@ defmodule AWS.Pinpoint do
   def get_app(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -445,28 +445,28 @@ defmodule AWS.Pinpoint do
   def get_application_date_range_kpi(client, application_id, kpi_name, end_time \\ nil, next_token \\ nil, page_size \\ nil, start_time \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
     headers = []
-    query = []
-    query = if !is_nil(start_time) do
-      [{"start-time", start_time} | query]
+    query_ = []
+    query_ = if !is_nil(start_time) do
+      [{"start-time", start_time} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"next-token", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(end_time) do
-      [{"end-time", end_time} | query]
+    query_ = if !is_nil(end_time) do
+      [{"end-time", end_time} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -475,8 +475,8 @@ defmodule AWS.Pinpoint do
   def get_application_settings(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/settings"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -486,18 +486,18 @@ defmodule AWS.Pinpoint do
   def get_apps(client, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -507,8 +507,8 @@ defmodule AWS.Pinpoint do
   def get_baidu_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/baidu"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -518,8 +518,8 @@ defmodule AWS.Pinpoint do
   def get_campaign(client, application_id, campaign_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -528,18 +528,18 @@ defmodule AWS.Pinpoint do
   def get_campaign_activities(client, application_id, campaign_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/activities"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -549,28 +549,28 @@ defmodule AWS.Pinpoint do
   def get_campaign_date_range_kpi(client, application_id, campaign_id, kpi_name, end_time \\ nil, next_token \\ nil, page_size \\ nil, start_time \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
     headers = []
-    query = []
-    query = if !is_nil(start_time) do
-      [{"start-time", start_time} | query]
+    query_ = []
+    query_ = if !is_nil(start_time) do
+      [{"start-time", start_time} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"next-token", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(end_time) do
-      [{"end-time", end_time} | query]
+    query_ = if !is_nil(end_time) do
+      [{"end-time", end_time} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -580,8 +580,8 @@ defmodule AWS.Pinpoint do
   def get_campaign_version(client, application_id, campaign_id, version, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/versions/#{URI.encode(version)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -591,18 +591,18 @@ defmodule AWS.Pinpoint do
   def get_campaign_versions(client, application_id, campaign_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/versions"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -612,18 +612,18 @@ defmodule AWS.Pinpoint do
   def get_campaigns(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -633,8 +633,8 @@ defmodule AWS.Pinpoint do
   def get_channels(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -644,8 +644,8 @@ defmodule AWS.Pinpoint do
   def get_email_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/email"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -655,13 +655,13 @@ defmodule AWS.Pinpoint do
   def get_email_template(client, template_name, version \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/email"
     headers = []
-    query = []
-    query = if !is_nil(version) do
-      [{"version", version} | query]
+    query_ = []
+    query_ = if !is_nil(version) do
+      [{"version", version} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -671,8 +671,8 @@ defmodule AWS.Pinpoint do
   def get_endpoint(client, application_id, endpoint_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/endpoints/#{URI.encode(endpoint_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -681,8 +681,8 @@ defmodule AWS.Pinpoint do
   def get_event_stream(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/eventstream"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -692,8 +692,8 @@ defmodule AWS.Pinpoint do
   def get_export_job(client, application_id, job_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/export/#{URI.encode(job_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -703,18 +703,18 @@ defmodule AWS.Pinpoint do
   def get_export_jobs(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/export"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -724,8 +724,8 @@ defmodule AWS.Pinpoint do
   def get_gcm_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/gcm"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -735,8 +735,8 @@ defmodule AWS.Pinpoint do
   def get_import_job(client, application_id, job_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/import/#{URI.encode(job_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -746,18 +746,18 @@ defmodule AWS.Pinpoint do
   def get_import_jobs(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/import"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -767,8 +767,8 @@ defmodule AWS.Pinpoint do
   def get_journey(client, application_id, journey_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -778,28 +778,28 @@ defmodule AWS.Pinpoint do
   def get_journey_date_range_kpi(client, application_id, journey_id, kpi_name, end_time \\ nil, next_token \\ nil, page_size \\ nil, start_time \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
     headers = []
-    query = []
-    query = if !is_nil(start_time) do
-      [{"start-time", start_time} | query]
+    query_ = []
+    query_ = if !is_nil(start_time) do
+      [{"start-time", start_time} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"next-token", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(end_time) do
-      [{"end-time", end_time} | query]
+    query_ = if !is_nil(end_time) do
+      [{"end-time", end_time} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -809,18 +809,18 @@ defmodule AWS.Pinpoint do
   def get_journey_execution_activity_metrics(client, application_id, journey_activity_id, journey_id, next_token \\ nil, page_size \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/activities/#{URI.encode(journey_activity_id)}/execution-metrics"
     headers = []
-    query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = []
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"next-token", next_token} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -830,18 +830,18 @@ defmodule AWS.Pinpoint do
   def get_journey_execution_metrics(client, application_id, journey_id, next_token \\ nil, page_size \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/execution-metrics"
     headers = []
-    query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = []
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"next-token", next_token} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -851,13 +851,13 @@ defmodule AWS.Pinpoint do
   def get_push_template(client, template_name, version \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/push"
     headers = []
-    query = []
-    query = if !is_nil(version) do
-      [{"version", version} | query]
+    query_ = []
+    query_ = if !is_nil(version) do
+      [{"version", version} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -867,8 +867,8 @@ defmodule AWS.Pinpoint do
   def get_recommender_configuration(client, recommender_id, options \\ []) do
     path_ = "/v1/recommenders/#{URI.encode(recommender_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -878,18 +878,18 @@ defmodule AWS.Pinpoint do
   def get_recommender_configurations(client, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/recommenders"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -899,8 +899,8 @@ defmodule AWS.Pinpoint do
   def get_segment(client, application_id, segment_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -910,18 +910,18 @@ defmodule AWS.Pinpoint do
   def get_segment_export_jobs(client, application_id, segment_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/jobs/export"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -931,18 +931,18 @@ defmodule AWS.Pinpoint do
   def get_segment_import_jobs(client, application_id, segment_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/jobs/import"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -953,8 +953,8 @@ defmodule AWS.Pinpoint do
   def get_segment_version(client, application_id, segment_id, version, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/versions/#{URI.encode(version)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -965,18 +965,18 @@ defmodule AWS.Pinpoint do
   def get_segment_versions(client, application_id, segment_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/versions"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -986,18 +986,18 @@ defmodule AWS.Pinpoint do
   def get_segments(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1007,8 +1007,8 @@ defmodule AWS.Pinpoint do
   def get_sms_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/sms"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1018,13 +1018,13 @@ defmodule AWS.Pinpoint do
   def get_sms_template(client, template_name, version \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/sms"
     headers = []
-    query = []
-    query = if !is_nil(version) do
-      [{"version", version} | query]
+    query_ = []
+    query_ = if !is_nil(version) do
+      [{"version", version} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1034,8 +1034,8 @@ defmodule AWS.Pinpoint do
   def get_user_endpoints(client, application_id, user_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/users/#{URI.encode(user_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1045,8 +1045,8 @@ defmodule AWS.Pinpoint do
   def get_voice_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/voice"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1056,13 +1056,13 @@ defmodule AWS.Pinpoint do
   def get_voice_template(client, template_name, version \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/voice"
     headers = []
-    query = []
-    query = if !is_nil(version) do
-      [{"version", version} | query]
+    query_ = []
+    query_ = if !is_nil(version) do
+      [{"version", version} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1072,18 +1072,18 @@ defmodule AWS.Pinpoint do
   def list_journeys(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys"
     headers = []
-    query = []
-    query = if !is_nil(token) do
-      [{"token", token} | query]
+    query_ = []
+    query_ = if !is_nil(token) do
+      [{"token", token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1093,8 +1093,8 @@ defmodule AWS.Pinpoint do
   def list_tags_for_resource(client, resource_arn, options \\ []) do
     path_ = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1104,18 +1104,18 @@ defmodule AWS.Pinpoint do
   def list_template_versions(client, template_name, template_type, next_token \\ nil, page_size \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/#{URI.encode(template_type)}/versions"
     headers = []
-    query = []
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = []
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"next-token", next_token} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1125,28 +1125,28 @@ defmodule AWS.Pinpoint do
   def list_templates(client, next_token \\ nil, page_size \\ nil, prefix \\ nil, template_type \\ nil, options \\ []) do
     path_ = "/v1/templates"
     headers = []
-    query = []
-    query = if !is_nil(template_type) do
-      [{"template-type", template_type} | query]
+    query_ = []
+    query_ = if !is_nil(template_type) do
+      [{"template-type", template_type} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(prefix) do
-      [{"prefix", prefix} | query]
+    query_ = if !is_nil(prefix) do
+      [{"prefix", prefix} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(page_size) do
-      [{"page-size", page_size} | query]
+    query_ = if !is_nil(page_size) do
+      [{"page-size", page_size} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"next-token", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"next-token", next_token} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -1155,8 +1155,8 @@ defmodule AWS.Pinpoint do
   def phone_number_validate(client, input, options \\ []) do
     path_ = "/v1/phone/number/validate"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1166,8 +1166,8 @@ defmodule AWS.Pinpoint do
   def put_event_stream(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/eventstream"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1177,8 +1177,8 @@ defmodule AWS.Pinpoint do
   def put_events(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/events"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -1188,8 +1188,8 @@ defmodule AWS.Pinpoint do
   def remove_attributes(client, application_id, attribute_type, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/attributes/#{URI.encode(attribute_type)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1198,8 +1198,8 @@ defmodule AWS.Pinpoint do
   def send_messages(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/messages"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1208,8 +1208,8 @@ defmodule AWS.Pinpoint do
   def send_users_messages(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/users-messages"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1219,8 +1219,8 @@ defmodule AWS.Pinpoint do
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 204)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -1230,12 +1230,12 @@ defmodule AWS.Pinpoint do
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"TagKeys", "tagKeys"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query, headers, input, options, 204)
+    request(client, :delete, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -1245,8 +1245,8 @@ defmodule AWS.Pinpoint do
   def update_adm_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/adm"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1256,8 +1256,8 @@ defmodule AWS.Pinpoint do
   def update_apns_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1267,8 +1267,8 @@ defmodule AWS.Pinpoint do
   def update_apns_sandbox_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_sandbox"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1278,8 +1278,8 @@ defmodule AWS.Pinpoint do
   def update_apns_voip_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1289,8 +1289,8 @@ defmodule AWS.Pinpoint do
   def update_apns_voip_sandbox_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip_sandbox"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1299,8 +1299,8 @@ defmodule AWS.Pinpoint do
   def update_application_settings(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/settings"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1310,8 +1310,8 @@ defmodule AWS.Pinpoint do
   def update_baidu_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/baidu"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1320,8 +1320,8 @@ defmodule AWS.Pinpoint do
   def update_campaign(client, application_id, campaign_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1331,8 +1331,8 @@ defmodule AWS.Pinpoint do
   def update_email_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/email"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1342,13 +1342,13 @@ defmodule AWS.Pinpoint do
   def update_email_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/email"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"CreateNewVersion", "create-new-version"},
         {"Version", "version"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path_, query, headers, input, options, 202)
+    request(client, :put, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -1361,8 +1361,8 @@ defmodule AWS.Pinpoint do
   def update_endpoint(client, application_id, endpoint_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/endpoints/#{URI.encode(endpoint_id)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -1376,8 +1376,8 @@ defmodule AWS.Pinpoint do
   def update_endpoints_batch(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/endpoints"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 202)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -1387,8 +1387,8 @@ defmodule AWS.Pinpoint do
   def update_gcm_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/gcm"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1397,8 +1397,8 @@ defmodule AWS.Pinpoint do
   def update_journey(client, application_id, journey_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1407,8 +1407,8 @@ defmodule AWS.Pinpoint do
   def update_journey_state(client, application_id, journey_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/state"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1418,13 +1418,13 @@ defmodule AWS.Pinpoint do
   def update_push_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/push"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"CreateNewVersion", "create-new-version"},
         {"Version", "version"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path_, query, headers, input, options, 202)
+    request(client, :put, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -1433,8 +1433,8 @@ defmodule AWS.Pinpoint do
   def update_recommender_configuration(client, recommender_id, input, options \\ []) do
     path_ = "/v1/recommenders/#{URI.encode(recommender_id)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1445,8 +1445,8 @@ defmodule AWS.Pinpoint do
   def update_segment(client, application_id, segment_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1456,8 +1456,8 @@ defmodule AWS.Pinpoint do
   def update_sms_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/sms"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1467,13 +1467,13 @@ defmodule AWS.Pinpoint do
   def update_sms_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/sms"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"CreateNewVersion", "create-new-version"},
         {"Version", "version"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path_, query, headers, input, options, 202)
+    request(client, :put, path_, query_, headers, input, options, 202)
   end
 
   @doc """
@@ -1482,8 +1482,8 @@ defmodule AWS.Pinpoint do
   def update_template_active_version(client, template_name, template_type, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/#{URI.encode(template_type)}/active-version"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1493,8 +1493,8 @@ defmodule AWS.Pinpoint do
   def update_voice_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/voice"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -1504,13 +1504,13 @@ defmodule AWS.Pinpoint do
   def update_voice_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/voice"
     headers = []
-    {query, input} =
+    {query_, input} =
       [
         {"CreateNewVersion", "create-new-version"},
         {"Version", "version"},
       ]
       |> AWS.Request.build_params(input)
-    request(client, :put, path_, query, headers, input, options, 202)
+    request(client, :put, path_, query_, headers, input, options, 202)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
@@ -1519,9 +1519,9 @@ defmodule AWS.Pinpoint do
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "mobiletargeting"}
-    host = get_host("pinpoint", client)
+    host = build_host("pinpoint", client)
     url = host
-    |> get_url(path, client)
+    |> build_url(path, client)
     |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
@@ -1567,14 +1567,14 @@ defmodule AWS.Pinpoint do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, path, %{:proto => proto, :port => port}) do
+  defp build_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
   end
 

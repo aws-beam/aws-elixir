@@ -1,7 +1,7 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
 # See https://github.com/aws-beam/aws-codegen for more details.
 
-defmodule AWS.Cognito.IdentityProvider do
+defmodule AWS.CognitoIdentityProvider do
   @moduledoc """
   Using the Amazon Cognito User Pools API, you can create a user pool to
   manage directories and users. You can authenticate a user to obtain tokens
@@ -1010,8 +1010,8 @@ defmodule AWS.Cognito.IdentityProvider do
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "cognito-idp"}
-    host = get_host("cognito-idp", client)
-    url = get_url(host, client)
+    host = build_host("cognito-idp", client)
+    url = build_url(host, client)
 
     headers = [
       {"Host", host},
@@ -1038,14 +1038,14 @@ defmodule AWS.Cognito.IdentityProvider do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, %{:proto => proto, :port => port}) do
+  defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
 end

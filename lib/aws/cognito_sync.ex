@@ -1,7 +1,7 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
 # See https://github.com/aws-beam/aws-codegen for more details.
 
-defmodule AWS.Cognito.Sync do
+defmodule AWS.CognitoSync do
   @moduledoc """
   Amazon Cognito Sync
 
@@ -41,8 +41,8 @@ defmodule AWS.Cognito.Sync do
   def bulk_publish(client, identity_pool_id, input, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/bulkpublish"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -57,8 +57,8 @@ defmodule AWS.Cognito.Sync do
   def delete_dataset(client, dataset_name, identity_id, identity_pool_id, input, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -74,8 +74,8 @@ defmodule AWS.Cognito.Sync do
   def describe_dataset(client, dataset_name, identity_id, identity_pool_id, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -88,8 +88,8 @@ defmodule AWS.Cognito.Sync do
   def describe_identity_pool_usage(client, identity_pool_id, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -102,8 +102,8 @@ defmodule AWS.Cognito.Sync do
   def describe_identity_usage(client, identity_id, identity_pool_id, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -115,8 +115,8 @@ defmodule AWS.Cognito.Sync do
   def get_bulk_publish_details(client, identity_pool_id, input, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/getBulkPublishDetails"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -129,8 +129,8 @@ defmodule AWS.Cognito.Sync do
   def get_cognito_events(client, identity_pool_id, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/events"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -142,8 +142,8 @@ defmodule AWS.Cognito.Sync do
   def get_identity_pool_configuration(client, identity_pool_id, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -158,18 +158,18 @@ defmodule AWS.Cognito.Sync do
   def list_datasets(client, identity_id, identity_pool_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -182,18 +182,18 @@ defmodule AWS.Cognito.Sync do
   def list_identity_pool_usage(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/identitypools"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -209,28 +209,28 @@ defmodule AWS.Cognito.Sync do
   def list_records(client, dataset_name, identity_id, identity_pool_id, last_sync_count \\ nil, max_results \\ nil, next_token \\ nil, sync_session_token \\ nil, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/records"
     headers = []
-    query = []
-    query = if !is_nil(sync_session_token) do
-      [{"syncSessionToken", sync_session_token} | query]
+    query_ = []
+    query_ = if !is_nil(sync_session_token) do
+      [{"syncSessionToken", sync_session_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(last_sync_count) do
-      [{"lastSyncCount", last_sync_count} | query]
+    query_ = if !is_nil(last_sync_count) do
+      [{"lastSyncCount", last_sync_count} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -242,8 +242,8 @@ defmodule AWS.Cognito.Sync do
   def register_device(client, identity_id, identity_pool_id, input, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identity/#{URI.encode(identity_id)}/device"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -258,8 +258,8 @@ defmodule AWS.Cognito.Sync do
   def set_cognito_events(client, identity_pool_id, input, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/events"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -271,8 +271,8 @@ defmodule AWS.Cognito.Sync do
   def set_identity_pool_configuration(client, identity_pool_id, input, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -285,8 +285,8 @@ defmodule AWS.Cognito.Sync do
   def subscribe_to_dataset(client, dataset_name, device_id, identity_id, identity_pool_id, input, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -299,8 +299,8 @@ defmodule AWS.Cognito.Sync do
   def unsubscribe_from_dataset(client, dataset_name, device_id, identity_id, identity_pool_id, input, options \\ []) do
     path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -330,8 +330,8 @@ defmodule AWS.Cognito.Sync do
         {"ClientContext", "x-amz-Client-Context"},
       ]
       |> AWS.Request.build_params(input)
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
@@ -340,9 +340,9 @@ defmodule AWS.Cognito.Sync do
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "cognito-sync"}
-    host = get_host("cognito-sync", client)
+    host = build_host("cognito-sync", client)
     url = host
-    |> get_url(path, client)
+    |> build_url(path, client)
     |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
@@ -388,14 +388,14 @@ defmodule AWS.Cognito.Sync do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, path, %{:proto => proto, :port => port}) do
+  defp build_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
   end
 

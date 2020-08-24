@@ -467,8 +467,8 @@ defmodule AWS.SNS do
           | {:error, HTTPoison.Error.t()}
   defp request(client, action, input, options) do
     client = %{client | service: "sns"}
-    host = get_host("sns", client)
-    url = get_url(host, client)
+    host = build_host("sns", client)
+    url = build_url(host, client)
 
     headers = [
       {"Host", host},
@@ -495,14 +495,14 @@ defmodule AWS.SNS do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, %{:proto => proto, :port => port}) do
+  defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
   end
 end

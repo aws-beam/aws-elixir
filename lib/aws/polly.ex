@@ -24,8 +24,8 @@ defmodule AWS.Polly do
   def delete_lexicon(client, name, input, options \\ []) do
     path_ = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    query = []
-    request(client, :delete, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -53,28 +53,28 @@ defmodule AWS.Polly do
   def describe_voices(client, engine \\ nil, include_additional_language_codes \\ nil, language_code \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/v1/voices"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(language_code) do
-      [{"LanguageCode", language_code} | query]
+    query_ = if !is_nil(language_code) do
+      [{"LanguageCode", language_code} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(include_additional_language_codes) do
-      [{"IncludeAdditionalLanguageCodes", include_additional_language_codes} | query]
+    query_ = if !is_nil(include_additional_language_codes) do
+      [{"IncludeAdditionalLanguageCodes", include_additional_language_codes} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(engine) do
-      [{"Engine", engine} | query]
+    query_ = if !is_nil(engine) do
+      [{"Engine", engine} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -85,8 +85,8 @@ defmodule AWS.Polly do
   def get_lexicon(client, name, options \\ []) do
     path_ = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -98,8 +98,8 @@ defmodule AWS.Polly do
   def get_speech_synthesis_task(client, task_id, options \\ []) do
     path_ = "/v1/synthesisTasks/#{URI.encode(task_id)}"
     headers = []
-    query = []
-    request(client, :get, path_, query, headers, nil, options, 200)
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -110,13 +110,13 @@ defmodule AWS.Polly do
   def list_lexicons(client, next_token \\ nil, options \\ []) do
     path_ = "/v1/lexicons"
     headers = []
-    query = []
-    query = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query]
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -127,23 +127,23 @@ defmodule AWS.Polly do
   def list_speech_synthesis_tasks(client, max_results \\ nil, next_token \\ nil, status \\ nil, options \\ []) do
     path_ = "/v1/synthesisTasks"
     headers = []
-    query = []
-    query = if !is_nil(status) do
-      [{"Status", status} | query]
+    query_ = []
+    query_ = if !is_nil(status) do
+      [{"Status", status} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query]
+    query_ = if !is_nil(next_token) do
+      [{"NextToken", next_token} | query_]
     else
-      query
+      query_
     end
-    query = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query]
+    query_ = if !is_nil(max_results) do
+      [{"MaxResults", max_results} | query_]
     else
-      query
+      query_
     end
-    request(client, :get, path_, query, headers, nil, options, 200)
+    request(client, :get, path_, query_, headers, nil, options, 200)
   end
 
   @doc """
@@ -158,8 +158,8 @@ defmodule AWS.Polly do
   def put_lexicon(client, name, input, options \\ []) do
     path_ = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    query = []
-    request(client, :put, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -174,8 +174,8 @@ defmodule AWS.Polly do
   def start_speech_synthesis_task(client, input, options \\ []) do
     path_ = "/v1/synthesisTasks"
     headers = []
-    query = []
-    request(client, :post, path_, query, headers, input, options, 200)
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -189,8 +189,8 @@ defmodule AWS.Polly do
   def synthesize_speech(client, input, options \\ []) do
     path_ = "/v1/speech"
     headers = []
-    query = []
-    case request(client, :post, path_, query, headers, input, options, 200) do
+    query_ = []
+    case request(client, :post, path_, query_, headers, input, options, 200) do
       {:ok, body, response} ->
         body =
           [
@@ -217,9 +217,9 @@ defmodule AWS.Polly do
           | {:error, HTTPoison.Error.t()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "polly"}
-    host = get_host("polly", client)
+    host = build_host("polly", client)
     url = host
-    |> get_url(path, client)
+    |> build_url(path, client)
     |> add_query(query)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
@@ -265,14 +265,14 @@ defmodule AWS.Polly do
     end
   end
 
-  defp get_host(_endpoint_prefix, %{region: "local"}) do
+  defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
-  defp get_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
+  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
     "#{endpoint_prefix}.#{region}.#{endpoint}"
   end
 
-  defp get_url(host, path, %{:proto => proto, :port => port}) do
+  defp build_url(host, path, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}#{path}"
   end
 

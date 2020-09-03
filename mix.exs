@@ -46,7 +46,6 @@ defmodule AWS.Mixfile do
     [maintainers: ["Jamu Kakar"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/aws-beam/aws-elixir",
-              "Docs" => "http://hexdocs.pm/aws/#{@version}/",
               "Changelog" => "https://github.com/aws-beam/aws-elixir/blob/master/CHANGELOG.md"}]
   end
 end

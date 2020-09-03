@@ -30,9 +30,6 @@ defmodule AWS.Util do
   @doc """
   Encode URI.
   """
-  def encode_uri(value, false = _multi_segment) do
-    :http_uri.encode(value)
-  end
   def encode_uri(value, true = _multi_segment) do
     String.split(value, "/")
     |> Enum.map(&URI.encode/1)

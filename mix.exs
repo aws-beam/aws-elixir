@@ -21,7 +21,7 @@ defmodule AWS.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:httpoison, :logger, :timex]]
+    [extra_applications: [:logger, :crypto, :xmerl, :eex]]
   end
 
   # Dependencies can be Hex packages:
@@ -38,8 +38,7 @@ defmodule AWS.Mixfile do
      {:earmark, "~> 1.4", only: [:dev]},
      {:ex_doc, "~> 0.21", only: [:dev]},
      {:httpoison, "~> 1.6"},
-     {:poison, "~> 4.0"},
-     {:timex, "~> 3.6"}]
+     {:poison, "~> 4.0"}]
   end
 
   defp package do

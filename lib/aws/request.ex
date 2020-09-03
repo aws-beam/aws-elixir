@@ -6,7 +6,7 @@ defmodule AWS.Request do
   Generate headers with an AWS signature version 4 for the specified request.
   """
   def sign_v4(client, method, url, headers, body) do
-    sign_v4(client, Timex.now, method, url, headers, body)
+    sign_v4(client, now(), method, url, headers, body)
   end
 
   @doc """
@@ -14,8 +14,8 @@ defmodule AWS.Request do
   using the specified time.
   """
   def sign_v4(client, now, method, url, headers, body) do
-    {:ok, long_date} = Timex.format(now, "{YYYY}{0M}{0D}T{h24}{m}{s}Z")
-    {:ok, short_date} = Timex.format(now, "{YYYY}{0M}{0D}")
+    long_date = NaiveDateTime.to_iso8601(now, :basic) <> "Z"
+    short_date = Date.to_iso8601(now, :basic)
 
     headers =
       headers
@@ -43,15 +43,15 @@ defmodule AWS.Request do
   Generate headers with an AWS signature version 4 for the specified request that can be transformed into a query string.
   """
   def sign_v4_query(client, method, url, headers, body) do
-    sign_v4_query(client, Timex.now, method, url, headers, body)
+    sign_v4_query(client, now(), method, url, headers, body)
   end
 
   @doc """
   Generate headers with an AWS signature version 4 for the specified request using the specified time that can be transformed into a query string.
   """
   def sign_v4_query(client, now, method, url, headers, body) do
-    {:ok, long_date} = Timex.format(now, "{YYYY}{0M}{0D}T{h24}{m}{s}Z")
-    {:ok, short_date} = Timex.format(now, "{YYYY}{0M}{0D}")
+    long_date = NaiveDateTime.to_iso8601(now, :basic) <> "Z"
+    short_date = Date.to_iso8601(now, :basic)
     headers = Internal.add_date_header(headers, long_date)
     canonical_request = Internal.canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
@@ -109,6 +109,10 @@ defmodule AWS.Request do
       nil -> add_headers(additions, [header | headers])
       {_, _} -> add_headers(additions, headers)
     end
+  end
+
+  defp now() do
+    NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second)
   end
 end
 

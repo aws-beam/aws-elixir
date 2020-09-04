@@ -45,6 +45,10 @@ library from the JSON descriptions of AWS services provided by Amazon.
 
 ## Documentation
 
+Online
+* [Hex Docs](https://hexdocs.pm/aws/api-reference.html) 
+
+Local
 * Run `MIX_ENV=docs mix docs`
 * Open `docs/index.html`
 

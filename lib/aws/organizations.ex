@@ -51,16 +51,16 @@ defmodule AWS.Organizations do
   policy type:
 
   <ul> <li>
-  [AISERVICES_OPT_OUT_POLICY](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html)
+  [AISERVICES_OPT_OUT_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html)
 
   </li> <li>
-  [BACKUP_POLICY](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html)
+  [BACKUP_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html)
 
   </li> <li>
-  [SERVICE_CONTROL_POLICY](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)
+  [SERVICE_CONTROL_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)
 
   </li> <li>
-  [TAG_POLICY](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
+  [TAG_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
 
   </li> </ul> This operation can be called only from the organization's
   master account.
@@ -94,8 +94,9 @@ defmodule AWS.Organizations do
   few minutes before you can successfully access the account. To check the
   status of the request, do one of the following:
 
-  <ul> <li> Use the `OperationId` response element from this operation to
-  provide as a parameter to the `DescribeCreateAccountStatus` operation.
+  <ul> <li> Use the `Id` member of the `CreateAccountStatus` response element
+  from this operation to provide as a parameter to the
+  `DescribeCreateAccountStatus` operation.
 
   </li> <li> Check the AWS CloudTrail log for the `CreateAccountResult`
   event. For information on using AWS CloudTrail with AWS Organizations, see
@@ -103,13 +104,16 @@ defmodule AWS.Organizations do
   Organization](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html)
   in the *AWS Organizations User Guide.*
 
-  </li> </ul> <p/> The user who calls the API to create an account must have
-  the `organizations:CreateAccount` permission. If you enabled all features
-  in the organization, AWS Organizations creates the required service-linked
+  </li> </ul> The user who calls the API to create an account must have the
+  `organizations:CreateAccount` permission. If you enabled all features in
+  the organization, AWS Organizations creates the required service-linked
   role named `AWSServiceRoleForOrganizations`. For more information, see [AWS
   Organizations and Service-Linked
   Roles](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs)
   in the *AWS Organizations User Guide*.
+
+  If the request includes tags, then the requester must have the
+  `organizations:TagResource` permission.
 
   AWS Organizations preconfigures the new member account with a role (named
   `OrganizationAccountAccessRole` by default) that grants users in the master
@@ -176,20 +180,22 @@ defmodule AWS.Organizations do
   Guide*.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/welcome.html)
 
   </li> <li> You already have an account in the AWS GovCloud (US) Region that
-  is associated with your master account in the commercial Region.
+  is paired with a master account of an organization in the commercial
+  Region.
 
   </li> <li> You call this action from the master account of your
   organization in the commercial Region.
 
   </li> <li> You have the `organizations:CreateGovCloudAccount` permission.
-  AWS Organizations creates the required service-linked role named
-  `AWSServiceRoleForOrganizations`. For more information, see [AWS
-  Organizations and Service-Linked
+
+  </li> </ul> AWS Organizations automatically creates the required
+  service-linked role named `AWSServiceRoleForOrganizations`. For more
+  information, see [AWS Organizations and Service-Linked
   Roles](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs)
   in the *AWS Organizations User Guide.*
 
-  </li> </ul> AWS automatically enables AWS CloudTrail for AWS GovCloud (US)
-  accounts, but you should also do the following:
+  AWS automatically enables AWS CloudTrail for AWS GovCloud (US) accounts,
+  but you should also do the following:
 
   <ul> <li> Verify that AWS CloudTrail is enabled to store logs.
 
@@ -199,12 +205,19 @@ defmodule AWS.Organizations do
   Enabled](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/verifying-cloudtrail.html)
   in the *AWS GovCloud User Guide*.
 
-  </li> </ul> You call this action from the master account of your
-  organization in the commercial Region to create a standalone AWS account in
-  the AWS GovCloud (US) Region. After the account is created, the master
-  account of an organization in the AWS GovCloud (US) Region can invite it to
-  that organization. For more information on inviting standalone accounts in
-  the AWS GovCloud (US) to join an organization, see [AWS
+  </li> </ul> If the request includes tags, then the requester must have the
+  `organizations:TagResource` permission. The tags are attached to the
+  commercial account associated with the GovCloud account, rather than the
+  GovCloud account itself. To add tags to the GovCloud account, call the
+  `TagResource` operation in the GovCloud Region after the new GovCloud
+  account exists.
+
+  You call this action from the master account of your organization in the
+  commercial Region to create a standalone AWS account in the AWS GovCloud
+  (US) Region. After the account is created, the master account of an
+  organization in the AWS GovCloud (US) Region can invite it to that
+  organization. For more information on inviting standalone accounts in the
+  AWS GovCloud (US) to join an organization, see [AWS
   Organizations](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html)
   in the *AWS GovCloud User Guide.*
 
@@ -234,11 +247,11 @@ defmodule AWS.Organizations do
   A role is created in the new account in the commercial Region that allows
   the master account in the organization in the commercial Region to assume
   it. An AWS GovCloud (US) account is then created and associated with the
-  commercial account that you just created. A role is created in the new AWS
-  GovCloud (US) account that can be assumed by the AWS GovCloud (US) account
-  that is associated with the master account of the commercial organization.
-  For more information and to view a diagram that explains how account access
-  works, see [AWS
+  commercial account that you just created. A role is also created in the new
+  AWS GovCloud (US) account that can be assumed by the AWS GovCloud (US)
+  account that is associated with the master account of the commercial
+  organization. For more information and to view a diagram that explains how
+  account access works, see [AWS
   Organizations](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html)
   in the *AWS GovCloud User Guide.*
 
@@ -292,7 +305,7 @@ defmodule AWS.Organizations do
   @doc """
   Creates an AWS organization. The account whose user is calling the
   `CreateOrganization` operation automatically becomes the [master
-  account](https://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_getting-started_concepts.html#account)
+  account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account)
   of the new organization.
 
   This operation must be called using credentials from the account that is to
@@ -321,6 +334,9 @@ defmodule AWS.Organizations do
   Units](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html)
   in the *AWS Organizations User Guide.*
 
+  If the request includes tags, then the requester must have the
+  `organizations:TagResource` permission.
+
   This operation can be called only from the organization's master account.
   """
   def create_organizational_unit(client, input, options \\ []) do
@@ -334,6 +350,9 @@ defmodule AWS.Organizations do
   For more information about policies and their use, see [Managing
   Organization
   Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
+
+  If the request includes tags, then the requester must have the
+  `organizations:TagResource` permission.
 
   This operation can be called only from the organization's master account.
   """
@@ -696,8 +715,10 @@ defmodule AWS.Organizations do
   again. If the error persists after an hour, contact [AWS
   Support](https://console.aws.amazon.com/support/home#/).
 
-  </li> </ul> </important> This operation can be called only from the
-  organization's master account.
+  </li> </ul> </important> If the request includes tags, then the requester
+  must have the `organizations:TagResource` permission.
+
+  This operation can be called only from the organization's master account.
   """
   def invite_account_to_organization(client, input, options \\ []) do
     request(client, "InviteAccountToOrganization", input, options)
@@ -723,11 +744,11 @@ defmodule AWS.Organizations do
   standalone account. When you create an account in an organization using the
   AWS Organizations console, API, or CLI commands, the information required
   of standalone accounts is *not* automatically collected. For each account
-  that you want to make standalone, you must do the following steps:
+  that you want to make standalone, you must perform the following steps. If
+  any of the steps are already completed for this account, that step doesn't
+  appear.
 
-  <ul> <li> Accept the end user license agreement (EULA)
-
-  </li> <li> Choose a support plan
+  <ul> <li> Choose a support plan
 
   </li> <li> Provide and verify the required contact information
 
@@ -745,6 +766,10 @@ defmodule AWS.Organizations do
   Access to the Billing and Cost Management
   Console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate)
   in the *AWS Billing and Cost Management User Guide.*
+
+  </li> <li> After the account leaves the organization, all tags that were
+  attached to the account object in the organization are deleted. AWS
+  accounts outside of an organization do not support tags.
 
   </li> </ul> </important>
   """
@@ -886,9 +911,7 @@ defmodule AWS.Organizations do
   `NextToken` response parameter value is `null` *only* when there are no
   more results to display.
 
-  </note> This operation can be called only from the organization's master
-  account or by a member account that is a delegated administrator for an AWS
-  service.
+  </note> This operation can be called from any account in the organization.
   """
   def list_handshakes_for_account(client, input, options \\ []) do
     request(client, "ListHandshakesForAccount", input, options)
@@ -1023,12 +1046,21 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Lists tags for the specified resource.
+  Lists tags that are attached to the specified resource.
 
-  Currently, you can list tags on an account in AWS Organizations.
+  You can attach tags to the following resources in AWS Organizations.
 
-  This operation can be called only from the organization's master account or
-  by a member account that is a delegated administrator for an AWS service.
+  <ul> <li> AWS account
+
+  </li> <li> Organization root
+
+  </li> <li> Organizational unit (OU)
+
+  </li> <li> Policy (any type)
+
+  </li> </ul> This operation can be called only from the organization's
+  master account or by a member account that is a delegated administrator for
+  an AWS service.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -1093,23 +1125,26 @@ defmodule AWS.Organizations do
   This operation can be called only from the organization's master account.
   Member accounts can remove themselves with `LeaveOrganization` instead.
 
-  <important> You can remove an account from your organization only if the
-  account is configured with the information required to operate as a
+  <important> <ul> <li> You can remove an account from your organization only
+  if the account is configured with the information required to operate as a
   standalone account. When you create an account in an organization using the
   AWS Organizations console, API, or CLI commands, the information required
   of standalone accounts is *not* automatically collected. For an account
-  that you want to make standalone, you must accept the end user license
-  agreement (EULA), choose a support plan, provide and verify the required
-  contact information, and provide a current payment method. AWS uses the
-  payment method to charge for any billable (not free tier) AWS activity that
-  occurs while the account isn't attached to an organization. To remove an
-  account that doesn't yet have this information, you must sign in as the
-  member account and follow the steps at [ To leave an organization when all
-  required account information has not yet been
+  that you want to make standalone, you must choose a support plan, provide
+  and verify the required contact information, and provide a current payment
+  method. AWS uses the payment method to charge for any billable (not free
+  tier) AWS activity that occurs while the account isn't attached to an
+  organization. To remove an account that doesn't yet have this information,
+  you must sign in as the member account and follow the steps at [ To leave
+  an organization when all required account information has not yet been
   provided](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info)
   in the *AWS Organizations User Guide.*
 
-  </important>
+  </li> <li> After the account leaves the organization, all tags that were
+  attached to the account object in the organization are deleted. AWS
+  accounts outside of an organization do not support tags.
+
+  </li> </ul> </important>
   """
   def remove_account_from_organization(client, input, options \\ []) do
     request(client, "RemoveAccountFromOrganization", input, options)
@@ -1118,20 +1153,39 @@ defmodule AWS.Organizations do
   @doc """
   Adds one or more tags to the specified resource.
 
-  Currently, you can tag and untag accounts in AWS Organizations.
+  Currently, you can attach tags to the following resources in AWS
+  Organizations.
 
-  This operation can be called only from the organization's master account.
+  <ul> <li> AWS account
+
+  </li> <li> Organization root
+
+  </li> <li> Organizational unit (OU)
+
+  </li> <li> Policy (any type)
+
+  </li> </ul> This operation can be called only from the organization's
+  master account.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
   end
 
   @doc """
-  Removes a tag from the specified resource.
+  Removes any tags with the specified keys from the specified resource.
 
-  Currently, you can tag and untag accounts in AWS Organizations.
+  You can attach tags to the following resources in AWS Organizations.
 
-  This operation can be called only from the organization's master account.
+  <ul> <li> AWS account
+
+  </li> <li> Organization root
+
+  </li> <li> Organizational unit (OU)
+
+  </li> <li> Policy (any type)
+
+  </li> </ul> This operation can be called only from the organization's
+  master account.
   """
   def untag_resource(client, input, options \\ []) do
     request(client, "UntagResource", input, options)
@@ -1160,9 +1214,8 @@ defmodule AWS.Organizations do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "organizations",
                         region:  "us-east-1"}
@@ -1175,25 +1228,24 @@ defmodule AWS.Organizations do
       {"X-Amz-Target", "AWSOrganizationsV20161128.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

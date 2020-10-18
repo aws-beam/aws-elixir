@@ -123,7 +123,9 @@ defmodule AWS.EKS do
   create a node group for your cluster that is equal to the current
   Kubernetes version for the cluster. All node groups are created with the
   latest AMI release version for the respective minor Kubernetes version of
-  the cluster.
+  the cluster, unless you deploy a custom AMI using a launch template. For
+  more information about using launch templates, see [Launch template
+  support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
 
   An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and
   associated Amazon EC2 instances that are managed by AWS for an Amazon EKS
@@ -462,11 +464,19 @@ defmodule AWS.EKS do
   Updates the Kubernetes version or AMI version of an Amazon EKS managed node
   group.
 
-  You can update to the latest available AMI version of a node group's
-  current Kubernetes version by not specifying a Kubernetes version in the
-  request. You can update to the latest AMI version of your cluster's current
-  Kubernetes version by specifying your cluster's Kubernetes version in the
-  request. For more information, see [Amazon EKS-Optimized Linux AMI
+  You can update a node group using a launch template only if the node group
+  was originally deployed with a launch template. If you need to update a
+  custom AMI in a node group that was deployed with a launch template, then
+  update your custom AMI, specify the new ID in a new version of the launch
+  template, and then update the node group to the new version of the launch
+  template.
+
+  If you update without a launch template, then you can update to the latest
+  available AMI version of a node group's current Kubernetes version by not
+  specifying a Kubernetes version in the request. You can update to the
+  latest AMI version of your cluster's current Kubernetes version by
+  specifying your cluster's Kubernetes version in the request. For more
+  information, see [Amazon EKS-Optimized Linux AMI
   Versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html)
   in the *Amazon EKS User Guide*.
 
@@ -487,9 +497,8 @@ defmodule AWS.EKS do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "eks"}
     host = build_host("eks", client)
@@ -505,41 +514,16 @@ defmodule AWS.EKS do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -560,6 +544,11 @@ defmodule AWS.EKS do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

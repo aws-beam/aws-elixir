@@ -45,17 +45,17 @@ defmodule AWS.CognitoIdentityProvider do
   If `MessageAction` is not set, the default is to send a welcome message via
   email or phone (SMS).
 
-  <note> This message is based on a template that you configured in your call
-  to or . This template includes your custom sign-up instructions and
-  placeholders for user name and temporary password.
+  This message is based on a template that you configured in your call to
+  create or update a user pool. This template includes your custom sign-up
+  instructions and placeholders for user name and temporary password.
 
-  </note> Alternatively, you can call AdminCreateUser with “SUPPRESS” for the
+  Alternatively, you can call `AdminCreateUser` with “SUPPRESS” for the
   `MessageAction` parameter, and Amazon Cognito will not send any email.
 
   In either case, the user will be in the `FORCE_CHANGE_PASSWORD` state until
   they sign in and change their password.
 
-  AdminCreateUser requires developer credentials.
+  `AdminCreateUser` requires developer credentials.
   """
   def admin_create_user(client, input, options \\ []) do
     request(client, "AdminCreateUser", input, options)
@@ -87,7 +87,8 @@ defmodule AWS.CognitoIdentityProvider do
   password to sign-in. If the user to disable is a linked external IdP user,
   any link between that user and an existing user is removed. The next time
   the external user (no longer attached to the previously linked
-  `DestinationUser`) signs in, they must create a new user account. See .
+  `DestinationUser`) signs in, they must create a new user account. See
+  [AdminLinkProviderForUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html).
 
   This action is enabled only for admin access and requires developer
   credentials.
@@ -107,11 +108,12 @@ defmodule AWS.CognitoIdentityProvider do
   For de-linking a SAML identity, there are two scenarios. If the linked
   identity has not yet been used to sign-in, the `ProviderAttributeName` and
   `ProviderAttributeValue` must be the same values that were used for the
-  `SourceUser` when the identities were originally linked in the call. (If
-  the linking was done with `ProviderAttributeName` set to `Cognito_Subject`,
-  the same applies here). However, if the user has already signed in, the
-  `ProviderAttributeName` must be `Cognito_Subject` and
-  `ProviderAttributeValue` must be the subject of the SAML assertion.
+  `SourceUser` when the identities were originally linked using `
+  AdminLinkProviderForUser` call. (If the linking was done with
+  `ProviderAttributeName` set to `Cognito_Subject`, the same applies here).
+  However, if the user has already signed in, the `ProviderAttributeName`
+  must be `Cognito_Subject` and `ProviderAttributeValue` must be the subject
+  of the SAML assertion.
   """
   def admin_disable_provider_for_user(client, input, options \\ []) do
     request(client, "AdminDisableProviderForUser", input, options)
@@ -186,15 +188,15 @@ defmodule AWS.CognitoIdentityProvider do
   federated user identity is used, the user signs in as the existing user
   account.
 
-  <important> Because this API allows a user with an external federated
-  identity to sign in as an existing user in the user pool, it is critical
-  that it only be used with external identity providers and provider
+  <note> The maximum number of federated identities linked to a user is 5.
+
+  </note> <important> Because this API allows a user with an external
+  federated identity to sign in as an existing user in the user pool, it is
+  critical that it only be used with external identity providers and provider
   attributes that have been trusted by the application owner.
 
-  </important> See also .
-
-  This action is enabled only for admin access and requires developer
-  credentials.
+  </important> This action is enabled only for admin access and requires
+  developer credentials.
   """
   def admin_link_provider_for_user(client, input, options \\ []) do
     request(client, "AdminLinkProviderForUser", input, options)
@@ -297,7 +299,9 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   *This action is no longer supported.* You can use it to configure only SMS
   MFA. You can't use it to configure TOTP software token MFA. To configure
-  either type of MFA, use the `AdminSetUserMFAPreference` action instead.
+  either type of MFA, use
+  [AdminSetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html)
+  instead.
   """
   def admin_set_user_settings(client, input, options \\ []) do
     request(client, "AdminSetUserSettings", input, options)
@@ -560,11 +564,12 @@ defmodule AWS.CognitoIdentityProvider do
   confirmation code that is required to change the user's password. For the
   `Username` parameter, you can use the username or user alias. The method
   used to send the confirmation code is sent according to the specified
-  AccountRecoverySetting. For more information, see <a href="">Recovering
-  User Accounts` in the *Amazon Cognito Developer Guide*. If neither a
-  verified phone number nor a verified email exists, an
-  `InvalidParameterException` is thrown. To use the confirmation code for
-  resetting the password, call .
+  AccountRecoverySetting. For more information, see [Recovering User
+  Accounts](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html)
+  in the *Amazon Cognito Developer Guide*. If neither a verified phone number
+  nor a verified email exists, an `InvalidParameterException` is thrown. To
+  use the confirmation code for resetting the password, call
+  [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html).
   """
   def forgot_password(client, input, options \\ []) do
     request(client, "ForgotPassword", input, options)
@@ -759,8 +764,6 @@ defmodule AWS.CognitoIdentityProvider do
 
   To enable Amazon Cognito advanced security features, update the user pool
   to include the `UserPoolAddOns` key`AdvancedSecurityMode`.
-
-  See .
   """
   def set_risk_configuration(client, input, options \\ []) do
     request(client, "SetRiskConfiguration", input, options)
@@ -808,7 +811,9 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   *This action is no longer supported.* You can use it to configure only SMS
   MFA. You can't use it to configure TOTP software token MFA. To configure
-  either type of MFA, use the `SetUserMFAPreference` action instead.
+  either type of MFA, use
+  [SetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html)
+  instead.
   """
   def set_user_settings(client, input, options \\ []) do
     request(client, "SetUserSettings", input, options)
@@ -927,7 +932,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Updates the specified user pool with the specified attributes. You can get
-  a list of the current user pool settings with .
+  a list of the current user pool settings using
+  [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html).
 
   <important> If you don't provide a value for an attribute, it will be set
   to the default value.
@@ -940,7 +946,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Updates the specified user pool app client with the specified attributes.
-  You can get a list of the current user pool app client settings with .
+  You can get a list of the current user pool app client settings using
+  [DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html).
 
   <important> If you don't provide a value for an attribute, it will be set
   to the default value.
@@ -1005,9 +1012,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "cognito-idp"}
     host = build_host("cognito-idp", client)
@@ -1019,25 +1025,24 @@ defmodule AWS.CognitoIdentityProvider do
       {"X-Amz-Target", "AWSCognitoIdentityProviderService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

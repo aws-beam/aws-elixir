@@ -3,26 +3,17 @@
 
 defmodule AWS.SMS do
   @moduledoc """
-  AAWS Sever Migration Service
+  AWS Server Migration Service
 
-  This is the *AWS Sever Migration Service API Reference*. It provides
-  descriptions, syntax, and usage examples for each of the actions and data
-  types for the AWS Sever Migration Service (AWS SMS). The topic for each
-  action shows the Query API request parameters and the XML response. You can
-  also view the XML request elements in the WSDL.
+  AWS Server Migration Service (AWS SMS) makes it easier and faster for you
+  to migrate your on-premises workloads to AWS. To learn more about AWS SMS,
+  see the following resources:
 
-  Alternatively, you can use one of the AWS SDKs to access an API that's
-  tailored to the programming language or platform that you're using. For
-  more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).
+  <ul> <li> [AWS Server Migration Service product
+  page](http://aws.amazon.com/server-migration-service/)
 
-  To learn more about the Server Migration Service, see the following
-  resources:
-
-  <ul> <li> [AWS Sever Migration Service product
-  page](https://aws.amazon.com/server-migration-service/)
-
-  </li> <li> [AWS Sever Migration Service User
-  Guide](https://docs.aws.amazon.com/server-migration-service/latest/userguide/server-migration.html)
+  </li> <li> [AWS Server Migration Service User
+  Guide](https://docs.aws.amazon.com/server-migration-service/latest/userguide/)
 
   </li> </ul>
   """
@@ -45,7 +36,7 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Deletes an existing application. Optionally deletes the launched stack
+  Deletes the specified application. Optionally deletes the launched stack
   associated with the application and all AWS SMS replication jobs for
   servers in the application.
   """
@@ -54,17 +45,24 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Deletes existing launch configuration for an application.
+  Deletes the launch configuration for the specified application.
   """
   def delete_app_launch_configuration(client, input, options \\ []) do
     request(client, "DeleteAppLaunchConfiguration", input, options)
   end
 
   @doc """
-  Deletes existing replication configuration for an application.
+  Deletes the replication configuration for the specified application.
   """
   def delete_app_replication_configuration(client, input, options \\ []) do
     request(client, "DeleteAppReplicationConfiguration", input, options)
+  end
+
+  @doc """
+  Deletes the validation configuration for the specified application.
+  """
+  def delete_app_validation_configuration(client, input, options \\ []) do
+    request(client, "DeleteAppValidationConfiguration", input, options)
   end
 
   @doc """
@@ -104,7 +102,7 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Generates an Amazon CloudFormation template based on the current launch
+  Generates an AWS CloudFormation template based on the current launch
   configuration and writes it to an Amazon S3 object in the customer’s Amazon
   S3 bucket.
   """
@@ -113,26 +111,40 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Retrieve information about an application.
+  Retrieve information about the specified application.
   """
   def get_app(client, input, options \\ []) do
     request(client, "GetApp", input, options)
   end
 
   @doc """
-  Retrieves the application launch configuration associated with an
-  application.
+  Retrieves the application launch configuration associated with the
+  specified application.
   """
   def get_app_launch_configuration(client, input, options \\ []) do
     request(client, "GetAppLaunchConfiguration", input, options)
   end
 
   @doc """
-  Retrieves an application replication configuration associatd with an
-  application.
+  Retrieves the application replication configuration associated with the
+  specified application.
   """
   def get_app_replication_configuration(client, input, options \\ []) do
     request(client, "GetAppReplicationConfiguration", input, options)
+  end
+
+  @doc """
+  Retrieves information about a configuration for validating an application.
+  """
+  def get_app_validation_configuration(client, input, options \\ []) do
+    request(client, "GetAppValidationConfiguration", input, options)
+  end
+
+  @doc """
+  Retrieves output from validating an application.
+  """
+  def get_app_validation_output(client, input, options \\ []) do
+    request(client, "GetAppValidationOutput", input, options)
   end
 
   @doc """
@@ -167,8 +179,15 @@ defmodule AWS.SMS do
   end
 
   @doc """
+  Allows application import from AWS Migration Hub.
+  """
+  def import_app_catalog(client, input, options \\ []) do
+    request(client, "ImportAppCatalog", input, options)
+  end
+
+  @doc """
   Gathers a complete list of on-premises servers. Connectors must be
-  installed and monitoring all servers that you want to import.
+  installed and monitoring all servers to import.
 
   This call returns immediately, but might take additional time to retrieve
   all the servers.
@@ -178,38 +197,63 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Launches an application stack.
+  Launches the specified application as a stack in AWS CloudFormation.
   """
   def launch_app(client, input, options \\ []) do
     request(client, "LaunchApp", input, options)
   end
 
   @doc """
-  Returns a list of summaries for all applications.
+  Retrieves summaries for all applications.
   """
   def list_apps(client, input, options \\ []) do
     request(client, "ListApps", input, options)
   end
 
   @doc """
-  Creates a launch configuration for an application.
+  Provides information to AWS SMS about whether application validation is
+  successful.
+  """
+  def notify_app_validation_output(client, input, options \\ []) do
+    request(client, "NotifyAppValidationOutput", input, options)
+  end
+
+  @doc """
+  Creates or updates the launch configuration for the specified application.
   """
   def put_app_launch_configuration(client, input, options \\ []) do
     request(client, "PutAppLaunchConfiguration", input, options)
   end
 
   @doc """
-  Creates or updates a replication configuration for an application.
+  Creates or updates the replication configuration for the specified
+  application.
   """
   def put_app_replication_configuration(client, input, options \\ []) do
     request(client, "PutAppReplicationConfiguration", input, options)
   end
 
   @doc """
-  Starts replicating an application.
+  Creates or updates a validation configuration for the specified
+  application.
+  """
+  def put_app_validation_configuration(client, input, options \\ []) do
+    request(client, "PutAppValidationConfiguration", input, options)
+  end
+
+  @doc """
+  Starts replicating the specified application by creating replication jobs
+  for each server in the application.
   """
   def start_app_replication(client, input, options \\ []) do
     request(client, "StartAppReplication", input, options)
+  end
+
+  @doc """
+  Starts an on-demand replication run for the specified application.
+  """
+  def start_on_demand_app_replication(client, input, options \\ []) do
+    request(client, "StartOnDemandAppReplication", input, options)
   end
 
   @doc """
@@ -217,7 +261,7 @@ defmodule AWS.SMS do
   replication run starts immediately. This replication run is in addition to
   the ones already scheduled.
 
-  There is a limit on the number of on-demand replications runs you can
+  There is a limit on the number of on-demand replications runs that you can
   request in a 24-hour period.
   """
   def start_on_demand_replication_run(client, input, options \\ []) do
@@ -225,21 +269,22 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Stops replicating an application.
+  Stops replicating the specified application by deleting the replication job
+  for each server in the application.
   """
   def stop_app_replication(client, input, options \\ []) do
     request(client, "StopAppReplication", input, options)
   end
 
   @doc """
-  Terminates the stack for an application.
+  Terminates the stack for the specified application.
   """
   def terminate_app(client, input, options \\ []) do
     request(client, "TerminateApp", input, options)
   end
 
   @doc """
-  Updates an application.
+  Updates the specified application.
   """
   def update_app(client, input, options \\ []) do
     request(client, "UpdateApp", input, options)
@@ -253,9 +298,8 @@ defmodule AWS.SMS do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "sms"}
     host = build_host("sms", client)
@@ -267,25 +311,24 @@ defmodule AWS.SMS do
       {"X-Amz-Target", "AWSServerMigrationService_V2016_10_24.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

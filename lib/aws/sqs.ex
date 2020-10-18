@@ -10,6 +10,11 @@ defmodule AWS.SQS do
   microservices. Amazon SQS moves data between distributed application
   components and helps you decouple these components.
 
+  For information on the permissions you need to use this API, see [Identity
+  and access
+  management](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html)
+  in the *Amazon Simple Queue Service Developer Guide.*
+
   You can use [AWS SDKs](http://aws.amazon.com/tools/#sdk) to access Amazon
   SQS using your favorite programming language. The SDKs perform tasks such
   as the following automatically:
@@ -30,7 +35,7 @@ defmodule AWS.SQS do
   Requests](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html)
 
   </li> <li> [Amazon SQS Message
-  Attributes](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html)
+  Attributes](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes)
 
   </li> <li> [Amazon SQS Dead-Letter
   Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html)
@@ -344,6 +349,14 @@ defmodule AWS.SQS do
   Returns a list of your queues that have the `RedrivePolicy` queue attribute
   configured with a dead-letter queue.
 
+  The `ListDeadLetterSourceQueues` methods supports pagination. Set parameter
+  `MaxResults` in the request to specify the maximum number of results to be
+  returned in the response. If you do not set `MaxResults`, the response
+  includes a maximum of 1,000 results. If you set `MaxResults` and there are
+  additional results to display, the response includes a value for
+  `NextToken`. Use `NextToken` as a parameter in your next request to
+  `ListDeadLetterSourceQueues` to receive the next page of results.
+
   For more information about using dead-letter queues, see [Using Amazon SQS
   Dead-Letter
   Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html)
@@ -371,10 +384,18 @@ defmodule AWS.SQS do
   end
 
   @doc """
-  Returns a list of your queues. The maximum number of queues that can be
-  returned is 1,000. If you specify a value for the optional
+  Returns a list of your queues in the current region. The response includes
+  a maximum of 1,000 results. If you specify a value for the optional
   `QueueNamePrefix` parameter, only queues with a name that begins with the
   specified value are returned.
+
+  The `listQueues` methods supports pagination. Set parameter `MaxResults` in
+  the request to specify the maximum number of results to be returned in the
+  response. If you do not set `MaxResults`, the response includes a maximum
+  of 1,000 results. If you set `MaxResults` and there are additional results
+  to display, the response includes a value for `NextToken`. Use `NextToken`
+  as a parameter in your next request to `listQueues` to receive the next
+  page of results.
 
   <note> Cross-account permissions don't apply to this action. For more
   information, see [Grant Cross-Account Permissions to a Role and a User
@@ -620,9 +641,8 @@ defmodule AWS.SQS do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "sqs"}
     host = build_host("sqs", client)
@@ -634,25 +654,24 @@ defmodule AWS.SQS do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2012-11-05"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

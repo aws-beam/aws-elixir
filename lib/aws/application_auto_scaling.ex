@@ -23,11 +23,14 @@ defmodule AWS.ApplicationAutoScaling do
 
   </li> <li> Custom resources provided by your own applications or services
 
-  </li> <li> Amazon Comprehend document classification endpoints
+  </li> <li> Amazon Comprehend document classification and entity recognizer
+  endpoints
 
   </li> <li> AWS Lambda function provisioned concurrency
 
   </li> <li> Amazon Keyspaces (for Apache Cassandra) tables
+
+  </li> <li> Amazon Managed Streaming for Apache Kafka cluster storage
 
   </li> </ul> **API Summary**
 
@@ -236,8 +239,9 @@ defmodule AWS.ApplicationAutoScaling do
   of resource ID, scalable dimension, and namespace.
 
   When you register a new scalable target, you must specify values for
-  minimum and maximum capacity. Application Auto Scaling scaling policies
-  will not scale capacity to values that are outside of this range.
+  minimum and maximum capacity. Current capacity will be adjusted within the
+  specified range when scaling starts. Application Auto Scaling scaling
+  policies will not scale capacity to values that are outside of this range.
 
   After you register a scalable target, you do not need to register it again
   to use other Application Auto Scaling operations. To see which resources
@@ -258,9 +262,8 @@ defmodule AWS.ApplicationAutoScaling do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "application-autoscaling"}
     host = build_host("application-autoscaling", client)
@@ -272,25 +275,24 @@ defmodule AWS.ApplicationAutoScaling do
       {"X-Amz-Target", "AnyScaleFrontendService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

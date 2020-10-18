@@ -67,14 +67,11 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns Auto Scaling group recommendations.
 
-  AWS Compute Optimizer currently generates recommendations for Auto Scaling
-  groups that are configured to run instances of the M, C, R, T, and X
-  instance families. The service does not generate recommendations for Auto
-  Scaling groups that have a scaling policy attached to them, or that do not
-  have the same values for desired, minimum, and maximum capacity. In order
-  for Compute Optimizer to analyze your Auto Scaling groups, they must be of
-  a fixed size. For more information, see the [AWS Compute Optimizer User
-  Guide](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is.html).
+  AWS Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling
+  groups that meet a specific set of requirements. For more information, see
+  the [Supported resources and
+  requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
+  in the *AWS Compute Optimizer User Guide*.
   """
   def get_auto_scaling_group_recommendations(client, input, options \\ []) do
     request(client, "GetAutoScalingGroupRecommendations", input, options)
@@ -83,11 +80,11 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns Amazon EC2 instance recommendations.
 
-  AWS Compute Optimizer currently generates recommendations for Amazon
-  Elastic Compute Cloud (Amazon EC2) and Amazon EC2 Auto Scaling. It
-  generates recommendations for M, C, R, T, and X instance families. For more
-  information, see the [AWS Compute Optimizer User
-  Guide](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is.html).
+  AWS Compute Optimizer generates recommendations for Amazon Elastic Compute
+  Cloud (Amazon EC2) instances that meet a specific set of requirements. For
+  more information, see the [Supported resources and
+  requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
+  in the *AWS Compute Optimizer User Guide*.
   """
   def get_e_c2_instance_recommendations(client, input, options \\ []) do
     request(client, "GetEC2InstanceRecommendations", input, options)
@@ -96,6 +93,15 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns the projected utilization metrics of Amazon EC2 instance
   recommendations.
+
+  <note> The `Cpu` and `Memory` metrics are the only projected utilization
+  metrics returned when you run this action. Additionally, the `Memory`
+  metric is returned only for resources that have the unified CloudWatch
+  agent installed on them. For more information, see [Enabling Memory
+  Utilization with the CloudWatch
+  Agent](https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent).
+
+  </note>
   """
   def get_e_c2_recommendation_projected_metrics(client, input, options \\ []) do
     request(client, "GetEC2RecommendationProjectedMetrics", input, options)
@@ -136,9 +142,8 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "compute-optimizer"}
     host = build_host("compute-optimizer", client)
@@ -150,25 +155,24 @@ defmodule AWS.ComputeOptimizer do
       {"X-Amz-Target", "ComputeOptimizerService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

@@ -57,12 +57,18 @@ defmodule AWS.Ivs do
 
   <ul> <li> Channel — Stores configuration data related to your live stream.
   You first create a channel and then use the channel’s stream key to start
-  your live stream. See the `Channel` endpoints for more information.
+  your live stream. See the Channel endpoints for more information.
 
   </li> <li> Stream key — An identifier assigned by Amazon IVS when you
   create a channel, which is then used to authorize streaming. See the
-  `StreamKey` endpoints for more information. * **Treat the stream key like a
+  StreamKey endpoints for more information. * **Treat the stream key like a
   secret, since it allows anyone to stream to the channel.** *
+
+  </li> <li> Playback key pair — Video playback may be restricted using
+  playback-authorization tokens, which use public-key encryption. A playback
+  key pair is the public-private pair of keys used to sign and validate the
+  playback-authorization token. See the PlaybackKeyPair endpoints for more
+  information.
 
   </li> </ul> **Tagging**
 
@@ -80,11 +86,9 @@ defmodule AWS.Ivs do
 
   The Amazon IVS API has these tag-related endpoints: `TagResource`,
   `UntagResource`, and `ListTagsForResource`. The following resources support
-  tagging: Channels and Stream Keys.
+  tagging: Channels, Stream Keys, and Playback Key Pairs.
 
-  **API Endpoints**
-
-  `Channel`:
+  **Channel Endpoints**
 
   <ul> <li> `CreateChannel` — Creates a new channel and an associated stream
   key to start streaming.
@@ -105,7 +109,7 @@ defmodule AWS.Ivs do
 
   </li> <li> `DeleteChannel` — Deletes the specified channel.
 
-  </li> </ul> `StreamKey`:
+  </li> </ul> **StreamKey Endpoints**
 
   <ul> <li> `CreateStreamKey` — Creates a stream key, used to initiate a
   stream, for the specified channel ARN.
@@ -122,7 +126,7 @@ defmodule AWS.Ivs do
   </li> <li> `DeleteStreamKey` — Deletes the stream key for the specified
   ARN, so it can no longer be used to stream.
 
-  </li> </ul> `Stream`:
+  </li> </ul> **Stream Endpoints**
 
   <ul> <li> `GetStream` — Gets information about the active (live) stream on
   a specified channel.
@@ -138,8 +142,26 @@ defmodule AWS.Ivs do
   specified channel. A maximum of 5 requests per second per channel is
   allowed, each with a maximum 1KB payload.
 
-  </li> </ul> [ AWS
-  Tags](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html):
+  </li> </ul> **PlaybackKeyPair Endpoints**
+
+  <ul> <li> `ImportPlaybackKeyPair` — Imports the public portion of a new key
+  pair and returns its `arn` and `fingerprint`. The `privateKey` can then be
+  used to generate viewer authorization tokens, to grant viewers access to
+  authorized channels.
+
+  </li> <li> `GetPlaybackKeyPair` — Gets a specified playback authorization
+  key pair and returns the `arn` and `fingerprint`. The `privateKey` held by
+  the caller can be used to generate viewer authorization tokens, to grant
+  viewers access to authorized channels.
+
+  </li> <li> `ListPlaybackKeyPairs` — Gets summary information about playback
+  key pairs.
+
+  </li> <li> `DeletePlaybackKeyPair` — Deletes a specified authorization key
+  pair. This invalidates future viewer tokens generated using the key pair’s
+  `privateKey`.
+
+  </li> </ul> **AWS Tags Endpoints**
 
   <ul> <li> `TagResource` — Adds or updates tags for the AWS resource with
   the specified ARN.
@@ -211,6 +233,17 @@ defmodule AWS.Ivs do
   end
 
   @doc """
+  Deletes a specified authorization key pair. This invalidates future viewer
+  tokens generated using the key pair’s `privateKey`.
+  """
+  def delete_playback_key_pair(client, input, options \\ []) do
+    path_ = "/DeletePlaybackKeyPair"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Deletes the stream key for the specified ARN, so it can no longer be used
   to stream.
   """
@@ -227,6 +260,19 @@ defmodule AWS.Ivs do
   """
   def get_channel(client, input, options \\ []) do
     path_ = "/GetChannel"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Gets a specified playback authorization key pair and returns the `arn` and
+  `fingerprint`. The `privateKey` held by the caller can be used to generate
+  viewer authorization tokens, to grant viewers access to authorized
+  channels.
+  """
+  def get_playback_key_pair(client, input, options \\ []) do
+    path_ = "/GetPlaybackKeyPair"
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, nil)
@@ -253,12 +299,34 @@ defmodule AWS.Ivs do
   end
 
   @doc """
+  Imports the public portion of a new key pair and returns its `arn` and
+  `fingerprint`. The `privateKey` can then be used to generate viewer
+  authorization tokens, to grant viewers access to authorized channels.
+  """
+  def import_playback_key_pair(client, input, options \\ []) do
+    path_ = "/ImportPlaybackKeyPair"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Gets summary information about all channels in your account, in the AWS
   region where the API request is processed. This list can be filtered to
   match a specified string.
   """
   def list_channels(client, input, options \\ []) do
     path_ = "/ListChannels"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Gets summary information about playback key pairs.
+  """
+  def list_playback_key_pairs(client, input, options \\ []) do
+    path_ = "/ListPlaybackKeyPairs"
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, nil)
@@ -362,9 +430,8 @@ defmodule AWS.Ivs do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "ivs"}
     host = build_host("ivs", client)
@@ -380,41 +447,16 @@ defmodule AWS.Ivs do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -435,6 +477,11 @@ defmodule AWS.Ivs do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

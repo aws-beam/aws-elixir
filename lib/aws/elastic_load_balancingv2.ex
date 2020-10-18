@@ -56,8 +56,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @doc """
   Adds the specified tags to the specified Elastic Load Balancing resource.
-  You can tag your Application Load Balancers, Network Load Balancers, and
-  your target groups.
+  You can tag your Application Load Balancers, Network Load Balancers, target
+  groups, listeners, and rules.
 
   Each tag consists of a key and an optional value. If a resource already has
   a tag with the same key, `AddTags` updates its value.
@@ -129,10 +129,11 @@ defmodule AWS.ElasticLoadBalancingv2 do
   Creates a rule for the specified listener. The listener must be associated
   with an Application Load Balancer.
 
-  Rules are evaluated in priority order, from the lowest value to the highest
-  value. When the conditions for a rule are met, its actions are performed.
-  If the conditions for no rules are met, the actions for the default rule
-  are performed. For more information, see [Listener
+  Each rule consists of a priority, one or more actions, and one or more
+  conditions. Rules are evaluated in priority order, from the lowest value to
+  the highest value. When the conditions for a rule are met, its actions are
+  performed. If the conditions for no rules are met, the actions for the
+  default rule are performed. For more information, see [Listener
   Rules](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules)
   in the *Application Load Balancers Guide*.
 
@@ -201,6 +202,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @doc """
   Deletes the specified rule.
+
+  You can't delete the default rule.
   """
   def delete_rule(client, input, options \\ []) do
     request(client, "DeleteRule", input, options)
@@ -313,9 +316,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
-  Describes the tags for the specified resources. You can describe the tags
-  for one or more Application Load Balancers, Network Load Balancers, and
-  target groups.
+  Describes the tags for the specified Elastic Load Balancing resources. You
+  can describe the tags for one or more Application Load Balancers, Network
+  Load Balancers, target groups, listeners, or rules.
   """
   def describe_tags(client, input, options \\ []) do
     request(client, "DescribeTags", input, options)
@@ -455,7 +458,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @doc """
   Removes the specified tags from the specified Elastic Load Balancing
-  resource.
+  resources. You can remove the tags for one or more Application Load
+  Balancers, Network Load Balancers, target groups, listeners, or rules.
 
   To list the current tags for your resources, use `DescribeTags`.
   """
@@ -507,9 +511,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "elasticloadbalancing"}
     host = build_host("elasticloadbalancing", client)
@@ -521,25 +524,24 @@ defmodule AWS.ElasticLoadBalancingv2 do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2015-12-01"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

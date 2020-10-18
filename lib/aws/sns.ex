@@ -112,11 +112,10 @@ defmodule AWS.SNS do
 
   @doc """
   Creates a topic to which notifications can be published. Users can create
-  at most 100,000 standard topics (at most 1,000 FIFO topics). For more
-  information, see [https://aws.amazon.com/sns](http://aws.amazon.com/sns/).
-  This action is idempotent, so if the requester already owns a topic with
-  the specified name, that topic's ARN is returned without creating a new
-  topic.
+  at most 100,000 topics. For more information, see
+  [https://aws.amazon.com/sns](http://aws.amazon.com/sns/). This action is
+  idempotent, so if the requester already owns a topic with the specified
+  name, that topic's ARN is returned without creating a new topic.
   """
   def create_topic(client, input, options \\ []) do
     request(client, "CreateTopic", input, options)
@@ -462,9 +461,8 @@ defmodule AWS.SNS do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "sns"}
     host = build_host("sns", client)
@@ -476,25 +474,24 @@ defmodule AWS.SNS do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2010-03-31"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

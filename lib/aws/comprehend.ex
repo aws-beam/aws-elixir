@@ -183,6 +183,14 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Gets the properties associated with a PII entities detection job. For
+  example, you can use this operation to get the job status.
+  """
+  def describe_pii_entities_detection_job(client, input, options \\ []) do
+    request(client, "DescribePiiEntitiesDetectionJob", input, options)
+  end
+
+  @doc """
   Gets the properties associated with a sentiment detection job. Use this
   operation to get the status of a detection job.
   """
@@ -220,6 +228,14 @@ defmodule AWS.Comprehend do
   """
   def detect_key_phrases(client, input, options \\ []) do
     request(client, "DetectKeyPhrases", input, options)
+  end
+
+  @doc """
+  Inspects the input text for entities that contain personally identifiable
+  information (PII) and returns information about them.
+  """
+  def detect_pii_entities(client, input, options \\ []) do
+    request(client, "DetectPiiEntities", input, options)
   end
 
   @doc """
@@ -297,6 +313,13 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Gets a list of the PII entity detection jobs that you have submitted.
+  """
+  def list_pii_entities_detection_jobs(client, input, options \\ []) do
+    request(client, "ListPiiEntitiesDetectionJobs", input, options)
+  end
+
+  @doc """
   Gets a list of sentiment detection jobs that you have submitted.
   """
   def list_sentiment_detection_jobs(client, input, options \\ []) do
@@ -352,6 +375,14 @@ defmodule AWS.Comprehend do
   """
   def start_key_phrases_detection_job(client, input, options \\ []) do
     request(client, "StartKeyPhrasesDetectionJob", input, options)
+  end
+
+  @doc """
+  Starts an asynchronous PII entity detection job for a collection of
+  documents.
+  """
+  def start_pii_entities_detection_job(client, input, options \\ []) do
+    request(client, "StartPiiEntitiesDetectionJob", input, options)
   end
 
   @doc """
@@ -428,6 +459,13 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Stops a PII entities detection job in progress.
+  """
+  def stop_pii_entities_detection_job(client, input, options \\ []) do
+    request(client, "StopPiiEntitiesDetectionJob", input, options)
+  end
+
+  @doc """
   Stops a sentiment detection job in progress.
 
   If the job state is `IN_PROGRESS` the job is marked for termination and put
@@ -497,9 +535,8 @@ defmodule AWS.Comprehend do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "comprehend"}
     host = build_host("comprehend", client)
@@ -511,25 +548,24 @@ defmodule AWS.Comprehend do
       {"X-Amz-Target", "Comprehend_20171127.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

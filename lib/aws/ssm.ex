@@ -263,7 +263,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Delete a custom inventory type, or the data associated with a custom
+  Delete a custom inventory type or the data associated with a custom
   Inventory type. Deleting a custom inventory type is also referred to as
   deleting a custom inventory schema.
   """
@@ -613,16 +613,19 @@ defmodule AWS.SSM do
   The following section lists the properties that can be used in filters for
   each major operating system type:
 
-  <dl> <dt>WINDOWS</dt> <dd> Valid properties: PRODUCT, PRODUCT_FAMILY,
-  CLASSIFICATION, MSRC_SEVERITY
-
-  </dd> <dt>AMAZON_LINUX</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
+  <dl> <dt>AMAZON_LINUX</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
   SEVERITY
 
   </dd> <dt>AMAZON_LINUX_2</dt> <dd> Valid properties: PRODUCT,
   CLASSIFICATION, SEVERITY
 
-  </dd> <dt>UBUNTU </dt> <dd> Valid properties: PRODUCT, PRIORITY
+  </dd> <dt>CENTOS</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
+  SEVERITY
+
+  </dd> <dt>DEBIAN</dt> <dd> Valid properties: PRODUCT, PRIORITY
+
+  </dd> <dt>ORACLE_LINUX</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
+  SEVERITY
 
   </dd> <dt>REDHAT_ENTERPRISE_LINUX</dt> <dd> Valid properties: PRODUCT,
   CLASSIFICATION, SEVERITY
@@ -630,8 +633,10 @@ defmodule AWS.SSM do
   </dd> <dt>SUSE</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
   SEVERITY
 
-  </dd> <dt>CENTOS</dt> <dd> Valid properties: PRODUCT, CLASSIFICATION,
-  SEVERITY
+  </dd> <dt>UBUNTU</dt> <dd> Valid properties: PRODUCT, PRIORITY
+
+  </dd> <dt>WINDOWS</dt> <dd> Valid properties: PRODUCT, PRODUCT_FAMILY,
+  CLASSIFICATION, MSRC_SEVERITY
 
   </dd> </dl>
   """
@@ -660,8 +665,14 @@ defmodule AWS.SSM do
   of the calendar at a specific time, and returns the next time that the
   Change Calendar state will transition. If you do not specify a time,
   `GetCalendarState` assumes the current time. Change Calendar entries have
-  two possible states: `OPEN` or `CLOSED`. For more information about Systems
-  Manager Change Calendar, see [AWS Systems Manager Change
+  two possible states: `OPEN` or `CLOSED`.
+
+  If you specify more than one calendar in a request, the command returns the
+  status of `OPEN` only if all calendars in the request are open. If one or
+  more calendars in the request are closed, the status returned is `CLOSED`.
+
+  For more information about Systems Manager Change Calendar, see [AWS
+  Systems Manager Change
   Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html)
   in the *AWS Systems Manager User Guide*.
   """
@@ -799,7 +810,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Query a list of all parameters used by the AWS account.
+  Retrieves the history of all changes to a parameter.
   """
   def get_parameter_history(client, input, options \\ []) do
     request(client, "GetParameterHistory", input, options)
@@ -1347,10 +1358,23 @@ defmodule AWS.SSM do
 
   </li> <li> MaxErrors
 
-  </li> </ul> If a parameter is null, then the corresponding field is not
-  modified. Also, if you set Replace to true, then all fields required by the
+  </li> </ul> If the value for a parameter in `UpdateMaintenanceWindowTask`
+  is null, then the corresponding field is not modified. If you set `Replace`
+  to true, then all fields required by the
   `RegisterTaskWithMaintenanceWindow` action are required for this request.
   Optional fields that aren't specified are set to null.
+
+  <important> When you update a maintenance window task that has options
+  specified in `TaskInvocationParameters`, you must provide again all the
+  `TaskInvocationParameters` values that you want to retain. The values you
+  do not specify again are removed. For example, suppose that when you
+  registered a Run Command task, you specified `TaskInvocationParameters`
+  values for `Comment`, `NotificationConfig`, and `OutputS3BucketName`. If
+  you update the maintenance window task and specify only a different
+  `OutputS3BucketName` value, the values for `Comment` and
+  `NotificationConfig` are removed.
+
+  </important>
   """
   def update_maintenance_window_task(client, input, options \\ []) do
     request(client, "UpdateMaintenanceWindowTask", input, options)
@@ -1440,9 +1464,8 @@ defmodule AWS.SSM do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "ssm"}
     host = build_host("ssm", client)
@@ -1454,25 +1477,24 @@ defmodule AWS.SSM do
       {"X-Amz-Target", "AmazonSSM.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

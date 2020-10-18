@@ -67,6 +67,13 @@ defmodule AWS.Budgets do
   end
 
   @doc """
+  Creates a budget action.
+  """
+  def create_budget_action(client, input, options \\ []) do
+    request(client, "CreateBudgetAction", input, options)
+  end
+
+  @doc """
   Creates a notification. You must create the budget before you create the
   associated notification.
   """
@@ -92,6 +99,13 @@ defmodule AWS.Budgets do
   """
   def delete_budget(client, input, options \\ []) do
     request(client, "DeleteBudget", input, options)
+  end
+
+  @doc """
+  Deletes a budget action.
+  """
+  def delete_budget_action(client, input, options \\ []) do
+    request(client, "DeleteBudgetAction", input, options)
   end
 
   @doc """
@@ -133,6 +147,34 @@ defmodule AWS.Budgets do
   end
 
   @doc """
+  Describes a budget action detail.
+  """
+  def describe_budget_action(client, input, options \\ []) do
+    request(client, "DescribeBudgetAction", input, options)
+  end
+
+  @doc """
+  Describes a budget action history detail.
+  """
+  def describe_budget_action_histories(client, input, options \\ []) do
+    request(client, "DescribeBudgetActionHistories", input, options)
+  end
+
+  @doc """
+  Describes all of the budget actions for an account.
+  """
+  def describe_budget_actions_for_account(client, input, options \\ []) do
+    request(client, "DescribeBudgetActionsForAccount", input, options)
+  end
+
+  @doc """
+  Describes all of the budget actions for a budget.
+  """
+  def describe_budget_actions_for_budget(client, input, options \\ []) do
+    request(client, "DescribeBudgetActionsForBudget", input, options)
+  end
+
+  @doc """
   Describes the history for `DAILY`, `MONTHLY`, and `QUARTERLY` budgets.
   Budget history isn't available for `ANNUAL` budgets.
   """
@@ -169,6 +211,13 @@ defmodule AWS.Budgets do
   end
 
   @doc """
+  Executes a budget action.
+  """
+  def execute_budget_action(client, input, options \\ []) do
+    request(client, "ExecuteBudgetAction", input, options)
+  end
+
+  @doc """
   Updates a budget. You can change every part of a budget except for the
   `budgetName` and the `calculatedSpend`. When you modify a budget, the
   `calculatedSpend` drops to zero until AWS has new usage data to use for
@@ -188,6 +237,13 @@ defmodule AWS.Budgets do
   end
 
   @doc """
+  Updates a budget action.
+  """
+  def update_budget_action(client, input, options \\ []) do
+    request(client, "UpdateBudgetAction", input, options)
+  end
+
+  @doc """
   Updates a notification.
   """
   def update_notification(client, input, options \\ []) do
@@ -202,9 +258,8 @@ defmodule AWS.Budgets do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "budgets",
                         region:  "us-east-1"}
@@ -217,25 +272,24 @@ defmodule AWS.Budgets do
       {"X-Amz-Target", "AWSBudgetServiceGateway.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

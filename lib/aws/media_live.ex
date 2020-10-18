@@ -7,6 +7,47 @@ defmodule AWS.MediaLive do
   """
 
   @doc """
+  Accept an incoming input device transfer. The ownership of the device will
+  transfer to your AWS account.
+  """
+  def accept_input_device_transfer(client, input_device_id, input, options \\ []) do
+    path_ = "/prod/inputDevices/#{URI.encode(input_device_id)}/accept"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
+  Starts delete of resources.
+  """
+  def batch_delete(client, input, options \\ []) do
+    path_ = "/prod/batch/delete"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
+  Starts existing resources
+  """
+  def batch_start(client, input, options \\ []) do
+    path_ = "/prod/batch/start"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
+  Stops running resources
+  """
+  def batch_stop(client, input, options \\ []) do
+    path_ = "/prod/batch/stop"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
   Update a channel schedule
   """
   def batch_update_schedule(client, channel_id, input, options \\ []) do
@@ -14,6 +55,16 @@ defmodule AWS.MediaLive do
     headers = []
     query_ = []
     request(client, :put, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
+  Cancel an input device transfer that you have requested.
+  """
+  def cancel_input_device_transfer(client, input_device_id, input, options \\ []) do
+    path_ = "/prod/inputDevices/#{URI.encode(input_device_id)}/cancel"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -203,7 +254,7 @@ defmodule AWS.MediaLive do
     end
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, 200) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Content-Length", "ContentLength"},
@@ -302,6 +353,33 @@ defmodule AWS.MediaLive do
     path_ = "/prod/channels"
     headers = []
     query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
+    else
+      query_
+    end
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
+    else
+      query_
+    end
+    request(client, :get, path_, query_, headers, nil, options, 200)
+  end
+
+  @doc """
+  List input devices that are currently being transferred. List input devices
+  that you are transferring from your AWS account or input devices that
+  another AWS account is transferring to you.
+  """
+  def list_input_device_transfers(client, max_results \\ nil, next_token \\ nil, transfer_type, options \\ []) do
+    path_ = "/prod/inputDeviceTransfers"
+    headers = []
+    query_ = []
+    query_ = if !is_nil(transfer_type) do
+      [{"transferType", transfer_type} | query_]
+    else
+      query_
+    end
     query_ = if !is_nil(next_token) do
       [{"nextToken", next_token} | query_]
     else
@@ -566,6 +644,16 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Reject the transfer of the specified input device to your AWS account.
+  """
+  def reject_input_device_transfer(client, input_device_id, input, options \\ []) do
+    path_ = "/prod/inputDevices/#{URI.encode(input_device_id)}/reject"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
   Starts an existing channel
   """
   def start_channel(client, channel_id, input, options \\ []) do
@@ -605,6 +693,17 @@ defmodule AWS.MediaLive do
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, 202)
+  end
+
+  @doc """
+  Start an input device transfer to another AWS account. After you make the
+  request, the other account must accept or reject the transfer.
+  """
+  def transfer_input_device(client, input_device_id, input, options \\ []) do
+    path_ = "/prod/inputDevices/#{URI.encode(input_device_id)}/transfer"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -688,9 +787,8 @@ defmodule AWS.MediaLive do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "medialive"}
     host = build_host("medialive", client)
@@ -706,41 +804,16 @@ defmodule AWS.MediaLive do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -761,6 +834,11 @@ defmodule AWS.MediaLive do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

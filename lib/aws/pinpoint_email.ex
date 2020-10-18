@@ -744,9 +744,8 @@ defmodule AWS.PinpointEmail do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "ses"}
     host = build_host("email", client)
@@ -762,41 +761,16 @@ defmodule AWS.PinpointEmail do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -817,6 +791,11 @@ defmodule AWS.PinpointEmail do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

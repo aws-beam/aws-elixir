@@ -16,8 +16,9 @@ defmodule AWS.S3 do
   consumed by all parts.
 
   To verify that all parts have been removed, so you don't get charged for
-  the part storage, you should call the `ListParts` operation and ensure that
-  the parts list is empty.
+  the part storage, you should call the
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+  operation and ensure that the parts list is empty.
 
   For information about permissions required to use the multipart upload API,
   see [Multipart Upload API and
@@ -25,15 +26,20 @@ defmodule AWS.S3 do
 
   The following operations are related to `AbortMultipartUpload`:
 
-  <ul> <li> `CreateMultipartUpload`
+  <ul> <li>
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 
-  </li> <li> `UploadPart`
+  </li> <li>
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 
-  </li> <li> `CompleteMultipartUpload`
+  </li> <li>
+  [CompleteMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 
-  </li> <li> `ListParts`
+  </li> <li>
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 
-  </li> <li> `ListMultipartUploads`
+  </li> <li>
+  [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 
   </li> </ul>
   """
@@ -41,6 +47,7 @@ defmodule AWS.S3 do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
@@ -50,7 +57,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -73,14 +80,15 @@ defmodule AWS.S3 do
   Completes a multipart upload by assembling previously uploaded parts.
 
   You first initiate the multipart upload and then upload all parts using the
-  `UploadPart` operation. After successfully uploading all relevant parts of
-  an upload, you call this operation to complete the upload. Upon receiving
-  this request, Amazon S3 concatenates all the parts in ascending order by
-  part number to create a new object. In the Complete Multipart Upload
-  request, you must provide the parts list. You must ensure that the parts
-  list is complete. This operation concatenates the parts that you provide in
-  the list. For each part in the list, you must provide the part number and
-  the `ETag` value, returned after that part was uploaded.
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+  operation. After successfully uploading all relevant parts of an upload,
+  you call this operation to complete the upload. Upon receiving this
+  request, Amazon S3 concatenates all the parts in ascending order by part
+  number to create a new object. In the Complete Multipart Upload request,
+  you must provide the parts list. You must ensure that the parts list is
+  complete. This operation concatenates the parts that you provide in the
+  list. For each part in the list, you must provide the part number and the
+  `ETag` value, returned after that part was uploaded.
 
   Processing of a Complete Multipart Upload request could take several
   minutes to complete. After Amazon S3 begins processing the request, it
@@ -103,7 +111,7 @@ defmodule AWS.S3 do
   see [Multipart Upload API and
   Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
 
-  `GetBucketLifecycle` has the following special errors:
+  `CompleteMultipartUpload` has the following special errors:
 
   <ul> <li> Error code: `EntityTooSmall`
 
@@ -139,15 +147,20 @@ defmodule AWS.S3 do
   </li> </ul> </li> </ul> The following operations are related to
   `CompleteMultipartUpload`:
 
-  <ul> <li> `CreateMultipartUpload`
+  <ul> <li>
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 
-  </li> <li> `UploadPart`
+  </li> <li>
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 
-  </li> <li> `AbortMultipartUpload`
+  </li> <li>
+  [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 
-  </li> <li> `ListParts`
+  </li> <li>
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 
-  </li> <li> `ListMultipartUploads`
+  </li> <li>
+  [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 
   </li> </ul>
   """
@@ -155,6 +168,7 @@ defmodule AWS.S3 do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
@@ -164,7 +178,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-expiration", "Expiration"},
@@ -341,13 +355,16 @@ defmodule AWS.S3 do
 
   If the source object's storage class is GLACIER, you must restore a copy of
   this object before you can use it as a source object for the copy
-  operation. For more information, see .
+  operation. For more information, see
+  [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html).
 
   The following operations are related to `CopyObject`:
 
-  <ul> <li> `PutObject`
+  <ul> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
-  </li> <li> `GetObject`
+  </li> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
   </li> </ul> For more information, see [Copying
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html).
@@ -365,6 +382,7 @@ defmodule AWS.S3 do
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
         {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
         {"RequestPayer", "x-amz-request-payer"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"ContentDisposition", "Content-Disposition"},
         {"ContentEncoding", "Content-Encoding"},
         {"ServerSideEncryption", "x-amz-server-side-encryption"},
@@ -390,11 +408,12 @@ defmodule AWS.S3 do
         {"MetadataDirective", "x-amz-metadata-directive"},
         {"CopySourceIfNoneMatch", "x-amz-copy-source-if-none-match"},
         {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
+        {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-copy-source-version-id", "CopySourceVersionId"},
@@ -422,22 +441,25 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Creates a new bucket. To create a bucket, you must register with Amazon S3
-  and have a valid AWS Access Key ID to authenticate requests. Anonymous
+  Creates a new S3 bucket. To create a bucket, you must register with Amazon
+  S3 and have a valid AWS Access Key ID to authenticate requests. Anonymous
   requests are never allowed to create buckets. By creating the bucket, you
   become the bucket owner.
 
-  Not every string is an acceptable bucket name. For information on bucket
+  Not every string is an acceptable bucket name. For information about bucket
   naming restrictions, see [Working with Amazon S3
-  Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html).
+  buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html).
+
+  If you want to create an Amazon S3 on Outposts bucket, see [Create
+  Bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html).
 
   By default, the bucket is created in the US East (N. Virginia) Region. You
   can optionally specify a Region in the request body. You might choose a
   Region to optimize latency, minimize costs, or address regulatory
   requirements. For example, if you reside in Europe, you will probably find
   it advantageous to create buckets in the Europe (Ireland) Region. For more
-  information, see [How to Select a Region for Your
-  Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro).
+  information, see [Accessing a
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro).
 
   <note> If you send your create bucket request to the `s3.amazonaws.com`
   endpoint, the request goes to the us-east-1 Region. Accordingly, the
@@ -445,8 +467,8 @@ defmodule AWS.S3 do
   Region, even if the location constraint in the request specifies another
   Region where the bucket is to be created. If you create a bucket in a
   Region other than US East (N. Virginia), your application must be able to
-  handle 307 redirect. For more information, see [Virtual Hosting of
-  Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
+  handle 307 redirect. For more information, see [Virtual hosting of
+  buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
   </note> When creating a bucket using this operation, you can optionally
   specify the accounts or groups that should be granted specific permissions
@@ -463,8 +485,8 @@ defmodule AWS.S3 do
   `x-amz-grant-read`, `x-amz-grant-write`, `x-amz-grant-read-acp`,
   `x-amz-grant-write-acp`, and `x-amz-grant-full-control` headers. These
   headers map to the set of permissions Amazon S3 supports in an ACL. For
-  more information, see [Access Control List (ACL)
-  Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
+  more information, see [Access control list (ACL)
+  overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html).
 
   You specify each grantee as a type=value pair, where the type is one of the
   following:
@@ -512,9 +534,11 @@ defmodule AWS.S3 do
 
   </note> The following operations are related to `CreateBucket`:
 
-  <ul> <li> `PutObject`
+  <ul> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
-  </li> <li> `DeleteBucket`
+  </li> <li>
+  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 
   </li> </ul>
   """
@@ -533,7 +557,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -556,8 +580,10 @@ defmodule AWS.S3 do
   This operation initiates a multipart upload and returns an upload ID. This
   upload ID is used to associate all of the parts in the specific multipart
   upload. You specify this upload ID in each of your subsequent upload part
-  requests (see `UploadPart`). You also include this upload ID in the final
-  request to either complete or abort the multipart upload request.
+  requests (see
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)).
+  You also include this upload ID in the final request to either complete or
+  abort the multipart upload request.
 
   For more information about multipart uploads, see [Multipart Upload
   Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html).
@@ -593,9 +619,11 @@ defmodule AWS.S3 do
   data centers and decrypts it when you access it. You can provide your own
   encryption key, or use AWS Key Management Service (AWS KMS) customer master
   keys (CMKs) or Amazon S3-managed encryption keys. If you choose to provide
-  your own encryption key, the request headers you provide in `UploadPart`)
-  and `UploadPartCopy`) requests must match the headers you used in the
-  request to initiate the upload by using `CreateMultipartUpload`.
+  your own encryption key, the request headers you provide in
+  [UploadPart](AmazonS3/latest/API/API_UploadPart.html) and
+  [UploadPartCopy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html)
+  requests must match the headers you used in the request to initiate the
+  upload by using `CreateMultipartUpload`.
 
   To perform a multipart upload with encryption using an AWS KMS CMK, the
   requester must have permission to the `kms:Encrypt`, `kms:Decrypt`,
@@ -644,7 +672,7 @@ defmodule AWS.S3 do
   manage the keys used to encrypt data, specify the following headers in the
   request.
 
-  <ul> <li> x-amz-server-side​-encryption
+  <ul> <li> x-amz-server-side-encryption
 
   </li> <li> x-amz-server-side-encryption-aws-kms-key-id
 
@@ -665,11 +693,11 @@ defmodule AWS.S3 do
   </li> <li> Use customer-provided encryption keys – If you want to manage
   your own encryption keys, provide all the following headers in the request.
 
-  <ul> <li> x-amz-server-side​-encryption​-customer-algorithm
+  <ul> <li> x-amz-server-side-encryption-customer-algorithm
 
-  </li> <li> x-amz-server-side​-encryption​-customer-key
+  </li> <li> x-amz-server-side-encryption-customer-key
 
-  </li> <li> x-amz-server-side​-encryption​-customer-key-MD5
+  </li> <li> x-amz-server-side-encryption-customer-key-MD5
 
   </li> </ul> For more information about server-side encryption with CMKs
   stored in AWS KMS (SSE-KMS), see [Protecting Data Using Server-Side
@@ -754,15 +782,20 @@ defmodule AWS.S3 do
   </li> </ul> </dd> </dl> The following operations are related to
   `CreateMultipartUpload`:
 
-  <ul> <li> `UploadPart`
+  <ul> <li>
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 
-  </li> <li> `CompleteMultipartUpload`
+  </li> <li>
+  [CompleteMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 
-  </li> <li> `AbortMultipartUpload`
+  </li> <li>
+  [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 
-  </li> <li> `ListParts`
+  </li> <li>
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 
-  </li> <li> `ListMultipartUploads`
+  </li> <li>
+  [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 
   </li> </ul>
   """
@@ -776,6 +809,7 @@ defmodule AWS.S3 do
         {"ContentEncoding", "Content-Encoding"},
         {"ContentLanguage", "Content-Language"},
         {"ContentType", "Content-Type"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"Expires", "Expires"},
         {"GrantFullControl", "x-amz-grant-full-control"},
         {"GrantRead", "x-amz-grant-read"},
@@ -798,7 +832,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-abort-date", "AbortDate"},
@@ -825,21 +859,27 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Deletes the bucket. All objects (including all object versions and delete
-  markers) in the bucket must be deleted before the bucket itself can be
-  deleted.
+  Deletes the S3 bucket. All objects (including all object versions and
+  delete markers) in the bucket must be deleted before the bucket itself can
+  be deleted.
 
   <p class="title"> **Related Resources**
 
   <ul> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
   </li> <li>
+  [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 
   </li> </ul>
   """
   def delete_bucket(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -865,16 +905,23 @@ defmodule AWS.S3 do
   `DeleteBucketAnalyticsConfiguration`:
 
   <ul> <li>
+  [GetBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAnalyticsConfiguration.html)
 
   </li> <li>
+  [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html)
 
   </li> <li>
+  [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
 
   </li> </ul>
   """
   def delete_bucket_analytics_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?analytics"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     {query_, input} =
       [
         {"Id", "id"},
@@ -897,14 +944,20 @@ defmodule AWS.S3 do
   <p class="title"> **Related Resources:**
 
   <ul> <li>
+  [PutBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)
 
-  </li> <li> `RESTOPTIONSobject`
+  </li> <li>
+  [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
 
   </li> </ul>
   """
   def delete_bucket_cors(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?cors"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -928,15 +981,21 @@ defmodule AWS.S3 do
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `PutBucketEncryption`
+  <ul> <li>
+  [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)
 
-  </li> <li> `GetBucketEncryption`
+  </li> <li>
+  [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
 
   </li> </ul>
   """
   def delete_bucket_encryption(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?encryption"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -959,17 +1018,24 @@ defmodule AWS.S3 do
 
   Operations related to `DeleteBucketInventoryConfiguration` include:
 
-  <ul> <li> `GetBucketInventoryConfiguration`
+  <ul> <li>
+  [GetBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html)
 
-  </li> <li> `PutBucketInventoryConfiguration`
+  </li> <li>
+  [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
 
-  </li> <li> `ListBucketInventoryConfigurations`
+  </li> <li>
+  [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
 
   </li> </ul>
   """
   def delete_bucket_inventory_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?inventory"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     {query_, input} =
       [
         {"Id", "id"},
@@ -998,15 +1064,21 @@ defmodule AWS.S3 do
 
   Related actions include:
 
-  <ul> <li> `PutBucketLifecycleConfiguration`
+  <ul> <li>
+  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
 
-  </li> <li> `GetBucketLifecycleConfiguration`
+  </li> <li>
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
 
   </li> </ul>
   """
   def delete_bucket_lifecycle(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?lifecycle"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -1031,11 +1103,14 @@ defmodule AWS.S3 do
 
   The following operations are related to `DeleteBucketMetricsConfiguration`:
 
-  <ul> <li> `GetBucketMetricsConfiguration`
+  <ul> <li>
+  [GetBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html)
 
-  </li> <li> `PutBucketMetricsConfiguration`
+  </li> <li>
+  [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html)
 
-  </li> <li> `ListBucketMetricsConfigurations`
+  </li> <li>
+  [ListBucketMetricsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html)
 
   </li> <li> [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
@@ -1044,12 +1119,44 @@ defmodule AWS.S3 do
   """
   def delete_bucket_metrics_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?metrics"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     {query_, input} =
       [
         {"Id", "id"},
       ]
       |> AWS.Request.build_params(input)
+    request(client, :delete, path_, query_, headers, input, options, 204)
+  end
+
+  @doc """
+  Removes `OwnershipControls` for an Amazon S3 bucket. To use this operation,
+  you must have the `s3:PutBucketOwnershipControls` permission. For more
+  information about Amazon S3 permissions, see [Specifying Permissions in a
+  Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+
+  For information about Amazon S3 Object Ownership, see [Using Object
+  Ownership](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
+
+  The following operations are related to `DeleteBucketOwnershipControls`:
+
+  <ul> <li> `GetBucketOwnershipControls`
+
+  </li> <li> `PutBucketOwnershipControls`
+
+  </li> </ul>
+  """
+  def delete_bucket_ownership_controls(client, bucket, input, options \\ []) do
+    path_ = "/#{URI.encode(bucket)}?ownershipControls"
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
+    query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
 
@@ -1075,15 +1182,21 @@ defmodule AWS.S3 do
 
   The following operations are related to `DeleteBucketPolicy`
 
-  <ul> <li> `CreateBucket`
+  <ul> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
-  </li> <li> `DeleteObject`
+  </li> <li>
+  [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 
   </li> </ul>
   """
   def delete_bucket_policy(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?policy"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -1108,15 +1221,21 @@ defmodule AWS.S3 do
 
   The following operations are related to `DeleteBucketReplication`:
 
-  <ul> <li> `PutBucketReplication`
+  <ul> <li>
+  [PutBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html)
 
-  </li> <li> `GetBucketReplication`
+  </li> <li>
+  [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html)
 
   </li> </ul>
   """
   def delete_bucket_replication(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?replication"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -1130,15 +1249,21 @@ defmodule AWS.S3 do
 
   The following operations are related to `DeleteBucketTagging`:
 
-  <ul> <li> `GetBucketTagging`
+  <ul> <li>
+  [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html)
 
-  </li> <li> `PutBucketTagging`
+  </li> <li>
+  [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
 
   </li> </ul>
   """
   def delete_bucket_tagging(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?tagging"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -1163,15 +1288,21 @@ defmodule AWS.S3 do
 
   The following operations are related to `DeleteBucketWebsite`:
 
-  <ul> <li> `GetBucketWebsite`
+  <ul> <li>
+  [GetBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketWebsite.html)
 
-  </li> <li> `PutBucketWebsite`
+  </li> <li>
+  [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
 
   </li> </ul>
   """
   def delete_bucket_website(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?website"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -1197,15 +1328,17 @@ defmodule AWS.S3 do
   Request](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete).
 
   You can delete objects by explicitly calling the DELETE Object API or
-  configure its lifecycle (`PutBucketLifecycle`) to enable Amazon S3 to
-  remove them for you. If you want to block users or accounts from removing
-  or deleting objects from your bucket, you must deny them the
-  `s3:DeleteObject`, `s3:DeleteObjectVersion`, and
+  configure its lifecycle
+  ([PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html))
+  to enable Amazon S3 to remove them for you. If you want to block users or
+  accounts from removing or deleting objects from your bucket, you must deny
+  them the `s3:DeleteObject`, `s3:DeleteObjectVersion`, and
   `s3:PutLifeCycleConfiguration` actions.
 
   The following operation is related to `DeleteObject`:
 
-  <ul> <li> `PutObject`
+  <ul> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
   </li> </ul>
   """
@@ -1214,6 +1347,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"MFA", "x-amz-mfa"},
         {"RequestPayer", "x-amz-request-payer"},
       ]
@@ -1224,7 +1358,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-delete-marker", "DeleteMarker"},
@@ -1259,22 +1393,28 @@ defmodule AWS.S3 do
 
   The following operations are related to `DeleteBucketMetricsConfiguration`:
 
-  <ul> <li> `PutObjectTagging`
+  <ul> <li>
+  [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
 
-  </li> <li> `GetObjectTagging`
+  </li> <li>
+  [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
 
   </li> </ul>
   """
   def delete_object_tagging(client, bucket, key, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     {query_, input} =
       [
         {"VersionId", "versionId"},
       ]
       |> AWS.Request.build_params(input)
     case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-version-id", "VersionId"},
@@ -1329,15 +1469,20 @@ defmodule AWS.S3 do
 
   The following operations are related to `DeleteObjects`:
 
-  <ul> <li> `CreateMultipartUpload`
+  <ul> <li>
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 
-  </li> <li> `UploadPart`
+  </li> <li>
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 
-  </li> <li> `CompleteMultipartUpload`
+  </li> <li>
+  [CompleteMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 
-  </li> <li> `ListParts`
+  </li> <li>
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 
-  </li> <li> `AbortMultipartUpload`
+  </li> <li>
+  [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 
   </li> </ul>
   """
@@ -1346,13 +1491,14 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"MFA", "x-amz-mfa"},
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -1385,17 +1531,24 @@ defmodule AWS.S3 do
   <ul> <li> [Using Amazon S3 Block Public
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
 
-  </li> <li> `GetPublicAccessBlock`
+  </li> <li>
+  [GetPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
 
-  </li> <li> `PutPublicAccessBlock`
+  </li> <li>
+  [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutPublicAccessBlock.html)
 
-  </li> <li> `GetBucketPolicyStatus`
+  </li> <li>
+  [GetBucketPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
 
   </li> </ul>
   """
   def delete_public_access_block(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?publicAccessBlock"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
   end
@@ -1418,7 +1571,9 @@ defmodule AWS.S3 do
   in the *Amazon Simple Storage Service Developer Guide*.
 
   You set the Transfer Acceleration state of an existing bucket to `Enabled`
-  or `Suspended` by using the `PutBucketAccelerateConfiguration` operation.
+  or `Suspended` by using the
+  [PutBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html)
+  operation.
 
   A GET `accelerate` request does not return a state value for a bucket that
   has no transfer acceleration state. A bucket has no Transfer Acceleration
@@ -1430,13 +1585,19 @@ defmodule AWS.S3 do
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `PutBucketAccelerateConfiguration`
+  <ul> <li>
+  [PutBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html)
 
   </li> </ul>
   """
-  def get_bucket_accelerate_configuration(client, bucket, options \\ []) do
+  def get_bucket_accelerate_configuration(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?accelerate"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1451,12 +1612,18 @@ defmodule AWS.S3 do
   <p class="title"> **Related Resources**
 
   <ul> <li>
+  [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
 
   </li> </ul>
   """
-  def get_bucket_acl(client, bucket, options \\ []) do
+  def get_bucket_acl(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?acl"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1483,16 +1650,24 @@ defmodule AWS.S3 do
   <p class="title"> **Related Resources**
 
   <ul> <li>
+  [DeleteBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketAnalyticsConfiguration.html)
 
   </li> <li>
+  [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html)
 
   </li> <li>
+  [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
 
   </li> </ul>
   """
-  def get_bucket_analytics_configuration(client, bucket, id, options \\ []) do
+  def get_bucket_analytics_configuration(client, bucket, id, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?analytics"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(id) do
       [{"id", id} | query_]
@@ -1514,15 +1689,22 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetBucketCors`:
 
-  <ul> <li> `PutBucketCors`
+  <ul> <li>
+  [PutBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)
 
-  </li> <li> `DeleteBucketCors`
+  </li> <li>
+  [DeleteBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
 
   </li> </ul>
   """
-  def get_bucket_cors(client, bucket, options \\ []) do
+  def get_bucket_cors(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?cors"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1544,15 +1726,22 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetBucketEncryption`:
 
-  <ul> <li> `PutBucketEncryption`
+  <ul> <li>
+  [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)
 
-  </li> <li> `DeleteBucketEncryption`
+  </li> <li>
+  [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
 
   </li> </ul>
   """
-  def get_bucket_encryption(client, bucket, options \\ []) do
+  def get_bucket_encryption(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?encryption"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1574,17 +1763,25 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetBucketInventoryConfiguration`:
 
-  <ul> <li> `DeleteBucketInventoryConfiguration`
+  <ul> <li>
+  [DeleteBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html)
 
-  </li> <li> `ListBucketInventoryConfigurations`
+  </li> <li>
+  [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
 
-  </li> <li> `PutBucketInventoryConfiguration`
+  </li> <li>
+  [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
 
   </li> </ul>
   """
-  def get_bucket_inventory_configuration(client, bucket, id, options \\ []) do
+  def get_bucket_inventory_configuration(client, bucket, id, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?inventory"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(id) do
       [{"id", id} | query_]
@@ -1596,9 +1793,10 @@ defmodule AWS.S3 do
 
   @doc """
   <important> For an updated version of this API, see
-  `GetBucketLifecycleConfiguration`. If you configured a bucket lifecycle
-  using the `filter` element, you should see the updated version of this
-  topic. This topic is provided for backward compatibility.
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html).
+  If you configured a bucket lifecycle using the `filter` element, you should
+  see the updated version of this topic. This topic is provided for backward
+  compatibility.
 
   </important> Returns the lifecycle configuration information set on the
   bucket. For information about lifecycle configuration, see [Object
@@ -1627,17 +1825,25 @@ defmodule AWS.S3 do
   </li> </ul> </li> </ul> The following operations are related to
   `GetBucketLifecycle`:
 
-  <ul> <li> `GetBucketLifecycleConfiguration`
+  <ul> <li>
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
 
-  </li> <li> `PutBucketLifecycle`
+  </li> <li>
+  [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html)
 
-  </li> <li> `DeleteBucketLifecycle`
+  </li> <li>
+  [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
 
   </li> </ul>
   """
-  def get_bucket_lifecycle(client, bucket, options \\ []) do
+  def get_bucket_lifecycle(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?lifecycle"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1648,8 +1854,9 @@ defmodule AWS.S3 do
   combination of both. Accordingly, this section describes the latest API.
   The response describes the new filter element that you can use to specify a
   filter to select a subset of objects to which the rule applies. If you are
-  still using previous version of the lifecycle configuration, it works. For
-  the earlier API description, see `GetBucketLifecycle`.
+  using a previous version of the lifecycle configuration, it still works.
+  For the earlier API description, see
+  [GetBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html).
 
   </note> Returns the lifecycle configuration information set on the bucket.
   For information about lifecycle configuration, see [Object Lifecycle
@@ -1677,17 +1884,25 @@ defmodule AWS.S3 do
   </li> </ul> </li> </ul> The following operations are related to
   `GetBucketLifecycleConfiguration`:
 
-  <ul> <li> `GetBucketLifecycle`
+  <ul> <li>
+  [GetBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html)
 
-  </li> <li> `PutBucketLifecycle`
+  </li> <li>
+  [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html)
 
-  </li> <li> `DeleteBucketLifecycle`
+  </li> <li>
+  [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
 
   </li> </ul>
   """
-  def get_bucket_lifecycle_configuration(client, bucket, options \\ []) do
+  def get_bucket_lifecycle_configuration(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?lifecycle"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1695,21 +1910,29 @@ defmodule AWS.S3 do
   @doc """
   Returns the Region the bucket resides in. You set the bucket's Region using
   the `LocationConstraint` request parameter in a `CreateBucket` request. For
-  more information, see `CreateBucket`.
+  more information, see
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html).
 
   To use this implementation of the operation, you must be the bucket owner.
 
   The following operations are related to `GetBucketLocation`:
 
-  <ul> <li> `GetObject`
+  <ul> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
-  </li> <li> `CreateBucket`
+  </li> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
   </li> </ul>
   """
-  def get_bucket_location(client, bucket, options \\ []) do
+  def get_bucket_location(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?location"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1720,15 +1943,22 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetBucketLogging`:
 
-  <ul> <li> `CreateBucket`
+  <ul> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
-  </li> <li> `PutBucketLogging`
+  </li> <li>
+  [PutBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html)
 
   </li> </ul>
   """
-  def get_bucket_logging(client, bucket, options \\ []) do
+  def get_bucket_logging(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?logging"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1752,20 +1982,28 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetBucketMetricsConfiguration`:
 
-  <ul> <li> `PutBucketMetricsConfiguration`
+  <ul> <li>
+  [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html)
 
-  </li> <li> `DeleteBucketMetricsConfiguration`
+  </li> <li>
+  [DeleteBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html)
 
-  </li> <li> `ListBucketMetricsConfigurations`
+  </li> <li>
+  [ListBucketMetricsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html)
 
   </li> <li> [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
 
   </li> </ul>
   """
-  def get_bucket_metrics_configuration(client, bucket, id, options \\ []) do
+  def get_bucket_metrics_configuration(client, bucket, id, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?metrics"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(id) do
       [{"id", id} | query_]
@@ -1776,11 +2014,17 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  No longer used, see `GetBucketNotificationConfiguration`.
+  No longer used, see
+  [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html).
   """
-  def get_bucket_notification(client, bucket, options \\ []) do
+  def get_bucket_notification(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?notification"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1804,13 +2048,49 @@ defmodule AWS.S3 do
 
   The following operation is related to `GetBucketNotification`:
 
-  <ul> <li> `PutBucketNotification`
+  <ul> <li>
+  [PutBucketNotification](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html)
 
   </li> </ul>
   """
-  def get_bucket_notification_configuration(client, bucket, options \\ []) do
+  def get_bucket_notification_configuration(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?notification"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Retrieves `OwnershipControls` for an Amazon S3 bucket. To use this
+  operation, you must have the `s3:GetBucketOwnershipControls` permission.
+  For more information about Amazon S3 permissions, see [Specifying
+  Permissions in a
+  Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+
+  For information about Amazon S3 Object Ownership, see [Using Object
+  Ownership](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
+
+  The following operations are related to `GetBucketOwnershipControls`:
+
+  <ul> <li> `PutBucketOwnershipControls`
+
+  </li> <li> `DeleteBucketOwnershipControls`
+
+  </li> </ul>
+  """
+  def get_bucket_ownership_controls(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    path_ = "/#{URI.encode(bucket)}?ownershipControls"
+    headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1837,13 +2117,19 @@ defmodule AWS.S3 do
 
   The following operation is related to `GetBucketPolicy`:
 
-  <ul> <li> `GetObject`
+  <ul> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
   </li> </ul>
   """
-  def get_bucket_policy(client, bucket, options \\ []) do
+  def get_bucket_policy(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?policy"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1864,17 +2150,25 @@ defmodule AWS.S3 do
   <ul> <li> [Using Amazon S3 Block Public
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
 
-  </li> <li> `GetPublicAccessBlock`
+  </li> <li>
+  [GetPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
 
-  </li> <li> `PutPublicAccessBlock`
+  </li> <li>
+  [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutPublicAccessBlock.html)
 
-  </li> <li> `DeletePublicAccessBlock`
+  </li> <li>
+  [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
 
   </li> </ul>
   """
-  def get_bucket_policy_status(client, bucket, options \\ []) do
+  def get_bucket_policy_status(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?policyStatus"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1899,20 +2193,28 @@ defmodule AWS.S3 do
   must also include the `DeleteMarkerReplication` and `Priority` elements.
   The response also returns those elements.
 
-  For information about `GetBucketReplication` errors, see
-  `ReplicationErrorCodeList`
+  For information about `GetBucketReplication` errors, see [List of
+  replication-related error
+  codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList)
 
   The following operations are related to `GetBucketReplication`:
 
-  <ul> <li> `PutBucketReplication`
+  <ul> <li>
+  [PutBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html)
 
-  </li> <li> `DeleteBucketReplication`
+  </li> <li>
+  [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
 
   </li> </ul>
   """
-  def get_bucket_replication(client, bucket, options \\ []) do
+  def get_bucket_replication(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?replication"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1925,13 +2227,19 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetBucketRequestPayment`:
 
-  <ul> <li> `ListObjects`
+  <ul> <li>
+  [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
 
   </li> </ul>
   """
-  def get_bucket_request_payment(client, bucket, options \\ []) do
+  def get_bucket_request_payment(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?requestPayment"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1952,15 +2260,22 @@ defmodule AWS.S3 do
   </li> </ul> </li> </ul> The following operations are related to
   `GetBucketTagging`:
 
-  <ul> <li> `PutBucketTagging`
+  <ul> <li>
+  [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
 
-  </li> <li> `DeleteBucketTagging`
+  </li> <li>
+  [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
 
   </li> </ul>
   """
-  def get_bucket_tagging(client, bucket, options \\ []) do
+  def get_bucket_tagging(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?tagging"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -1976,17 +2291,25 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetBucketVersioning`:
 
-  <ul> <li> `GetObject`
+  <ul> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
-  </li> <li> `PutObject`
+  </li> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
-  </li> <li> `DeleteObject`
+  </li> <li>
+  [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 
   </li> </ul>
   """
-  def get_bucket_versioning(client, bucket, options \\ []) do
+  def get_bucket_versioning(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?versioning"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -2006,15 +2329,22 @@ defmodule AWS.S3 do
 
   The following operations are related to `DeleteBucketWebsite`:
 
-  <ul> <li> `DeleteBucketWebsite`
+  <ul> <li>
+  [DeleteBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketWebsite.html)
 
-  </li> <li> `PutBucketWebsite`
+  </li> <li>
+  [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
 
   </li> </ul>
   """
-  def get_bucket_website(client, bucket, options \\ []) do
+  def get_bucket_website(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?website"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -2044,13 +2374,14 @@ defmodule AWS.S3 do
   using BitTorrent. For more information, see [Amazon S3
   Torrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html).
   For more information about returning the ACL of an object, see
-  `GetObjectAcl`.
+  [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html).
 
   If the object you are retrieving is stored in the GLACIER or DEEP_ARCHIVE
   storage classes, before you can retrieve the object you must first restore
-  a copy using . Otherwise, this operation returns an
-  `InvalidObjectStateError` error. For information about restoring archived
-  objects, see [Restoring Archived
+  a copy using
+  [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html).
+  Otherwise, this operation returns an `InvalidObjectStateError` error. For
+  information about restoring archived objects, see [Restoring Archived
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html).
 
   Encryption request headers, like `x-amz-server-side-encryption`, should not
@@ -2064,11 +2395,11 @@ defmodule AWS.S3 do
   Amazon S3, then when you GET the object, you must use the following
   headers:
 
-  <ul> <li> x-amz-server-side​-encryption​-customer-algorithm
+  <ul> <li> x-amz-server-side-encryption-customer-algorithm
 
-  </li> <li> x-amz-server-side​-encryption​-customer-key
+  </li> <li> x-amz-server-side-encryption-customer-key
 
-  </li> <li> x-amz-server-side​-encryption​-customer-key-MD5
+  </li> <li> x-amz-server-side-encryption-customer-key-MD5
 
   </li> </ul> For more information about SSE-C, see [Server-Side Encryption
   (Using Customer-Provided Encryption
@@ -2077,8 +2408,9 @@ defmodule AWS.S3 do
   Assuming you have permission to read object tags (permission for the
   `s3:GetObjectVersionTagging` action), the response also returns the
   `x-amz-tagging-count` header that provides the count of number of tags
-  associated with the object. You can use `GetObjectTagging` to retrieve the
-  tag set associated with an object.
+  associated with the object. You can use
+  [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
+  to retrieve the tag set associated with an object.
 
   **Permissions**
 
@@ -2103,7 +2435,8 @@ defmodule AWS.S3 do
   behaves as if the object was deleted and includes `x-amz-delete-marker:
   true` in the response.
 
-  </note> For more information about versioning, see `PutBucketVersioning`.
+  </note> For more information about versioning, see
+  [PutBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html).
 
   **Overriding Response Header Values**
 
@@ -2154,15 +2487,22 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetObject`:
 
-  <ul> <li> `ListBuckets`
+  <ul> <li>
+  [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
 
-  </li> <li> `GetObjectAcl`
+  </li> <li>
+  [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
 
   </li> </ul>
   """
-  def get_object(client, bucket, key, part_number \\ nil, response_cache_control \\ nil, response_content_disposition \\ nil, response_content_encoding \\ nil, response_content_language \\ nil, response_content_type \\ nil, response_expires \\ nil, version_id \\ nil, if_match \\ nil, if_modified_since \\ nil, if_none_match \\ nil, if_unmodified_since \\ nil, range \\ nil, request_payer \\ nil, s_s_e_customer_algorithm \\ nil, s_s_e_customer_key \\ nil, s_s_e_customer_key_m_d5 \\ nil, options \\ []) do
+  def get_object(client, bucket, key, part_number \\ nil, response_cache_control \\ nil, response_content_disposition \\ nil, response_content_encoding \\ nil, response_content_language \\ nil, response_content_type \\ nil, response_expires \\ nil, version_id \\ nil, expected_bucket_owner \\ nil, if_match \\ nil, if_modified_since \\ nil, if_none_match \\ nil, if_unmodified_since \\ nil, range \\ nil, request_payer \\ nil, s_s_e_customer_algorithm \\ nil, s_s_e_customer_key \\ nil, s_s_e_customer_key_m_d5 \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     headers = if !is_nil(if_match) do
       [{"If-Match", if_match} | headers]
     else
@@ -2250,7 +2590,7 @@ defmodule AWS.S3 do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"accept-ranges", "AcceptRanges"},
@@ -2299,7 +2639,9 @@ defmodule AWS.S3 do
 
   @doc """
   Returns the access control list (ACL) of an object. To use this operation,
-  you must have READ_ACP access to the object.
+  you must have `READ_ACP` access to the object.
+
+  This action is not supported by Amazon S3 on Outposts.
 
   **Versioning**
 
@@ -2309,17 +2651,25 @@ defmodule AWS.S3 do
 
   The following operations are related to `GetObjectAcl`:
 
-  <ul> <li> `GetObject`
+  <ul> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
-  </li> <li> `DeleteObject`
+  </li> <li>
+  [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 
-  </li> <li> `PutObject`
+  </li> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
   </li> </ul>
   """
-  def get_object_acl(client, bucket, key, version_id \\ nil, request_payer \\ nil, options \\ []) do
+  def get_object_acl(client, bucket, key, version_id \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
@@ -2332,7 +2682,7 @@ defmodule AWS.S3 do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -2355,10 +2705,17 @@ defmodule AWS.S3 do
   Gets an object's current Legal Hold status. For more information, see
   [Locking
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+
+  This action is not supported by Amazon S3 on Outposts.
   """
-  def get_object_legal_hold(client, bucket, key, version_id \\ nil, request_payer \\ nil, options \\ []) do
+  def get_object_legal_hold(client, bucket, key, version_id \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
@@ -2379,9 +2736,14 @@ defmodule AWS.S3 do
   placed in the specified bucket. For more information, see [Locking
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
   """
-  def get_object_lock_configuration(client, bucket, options \\ []) do
+  def get_object_lock_configuration(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?object-lock"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -2390,10 +2752,17 @@ defmodule AWS.S3 do
   Retrieves an object's retention settings. For more information, see
   [Locking
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+
+  This action is not supported by Amazon S3 on Outposts.
   """
-  def get_object_retention(client, bucket, key, version_id \\ nil, request_payer \\ nil, options \\ []) do
+  def get_object_retention(client, bucket, key, version_id \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
@@ -2427,13 +2796,19 @@ defmodule AWS.S3 do
 
   The following operation is related to `GetObjectTagging`:
 
-  <ul> <li> `PutObjectTagging`
+  <ul> <li>
+  [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
 
   </li> </ul>
   """
-  def get_object_tagging(client, bucket, key, version_id \\ nil, options \\ []) do
+  def get_object_tagging(client, bucket, key, version_id \\ nil, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(version_id) do
       [{"versionId", version_id} | query_]
@@ -2441,7 +2816,7 @@ defmodule AWS.S3 do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-version-id", "VersionId"},
@@ -2461,26 +2836,34 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Return torrent files from a bucket. BitTorrent can save you bandwidth when
+  Returns torrent files from a bucket. BitTorrent can save you bandwidth when
   you're distributing large files. For more information about BitTorrent, see
-  [Amazon S3
-  Torrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html).
+  [Using BitTorrent with Amazon
+  S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html).
 
-  <note> You can get torrent only for objects that are less than 5 GB in size
-  and that are not encrypted using server-side encryption with
+  <note> You can get torrent only for objects that are less than 5 GB in
+  size, and that are not encrypted using server-side encryption with a
   customer-provided encryption key.
 
   </note> To use GET, you must have READ access to the object.
 
+  This action is not supported by Amazon S3 on Outposts.
+
   The following operation is related to `GetObjectTorrent`:
 
-  <ul> <li> `GetObject`
+  <ul> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
   </li> </ul>
   """
-  def get_object_torrent(client, bucket, key, request_payer \\ nil, options \\ []) do
+  def get_object_torrent(client, bucket, key, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?torrent"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
@@ -2488,7 +2871,7 @@ defmodule AWS.S3 do
     end
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -2530,17 +2913,25 @@ defmodule AWS.S3 do
   <ul> <li> [Using Amazon S3 Block Public
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
 
-  </li> <li> `PutPublicAccessBlock`
+  </li> <li>
+  [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutPublicAccessBlock.html)
 
-  </li> <li> `GetPublicAccessBlock`
+  </li> <li>
+  [GetPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
 
-  </li> <li> `DeletePublicAccessBlock`
+  </li> <li>
+  [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
 
   </li> </ul>
   """
-  def get_public_access_block(client, bucket, options \\ []) do
+  def get_public_access_block(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?publicAccessBlock"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
   end
@@ -2561,7 +2952,11 @@ defmodule AWS.S3 do
   """
   def head_bucket(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :head, path_, query_, headers, input, options, nil)
   end
@@ -2580,11 +2975,11 @@ defmodule AWS.S3 do
   Amazon S3, then when you retrieve the metadata from the object, you must
   use the following headers:
 
-  <ul> <li> x-amz-server-side​-encryption​-customer-algorithm
+  <ul> <li> x-amz-server-side-encryption-customer-algorithm
 
-  </li> <li> x-amz-server-side​-encryption​-customer-key
+  </li> <li> x-amz-server-side-encryption-customer-key
 
-  </li> <li> x-amz-server-side​-encryption​-customer-key-MD5
+  </li> <li> x-amz-server-side-encryption-customer-key-MD5
 
   </li> </ul> For more information about SSE-C, see [Server-Side Encryption
   (Using Customer-Provided Encryption
@@ -2639,7 +3034,8 @@ defmodule AWS.S3 do
 
   </li> </ul> The following operation is related to `HeadObject`:
 
-  <ul> <li> `GetObject`
+  <ul> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
   </li> </ul>
   """
@@ -2647,6 +3043,7 @@ defmodule AWS.S3 do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     {headers, input} =
       [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"IfMatch", "If-Match"},
         {"IfModifiedSince", "If-Modified-Since"},
         {"IfNoneMatch", "If-None-Match"},
@@ -2665,7 +3062,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :head, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"accept-ranges", "AcceptRanges"},
@@ -2739,17 +3136,25 @@ defmodule AWS.S3 do
   The following operations are related to
   `ListBucketAnalyticsConfigurations`:
 
-  <ul> <li> `GetBucketAnalyticsConfiguration`
+  <ul> <li>
+  [GetBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAnalyticsConfiguration.html)
 
-  </li> <li> `DeleteBucketAnalyticsConfiguration`
+  </li> <li>
+  [DeleteBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketAnalyticsConfiguration.html)
 
-  </li> <li> `PutBucketAnalyticsConfiguration`
+  </li> <li>
+  [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
 
   </li> </ul>
   """
-  def list_bucket_analytics_configurations(client, bucket, continuation_token \\ nil, options \\ []) do
+  def list_bucket_analytics_configurations(client, bucket, continuation_token \\ nil, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?analytics"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(continuation_token) do
       [{"continuation-token", continuation_token} | query_]
@@ -2787,17 +3192,25 @@ defmodule AWS.S3 do
   The following operations are related to
   `ListBucketInventoryConfigurations`:
 
-  <ul> <li> `GetBucketInventoryConfiguration`
+  <ul> <li>
+  [GetBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html)
 
-  </li> <li> `DeleteBucketInventoryConfiguration`
+  </li> <li>
+  [DeleteBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html)
 
-  </li> <li> `PutBucketInventoryConfiguration`
+  </li> <li>
+  [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
 
   </li> </ul>
   """
-  def list_bucket_inventory_configurations(client, bucket, continuation_token \\ nil, options \\ []) do
+  def list_bucket_inventory_configurations(client, bucket, continuation_token \\ nil, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?inventory"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(continuation_token) do
       [{"continuation-token", continuation_token} | query_]
@@ -2837,17 +3250,25 @@ defmodule AWS.S3 do
 
   The following operations are related to `ListBucketMetricsConfigurations`:
 
-  <ul> <li> `PutBucketMetricsConfiguration`
+  <ul> <li>
+  [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html)
 
-  </li> <li> `GetBucketMetricsConfiguration`
+  </li> <li>
+  [GetBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html)
 
-  </li> <li> `DeleteBucketMetricsConfiguration`
+  </li> <li>
+  [DeleteBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html)
 
   </li> </ul>
   """
-  def list_bucket_metrics_configurations(client, bucket, continuation_token \\ nil, options \\ []) do
+  def list_bucket_metrics_configurations(client, bucket, continuation_token \\ nil, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?metrics"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(continuation_token) do
       [{"continuation-token", continuation_token} | query_]
@@ -2898,21 +3319,31 @@ defmodule AWS.S3 do
 
   The following operations are related to `ListMultipartUploads`:
 
-  <ul> <li> `CreateMultipartUpload`
+  <ul> <li>
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 
-  </li> <li> `UploadPart`
+  </li> <li>
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 
-  </li> <li> `CompleteMultipartUpload`
+  </li> <li>
+  [CompleteMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 
-  </li> <li> `ListParts`
+  </li> <li>
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 
-  </li> <li> `AbortMultipartUpload`
+  </li> <li>
+  [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 
   </li> </ul>
   """
-  def list_multipart_uploads(client, bucket, delimiter \\ nil, encoding_type \\ nil, key_marker \\ nil, max_uploads \\ nil, prefix \\ nil, upload_id_marker \\ nil, options \\ []) do
+  def list_multipart_uploads(client, bucket, delimiter \\ nil, encoding_type \\ nil, key_marker \\ nil, max_uploads \\ nil, prefix \\ nil, upload_id_marker \\ nil, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?uploads"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(upload_id_marker) do
       [{"upload-id-marker", upload_id_marker} | query_]
@@ -2948,7 +3379,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Returns metadata about all of the versions of objects in a bucket. You can
+  Returns metadata about all versions of the objects in a bucket. You can
   also use request parameters as selection criteria to return metadata about
   a subset of all the object versions.
 
@@ -2958,21 +3389,32 @@ defmodule AWS.S3 do
 
   </note> To use this operation, you must have READ access to the bucket.
 
+  This action is not supported by Amazon S3 on Outposts.
+
   The following operations are related to `ListObjectVersions`:
 
-  <ul> <li> `ListObjectsV2`
+  <ul> <li>
+  [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html)
 
-  </li> <li> `GetObject`
+  </li> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
-  </li> <li> `PutObject`
+  </li> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
-  </li> <li> `DeleteObject`
+  </li> <li>
+  [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 
   </li> </ul>
   """
-  def list_object_versions(client, bucket, delimiter \\ nil, encoding_type \\ nil, key_marker \\ nil, max_keys \\ nil, prefix \\ nil, version_id_marker \\ nil, options \\ []) do
+  def list_object_versions(client, bucket, delimiter \\ nil, encoding_type \\ nil, key_marker \\ nil, max_keys \\ nil, prefix \\ nil, version_id_marker \\ nil, expected_bucket_owner \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?versions"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     query_ = []
     query_ = if !is_nil(version_id_marker) do
       [{"version-id-marker", version_id_marker} | query_]
@@ -3015,26 +3457,38 @@ defmodule AWS.S3 do
   handle it appropriately.
 
   <important> This API has been revised. We recommend that you use the newer
-  version, `ListObjectsV2`, when developing applications. For backward
-  compatibility, Amazon S3 continues to support `ListObjects`.
+  version,
+  [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html),
+  when developing applications. For backward compatibility, Amazon S3
+  continues to support `ListObjects`.
 
   </important> The following operations are related to `ListObjects`:
 
-  <ul> <li> `ListObjectsV2`
+  <ul> <li>
+  [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html)
 
-  </li> <li> `GetObject`
+  </li> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
-  </li> <li> `PutObject`
+  </li> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
-  </li> <li> `CreateBucket`
+  </li> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
-  </li> <li> `ListBuckets`
+  </li> <li>
+  [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
 
   </li> </ul>
   """
-  def list_objects(client, bucket, delimiter \\ nil, encoding_type \\ nil, marker \\ nil, max_keys \\ nil, prefix \\ nil, request_payer \\ nil, options \\ []) do
+  def list_objects(client, bucket, delimiter \\ nil, encoding_type \\ nil, marker \\ nil, max_keys \\ nil, prefix \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
@@ -3090,23 +3544,33 @@ defmodule AWS.S3 do
   <important> This section describes the latest revision of the API. We
   recommend that you use this revised API for application development. For
   backward compatibility, Amazon S3 continues to support the prior version of
-  this API, `ListObjects`.
+  this API,
+  [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html).
 
-  </important> To get a list of your buckets, see `ListBuckets`.
+  </important> To get a list of your buckets, see
+  [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html).
 
   The following operations are related to `ListObjectsV2`:
 
-  <ul> <li> `GetObject`
+  <ul> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
-  </li> <li> `PutObject`
+  </li> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
-  </li> <li> `CreateBucket`
+  </li> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
   </li> </ul>
   """
-  def list_objects_v2(client, bucket, continuation_token \\ nil, delimiter \\ nil, encoding_type \\ nil, fetch_owner \\ nil, max_keys \\ nil, prefix \\ nil, start_after \\ nil, request_payer \\ nil, options \\ []) do
+  def list_objects_v2(client, bucket, continuation_token \\ nil, delimiter \\ nil, encoding_type \\ nil, fetch_owner \\ nil, max_keys \\ nil, prefix \\ nil, start_after \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?list-type=2"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
@@ -3154,9 +3618,10 @@ defmodule AWS.S3 do
   @doc """
   Lists the parts that have been uploaded for a specific multipart upload.
   This operation must include the upload ID, which you obtain by sending the
-  initiate multipart upload request (see `CreateMultipartUpload`). This
-  request returns a maximum of 1,000 uploaded parts. The default number of
-  parts returned is 1,000 parts. You can restrict the number of parts
+  initiate multipart upload request (see
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)).
+  This request returns a maximum of 1,000 uploaded parts. The default number
+  of parts returned is 1,000 parts. You can restrict the number of parts
   returned by specifying the `max-parts` request parameter. If your multipart
   upload consists of more than 1,000 parts, the response returns an
   `IsTruncated` field with the value of true, and a `NextPartNumberMarker`
@@ -3174,21 +3639,31 @@ defmodule AWS.S3 do
 
   The following operations are related to `ListParts`:
 
-  <ul> <li> `CreateMultipartUpload`
+  <ul> <li>
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 
-  </li> <li> `UploadPart`
+  </li> <li>
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 
-  </li> <li> `CompleteMultipartUpload`
+  </li> <li>
+  [CompleteMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 
-  </li> <li> `AbortMultipartUpload`
+  </li> <li>
+  [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 
-  </li> <li> `ListMultipartUploads`
+  </li> <li>
+  [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 
   </li> </ul>
   """
-  def list_parts(client, bucket, key, max_parts \\ nil, part_number_marker \\ nil, upload_id, request_payer \\ nil, options \\ []) do
+  def list_parts(client, bucket, key, max_parts \\ nil, part_number_marker \\ nil, upload_id, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     headers = []
+    headers = if !is_nil(expected_bucket_owner) do
+      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+    else
+      headers
+    end
     headers = if !is_nil(request_payer) do
       [{"x-amz-request-payer", request_payer} | headers]
     else
@@ -3211,7 +3686,7 @@ defmodule AWS.S3 do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-abort-date", "AbortDate"},
@@ -3253,8 +3728,9 @@ defmodule AWS.S3 do
 
   </li> <li> Suspended – Disables accelerated data transfers to the bucket.
 
-  </li> </ul> The `GetBucketAccelerateConfiguration` operation returns the
-  transfer acceleration state of a bucket.
+  </li> </ul> The
+  [GetBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html)
+  operation returns the transfer acceleration state of a bucket.
 
   After setting the Transfer Acceleration state of a bucket to Enabled, it
   might take up to thirty minutes before the data transfer rates to the
@@ -3268,15 +3744,21 @@ defmodule AWS.S3 do
 
   The following operations are related to `PutBucketAccelerateConfiguration`:
 
-  <ul> <li> `GetBucketAccelerateConfiguration`
+  <ul> <li>
+  [GetBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html)
 
-  </li> <li> `CreateBucket`
+  </li> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
   </li> </ul>
   """
   def put_bucket_accelerate_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?accelerate"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :put, path_, query_, headers, input, options, nil)
   end
@@ -3421,11 +3903,14 @@ defmodule AWS.S3 do
 
   </note> </li> </ul> <p class="title"> **Related Resources**
 
-  <ul> <li> `CreateBucket`
+  <ul> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
-  </li> <li> `DeleteBucket`
+  </li> <li>
+  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 
-  </li> <li> `GetObjectAcl`
+  </li> <li>
+  [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
 
   </li> </ul>
   """
@@ -3435,6 +3920,7 @@ defmodule AWS.S3 do
       [
         {"ACL", "x-amz-acl"},
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"GrantFullControl", "x-amz-grant-full-control"},
         {"GrantRead", "x-amz-grant-read"},
         {"GrantReadACP", "x-amz-grant-read-acp"},
@@ -3503,16 +3989,23 @@ defmodule AWS.S3 do
   </li> </ul> </li> </ul> <p class="title"> **Related Resources**
 
   <ul> <li>
+  [GetBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAnalyticsConfiguration.html)
 
   </li> <li>
+  [DeleteBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketAnalyticsConfiguration.html)
 
   </li> <li>
+  [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html)
 
   </li> </ul>
   """
   def put_bucket_analytics_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?analytics"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     {query_, input} =
       [
         {"Id", "id"},
@@ -3564,11 +4057,14 @@ defmodule AWS.S3 do
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `GetBucketCors`
+  <ul> <li>
+  [GetBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html)
 
-  </li> <li> `DeleteBucketCors`
+  </li> <li>
+  [DeleteBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
 
-  </li> <li> `RESTOPTIONSobject`
+  </li> <li>
+  [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
 
   </li> </ul>
   """
@@ -3577,6 +4073,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -3609,9 +4106,11 @@ defmodule AWS.S3 do
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `GetBucketEncryption`
+  <ul> <li>
+  [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
 
-  </li> <li> `DeleteBucketEncryption`
+  </li> <li>
+  [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
 
   </li> </ul>
   """
@@ -3620,6 +4119,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -3687,17 +4187,24 @@ defmodule AWS.S3 do
 
   </li> </ul> </li> </ul> <p class="title"> **Related Resources**
 
-  <ul> <li> `GetBucketInventoryConfiguration`
+  <ul> <li>
+  [GetBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html)
 
-  </li> <li> `DeleteBucketInventoryConfiguration`
+  </li> <li>
+  [DeleteBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html)
 
-  </li> <li> `ListBucketInventoryConfigurations`
+  </li> <li>
+  [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
 
   </li> </ul>
   """
   def put_bucket_inventory_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?inventory"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     {query_, input} =
       [
         {"Id", "id"},
@@ -3708,9 +4215,9 @@ defmodule AWS.S3 do
 
   @doc """
   <important> For an updated version of this API, see
-  `PutBucketLifecycleConfiguration`. This version has been deprecated.
-  Existing lifecycle configurations will work. For new lifecycle
-  configurations, use the updated API.
+  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html).
+  This version has been deprecated. Existing lifecycle configurations will
+  work. For new lifecycle configurations, use the updated API.
 
   </important> Creates a new lifecycle configuration for the bucket or
   replaces an existing lifecycle configuration. For information about
@@ -3747,11 +4254,14 @@ defmodule AWS.S3 do
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `GetBucketLifecycle`(Deprecated)
-
-  </li> <li> `GetBucketLifecycleConfiguration`
+  <ul> <li>
+  [GetBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html)(Deprecated)
 
   </li> <li>
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
+
+  </li> <li>
+  [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html)
 
   </li> <li> By default, a resource owner—in this case, a bucket owner, which
   is the AWS account that created the bucket—can perform any of the
@@ -3772,6 +4282,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -3789,7 +4300,8 @@ defmodule AWS.S3 do
   combination of both. Accordingly, this section describes the latest API.
   The previous version of the API supported filtering based only on an object
   key name prefix, which is supported for backward compatibility. For the
-  related API description, see `PutBucketLifecycle`.
+  related API description, see
+  [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html).
 
   </note> **Rules**
 
@@ -3844,15 +4356,21 @@ defmodule AWS.S3 do
   <ul> <li> [Examples of Lifecycle
   Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html)
 
-  </li> <li> `GetBucketLifecycleConfiguration`
+  </li> <li>
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
 
-  </li> <li> `DeleteBucketLifecycle`
+  </li> <li>
+  [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
 
   </li> </ul>
   """
   def put_bucket_lifecycle_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?lifecycle"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :put, path_, query_, headers, input, options, nil)
   end
@@ -3904,19 +4422,24 @@ defmodule AWS.S3 do
   For more information about server access logging, see [Server Access
   Logging](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html).
 
-  For more information about creating a bucket, see `CreateBucket`. For more
-  information about returning the logging status of a bucket, see
-  `GetBucketLogging`.
+  For more information about creating a bucket, see
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html).
+  For more information about returning the logging status of a bucket, see
+  [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html).
 
   The following operations are related to `PutBucketLogging`:
 
-  <ul> <li> `PutObject`
+  <ul> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
-  </li> <li> `DeleteBucket`
+  </li> <li>
+  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 
-  </li> <li> `CreateBucket`
+  </li> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
-  </li> <li> `GetBucketLogging`
+  </li> <li>
+  [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html)
 
   </li> </ul>
   """
@@ -3925,6 +4448,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -3953,11 +4477,14 @@ defmodule AWS.S3 do
 
   The following operations are related to `PutBucketMetricsConfiguration`:
 
-  <ul> <li> `DeleteBucketMetricsConfiguration`
+  <ul> <li>
+  [DeleteBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html)
 
-  </li> <li> `PutBucketMetricsConfiguration`
+  </li> <li>
+  [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html)
 
-  </li> <li> `ListBucketMetricsConfigurations`
+  </li> <li>
+  [ListBucketMetricsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html)
 
   </li> </ul> `GetBucketLifecycle` has the following special error:
 
@@ -3972,7 +4499,11 @@ defmodule AWS.S3 do
   """
   def put_bucket_metrics_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?metrics"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     {query_, input} =
       [
         {"Id", "id"},
@@ -3982,13 +4513,16 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  No longer used, see the `PutBucketNotificationConfiguration` operation.
+  No longer used, see the
+  [PutBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html)
+  operation.
   """
   def put_bucket_notification(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?notification"
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -4049,13 +4583,48 @@ defmodule AWS.S3 do
 
   The following operation is related to `PutBucketNotificationConfiguration`:
 
-  <ul> <li> `GetBucketNotificationConfiguration`
+  <ul> <li>
+  [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
 
   </li> </ul>
   """
   def put_bucket_notification_configuration(client, bucket, input, options \\ []) do
     path_ = "/#{URI.encode(bucket)}?notification"
-    headers = []
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates or modifies `OwnershipControls` for an Amazon S3 bucket. To use
+  this operation, you must have the `s3:GetBucketOwnershipControls`
+  permission. For more information about Amazon S3 permissions, see
+  [Specifying Permissions in a
+  Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+
+  For information about Amazon S3 Object Ownership, see [Using Object
+  Ownership](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
+
+  The following operations are related to `GetBucketOwnershipControls`:
+
+  <ul> <li> `GetBucketOwnershipControls`
+
+  </li> <li> `DeleteBucketOwnershipControls`
+
+  </li> </ul>
+  """
+  def put_bucket_ownership_controls(client, bucket, input, options \\ []) do
+    path_ = "/#{URI.encode(bucket)}?ownershipControls"
+    {headers, input} =
+      [
+        {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+      ]
+      |> AWS.Request.build_params(input)
     query_ = []
     request(client, :put, path_, query_, headers, input, options, nil)
   end
@@ -4082,9 +4651,11 @@ defmodule AWS.S3 do
 
   The following operations are related to `PutBucketPolicy`:
 
-  <ul> <li> `CreateBucket`
+  <ul> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
-  </li> <li> `DeleteBucket`
+  </li> <li>
+  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 
   </li> </ul>
   """
@@ -4094,6 +4665,7 @@ defmodule AWS.S3 do
       [
         {"ConfirmRemoveSelfBucketAccess", "x-amz-confirm-remove-self-bucket-access"},
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -4130,7 +4702,15 @@ defmodule AWS.S3 do
   must also add the following elements: `DeleteMarkerReplication`, `Status`,
   and `Priority`.
 
-  For information about enabling versioning on a bucket, see [Using
+  <note> The latest version of the replication configuration XML is V2. XML
+  V2 replication configurations are those that contain the `Filter` element
+  for rules, and rules that specify S3 Replication Time Control (S3 RTC). In
+  XML V2 replication configurations, Amazon S3 doesn't replicate delete
+  markers. Therefore, you must set the `DeleteMarkerReplication` element to
+  `Disabled`. For backward compatibility, Amazon S3 continues to support the
+  XML V1 replication configuration.
+
+  </note> For information about enabling versioning on a bucket, see [Using
   Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html).
 
   By default, a resource owner, in this case the AWS account that created the
@@ -4151,14 +4731,17 @@ defmodule AWS.S3 do
   [Replicating Objects Created with SSE Using CMKs stored in AWS
   KMS](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html).
 
-  For information on `PutBucketReplication` errors, see
-  `ReplicationErrorCodeList`
+  For information on `PutBucketReplication` errors, see [List of
+  replication-related error
+  codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList)
 
   The following operations are related to `PutBucketReplication`:
 
-  <ul> <li> `GetBucketReplication`
+  <ul> <li>
+  [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html)
 
-  </li> <li> `DeleteBucketReplication`
+  </li> <li>
+  [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
 
   </li> </ul>
   """
@@ -4167,6 +4750,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"Token", "x-amz-bucket-object-lock-token"},
       ]
       |> AWS.Request.build_params(input)
@@ -4184,9 +4768,11 @@ defmodule AWS.S3 do
 
   The following operations are related to `PutBucketRequestPayment`:
 
-  <ul> <li> `CreateBucket`
+  <ul> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
-  </li> <li> `GetBucketRequestPayment`
+  </li> <li>
+  [GetBucketRequestPayment](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html)
 
   </li> </ul>
   """
@@ -4195,6 +4781,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -4255,9 +4842,11 @@ defmodule AWS.S3 do
   </li> </ul> </li> </ul> The following operations are related to
   `PutBucketTagging`:
 
-  <ul> <li> `GetBucketTagging`
+  <ul> <li>
+  [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html)
 
-  </li> <li> `DeleteBucketTagging`
+  </li> <li>
+  [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
 
   </li> </ul>
   """
@@ -4266,6 +4855,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -4285,8 +4875,9 @@ defmodule AWS.S3 do
   objects added to the bucket receive the version ID null.
 
   If the versioning state has never been set on a bucket, it has no
-  versioning state; a `GetBucketVersioning` request does not return a
-  versioning state value.
+  versioning state; a
+  [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html)
+  request does not return a versioning state value.
 
   If the bucket owner enables MFA Delete in the bucket versioning
   configuration, the bucket owner must include the `x-amz-mfa request` header
@@ -4304,11 +4895,14 @@ defmodule AWS.S3 do
 
   </important> <p class="title"> **Related Resources**
 
-  <ul> <li> `CreateBucket`
+  <ul> <li>
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
 
-  </li> <li> `DeleteBucket`
+  </li> <li>
+  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 
-  </li> <li> `GetBucketVersioning`
+  </li> <li>
+  [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html)
 
   </li> </ul>
   """
@@ -4317,6 +4911,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"MFA", "x-amz-mfa"},
       ]
       |> AWS.Request.build_params(input)
@@ -4400,6 +4995,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -4452,10 +5048,11 @@ defmodule AWS.S3 do
 
   **Storage Class Options**
 
-  By default, Amazon S3 uses the STANDARD storage class to store newly
+  By default, Amazon S3 uses the STANDARD Storage Class to store newly
   created objects. The STANDARD storage class provides high durability and
   high availability. Depending on performance needs, you can specify a
-  different storage class. For more information, see [Storage
+  different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS
+  Storage Class. For more information, see [Storage
   Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
   in the *Amazon S3 Service Developer Guide*.
 
@@ -4471,13 +5068,15 @@ defmodule AWS.S3 do
   Enabled
   Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html).
   For information about returning the versioning state of a bucket, see
-  `GetBucketVersioning`.
+  [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html).
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `CopyObject`
+  <ul> <li>
+  [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
 
-  </li> <li> `DeleteObject`
+  </li> <li>
+  [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 
   </li> </ul>
   """
@@ -4493,6 +5092,7 @@ defmodule AWS.S3 do
         {"ContentLength", "Content-Length"},
         {"ContentMD5", "Content-MD5"},
         {"ContentType", "Content-Type"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"Expires", "Expires"},
         {"GrantFullControl", "x-amz-grant-full-control"},
         {"GrantRead", "x-amz-grant-read"},
@@ -4515,7 +5115,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -4544,8 +5144,13 @@ defmodule AWS.S3 do
 
   @doc """
   Uses the `acl` subresource to set the access control list (ACL) permissions
-  for an object that already exists in a bucket. You must have `WRITE_ACP`
-  permission to set the ACL of an object.
+  for a new or existing object in an S3 bucket. You must have `WRITE_ACP`
+  permission to set the ACL of an object. For more information, see [What
+  permissions can I
+  grant?](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions)
+  in the *Amazon Simple Storage Service Developer Guide*.
+
+  This action is not supported by Amazon S3 on Outposts.
 
   Depending on your application needs, you can choose to set the ACL on an
   object using either the request body or the headers. For example, if you
@@ -4680,9 +5285,11 @@ defmodule AWS.S3 do
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `CopyObject`
+  <ul> <li>
+  [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
 
-  </li> <li> `GetObject`
+  </li> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
   </li> </ul>
   """
@@ -4692,6 +5299,7 @@ defmodule AWS.S3 do
       [
         {"ACL", "x-amz-acl"},
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"GrantFullControl", "x-amz-grant-full-control"},
         {"GrantRead", "x-amz-grant-read"},
         {"GrantReadACP", "x-amz-grant-read-acp"},
@@ -4706,7 +5314,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -4728,6 +5336,8 @@ defmodule AWS.S3 do
   @doc """
   Applies a Legal Hold configuration to the specified object.
 
+  This action is not supported by Amazon S3 on Outposts.
+
   <p class="title"> **Related Resources**
 
   <ul> <li> [Locking
@@ -4740,6 +5350,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
@@ -4749,7 +5360,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -4788,13 +5399,14 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
         {"Token", "x-amz-bucket-object-lock-token"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -4816,6 +5428,8 @@ defmodule AWS.S3 do
   @doc """
   Places an Object Retention configuration on an object.
 
+  This action is not supported by Amazon S3 on Outposts.
+
   <p class="title"> **Related Resources**
 
   <ul> <li> [Locking
@@ -4829,6 +5443,7 @@ defmodule AWS.S3 do
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
@@ -4838,7 +5453,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -4863,7 +5478,8 @@ defmodule AWS.S3 do
   A tag is a key-value pair. You can associate tags with an object by sending
   a PUT request against the tagging subresource that is associated with the
   object. You can retrieve tags by sending a GET request. For more
-  information, see `GetObjectTagging`.
+  information, see
+  [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html).
 
   For tagging-related restrictions related to characters and encodings, see
   [Tag
@@ -4883,18 +5499,14 @@ defmodule AWS.S3 do
 
   <p class="title"> **Special Errors**
 
-  <ul> <li> <p class="title"> <b/>
-
-  <ul> <li> *Code: InvalidTagError *
+  <ul> <li> <ul> <li> *Code: InvalidTagError *
 
   </li> <li> *Cause: The tag provided was not a valid tag. This error can
   occur if the tag did not pass input validation. For more information, see
   [Object
   Tagging](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html).*
 
-  </li> </ul> </li> <li> <p class="title"> <b/>
-
-  <ul> <li> *Code: MalformedXMLError *
+  </li> </ul> </li> <li> <ul> <li> *Code: MalformedXMLError *
 
   </li> <li> *Cause: The XML provided does not match the schema.*
 
@@ -4910,7 +5522,8 @@ defmodule AWS.S3 do
 
   </li> </ul> </li> </ul> <p class="title"> **Related Resources**
 
-  <ul> <li> `GetObjectTagging`
+  <ul> <li>
+  [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
 
   </li> </ul>
   """
@@ -4919,6 +5532,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     {query_, input} =
@@ -4927,7 +5541,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-version-id", "VersionId"},
@@ -4966,11 +5580,14 @@ defmodule AWS.S3 do
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `GetPublicAccessBlock`
+  <ul> <li>
+  [GetPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html)
 
-  </li> <li> `DeletePublicAccessBlock`
+  </li> <li>
+  [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
 
-  </li> <li> `GetBucketPolicyStatus`
+  </li> <li>
+  [GetBucketPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
 
   </li> <li> [Using Amazon S3 Block Public
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
@@ -4982,6 +5599,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
       ]
       |> AWS.Request.build_params(input)
     query_ = []
@@ -4991,7 +5609,9 @@ defmodule AWS.S3 do
   @doc """
   Restores an archived copy of an object back into Amazon S3
 
-  This operation performs the following types of requests:
+  This action is not supported by Amazon S3 on Outposts.
+
+  This action performs the following types of requests:
 
   <ul> <li> `select` - Perform a select query on an archived object
 
@@ -5031,7 +5651,8 @@ defmodule AWS.S3 do
   For more information about the `S3` structure in the request body, see the
   following:
 
-  <ul> <li> `PutObject`
+  <ul> <li>
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
   </li> <li> [Managing Access with
   ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html)
@@ -5171,7 +5792,9 @@ defmodule AWS.S3 do
   specify in a restore request. For example, if you restore an object copy
   for 10 days, but the object is scheduled to expire in 3 days, Amazon S3
   deletes the object in 3 days. For more information about lifecycle
-  configuration, see `PutBucketLifecycleConfiguration` and [Object Lifecycle
+  configuration, see
+  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
+  and [Object Lifecycle
   Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
   in *Amazon Simple Storage Service Developer Guide*.
 
@@ -5188,9 +5811,7 @@ defmodule AWS.S3 do
 
   </li> </ul> <p class="title"> **Special Errors**
 
-  <ul> <li> <p class="title"> <b/>
-
-  <ul> <li> *Code: RestoreAlreadyInProgress*
+  <ul> <li> <ul> <li> *Code: RestoreAlreadyInProgress*
 
   </li> <li> *Cause: Object restore is already in progress. (This error does
   not apply to SELECT type requests.)*
@@ -5199,9 +5820,8 @@ defmodule AWS.S3 do
 
   </li> <li> *SOAP Fault Code Prefix: Client*
 
-  </li> </ul> </li> <li> <p class="title"> <b/>
-
-  <ul> <li> *Code: GlacierExpeditedRetrievalNotAvailable*
+  </li> </ul> </li> <li> <ul> <li> *Code:
+  GlacierExpeditedRetrievalNotAvailable*
 
   </li> <li> *Cause: S3 Glacier expedited retrievals are currently not
   available. Try again later. (Returned if there is insufficient capacity to
@@ -5214,9 +5834,11 @@ defmodule AWS.S3 do
 
   </li> </ul> </li> </ul> <p class="title"> **Related Resources**
 
-  <ul> <li> `PutBucketLifecycleConfiguration`
+  <ul> <li>
+  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
 
-  </li> <li> `GetBucketNotificationConfiguration`
+  </li> <li>
+  [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
 
   </li> <li> [SQL Reference for Amazon S3 Select and S3 Glacier Select
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html)
@@ -5228,6 +5850,7 @@ defmodule AWS.S3 do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?restore"
     {headers, input} =
       [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
       ]
       |> AWS.Request.build_params(input)
@@ -5237,7 +5860,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -5265,6 +5888,8 @@ defmodule AWS.S3 do
   parse object data into records, and returns only records that match the
   specified SQL expression. You must also specify the data serialization
   format for the response.
+
+  This action is not supported by Amazon S3 on Outposts.
 
   For more information about Amazon S3 Select, see [Selecting Content from
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html)
@@ -5305,8 +5930,10 @@ defmodule AWS.S3 do
 
   For objects that are encrypted with customer-provided encryption keys
   (SSE-C), you must use HTTPS, and you must use the headers that are
-  documented in the `GetObject`. For more information about SSE-C, see
-  [Server-Side Encryption (Using Customer-Provided Encryption
+  documented in the
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html).
+  For more information about SSE-C, see [Server-Side Encryption (Using
+  Customer-Provided Encryption
   Keys)](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html)
   in the *Amazon Simple Storage Service Developer Guide*.
 
@@ -5324,16 +5951,21 @@ defmodule AWS.S3 do
   Given the response size is unknown, Amazon S3 Select streams the response
   as a series of messages and includes a `Transfer-Encoding` header with
   `chunked` as its value in the response. For more information, see
-  `RESTSelectObjectAppendix` .
+  [Appendix: SelectObjectContent
+  Response](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html)
+  .
 
   <p/> **GetObject Support**
 
   The `SelectObjectContent` operation does not support the following
-  `GetObject` functionality. For more information, see `GetObject`.
+  `GetObject` functionality. For more information, see
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html).
 
   <ul> <li> `Range`: Although you can specify a scan range for an Amazon S3
-  Select request (see `SelectObjectContentRequest$ScanRange` in the request
-  parameters), you cannot specify the range of bytes of an object to return.
+  Select request (see [SelectObjectContentRequest -
+  ScanRange](https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange)
+  in the request parameters), you cannot specify the range of bytes of an
+  object to return.
 
   </li> <li> GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes:
   You cannot specify the GLACIER, DEEP_ARCHIVE, or `REDUCED_REDUNDANCY`
@@ -5343,16 +5975,20 @@ defmodule AWS.S3 do
 
   </li> </ul> <p/> **Special Errors**
 
-  For a list of special errors for this operation, see
-  `SelectObjectContentErrorCodeList`
+  For a list of special errors for this operation, see [List of SELECT Object
+  Content Error
+  Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList)
 
   <p class="title"> **Related Resources**
 
-  <ul> <li> `GetObject`
+  <ul> <li>
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
-  </li> <li> `GetBucketLifecycleConfiguration`
+  </li> <li>
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
 
-  </li> <li> `PutBucketLifecycleConfiguration`
+  </li> <li>
+  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
 
   </li> </ul>
   """
@@ -5360,6 +5996,7 @@ defmodule AWS.S3 do
     path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?select&select-type=2"
     {headers, input} =
       [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
@@ -5375,9 +6012,12 @@ defmodule AWS.S3 do
   <note> In this operation, you provide part data in your request. However,
   you have an option to specify your existing Amazon S3 object as a data
   source for the part you are uploading. To upload a part from an existing
-  object, you use the `UploadPartCopy` operation.
+  object, you use the
+  [UploadPartCopy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html)
+  operation.
 
-  </note> You must initiate a multipart upload (see `CreateMultipartUpload`)
+  </note> You must initiate a multipart upload (see
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html))
   before you can upload any part. In response to your initiate request,
   Amazon S3 returns an upload ID, a unique identifier, that you must include
   in your upload part request.
@@ -5393,6 +6033,12 @@ defmodule AWS.S3 do
   the `Content-MD5` header in the upload part request. Amazon S3 checks the
   part data against the provided MD5 value. If they do not match, Amazon S3
   returns an error.
+
+  If the upload request is signed with Signature Version 4, then AWS S3 uses
+  the `x-amz-content-sha256` header as a checksum instead of `Content-MD5`.
+  For more information see [Authenticating Requests: Using the Authorization
+  Header (AWS Signature Version
+  4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html).
 
   **Note:** After you initiate multipart upload and upload one or more parts,
   you must either complete or abort multipart upload in order to stop getting
@@ -5415,8 +6061,9 @@ defmodule AWS.S3 do
   encryption key, or you can use the AWS managed encryption keys. If you
   choose to provide your own encryption key, the request headers you provide
   in the request must match the headers you used in the request to initiate
-  the upload by using `CreateMultipartUpload`. For more information, go to
-  [Using Server-Side
+  the upload by using
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html).
+  For more information, go to [Using Server-Side
   Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html)
   in the *Amazon Simple Storage Service Developer Guide*.
 
@@ -5425,24 +6072,22 @@ defmodule AWS.S3 do
   specify the encryption parameters in each UploadPart request. Instead, you
   only need to specify the server-side encryption parameters in the initial
   Initiate Multipart request. For more information, see
-  `CreateMultipartUpload`.
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html).
 
   If you requested server-side encryption using a customer-provided
   encryption key in your initiate multipart upload request, you must provide
   identical encryption information in each part upload using the following
   headers.
 
-  <ul> <li> x-amz-server-side​-encryption​-customer-algorithm
+  <ul> <li> x-amz-server-side-encryption-customer-algorithm
 
-  </li> <li> x-amz-server-side​-encryption​-customer-key
+  </li> <li> x-amz-server-side-encryption-customer-key
 
-  </li> <li> x-amz-server-side​-encryption​-customer-key-MD5
+  </li> <li> x-amz-server-side-encryption-customer-key-MD5
 
   </li> </ul> <p class="title"> **Special Errors**
 
-  <ul> <li> <p class="title"> <b/>
-
-  <ul> <li> *Code: NoSuchUpload*
+  <ul> <li> <ul> <li> *Code: NoSuchUpload*
 
   </li> <li> *Cause: The specified multipart upload does not exist. The
   upload ID might be invalid, or the multipart upload might have been aborted
@@ -5454,15 +6099,20 @@ defmodule AWS.S3 do
 
   </li> </ul> </li> </ul> <p class="title"> **Related Resources**
 
-  <ul> <li> `CreateMultipartUpload`
+  <ul> <li>
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 
-  </li> <li> `CompleteMultipartUpload`
+  </li> <li>
+  [CompleteMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 
-  </li> <li> `AbortMultipartUpload`
+  </li> <li>
+  [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 
-  </li> <li> `ListParts`
+  </li> <li>
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 
-  </li> <li> `ListMultipartUploads`
+  </li> <li>
+  [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 
   </li> </ul>
   """
@@ -5472,6 +6122,7 @@ defmodule AWS.S3 do
       [
         {"ContentLength", "Content-Length"},
         {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
@@ -5485,7 +6136,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -5521,7 +6172,8 @@ defmodule AWS.S3 do
   *Amazon Simple Storage Service Developer Guide*.
 
   <note> Instead of using an existing object as part data, you might use the
-  `UploadPart` operation and provide data in your request.
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+  operation and provide data in your request.
 
   </note> You must initiate a multipart upload before you can upload any
   part. In response to your initiate request. Amazon S3 returns a unique
@@ -5548,7 +6200,9 @@ defmodule AWS.S3 do
 
   </li> <li> For information about using server-side encryption with
   customer-provided encryption keys with the UploadPartCopy operation, see
-  `CopyObject` and `UploadPart`.
+  [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)
+  and
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html).
 
   </li> </ul> Note the following additional considerations about the request
   headers `x-amz-copy-source-if-match`, `x-amz-copy-source-if-none-match`,
@@ -5593,9 +6247,7 @@ defmodule AWS.S3 do
 
   <p class="title"> **Special Errors**
 
-  <ul> <li> <p class="title"> <b/>
-
-  <ul> <li> *Code: NoSuchUpload*
+  <ul> <li> <ul> <li> *Code: NoSuchUpload*
 
   </li> <li> *Cause: The specified multipart upload does not exist. The
   upload ID might be invalid, or the multipart upload might have been aborted
@@ -5603,9 +6255,7 @@ defmodule AWS.S3 do
 
   </li> <li> *HTTP Status Code: 404 Not Found*
 
-  </li> </ul> </li> <li> <p class="title"> <b/>
-
-  <ul> <li> *Code: InvalidRequest*
+  </li> </ul> </li> <li> <ul> <li> *Code: InvalidRequest*
 
   </li> <li> *Cause: The specified copy source is not supported as a
   byte-range copy source.*
@@ -5614,17 +6264,23 @@ defmodule AWS.S3 do
 
   </li> </ul> </li> </ul> <p class="title"> **Related Resources**
 
-  <ul> <li> `CreateMultipartUpload`
+  <ul> <li>
+  [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
 
-  </li> <li> `UploadPart`
+  </li> <li>
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
 
-  </li> <li> `CompleteMultipartUpload`
+  </li> <li>
+  [CompleteMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html)
 
-  </li> <li> `AbortMultipartUpload`
+  </li> <li>
+  [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
 
-  </li> <li> `ListParts`
+  </li> <li>
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
 
-  </li> <li> `ListMultipartUploads`
+  </li> <li>
+  [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
 
   </li> </ul>
   """
@@ -5641,6 +6297,8 @@ defmodule AWS.S3 do
         {"CopySourceSSECustomerAlgorithm", "x-amz-copy-source-server-side-encryption-customer-algorithm"},
         {"CopySourceSSECustomerKey", "x-amz-copy-source-server-side-encryption-customer-key"},
         {"CopySourceSSECustomerKeyMD5", "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
@@ -5654,7 +6312,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-copy-source-version-id", "CopySourceVersionId"},
@@ -5679,9 +6337,8 @@ defmodule AWS.S3 do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "s3"}
     host = build_host("s3", client)
@@ -5697,41 +6354,16 @@ defmodule AWS.S3 do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -5752,6 +6384,11 @@ defmodule AWS.S3 do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: AWS.Util.encode_xml(input), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

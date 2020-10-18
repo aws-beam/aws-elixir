@@ -48,6 +48,18 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Cancels a mailbox export job.
+
+  <note> If the mailbox export job is near completion, it might not be
+  possible to cancel it.
+
+  </note>
+  """
+  def cancel_mailbox_export_job(client, input, options \\ []) do
+    request(client, "CancelMailboxExportJob", input, options)
+  end
+
+  @doc """
   Adds an alias to the set of a given member (user or group) of Amazon
   WorkMail.
   """
@@ -61,6 +73,34 @@ defmodule AWS.WorkMail do
   """
   def create_group(client, input, options \\ []) do
     request(client, "CreateGroup", input, options)
+  end
+
+  @doc """
+  Creates a new Amazon WorkMail organization. Optionally, you can choose to
+  associate an existing AWS Directory Service directory with your
+  organization. If an AWS Directory Service directory ID is specified, the
+  organization alias must match the directory alias. If you choose not to
+  associate an existing directory with your organization, then we create a
+  new Amazon WorkMail directory for you. For more information, see [Adding an
+  organization](https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html)
+  in the *Amazon WorkMail Administrator Guide*.
+
+  You can associate multiple email domains with an organization, then set
+  your default email domain from the Amazon WorkMail console. You can also
+  associate a domain that is managed in an Amazon Route 53 public hosted
+  zone. For more information, see [Adding a
+  domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html)
+  and [Choosing the default
+  domain](https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html)
+  in the *Amazon WorkMail Administrator Guide*.
+
+  Optionally, you can use a customer managed master key from AWS Key
+  Management Service (AWS KMS) to encrypt email for your organization. If you
+  don't associate an AWS KMS key, Amazon WorkMail creates a default AWS
+  managed master key for you.
+  """
+  def create_organization(client, input, options \\ []) do
+    request(client, "CreateOrganization", input, options)
   end
 
   @doc """
@@ -108,6 +148,18 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Deletes an Amazon WorkMail organization and all underlying AWS resources
+  managed by Amazon WorkMail as part of the organization. You can choose
+  whether to delete the associated directory. For more information, see
+  [Removing an
+  organization](https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html)
+  in the *Amazon WorkMail Administrator Guide*.
+  """
+  def delete_organization(client, input, options \\ []) do
+    request(client, "DeleteOrganization", input, options)
+  end
+
+  @doc """
   Deletes the specified resource.
   """
   def delete_resource(client, input, options \\ []) do
@@ -148,6 +200,13 @@ defmodule AWS.WorkMail do
   """
   def describe_group(client, input, options \\ []) do
     request(client, "DescribeGroup", input, options)
+  end
+
+  @doc """
+  Describes the current status of a mailbox export job.
+  """
+  def describe_mailbox_export_job(client, input, options \\ []) do
+    request(client, "DescribeMailboxExportJob", input, options)
   end
 
   @doc """
@@ -236,6 +295,14 @@ defmodule AWS.WorkMail do
   """
   def list_groups(client, input, options \\ []) do
     request(client, "ListGroups", input, options)
+  end
+
+  @doc """
+  Lists the mailbox export jobs started for the specified organization within
+  the last seven days.
+  """
+  def list_mailbox_export_jobs(client, input, options \\ []) do
+    request(client, "ListMailboxExportJobs", input, options)
   end
 
   @doc """
@@ -332,6 +399,18 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Starts a mailbox export job to export MIME-format email messages and
+  calendar items from the specified mailbox to the specified Amazon Simple
+  Storage Service (Amazon S3) bucket. For more information, see [Exporting
+  mailbox
+  content](https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html)
+  in the *Amazon WorkMail Administrator Guide*.
+  """
+  def start_mailbox_export_job(client, input, options \\ []) do
+    request(client, "StartMailboxExportJob", input, options)
+  end
+
+  @doc """
   Applies the specified tags to the specified Amazon WorkMail organization
   resource.
   """
@@ -375,9 +454,8 @@ defmodule AWS.WorkMail do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "workmail"}
     host = build_host("workmail", client)
@@ -389,25 +467,24 @@ defmodule AWS.WorkMail do
       {"X-Amz-Target", "WorkMailService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

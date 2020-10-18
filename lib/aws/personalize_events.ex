@@ -3,11 +3,14 @@
 
 defmodule AWS.PersonalizeEvents do
   @moduledoc """
-  <p/>
+  Amazon Personalize can consume real-time user event data, such as *stream*
+  or *click* data, and use it for model training either alone or combined
+  with historical data. For more information see `recording-events`.
   """
 
   @doc """
-  Records user interaction event data.
+  Records user interaction event data. For more information see
+  `event-record-api`.
   """
   def put_events(client, input, options \\ []) do
     path_ = "/events"
@@ -16,10 +19,31 @@ defmodule AWS.PersonalizeEvents do
     request(client, :post, path_, query_, headers, input, options, nil)
   end
 
+  @doc """
+  Adds one or more items to an Items dataset. For more information see
+  `importing-items`.
+  """
+  def put_items(client, input, options \\ []) do
+    path_ = "/items"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Adds one or more users to a Users dataset. For more information see
+  `importing-users`.
+  """
+  def put_users(client, input, options \\ []) do
+    path_ = "/users"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "personalize"}
     host = build_host("personalize-events", client)
@@ -35,41 +59,16 @@ defmodule AWS.PersonalizeEvents do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -90,6 +89,11 @@ defmodule AWS.PersonalizeEvents do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

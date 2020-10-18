@@ -12,8 +12,9 @@ defmodule AWS.Backup do
   """
 
   @doc """
-  Backup plans are documents that contain information that AWS Backup uses to
-  schedule tasks that create recovery points of resources.
+  Creates a backup plan using a backup plan name and backup rules. A backup
+  plan is a document that contains information that AWS Backup uses to
+  schedule tasks that create recovery points for resources.
 
   If you call `CreateBackupPlan` with a plan that already exists, an
   `AlreadyExistsException` is returned.
@@ -38,24 +39,24 @@ defmodule AWS.Backup do
 
   `ConditionValue:"finance"`
 
-  `ConditionType:"STRINGEQUALS"`
+  `ConditionType:"StringEquals"`
 
   </li> <li> `ConditionKey:"importance"`
 
   `ConditionValue:"critical"`
 
-  `ConditionType:"STRINGEQUALS"`
+  `ConditionType:"StringEquals"`
 
   </li> </ul> Using these patterns would back up all Amazon Elastic Block
   Store (Amazon EBS) volumes that are tagged as `"department=finance"`,
   `"importance=critical"`, in addition to an EBS volume with the specified
-  volume Id.
+  volume ID.
 
   Resources and conditions are additive in that all resources that match the
   pattern are selected. This shouldn't be confused with a logical AND, where
-  all conditions must match. The matching patterns are logically 'put
-  together using the OR operator. In other words, all patterns that match are
-  selected for backup.
+  all conditions must match. The matching patterns are logically put together
+  using the OR operator. In other words, all patterns that match are selected
+  for backup.
   """
   def create_backup_selection(client, backup_plan_id, input, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/selections/"
@@ -147,7 +148,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns metadata associated with creating a backup of a resource.
+  Returns backup job details for the specified `BackupJobId`.
   """
   def describe_backup_job(client, backup_job_id, options \\ []) do
     path_ = "/backup-jobs/#{URI.encode(backup_job_id)}"
@@ -201,10 +202,10 @@ defmodule AWS.Backup do
 
   @doc """
   Returns the current service opt-in settings for the Region. If the service
-  has a value set to `true`, AWS Backup attempts to protect that service's
+  has a value set to `true`, AWS Backup tries to protect that service's
   resources in this Region, when included in an on-demand backup or scheduled
   backup plan. If the value is set to `false` for a service, AWS Backup does
-  not attempt to protect that service's resources in this Region.
+  not try to protect that service's resources in this Region.
   """
   def describe_region_settings(client, options \\ []) do
     path_ = "/account-settings"
@@ -236,8 +237,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns the body of a backup plan in JSON format, in addition to plan
-  metadata.
+  Returns `BackupPlan` details for the specified `BackupPlanId`. Returns the
+  body of a backup plan in JSON format, in addition to plan metadata.
   """
   def get_backup_plan(client, backup_plan_id, version_id \\ nil, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/"
@@ -325,7 +326,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns metadata about your backup jobs.
+  Returns a list of existing backup jobs for an authenticated account.
   """
   def list_backup_jobs(client, by_account_id \\ nil, by_backup_vault_name \\ nil, by_created_after \\ nil, by_created_before \\ nil, by_resource_arn \\ nil, by_resource_type \\ nil, by_state \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/backup-jobs/"
@@ -423,9 +424,11 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns metadata of your saved backup plans, including Amazon Resource
-  Names (ARNs), plan IDs, creation and deletion dates, version IDs, plan
-  names, and creator request IDs.
+  Returns a list of existing backup plans for an authenticated account. The
+  list is populated only if the advanced option is set for the backup plan.
+  The list contains information such as Amazon Resource Names (ARNs), plan
+  IDs, creation and deletion dates, version IDs, plan names, and creator
+  request IDs.
   """
   def list_backup_plans(client, include_deleted \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/backup/plans/"
@@ -725,7 +728,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Starts a job to create a one-time backup of the specified resource.
+  Starts an on-demand backup job for the specified resource.
   """
   def start_backup_job(client, input, options \\ []) do
     path_ = "/backup-jobs"
@@ -791,9 +794,9 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Replaces the body of a saved backup plan identified by its `backupPlanId`
-  with the input document in JSON format. The new version is uniquely
-  identified by a `VersionId`.
+  Updates an existing backup plan identified by its `backupPlanId` with the
+  input document in JSON format. The new version is uniquely identified by a
+  `VersionId`.
   """
   def update_backup_plan(client, backup_plan_id, input, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}"
@@ -824,10 +827,10 @@ defmodule AWS.Backup do
 
   @doc """
   Updates the current service opt-in settings for the Region. If the service
-  has a value set to `true`, AWS Backup attempts to protect that service's
+  has a value set to `true`, AWS Backup tries to protect that service's
   resources in this Region, when included in an on-demand backup or scheduled
   backup plan. If the value is set to `false` for a service, AWS Backup does
-  not attempt to protect that service's resources in this Region.
+  not try to protect that service's resources in this Region.
   """
   def update_region_settings(client, input, options \\ []) do
     path_ = "/account-settings"
@@ -837,9 +840,8 @@ defmodule AWS.Backup do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "backup"}
     host = build_host("backup", client)
@@ -855,41 +857,16 @@ defmodule AWS.Backup do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -910,6 +887,11 @@ defmodule AWS.Backup do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

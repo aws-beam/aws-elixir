@@ -35,7 +35,7 @@ defmodule AWS.StorageGateway do
   requests and responses.
 
   </li> <li> [AWS Storage Gateway endpoints and
-  quotas:](https://docs.aws.amazon.com/general/latest/gr/sg.html) Provides a
+  quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html): Provides a
   list of each AWS Region and the endpoints available for use with AWS
   Storage Gateway.
 
@@ -248,8 +248,8 @@ defmodule AWS.StorageGateway do
   @doc """
   Creates a Server Message Block (SMB) file share on an existing file
   gateway. In Storage Gateway, a file share is a file system mount point
-  backed by Amazon S3 cloud storage. Storage Gateway expose file shares using
-  an SMB interface. This operation is only supported for file gateways.
+  backed by Amazon S3 cloud storage. Storage Gateway exposes file shares
+  using an SMB interface. This operation is only supported for file gateways.
 
   <important> File gateways require AWS Security Token Service (AWS STS) to
   be activated to enable you to create a file share. Make sure that AWS STS
@@ -277,13 +277,13 @@ defmodule AWS.StorageGateway do
   recovery, as well as import the data to an Amazon Elastic Block Store (EBS)
   volume in Amazon Elastic Compute Cloud (EC2). You can take snapshots of
   your gateway volume on a scheduled or ad hoc basis. This API enables you to
-  take ad-hoc snapshot. For more information, see [Editing a snapshot
+  take an ad hoc snapshot. For more information, see [Editing a snapshot
   schedule](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot).
 
-  In the CreateSnapshot request you identify the volume by providing its
+  In the `CreateSnapshot` request, you identify the volume by providing its
   Amazon Resource Name (ARN). You must also provide description for the
   snapshot. When AWS Storage Gateway takes the snapshot of specified volume,
-  the snapshot and description appears in the AWS Storage Gateway Console. In
+  the snapshot and description appears in the AWS Storage Gateway console. In
   response, AWS Storage Gateway returns you a snapshot ID. You can use this
   snapshot ID to check the snapshot progress or later use it when you want to
   create a volume from a snapshot. This operation is only supported in stored
@@ -346,7 +346,7 @@ defmodule AWS.StorageGateway do
   existing snapshot, or create an empty volume. If you choose to create an
   empty gateway volume, then any existing data on the disk is erased.
 
-  In the request you must specify the gateway and the disk information on
+  In the request, you must specify the gateway and the disk information on
   which you are creating the volume. In response, the gateway creates the
   volume and returns volume information such as the volume Amazon Resource
   Name (ARN), its size, and the iSCSI target ARN that initiators can use to
@@ -357,8 +357,16 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Creates a new custom tape pool. You can use custom tape pool to enable tape
+  retention lock on tapes that are archived in the custom pool.
+  """
+  def create_tape_pool(client, input, options \\ []) do
+    request(client, "CreateTapePool", input, options)
+  end
+
+  @doc """
   Creates a virtual tape by using your own barcode. You write data to the
-  virtual tape and then archive the tape. A barcode is unique and can not be
+  virtual tape and then archive the tape. A barcode is unique and cannot be
   reused if it has already been used on a tape. This applies to barcodes used
   on deleted tapes. This operation is only supported in the tape gateway
   type.
@@ -457,7 +465,7 @@ defmodule AWS.StorageGateway do
   You can take snapshots of your gateway volumes on a scheduled or ad hoc
   basis. This API action enables you to delete a snapshot schedule for a
   volume. For more information, see [Backing up your
-  volumes](https://docs.aws.amazon.com/storagegatewaylatest/userguide/backing-up-volumes.html).
+  volumes](https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html).
   In the `DeleteSnapshotSchedule` request, you identify the volume by
   providing its Amazon Resource Name (ARN). This operation is only supported
   in stored and cached volume gateway types.
@@ -487,6 +495,15 @@ defmodule AWS.StorageGateway do
   """
   def delete_tape_archive(client, input, options \\ []) do
     request(client, "DeleteTapeArchive", input, options)
+  end
+
+  @doc """
+  Delete a custom tape pool. A custom tape pool can only be deleted if there
+  are no tapes in the pool and if there are no automatic tape creation
+  policies that reference the custom tape pool.
+  """
+  def delete_tape_pool(client, input, options \\ []) do
+    request(client, "DeleteTapePool", input, options)
   end
 
   @doc """
@@ -524,7 +541,7 @@ defmodule AWS.StorageGateway do
   @doc """
   Returns the bandwidth rate limits of a gateway. By default, these limits
   are not set, which means no bandwidth rate limiting is in effect. This
-  operation is supported for the stored volume, cached volume and tape
+  operation is supported for the stored volume, cached volume, and tape
   gateway types.
 
   This operation only returns a value for a bandwidth rate limit only if the
@@ -801,6 +818,22 @@ defmodule AWS.StorageGateway do
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Lists custom tape pools. You specify custom tape pools to list by
+  specifying one or more custom tape pool Amazon Resource Names (ARNs). If
+  you don't specify a custom tape pool ARN, the operation lists all custom
+  tape pools.
+
+  This operation supports pagination. You can optionally specify the `Limit`
+  parameter in the body to limit the number of tape pools in the response. If
+  the number of tape pools returned in the response is truncated, the
+  response includes a `Marker` element that you can use in your subsequent
+  request to retrieve the next set of tape pools.
+  """
+  def list_tape_pools(client, input, options \\ []) do
+    request(client, "ListTapePools", input, options)
   end
 
   @doc """
@@ -1121,7 +1154,7 @@ defmodule AWS.StorageGateway do
   zone. To specify which gateway to update, use the Amazon Resource Name
   (ARN) of the gateway in your request.
 
-  <note> For Gateways activated after September 2, 2015, the gateway's ARN
+  <note> For gateways activated after September 2, 2015, the gateway's ARN
   contains the gateway ID rather than the gateway name. However, changing the
   name of the gateway has no effect on the gateway's ARN.
 
@@ -1260,9 +1293,8 @@ defmodule AWS.StorageGateway do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "storagegateway"}
     host = build_host("storagegateway", client)
@@ -1274,25 +1306,24 @@ defmodule AWS.StorageGateway do
       {"X-Amz-Target", "StorageGateway_20130630.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

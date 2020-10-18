@@ -18,7 +18,7 @@ defmodule AWS.ElasticLoadBalancing do
   Load Balancers, Network Load Balancers, and Classic Load Balancers. You can
   select a load balancer based on your application needs. For more
   information, see the [Elastic Load Balancing User
-  Guide](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/).
+  Guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/).
 
   This reference covers the 2012-06-01 API, which supports Classic Load
   Balancers. The 2015-12-01 API supports Application Load Balancers and
@@ -42,7 +42,7 @@ defmodule AWS.ElasticLoadBalancing do
   value.
 
   For more information, see [Tag Your Classic Load
-  Balancer](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html)
+  Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html)
   in the *Classic Load Balancers Guide*.
   """
   def add_tags(client, input, options \\ []) do
@@ -55,7 +55,7 @@ defmodule AWS.ElasticLoadBalancing do
   associated security groups.
 
   For more information, see [Security Groups for Load Balancers in a
-  VPC](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups)
+  VPC](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups)
   in the *Classic Load Balancers Guide*.
   """
   def apply_security_groups_to_load_balancer(client, input, options \\ []) do
@@ -69,7 +69,7 @@ defmodule AWS.ElasticLoadBalancing do
   The load balancer evenly distributes requests across all registered
   subnets. For more information, see [Add or Remove Subnets for Your Load
   Balancer in a
-  VPC](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html)
+  VPC](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html)
   in the *Classic Load Balancers Guide*.
   """
   def attach_load_balancer_to_subnets(client, input, options \\ []) do
@@ -81,7 +81,7 @@ defmodule AWS.ElasticLoadBalancing do
   of your EC2 instances.
 
   For more information, see [Configure Health Checks for Your Load
-  Balancer](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html)
+  Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html)
   in the *Classic Load Balancers Guide*.
   """
   def configure_health_check(client, input, options \\ []) do
@@ -104,7 +104,7 @@ defmodule AWS.ElasticLoadBalancing do
   stops being sticky until a new application cookie is issued.
 
   For more information, see [Application-Controlled Session
-  Stickiness](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application)
+  Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application)
   in the *Classic Load Balancers Guide*.
   """
   def create_app_cookie_stickiness_policy(client, input, options \\ []) do
@@ -129,7 +129,7 @@ defmodule AWS.ElasticLoadBalancing do
   cookie expiration time, which is specified in the policy configuration.
 
   For more information, see [Duration-Based Session
-  Stickiness](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration)
+  Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration)
   in the *Classic Load Balancers Guide*.
   """
   def create_l_b_cookie_stickiness_policy(client, input, options \\ []) do
@@ -151,7 +151,7 @@ defmodule AWS.ElasticLoadBalancing do
   You can create up to 20 load balancers per region per account. You can
   request an increase for the number of load balancers for your account. For
   more information, see [Limits for Your Classic Load
-  Balancer](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html)
+  Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html)
   in the *Classic Load Balancers Guide*.
   """
   def create_load_balancer(client, input, options \\ []) do
@@ -165,7 +165,7 @@ defmodule AWS.ElasticLoadBalancing do
   the existing listener.
 
   For more information, see [Listeners for Your Classic Load
-  Balancer](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html)
+  Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html)
   in the *Classic Load Balancers Guide*.
   """
   def create_load_balancer_listeners(client, input, options \\ []) do
@@ -224,7 +224,7 @@ defmodule AWS.ElasticLoadBalancing do
   deregistered from the load balancer.
 
   For more information, see [Register or De-Register EC2
-  Instances](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html)
+  Instances](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html)
   in the *Classic Load Balancers Guide*.
   """
   def deregister_instances_from_load_balancer(client, input, options \\ []) do
@@ -236,7 +236,7 @@ defmodule AWS.ElasticLoadBalancing do
   account.
 
   For more information, see [Limits for Your Classic Load
-  Balancer](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html)
+  Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html)
   in the *Classic Load Balancers Guide*.
   """
   def describe_account_limits(client, input, options \\ []) do
@@ -336,7 +336,7 @@ defmodule AWS.ElasticLoadBalancing do
   equally balance the traffic among its remaining Availability Zones.
 
   For more information, see [Add or Remove Availability
-  Zones](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html)
+  Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html)
   in the *Classic Load Balancers Guide*.
   """
   def disable_availability_zones_for_load_balancer(client, input, options \\ []) do
@@ -352,7 +352,7 @@ defmodule AWS.ElasticLoadBalancing do
   The load balancer evenly distributes requests across all its registered
   Availability Zones that contain instances. For more information, see [Add
   or Remove Availability
-  Zones](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html)
+  Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html)
   in the *Classic Load Balancers Guide*.
   """
   def enable_availability_zones_for_load_balancer(client, input, options \\ []) do
@@ -372,16 +372,16 @@ defmodule AWS.ElasticLoadBalancing do
   Guide*:
 
   <ul> <li> [Cross-Zone Load
-  Balancing](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html)
+  Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html)
 
   </li> <li> [Connection
-  Draining](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html)
+  Draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html)
 
   </li> <li> [Access
-  Logs](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html)
+  Logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html)
 
   </li> <li> [Idle Connection
-  Timeout](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html)
+  Timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html)
 
   </li> </ul>
   """
@@ -413,7 +413,7 @@ defmodule AWS.ElasticLoadBalancing do
   `DeregisterInstancesFromLoadBalancer`.
 
   For more information, see [Register or De-Register EC2
-  Instances](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html)
+  Instances](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html)
   in the *Classic Load Balancers Guide*.
   """
   def register_instances_with_load_balancer(client, input, options \\ []) do
@@ -434,7 +434,7 @@ defmodule AWS.ElasticLoadBalancing do
 
   For more information about updating your SSL certificate, see [Replace the
   SSL Certificate for Your Load
-  Balancer](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html)
+  Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html)
   in the *Classic Load Balancers Guide*.
   """
   def set_load_balancer_listener_s_s_l_certificate(client, input, options \\ []) do
@@ -457,10 +457,10 @@ defmodule AWS.ElasticLoadBalancing do
 
   For more information about enabling back-end instance authentication, see
   [Configure Back-end Instance
-  Authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt)
+  Authentication](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt)
   in the *Classic Load Balancers Guide*. For more information about Proxy
   Protocol, see [Configure Proxy Protocol
-  Support](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html)
+  Support](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html)
   in the *Classic Load Balancers Guide*.
   """
   def set_load_balancer_policies_for_backend_server(client, input, options \\ []) do
@@ -476,11 +476,11 @@ defmodule AWS.ElasticLoadBalancing do
 
   For more information about setting policies, see [Update the SSL
   Negotiation
-  Configuration](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html),
+  Configuration](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html),
   [Duration-Based Session
-  Stickiness](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration),
+  Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration),
   and [Application-Controlled Session
-  Stickiness](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application)
+  Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application)
   in the *Classic Load Balancers Guide*.
   """
   def set_load_balancer_policies_of_listener(client, input, options \\ []) do
@@ -488,9 +488,8 @@ defmodule AWS.ElasticLoadBalancing do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "elasticloadbalancing"}
     host = build_host("elasticloadbalancing", client)
@@ -502,25 +501,24 @@ defmodule AWS.ElasticLoadBalancing do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2012-06-01"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

@@ -10,27 +10,18 @@ defmodule AWS.Route53 do
   @doc """
   Associates an Amazon VPC with a private hosted zone.
 
-  <note> To perform the association, the VPC and the private hosted zone must
-  already exist. Also, you can't convert a public hosted zone into a private
+  <important> To perform the association, the VPC and the private hosted zone
+  must already exist. You can't convert a public hosted zone into a private
   hosted zone.
 
-  </note> If you want to associate a VPC that was created by one AWS account
-  with a private hosted zone that was created by a different account, do one
-  of the following:
+  </important> <note> If you want to associate a VPC that was created by
+  using one AWS account with a private hosted zone that was created by using
+  a different account, the AWS account that created the private hosted zone
+  must first submit a `CreateVPCAssociationAuthorization` request. Then the
+  account that created the VPC must submit an `AssociateVPCWithHostedZone`
+  request.
 
-  <ul> <li> Use the AWS account that created the private hosted zone to
-  submit a
-  [CreateVPCAssociationAuthorization](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateVPCAssociationAuthorization.html)
-  request. Then use the account that created the VPC to submit an
-  `AssociateVPCWithHostedZone` request.
-
-  </li> <li> If a subnet in the VPC was shared with another account, you can
-  use the account that the subnet was shared with to submit an
-  `AssociateVPCWithHostedZone` request. For more information about sharing
-  subnets, see [Working with Shared
-  VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html).
-
-  </li> </ul>
+  </note>
   """
   def associate_v_p_c_with_hosted_zone(client, hosted_zone_id, input, options \\ []) do
     path_ = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/associatevpc"
@@ -196,7 +187,7 @@ defmodule AWS.Route53 do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -264,7 +255,7 @@ defmodule AWS.Route53 do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -396,7 +387,7 @@ defmodule AWS.Route53 do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -473,7 +464,7 @@ defmodule AWS.Route53 do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -502,7 +493,7 @@ defmodule AWS.Route53 do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -535,7 +526,7 @@ defmodule AWS.Route53 do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -569,7 +560,7 @@ defmodule AWS.Route53 do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -733,6 +724,21 @@ defmodule AWS.Route53 do
 
   @doc """
   Deletes a traffic policy.
+
+  When you delete a traffic policy, Route 53 sets a flag on the policy to
+  indicate that it has been deleted. However, Route 53 never fully deletes
+  the traffic policy. Note the following:
+
+  <ul> <li> Deleted traffic policies aren't listed if you run
+  [ListTrafficPolicies](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html).
+
+  </li> <li> There's no way to get a list of deleted policies.
+
+  </li> <li> If you retain the ID of the policy, you can get information
+  about the policy, including the traffic policy document, by running
+  [GetTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html).
+
+  </li> </ul>
   """
   def delete_traffic_policy(client, id, version, input, options \\ []) do
     path_ = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
@@ -1042,6 +1048,10 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets information about a specific traffic policy version.
+
+  For information about how of deleting a traffic policy affects the response
+  from `GetTrafficPolicy`, see
+  [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
   """
   def get_traffic_policy(client, id, version, options \\ []) do
     path_ = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
@@ -1475,6 +1485,10 @@ defmodule AWS.Route53 do
   Gets information about the latest version for every traffic policy that is
   associated with the current AWS account. Policies are listed in the order
   that they were created in.
+
+  For information about how of deleting a traffic policy affects the response
+  from `ListTrafficPolicies`, see
+  [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
   """
   def list_traffic_policies(client, max_items \\ nil, traffic_policy_id_marker \\ nil, options \\ []) do
     path_ = "/2013-04-01/trafficpolicies"
@@ -1779,9 +1793,8 @@ defmodule AWS.Route53 do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "route53",
                         region:  "us-east-1"}
@@ -1798,41 +1811,16 @@ defmodule AWS.Route53 do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -1853,6 +1841,11 @@ defmodule AWS.Route53 do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: AWS.Util.encode_xml(input), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

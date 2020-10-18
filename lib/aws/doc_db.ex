@@ -17,8 +17,8 @@ defmodule AWS.DocDB do
   end
 
   @doc """
-  Applies a pending maintenance action to a resource (for example, to a DB
-  instance).
+  Applies a pending maintenance action to a resource (for example, to an
+  Amazon DocumentDB instance).
   """
   def apply_pending_maintenance_action(client, input, options \\ []) do
     request(client, "ApplyPendingMaintenanceAction", input, options)
@@ -36,11 +36,12 @@ defmodule AWS.DocDB do
 
   To copy a cluster snapshot from a shared manual cluster snapshot,
   `SourceDBClusterSnapshotIdentifier` must be the Amazon Resource Name (ARN)
-  of the shared cluster snapshot.
+  of the shared cluster snapshot. You can only copy a shared DB cluster
+  snapshot, whether encrypted or not, in the same AWS Region.
 
   To cancel the copy operation after it is in progress, delete the target
   cluster snapshot identified by `TargetDBClusterSnapshotIdentifier` while
-  that DB cluster snapshot is in the *copying* status.
+  that cluster snapshot is in the *copying* status.
   """
   def copy_d_b_cluster_snapshot(client, input, options \\ []) do
     request(client, "CopyDBClusterSnapshot", input, options)
@@ -57,26 +58,22 @@ defmodule AWS.DocDB do
   Creates a new cluster parameter group.
 
   Parameters in a cluster parameter group apply to all of the instances in a
-  DB cluster.
+  cluster.
 
   A cluster parameter group is initially created with the default parameters
-  for the database engine used by instances in the cluster. To provide custom
-  values for any of the parameters, you must modify the group after you
-  create it. After you create a DB cluster parameter group, you must
-  associate it with your cluster. For the new DB cluster parameter group and
-  associated settings to take effect, you must then reboot the instances in
-  the cluster without failover.
-
-  <important> After you create a cluster parameter group, you should wait at
-  least 5 minutes before creating your first cluster that uses that cluster
-  parameter group as the default parameter group. This allows Amazon
-  DocumentDB to fully complete the create action before the cluster parameter
-  group is used as the default for a new cluster. This step is especially
-  important for parameters that are critical when creating the default
-  database for a cluster, such as the character set for the default database
-  defined by the `character_set_database` parameter.
-
-  </important>
+  for the database engine used by instances in the cluster. In Amazon
+  DocumentDB, you cannot make modifications directly to the
+  `default.docdb3.6` cluster parameter group. If your Amazon DocumentDB
+  cluster is using the default cluster parameter group and you want to modify
+  a value in it, you must first [ create a new parameter
+  group](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-create.html)
+  or [ copy an existing parameter
+  group](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-copy.html),
+  modify it, and then apply the modified parameter group to your cluster. For
+  the new cluster parameter group and associated settings to take effect, you
+  must then reboot the instances in the cluster without failover. For more
+  information, see [ Modifying Amazon DocumentDB Cluster Parameter
+  Groups](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-modify.html).
   """
   def create_d_b_cluster_parameter_group(client, input, options \\ []) do
     request(client, "CreateDBClusterParameterGroup", input, options)
@@ -455,9 +452,8 @@ defmodule AWS.DocDB do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "rds"}
     host = build_host("rds", client)
@@ -469,25 +465,24 @@ defmodule AWS.DocDB do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2014-10-31"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

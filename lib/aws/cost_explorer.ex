@@ -21,10 +21,42 @@ defmodule AWS.CostExplorer do
   """
 
   @doc """
+  Creates a new cost anomaly detection monitor with the requested type and
+  monitor specification.
+  """
+  def create_anomaly_monitor(client, input, options \\ []) do
+    request(client, "CreateAnomalyMonitor", input, options)
+  end
+
+  @doc """
+  Adds a subscription to a cost anomaly detection monitor. You can use each
+  subscription to define subscribers with email or SNS notifications. Email
+  subscribers can set a dollar threshold and a time frequency for receiving
+  notifications.
+  """
+  def create_anomaly_subscription(client, input, options \\ []) do
+    request(client, "CreateAnomalySubscription", input, options)
+  end
+
+  @doc """
   Creates a new Cost Category with the requested name and rules.
   """
   def create_cost_category_definition(client, input, options \\ []) do
     request(client, "CreateCostCategoryDefinition", input, options)
+  end
+
+  @doc """
+  Deletes a cost anomaly monitor.
+  """
+  def delete_anomaly_monitor(client, input, options \\ []) do
+    request(client, "DeleteAnomalyMonitor", input, options)
+  end
+
+  @doc """
+  Deletes a cost anomaly subscription.
+  """
+  def delete_anomaly_subscription(client, input, options \\ []) do
+    request(client, "DeleteAnomalySubscription", input, options)
   end
 
   @doc """
@@ -49,13 +81,37 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Retrieves all of the cost anomalies detected on your account, during the
+  time period specified by the `DateInterval` object.
+  """
+  def get_anomalies(client, input, options \\ []) do
+    request(client, "GetAnomalies", input, options)
+  end
+
+  @doc """
+  Retrieves the cost anomaly monitor definitions for your account. You can
+  filter using a list of cost anomaly monitor Amazon Resource Names (ARNs).
+  """
+  def get_anomaly_monitors(client, input, options \\ []) do
+    request(client, "GetAnomalyMonitors", input, options)
+  end
+
+  @doc """
+  Retrieves the cost anomaly subscription objects for your account. You can
+  filter using a list of cost anomaly monitor Amazon Resource Names (ARNs).
+  """
+  def get_anomaly_subscriptions(client, input, options \\ []) do
+    request(client, "GetAnomalySubscriptions", input, options)
+  end
+
+  @doc """
   Retrieves cost and usage metrics for your account. You can specify which
   cost and usage-related metric, such as `BlendedCosts` or `UsageQuantity`,
   that you want the request to return. You can also filter and group your
   data by various dimensions, such as `SERVICE` or `AZ`, in a specific time
   range. For a complete list of valid dimensions, see the
   [GetDimensionValues](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html)
-  operation. Master accounts in an organization in AWS Organizations have
+  operation. Master account in an organization in AWS Organizations have
   access to all member accounts.
   """
   def get_cost_and_usage(client, input, options \\ []) do
@@ -69,7 +125,7 @@ defmodule AWS.CostExplorer do
   and group your data by various dimensions, such as `SERVICE` or `AZ`, in a
   specific time range. For a complete list of valid dimensions, see the
   [GetDimensionValues](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html)
-  operation. Master accounts in an organization in AWS Organizations have
+  operation. Master account in an organization in AWS Organizations have
   access to all member accounts. This API is currently available for the
   Amazon Elastic Compute Cloud – Compute service only.
 
@@ -169,7 +225,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Retrieves the reservation utilization for your account. Master accounts in
+  Retrieves the reservation utilization for your account. Master account in
   an organization have access to member accounts. You can filter data by
   dimensions in a time period. You can use `GetDimensionValues` to determine
   the possible dimension values. Currently, you can group only by
@@ -226,7 +282,7 @@ defmodule AWS.CostExplorer do
 
   @doc """
   Retrieves the Savings Plans utilization for your account across date ranges
-  with daily or monthly granularity. Master accounts in an organization have
+  with daily or monthly granularity. Master account in an organization have
   access to member accounts. You can use `GetDimensionValues` in
   `SAVINGS_PLANS` to determine the possible dimension values.
 
@@ -288,6 +344,28 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Modifies the feedback property of a given cost anomaly.
+  """
+  def provide_anomaly_feedback(client, input, options \\ []) do
+    request(client, "ProvideAnomalyFeedback", input, options)
+  end
+
+  @doc """
+  Updates an existing cost anomaly monitor. The changes made are applied
+  going forward, and does not change anomalies detected in the past.
+  """
+  def update_anomaly_monitor(client, input, options \\ []) do
+    request(client, "UpdateAnomalyMonitor", input, options)
+  end
+
+  @doc """
+  Updates an existing cost anomaly monitor subscription.
+  """
+  def update_anomaly_subscription(client, input, options \\ []) do
+    request(client, "UpdateAnomalySubscription", input, options)
+  end
+
+  @doc """
   Updates an existing Cost Category. Changes made to the Cost Category rules
   will be used to categorize the current month’s expenses and future
   expenses. This won’t change categorization for the previous months.
@@ -297,9 +375,8 @@ defmodule AWS.CostExplorer do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "ce",
                         region:  "us-east-1"}
@@ -312,25 +389,24 @@ defmodule AWS.CostExplorer do
       {"X-Amz-Target", "AWSInsightsIndexService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

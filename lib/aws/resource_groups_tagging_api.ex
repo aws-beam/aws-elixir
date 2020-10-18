@@ -111,6 +111,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   </li> <li> [AWS CodeCommit](https://docs.aws.amazon.com/codecommit)
 
+  </li> <li> [AWS CodeGuru
+  Profiler](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/)
+
   </li> <li> [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline)
 
   </li> <li> [AWS CodeStar](https://docs.aws.amazon.com/codestar)
@@ -167,6 +170,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   </li> <li> [Elastic Load
   Balancing](https://docs.aws.amazon.com/elasticloadbalancing)
 
+  </li> <li> [Amazon Elastic
+  Inference](https://docs.aws.amazon.com/elastic-inference)
+
   </li> <li> [Amazon ElastiCache](https://docs.aws.amazon.com/elasticache)
 
   </li> <li> [Amazon Elasticsearch
@@ -191,6 +197,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   </li> <li> [AWS Firewall
   Manager](https://docs.aws.amazon.com/firewall-manager)
 
+  </li> <li> [Amazon Forecast](https://docs.aws.amazon.com/forecast)
+
   </li> <li> [Amazon Fraud
   Detector](https://docs.aws.amazon.com/frauddetector)
 
@@ -209,6 +217,9 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   </li> <li> [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty)
 
   </li> <li> [Amazon Inspector](https://docs.aws.amazon.com/inspector)
+
+  </li> <li> [Amazon Interactive Video
+  Service](https://docs.aws.amazon.com/ivs)
 
   </li> <li> [AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics)
 
@@ -249,6 +260,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   </li> <li> [AWS License
   Manager](https://docs.aws.amazon.com/license-manager)
 
+  </li> <li> [Amazon Lightsail](https://docs.aws.amazon.com/lightsail)
+
   </li> <li> [Amazon Macie](https://docs.aws.amazon.com/macie)
 
   </li> <li> [Amazon Machine
@@ -258,7 +271,12 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   </li> <li> [Amazon MSK](https://docs.aws.amazon.com/msk)
 
+  </li> <li> [Amazon MSK](https://docs.aws.amazon.com/msk)
+
   </li> <li> [Amazon Neptune](https://docs.aws.amazon.com/neptune)
+
+  </li> <li> [AWS Network
+  Manager](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)
 
   </li> <li> [AWS OpsWorks](https://docs.aws.amazon.com/opsworks)
 
@@ -323,7 +341,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   </li> <li> [Amazon VPC](https://docs.aws.amazon.com/vpc)
 
-  </li> <li> [AWS WAFv2](https://docs.aws.amazon.com/waf)
+  </li> <li> [AWS WAF](https://docs.aws.amazon.com/waf)
 
   </li> <li> [AWS WAF Regional](https://docs.aws.amazon.com/waf)
 
@@ -469,9 +487,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "tagging"}
     host = build_host("tagging", client)
@@ -483,25 +500,24 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       {"X-Amz-Target", "ResourceGroupsTaggingAPI_20170126.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

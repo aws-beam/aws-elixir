@@ -71,16 +71,16 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates an AutoPilot job.
+  Creates an Autopilot job.
 
-  After you run an AutoPilot job, you can find the best performing model by
-  calling , and then deploy that model by following the steps described in
-  [Step 6.1: Deploy the Model to Amazon SageMaker Hosting
+  Find the best performing model after you run an Autopilot job by calling .
+  Deploy that model by following the steps described in [Step 6.1: Deploy the
+  Model to Amazon SageMaker Hosting
   Services](https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html).
 
-  For information about how to use AutoPilot, see [Use AutoPilot to Automate
-  Model
-  Development](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html).
+  For information about how to use Autopilot, see [ Automate Model
+  Development with Amazon SageMaker
+  Autopilot](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html).
   """
   def create_auto_m_l_job(client, input, options \\ []) do
     request(client, "CreateAutoMLJob", input, options)
@@ -138,28 +138,62 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a `Domain` used by SageMaker Studio. A domain consists of an
-  associated directory, a list of authorized users, and a variety of
-  security, application, policy, and Amazon Virtual Private Cloud (VPC)
-  configurations. An AWS account is limited to one domain per region. Users
-  within a domain can share notebook files and other artifacts with each
-  other.
+  Creates a `Domain` used by Amazon SageMaker Studio. A domain consists of an
+  associated Amazon Elastic File System (EFS) volume, a list of authorized
+  users, and a variety of security, application, policy, and Amazon Virtual
+  Private Cloud (VPC) configurations. An AWS account is limited to one domain
+  per region. Users within a domain can share notebook files and other
+  artifacts with each other.
 
-  When a domain is created, an Amazon Elastic File System (EFS) volume is
-  also created for use by all of the users within the domain. Each user
-  receives a private home directory within the EFS for notebooks, Git
-  repositories, and data files.
+  When a domain is created, an EFS volume is created for use by all of the
+  users within the domain. Each user receives a private home directory within
+  the EFS volume for notebooks, Git repositories, and data files.
 
-  All traffic between the domain and the EFS volume is communicated through
-  the specified subnet IDs. All other traffic goes over the Internet through
-  an Amazon SageMaker system VPC. The EFS traffic uses the NFS/TCP protocol
-  over port 2049.
+  **VPC configuration**
 
-  <important> NFS traffic over TCP on port 2049 needs to be allowed in both
-  inbound and outbound rules in order to launch a SageMaker Studio app
-  successfully.
+  All SageMaker Studio traffic between the domain and the EFS volume is
+  through the specified VPC and subnets. For other Studio traffic, you can
+  specify the `AppNetworkAccessType` parameter. `AppNetworkAccessType`
+  corresponds to the network access type that you choose when you onboard to
+  Studio. The following options are available:
 
-  </important>
+  <ul> <li> `PublicInternetOnly` - Non-EFS traffic goes through a VPC managed
+  by Amazon SageMaker, which allows internet access. This is the default
+  value.
+
+  </li> <li> `VpcOnly` - All Studio traffic is through the specified VPC and
+  subnets. Internet access is disabled by default. To allow internet access,
+  you must specify a NAT gateway.
+
+  When internet access is disabled, you won't be able to train or host models
+  unless your VPC has an interface endpoint (PrivateLink) or a NAT gateway
+  and your security groups allow outbound connections.
+
+  </li> </ul> ** `VpcOnly` network access type**
+
+  When you choose `VpcOnly`, you must specify the following:
+
+  <ul> <li> Security group inbound and outbound rules to allow NFS traffic
+  over TCP on port 2049 between the domain and the EFS volume
+
+  </li> <li> Security group inbound and outbound rules to allow traffic
+  between the JupyterServer app and the KernelGateway apps
+
+  </li> <li> Interface endpoints to access the SageMaker API and SageMaker
+  runtime
+
+  </li> </ul> For more information, see:
+
+  <ul> <li> [Security groups for your
+  VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html)
+
+  </li> <li> [VPC with public and private subnets
+  (NAT)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html)
+
+  </li> <li> [Connect to SageMaker through a VPC interface
+  endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/interface-vpc-endpoint.html)
+
+  </li> </ul>
   """
   def create_domain(client, input, options \\ []) do
     request(client, "CreateDomain", input, options)
@@ -503,6 +537,12 @@ defmodule AWS.SageMaker do
   Studio, and granted access to all of the Apps and files associated with the
   Domain's Amazon Elastic File System (EFS) volume. This operation can only
   be called when the authentication mode equals IAM.
+
+  <note> The URL that you get from a call to `CreatePresignedDomainUrl` is
+  valid only for 5 minutes. If you try to use the URL after the 5-minute
+  limit expires, you are directed to the AWS console sign-in page.
+
+  </note>
   """
   def create_presigned_domain_url(client, input, options \\ []) do
     request(client, "CreatePresignedDomainUrl", input, options)
@@ -700,11 +740,11 @@ defmodule AWS.SageMaker do
   @doc """
   Use this operation to create a workforce. This operation will return an
   error if a workforce already exists in the AWS Region that you specify. You
-  can only create one workforce in each AWS Region.
+  can only create one workforce in each AWS Region per AWS account.
 
-  If you want to create a new workforce in an AWS Region where the a
-  workforce already exists, use the API operation to delete the existing
-  workforce and then use this operation to create a new workforce.
+  If you want to create a new workforce in an AWS Region where a workforce
+  already exists, use the API operation to delete the existing workforce and
+  then use `CreateWorkforce` to create a new workforce.
 
   To create a private workforce using Amazon Cognito, you must specify a
   Cognito user pool in `CognitoConfig`. You can also create an Amazon Cognito
@@ -713,9 +753,9 @@ defmodule AWS.SageMaker do
   Cognito)](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html).
 
   To create a private workforce using your own OIDC Identity Provider (IdP),
-  specify your IdP configuration in `OidcConfig`. You must create a OIDC IdP
-  workforce using this API operation. For more information, see [ Create a
-  Private Workforce (OIDC
+  specify your IdP configuration in `OidcConfig`. Your OIDC IdP must support
+  *groups* because groups are used by Ground Truth and Amazon A2I to create
+  work teams. For more information, see [ Create a Private Workforce (OIDC
   IdP)](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html).
   """
   def create_workforce(client, input, options \\ []) do
@@ -918,9 +958,16 @@ defmodule AWS.SageMaker do
   @doc """
   Use this operation to delete a workforce.
 
-  If you want to create a new workforce in an AWS Region where the a
-  workforce already exists, use this operation to delete the existing
-  workforce and then use to create a new workforce.
+  If you want to create a new workforce in an AWS Region where a workforce
+  already exists, use this operation to delete the existing workforce and
+  then use to create a new workforce.
+
+  <important> If a private workforce contains one or more work teams, you
+  must use the operation to delete all work teams before you delete the
+  workforce. If you try to delete a workforce that contains one or more work
+  teams, you will recieve a `ResourceInUse` error.
+
+  </important>
   """
   def delete_workforce(client, input, options \\ []) do
     request(client, "DeleteWorkforce", input, options)
@@ -1420,8 +1467,8 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Gets a list of work teams that you have defined in a region. The list may
-  be empty if no work team satisfies the filter specified in the
+  Gets a list of private work teams that you have defined in a region. The
+  list may be empty if no work team satisfies the filter specified in the
   `NameContains` parameter.
   """
   def list_workteams(client, input, options \\ []) do
@@ -1677,19 +1724,32 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Restricts access to tasks assigned to workers in the specified workforce to
-  those within specific ranges of IP addresses. You specify allowed IP
-  addresses by creating a list of up to ten
-  [CIDRs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html).
+  Use this operation to update your workforce. You can use this operation to
+  require that workers use specific IP addresses to work on tasks and to
+  update your OpenID Connect (OIDC) Identity Provider (IdP) workforce
+  configuration.
 
+  Use `SourceIpConfig` to restrict worker access to tasks to a specific range
+  of IP addresses. You specify allowed IP addresses by creating a list of up
+  to ten
+  [CIDRs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html).
   By default, a workforce isn't restricted to specific IP addresses. If you
   specify a range of IP addresses, workers who attempt to access tasks using
-  any IP address outside the specified range are denied access and get a `Not
-  Found` error message on the worker portal. After restricting access with
-  this operation, you can see the allowed IP values for a private workforce
-  with the operation.
+  any IP address outside the specified range are denied and get a `Not Found`
+  error message on the worker portal.
 
-  <important> This operation applies only to private workforces.
+  Use `OidcConfig` to update the configuration of a workforce created using
+  your own OIDC IdP.
+
+  <important> You can only update your OIDC IdP configuration when there are
+  no work teams associated with your workforce. You can delete work teams
+  using the operation.
+
+  </important> After restricting access to a range of IP addresses or
+  updating your OIDC IdP configuration with this operation, you can view
+  details about your update workforce using the operation.
+
+  <important> This operation only applies to private workforces.
 
   </important>
   """
@@ -1705,9 +1765,8 @@ defmodule AWS.SageMaker do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "sagemaker"}
     host = build_host("api.sagemaker", client)
@@ -1719,25 +1778,24 @@ defmodule AWS.SageMaker do
       {"X-Amz-Target", "SageMaker.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

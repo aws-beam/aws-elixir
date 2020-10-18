@@ -22,7 +22,10 @@ defmodule AWS.DatabaseMigration do
   Adds metadata tags to an AWS DMS resource, including replication instance,
   endpoint, security group, and migration task. These tags can also be used
   with cost allocation reporting to track cost associated with DMS resources,
-  or used in a Condition statement in an IAM policy for DMS.
+  or used in a Condition statement in an IAM policy for DMS. For more
+  information, see [ `Tag`
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data
+  type description.
   """
   def add_tags_to_resource(client, input, options \\ []) do
     request(client, "AddTagsToResource", input, options)
@@ -85,10 +88,10 @@ defmodule AWS.DatabaseMigration do
   permissions before you can create a replication instance. For information
   on the required roles, see [Creating the IAM Roles to Use With the AWS CLI
   and AWS DMS
-  API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.APIRole.html).
+  API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole).
   For information on the required permissions, see [IAM Permissions Needed to
   Use AWS
-  DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.IAMPermissions.html).
+  DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
   """
   def create_replication_instance(client, input, options \\ []) do
     request(client, "CreateReplicationInstance", input, options)
@@ -405,7 +408,11 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Lists all tags for an AWS DMS resource.
+  Lists all metadata tags attached to an AWS DMS resource, including
+  replication instance, endpoint, security group, and migration task. For
+  more information, see [ `Tag`
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data
+  type description.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -484,7 +491,11 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Removes metadata tags from a DMS resource.
+  Removes metadata tags from an AWS DMS resource, including replication
+  instance, endpoint, security group, and migration task. For more
+  information, see [ `Tag`
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data
+  type description.
   """
   def remove_tags_from_resource(client, input, options \\ []) do
     request(client, "RemoveTagsFromResource", input, options)
@@ -539,9 +550,8 @@ defmodule AWS.DatabaseMigration do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "dms"}
     host = build_host("dms", client)
@@ -553,25 +563,24 @@ defmodule AWS.DatabaseMigration do
       {"X-Amz-Target", "AmazonDMSv20160101.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

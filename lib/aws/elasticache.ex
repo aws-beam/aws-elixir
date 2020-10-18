@@ -287,6 +287,24 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
+  For Redis engine version 6.04 onwards: Creates a Redis user. For more
+  information, see [Using Role Based Access Control
+  (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+  """
+  def create_user(client, input, options \\ []) do
+    request(client, "CreateUser", input, options)
+  end
+
+  @doc """
+  For Redis engine version 6.04 onwards: Creates a Redis user group. For more
+  information, see [Using Role Based Access Control
+  (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
+  """
+  def create_user_group(client, input, options \\ []) do
+    request(client, "CreateUserGroup", input, options)
+  end
+
+  @doc """
   Decreases the number of node groups in a Global Datastore
   """
   def decrease_node_groups_in_global_replication_group(client, input, options \\ []) do
@@ -412,6 +430,26 @@ defmodule AWS.ElastiCache do
   """
   def delete_snapshot(client, input, options \\ []) do
     request(client, "DeleteSnapshot", input, options)
+  end
+
+  @doc """
+  For Redis engine version 6.04 onwards: Deletes a user. The user will be
+  removed from all user groups and in turn removed from all replication
+  groups. For more information, see [Using Role Based Access Control
+  (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+  """
+  def delete_user(client, input, options \\ []) do
+    request(client, "DeleteUser", input, options)
+  end
+
+  @doc """
+  For Redis engine version 6.04 onwards: Deletes a ser group. The user group
+  must first be disassociated from the replcation group before it can be
+  deleted. For more information, see [Using Role Based Access Control
+  (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+  """
+  def delete_user_group(client, input, options \\ []) do
+    request(client, "DeleteUserGroup", input, options)
   end
 
   @doc """
@@ -570,6 +608,20 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
+  Returns a list of user groups.
+  """
+  def describe_user_groups(client, input, options \\ []) do
+    request(client, "DescribeUserGroups", input, options)
+  end
+
+  @doc """
+  Returns a list of users.
+  """
+  def describe_users(client, input, options \\ []) do
+    request(client, "DescribeUsers", input, options)
+  end
+
+  @doc """
   Remove a secondary cluster from the Global Datastore using the Global
   Datastore name. The secondary cluster will no longer receive updates from
   the primary cluster, but will remain as a standalone cluster in that AWS
@@ -692,6 +744,20 @@ defmodule AWS.ElastiCache do
   """
   def modify_replication_group_shard_configuration(client, input, options \\ []) do
     request(client, "ModifyReplicationGroupShardConfiguration", input, options)
+  end
+
+  @doc """
+  Changes user password(s) and/or access string.
+  """
+  def modify_user(client, input, options \\ []) do
+    request(client, "ModifyUser", input, options)
+  end
+
+  @doc """
+  Changes the list of users that belong to the user group.
+  """
+  def modify_user_group(client, input, options \\ []) do
+    request(client, "ModifyUserGroup", input, options)
   end
 
   @doc """
@@ -824,9 +890,8 @@ defmodule AWS.ElastiCache do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "elasticache"}
     host = build_host("elasticache", client)
@@ -838,25 +903,24 @@ defmodule AWS.ElastiCache do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2015-02-02"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

@@ -113,15 +113,18 @@ defmodule AWS.LexRuntime do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
+            {"x-amz-lex-alternative-intents", "alternativeIntents"},
+            {"x-amz-lex-bot-version", "botVersion"},
             {"Content-Type", "contentType"},
             {"x-amz-lex-dialog-state", "dialogState"},
             {"x-amz-lex-input-transcript", "inputTranscript"},
             {"x-amz-lex-intent-name", "intentName"},
             {"x-amz-lex-message", "message"},
             {"x-amz-lex-message-format", "messageFormat"},
+            {"x-amz-lex-nlu-intent-confidence", "nluIntentConfidence"},
             {"x-amz-lex-sentiment", "sentimentResponse"},
             {"x-amz-lex-session-attributes", "sessionAttributes"},
             {"x-amz-lex-session-id", "sessionId"},
@@ -220,7 +223,7 @@ defmodule AWS.LexRuntime do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Content-Type", "contentType"},
@@ -248,9 +251,8 @@ defmodule AWS.LexRuntime do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "lex"}
     host = build_host("runtime.lex", client)
@@ -266,41 +268,16 @@ defmodule AWS.LexRuntime do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -321,6 +298,11 @@ defmodule AWS.LexRuntime do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

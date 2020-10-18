@@ -42,11 +42,7 @@ defmodule AWS.Rekognition do
   specifying `LOW`, `MEDIUM`, or `HIGH`. If you do not want to filter
   detected faces, specify `NONE`. The default value is `NONE`.
 
-  <note> To use quality filtering, you need a collection associated with
-  version 3 of the face model or higher. To get the version of the face model
-  associated with a collection, call `DescribeCollection`.
-
-  </note> If the image doesn't contain Exif metadata, `CompareFaces` returns
+  If the image doesn't contain Exif metadata, `CompareFaces` returns
   orientation information for the source and target images. Use these values
   to display the images with the correct image orientation.
 
@@ -416,6 +412,54 @@ defmodule AWS.Rekognition do
   """
   def detect_moderation_labels(client, input, options \\ []) do
     request(client, "DetectModerationLabels", input, options)
+  end
+
+  @doc """
+  Detects Personal Protective Equipment (PPE) worn by people detected in an
+  image. Amazon Rekognition can detect the following types of PPE.
+
+  <ul> <li> Face cover
+
+  </li> <li> Hand cover
+
+  </li> <li> Head cover
+
+  </li> </ul> You pass the input image as base64-encoded image bytes or as a
+  reference to an image in an Amazon S3 bucket. The image must be either a
+  PNG or JPG formatted file.
+
+  `DetectProtectiveEquipment` detects PPE worn by up to 15 persons detected
+  in an image.
+
+  For each person detected in the image the API returns an array of body
+  parts (face, head, left-hand, right-hand). For each body part, an array of
+  detected items of PPE is returned, including an indicator of whether or not
+  the PPE covers the body part. The API returns the confidence it has in each
+  detection (person, PPE, body part and body part coverage). It also returns
+  a bounding box (`BoundingBox`) for each detected person and each detected
+  item of PPE.
+
+  You can optionally request a summary of detected PPE items with the
+  `SummarizationAttributes` input parameter. The summary provides the
+  following information.
+
+  <ul> <li> The persons detected as wearing all of the types of PPE that you
+  specify.
+
+  </li> <li> The persons detected as not wearing all of the types PPE that
+  you specify.
+
+  </li> <li> The persons detected where PPE adornment could not be
+  determined.
+
+  </li> </ul> This is a stateless API operation. That is, the operation does
+  not persist any data.
+
+  This operation requires permissions to perform the
+  `rekognition:DetectProtectiveEquipment` action.
+  """
+  def detect_protective_equipment(client, input, options \\ []) do
+    request(client, "DetectProtectiveEquipment", input, options)
   end
 
   @doc """
@@ -929,10 +973,10 @@ defmodule AWS.Rekognition do
   information, see Recognizing Celebrities in the Amazon Rekognition
   Developer Guide.
 
-  `RecognizeCelebrities` returns the 100 largest faces in the image. It lists
+  `RecognizeCelebrities` returns the 64 largest faces in the image. It lists
   recognized celebrities in the `CelebrityFaces` array and unrecognized faces
   in the `UnrecognizedFaces` array. `RecognizeCelebrities` doesn't return
-  celebrities whose faces aren't among the largest 100 faces in the image.
+  celebrities whose faces aren't among the largest 64 faces in the image.
 
   For each celebrity recognized, `RecognizeCelebrities` returns a `Celebrity`
   object. The `Celebrity` object contains the celebrity name, ID, URL links
@@ -1259,9 +1303,8 @@ defmodule AWS.Rekognition do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "rekognition"}
     host = build_host("rekognition", client)
@@ -1273,25 +1316,24 @@ defmodule AWS.Rekognition do
       {"X-Amz-Target", "RekognitionService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

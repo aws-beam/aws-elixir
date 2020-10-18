@@ -39,7 +39,7 @@ defmodule AWS.DataSync do
 
   You can activate the agent in a VPC (virtual private cloud) or provide the
   agent access to a VPC endpoint so you can run tasks without going over the
-  public Internet.
+  public internet.
 
   You can use an agent for more than one location. If a task uses multiple
   agents, all of them need to have status AVAILABLE for the task to run. If
@@ -78,7 +78,9 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for a self-managed object storage bucket.
+  Creates an endpoint for a self-managed object storage bucket. For more
+  information about self-managed object storage locations, see
+  `create-object-location`.
   """
   def create_location_object_storage(client, input, options \\ []) do
     request(client, "CreateLocationObjectStorage", input, options)
@@ -87,15 +89,9 @@ defmodule AWS.DataSync do
   @doc """
   Creates an endpoint for an Amazon S3 bucket.
 
-  For AWS DataSync to access a destination S3 bucket, it needs an AWS
-  Identity and Access Management (IAM) role that has the required
-  permissions. You can set up the required permissions by creating an IAM
-  policy that grants the required permissions and attaching the policy to the
-  role. An example of such a policy is shown in the examples section.
-
   For more information, see
-  https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location
-  in the *AWS DataSync User Guide.*
+  https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
+  in the *AWS DataSync User Guide*.
   """
   def create_location_s3(client, input, options \\ []) do
     request(client, "CreateLocationS3", input, options)
@@ -126,7 +122,7 @@ defmodule AWS.DataSync do
   remains in the CREATING status for more than a few minutes, it means that
   your agent might be having trouble mounting the source NFS file system.
   Check the task's ErrorCode and ErrorDetail. Mount issues are often caused
-  by either a misconfigured firewall or a mistyped NFS server host name.
+  by either a misconfigured firewall or a mistyped NFS server hostname.
   """
   def create_task(client, input, options \\ []) do
     request(client, "CreateTask", input, options)
@@ -190,7 +186,9 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns metadata about a self-managed object storage server location.
+  Returns metadata about a self-managed object storage server location. For
+  more information about self-managed object storage locations, see
+  `create-object-location`.
   """
   def describe_location_object_storage(client, input, options \\ []) do
     request(client, "DescribeLocationObjectStorage", input, options)
@@ -320,9 +318,8 @@ defmodule AWS.DataSync do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "datasync"}
     host = build_host("datasync", client)
@@ -334,25 +331,24 @@ defmodule AWS.DataSync do
       {"X-Amz-Target", "FmrsService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

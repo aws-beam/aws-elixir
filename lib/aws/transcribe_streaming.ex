@@ -26,10 +26,13 @@ defmodule AWS.TranscribeStreaming do
     path_ = "/stream-transcription"
     {headers, input} =
       [
+        {"EnableChannelIdentification", "x-amzn-transcribe-enable-channel-identification"},
         {"LanguageCode", "x-amzn-transcribe-language-code"},
         {"MediaEncoding", "x-amzn-transcribe-media-encoding"},
         {"MediaSampleRateHertz", "x-amzn-transcribe-sample-rate"},
+        {"NumberOfChannels", "x-amzn-transcribe-number-of-channels"},
         {"SessionId", "x-amzn-transcribe-session-id"},
+        {"ShowSpeakerLabel", "x-amzn-transcribe-show-speaker-label"},
         {"VocabularyFilterMethod", "x-amzn-transcribe-vocabulary-filter-method"},
         {"VocabularyFilterName", "x-amzn-transcribe-vocabulary-filter-name"},
         {"VocabularyName", "x-amzn-transcribe-vocabulary-name"},
@@ -37,14 +40,17 @@ defmodule AWS.TranscribeStreaming do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
+            {"x-amzn-transcribe-enable-channel-identification", "EnableChannelIdentification"},
             {"x-amzn-transcribe-language-code", "LanguageCode"},
             {"x-amzn-transcribe-media-encoding", "MediaEncoding"},
             {"x-amzn-transcribe-sample-rate", "MediaSampleRateHertz"},
+            {"x-amzn-transcribe-number-of-channels", "NumberOfChannels"},
             {"x-amzn-request-id", "RequestId"},
             {"x-amzn-transcribe-session-id", "SessionId"},
+            {"x-amzn-transcribe-show-speaker-label", "ShowSpeakerLabel"},
             {"x-amzn-transcribe-vocabulary-filter-method", "VocabularyFilterMethod"},
             {"x-amzn-transcribe-vocabulary-filter-name", "VocabularyFilterName"},
             {"x-amzn-transcribe-vocabulary-name", "VocabularyName"},
@@ -64,9 +70,8 @@ defmodule AWS.TranscribeStreaming do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "transcribe"}
     host = build_host("transcribestreaming", client)
@@ -82,41 +87,16 @@ defmodule AWS.TranscribeStreaming do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -137,6 +117,11 @@ defmodule AWS.TranscribeStreaming do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

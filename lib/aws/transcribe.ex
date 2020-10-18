@@ -7,6 +7,15 @@ defmodule AWS.Transcribe do
   """
 
   @doc """
+  Creates a new custom language model. Use Amazon S3 prefixes to provide the
+  location of your input files. The time it takes to create your model
+  depends on the size of your training data.
+  """
+  def create_language_model(client, input, options \\ []) do
+    request(client, "CreateLanguageModel", input, options)
+  end
+
+  @doc """
   Creates a new custom vocabulary that you can use to change how Amazon
   Transcribe Medical transcribes your audio file.
   """
@@ -28,6 +37,13 @@ defmodule AWS.Transcribe do
   """
   def create_vocabulary_filter(client, input, options \\ []) do
     request(client, "CreateVocabularyFilter", input, options)
+  end
+
+  @doc """
+  Deletes a custom language model using its name.
+  """
+  def delete_language_model(client, input, options \\ []) do
+    request(client, "DeleteLanguageModel", input, options)
   end
 
   @doc """
@@ -68,6 +84,19 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
+  Gets information about a single custom language model. Use this information
+  to see details about the language model in your AWS account. You can also
+  see whether the base language model used to create your custom language
+  model has been updated. If Amazon Transcribe has updated the base model,
+  you can create a new custom language model using the updated base model. If
+  the language model wasn't created, you can use this operation to understand
+  why Amazon Transcribe couldn't create it.
+  """
+  def describe_language_model(client, input, options \\ []) do
+    request(client, "DescribeLanguageModel", input, options)
+  end
+
+  @doc """
   Returns information about a transcription job from Amazon Transcribe
   Medical. To see the status of the job, check the `TranscriptionJobStatus`
   field. If the status is `COMPLETED`, the job is finished. You find the
@@ -78,7 +107,7 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Retrieve information about a medical vocabulary.
+  Retrieves information about a medical vocabulary.
   """
   def get_medical_vocabulary(client, input, options \\ []) do
     request(client, "GetMedicalVocabulary", input, options)
@@ -110,6 +139,15 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
+  Provides more information about the custom language models you've created.
+  You can use the information in this list to find a specific custom language
+  model. You can then use the operation to get more information about it.
+  """
+  def list_language_models(client, input, options \\ []) do
+    request(client, "ListLanguageModels", input, options)
+  end
+
+  @doc """
   Lists medical transcription jobs with a specified status or substring that
   matches their names.
   """
@@ -118,9 +156,9 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Returns a list of vocabularies that match the specified criteria. You get
-  the entire list of vocabularies if you don't enter a value in any of the
-  request parameters.
+  Returns a list of vocabularies that match the specified criteria. If you
+  don't enter a value in any of the request parameters, returns the entire
+  list of vocabularies.
   """
   def list_medical_vocabularies(client, input, options \\ []) do
     request(client, "ListMedicalVocabularies", input, options)
@@ -149,7 +187,7 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Start a batch job to transcribe medical speech to text.
+  Starts a batch job to transcribe medical speech to text.
   """
   def start_medical_transcription_job(client, input, options \\ []) do
     request(client, "StartMedicalTranscriptionJob", input, options)
@@ -163,8 +201,9 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Updates an existing vocabulary with new values in a different text file.
-  The `UpdateMedicalVocabulary` operation overwrites all of the existing
+  Updates a vocabulary with new values that you provide in a different text
+  file from the one you used to create the vocabulary. The
+  `UpdateMedicalVocabulary` operation overwrites all of the existing
   information with the values that you provide in the request.
   """
   def update_medical_vocabulary(client, input, options \\ []) do
@@ -188,9 +227,8 @@ defmodule AWS.Transcribe do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "transcribe"}
     host = build_host("transcribe", client)
@@ -202,25 +240,24 @@ defmodule AWS.Transcribe do
       {"X-Amz-Target", "Transcribe.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

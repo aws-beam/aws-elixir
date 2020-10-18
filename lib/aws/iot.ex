@@ -244,6 +244,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Creates a Device Defender audit suppression.
+  """
+  def create_audit_suppression(client, input, options \\ []) do
+    path_ = "/audit/suppressions/create"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Creates an authorizer.
   """
   def create_authorizer(client, authorizer_name, input, options \\ []) do
@@ -391,8 +401,11 @@ defmodule AWS.IoT do
 
   @doc """
   Defines an action that can be applied to audit findings by using
-  StartAuditMitigationActionsTask. Each mitigation action can apply only one
-  type of change.
+  StartAuditMitigationActionsTask. Only certain types of mitigation actions
+  can be applied to specific check names. For more information, see
+  [Mitigation
+  actions](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html).
+  Each mitigation action can apply only one type of change.
   """
   def create_mitigation_action(client, action_name, input, options \\ []) do
     path_ = "/mitigationactions/actions/#{URI.encode(action_name)}"
@@ -609,6 +622,16 @@ defmodule AWS.IoT do
       ]
       |> AWS.Request.build_params(input)
     request(client, :delete, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes a Device Defender audit suppression.
+  """
+  def delete_audit_suppression(client, input, options \\ []) do
+    path_ = "/audit/suppressions/delete"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -997,6 +1020,16 @@ defmodule AWS.IoT do
     headers = []
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets information about a Device Defender audit suppression.
+  """
+  def describe_audit_suppression(client, input, options \\ []) do
+    path_ = "/audit/suppressions/describe"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -1546,7 +1579,7 @@ defmodule AWS.IoT do
 
   @doc """
   Lists the findings (results) of a Device Defender audit or of the audits
-  performed during a specified time period. (Findings are retained for 180
+  performed during a specified time period. (Findings are retained for 90
   days.)
   """
   def list_audit_findings(client, input, options \\ []) do
@@ -1635,6 +1668,16 @@ defmodule AWS.IoT do
       query_
     end
     request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists your Device Defender audit listings.
+  """
+  def list_audit_suppressions(client, input, options \\ []) do
+    path_ = "/audit/suppressions/list"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -2553,6 +2596,13 @@ defmodule AWS.IoT do
   parameters to filter your things. For example, calling `ListThings` with
   attributeName=Color and attributeValue=Red retrieves all things in the
   registry that contain an attribute **Color** with the value **Red**.
+
+  <note> You will not be charged for calling this API if an `Access denied`
+  error is returned. You will also not be charged if no attributes or
+  pagination token was provided in request and no pagination token and no
+  results were returned.
+
+  </note>
   """
   def list_things(client, attribute_name \\ nil, attribute_value \\ nil, max_results \\ nil, next_token \\ nil, thing_type_name \\ nil, options \\ []) do
     path_ = "/things"
@@ -3062,6 +3112,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Updates a Device Defender audit suppression.
+  """
+  def update_audit_suppression(client, input, options \\ []) do
+    path_ = "/audit/suppressions/update"
+    headers = []
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Updates an authorizer.
   """
   def update_authorizer(client, authorizer_name, input, options \\ []) do
@@ -3100,12 +3160,13 @@ defmodule AWS.IoT do
   Updates the status of the specified certificate. This operation is
   idempotent.
 
-  Moving a certificate from the ACTIVE state (including REVOKED) will not
-  disconnect currently connected devices, but these devices will be unable to
-  reconnect.
+  Certificates must be in the ACTIVE state to authenticate devices that use a
+  certificate to connect to AWS IoT.
 
-  The ACTIVE state is required to authenticate devices connecting to AWS IoT
-  using a certificate.
+  Within a few minutes of updating a certificate from the ACTIVE state to any
+  other state, AWS IoT disconnects all devices that used that certificate to
+  connect. Devices cannot use a certificate that is not in the ACTIVE state
+  to reconnect.
   """
   def update_certificate(client, certificate_id, input, options \\ []) do
     path_ = "/certificates/#{URI.encode(certificate_id)}"
@@ -3302,9 +3363,8 @@ defmodule AWS.IoT do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "execute-api"}
     host = build_host("iot", client)
@@ -3320,41 +3380,16 @@ defmodule AWS.IoT do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -3375,6 +3410,11 @@ defmodule AWS.IoT do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

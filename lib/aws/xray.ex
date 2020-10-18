@@ -191,6 +191,17 @@ defmodule AWS.XRay do
   end
 
   @doc """
+  Returns a list of tags that are applied to the specified AWS X-Ray group or
+  sampling rule.
+  """
+  def list_tags_for_resource(client, input, options \\ []) do
+    path_ = "/ListTagsForResource"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Updates the encryption configuration for X-Ray data.
   """
   def put_encryption_config(client, input, options \\ []) do
@@ -222,7 +233,7 @@ defmodule AWS.XRay do
   Documents](https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html)
   in the *AWS X-Ray Developer Guide*.
 
-  <p class="title"> **Required Segment Document Fields**
+  <p class="title"> **Required segment document fields**
 
   <ul> <li> `name` - The name of the service that handled the request.
 
@@ -242,17 +253,17 @@ defmodule AWS.XRay do
 
   </li> <li> `in_progress` - Set to `true` instead of specifying an
   `end_time` to record that a segment has been started, but is not complete.
-  Send an in progress segment when your application receives a request that
-  will take a long time to serve, to trace the fact that the request was
-  received. When the response is sent, send the complete segment to overwrite
-  the in-progress segment.
+  Send an in-progress segment when your application receives a request that
+  will take a long time to serve, to trace that the request was received.
+  When the response is sent, send the complete segment to overwrite the
+  in-progress segment.
 
   </li> </ul> A `trace_id` consists of three numbers separated by hyphens.
   For example, 1-58406520-a006649127e371903a2de979. This includes:
 
   <p class="title"> **Trace ID Format**
 
-  <ul> <li> The version number, i.e. `1`.
+  <ul> <li> The version number, for instance, `1`.
 
   </li> <li> The time of the original request, in Unix epoch time, in 8
   hexadecimal digits. For example, 10:00AM December 2nd, 2016 PST in epoch
@@ -265,6 +276,27 @@ defmodule AWS.XRay do
   """
   def put_trace_segments(client, input, options \\ []) do
     path_ = "/TraceSegments"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Applies tags to an existing AWS X-Ray group or sampling rule.
+  """
+  def tag_resource(client, input, options \\ []) do
+    path_ = "/TagResource"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Removes tags from an AWS X-Ray group or sampling rule. You cannot edit or
+  delete system tags (those with an `aws:` prefix).
+  """
+  def untag_resource(client, input, options \\ []) do
+    path_ = "/UntagResource"
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, nil)
@@ -291,9 +323,8 @@ defmodule AWS.XRay do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "xray"}
     host = build_host("xray", client)
@@ -309,41 +340,16 @@ defmodule AWS.XRay do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -364,6 +370,11 @@ defmodule AWS.XRay do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

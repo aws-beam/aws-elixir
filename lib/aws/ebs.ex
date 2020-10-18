@@ -3,15 +3,22 @@
 
 defmodule AWS.EBS do
   @moduledoc """
-  You can use the Amazon Elastic Block Store (EBS) direct APIs to directly
-  read the data on your EBS snapshots, and identify the difference between
-  two snapshots. You can view the details of blocks in an EBS snapshot,
-  compare the block difference between two snapshots, and directly access the
-  data in a snapshot. If you're an independent software vendor (ISV) who
-  offers backup services for EBS, the EBS direct APIs make it easier and more
-  cost-effective to track incremental changes on your EBS volumes via EBS
-  snapshots. This can be done without having to create new volumes from EBS
-  snapshots.
+  You can use the Amazon Elastic Block Store (Amazon EBS) direct APIs to
+  create EBS snapshots, write data directly to your snapshots, read data on
+  your snapshots, and identify the differences or changes between two
+  snapshots. If you’re an independent software vendor (ISV) who offers backup
+  services for Amazon EBS, the EBS direct APIs make it more efficient and
+  cost-effective to track incremental changes on your EBS volumes through
+  snapshots. This can be done without having to create new volumes from
+  snapshots, and then use Amazon Elastic Compute Cloud (Amazon EC2) instances
+  to compare the differences.
+
+  You can create incremental snapshots directly from data on-premises into
+  EBS volumes and the cloud to use for quick disaster recovery. With the
+  ability to write and read snapshots, you can write your on-premises data to
+  an EBS snapshot during a disaster. Then after recovery, you can restore it
+  back to AWS or on-premises from the snapshot. You no longer need to build
+  and maintain complex mechanisms to copy data to and from Amazon EBS.
 
   This API reference provides detailed information about the actions, data
   types, parameters, and errors of the EBS direct APIs. For more information
@@ -58,7 +65,7 @@ defmodule AWS.EBS do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-Checksum", "Checksum"},
@@ -80,9 +87,8 @@ defmodule AWS.EBS do
   end
 
   @doc """
-  Returns the block indexes and block tokens for blocks that are different
-  between two Amazon Elastic Block Store snapshots of the same
-  volume/snapshot lineage.
+  Returns information about the blocks that are different between two Amazon
+  Elastic Block Store snapshots of the same volume/snapshot lineage.
   """
   def list_changed_blocks(client, second_snapshot_id, first_snapshot_id \\ nil, max_results \\ nil, next_token \\ nil, starting_block_index \\ nil, options \\ []) do
     path_ = "/snapshots/#{URI.encode(second_snapshot_id)}/changedblocks"
@@ -112,8 +118,8 @@ defmodule AWS.EBS do
   end
 
   @doc """
-  Returns the block indexes and block tokens for blocks in an Amazon Elastic
-  Block Store snapshot.
+  Returns information about the blocks in an Amazon Elastic Block Store
+  snapshot.
   """
   def list_snapshot_blocks(client, snapshot_id, max_results \\ nil, next_token \\ nil, starting_block_index \\ nil, options \\ []) do
     path_ = "/snapshots/#{URI.encode(snapshot_id)}/blocks"
@@ -138,9 +144,9 @@ defmodule AWS.EBS do
   end
 
   @doc """
-  Writes a block of data to a block in the snapshot. If the specified block
-  contains data, the existing data is overwritten. The target snapshot must
-  be in the `pending` state.
+  Writes a block of data to a snapshot. If the specified block contains data,
+  the existing data is overwritten. The target snapshot must be in the
+  `pending` state.
 
   Data written to a snapshot must be aligned with 512-byte sectors.
   """
@@ -156,7 +162,7 @@ defmodule AWS.EBS do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"x-amz-Checksum", "Checksum"},
@@ -192,9 +198,8 @@ defmodule AWS.EBS do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "ebs"}
     host = build_host("ebs", client)
@@ -210,41 +215,16 @@ defmodule AWS.EBS do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -265,6 +245,11 @@ defmodule AWS.EBS do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

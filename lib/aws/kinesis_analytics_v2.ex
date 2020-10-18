@@ -4,10 +4,10 @@
 defmodule AWS.KinesisAnalyticsV2 do
   @moduledoc """
   Amazon Kinesis Data Analytics is a fully managed service that you can use
-  to process and analyze streaming data using SQL or Java. The service
-  enables you to quickly author and run SQL or Java code against streaming
-  sources to perform time series analytics, feed real-time dashboards, and
-  create real-time metrics.
+  to process and analyze streaming data using Java, SQL, or Scala. The
+  service enables you to quickly author and run Java, SQL, or Scala code
+  against streaming sources to perform time series analytics, feed real-time
+  dashboards, and create real-time metrics.
   """
 
   @doc """
@@ -19,7 +19,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Adds a streaming source to your SQL-based Amazon Kinesis Data Analytics
+  Adds a streaming source to your SQL-based Kinesis Data Analytics
   application.
 
   You can add a streaming source when you create an application, or you can
@@ -35,19 +35,19 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Adds an `InputProcessingConfiguration` to an SQL-based Kinesis Data
+  Adds an `InputProcessingConfiguration` to a SQL-based Kinesis Data
   Analytics application. An input processor pre-processes records on the
   input stream before the application's SQL code executes. Currently, the
   only input processor available is [AWS
-  Lambda](https://aws.amazon.com/documentation/lambda/).
+  Lambda](https://docs.aws.amazon.com/lambda/).
   """
   def add_application_input_processing_configuration(client, input, options \\ []) do
     request(client, "AddApplicationInputProcessingConfiguration", input, options)
   end
 
   @doc """
-  Adds an external destination to your SQL-based Amazon Kinesis Data
-  Analytics application.
+  Adds an external destination to your SQL-based Kinesis Data Analytics
+  application.
 
   If you want Kinesis Data Analytics to deliver data from an in-application
   stream within your application to an external destination (such as an
@@ -70,7 +70,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Adds a reference data source to an existing SQL-based Amazon Kinesis Data
+  Adds a reference data source to an existing SQL-based Kinesis Data
   Analytics application.
 
   Kinesis Data Analytics reads reference data (that is, an Amazon S3 object)
@@ -104,7 +104,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Creates an Amazon Kinesis Data Analytics application. For information about
+  Creates a Kinesis Data Analytics application. For information about
   creating a Kinesis Data Analytics application, see [Creating an
   Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
   """
@@ -128,8 +128,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Deletes an Amazon CloudWatch log stream from an Amazon Kinesis Data
-  Analytics application.
+  Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics
+  application.
   """
   def delete_application_cloud_watch_logging_option(client, input, options \\ []) do
     request(client, "DeleteApplicationCloudWatchLoggingOption", input, options)
@@ -143,10 +143,10 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Deletes the output destination configuration from your SQL-based Amazon
-  Kinesis Data Analytics application's configuration. Kinesis Data Analytics
-  will no longer write data from the corresponding in-application stream to
-  the external output destination.
+  Deletes the output destination configuration from your SQL-based Kinesis
+  Data Analytics application's configuration. Kinesis Data Analytics will no
+  longer write data from the corresponding in-application stream to the
+  external output destination.
   """
   def delete_application_output(client, input, options \\ []) do
     request(client, "DeleteApplicationOutput", input, options)
@@ -154,7 +154,7 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   @doc """
   Deletes a reference data source configuration from the specified SQL-based
-  Amazon Kinesis Data Analytics application's configuration.
+  Kinesis Data Analytics application's configuration.
 
   If the application is running, Kinesis Data Analytics immediately removes
   the in-application table that you created using the
@@ -179,8 +179,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Returns information about a specific Amazon Kinesis Data Analytics
-  application.
+  Returns information about a specific Kinesis Data Analytics application.
 
   If you want to retrieve a list of all applications in your account, use the
   `ListApplications` operation.
@@ -197,11 +196,11 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Infers a schema for an SQL-based Amazon Kinesis Data Analytics application
-  by evaluating sample records on the specified streaming source (Kinesis
-  data stream or Kinesis Data Firehose delivery stream) or Amazon S3 object.
-  In the response, the operation returns the inferred schema and also the
-  sample records that the operation used to infer the schema.
+  Infers a schema for a SQL-based Kinesis Data Analytics application by
+  evaluating sample records on the specified streaming source (Kinesis data
+  stream or Kinesis Data Firehose delivery stream) or Amazon S3 object. In
+  the response, the operation returns the inferred schema and also the sample
+  records that the operation used to infer the schema.
 
   You can use the inferred schema when configuring a streaming source for
   your application. When you create an application using the Kinesis Data
@@ -220,9 +219,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Returns a list of Amazon Kinesis Data Analytics applications in your
-  account. For each application, the response includes the application name,
-  Amazon Resource Name (ARN), and status.
+  Returns a list of Kinesis Data Analytics applications in your account. For
+  each application, the response includes the application name, Amazon
+  Resource Name (ARN), and status.
 
   If you want detailed information about a specific application, use
   `DescribeApplication`.
@@ -241,9 +240,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Starts the specified Amazon Kinesis Data Analytics application. After
-  creating an application, you must exclusively call this operation to start
-  your application.
+  Starts the specified Kinesis Data Analytics application. After creating an
+  application, you must exclusively call this operation to start your
+  application.
   """
   def start_application(client, input, options \\ []) do
     request(client, "StartApplication", input, options)
@@ -259,8 +258,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Adds one or more key-value tags to a Kinesis Analytics application. Note
-  that the maximum number of application tags includes system tags. The
+  Adds one or more key-value tags to a Kinesis Data Analytics application.
+  Note that the maximum number of application tags includes system tags. The
   maximum number of user-defined application tags is 50. For more
   information, see [Using
   Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
@@ -270,8 +269,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Removes one or more tags from a Kinesis Analytics application. For more
-  information, see [Using
+  Removes one or more tags from a Kinesis Data Analytics application. For
+  more information, see [Using
   Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
   def untag_resource(client, input, options \\ []) do
@@ -279,21 +278,26 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
-  Updates an existing Amazon Kinesis Data Analytics application. Using this
+  Updates an existing Kinesis Data Analytics application. Using this
   operation, you can update application code, input configuration, and output
   configuration.
 
   Kinesis Data Analytics updates the `ApplicationVersionId` each time you
   update your application.
+
+  <note> You cannot update the `RuntimeEnvironment` of an existing
+  application. If you need to update an application's `RuntimeEnvironment`,
+  you must delete the application and create it again.
+
+  </note>
   """
   def update_application(client, input, options \\ []) do
     request(client, "UpdateApplication", input, options)
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "kinesisanalytics"}
     host = build_host("kinesisanalytics", client)
@@ -305,25 +309,24 @@ defmodule AWS.KinesisAnalyticsV2 do
       {"X-Amz-Target", "KinesisAnalytics_20180523.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

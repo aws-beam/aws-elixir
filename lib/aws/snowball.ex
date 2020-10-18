@@ -3,14 +3,15 @@
 
 defmodule AWS.Snowball do
   @moduledoc """
-  AWS Snowball is a petabyte-scale data transport solution that uses secure
-  devices to transfer large amounts of data between your on-premises data
-  centers and Amazon Simple Storage Service (Amazon S3). The Snowball
+  AWS Snow Family is a petabyte-scale data transport solution that uses
+  secure devices to transfer large amounts of data between your on-premises
+  data centers and Amazon Simple Storage Service (Amazon S3). The Snow
   commands described here provide access to the same functionality that is
-  available in the AWS Snowball Management Console, which enables you to
-  create and manage jobs for Snowball. To transfer data locally with a
-  Snowball device, you'll need to use the Snowball client or the Amazon S3
-  API adapter for Snowball. For more information, see the [User
+  available in the AWS Snow Family Management Console, which enables you to
+  create and manage jobs for a Snow device. To transfer data locally with a
+  Snow device, you'll need to use the Snowball Edge client or the Amazon S3
+  API Interface for Snowball or AWS OpsHub for Snow Family. For more
+  information, see the [User
   Guide](https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html).
   """
 
@@ -34,7 +35,7 @@ defmodule AWS.Snowball do
   end
 
   @doc """
-  Creates an address for a Snowball to be shipped to. In most regions,
+  Creates an address for a Snow device to be shipped to. In most regions,
   addresses are validated at the time of creation. The address you provide
   must be located within the serviceable area of your region. If the address
   is invalid or unsupported, then an exception is thrown.
@@ -55,12 +56,20 @@ defmodule AWS.Snowball do
   @doc """
   Creates a job to import or export data between Amazon S3 and your
   on-premises data center. Your AWS account must have the right trust
-  policies and permissions in place to create a job for Snowball. If you're
-  creating a job for a node in a cluster, you only need to provide the
+  policies and permissions in place to create a job for a Snow device. If
+  you're creating a job for a node in a cluster, you only need to provide the
   `clusterId` value; the other job attributes are inherited from the cluster.
   """
   def create_job(client, input, options \\ []) do
     request(client, "CreateJob", input, options)
+  end
+
+  @doc """
+  Creates a shipping label that will be used to return the Snow device to
+  AWS.
+  """
+  def create_return_shipping_label(client, input, options \\ []) do
+    request(client, "CreateReturnShippingLabel", input, options)
   end
 
   @doc """
@@ -97,6 +106,14 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+  Information on the shipping label of a Snow device that is being returned
+  to AWS.
+  """
+  def describe_return_shipping_label(client, input, options \\ []) do
+    request(client, "DescribeReturnShippingLabel", input, options)
+  end
+
+  @doc """
   Returns a link to an Amazon S3 presigned URL for the manifest file
   associated with the specified `JobId` value. You can access the manifest
   file for up to 60 minutes after this request has been made. To access the
@@ -105,13 +122,13 @@ defmodule AWS.Snowball do
 
   The manifest is an encrypted file that you can download after your job
   enters the `WithCustomer` status. The manifest is decrypted by using the
-  `UnlockCode` code value, when you pass both values to the Snowball through
-  the Snowball client when the client is started for the first time.
+  `UnlockCode` code value, when you pass both values to the Snow device
+  through the Snowball client when the client is started for the first time.
 
   As a best practice, we recommend that you don't save a copy of an
   `UnlockCode` value in the same location as the manifest file for that job.
   Saving these separately helps prevent unauthorized parties from gaining
-  access to the Snowball associated with that job.
+  access to the Snow device associated with that job.
 
   The credentials of a given job, including its manifest file and unlock
   code, expire 90 days after the job is created.
@@ -127,24 +144,24 @@ defmodule AWS.Snowball do
 
   The `UnlockCode` value is a 29-character code with 25 alphanumeric
   characters and 4 hyphens. This code is used to decrypt the manifest file
-  when it is passed along with the manifest to the Snowball through the
+  when it is passed along with the manifest to the Snow device through the
   Snowball client when the client is started for the first time.
 
   As a best practice, we recommend that you don't save a copy of the
   `UnlockCode` in the same location as the manifest file for that job. Saving
   these separately helps prevent unauthorized parties from gaining access to
-  the Snowball associated with that job.
+  the Snow device associated with that job.
   """
   def get_job_unlock_code(client, input, options \\ []) do
     request(client, "GetJobUnlockCode", input, options)
   end
 
   @doc """
-  Returns information about the Snowball service limit for your account, and
-  also the number of Snowballs your account has in use.
+  Returns information about the Snow Family service limit for your account,
+  and also the number of Snow devices your account has in use.
 
-  The default service limit for the number of Snowballs that you can have at
-  one time is 1. If you want to increase your service limit, contact AWS
+  The default service limit for the number of Snow devices that you can have
+  at one time is 1. If you want to increase your service limit, contact AWS
   Support.
   """
   def get_snowball_usage(client, input, options \\ []) do
@@ -180,10 +197,9 @@ defmodule AWS.Snowball do
   @doc """
   This action returns a list of the different Amazon EC2 Amazon Machine
   Images (AMIs) that are owned by your AWS account that would be supported
-  for use on a Snowball Edge device. Currently, supported AMIs are based on
-  the CentOS 7 (x86_64) - with Updates HVM, Ubuntu Server 14.04 LTS (HVM),
-  and Ubuntu 16.04 LTS - Xenial (HVM) images, available on the AWS
-  Marketplace.
+  for use on a Snow device. Currently, supported AMIs are based on the CentOS
+  7 (x86_64) - with Updates HVM, Ubuntu Server 14.04 LTS (HVM), and Ubuntu
+  16.04 LTS - Xenial (HVM) images, available on the AWS Marketplace.
   """
   def list_compatible_images(client, input, options \\ []) do
     request(client, "ListCompatibleImages", input, options)
@@ -220,10 +236,16 @@ defmodule AWS.Snowball do
     request(client, "UpdateJob", input, options)
   end
 
+  @doc """
+  Updates the state when a the shipment states changes to a different state.
+  """
+  def update_job_shipment_state(client, input, options \\ []) do
+    request(client, "UpdateJobShipmentState", input, options)
+  end
+
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "snowball"}
     host = build_host("snowball", client)
@@ -235,25 +257,24 @@ defmodule AWS.Snowball do
       {"X-Amz-Target", "AWSIESnowballJobManagementService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

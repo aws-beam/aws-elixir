@@ -10,6 +10,22 @@ defmodule AWS.WorkSpaces do
   """
 
   @doc """
+  Associates the specified connection alias with the specified directory to
+  enable cross-Region redirection. For more information, see [ Cross-Region
+  Redirection for Amazon
+  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+
+  <note> Before performing this operation, call [
+  DescribeConnectionAliases](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html)
+  to make sure that the current state of the connection alias is `CREATED`.
+
+  </note>
+  """
+  def associate_connection_alias(client, input, options \\ []) do
+    request(client, "AssociateConnectionAlias", input, options)
+  end
+
+  @doc """
   Associates the specified IP access control group with the specified
   directory.
   """
@@ -29,9 +45,31 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Copies the specified image from the specified Region to the current Region.
+  For more information about copying images, see [ Copy a Custom WorkSpaces
+  Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html).
+
+  <important> Before copying a shared image, be sure to verify that it has
+  been shared from the correct AWS account. To determine if an image has been
+  shared and to see the AWS account ID that owns an image, use the
+  [DescribeWorkSpaceImages](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html)
+  and
+  [DescribeWorkspaceImagePermissions](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html)
+  API operations.
+
+  </important>
   """
   def copy_workspace_image(client, input, options \\ []) do
     request(client, "CopyWorkspaceImage", input, options)
+  end
+
+  @doc """
+  Creates the specified connection alias for use with cross-Region
+  redirection. For more information, see [ Cross-Region Redirection for
+  Amazon
+  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+  """
+  def create_connection_alias(client, input, options \\ []) do
+    request(client, "CreateConnectionAlias", input, options)
   end
 
   @doc """
@@ -68,6 +106,30 @@ defmodule AWS.WorkSpaces do
   """
   def create_workspaces(client, input, options \\ []) do
     request(client, "CreateWorkspaces", input, options)
+  end
+
+  @doc """
+  Deletes the specified connection alias. For more information, see [
+  Cross-Region Redirection for Amazon
+  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+
+  <important> **If you will no longer be using a fully qualified domain name
+  (FQDN) as the registration code for your WorkSpaces users, you must take
+  certain precautions to prevent potential security issues.** For more
+  information, see [ Security Considerations if You Stop Using Cross-Region
+  Redirection](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations).
+
+  </important> <note> To delete a connection alias that has been shared, the
+  shared account must first disassociate the connection alias from any
+  directories it has been associated with. Then you must unshare the
+  connection alias from the account it has been shared with. You can delete a
+  connection alias only after it is no longer shared with any accounts or
+  associated with any directories.
+
+  </note>
+  """
+  def delete_connection_alias(client, input, options \\ []) do
+    request(client, "DeleteConnectionAlias", input, options)
   end
 
   @doc """
@@ -128,6 +190,26 @@ defmodule AWS.WorkSpaces do
   """
   def describe_client_properties(client, input, options \\ []) do
     request(client, "DescribeClientProperties", input, options)
+  end
+
+  @doc """
+  Describes the permissions that the owner of a connection alias has granted
+  to another AWS account for the specified connection alias. For more
+  information, see [ Cross-Region Redirection for Amazon
+  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+  """
+  def describe_connection_alias_permissions(client, input, options \\ []) do
+    request(client, "DescribeConnectionAliasPermissions", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes the connection aliases used for
+  cross-Region redirection. For more information, see [ Cross-Region
+  Redirection for Amazon
+  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+  """
+  def describe_connection_aliases(client, input, options \\ []) do
+    request(client, "DescribeConnectionAliases", input, options)
   end
 
   @doc """
@@ -203,6 +285,23 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Disassociates a connection alias from a directory. Disassociating a
+  connection alias disables cross-Region redirection between two directories
+  in different AWS Regions. For more information, see [ Cross-Region
+  Redirection for Amazon
+  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+
+  <note> Before performing this operation, call [
+  DescribeConnectionAliases](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html)
+  to make sure that the current state of the connection alias is `CREATED`.
+
+  </note>
+  """
+  def disassociate_connection_alias(client, input, options \\ []) do
+    request(client, "DisassociateConnectionAlias", input, options)
+  end
+
+  @doc """
   Disassociates the specified IP access control group from the specified
   directory.
   """
@@ -211,9 +310,12 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Imports the specified Windows 7 or Windows 10 Bring Your Own License (BYOL)
-  image into Amazon WorkSpaces. The image must be an already licensed EC2
-  image that is in your AWS account, and you must own the image.
+  Imports the specified Windows 10 Bring Your Own License (BYOL) image into
+  Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image
+  that is in your AWS account, and you must own the image. For more
+  information about creating BYOL images, see [ Bring Your Own Windows
+  Desktop
+  Licenses](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
   """
   def import_workspace_image(client, input, options \\ []) do
     request(client, "ImportWorkspaceImage", input, options)
@@ -223,6 +325,10 @@ defmodule AWS.WorkSpaces do
   Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that
   you can use for the network management interface when you enable Bring Your
   Own License (BYOL).
+
+  This operation can be run only by AWS accounts that are enabled for BYOL.
+  If your account isn't enabled for BYOL, you'll receive an
+  `AccessDeniedException` error.
 
   The management network interface is connected to a secure Amazon WorkSpaces
   management network. It is used for interactive streaming of the WorkSpace
@@ -405,17 +511,50 @@ defmodule AWS.WorkSpaces do
   @doc """
   Terminates the specified WorkSpaces.
 
-  Terminating a WorkSpace is a permanent action and cannot be undone. The
-  user's data is destroyed. If you need to archive any user data, contact
-  Amazon Web Services before terminating the WorkSpace.
+  <important> Terminating a WorkSpace is a permanent action and cannot be
+  undone. The user's data is destroyed. If you need to archive any user data,
+  contact AWS Support before terminating the WorkSpace.
 
-  You can terminate a WorkSpace that is in any state except `SUSPENDED`.
+  </important> You can terminate a WorkSpace that is in any state except
+  `SUSPENDED`.
 
   This operation is asynchronous and returns before the WorkSpaces have been
-  completely terminated.
+  completely terminated. After a WorkSpace is terminated, the `TERMINATED`
+  state is returned only briefly before the WorkSpace directory metadata is
+  cleaned up, so this state is rarely returned. To confirm that a WorkSpace
+  is terminated, check for the WorkSpace ID by using [
+  DescribeWorkSpaces](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html).
+  If the WorkSpace ID isn't returned, then the WorkSpace has been
+  successfully terminated.
   """
   def terminate_workspaces(client, input, options \\ []) do
     request(client, "TerminateWorkspaces", input, options)
+  end
+
+  @doc """
+  Shares or unshares a connection alias with one account by specifying
+  whether that account has permission to associate the connection alias with
+  a directory. If the association permission is granted, the connection alias
+  is shared with that account. If the association permission is revoked, the
+  connection alias is unshared with the account. For more information, see [
+  Cross-Region Redirection for Amazon
+  WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+
+  <note> <ul> <li> Before performing this operation, call [
+  DescribeConnectionAliases](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html)
+  to make sure that the current state of the connection alias is `CREATED`.
+
+  </li> <li> To delete a connection alias that has been shared, the shared
+  account must first disassociate the connection alias from any directories
+  it has been associated with. Then you must unshare the connection alias
+  from the account it has been shared with. You can delete a connection alias
+  only after it is no longer shared with any accounts or associated with any
+  directories.
+
+  </li> </ul> </note>
+  """
+  def update_connection_alias_permission(client, input, options \\ []) do
+    request(client, "UpdateConnectionAliasPermission", input, options)
   end
 
   @doc """
@@ -430,7 +569,10 @@ defmodule AWS.WorkSpaces do
   Shares or unshares an image with one account by specifying whether that
   account has permission to copy the image. If the copy image permission is
   granted, the image is shared with that account. If the copy image
-  permission is revoked, the image is unshared with the account.
+  permission is revoked, the image is unshared with the account. For more
+  information about sharing images, see [ Share or Unshare a Custom
+  WorkSpaces
+  Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html).
 
   <note> <ul> <li> To delete an image that has been shared, you must unshare
   the image before you delete it.
@@ -447,9 +589,8 @@ defmodule AWS.WorkSpaces do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "workspaces"}
     host = build_host("workspaces", client)
@@ -461,25 +602,24 @@ defmodule AWS.WorkSpaces do
       {"X-Amz-Target", "WorkspacesService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

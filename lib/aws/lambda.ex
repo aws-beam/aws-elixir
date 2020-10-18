@@ -100,6 +100,9 @@ defmodule AWS.Lambda do
   </li> <li> [Using AWS Lambda with Amazon
   SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html)
 
+  </li> <li> [Using AWS Lambda with Amazon
+  MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+
   </li> </ul> The following error handling options are only available for
   stream sources (DynamoDB and Kinesis):
 
@@ -110,10 +113,11 @@ defmodule AWS.Lambda do
   queue or Amazon SNS topic.
 
   </li> <li> `MaximumRecordAgeInSeconds` - Discard records older than the
-  specified age.
+  specified age. Default -1 (infinite). Minimum 60. Maximum 604800.
 
   </li> <li> `MaximumRetryAttempts` - Discard records after the specified
-  number of retries.
+  number of retries. Default -1 (infinite). Minimum 0. Maximum 10000. When
+  infinite, failed records will be retried until the record expires.
 
   </li> <li> `ParallelizationFactor` - Process multiple batches from each
   shard concurrently.
@@ -521,7 +525,7 @@ defmodule AWS.Lambda do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"X-Amz-Executed-Version", "ExecutedVersion"},
@@ -980,10 +984,11 @@ defmodule AWS.Lambda do
   queue or Amazon SNS topic.
 
   </li> <li> `MaximumRecordAgeInSeconds` - Discard records older than the
-  specified age.
+  specified age. Default -1 (infinite). Minimum 60. Maximum 604800.
 
   </li> <li> `MaximumRetryAttempts` - Discard records after the specified
-  number of retries.
+  number of retries. Default -1 (infinite). Minimum 0. Maximum 10000. When
+  infinite, failed records will be retried until the record expires.
 
   </li> <li> `ParallelizationFactor` - Process multiple batches from each
   shard concurrently.
@@ -1056,9 +1061,8 @@ defmodule AWS.Lambda do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "lambda"}
     host = build_host("lambda", client)
@@ -1074,41 +1078,16 @@ defmodule AWS.Lambda do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -1129,6 +1108,11 @@ defmodule AWS.Lambda do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

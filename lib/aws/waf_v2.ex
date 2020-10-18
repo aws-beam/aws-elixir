@@ -22,13 +22,14 @@ defmodule AWS.WAFV2 do
 
   </note> AWS WAF is a web application firewall that lets you monitor the
   HTTP and HTTPS requests that are forwarded to Amazon CloudFront, an Amazon
-  API Gateway API, or an Application Load Balancer. AWS WAF also lets you
-  control access to your content. Based on conditions that you specify, such
-  as the IP addresses that requests originate from or the values of query
-  strings, API Gateway, CloudFront, or the Application Load Balancer responds
-  to requests either with the requested content or with an HTTP 403 status
-  code (Forbidden). You also can configure CloudFront to return a custom
-  error page when a request is blocked.
+  API Gateway REST API, an Application Load Balancer, or an AWS AppSync
+  GraphQL API. AWS WAF also lets you control access to your content. Based on
+  conditions that you specify, such as the IP addresses that requests
+  originate from or the values of query strings, the API Gateway REST API,
+  CloudFront distribution, the Application Load Balancer, or the AWS AppSync
+  GraphQL API responds to requests either with the requested content or with
+  an HTTP 403 status code (Forbidden). You also can configure CloudFront to
+  return a custom error page when a request is blocked.
 
   This API guide is for developers who need detailed information about AWS
   WAF API actions, data types, and errors. For detailed information about AWS
@@ -40,8 +41,8 @@ defmodule AWS.WAFV2 do
   WAF](https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region).
 
   <ul> <li> For regional applications, you can use any of the endpoints in
-  the list. A regional application can be an Application Load Balancer (ALB)
-  or an API Gateway stage.
+  the list. A regional application can be an Application Load Balancer (ALB),
+  an API Gateway REST API, or an AppSync GraphQL API.
 
   </li> <li> For AWS CloudFront applications, you must use the API endpoint
   listed for US East (N. Virginia): us-east-1.
@@ -78,7 +79,7 @@ defmodule AWS.WAFV2 do
 
   </note> Associates a Web ACL with a regional application resource, to
   protect the resource. A regional application can be an Application Load
-  Balancer (ALB) or an API Gateway stage.
+  Balancer (ALB), an API Gateway REST API, or an AppSync GraphQL API.
 
   For AWS CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To associate a Web ACL, in the CloudFront call
@@ -175,7 +176,8 @@ defmodule AWS.WAFV2 do
   any of the rules. The rules in a Web ACL can be a combination of the types
   `Rule`, `RuleGroup`, and managed rule group. You can associate a Web ACL
   with one or more AWS resources to protect. The resources can be Amazon
-  CloudFront, an Amazon API Gateway API, or an Application Load Balancer.
+  CloudFront, an Amazon API Gateway REST API, an Application Load Balancer,
+  or an AWS AppSync GraphQL API.
   """
   def create_web_a_c_l(client, input, options \\ []) do
     request(client, "CreateWebACL", input, options)
@@ -284,8 +286,8 @@ defmodule AWS.WAFV2 do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
 
   </note> Disassociates a Web ACL from a regional application resource. A
-  regional application can be an Application Load Balancer (ALB) or an API
-  Gateway stage.
+  regional application can be an Application Load Balancer (ALB), an API
+  Gateway REST API, or an AppSync GraphQL API.
 
   For AWS CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To disassociate a Web ACL, provide an empty web
@@ -681,16 +683,16 @@ defmodule AWS.WAFV2 do
   any of the rules. The rules in a Web ACL can be a combination of the types
   `Rule`, `RuleGroup`, and managed rule group. You can associate a Web ACL
   with one or more AWS resources to protect. The resources can be Amazon
-  CloudFront, an Amazon API Gateway API, or an Application Load Balancer.
+  CloudFront, an Amazon API Gateway REST API, an Application Load Balancer,
+  or an AWS AppSync GraphQL API.
   """
   def update_web_a_c_l(client, input, options \\ []) do
     request(client, "UpdateWebACL", input, options)
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "wafv2"}
     host = build_host("wafv2", client)
@@ -702,25 +704,24 @@ defmodule AWS.WAFV2 do
       {"X-Amz-Target", "AWSWAF_20190729.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

@@ -320,26 +320,26 @@ defmodule AWS.DirectConnect do
 
   @doc """
   Creates a link aggregation group (LAG) with the specified number of bundled
-  physical connections between the customer network and a specific AWS Direct
-  Connect location. A LAG is a logical interface that uses the Link
-  Aggregation Control Protocol (LACP) to aggregate multiple interfaces,
+  physical dedicated connections between the customer network and a specific
+  AWS Direct Connect location. A LAG is a logical interface that uses the
+  Link Aggregation Control Protocol (LACP) to aggregate multiple interfaces,
   enabling you to treat them as a single interface.
 
-  All connections in a LAG must use the same bandwidth and must terminate at
-  the same AWS Direct Connect endpoint.
+  All connections in a LAG must use the same bandwidth (either 1Gbps or
+  10Gbps) and must terminate at the same AWS Direct Connect endpoint.
 
-  You can have up to 10 connections per LAG. Regardless of this limit, if you
-  request more connections for the LAG than AWS Direct Connect can allocate
-  on a single endpoint, no LAG is created.
+  You can have up to 10 dedicated connections per LAG. Regardless of this
+  limit, if you request more connections for the LAG than AWS Direct Connect
+  can allocate on a single endpoint, no LAG is created.
 
-  You can specify an existing physical connection or interconnect to include
-  in the LAG (which counts towards the total number of connections). Doing so
-  interrupts the current physical connection or hosted connections, and
-  re-establishes them as a member of the LAG. The LAG will be created on the
-  same AWS Direct Connect endpoint to which the connection terminates. Any
-  virtual interfaces associated with the connection are automatically
-  disassociated and re-associated with the LAG. The connection ID does not
-  change.
+  You can specify an existing physical dedicated connection or interconnect
+  to include in the LAG (which counts towards the total number of
+  connections). Doing so interrupts the current physical dedicated
+  connection, and re-establishes them as a member of the LAG. The LAG will be
+  created on the same AWS Direct Connect endpoint to which the dedicated
+  connection terminates. Any virtual interfaces associated with the dedicated
+  connection are automatically disassociated and re-associated with the LAG.
+  The connection ID does not change.
 
   If the AWS account used to create a LAG is a registered AWS Direct Connect
   Partner, the LAG is automatically enabled to host sub-connections. For a
@@ -785,9 +785,8 @@ defmodule AWS.DirectConnect do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "directconnect"}
     host = build_host("directconnect", client)
@@ -799,25 +798,24 @@ defmodule AWS.DirectConnect do
       {"X-Amz-Target", "OvertureService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

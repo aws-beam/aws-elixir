@@ -7,6 +7,26 @@ defmodule AWS.Kafka do
   """
 
   @doc """
+  Associates one or more Scram Secrets with an Amazon MSK cluster.
+  """
+  def batch_associate_scram_secret(client, cluster_arn, input, options \\ []) do
+    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
+  Disassociates one or more Scram Secrets from an Amazon MSK cluster.
+  """
+  def batch_disassociate_scram_secret(client, cluster_arn, input, options \\ []) do
+    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+    headers = []
+    query_ = []
+    request(client, :patch, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
   Creates a new MSK cluster.
   """
   def create_cluster(client, input, options \\ []) do
@@ -38,6 +58,17 @@ defmodule AWS.Kafka do
         {"CurrentVersion", "currentVersion"},
       ]
       |> AWS.Request.build_params(input)
+    request(client, :delete, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
+  Deletes the specified MSK configuration. The configuration must be in the
+  ACTIVE or DELETE_FAILED state.
+  """
+  def delete_configuration(client, arn, input, options \\ []) do
+    path_ = "/v1/configurations/#{URI.encode(arn)}"
+    headers = []
+    query_ = []
     request(client, :delete, path_, query_, headers, input, options, 200)
   end
 
@@ -234,6 +265,26 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Returns a list of the Scram Secrets associated with an Amazon MSK cluster.
+  """
+  def list_scram_secrets(client, cluster_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+    headers = []
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
+    else
+      query_
+    end
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
+    else
+      query_
+    end
+    request(client, :get, path_, query_, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of the tags associated with the specified resource.
   """
   def list_tags_for_resource(client, resource_arn, options \\ []) do
@@ -321,6 +372,17 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Updates an existing MSK configuration. The configuration must be in the
+  Active state.
+  """
+  def update_configuration(client, arn, input, options \\ []) do
+    path_ = "/v1/configurations/#{URI.encode(arn)}"
+    headers = []
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, 200)
+  end
+
+  @doc """
   Updates the monitoring settings for the cluster. You can use this operation
   to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon
   CloudWatch. You can also specify settings for open monitoring with
@@ -334,9 +396,8 @@ defmodule AWS.Kafka do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "kafka"}
     host = build_host("kafka", client)
@@ -352,41 +413,16 @@ defmodule AWS.Kafka do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -407,6 +443,11 @@ defmodule AWS.Kafka do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

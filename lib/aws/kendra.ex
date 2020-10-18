@@ -38,12 +38,9 @@ defmodule AWS.Kendra do
   @doc """
   Creates a data source that you use to with an Amazon Kendra index.
 
-  You specify a name, connector type and description for your data source.
-  You can choose between an S3 connector, a SharePoint Online connector, and
-  a database connector.
-
-  You also specify configuration information such as document metadata
-  (author, source URI, and so on) and user context information.
+  You specify a name, data source connector type and description for your
+  data source. You also specify configuration information such as document
+  metadata (author, source URI, and so on) and user context information.
 
   `CreateDataSource` is a synchronous operation. The operation returns 200 if
   the data source was successfully created. Otherwise, an exception is
@@ -178,6 +175,8 @@ defmodule AWS.Kendra do
 
   </li> </ul> You can specify that the query return only one type of result
   using the `QueryResultTypeConfig` parameter.
+
+  Each query returns the 100 most relevant results.
   """
   def query(client, input, options \\ []) do
     request(client, "Query", input, options)
@@ -239,9 +238,8 @@ defmodule AWS.Kendra do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "kendra"}
     host = build_host("kendra", client)
@@ -253,25 +251,24 @@ defmodule AWS.Kendra do
       {"X-Amz-Target", "AWSKendraFrontendService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

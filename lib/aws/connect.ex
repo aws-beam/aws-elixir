@@ -14,12 +14,59 @@ defmodule AWS.Connect do
   There are limits to the number of Amazon Connect resources that you can
   create and limits to the number of requests that you can make per second.
   For more information, see [Amazon Connect Service
-  Limits](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   in the *Amazon Connect Administrator Guide*.
+
+  To connect programmatically to an AWS service, you use an endpoint. For a
+  list of Amazon Connect endpoints, see [Amazon Connect
+  Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+
+  <note> Working with contact flows? Check out the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+
+  </note>
   """
 
   @doc """
+  Associates a set of queues with a routing profile.
+  """
+  def associate_routing_profile_queues(client, instance_id, routing_profile_id, input, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/associate-queues"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a contact flow for the specified Amazon Connect instance.
+
+  You can also create and update contact flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  """
+  def create_contact_flow(client, instance_id, input, options \\ []) do
+    path_ = "/contact-flows/#{URI.encode(instance_id)}"
+    headers = []
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a new routing profile.
+  """
+  def create_routing_profile(client, instance_id, input, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}"
+    headers = []
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Creates a user account for the specified Amazon Connect instance.
+
+  For information about how to create user accounts using the Amazon Connect
+  console, see [Add
+  Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def create_user(client, instance_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}"
@@ -30,12 +77,40 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a user account from the specified Amazon Connect instance.
+
+  For information about what happens to a user's data when their account is
+  deleted, see [Delete Users from Your Amazon Connect
+  Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def delete_user(client, instance_id, user_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
     headers = []
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Describes the specified contact flow.
+
+  You can also create and update contact flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  """
+  def describe_contact_flow(client, contact_flow_id, instance_id, options \\ []) do
+    path_ = "/contact-flows/#{URI.encode(instance_id)}/#{URI.encode(contact_flow_id)}"
+    headers = []
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Describes the specified routing profile.
+  """
+  def describe_routing_profile(client, instance_id, routing_profile_id, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}"
+    headers = []
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
   end
 
   @doc """
@@ -71,6 +146,16 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Disassociates a set of queues from a routing profile.
+  """
+  def disassociate_routing_profile_queues(client, instance_id, routing_profile_id, input, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/disassociate-queues"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Retrieves the contact attributes for the specified contact.
   """
   def get_contact_attributes(client, initial_contact_id, instance_id, options \\ []) do
@@ -83,8 +168,8 @@ defmodule AWS.Connect do
   @doc """
   Gets the real-time metric data from the specified Amazon Connect instance.
 
-  For more information, see [Real-time Metrics
-  Reports](https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-reports.html)
+  For a description of each metric, see [Real-time Metrics
+  Definitions](https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html)
   in the *Amazon Connect Administrator Guide*.
   """
   def get_current_metric_data(client, instance_id, input, options \\ []) do
@@ -107,8 +192,8 @@ defmodule AWS.Connect do
   @doc """
   Gets historical metric data from the specified Amazon Connect instance.
 
-  For more information, see [Historical Metrics
-  Reports](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics.html)
+  For a description of each historical metric, see [Historical Metrics
+  Definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
   in the *Amazon Connect Administrator Guide*.
   """
   def get_metric_data(client, instance_id, input, options \\ []) do
@@ -121,6 +206,13 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the contact flows for the specified Amazon
   Connect instance.
+
+  You can also create and update contact flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+
+  For more information about contact flows, see [Contact
+  Flows](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def list_contact_flows(client, instance_id, contact_flow_types \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/contact-flows-summary/#{URI.encode(instance_id)}"
@@ -147,6 +239,11 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the hours of operation for the specified Amazon
   Connect instance.
+
+  For more information about hours of operation, see [Set the Hours of
+  Operation for a
+  Queue](https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def list_hours_of_operations(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/hours-of-operations-summary/#{URI.encode(instance_id)}"
@@ -168,6 +265,11 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the phone numbers for the specified Amazon
   Connect instance.
+
+  For more information about phone numbers, see [Set Up Phone Numbers for
+  Your Contact
+  Center](https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def list_phone_numbers(client, instance_id, max_results \\ nil, next_token \\ nil, phone_number_country_codes \\ nil, phone_number_types \\ nil, options \\ []) do
     path_ = "/phone-numbers-summary/#{URI.encode(instance_id)}"
@@ -197,8 +299,33 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Provides information about the prompts for the specified Amazon Connect
+  instance.
+  """
+  def list_prompts(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/prompts-summary/#{URI.encode(instance_id)}"
+    headers = []
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
+    else
+      query_
+    end
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
+    else
+      query_
+    end
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
   Provides information about the queues for the specified Amazon Connect
   instance.
+
+  For more information about queues, see [Queues: Standard and
+  Agent](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def list_queues(client, instance_id, max_results \\ nil, next_token \\ nil, queue_types \\ nil, options \\ []) do
     path_ = "/queues-summary/#{URI.encode(instance_id)}"
@@ -223,8 +350,34 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  List the queues associated with a routing profile.
+  """
+  def list_routing_profile_queues(client, instance_id, routing_profile_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/queues"
+    headers = []
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"nextToken", next_token} | query_]
+    else
+      query_
+    end
+    query_ = if !is_nil(max_results) do
+      [{"maxResults", max_results} | query_]
+    else
+      query_
+    end
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
   Provides summary information about the routing profiles for the specified
   Amazon Connect instance.
+
+  For more information about routing profiles, see [Routing
+  Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html)
+  and [Create a Routing
+  Profile](https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def list_routing_profiles(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/routing-profiles-summary/#{URI.encode(instance_id)}"
@@ -246,6 +399,10 @@ defmodule AWS.Connect do
   @doc """
   Provides summary information about the security profiles for the specified
   Amazon Connect instance.
+
+  For more information about security profiles, see [Security
+  Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def list_security_profiles(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/security-profiles-summary/#{URI.encode(instance_id)}"
@@ -266,6 +423,11 @@ defmodule AWS.Connect do
 
   @doc """
   Lists the tags for the specified resource.
+
+  For sample policies that use tags, see [Amazon Connect Identity-Based
+  Policy
+  Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def list_tags_for_resource(client, resource_arn, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -277,6 +439,10 @@ defmodule AWS.Connect do
   @doc """
   Provides summary information about the hierarchy groups for the specified
   Amazon Connect instance.
+
+  For more information about agent hierarchies, see [Set Up Agent
+  Hierarchies](https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def list_user_hierarchy_groups(client, instance_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/user-hierarchy-groups-summary/#{URI.encode(instance_id)}"
@@ -340,6 +506,19 @@ defmodule AWS.Connect do
   is achieved by invoking
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
   with WEBSOCKET and CONNECTION_CREDENTIALS.
+
+  A 429 error occurs in two situations:
+
+  <ul> <li> API rate limit is exceeded. API TPS throttling returns a
+  `TooManyRequests` exception from the API Gateway.
+
+  </li> <li> The [quota for concurrent active
+  chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  is exceeded. Active chat throttling returns a `LimitExceededException`.
+
+  </li> </ul> For more information about how chat works, see
+  [Chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat.html) in
+  the *Amazon Connect Administrator Guide*.
   """
   def start_chat_contact(client, input, options \\ []) do
     path_ = "/contact/chat"
@@ -383,6 +562,14 @@ defmodule AWS.Connect do
 
   There is a 60 second dialing timeout for this operation. If the call is not
   connected after 60 seconds, it fails.
+
+  <note> UK numbers with a 447 prefix are not allowed by default. Before you
+  can dial these UK mobile numbers, you must submit a service quota increase
+  request. For more information, see [Amazon Connect Service
+  Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  in the *Amazon Connect Administrator Guide*.
+
+  </note>
   """
   def start_outbound_voice_contact(client, input, options \\ []) do
     path_ = "/contact/outbound-voice"
@@ -440,7 +627,13 @@ defmodule AWS.Connect do
   @doc """
   Adds the specified tags to the specified resource.
 
-  The supported resource type is users.
+  The supported resource types are users, routing profiles, and contact
+  flows.
+
+  For sample policies that use tags, see [Amazon Connect Identity-Based
+  Policy
+  Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -479,6 +672,9 @@ defmodule AWS.Connect do
   Contact attributes are available in Amazon Connect for 24 months, and are
   then deleted.
 
+  This operation is also available in the Amazon Connect Flow language. See
+  [UpdateContactAttributes](https://docs.aws.amazon.com/connect/latest/adminguide/contact-actions-updatecontactattributes.html).
+
   **Important:** You cannot use the operation to update attributes for
   contacts that occurred prior to the release of the API, September 12, 2018.
   You can update attributes only for contacts that started after the release
@@ -489,6 +685,73 @@ defmodule AWS.Connect do
   """
   def update_contact_attributes(client, input, options \\ []) do
     path_ = "/contact/attributes"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the specified contact flow.
+
+  You can also create and update contact flows using the [Amazon Connect Flow
+  language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
+  """
+  def update_contact_flow_content(client, contact_flow_id, instance_id, input, options \\ []) do
+    path_ = "/contact-flows/#{URI.encode(instance_id)}/#{URI.encode(contact_flow_id)}/content"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  The name of the contact flow.
+  """
+  def update_contact_flow_name(client, contact_flow_id, instance_id, input, options \\ []) do
+    path_ = "/contact-flows/#{URI.encode(instance_id)}/#{URI.encode(contact_flow_id)}/name"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the channels that agents can handle in the Contact Control Panel
+  (CCP) for a routing profile.
+  """
+  def update_routing_profile_concurrency(client, instance_id, routing_profile_id, input, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/concurrency"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the default outbound queue of a routing profile.
+  """
+  def update_routing_profile_default_outbound_queue(client, instance_id, routing_profile_id, input, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/default-outbound-queue"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the name and description of a routing profile. The request accepts
+  the following data in JSON format. At least `Name` or `Description` must be
+  provided.
+  """
+  def update_routing_profile_name(client, instance_id, routing_profile_id, input, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/name"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the properties associated with a set of queues for a routing
+  profile.
+  """
+  def update_routing_profile_queues(client, instance_id, routing_profile_id, input, options \\ []) do
+    path_ = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/queues"
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, nil)
@@ -506,6 +769,18 @@ defmodule AWS.Connect do
 
   @doc """
   Updates the identity information for the specified user.
+
+  <important> Someone with the ability to invoke `UpdateUserIndentityInfo`
+  can change the login credentials of other users by changing their email
+  address. This poses a security risk to your organization. They can change
+  the email address of a user to the attacker's email address, and then reset
+  the password through email. We strongly recommend limiting who has the
+  ability to invoke `UpdateUserIndentityInfo`. For more information, see
+  [Best Practices for Security
+  Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html)
+  in the *Amazon Connect Administrator Guide*.
+
+  </important>
   """
   def update_user_identity_info(client, instance_id, user_id, input, options \\ []) do
     path_ = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/identity-info"
@@ -545,9 +820,8 @@ defmodule AWS.Connect do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "connect"}
     host = build_host("connect", client)
@@ -563,41 +837,16 @@ defmodule AWS.Connect do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -618,6 +867,11 @@ defmodule AWS.Connect do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

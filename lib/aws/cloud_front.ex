@@ -31,7 +31,7 @@ defmodule AWS.CloudFront do
   to the origin. CloudFront sends a request when it can’t find an object in
   its cache that matches the request’s cache key. If you want to send values
   to the origin but *not* include them in the cache key, use
-  `CreateOriginRequestPolicy`.
+  `OriginRequestPolicy`.
 
   For more information about cache policies, see [Controlling the cache
   key](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html)
@@ -42,7 +42,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -76,7 +76,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -121,7 +121,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -149,7 +149,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -177,7 +177,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -205,7 +205,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -233,7 +233,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"Location", "Location"},
@@ -250,6 +250,21 @@ defmodule AWS.CloudFront do
       result ->
         result
     end
+  end
+
+  @doc """
+  Enables additional CloudWatch metrics for the specified CloudFront
+  distribution. The additional metrics incur an additional cost.
+
+  For more information, see [Viewing additional CloudFront distribution
+  metrics](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional)
+  in the *Amazon CloudFront Developer Guide*.
+  """
+  def create_monitoring_subscription(client, distribution_id, input, options \\ []) do
+    path_ = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -274,7 +289,7 @@ defmodule AWS.CloudFront do
 
   </li> </ul> CloudFront sends a request when it can’t find a valid object in
   its cache that matches the request. If you want to send values to the
-  origin and also include them in the cache key, use `CreateCachePolicy`.
+  origin and also include them in the cache key, use `CachePolicy`.
 
   For more information about origin request policies, see [Controlling origin
   requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html)
@@ -285,7 +300,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -314,7 +329,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -332,6 +347,24 @@ defmodule AWS.CloudFront do
       result ->
         result
     end
+  end
+
+  @doc """
+  Creates a real-time log configuration.
+
+  After you create a real-time log configuration, you can attach it to one or
+  more cache behaviors to send real-time log data to the specified Amazon
+  Kinesis data stream.
+
+  For more information about real-time log configurations, see [Real-time
+  logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html)
+  in the *Amazon CloudFront Developer Guide*.
+  """
+  def create_realtime_log_config(client, input, options \\ []) do
+    path_ = "/2020-05-31/realtime-log-config"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 201)
   end
 
   @doc """
@@ -372,7 +405,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -400,7 +433,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -499,6 +532,17 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Disables additional CloudWatch metrics for the specified CloudFront
+  distribution.
+  """
+  def delete_monitoring_subscription(client, distribution_id, input, options \\ []) do
+    path_ = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+    headers = []
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Deletes an origin request policy.
 
   You cannot delete an origin request policy if it’s attached to any cache
@@ -532,6 +576,26 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     request(client, :delete, path_, query_, headers, input, options, 204)
+  end
+
+  @doc """
+  Deletes a real-time log configuration.
+
+  You cannot delete a real-time log configuration if it’s attached to a cache
+  behavior. First update your distributions to remove the real-time log
+  configuration from all cache behaviors, then delete the real-time log
+  configuration.
+
+  To delete a real-time log configuration, you can provide the
+  configuration’s name or its Amazon Resource Name (ARN). You must provide at
+  least one. If you provide both, CloudFront uses the name to identify the
+  real-time log configuration to delete.
+  """
+  def delete_realtime_log_config(client, input, options \\ []) do
+    path_ = "/2020-05-31/delete-realtime-log-config/"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, 204)
   end
 
   @doc """
@@ -605,7 +669,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -638,7 +702,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -665,7 +729,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -692,7 +756,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -719,7 +783,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -746,7 +810,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -773,7 +837,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -800,7 +864,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -827,7 +891,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -854,7 +918,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -884,6 +948,17 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets information about whether additional CloudWatch metrics are enabled
+  for the specified CloudFront distribution.
+  """
+  def get_monitoring_subscription(client, distribution_id, options \\ []) do
+    path_ = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+    headers = []
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
   Gets an origin request policy, including the following metadata:
 
   <ul> <li> The policy’s identifier.
@@ -902,7 +977,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -936,7 +1011,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -963,7 +1038,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -990,7 +1065,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1010,6 +1085,21 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets a real-time log configuration.
+
+  To get a real-time log configuration, you can provide the configuration’s
+  name or its Amazon Resource Name (ARN). You must provide at least one. If
+  you provide both, CloudFront uses the name to identify the real-time log
+  configuration to get.
+  """
+  def get_realtime_log_config(client, input, options \\ []) do
+    path_ = "/2020-05-31/get-realtime-log-config/"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Gets information about a specified RTMP distribution, including the
   distribution configuration.
   """
@@ -1018,7 +1108,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1045,7 +1135,7 @@ defmodule AWS.CloudFront do
     headers = []
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1196,6 +1286,29 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets a list of distributions that have a cache behavior that’s associated
+  with the specified real-time log configuration.
+
+  You can specify the real-time log configuration by its name or its Amazon
+  Resource Name (ARN). You must provide at least one. If you provide both,
+  CloudFront uses the name to identify the real-time log configuration to
+  list distributions for.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that
+  you specify, or the default maximum, the response is paginated. To get the
+  next page of items, send a subsequent request that specifies the
+  `NextMarker` value from the current response as the `Marker` value in the
+  subsequent request.
+  """
+  def list_distributions_by_realtime_log_config(client, input, options \\ []) do
+    path_ = "/2020-05-31/distributionsByRealtimeLogConfig/"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   List the distributions that are associated with a specified AWS WAF web
   ACL.
   """
@@ -1334,6 +1447,33 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets a list of real-time log configurations.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that
+  you specify, or the default maximum, the response is paginated. To get the
+  next page of items, send a subsequent request that specifies the
+  `NextMarker` value from the current response as the `Marker` value in the
+  subsequent request.
+  """
+  def list_realtime_log_configs(client, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2020-05-31/realtime-log-config"
+    headers = []
+    query_ = []
+    query_ = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query_]
+    else
+      query_
+    end
+    query_ = if !is_nil(marker) do
+      [{"Marker", marker} | query_]
+    else
+      query_
+    end
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
   List streaming distributions.
   """
   def list_streaming_distributions(client, marker \\ nil, max_items \\ nil, options \\ []) do
@@ -1423,7 +1563,7 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1454,7 +1594,7 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1558,7 +1698,7 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1589,7 +1729,7 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1620,7 +1760,7 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1668,7 +1808,7 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1700,7 +1840,7 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1720,6 +1860,33 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Updates a real-time log configuration.
+
+  When you update a real-time log configuration, all the parameters are
+  updated with the values provided in the request. You cannot update some
+  parameters independent of others. To update a real-time log configuration:
+
+  <ol> <li> Call `GetRealtimeLogConfig` to get the current real-time log
+  configuration.
+
+  </li> <li> Locally modify the parameters in the real-time log configuration
+  that you want to update.
+
+  </li> <li> Call this API (`UpdateRealtimeLogConfig`) by providing the
+  entire real-time log configuration, including the parameters that you
+  modified and those that you didn’t.
+
+  </li> </ol> You cannot update a real-time log configuration’s `Name` or
+  `ARN`.
+  """
+  def update_realtime_log_config(client, input, options \\ []) do
+    path_ = "/2020-05-31/realtime-log-config/"
+    headers = []
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Update a streaming distribution.
   """
   def update_streaming_distribution(client, id, input, options \\ []) do
@@ -1731,7 +1898,7 @@ defmodule AWS.CloudFront do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} ->
+      {:ok, body, response} when is_nil(body) == false ->
         body =
           [
             {"ETag", "ETag"},
@@ -1751,9 +1918,8 @@ defmodule AWS.CloudFront do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "cloudfront",
                         region:  "us-east-1"}
@@ -1770,41 +1936,16 @@ defmodule AWS.CloudFront do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -1825,6 +1966,11 @@ defmodule AWS.CloudFront do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: AWS.Util.encode_xml(input), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

@@ -4,16 +4,16 @@
 defmodule AWS.Transfer do
   @moduledoc """
   AWS Transfer Family is a fully managed service that enables the transfer of
-  files over the the File Transfer Protocol (FTP), File Transfer Protocol
-  over SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP)
-  directly into and out of Amazon Simple Storage Service (Amazon S3). AWS
-  helps you seamlessly migrate your file transfer workflows to AWS Transfer
-  Family by integrating with existing authentication systems, and providing
-  DNS routing with Amazon Route 53 so nothing changes for your customers and
-  partners, or their applications. With your data in Amazon S3, you can use
-  it with AWS services for processing, analytics, machine learning, and
-  archiving. Getting started with AWS Transfer Family is easy since there is
-  no infrastructure to buy and set up.
+  files over the File Transfer Protocol (FTP), File Transfer Protocol over
+  SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly
+  into and out of Amazon Simple Storage Service (Amazon S3). AWS helps you
+  seamlessly migrate your file transfer workflows to AWS Transfer Family by
+  integrating with existing authentication systems, and providing DNS routing
+  with Amazon Route 53 so nothing changes for your customers and partners, or
+  their applications. With your data in Amazon S3, you can use it with AWS
+  services for processing, analytics, machine learning, and archiving.
+  Getting started with AWS Transfer Family is easy since there is no
+  infrastructure to buy and set up.
   """
 
   @doc """
@@ -75,6 +75,17 @@ defmodule AWS.Transfer do
   end
 
   @doc """
+  Describes the security policy that is attached to your file transfer
+  protocol-enabled server. The response contains a description of the
+  security policy's properties. For more information about security policies,
+  see [Working with security
+  policies](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html).
+  """
+  def describe_security_policy(client, input, options \\ []) do
+    request(client, "DescribeSecurityPolicy", input, options)
+  end
+
+  @doc """
   Describes a file transfer protocol-enabled server that you specify by
   passing the `ServerId` parameter.
 
@@ -106,6 +117,14 @@ defmodule AWS.Transfer do
   """
   def import_ssh_public_key(client, input, options \\ []) do
     request(client, "ImportSshPublicKey", input, options)
+  end
+
+  @doc """
+  Lists the security policies that are attached to your file transfer
+  protocol-enabled servers.
+  """
+  def list_security_policies(client, input, options \\ []) do
+    request(client, "ListSecurityPolicies", input, options)
   end
 
   @doc """
@@ -151,12 +170,14 @@ defmodule AWS.Transfer do
   Changes the state of a file transfer protocol-enabled server from `ONLINE`
   to `OFFLINE`. An `OFFLINE` server cannot accept and process file transfer
   jobs. Information tied to your server, such as server and user properties,
-  are not affected by stopping your server. Stopping the server will not
-  reduce or impact your file transfer protocol endpoint billing.
+  are not affected by stopping your server.
 
-  The state of `STOPPING` indicates that the server is in an intermediate
-  state, either not fully able to respond, or not fully offline. The values
-  of `STOP_FAILED` can indicate an error condition.
+  <note> Stopping the server will not reduce or impact your file transfer
+  protocol endpoint billing; you must delete the server to stop being billed.
+
+  </note> The state of `STOPPING` indicates that the server is in an
+  intermediate state, either not fully able to respond, or not fully offline.
+  The values of `STOP_FAILED` can indicate an error condition.
 
   No response is returned from this call.
   """
@@ -221,9 +242,8 @@ defmodule AWS.Transfer do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "transfer"}
     host = build_host("transfer", client)
@@ -235,25 +255,24 @@ defmodule AWS.Transfer do
       {"X-Amz-Target", "TransferService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

@@ -16,8 +16,8 @@ defmodule AWS.LicenseManager do
   that can be consumed and enforced by License Manager. Components include
   specifications for the license type (licensing by instance, socket, CPU, or
   vCPU), allowed tenancy (shared tenancy, Dedicated Instance, Dedicated Host,
-  or all of these), host affinity (how long a VM must be associated with a
-  host), and the number of licenses purchased and used.
+  or all of these), license affinity to host (how long a license must be
+  associated with a host), and the number of licenses purchased and used.
   """
   def create_license_configuration(client, input, options \\ []) do
     request(client, "CreateLicenseConfiguration", input, options)
@@ -118,13 +118,6 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Modifies the attributes of an existing license configuration.
-
-  A license configuration is an abstraction of a customer license agreement
-  that can be consumed and enforced by License Manager. Components include
-  specifications for the license type (licensing by instance, socket, CPU, or
-  vCPU), allowed tenancy (shared tenancy, Dedicated Instance, Dedicated Host,
-  or all of these), host affinity (how long a VM must be associated with a
-  host), and the number of licenses purchased and used.
   """
   def update_license_configuration(client, input, options \\ []) do
     request(client, "UpdateLicenseConfiguration", input, options)
@@ -151,9 +144,8 @@ defmodule AWS.LicenseManager do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "license-manager"}
     host = build_host("license-manager", client)
@@ -165,25 +157,24 @@ defmodule AWS.LicenseManager do
       {"X-Amz-Target", "AWSLicenseManager.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

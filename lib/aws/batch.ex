@@ -220,6 +220,19 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  List the tags for an AWS Batch resource. AWS Batch resources that support
+  tags are compute environments, jobs, job definitions, and job queues. ARNs
+  for child jobs of array and multi-node parallel (MNP) jobs are not
+  supported.
+  """
+  def list_tags_for_resource(client, resource_arn, options \\ []) do
+    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
   Registers an AWS Batch job definition.
   """
   def register_job_definition(client, input, options \\ []) do
@@ -241,6 +254,22 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Associates the specified tags to a resource with the specified
+  `resourceArn`. If existing tags on a resource are not specified in the
+  request parameters, they are not changed. When a resource is deleted, the
+  tags associated with that resource are deleted as well. AWS Batch resources
+  that support tags are compute environments, jobs, job definitions, and job
+  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are
+  not supported.
+  """
+  def tag_resource(client, resource_arn, input, options \\ []) do
+    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Terminates a job in a job queue. Jobs that are in the `STARTING` or
   `RUNNING` state are terminated, which causes them to transition to
   `FAILED`. Jobs that have not progressed to the `STARTING` state are
@@ -251,6 +280,20 @@ defmodule AWS.Batch do
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes specified tags from an AWS Batch resource.
+  """
+  def untag_resource(client, resource_arn, input, options \\ []) do
+    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    {query_, input} =
+      [
+        {"tagKeys", "tagKeys"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -274,9 +317,8 @@ defmodule AWS.Batch do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "batch"}
     host = build_host("batch", client)
@@ -292,41 +334,16 @@ defmodule AWS.Batch do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -347,6 +364,11 @@ defmodule AWS.Batch do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

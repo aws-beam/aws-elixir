@@ -7,6 +7,16 @@ defmodule AWS.RoboMaker do
   """
 
   @doc """
+  Deletes one or more worlds in a batch operation.
+  """
+  def batch_delete_worlds(client, input, options \\ []) do
+    path_ = "/batchDeleteWorlds"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Describes one or more simulation jobs.
   """
   def batch_describe_simulation_job(client, input, options \\ []) do
@@ -43,6 +53,26 @@ defmodule AWS.RoboMaker do
   """
   def cancel_simulation_job_batch(client, input, options \\ []) do
     path_ = "/cancelSimulationJobBatch"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Cancels the specified export job.
+  """
+  def cancel_world_export_job(client, input, options \\ []) do
+    path_ = "/cancelWorldExportJob"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Cancels the specified world generator job.
+  """
+  def cancel_world_generation_job(client, input, options \\ []) do
+    path_ = "/cancelWorldGenerationJob"
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, nil)
@@ -145,6 +175,36 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+  Creates a world export job.
+  """
+  def create_world_export_job(client, input, options \\ []) do
+    path_ = "/createWorldExportJob"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates worlds using the specified template.
+  """
+  def create_world_generation_job(client, input, options \\ []) do
+    path_ = "/createWorldGenerationJob"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a world template.
+  """
+  def create_world_template(client, input, options \\ []) do
+    path_ = "/createWorldTemplate"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
   Deletes a fleet.
   """
   def delete_fleet(client, input, options \\ []) do
@@ -179,6 +239,16 @@ defmodule AWS.RoboMaker do
   """
   def delete_simulation_application(client, input, options \\ []) do
     path_ = "/deleteSimulationApplication"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes a world template.
+  """
+  def delete_world_template(client, input, options \\ []) do
+    path_ = "/deleteWorldTemplate"
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, nil)
@@ -259,6 +329,56 @@ defmodule AWS.RoboMaker do
   """
   def describe_simulation_job_batch(client, input, options \\ []) do
     path_ = "/describeSimulationJobBatch"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Describes a world.
+  """
+  def describe_world(client, input, options \\ []) do
+    path_ = "/describeWorld"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Describes a world export job.
+  """
+  def describe_world_export_job(client, input, options \\ []) do
+    path_ = "/describeWorldExportJob"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Describes a world generation job.
+  """
+  def describe_world_generation_job(client, input, options \\ []) do
+    path_ = "/describeWorldGenerationJob"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Describes a world template.
+  """
+  def describe_world_template(client, input, options \\ []) do
+    path_ = "/describeWorldTemplate"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Gets the world template body.
+  """
+  def get_world_template_body(client, input, options \\ []) do
+    path_ = "/getWorldTemplateBody"
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, nil)
@@ -349,6 +469,46 @@ defmodule AWS.RoboMaker do
     headers = []
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists world export jobs.
+  """
+  def list_world_export_jobs(client, input, options \\ []) do
+    path_ = "/listWorldExportJobs"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Lists world generator jobs.
+  """
+  def list_world_generation_jobs(client, input, options \\ []) do
+    path_ = "/listWorldGenerationJobs"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Lists world templates.
+  """
+  def list_world_templates(client, input, options \\ []) do
+    path_ = "/listWorldTemplates"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Lists worlds.
+  """
+  def list_worlds(client, input, options \\ []) do
+    path_ = "/listWorlds"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
   end
 
   @doc """
@@ -449,10 +609,19 @@ defmodule AWS.RoboMaker do
     request(client, :post, path_, query_, headers, input, options, nil)
   end
 
+  @doc """
+  Updates a world template.
+  """
+  def update_world_template(client, input, options \\ []) do
+    path_ = "/updateWorldTemplate"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "robomaker"}
     host = build_host("robomaker", client)
@@ -468,41 +637,16 @@ defmodule AWS.RoboMaker do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -523,6 +667,11 @@ defmodule AWS.RoboMaker do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

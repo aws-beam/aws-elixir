@@ -105,7 +105,7 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Shares the specified portfolio with the specified account or organization
-  node. Shares to an organization node can only be created by the master
+  node. Shares to an organization node can only be created by the management
   account of an organization or by a delegated administrator. You can share
   portfolios to an organization, an organizational unit, or a specific
   account.
@@ -198,7 +198,7 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Stops sharing the specified portfolio with the specified account or
   organization node. Shares to an organization node can only be deleted by
-  the master account of an organization or by a delegated administrator.
+  the management account of an organization or by a delegated administrator.
 
   Note that if a delegated admin is de-registered, portfolio shares created
   from that account are removed.
@@ -280,8 +280,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Gets the status of the specified portfolio share operation. This API can
-  only be called by the master account in the organization or by a delegated
-  admin.
+  only be called by the management account in the organization or by a
+  delegated admin.
   """
   def describe_portfolio_share_status(client, input, options \\ []) do
     request(client, "DescribePortfolioShareStatus", input, options)
@@ -394,7 +394,7 @@ defmodule AWS.ServiceCatalog do
   will not delete your current shares but it will prevent you from creating
   new shares throughout your organization. Current shares will not be in sync
   with your organization structure if it changes after calling this API. This
-  API can only be called by the master account in the organization.
+  API can only be called by the management account in the organization.
 
   This API can't be invoked if there are active delegated administrators in
   the organization.
@@ -449,7 +449,7 @@ defmodule AWS.ServiceCatalog do
   Enable portfolio sharing feature through AWS Organizations. This API will
   allow Service Catalog to receive updates on your organization in order to
   sync your shares with the current structure. This API can only be called by
-  the master account in the organization.
+  the management account in the organization.
 
   By calling this API Service Catalog will make a call to
   organizations:EnableAWSServiceAccess on your behalf so that your shares can
@@ -479,11 +479,20 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Get the Access Status for AWS Organization portfolio share feature. This
-  API can only be called by the master account in the organization or by a
-  delegated admin.
+  API can only be called by the management account in the organization or by
+  a delegated admin.
   """
   def get_a_w_s_organizations_access_status(client, input, options \\ []) do
     request(client, "GetAWSOrganizationsAccessStatus", input, options)
+  end
+
+  @doc """
+  This API takes either a `ProvisonedProductId` or a
+  `ProvisionedProductName`, along with a list of one or more output keys, and
+  responds with the key/value pairs of those outputs.
+  """
+  def get_provisioned_product_outputs(client, input, options \\ []) do
+    request(client, "GetProvisionedProductOutputs", input, options)
   end
 
   @doc """
@@ -518,8 +527,8 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Lists the organization nodes that have access to the specified portfolio.
-  This API can only be called by the master account in the organization or by
-  a delegated admin.
+  This API can only be called by the management account in the organization
+  or by a delegated admin.
 
   If a delegated admin is de-registered, they can no longer perform this
   operation.
@@ -768,9 +777,8 @@ defmodule AWS.ServiceCatalog do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "servicecatalog"}
     host = build_host("servicecatalog", client)
@@ -782,25 +790,24 @@ defmodule AWS.ServiceCatalog do
       {"X-Amz-Target", "AWS242ServiceCatalogService.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

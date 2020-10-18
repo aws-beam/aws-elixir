@@ -267,7 +267,7 @@ defmodule AWS.RDS do
 
   @doc """
   Copies the specified DB snapshot. The source DB snapshot must be in the
-  "available" state.
+  `available` state.
 
   You can copy a snapshot from one AWS Region to another. In that case, the
   AWS Region where you call the `CopyDBSnapshot` action is the destination
@@ -471,7 +471,8 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Creates a DBSnapshot. The source DBInstance must be in "available" state.
+  Creates a snapshot of a DB instance. The source DB instance must be in the
+  `available` or `storage-optimization`state.
   """
   def create_d_b_snapshot(client, input, options \\ []) do
     request(client, "CreateDBSnapshot", input, options)
@@ -492,20 +493,22 @@ defmodule AWS.RDS do
   in Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS
   console.
 
-  You can specify the type of source (SourceType) you want to be notified of,
-  provide a list of RDS sources (SourceIds) that triggers the events, and
-  provide a list of event categories (EventCategories) for events you want to
-  be notified of. For example, you can specify SourceType = db-instance,
-  SourceIds = mydbinstance1, mydbinstance2 and EventCategories =
-  Availability, Backup.
+  You can specify the type of source (`SourceType`) that you want to be
+  notified of and provide a list of RDS sources (`SourceIds`) that triggers
+  the events. You can also provide a list of event categories
+  (`EventCategories`) for events that you want to be notified of. For
+  example, you can specify `SourceType` = `db-instance`, `SourceIds` =
+  `mydbinstance1`, `mydbinstance2` and `EventCategories` = `Availability`,
+  `Backup`.
 
-  If you specify both the SourceType and SourceIds, such as SourceType =
-  db-instance and SourceIdentifier = myDBInstance1, you are notified of all
-  the db-instance events for the specified source. If you specify a
-  SourceType but do not specify a SourceIdentifier, you receive notice of the
-  events for that source type for all your RDS sources. If you don't specify
-  either the SourceType or the SourceIdentifier, you are notified of events
-  generated from all RDS sources belonging to your customer account.
+  If you specify both the `SourceType` and `SourceIds`, such as `SourceType`
+  = `db-instance` and `SourceIdentifier` = `myDBInstance1`, you are notified
+  of all the `db-instance` events for the specified source. If you specify a
+  `SourceType` but do not specify a `SourceIdentifier`, you receive notice of
+  the events for that source type for all your RDS sources. If you don't
+  specify either the SourceType or the `SourceIdentifier`, you are notified
+  of events generated from all RDS sources belonging to your customer
+  account.
 
   <note> RDS event notification is only available for unencrypted SNS topics.
   If you specify an encrypted SNS topic, event notifications aren't sent for
@@ -518,7 +521,7 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Creates an Aurora global database spread across multiple regions. The
+  Creates an Aurora global database spread across multiple AWS Regions. The
   global database contains a single primary cluster with read-write
   capability, and a read-only secondary cluster that receives data from the
   primary cluster through high-speed replication performed by the Aurora
@@ -1056,9 +1059,9 @@ defmodule AWS.RDS do
   @doc """
   Displays a list of categories for all event source types, or, if specified,
   for a specified source type. You can see a list of the event categories and
-  source types in the [
+  source types in [
   Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html)
-  topic in the *Amazon RDS User Guide.*
+  in the *Amazon RDS User Guide.*
   """
   def describe_event_categories(client, input, options \\ []) do
     request(client, "DescribeEventCategories", input, options)
@@ -1066,10 +1069,10 @@ defmodule AWS.RDS do
 
   @doc """
   Lists all the subscription descriptions for a customer account. The
-  description for a subscription includes SubscriptionName, SNSTopicARN,
-  CustomerID, SourceType, SourceID, CreationTime, and Status.
+  description for a subscription includes `SubscriptionName`, `SNSTopicARN`,
+  `CustomerID`, `SourceType`, `SourceID`, `CreationTime`, and `Status`.
 
-  If you specify a SubscriptionName, lists the description for that
+  If you specify a `SubscriptionName`, lists the description for that
   subscription.
   """
   def describe_event_subscriptions(client, input, options \\ []) do
@@ -1077,11 +1080,15 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Returns events related to DB instances, DB security groups, DB snapshots,
-  and DB parameter groups for the past 14 days. Events specific to a
-  particular DB instance, DB security group, database snapshot, or DB
-  parameter group can be obtained by providing the name as a parameter. By
-  default, the past hour of events are returned.
+  Returns events related to DB instances, DB clusters, DB parameter groups,
+  DB security groups, DB snapshots, and DB cluster snapshots for the past 14
+  days. Events specific to a particular DB instances, DB clusters, DB
+  parameter groups, DB security groups, DB snapshots, and DB cluster
+  snapshots group can be obtained by providing the name as a parameter.
+
+  <note> By default, the past hour of events are returned.
+
+  </note>
   """
   def describe_events(client, input, options \\ []) do
     request(client, "DescribeEvents", input, options)
@@ -1506,10 +1513,11 @@ defmodule AWS.RDS do
   subscription, use the `AddSourceIdentifierToSubscription` and
   `RemoveSourceIdentifierFromSubscription` calls.
 
-  You can see a list of the event categories for a given SourceType in the
+  You can see a list of the event categories for a given source type
+  (`SourceType`) in
   [Events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html)
-  topic in the *Amazon RDS User Guide* or by using the
-  **DescribeEventCategories** action.
+  in the *Amazon RDS User Guide* or by using the `DescribeEventCategories`
+  operation.
   """
   def modify_event_subscription(client, input, options \\ []) do
     request(client, "ModifyEventSubscription", input, options)
@@ -1699,11 +1707,11 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Creates an Amazon Aurora DB cluster from data stored in an Amazon S3
+  Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3
   bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and
   the data must be created using the Percona XtraBackup utility as described
-  in [ Migrating Data to an Amazon Aurora MySQL DB
-  Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html)
+  in [ Migrating Data from MySQL by Using an Amazon S3
+  Bucket](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3)
   in the *Amazon Aurora User Guide*.
 
   <note> This action only restores the DB cluster, not the DB instances for
@@ -1717,7 +1725,8 @@ defmodule AWS.RDS do
   Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide.*
 
-  <note> This action only applies to Aurora DB clusters.
+  <note> This action only applies to Aurora DB clusters. The source DB engine
+  must be MySQL.
 
   </note>
   """
@@ -1959,9 +1968,8 @@ defmodule AWS.RDS do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "rds"}
     host = build_host("rds", client)
@@ -1973,25 +1981,24 @@ defmodule AWS.RDS do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2014-10-31"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = AWS.Util.decode_xml(body)
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

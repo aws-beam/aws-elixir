@@ -22,8 +22,27 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates a customization for the Amazon QuickSight subscription associated
-  with your AWS account.
+  Creates Amazon QuickSight customizations the current AWS Region. Currently,
+  you can add a custom default theme by using the
+  `CreateAccountCustomization` or `UpdateAccountCustomization` API operation.
+  To further customize QuickSight by removing QuickSight sample assets and
+  videos for all new users, see [Customizing
+  QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html)
+  in the *Amazon QuickSight User Guide.*
+
+  You can create customizations for your AWS account or, if you specify a
+  namespace, for a QuickSight namespace instead. Customizations that apply to
+  a namespace always override customizations that apply to an AWS account. To
+  find out which customizations apply, use the `DescribeAccountCustomization`
+  API operation.
+
+  Before you use the `CreateAccountCustomization` API operation to add a
+  theme as the namespace default, make sure that you first share the theme
+  with the namespace. If you don't share it with the namespace, the theme
+  isn't visible to your users even if you make it the default theme. To check
+  if the theme is shared, view the current permissions by using the `
+  `DescribeThemePermissions` ` API operation. To share the theme, grant
+  permissions by using the ` `UpdateThemePermissions` ` API operation.
   """
   def create_account_customization(client, aws_account_id, input, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/customizations"
@@ -37,16 +56,24 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Creates a dashboard from a template. To first create a template, see the
-  `CreateTemplate` API operation.
+  Creates an analysis in Amazon QuickSight.
+  """
+  def create_analysis(client, analysis_id, aws_account_id, input, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Creates a dashboard from a template. To first create a template, see the `
+  `CreateTemplate` ` API operation.
 
   A dashboard is an entity in QuickSight that identifies QuickSight reports,
   created from analyses. You can share QuickSight dashboards. With the right
-  permissions, you can create scheduled email reports from them. The
-  `CreateDashboard`, `DescribeDashboard`, and `ListDashboardsByUser` API
-  operations act on the dashboard entity. If you have the correct
-  permissions, you can create a dashboard from a template that exists in a
-  different AWS account.
+  permissions, you can create scheduled email reports from them. If you have
+  the correct permissions, you can create a dashboard from a template that
+  exists in a different AWS account.
   """
   def create_dashboard(client, aws_account_id, dashboard_id, input, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}"
@@ -205,7 +232,8 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Deletes customizations for the QuickSight subscription on your AWS account.
+  Deletes all Amazon QuickSight customizations in this AWS Region for the
+  specified AWS account and QuickSight namespace.
   """
   def delete_account_customization(client, aws_account_id, input, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/customizations"
@@ -213,6 +241,35 @@ defmodule AWS.QuickSight do
     {query_, input} =
       [
         {"Namespace", "namespace"},
+      ]
+      |> AWS.Request.build_params(input)
+    request(client, :delete, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Deletes an analysis from Amazon QuickSight. You can optionally include a
+  recovery window during which you can restore the analysis. If you don't
+  specify a recovery window value, the operation defaults to 30 days.
+  QuickSight attaches a `DeletionTime` stamp to the response that specifies
+  the end of the recovery window. At the end of the recovery window,
+  QuickSight deletes the analysis permanently.
+
+  At any time before recovery window ends, you can use the `RestoreAnalysis`
+  API operation to remove the `DeletionTime` stamp and cancel the deletion of
+  the analysis. The analysis remains visible in the API until it's deleted,
+  so you can describe it but you can't make a template from it.
+
+  An analysis that's scheduled for deletion isn't accessible in the
+  QuickSight console. To access it in the console, restore it. Deleting an
+  analysis doesn't delete the dashboards that you publish from it.
+  """
+  def delete_analysis(client, analysis_id, aws_account_id, input, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}"
+    headers = []
+    {query_, input} =
+      [
+        {"ForceDeleteWithoutRecovery", "force-delete-without-recovery"},
+        {"RecoveryWindowInDays", "recovery-window-in-days"},
       ]
       |> AWS.Request.build_params(input)
     request(client, :delete, path_, query_, headers, input, options, nil)
@@ -243,7 +300,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Deletes the data source permanently. This action breaks all the datasets
+  Deletes the data source permanently. This operation breaks all the datasets
   that reference the deleted data source.
   """
   def delete_data_source(client, aws_account_id, data_source_id, input, options \\ []) do
@@ -288,7 +345,7 @@ defmodule AWS.QuickSight do
   Deletes a namespace and the users and groups that are associated with the
   namespace. This is an asynchronous process. Assets including dashboards,
   analyses, datasets and data sources are not deleted. To delete these
-  assets, you use the APIs for the relevant asset.
+  assets, you use the API operations for the relevant asset.
   """
   def delete_namespace(client, aws_account_id, namespace, input, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}"
@@ -372,7 +429,57 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Describes the customizations associated with your AWS account.
+  Describes the customizations associated with the provided AWS account and
+  Amazon QuickSight namespace in an AWS Region. The QuickSight console
+  evaluates which customizations to apply by running this API operation with
+  the `Resolved` flag included.
+
+  To determine what customizations display when you run this command, it can
+  help to visualize the relationship of the entities involved.
+
+  <ul> <li> `AWS Account` - The AWS account exists at the top of the
+  hierarchy. It has the potential to use all of the AWS Regions and AWS
+  Services. When you subscribe to QuickSight, you choose one AWS Region to
+  use as your home Region. That's where your free SPICE capacity is located.
+  You can use QuickSight in any supported AWS Region.
+
+  </li> <li> `AWS Region` - In each AWS Region where you sign in to
+  QuickSight at least once, QuickSight acts as a separate instance of the
+  same service. If you have a user directory, it resides in us-east-1, which
+  is the US East (N. Virginia). Generally speaking, these users have access
+  to QuickSight in any AWS Region, unless they are constrained to a
+  namespace.
+
+  To run the command in a different AWS Region, you change your Region
+  settings. If you're using the AWS CLI, you can use one of the following
+  options:
+
+  <ul> <li> Use [command line
+  options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html).
+
+  </li> <li> Use [named
+  profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
+
+  </li> <li> Run `aws configure` to change your default AWS Region. Use Enter
+  to key the same settings for your keys. For more information, see
+  [Configuring the AWS
+  CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+
+  </li> </ul> </li> <li> `Namespace` - A QuickSight namespace is a partition
+  that contains users and assets (data sources, datasets, dashboards, and so
+  on). To access assets that are in a specific namespace, users and groups
+  must also be part of the same namespace. People who share a namespace are
+  completely isolated from users and assets in other namespaces, even if they
+  are in the same AWS account and AWS Region.
+
+  </li> <li> `Applied customizations` - Within an AWS Region, a set of
+  QuickSight customizations can apply to an AWS account or to a namespace.
+  Settings that you apply to a namespace override settings that you apply to
+  an AWS account. All settings are isolated to a single AWS Region. To apply
+  them in other AWS Regions, run the `CreateAccountCustomization` command in
+  each AWS Region where you want to apply the same customizations.
+
+  </li> </ul>
   """
   def describe_account_customization(client, aws_account_id, namespace \\ nil, resolved \\ nil, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/customizations"
@@ -393,10 +500,30 @@ defmodule AWS.QuickSight do
 
   @doc """
   Describes the settings that were used when your QuickSight subscription was
-  first created in this AWS Account.
+  first created in this AWS account.
   """
   def describe_account_settings(client, aws_account_id, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/settings"
+    headers = []
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Provides a summary of the metadata for an analysis.
+  """
+  def describe_analysis(client, analysis_id, aws_account_id, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}"
+    headers = []
+    query_ = []
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Provides the read and write permissions for an analysis.
+  """
+  def describe_analysis_permissions(client, analysis_id, aws_account_id, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}/permissions"
     headers = []
     query_ = []
     request(client, :get, path_, query_, headers, nil, options, nil)
@@ -608,9 +735,10 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates a URL and authorization code that you can embed in your web
-  server code. Before you use this command, make sure that you have
-  configured the dashboards and permissions.
+  Generates a session URL and authorization code that you can use to embed an
+  Amazon QuickSight read-only dashboard in your web server code. Before you
+  use this command, make sure that you have configured the dashboards and
+  permissions.
 
   Currently, you can use `GetDashboardEmbedURL` only from the server, not
   from the user's browser. The following rules apply to the combination of
@@ -624,11 +752,9 @@ defmodule AWS.QuickSight do
 
   </li> <li> The resulting user session is valid for 10 hours.
 
-  </li> </ul> For more information, see [Embedding Amazon QuickSight
-  Dashboards](https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html)
-  in the *Amazon QuickSight User Guide* or [Embedding Amazon QuickSight
-  Dashboards](https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html)
-  in the *Amazon QuickSight API Reference*.
+  </li> </ul> For more information, see [Embedding Amazon
+  QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html)
+  in the *Amazon QuickSight User Guide* .
   """
   def get_dashboard_embed_url(client, aws_account_id, dashboard_id, identity_type, reset_disabled \\ nil, session_lifetime_in_minutes \\ nil, undo_redo_disabled \\ nil, user_arn \\ nil, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}/embed-url"
@@ -663,8 +789,25 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates a session URL and authorization code that you can embed in your
-  web server code.
+  Generates a session URL and authorization code that you can use to embed
+  the Amazon QuickSight console in your web server code. Use
+  `GetSessionEmbedUrl` where you want to provide an authoring portal that
+  allows users to create data sources, datasets, analyses, and dashboards.
+  The users who access an embedded QuickSight console need belong to the
+  author or admin security cohort. If you want to restrict permissions to
+  some of these features, add a custom permissions profile to the user with
+  the ` `UpdateUser` ` API operation. Use ` `RegisterUser` ` API operation to
+  add a new user with a custom permission profile attached. For more
+  information, see the following sections in the *Amazon QuickSight User
+  Guide*:
+
+  <ul> <li> [Embedding the Amazon QuickSight
+  Console](https://docs.aws.amazon.com/quicksight/latest/user/embedding-the-quicksight-console.html)
+
+  </li> <li> [Customizing Access to the Amazon QuickSight
+  Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
+
+  </li> </ul>
   """
   def get_session_embed_url(client, aws_account_id, entry_point \\ nil, session_lifetime_in_minutes \\ nil, user_arn \\ nil, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/session-embed-url"
@@ -682,6 +825,26 @@ defmodule AWS.QuickSight do
     end
     query_ = if !is_nil(entry_point) do
       [{"entry-point", entry_point} | query_]
+    else
+      query_
+    end
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Lists Amazon QuickSight analyses that exist in the specified AWS account.
+  """
+  def list_analyses(client, aws_account_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/analyses"
+    headers = []
+    query_ = []
+    query_ = if !is_nil(next_token) do
+      [{"next-token", next_token} | query_]
+    else
+      query_
+    end
+    query_ = if !is_nil(max_results) do
+      [{"max-results", max_results} | query_]
     else
       query_
     end
@@ -1085,7 +1248,27 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Searchs for dashboards that belong to a user.
+  Restores an analysis.
+  """
+  def restore_analysis(client, analysis_id, aws_account_id, input, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/restore/analyses/#{URI.encode(analysis_id)}"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Searches for analyses that belong to the user specified in the filter.
+  """
+  def search_analyses(client, aws_account_id, input, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/search/analyses"
+    headers = []
+    query_ = []
+    request(client, :post, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Searches for dashboards that belong to a user.
   """
   def search_dashboards(client, aws_account_id, input, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/search/dashboards"
@@ -1144,8 +1327,14 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates customizations associated with the QuickSight subscription on your
-  AWS account.
+  Updates Amazon QuickSight customizations the current AWS Region. Currently,
+  the only customization you can use is a theme.
+
+  You can use customizations for your AWS account or, if you specify a
+  namespace, for a QuickSight namespace instead. Customizations that apply to
+  a namespace override customizations that apply to an AWS account. To find
+  out which customizations apply, use the `DescribeAccountCustomization` API
+  operation.
   """
   def update_account_customization(client, aws_account_id, input, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/customizations"
@@ -1159,11 +1348,30 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Updates the settings for the Amazon QuickSight subscription in your AWS
-  Account.
+  Updates the Amazon QuickSight settings in your AWS account.
   """
   def update_account_settings(client, aws_account_id, input, options \\ []) do
     path_ = "/accounts/#{URI.encode(aws_account_id)}/settings"
+    headers = []
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates an analysis in Amazon QuickSight
+  """
+  def update_analysis(client, analysis_id, aws_account_id, input, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}"
+    headers = []
+    query_ = []
+    request(client, :put, path_, query_, headers, input, options, nil)
+  end
+
+  @doc """
+  Updates the read and write permissions for an analysis.
+  """
+  def update_analysis_permissions(client, analysis_id, aws_account_id, input, options \\ []) do
+    path_ = "/accounts/#{URI.encode(aws_account_id)}/analyses/#{URI.encode(analysis_id)}/permissions"
     headers = []
     query_ = []
     request(client, :put, path_, query_, headers, input, options, nil)
@@ -1380,9 +1588,8 @@ defmodule AWS.QuickSight do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, Poison.Parser.t(), Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "quicksight"}
     host = build_host("quicksight", client)
@@ -1398,41 +1605,16 @@ defmodule AWS.QuickSight do
     perform_request(method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, response}
-
-      {:ok, %HTTPoison.Response{status_code: status_code, body: body} = response}
-      when status_code == 200 or status_code == 202 or status_code == 204 ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
-  end
-
   defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case HTTPoison.request(method, url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, %{}, response}
-
-      {:ok, %HTTPoison.Response{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
   end
 
+
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end
@@ -1453,6 +1635,11 @@ defmodule AWS.QuickSight do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: Poison.Encoder.encode(input, %{}), else: ""
+    if input != nil, do: encode!(input), else: ""
+  end
+
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
   end
 end

@@ -420,29 +420,29 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
-  Returns the current provisioned-capacity limits for your AWS account in a
+  Returns the current provisioned-capacity quotas for your AWS account in a
   Region, both for the Region as a whole and for any one DynamoDB table that
   you create there.
 
-  When you establish an AWS account, the account has initial limits on the
+  When you establish an AWS account, the account has initial quotas on the
   maximum read capacity units and write capacity units that you can provision
   across all of your DynamoDB tables in a given Region. Also, there are
-  per-table limits that apply when you create a table there. For more
-  information, see
-  [Limits](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
+  per-table quotas that apply when you create a table there. For more
+  information, see [Service, Account, and Table
+  Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
   page in the *Amazon DynamoDB Developer Guide*.
 
-  Although you can increase these limits by filing a case at [AWS Support
+  Although you can increase these quotas by filing a case at [AWS Support
   Center](https://console.aws.amazon.com/support/home#/), obtaining the
   increase is not instantaneous. The `DescribeLimits` action lets you write
-  code to compare the capacity you are currently using to those limits
+  code to compare the capacity you are currently using to those quotas
   imposed by your account so that you have enough time to apply for an
-  increase before you hit a limit.
+  increase before you hit a quota.
 
   For example, you could use one of the AWS SDKs to do the following:
 
   <ol> <li> Call `DescribeLimits` for a particular Region to obtain your
-  current account limits on provisioned capacity there.
+  current account quotas on provisioned capacity there.
 
   </li> <li> Create a variable to hold the aggregate read capacity units
   provisioned for all your tables in that Region, and one to hold the
@@ -462,21 +462,21 @@ defmodule AWS.DynamoDB do
   loop over these GSIs and add their provisioned capacity values to your
   variables as well.
 
-  </li> </ul> </li> <li> Report the account limits for that Region returned
+  </li> </ul> </li> <li> Report the account quotas for that Region returned
   by `DescribeLimits`, along with the total current provisioned capacity
   levels you have calculated.
 
   </li> </ol> This will let you see whether you are getting close to your
-  account-level limits.
+  account-level quotas.
 
-  The per-table limits apply only when you are creating a new table. They
+  The per-table quotas apply only when you are creating a new table. They
   restrict the sum of the provisioned capacity of the new table itself and
   all its global secondary indexes.
 
   For existing tables and their GSIs, DynamoDB doesn't let you increase
-  provisioned capacity extremely rapidly. But the only upper limit that
-  applies is that the aggregate provisioned capacity over all your tables and
-  GSIs cannot exceed either of the per-account limits.
+  provisioned capacity extremely rapidly, but the only quota that applies is
+  that the aggregate provisioned capacity over all your tables and GSIs
+  cannot exceed either of the per-account quotas.
 
   <note> `DescribeLimits` should only be called periodically. You can expect
   throttling errors if you call it more than once in a minute.
@@ -544,10 +544,10 @@ defmodule AWS.DynamoDB do
   List backups associated with an AWS account. To list backups for a given
   table, specify `TableName`. `ListBackups` returns a paginated list of
   results with at most 1 MB worth of items in a page. You can also specify a
-  limit for the maximum number of entries to be returned in a page.
+  maximum number of entries to be returned in a page.
 
   In the request, start time is inclusive, but end time is exclusive. Note
-  that these limits are for the time at which the original backup was
+  that these boundaries are for the time at which the original backup was
   requested.
 
   You can call `ListBackups` a maximum of five times per second.
@@ -1108,9 +1108,8 @@ defmodule AWS.DynamoDB do
   end
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, Poison.Parser.t() | nil, Poison.Response.t()}
-          | {:error, Poison.Parser.t()}
-          | {:error, HTTPoison.Error.t()}
+          {:ok, map() | nil, term()}
+          | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "dynamodb"}
     host = build_host("dynamodb", client)
@@ -1122,25 +1121,24 @@ defmodule AWS.DynamoDB do
       {"X-Amz-Target", "DynamoDB_20120810.#{action}"}
     ]
 
-    payload = Poison.Encoder.encode(input, %{})
+    payload = encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-
-    case HTTPoison.post(url, payload, headers, options) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
-      {:ok, %HTTPoison.Response{status_code: 200, body: body} = response} ->
-        {:ok, Poison.Parser.parse!(body, %{}), response}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = Poison.Parser.parse!(body, %{})
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, %HTTPoison.Error{reason: reason}}
-    end
+    perform_request(:post, url, payload, headers, options, 200)
   end
 
+  defp encode!(input) do
+    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
+    apply(encoder, fun, [input])
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
+    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+  end
+
+  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
+    endpoint
+  end
   defp build_host(_endpoint_prefix, %{region: "local"}) do
     "localhost"
   end

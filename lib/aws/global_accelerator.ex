@@ -11,12 +11,18 @@ defmodule AWS.GlobalAccelerator do
   Accelerator features, see the [AWS Global Accelerator Developer
   Guide](https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html).
 
-  AWS Global Accelerator is a service in which you create accelerators to
+  AWS Global Accelerator is a service in which you create *accelerators* to
   improve availability and performance of your applications for local and
-  global users.
+  global users. Global Accelerator directs traffic to optimal endpoints over
+  the AWS global network. This improves the availability and performance of
+  your internet applications that are used by a global audience. Global
+  Accelerator is a global service that supports endpoints in multiple AWS
+  Regions, which are listed in the [AWS Region
+  Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
-  <important> You must specify the US West (Oregon) Region to create or
-  update accelerators.
+  <important> Global Accelerator is a global service that supports endpoints
+  in multiple AWS Regions but you must specify the US West (Oregon) Region to
+  create or update accelerators.
 
   </important> By default, Global Accelerator provides you with static IP
   addresses that you associate with your accelerator. (Instead of using the
@@ -136,13 +142,9 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of creating an accelerator, scroll down to
   **Example**.
 
-  If you bring your own IP address ranges to AWS Global Accelerator (BYOIP),
-  you can assign IP addresses from your own pool to your accelerator as the
-  static IP address entry points. Only one IP address from each of your IP
-  address ranges can be used for each accelerator.
-
-  <important> You must specify the US West (Oregon) Region to create or
-  update accelerators.
+  <important> Global Accelerator is a global service that supports endpoints
+  in multiple AWS Regions but you must specify the US West (Oregon) Region to
+  create or update accelerators.
 
   </important>
   """
@@ -152,8 +154,11 @@ defmodule AWS.GlobalAccelerator do
 
   @doc """
   Create an endpoint group for the specified listener. An endpoint group is a
-  collection of endpoints in one AWS Region. To see an AWS CLI example of
-  creating an endpoint group, scroll down to **Example**.
+  collection of endpoints in one AWS Region. A resource must be valid and
+  active when you add it as an endpoint.
+
+  To see an AWS CLI example of creating an endpoint group, scroll down to
+  **Example**.
   """
   def create_endpoint_group(client, input, options \\ []) do
     request(client, "CreateEndpointGroup", input, options)
@@ -361,8 +366,9 @@ defmodule AWS.GlobalAccelerator do
   Update an accelerator. To see an AWS CLI example of updating an
   accelerator, scroll down to **Example**.
 
-  <important> You must specify the US West (Oregon) Region to create or
-  update accelerators.
+  <important> Global Accelerator is a global service that supports endpoints
+  in multiple AWS Regions but you must specify the US West (Oregon) Region to
+  create or update accelerators.
 
   </important>
   """
@@ -379,8 +385,11 @@ defmodule AWS.GlobalAccelerator do
   end
 
   @doc """
-  Update an endpoint group. To see an AWS CLI example of updating an endpoint
-  group, scroll down to **Example**.
+  Update an endpoint group. A resource must be valid and active when you add
+  it as an endpoint.
+
+  To see an AWS CLI example of updating an endpoint group, scroll down to
+  **Example**.
   """
   def update_endpoint_group(client, input, options \\ []) do
     request(client, "UpdateEndpointGroup", input, options)
@@ -426,19 +435,9 @@ defmodule AWS.GlobalAccelerator do
       {"X-Amz-Target", "GlobalAccelerator_V20180706.#{action}"}
     ]
 
-    payload = encode!(input)
+    payload = AWS.JSON.encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    perform_request(:post, url, payload, headers, options, 200)
-  end
-
-  defp encode!(input) do
-    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
-    apply(encoder, fun, [input])
-  end
-
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
-    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+    AWS.HTTP.request(:post, url, payload, headers, options, 200)
   end
 
   defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do

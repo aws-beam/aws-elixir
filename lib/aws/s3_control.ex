@@ -1459,14 +1459,9 @@ defmodule AWS.S3Control do
     additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
 
-    payload = encode_payload(input)
+    payload = AWS.JSON.encode!(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
-    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+    AWS.HTTP.request(method, url, payload, headers, options, success_status_code)
   end
 
 
@@ -1497,11 +1492,6 @@ defmodule AWS.S3Control do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: encode!(input), else: ""
-  end
-
-  defp encode!(input) do
-    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
-    apply(encoder, fun, [input])
+    if input != nil, do: AWS.JSON.encode!(input), else: ""
   end
 end

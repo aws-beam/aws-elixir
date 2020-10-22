@@ -119,19 +119,9 @@ defmodule AWS.Translate do
       {"X-Amz-Target", "AWSShineFrontendService_20170701.#{action}"}
     ]
 
-    payload = encode!(input)
+    payload = AWS.JSON.encode!(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    perform_request(:post, url, payload, headers, options, 200)
-  end
-
-  defp encode!(input) do
-    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
-    apply(encoder, fun, [input])
-  end
-
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
-    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+    AWS.HTTP.request(:post, url, payload, headers, options, 200)
   end
 
   defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do

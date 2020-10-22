@@ -253,6 +253,47 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Creates a key group that you can use with [CloudFront signed URLs and
+  signed
+  cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
+
+  To create a key group, you must specify at least one public key for the key
+  group. After you create a key group, you can reference it from one or more
+  cache behaviors. When you reference a key group in a cache behavior,
+  CloudFront requires signed URLs or signed cookies for all requests that
+  match the cache behavior. The URLs or cookies must be signed with a private
+  key whose corresponding public key is in the key group. The signed URL or
+  cookie contains information about which public key CloudFront should use to
+  verify the signature. For more information, see [Serving private
+  content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html)
+  in the *Amazon CloudFront Developer Guide*.
+  """
+  def create_key_group(client, input, options \\ []) do
+    path_ = "/2020-05-31/key-group"
+    headers = []
+    query_ = []
+    case request(client, :post, path_, query_, headers, input, options, 201) do
+      {:ok, body, response} when is_nil(body) == false ->
+        body =
+          [
+            {"ETag", "ETag"},
+            {"Location", "Location"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case List.keyfind(response.headers, header_name, 0) do
+              nil -> acc
+              {_header_name, value} -> Map.put(acc, key, value)
+            end
+          end)
+
+        {:ok, body, response}
+
+      result ->
+        result
+    end
+  end
+
+  @doc """
   Enables additional CloudWatch metrics for the specified CloudFront
   distribution. The additional metrics incur an additional cost.
 
@@ -321,8 +362,11 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Add a new public key to CloudFront to use, for example, for field-level
-  encryption. You can add a maximum of 10 public keys with one AWS account.
+  Uploads a public key to CloudFront that you can use with [signed URLs and
+  signed
+  cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html),
+  or with [field-level
+  encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
   """
   def create_public_key(client, input, options \\ []) do
     path_ = "/2020-05-31/public-key"
@@ -522,6 +566,28 @@ defmodule AWS.CloudFront do
   """
   def delete_field_level_encryption_profile(client, id, input, options \\ []) do
     path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"},
+      ]
+      |> AWS.Request.build_params(input)
+    query_ = []
+    request(client, :delete, path_, query_, headers, input, options, 204)
+  end
+
+  @doc """
+  Deletes a key group.
+
+  You cannot delete a key group that is referenced in a cache behavior. First
+  update your distributions to remove the key group from all cache behaviors,
+  then delete the key group.
+
+  To delete a key group, you must provide the key group’s identifier and
+  version. To get these values, use `ListKeyGroups` followed by `GetKeyGroup`
+  or `GetKeyGroupConfig`.
+  """
+  def delete_key_group(client, id, input, options \\ []) do
+    path_ = "/2020-05-31/key-group/#{URI.encode(id)}"
     {headers, input} =
       [
         {"IfMatch", "If-Match"},
@@ -948,6 +1014,73 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets a key group, including the date and time when the key group was last
+  modified.
+
+  To get a key group, you must provide the key group’s identifier. If the key
+  group is referenced in a distribution’s cache behavior, you can get the key
+  group’s identifier using `ListDistributions` or `GetDistribution`. If the
+  key group is not referenced in a cache behavior, you can get the identifier
+  using `ListKeyGroups`.
+  """
+  def get_key_group(client, id, options \\ []) do
+    path_ = "/2020-05-31/key-group/#{URI.encode(id)}"
+    headers = []
+    query_ = []
+    case request(client, :get, path_, query_, headers, nil, options, nil) do
+      {:ok, body, response} when is_nil(body) == false ->
+        body =
+          [
+            {"ETag", "ETag"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case List.keyfind(response.headers, header_name, 0) do
+              nil -> acc
+              {_header_name, value} -> Map.put(acc, key, value)
+            end
+          end)
+
+        {:ok, body, response}
+
+      result ->
+        result
+    end
+  end
+
+  @doc """
+  Gets a key group configuration.
+
+  To get a key group configuration, you must provide the key group’s
+  identifier. If the key group is referenced in a distribution’s cache
+  behavior, you can get the key group’s identifier using `ListDistributions`
+  or `GetDistribution`. If the key group is not referenced in a cache
+  behavior, you can get the identifier using `ListKeyGroups`.
+  """
+  def get_key_group_config(client, id, options \\ []) do
+    path_ = "/2020-05-31/key-group/#{URI.encode(id)}/config"
+    headers = []
+    query_ = []
+    case request(client, :get, path_, query_, headers, nil, options, nil) do
+      {:ok, body, response} when is_nil(body) == false ->
+        body =
+          [
+            {"ETag", "ETag"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case List.keyfind(response.headers, header_name, 0) do
+              nil -> acc
+              {_header_name, value} -> Map.put(acc, key, value)
+            end
+          end)
+
+        {:ok, body, response}
+
+      result ->
+        result
+    end
+  end
+
+  @doc """
   Gets information about whether additional CloudWatch metrics are enabled
   for the specified CloudFront distribution.
   """
@@ -1031,7 +1164,7 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Get the public key information.
+  Gets a public key.
   """
   def get_public_key(client, id, options \\ []) do
     path_ = "/2020-05-31/public-key/#{URI.encode(id)}"
@@ -1058,7 +1191,7 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Return public key configuration informaation
+  Gets a public key configuration.
   """
   def get_public_key_config(client, id, options \\ []) do
     path_ = "/2020-05-31/public-key/#{URI.encode(id)}/config"
@@ -1259,6 +1392,34 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a list of distribution IDs for distributions that have a cache
+  behavior that references the specified key group.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that
+  you specify, or the default maximum, the response is paginated. To get the
+  next page of items, send a subsequent request that specifies the
+  `NextMarker` value from the current response as the `Marker` value in the
+  subsequent request.
+  """
+  def list_distributions_by_key_group(client, key_group_id, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2020-05-31/distributionsByKeyGroupId/#{URI.encode(key_group_id)}"
+    headers = []
+    query_ = []
+    query_ = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query_]
+    else
+      query_
+    end
+    query_ = if !is_nil(marker) do
+      [{"Marker", marker} | query_]
+    else
+      query_
+    end
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a list of distribution IDs for distributions that have a cache
   behavior that’s associated with the specified origin request policy.
 
   You can optionally specify the maximum number of items to receive in the
@@ -1376,6 +1537,33 @@ defmodule AWS.CloudFront do
   """
   def list_invalidations(client, distribution_id, marker \\ nil, max_items \\ nil, options \\ []) do
     path_ = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
+    headers = []
+    query_ = []
+    query_ = if !is_nil(max_items) do
+      [{"MaxItems", max_items} | query_]
+    else
+      query_
+    end
+    query_ = if !is_nil(marker) do
+      [{"Marker", marker} | query_]
+    else
+      query_
+    end
+    request(client, :get, path_, query_, headers, nil, options, nil)
+  end
+
+  @doc """
+  Gets a list of key groups.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that
+  you specify, or the default maximum, the response is paginated. To get the
+  next page of items, send a subsequent request that specifies the
+  `NextMarker` value from the current response as the `Marker` value in the
+  subsequent request.
+  """
+  def list_key_groups(client, marker \\ nil, max_items \\ nil, options \\ []) do
+    path_ = "/2020-05-31/key-group"
     headers = []
     query_ = []
     query_ = if !is_nil(max_items) do
@@ -1780,6 +1968,52 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Updates a key group.
+
+  When you update a key group, all the fields are updated with the values
+  provided in the request. You cannot update some fields independent of
+  others. To update a key group:
+
+  <ol> <li> Get the current key group with `GetKeyGroup` or
+  `GetKeyGroupConfig`.
+
+  </li> <li> Locally modify the fields in the key group that you want to
+  update. For example, add or remove public key IDs.
+
+  </li> <li> Call `UpdateKeyGroup` with the entire key group object,
+  including the fields that you modified and those that you didn’t.
+
+  </li> </ol>
+  """
+  def update_key_group(client, id, input, options \\ []) do
+    path_ = "/2020-05-31/key-group/#{URI.encode(id)}"
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"},
+      ]
+      |> AWS.Request.build_params(input)
+    query_ = []
+    case request(client, :put, path_, query_, headers, input, options, nil) do
+      {:ok, body, response} when is_nil(body) == false ->
+        body =
+          [
+            {"ETag", "ETag"},
+          ]
+          |> Enum.reduce(body, fn {header_name, key}, acc ->
+            case List.keyfind(response.headers, header_name, 0) do
+              nil -> acc
+              {_header_name, value} -> Map.put(acc, key, value)
+            end
+          end)
+
+        {:ok, body, response}
+
+      result ->
+        result
+    end
+  end
+
+  @doc """
   Updates an origin request policy configuration.
 
   When you update an origin request policy configuration, all the fields are
@@ -1931,14 +2165,9 @@ defmodule AWS.CloudFront do
     additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
 
-    payload = encode_payload(input)
+    payload = AWS.JSON.encode!(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    {client, fun} = Application.get_env(:aws_elixir, :http_client, {Aws.Internal.HttpClient, :request})
-    apply(client, fun, [method, url, payload, headers, options, success_status_code])
+    AWS.HTTP.request(method, url, payload, headers, options, success_status_code)
   end
 
 
@@ -1966,11 +2195,6 @@ defmodule AWS.CloudFront do
   end
 
   defp encode_payload(input) do
-    if input != nil, do: encode!(input), else: ""
-  end
-
-  defp encode!(input) do
-    {encoder, fun} = Application.get_env(:aws_elixir, :json_encoder, {Poison, :encode!})
-    apply(encoder, fun, [input])
+    if input != nil, do: AWS.JSON.encode!(input), else: ""
   end
 end

@@ -116,7 +116,7 @@ defmodule AWS.PinpointSMSVoice do
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
 
-    payload = AWS.JSON.encode!(input)
+    payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     AWS.HTTP.request(method, url, payload, headers, options, success_status_code)
   end

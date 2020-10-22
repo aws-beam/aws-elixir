@@ -1459,7 +1459,7 @@ defmodule AWS.S3Control do
     additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
 
-    payload = AWS.Util.encode_xml(input)
+    payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
     AWS.HTTP.request(method, url, payload, headers, options, success_status_code)
   end

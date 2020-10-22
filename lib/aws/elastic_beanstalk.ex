@@ -597,7 +597,7 @@ defmodule AWS.ElasticBeanstalk do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2010-12-01"})
-    payload = AWS.JSON.encode!(input)
+    payload = AWS.Util.encode_query(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
     AWS.HTTP.request(:post, url, payload, headers, options, 200)
   end

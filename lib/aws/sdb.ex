@@ -263,7 +263,22 @@ defmodule AWS.Sdb do
     input = Map.merge(input, %{"Action" => action, "Version" => "2009-04-15"})
     payload = AWS.Util.encode_query(input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    AWS.HTTP.request(:post, url, payload, headers, options, 200)
+    post(url, payload, headers, options)
+  end
+
+  defp post(url, payload, headers, options) do
+    case AWS.HTTP.request(:post, url, payload, headers, options) do
+      {:ok, %{status_code: 200, body: ""} = response} ->
+        {:ok, nil, response}
+
+      {:ok, %{status_code: 200, body: body} = response} ->
+        {:ok, AWS.Util.decode_xml(body), response}
+
+      {:ok, %{body: body}} ->
+        {:error, AWS.Util.decode_xml(body)}
+
+      error = {:error, _reason} -> error
+    end
   end
 
   defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do

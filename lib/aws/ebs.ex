@@ -65,7 +65,7 @@ defmodule AWS.EBS do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-Checksum", "Checksum"},
@@ -162,7 +162,7 @@ defmodule AWS.EBS do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-Checksum", "Checksum"},
@@ -212,9 +212,39 @@ defmodule AWS.EBS do
 
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    AWS.HTTP.request(method, url, payload, headers, options, success_status_code)
+    perform_request(method, url, payload, headers, options, success_status_code)
   end
 
+  defp perform_request(method, url, payload, headers, options, nil) do
+    case AWS.HTTP.request(method, url, payload, headers, options) do
+      {:ok, %{status_code: 200, body: ""} = response} ->
+        {:ok, nil, response}
+
+      {:ok, %{status_code: status_code, body: body} = response}
+      when status_code in [200, 202, 204] ->
+        {:ok, AWS.JSON.decode!(body), response}
+
+      {:ok, %{body: body}} ->
+        {:error, AWS.JSON.decode!(body)}
+
+      error = {:error, _reason} -> error
+    end
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    case AWS.HTTP.request(method, url, payload, headers, options) do
+      {:ok, %{status_code: ^success_status_code, body: ""} = response} ->
+        {:ok, nil, response}
+
+      {:ok, %{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, AWS.JSON.decode!(body), response}
+
+      {:ok, %{body: body}} ->
+        {:error, AWS.JSON.decode!(body)}
+
+      error = {:error, _reason} -> error
+    end
+  end
 
 
   defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do

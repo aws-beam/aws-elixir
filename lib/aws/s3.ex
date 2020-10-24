@@ -57,7 +57,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -178,7 +178,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-expiration", "Expiration"},
@@ -413,7 +413,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-copy-source-version-id", "CopySourceVersionId"},
@@ -557,7 +557,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"Location", "Location"},
@@ -832,7 +832,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-abort-date", "AbortDate"},
@@ -1358,7 +1358,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-delete-marker", "DeleteMarker"},
@@ -1414,7 +1414,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-version-id", "VersionId"},
@@ -1498,7 +1498,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -2590,7 +2590,7 @@ defmodule AWS.S3 do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"accept-ranges", "AcceptRanges"},
@@ -2682,7 +2682,7 @@ defmodule AWS.S3 do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -2816,7 +2816,7 @@ defmodule AWS.S3 do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-version-id", "VersionId"},
@@ -2871,7 +2871,7 @@ defmodule AWS.S3 do
     end
     query_ = []
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -3062,7 +3062,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :head, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"accept-ranges", "AcceptRanges"},
@@ -3686,7 +3686,7 @@ defmodule AWS.S3 do
       query_
     end
     case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-abort-date", "AbortDate"},
@@ -5115,7 +5115,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"ETag", "ETag"},
@@ -5314,7 +5314,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -5360,7 +5360,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -5406,7 +5406,7 @@ defmodule AWS.S3 do
       |> AWS.Request.build_params(input)
     query_ = []
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -5453,7 +5453,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -5541,7 +5541,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-version-id", "VersionId"},
@@ -5860,7 +5860,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-request-charged", "RequestCharged"},
@@ -6136,7 +6136,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"ETag", "ETag"},
@@ -6312,7 +6312,7 @@ defmodule AWS.S3 do
       ]
       |> AWS.Request.build_params(input)
     case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when is_nil(body) == false ->
+      {:ok, body, response} when not is_nil(body) ->
         body =
           [
             {"x-amz-copy-source-version-id", "CopySourceVersionId"},
@@ -6351,9 +6351,39 @@ defmodule AWS.S3 do
 
     payload = encode_payload(input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    AWS.HTTP.request(method, url, payload, headers, options, success_status_code)
+    perform_request(method, url, payload, headers, options, success_status_code)
   end
 
+  defp perform_request(method, url, payload, headers, options, nil) do
+    case AWS.HTTP.request(method, url, payload, headers, options) do
+      {:ok, %{status_code: 200, body: ""} = response} ->
+        {:ok, nil, response}
+
+      {:ok, %{status_code: status_code, body: body} = response}
+      when status_code in [200, 202, 204] ->
+        {:ok, AWS.Util.decode_xml(body), response}
+
+      {:ok, %{body: body}} ->
+        {:error, AWS.Util.decode_xml(body)}
+
+      error = {:error, _reason} -> error
+    end
+  end
+
+  defp perform_request(method, url, payload, headers, options, success_status_code) do
+    case AWS.HTTP.request(method, url, payload, headers, options) do
+      {:ok, %{status_code: ^success_status_code, body: ""} = response} ->
+        {:ok, nil, response}
+
+      {:ok, %{status_code: ^success_status_code, body: body} = response} ->
+        {:ok, AWS.Util.decode_xml(body), response}
+
+      {:ok, %{body: body}} ->
+        {:error, AWS.Util.decode_xml(body)}
+
+      error = {:error, _reason} -> error
+    end
+  end
 
 
   defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do

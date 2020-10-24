@@ -278,12 +278,10 @@ defmodule AWS.ServerlessApplicationRepository do
 
   defp perform_request(method, url, payload, headers, options, nil) do
     case AWS.HTTP.request(method, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
       {:ok, %{status_code: status_code, body: body} = response}
       when status_code in [200, 202, 204] ->
-        {:ok, AWS.JSON.decode!(body), response}
+        body = if(body != "", do: AWS.JSON.decode!(body))
+        {:ok, body, response}
 
       {:ok, %{body: body}} ->
         {:error, AWS.JSON.decode!(body)}
@@ -294,11 +292,9 @@ defmodule AWS.ServerlessApplicationRepository do
 
   defp perform_request(method, url, payload, headers, options, success_status_code) do
     case AWS.HTTP.request(method, url, payload, headers, options) do
-      {:ok, %{status_code: ^success_status_code, body: ""} = response} ->
-        {:ok, nil, response}
-
       {:ok, %{status_code: ^success_status_code, body: body} = response} ->
-        {:ok, AWS.JSON.decode!(body), response}
+        body = if(body != "", do: AWS.JSON.decode!(body))
+        {:ok, body, response}
 
       {:ok, %{body: body}} ->
         {:error, AWS.JSON.decode!(body)}

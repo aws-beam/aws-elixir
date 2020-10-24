@@ -268,11 +268,9 @@ defmodule AWS.Sdb do
 
   defp post(url, payload, headers, options) do
     case AWS.HTTP.request(:post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: ""} = response} ->
-        {:ok, nil, response}
-
       {:ok, %{status_code: 200, body: body} = response} ->
-        {:ok, AWS.Util.decode_xml(body), response}
+        body = if(body != "", do: AWS.Util.decode_xml(body))
+        {:ok, body, response}
 
       {:ok, %{body: body}} ->
         {:error, AWS.Util.decode_xml(body)}

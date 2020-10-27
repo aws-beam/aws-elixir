@@ -71,6 +71,14 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates a configuration for running an Amazon SageMaker image as a
+  KernelGateway app.
+  """
+  def create_app_image_config(client, input, options \\ []) do
+    request(client, "CreateAppImageConfig", input, options)
+  end
+
+  @doc """
   Creates an Autopilot job.
 
   Find the best performing model after you run an Autopilot job by calling .
@@ -165,35 +173,14 @@ defmodule AWS.SageMaker do
   subnets. Internet access is disabled by default. To allow internet access,
   you must specify a NAT gateway.
 
-  When internet access is disabled, you won't be able to train or host models
-  unless your VPC has an interface endpoint (PrivateLink) or a NAT gateway
-  and your security groups allow outbound connections.
+  When internet access is disabled, you won't be able to run a Studio
+  notebook or to train or host models unless your VPC has an interface
+  endpoint to the SageMaker API and runtime or a NAT gateway and your
+  security groups allow outbound connections.
 
-  </li> </ul> ** `VpcOnly` network access type**
-
-  When you choose `VpcOnly`, you must specify the following:
-
-  <ul> <li> Security group inbound and outbound rules to allow NFS traffic
-  over TCP on port 2049 between the domain and the EFS volume
-
-  </li> <li> Security group inbound and outbound rules to allow traffic
-  between the JupyterServer app and the KernelGateway apps
-
-  </li> <li> Interface endpoints to access the SageMaker API and SageMaker
-  runtime
-
-  </li> </ul> For more information, see:
-
-  <ul> <li> [Security groups for your
-  VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html)
-
-  </li> <li> [VPC with public and private subnets
-  (NAT)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html)
-
-  </li> <li> [Connect to SageMaker through a VPC interface
-  endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/interface-vpc-endpoint.html)
-
-  </li> </ul>
+  </li> </ul> For more information, see [Connect SageMaker Studio Notebooks
+  to Resources in a
+  VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html).
   """
   def create_domain(client, input, options \\ []) do
     request(client, "CreateDomain", input, options)
@@ -359,6 +346,24 @@ defmodule AWS.SageMaker do
   """
   def create_hyper_parameter_tuning_job(client, input, options \\ []) do
     request(client, "CreateHyperParameterTuningJob", input, options)
+  end
+
+  @doc """
+  Creates a SageMaker `Image`. A SageMaker image represents a set of
+  container images. Each of these container images is represented by a
+  SageMaker `ImageVersion`.
+  """
+  def create_image(client, input, options \\ []) do
+    request(client, "CreateImage", input, options)
+  end
+
+  @doc """
+  Creates a version of the SageMaker image specified by `ImageName`. The
+  version represents the Amazon Container Registry (ECR) container image
+  specified by `BaseImage`.
+  """
+  def create_image_version(client, input, options \\ []) do
+    request(client, "CreateImageVersion", input, options)
   end
 
   @doc """
@@ -788,6 +793,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an AppImageConfig.
+  """
+  def delete_app_image_config(client, input, options \\ []) do
+    request(client, "DeleteAppImageConfig", input, options)
+  end
+
+  @doc """
   Deletes the specified Git repository from your account.
   """
   def delete_code_repository(client, input, options \\ []) do
@@ -859,6 +871,22 @@ defmodule AWS.SageMaker do
   """
   def delete_human_task_ui(client, input, options \\ []) do
     request(client, "DeleteHumanTaskUi", input, options)
+  end
+
+  @doc """
+  Deletes a SageMaker image and all versions of the image. The container
+  images aren't deleted.
+  """
+  def delete_image(client, input, options \\ []) do
+    request(client, "DeleteImage", input, options)
+  end
+
+  @doc """
+  Deletes a version of a SageMaker image. The container image the version
+  represents isn't deleted.
+  """
+  def delete_image_version(client, input, options \\ []) do
+    request(client, "DeleteImageVersion", input, options)
   end
 
   @doc """
@@ -995,6 +1023,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Describes an AppImageConfig.
+  """
+  def describe_app_image_config(client, input, options \\ []) do
+    request(client, "DescribeAppImageConfig", input, options)
+  end
+
+  @doc """
   Returns information about an Amazon SageMaker job.
   """
   def describe_auto_m_l_job(client, input, options \\ []) do
@@ -1068,6 +1103,20 @@ defmodule AWS.SageMaker do
   """
   def describe_hyper_parameter_tuning_job(client, input, options \\ []) do
     request(client, "DescribeHyperParameterTuningJob", input, options)
+  end
+
+  @doc """
+  Describes a SageMaker image.
+  """
+  def describe_image(client, input, options \\ []) do
+    request(client, "DescribeImage", input, options)
+  end
+
+  @doc """
+  Describes a version of a SageMaker image.
+  """
+  def describe_image_version(client, input, options \\ []) do
+    request(client, "DescribeImageVersion", input, options)
   end
 
   @doc """
@@ -1228,6 +1277,15 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists the AppImageConfigs in your account and their properties. The list
+  can be filtered by creation time or modified time, and whether the
+  AppImageConfig name contains a specified string.
+  """
+  def list_app_image_configs(client, input, options \\ []) do
+    request(client, "ListAppImageConfigs", input, options)
+  end
+
+  @doc """
   Lists apps.
   """
   def list_apps(client, input, options \\ []) do
@@ -1316,6 +1374,23 @@ defmodule AWS.SageMaker do
   """
   def list_hyper_parameter_tuning_jobs(client, input, options \\ []) do
     request(client, "ListHyperParameterTuningJobs", input, options)
+  end
+
+  @doc """
+  Lists the versions of a specified image and their properties. The list can
+  be filtered by creation time or modified time.
+  """
+  def list_image_versions(client, input, options \\ []) do
+    request(client, "ListImageVersions", input, options)
+  end
+
+  @doc """
+  Lists the images in your account and their properties. The list can be
+  filtered by creation time or modified time, and whether the image name
+  contains a specified string.
+  """
+  def list_images(client, input, options \\ []) do
+    request(client, "ListImages", input, options)
   end
 
   @doc """
@@ -1620,6 +1695,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Updates the properties of an AppImageConfig.
+  """
+  def update_app_image_config(client, input, options \\ []) do
+    request(client, "UpdateAppImageConfig", input, options)
+  end
+
+  @doc """
   Updates the specified Git repository with the specified values.
   """
   def update_code_repository(client, input, options \\ []) do
@@ -1676,6 +1758,14 @@ defmodule AWS.SageMaker do
   """
   def update_experiment(client, input, options \\ []) do
     request(client, "UpdateExperiment", input, options)
+  end
+
+  @doc """
+  Updates the properties of a SageMaker image. To change the image's tags,
+  use the `AddTags` and `DeleteTags` APIs.
+  """
+  def update_image(client, input, options \\ []) do
+    request(client, "UpdateImage", input, options)
   end
 
   @doc """
@@ -1778,19 +1868,19 @@ defmodule AWS.SageMaker do
       {"X-Amz-Target", "SageMaker.#{action}"}
     ]
 
-    payload = AWS.JSON.encode!(input)
+    payload = encode!(client, input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(url, payload, headers, options)
+    post(client, url, payload, headers, options)
   end
 
-  defp post(url, payload, headers, options) do
-    case AWS.HTTP.request(:post, url, payload, headers, options) do
+  defp post(client, url, payload, headers, options) do
+    case do_request(client, :post, url, payload, headers, options) do
       {:ok, %{status_code: 200, body: body} = response} ->
-        body = if(body != "", do: AWS.JSON.decode!(body))
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
-        {:error, AWS.JSON.decode!(body)}
+        {:error, decode!(client, body)}
 
       error = {:error, _reason} -> error
     end
@@ -1808,5 +1898,24 @@ defmodule AWS.SageMaker do
 
   defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
+  end
+
+  defp do_request(client, method, url, payload, headers, options) do
+    {mod, fun} = Map.fetch(client, :http_client)
+    apply(mod, fun, [method, url, payload, headers, options])
+  end
+
+  defp encode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:encode)
+      |> Map.fetch(:json)
+    apply(mod, fun, [payload])
+  end
+
+  defp decode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:decode)
+      |> Map.fetch(:json)
+    apply(mod, fun, [payload])
   end
 end

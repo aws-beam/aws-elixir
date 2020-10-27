@@ -253,4 +253,5 @@ defmodule AWS.Request.Internal do
     Enum.join(["AWS4-HMAC-SHA256", long_date,
                credential_scope, hashed_canonical_request], "\n")
   end
+
 end

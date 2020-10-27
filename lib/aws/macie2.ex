@@ -191,8 +191,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Disables an account as a delegated administrator of Amazon Macie for an AWS
-  organization.
+  Disables an account as the delegated Amazon Macie administrator account for
+  an AWS organization.
   """
   def disable_organization_admin_account(client, input, options \\ []) do
     path_ = "/admin"
@@ -237,8 +237,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Enables an account as a delegated administrator of Amazon Macie for an AWS
-  organization.
+  Designates an account as the delegated Amazon Macie administrator account
+  for an AWS organization.
   """
   def enable_organization_admin_account(client, input, options \\ []) do
     path_ = "/admin"
@@ -473,8 +473,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about the account that's designated as the delegated
-  administrator of Amazon Macie for an AWS organization.
+  Retrieves information about the delegated Amazon Macie administrator
+  account for an AWS organization.
   """
   def list_organization_admin_accounts(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/admin"
@@ -596,7 +596,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Updates Amazon Macie configuration settings for an AWS organization.
+  Updates the Amazon Macie configuration settings for an AWS organization.
   """
   def update_organization_configuration(client, input, options \\ []) do
     path_ = "/admin/configuration"
@@ -613,38 +613,38 @@ defmodule AWS.Macie2 do
     host = build_host("macie2", client)
     url = host
     |> build_url(path, client)
-    |> add_query(query)
+    |> add_query(query, client)
 
     additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
 
-    payload = encode_payload(input)
+    payload = encode!(client, input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
+    perform_request(client, method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case AWS.HTTP.request(method, url, payload, headers, options) do
+  defp perform_request(client, method, url, payload, headers, options, nil) do
+    case do_request(client, method, url, payload, headers, options) do
       {:ok, %{status_code: status_code, body: body} = response}
       when status_code in [200, 202, 204] ->
-        body = if(body != "", do: AWS.JSON.decode!(body))
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
-        {:error, AWS.JSON.decode!(body)}
+        {:error, decode!(client, body)}
 
       error = {:error, _reason} -> error
     end
   end
 
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case AWS.HTTP.request(method, url, payload, headers, options) do
+  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
+    case do_request(client, method, url, payload, headers, options) do
       {:ok, %{status_code: ^success_status_code, body: body} = response} ->
-        body = if(body != "", do: AWS.JSON.decode!(body))
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
-        {:error, AWS.JSON.decode!(body)}
+        {:error, decode!(client, body)}
 
       error = {:error, _reason} -> error
     end
@@ -665,15 +665,30 @@ defmodule AWS.Macie2 do
     "#{proto}://#{host}:#{port}#{path}"
   end
 
-  defp add_query(url, []) do
+  defp add_query(url, [], _client) do
     url
   end
-  defp add_query(url, query) do
-    querystring = AWS.Util.encode_query(query)
+  defp add_query(url, query, client) do
+    querystring = encode!(client, query, :query)
     "#{url}?#{querystring}"
   end
 
-  defp encode_payload(input) do
-    if input != nil, do: AWS.JSON.encode!(input), else: ""
+  defp do_request(client, method, url, payload, headers, options) do
+    {mod, fun} = Map.fetch(client, :http_client)
+    apply(mod, fun, [method, url, payload, headers, options])
+  end
+
+  defp encode!(client, payload, type \\ :json) do
+    {mod, fun} = client
+      |> Map.fetch(:encode)
+      |> Map.fetch(type)
+    apply(mod, fun, [payload])
+  end
+
+  defp decode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:decode)
+      |> Map.fetch(:json)
+    apply(mod, fun, [payload])
   end
 end

@@ -10,7 +10,15 @@ defmodule AWS.Client do
             service: nil,
             endpoint: "amazonaws.com",
             proto: "https",
-            port: "443"
+            port: "443",
+            http_client: {HTTPoison, :request},
+            encode: %{json: {Poison.Parser, :parse!},
+                      xml: {AWS.Util, :encode_xml},
+                      query: {AWS.Util, :encode_query}},
+            decode: %{json: {Poison.Encoder, :encode},
+                      xml: {AWS.Util, :decode_xml},
+                      query: {AWS.Util, :decode_xml}}
+
 
   @type t :: %__MODULE__{}
 

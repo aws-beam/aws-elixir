@@ -104,6 +104,14 @@ defmodule AWS.Neptune do
   end
 
   @doc """
+  Creates a new custom endpoint and associates it with an Amazon Neptune DB
+  cluster.
+  """
+  def create_d_b_cluster_endpoint(client, input, options \\ []) do
+    request(client, "CreateDBClusterEndpoint", input, options)
+  end
+
+  @doc """
   Creates a new DB cluster parameter group.
 
   Parameters in a DB cluster parameter group apply to all of the instances in
@@ -231,6 +239,13 @@ defmodule AWS.Neptune do
   end
 
   @doc """
+  Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.
+  """
+  def delete_d_b_cluster_endpoint(client, input, options \\ []) do
+    request(client, "DeleteDBClusterEndpoint", input, options)
+  end
+
+  @doc """
   Deletes a specified DB cluster parameter group. The DB cluster parameter
   group to be deleted can't be associated with any DB clusters.
   """
@@ -298,6 +313,18 @@ defmodule AWS.Neptune do
   """
   def delete_event_subscription(client, input, options \\ []) do
     request(client, "DeleteEventSubscription", input, options)
+  end
+
+  @doc """
+  Returns information about endpoints for an Amazon Neptune DB cluster.
+
+  <note> This operation can also return information for Amazon RDS clusters
+  and Amazon DocDB clusters.
+
+  </note>
+  """
+  def describe_d_b_cluster_endpoints(client, input, options \\ []) do
+    request(client, "DescribeDBClusterEndpoints", input, options)
   end
 
   @doc """
@@ -506,6 +533,13 @@ defmodule AWS.Neptune do
   """
   def modify_d_b_cluster(client, input, options \\ []) do
     request(client, "ModifyDBCluster", input, options)
+  end
+
+  @doc """
+  Modifies the properties of an endpoint in an Amazon Neptune DB cluster.
+  """
+  def modify_d_b_cluster_endpoint(client, input, options \\ []) do
+    request(client, "ModifyDBClusterEndpoint", input, options)
   end
 
   @doc """
@@ -764,19 +798,19 @@ defmodule AWS.Neptune do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2014-10-31"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(client, input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(url, payload, headers, options)
+    post(client, url, payload, headers, options)
   end
 
-  defp post(url, payload, headers, options) do
-    case AWS.HTTP.request(:post, url, payload, headers, options) do
+  defp post(client, url, payload, headers, options) do
+    case do_request(client, :post, url, payload, headers, options) do
       {:ok, %{status_code: 200, body: body} = response} ->
-        body = if(body != "", do: AWS.Util.decode_xml(body))
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
-        {:error, AWS.Util.decode_xml(body)}
+        {:error, decode!(client, body)}
 
       error = {:error, _reason} -> error
     end
@@ -794,5 +828,24 @@ defmodule AWS.Neptune do
 
   defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
+  end
+
+  defp do_request(client, method, url, payload, headers, options) do
+    {mod, fun} = Map.fetch(client, :http_client)
+    apply(mod, fun, [method, url, payload, headers, options])
+  end
+
+  defp encode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:encode)
+      |> Map.fetch(:query)
+    apply(mod, fun, [payload])
+  end
+
+  defp decode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:decode)
+      |> Map.fetch(:xml)
+    apply(mod, fun, [payload])
   end
 end

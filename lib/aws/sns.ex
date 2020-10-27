@@ -112,10 +112,11 @@ defmodule AWS.SNS do
 
   @doc """
   Creates a topic to which notifications can be published. Users can create
-  at most 100,000 topics. For more information, see
-  [https://aws.amazon.com/sns](http://aws.amazon.com/sns/). This action is
-  idempotent, so if the requester already owns a topic with the specified
-  name, that topic's ARN is returned without creating a new topic.
+  at most 100,000 standard topics (at most 1,000 FIFO topics). For more
+  information, see [https://aws.amazon.com/sns](http://aws.amazon.com/sns/).
+  This action is idempotent, so if the requester already owns a topic with
+  the specified name, that topic's ARN is returned without creating a new
+  topic.
   """
   def create_topic(client, input, options \\ []) do
     request(client, "CreateTopic", input, options)
@@ -474,19 +475,19 @@ defmodule AWS.SNS do
     ]
 
     input = Map.merge(input, %{"Action" => action, "Version" => "2010-03-31"})
-    payload = AWS.Util.encode_query(input)
+    payload = encode!(client, input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(url, payload, headers, options)
+    post(client, url, payload, headers, options)
   end
 
-  defp post(url, payload, headers, options) do
-    case AWS.HTTP.request(:post, url, payload, headers, options) do
+  defp post(client, url, payload, headers, options) do
+    case do_request(client, :post, url, payload, headers, options) do
       {:ok, %{status_code: 200, body: body} = response} ->
-        body = if(body != "", do: AWS.Util.decode_xml(body))
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
-        {:error, AWS.Util.decode_xml(body)}
+        {:error, decode!(client, body)}
 
       error = {:error, _reason} -> error
     end
@@ -504,5 +505,24 @@ defmodule AWS.SNS do
 
   defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
+  end
+
+  defp do_request(client, method, url, payload, headers, options) do
+    {mod, fun} = Map.fetch(client, :http_client)
+    apply(mod, fun, [method, url, payload, headers, options])
+  end
+
+  defp encode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:encode)
+      |> Map.fetch(:query)
+    apply(mod, fun, [payload])
+  end
+
+  defp decode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:decode)
+      |> Map.fetch(:xml)
+    apply(mod, fun, [payload])
   end
 end

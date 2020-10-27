@@ -270,6 +270,9 @@ defmodule AWS.Glue do
 
   @doc """
   Delete the partition column statistics of a column.
+
+  The Identity and Access Management (IAM) permission required for this
+  operation is `DeletePartition`.
   """
   def delete_column_statistics_for_partition(client, input, options \\ []) do
     request(client, "DeleteColumnStatisticsForPartition", input, options)
@@ -277,6 +280,9 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves table statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this
+  operation is `DeleteTable`.
   """
   def delete_column_statistics_for_table(client, input, options \\ []) do
     request(client, "DeleteColumnStatisticsForTable", input, options)
@@ -438,6 +444,9 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves partition statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this
+  operation is `GetPartition`.
   """
   def get_column_statistics_for_partition(client, input, options \\ []) do
     request(client, "GetColumnStatisticsForPartition", input, options)
@@ -445,6 +454,9 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves table statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this
+  operation is `GetTable`.
   """
   def get_column_statistics_for_table(client, input, options \\ []) do
     request(client, "GetColumnStatisticsForTable", input, options)
@@ -1109,6 +1121,9 @@ defmodule AWS.Glue do
 
   @doc """
   Creates or updates partition statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this
+  operation is `UpdatePartition`.
   """
   def update_column_statistics_for_partition(client, input, options \\ []) do
     request(client, "UpdateColumnStatisticsForPartition", input, options)
@@ -1116,6 +1131,9 @@ defmodule AWS.Glue do
 
   @doc """
   Creates or updates table statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this
+  operation is `UpdateTable`.
   """
   def update_column_statistics_for_table(client, input, options \\ []) do
     request(client, "UpdateColumnStatisticsForTable", input, options)
@@ -1226,19 +1244,19 @@ defmodule AWS.Glue do
       {"X-Amz-Target", "AWSGlue.#{action}"}
     ]
 
-    payload = AWS.JSON.encode!(input)
+    payload = encode!(client, input)
     headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(url, payload, headers, options)
+    post(client, url, payload, headers, options)
   end
 
-  defp post(url, payload, headers, options) do
-    case AWS.HTTP.request(:post, url, payload, headers, options) do
+  defp post(client, url, payload, headers, options) do
+    case do_request(client, :post, url, payload, headers, options) do
       {:ok, %{status_code: 200, body: body} = response} ->
-        body = if(body != "", do: AWS.JSON.decode!(body))
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
-        {:error, AWS.JSON.decode!(body)}
+        {:error, decode!(client, body)}
 
       error = {:error, _reason} -> error
     end
@@ -1256,5 +1274,24 @@ defmodule AWS.Glue do
 
   defp build_url(host, %{:proto => proto, :port => port}) do
     "#{proto}://#{host}:#{port}/"
+  end
+
+  defp do_request(client, method, url, payload, headers, options) do
+    {mod, fun} = Map.fetch(client, :http_client)
+    apply(mod, fun, [method, url, payload, headers, options])
+  end
+
+  defp encode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:encode)
+      |> Map.fetch(:json)
+    apply(mod, fun, [payload])
+  end
+
+  defp decode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:decode)
+      |> Map.fetch(:json)
+    apply(mod, fun, [payload])
   end
 end

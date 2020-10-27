@@ -6344,38 +6344,38 @@ defmodule AWS.S3 do
     host = build_host("s3", client)
     url = host
     |> build_url(path, client)
-    |> add_query(query)
+    |> add_query(query, client)
 
     additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
     headers = AWS.Request.add_headers(additional_headers, headers)
 
-    payload = encode_payload(input)
+    payload = encode!(client, input)
     headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(method, url, payload, headers, options, success_status_code)
+    perform_request(client, method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(method, url, payload, headers, options, nil) do
-    case AWS.HTTP.request(method, url, payload, headers, options) do
+  defp perform_request(client, method, url, payload, headers, options, nil) do
+    case do_request(client, method, url, payload, headers, options) do
       {:ok, %{status_code: status_code, body: body} = response}
       when status_code in [200, 202, 204] ->
-        body = if(body != "", do: AWS.Util.decode_xml(body))
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
-        {:error, AWS.Util.decode_xml(body)}
+        {:error, decode!(client, body)}
 
       error = {:error, _reason} -> error
     end
   end
 
-  defp perform_request(method, url, payload, headers, options, success_status_code) do
-    case AWS.HTTP.request(method, url, payload, headers, options) do
+  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
+    case do_request(client, method, url, payload, headers, options) do
       {:ok, %{status_code: ^success_status_code, body: body} = response} ->
-        body = if(body != "", do: AWS.Util.decode_xml(body))
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
-        {:error, AWS.Util.decode_xml(body)}
+        {:error, decode!(client, body)}
 
       error = {:error, _reason} -> error
     end
@@ -6396,15 +6396,30 @@ defmodule AWS.S3 do
     "#{proto}://#{host}:#{port}#{path}"
   end
 
-  defp add_query(url, []) do
+  defp add_query(url, [], _client) do
     url
   end
-  defp add_query(url, query) do
-    querystring = AWS.Util.encode_query(query)
+  defp add_query(url, query, client) do
+    querystring = encode!(client, query, :query)
     "#{url}?#{querystring}"
   end
 
-  defp encode_payload(input) do
-    if input != nil, do: AWS.Util.encode_xml(input), else: ""
+  defp do_request(client, method, url, payload, headers, options) do
+    {mod, fun} = Map.fetch(client, :http_client)
+    apply(mod, fun, [method, url, payload, headers, options])
+  end
+
+  defp encode!(client, payload, type \\ :xml) do
+    {mod, fun} = client
+      |> Map.fetch(:encode)
+      |> Map.fetch(type)
+    apply(mod, fun, [payload])
+  end
+
+  defp decode!(client, payload) do
+    {mod, fun} = client
+      |> Map.fetch(:decode)
+      |> Map.fetch(:xml)
+    apply(mod, fun, [payload])
   end
 end

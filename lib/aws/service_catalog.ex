@@ -796,9 +796,9 @@ defmodule AWS.ServiceCatalog do
   end
 
   defp post(client, url, payload, headers, options) do
-    case do_request(client, :post, url, payload, headers, options) do
+    case AWS.Client.request(client, :post, url, payload, headers, options) do
       {:ok, %{status_code: 200, body: body} = response} ->
-        body = if(body != "", do: decode!(client, body))
+        body = if body != "", do: decode!(client, body)
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
@@ -822,22 +822,11 @@ defmodule AWS.ServiceCatalog do
     "#{proto}://#{host}:#{port}/"
   end
 
-  defp do_request(client, method, url, payload, headers, options) do
-    {mod, fun} = Map.fetch(client, :http_client)
-    apply(mod, fun, [method, url, payload, headers, options])
-  end
-
   defp encode!(client, payload) do
-    {mod, fun} = client
-      |> Map.fetch(:encode)
-      |> Map.fetch(:json)
-    apply(mod, fun, [payload])
+    AWS.Client.encode!(client, payload, :json)
   end
 
   defp decode!(client, payload) do
-    {mod, fun} = client
-      |> Map.fetch(:decode)
-      |> Map.fetch(:json)
-    apply(mod, fun, [payload])
+    AWS.Client.decode!(client, payload, :json)
   end
 end

@@ -65,4 +65,22 @@ defmodule AWS.Client do
                 region: region}
   end
 
+  def request(client, method, url, payload, headers, options) do
+    {mod, fun} = Map.fetch(client, :http_client)
+    apply(mod, fun, [method, url, payload, headers, options])
+  end
+
+  def encode!(client, payload, format) do
+    {mod, fun} = client
+    |> Map.fetch(:encode)
+    |> Map.fetch(format)
+    apply(mod, fun, [payload])
+  end
+
+  def decode!(client, payload, format) do
+    {mod, fun} = client
+    |> Map.fetch(:decode)
+    |> Map.fetch(format)
+    apply(mod, fun, [payload])
+  end
 end

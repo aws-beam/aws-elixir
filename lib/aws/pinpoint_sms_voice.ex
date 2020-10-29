@@ -122,7 +122,7 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   defp perform_request(client, method, url, payload, headers, options, nil) do
-    case do_request(client, method, url, payload, headers, options) do
+    case AWS.Client.request(client, method, url, payload, headers, options) do
       {:ok, %{status_code: status_code, body: body} = response}
       when status_code in [200, 202, 204] ->
         body = if(body != "", do: decode!(client, body))
@@ -136,9 +136,9 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case do_request(client, method, url, payload, headers, options) do
+    case AWS.Client.request(client, method, url, payload, headers, options) do
       {:ok, %{status_code: ^success_status_code, body: body} = response} ->
-        body = if(body != "", do: decode!(client, body))
+        body = if body != "", do: decode!(client, body)
         {:ok, body, response}
 
       {:ok, %{body: body}} ->
@@ -171,22 +171,11 @@ defmodule AWS.PinpointSMSVoice do
     "#{url}?#{querystring}"
   end
 
-  defp do_request(client, method, url, payload, headers, options) do
-    {mod, fun} = Map.fetch(client, :http_client)
-    apply(mod, fun, [method, url, payload, headers, options])
-  end
-
-  defp encode!(client, payload, type \\ :json) do
-    {mod, fun} = client
-      |> Map.fetch(:encode)
-      |> Map.fetch(type)
-    apply(mod, fun, [payload])
+  defp encode!(client, payload, format \\ :json) do
+    AWS.Client.encode!(client, payload, format)
   end
 
   defp decode!(client, payload) do
-    {mod, fun} = client
-      |> Map.fetch(:decode)
-      |> Map.fetch(:json)
-    apply(mod, fun, [payload])
+    AWS.Client.decode!(client, payload, :json)
   end
 end

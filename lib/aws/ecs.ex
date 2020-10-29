@@ -968,7 +968,6 @@ defmodule AWS.ECS do
 
   @spec request(AWS.Client.t(), binary(), map(), list()) ::
           {:ok, map() | nil, map()}
-          | {:error, map(), map()}
           | {:error, term()}
   defp request(client, action, input, options) do
     client = %{client | service: "ecs"}
@@ -992,8 +991,8 @@ defmodule AWS.ECS do
         body = if body != "", do: decode!(client, body)
         {:ok, body, response}
 
-      {:ok, %{body: body} = response} ->
-        {:error, decode!(client, body), response}
+      {:ok, response} ->
+        {:error, {:unexpected_response, response}}
 
       error = {:error, _reason} -> error
     end

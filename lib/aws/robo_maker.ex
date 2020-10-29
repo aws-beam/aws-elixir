@@ -621,7 +621,6 @@ defmodule AWS.RoboMaker do
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
           {:ok, map() | nil, map()}
-          | {:error, map(), map()}
           | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "robomaker"}
@@ -646,8 +645,8 @@ defmodule AWS.RoboMaker do
         body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
-      {:ok, %{body: body} = response} ->
-        {:error, decode!(client, body), response}
+      {:ok, response} ->
+        {:error, {:unexpected_response, response}}
 
       error = {:error, _reason} -> error
     end

@@ -1,4 +1,5 @@
 defmodule AWS.Util do
+  @moduledoc false
   import Record
 
   @text "__text"

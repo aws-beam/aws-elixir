@@ -430,7 +430,8 @@ defmodule AWS.Ivs do
   end
 
   @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, term()}
+          {:ok, map() | nil, map()}
+          | {:error, map(), map()}
           | {:error, term()}
   defp request(client, method, path, query, headers, input, options, success_status_code) do
     client = %{client | service: "ivs"}
@@ -455,8 +456,8 @@ defmodule AWS.Ivs do
         body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
-      {:ok, %{body: body}} ->
-        {:error, decode!(client, body)}
+      {:ok, %{body: body} = response} ->
+        {:error, decode!(client, body), response}
 
       error = {:error, _reason} -> error
     end

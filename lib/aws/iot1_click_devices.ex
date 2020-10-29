@@ -242,24 +242,12 @@ defmodule AWS.IoT1ClickDevices do
     perform_request(client, method, url, payload, headers, options, success_status_code)
   end
 
-  defp perform_request(client, method, url, payload, headers, options, nil) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when status_code in [200, 202, 204] ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, %{body: body}} ->
-        {:error, decode!(client, body)}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
   defp perform_request(client, method, url, payload, headers, options, success_status_code) do
     case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: ^success_status_code, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
+      {:ok, %{status_code: status_code, body: body} = response}
+      when is_nil(success_status_code) and status_code in [200, 202, 204]
+      when status_code == success_status_code ->
+        body = if(body != "", do: decode!(client, body))
         {:ok, body, response}
 
       {:ok, %{body: body}} ->

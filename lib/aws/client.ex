@@ -62,19 +62,20 @@ defmodule AWS.Client do
   end
 
   def request(client, method, url, payload, headers, _opts) do
-    {mod, options} = Map.fetch(client, :http_client)
+    {mod, options} = Map.fetch!(client, :http_client)
     apply(mod, :request, [method, url, payload, headers, options])
   end
 
   def encode!(_client, payload, :query), do: AWS.Util.encode_query(payload)
+
   def encode!(client, payload, format) do
-    {mod, opts} = Map.fetch(client, String.to_existing_atom("#{format}_module"))
+    {mod, opts} = Map.fetch!(client, String.to_existing_atom("#{format}_module"))
     fun = Keyword.get(opts, :encode, :encode!)
     apply(mod, fun, [payload, opts])
   end
 
   def decode!(client, payload, format) do
-    {mod, opts} = Map.fetch(client, String.to_existing_atom("#{format}_module"))
+    {mod, opts} = Map.fetch!(client, String.to_existing_atom("#{format}_module"))
     fun = Keyword.get(opts, :decode, :decode!)
     apply(mod, fun, [payload, opts])
   end

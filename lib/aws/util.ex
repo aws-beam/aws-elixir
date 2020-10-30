@@ -48,7 +48,7 @@ defmodule AWS.Util do
   @doc """
   Encode map into XML.
   """
-  def encode_xml(map) do
+  def encode_xml(map, _opts \\ []) do
     map
     |> Map.to_list
     |> Enum.map(&encode_xml_key_value/1)
@@ -58,7 +58,7 @@ defmodule AWS.Util do
   @doc """
   Decode XML.
   """
-  def decode_xml(xml) do
+  def decode_xml(xml, _opts \\ []) do
     xml_str = :unicode.characters_to_list(xml)
     opts = [{:hook_fun, &hook_fun/2}]
     {element, []} = :xmerl_scan.string(xml_str, opts)

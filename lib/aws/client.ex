@@ -11,13 +11,9 @@ defmodule AWS.Client do
             endpoint: "amazonaws.com",
             proto: "https",
             port: "443",
-            http_client: {HTTPoison, :request},
-            encode: %{json: {Poison.Parser, :parse!},
-                      xml: {AWS.Util, :encode_xml},
-                      query: {AWS.Util, :encode_query}},
-            decode: %{json: {Poison.Encoder, :encode},
-                      xml: {AWS.Util, :decode_xml},
-                      query: {AWS.Util, :decode_xml}}
+            http_client: {HTTPoison, []},
+            json_module: {Poison, [encode: :encode!, decode: :decode!]},
+            xml_module: {AWS.Util, [encode: :encode_xml, decode: :decode_xml]}
 
 
   @type t :: %__MODULE__{}
@@ -65,22 +61,21 @@ defmodule AWS.Client do
                 region: region}
   end
 
-  def request(client, method, url, payload, headers, options) do
-    {mod, fun} = Map.fetch(client, :http_client)
-    apply(mod, fun, [method, url, payload, headers, options])
+  def request(client, method, url, payload, headers, _opts) do
+    {mod, options} = Map.fetch(client, :http_client)
+    apply(mod, :request, [method, url, payload, headers, options])
   end
 
+  def encode!(_client, payload, :query), do: AWS.Util.encode_query(payload)
   def encode!(client, payload, format) do
-    {mod, fun} = client
-    |> Map.fetch(:encode)
-    |> Map.fetch(format)
-    apply(mod, fun, [payload])
+    {mod, opts} = Map.fetch(client, String.to_existim_atom("#{format}_module"))
+    fun = Keyword.get(opts, :encode, :encode!)
+    apply(mod, fun, opts)
   end
 
   def decode!(client, payload, format) do
-    {mod, fun} = client
-    |> Map.fetch(:decode)
-    |> Map.fetch(format)
-    apply(mod, fun, [payload])
+    {mod, opts} = Map.fetch(client, String.to_existim_atom("#{format}_module"))
+    fun = Keyword.get(opts, :decode, :decode!)
+    apply(mod, fun, opts)
   end
 end

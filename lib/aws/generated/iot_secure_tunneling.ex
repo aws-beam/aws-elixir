@@ -8,15 +8,14 @@ defmodule AWS.IoTSecureTunneling do
   AWS IoT Secure Tunnling enables you to create remote connections to devices
   deployed in the field.
 
-  For more information about how AWS IoT Secure Tunneling works, see the
-  [User
-  Guide](https://docs.aws.amazon.com/secure-tunneling/latest/ug/what-is-secure-tunneling.html).
+  For more information about how AWS IoT Secure Tunneling works, see the [User Guide](https://docs.aws.amazon.com/secure-tunneling/latest/ug/what-is-secure-tunneling.html).
   """
 
   @doc """
-  Closes a tunnel identified by the unique tunnel id. When a `CloseTunnel`
-  request is received, we close the WebSocket connections between the client
-  and proxy server so no data can be transmitted.
+  Closes a tunnel identified by the unique tunnel id.
+
+  When a `CloseTunnel` request is received, we close the WebSocket connections
+  between the client and proxy server so no data can be transmitted.
   """
   def close_tunnel(client, input, options \\ []) do
     request(client, "CloseTunnel", input, options)
@@ -37,16 +36,20 @@ defmodule AWS.IoTSecureTunneling do
   end
 
   @doc """
-  List all tunnels for an AWS account. Tunnels are listed by creation time in
-  descending order, newer tunnels will be listed before older tunnels.
+  List all tunnels for an AWS account.
+
+  Tunnels are listed by creation time in descending order, newer tunnels will be
+  listed before older tunnels.
   """
   def list_tunnels(client, input, options \\ []) do
     request(client, "ListTunnels", input, options)
   end
 
   @doc """
-  Creates a new tunnel, and returns two client access tokens for clients to
-  use to connect to the AWS IoT Secure Tunneling proxy server. .
+  Creates a new tunnel, and returns two client access tokens for clients to use to
+  connect to the AWS IoT Secure Tunneling proxy server.
+
+  .
   """
   def open_tunnel(client, input, options \\ []) do
     request(client, "OpenTunnel", input, options)

@@ -4,14 +4,15 @@
 defmodule AWS.Imagebuilder do
   @moduledoc """
   EC2 Image Builder is a fully managed AWS service that makes it easier to
-  automate the creation, management, and deployment of customized, secure,
-  and up-to-date “golden” server images that are pre-installed and
-  pre-configured with software and settings to meet specific IT standards.
+  automate the creation, management, and deployment of customized, secure, and
+  up-to-date “golden” server images that are pre-installed and pre-configured with
+  software and settings to meet specific IT standards.
   """
 
   @doc """
-  CancelImageCreation cancels the creation of Image. This operation can only
-  be used on images in a non-terminal state.
+  CancelImageCreation cancels the creation of Image.
+
+  This operation can only be used on images in a non-terminal state.
   """
   def cancel_image_creation(client, input, options \\ []) do
     path_ = "/CancelImageCreation"
@@ -21,8 +22,8 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new component that can be used to build, validate, test, and
-  assess your image.
+  Creates a new component that can be used to build, validate, test, and assess
+  your image.
   """
   def create_component(client, input, options \\ []) do
     path_ = "/CreateComponent"
@@ -32,8 +33,9 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new distribution configuration. Distribution configurations
-  define and configure the outputs of your pipeline.
+  Creates a new distribution configuration.
+
+  Distribution configurations define and configure the outputs of your pipeline.
   """
   def create_distribution_configuration(client, input, options \\ []) do
     path_ = "/CreateDistributionConfiguration"
@@ -43,8 +45,10 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new image. This request will create a new image along with all of
-  the configured output resources defined in the distribution configuration.
+  Creates a new image.
+
+  This request will create a new image along with all of the configured output
+  resources defined in the distribution configuration.
   """
   def create_image(client, input, options \\ []) do
     path_ = "/CreateImage"
@@ -54,8 +58,9 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new image pipeline. Image pipelines enable you to automate the
-  creation and distribution of images.
+  Creates a new image pipeline.
+
+  Image pipelines enable you to automate the creation and distribution of images.
   """
   def create_image_pipeline(client, input, options \\ []) do
     path_ = "/CreateImagePipeline"
@@ -65,8 +70,9 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new image recipe. Image recipes define how images are configured,
-  tested, and assessed.
+  Creates a new image recipe.
+
+  Image recipes define how images are configured, tested, and assessed.
   """
   def create_image_recipe(client, input, options \\ []) do
     path_ = "/CreateImageRecipe"
@@ -76,8 +82,10 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new infrastructure configuration. An infrastructure configuration
-  defines the environment in which your image will be built and tested.
+  Creates a new infrastructure configuration.
+
+  An infrastructure configuration defines the environment in which your image will
+  be built and tested.
   """
   def create_infrastructure_configuration(client, input, options \\ []) do
     path_ = "/CreateInfrastructureConfiguration"
@@ -316,8 +324,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns the list of component build versions for the specified semantic
-  version.
+  Returns the list of component build versions for the specified semantic version.
   """
   def list_component_build_versions(client, input, options \\ []) do
     path_ = "/ListComponentBuildVersions"
@@ -327,8 +334,7 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns the list of component build versions for the specified semantic
-  version.
+  Returns the list of component build versions for the specified semantic version.
   """
   def list_components(client, input, options \\ []) do
     path_ = "/ListComponents"
@@ -418,13 +424,14 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to a component. We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
-  to share resources. If you call the Image Builder API `PutComponentPolicy`,
-  you must also call the RAM API
+  Applies a policy to a component.
+
+  We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API `PutComponentPolicy`, you
+  must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be visible to all principals with whom the
-  resource is shared.
+  in order for the resource to be visible to all principals with whom the resource
+  is shared.
   """
   def put_component_policy(client, input, options \\ []) do
     path_ = "/PutComponentPolicy"
@@ -434,13 +441,14 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to an image. We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
-  to share resources. If you call the Image Builder API `PutImagePolicy`, you
-  must also call the RAM API
+  Applies a policy to an image.
+
+  We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API `PutImagePolicy`, you must
+  also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be visible to all principals with whom the
-  resource is shared.
+  in order for the resource to be visible to all principals with whom the resource
+  is shared.
   """
   def put_image_policy(client, input, options \\ []) do
     path_ = "/PutImagePolicy"
@@ -450,13 +458,14 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to an image recipe. We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
-  to share resources. If you call the Image Builder API
-  `PutImageRecipePolicy`, you must also call the RAM API
+  Applies a policy to an image recipe.
+
+  We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API `PutImageRecipePolicy`,
+  you must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be visible to all principals with whom the
-  resource is shared.
+  in order for the resource to be visible to all principals with whom the resource
+  is shared.
   """
   def put_image_recipe_policy(client, input, options \\ []) do
     path_ = "/PutImageRecipePolicy"
@@ -500,8 +509,9 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new distribution configuration. Distribution configurations
-  define and configure the outputs of your pipeline.
+  Updates a new distribution configuration.
+
+  Distribution configurations define and configure the outputs of your pipeline.
   """
   def update_distribution_configuration(client, input, options \\ []) do
     path_ = "/UpdateDistributionConfiguration"
@@ -511,8 +521,9 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new image pipeline. Image pipelines enable you to automate the
-  creation and distribution of images.
+  Updates a new image pipeline.
+
+  Image pipelines enable you to automate the creation and distribution of images.
   """
   def update_image_pipeline(client, input, options \\ []) do
     path_ = "/UpdateImagePipeline"
@@ -522,8 +533,10 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new infrastructure configuration. An infrastructure configuration
-  defines the environment in which your image will be built and tested.
+  Updates a new infrastructure configuration.
+
+  An infrastructure configuration defines the environment in which your image will
+  be built and tested.
   """
   def update_infrastructure_configuration(client, input, options \\ []) do
     path_ = "/UpdateInfrastructureConfiguration"

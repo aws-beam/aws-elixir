@@ -5,38 +5,34 @@ defmodule AWS.IoT do
   @moduledoc """
   AWS IoT
 
-  AWS IoT provides secure, bi-directional communication between
-  Internet-connected devices (such as sensors, actuators, embedded devices,
-  or smart appliances) and the AWS cloud. You can discover your custom
-  IoT-Data endpoint to communicate with, configure rules for data processing
-  and integration with other services, organize resources associated with
-  each device (Registry), configure logging, and create and manage policies
-  and credentials to authenticate devices.
+  AWS IoT provides secure, bi-directional communication between Internet-connected
+  devices (such as sensors, actuators, embedded devices, or smart appliances) and
+  the AWS cloud.
 
-  The service endpoints that expose this API are listed in [AWS IoT Core
-  Endpoints and
-  Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html). You
-  must use the endpoint for the region that has the resources you want to
-  access.
+  You can discover your custom IoT-Data endpoint to communicate with, configure
+  rules for data processing and integration with other services, organize
+  resources associated with each device (Registry), configure logging, and create
+  and manage policies and credentials to authenticate devices.
 
-  The service name used by [AWS Signature Version
-  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
-  to sign the request is: *execute-api*.
+  The service endpoints that expose this API are listed in [AWS IoT Core Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html). You
+  must use the endpoint for the region that has the resources you want to access.
 
-  For more information about how AWS IoT works, see the [Developer
-  Guide](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html).
+  The service name used by [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to
+  sign the request is: *execute-api*.
+
+  For more information about how AWS IoT works, see the [Developer Guide](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html).
 
   For information about how to use the credentials provider for AWS IoT, see
-  [Authorizing Direct Calls to AWS
-  Services](https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html).
+  [Authorizing Direct Calls to AWS Services](https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html).
   """
 
   @doc """
-  Accepts a pending certificate transfer. The default state of the
-  certificate is INACTIVE.
+  Accepts a pending certificate transfer.
 
-  To check for pending certificate transfers, call `ListCertificates` to
-  enumerate your certificates.
+  The default state of the certificate is INACTIVE.
+
+  To check for pending certificate transfers, call `ListCertificates` to enumerate
+  your certificates.
   """
   def accept_certificate_transfer(client, certificate_id, input, options \\ []) do
     path_ = "/accept-certificate-transfer/#{URI.encode(certificate_id)}"
@@ -70,18 +66,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Associates a group with a continuous job. The following criteria must be
-  met:
+  Associates a group with a continuous job.
 
-  <ul> <li> The job must have been created with the `targetSelection` field
+  The following criteria must be met:
+
+    * The job must have been created with the `targetSelection` field
   set to "CONTINUOUS".
 
-  </li> <li> The job status must currently be "IN_PROGRESS".
+    * The job status must currently be "IN_PROGRESS".
 
-  </li> <li> The total number of targets associated with a job must not
-  exceed 100.
-
-  </li> </ul>
+    * The total number of targets associated with a job must not exceed
+  100.
   """
   def associate_targets_with_job(client, job_id, input, options \\ []) do
     path_ = "/jobs/#{URI.encode(job_id)}/targets"
@@ -101,8 +96,8 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Attaches the specified policy to the specified principal (certificate or
-  other credential).
+  Attaches the specified policy to the specified principal (certificate or other
+  credential).
 
   **Note:** This API is deprecated. Please use `AttachPolicy` instead.
   """
@@ -119,8 +114,10 @@ defmodule AWS.IoT do
 
   @doc """
   Associates a Device Defender security profile with a thing group or this
-  account. Each thing group or account can have up to five security profiles
-  associated with it.
+  account.
+
+  Each thing group or account can have up to five security profiles associated
+  with it.
   """
   def attach_security_profile(client, security_profile_name, input, options \\ []) do
     path_ = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
@@ -134,9 +131,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Attaches the specified principal to the specified thing. A principal can be
-  X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities
-  or federated identities.
+  Attaches the specified principal to the specified thing.
+
+  A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
+  Cognito identities or federated identities.
   """
   def attach_thing_principal(client, thing_name, input, options \\ []) do
     path_ = "/things/#{URI.encode(thing_name)}/principals"
@@ -150,8 +148,9 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Cancels a mitigation action task that is in progress. If the task is not in
-  progress, an InvalidRequestException occurs.
+  Cancels a mitigation action task that is in progress.
+
+  If the task is not in progress, an InvalidRequestException occurs.
   """
   def cancel_audit_mitigation_actions_task(client, task_id, input, options \\ []) do
     path_ = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}/cancel"
@@ -161,9 +160,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Cancels an audit that is in progress. The audit can be either scheduled or
-  on-demand. If the audit is not in progress, an "InvalidRequestException"
-  occurs.
+  Cancels an audit that is in progress.
+
+  The audit can be either scheduled or on-demand. If the audit is not in progress,
+  an "InvalidRequestException" occurs.
   """
   def cancel_audit_task(client, task_id, input, options \\ []) do
     path_ = "/audit/tasks/#{URI.encode(task_id)}/cancel"
@@ -175,14 +175,14 @@ defmodule AWS.IoT do
   @doc """
   Cancels a pending transfer for the specified certificate.
 
-  **Note** Only the transfer source account can use this operation to cancel
-  a transfer. (Transfer destinations can use `RejectCertificateTransfer`
-  instead.) After transfer, AWS IoT returns the certificate to the source
-  account in the INACTIVE state. After the destination account has accepted
-  the transfer, the transfer cannot be cancelled.
+  **Note** Only the transfer source account can use this operation to cancel a
+  transfer. (Transfer destinations can use `RejectCertificateTransfer` instead.)
+  After transfer, AWS IoT returns the certificate to the source account in the
+  INACTIVE state. After the destination account has accepted the transfer, the
+  transfer cannot be cancelled.
 
-  After a certificate transfer is cancelled, the status of the certificate
-  changes from PENDING_TRANSFER to INACTIVE.
+  After a certificate transfer is cancelled, the status of the certificate changes
+  from PENDING_TRANSFER to INACTIVE.
   """
   def cancel_certificate_transfer(client, certificate_id, input, options \\ []) do
     path_ = "/cancel-certificate-transfer/#{URI.encode(certificate_id)}"
@@ -230,11 +230,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Confirms a topic rule destination. When you create a rule requiring a
-  destination, AWS IoT sends a confirmation message to the endpoint or base
-  address you specify. The message includes a token which you pass back when
-  calling `ConfirmTopicRuleDestination` to confirm that you own or have
-  access to the endpoint.
+  Confirms a topic rule destination.
+
+  When you create a rule requiring a destination, AWS IoT sends a confirmation
+  message to the endpoint or base address you specify. The message includes a
+  token which you pass back when calling `ConfirmTopicRuleDestination` to confirm
+  that you own or have access to the endpoint.
   """
   def confirm_topic_rule_destination(client, confirmation_token, options \\ []) do
     path_ = "/confirmdestination/#{AWS.Util.encode_uri(confirmation_token, true)}"
@@ -274,51 +275,47 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates an X.509 certificate using the specified certificate signing
-  request.
+  Creates an X.509 certificate using the specified certificate signing request.
 
-  **Note:** The CSR must include a public key that is either an RSA key with
-  a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384
-  curves.
+  **Note:** The CSR must include a public key that is either an RSA key with a
+  length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves.
 
   **Note:** Reusing the same certificate signing request (CSR) results in a
   distinct certificate.
 
-  You can create multiple certificates in a batch by creating a directory,
-  copying multiple .csr files into that directory, and then specifying that
-  directory on the command line. The following commands show how to create a
-  batch of certificates given a batch of CSRs.
+  You can create multiple certificates in a batch by creating a directory, copying
+  multiple .csr files into that directory, and then specifying that directory on
+  the command line. The following commands show how to create a batch of
+  certificates given a batch of CSRs.
 
-  Assuming a set of CSRs are located inside of the directory
-  my-csr-directory:
+  Assuming a set of CSRs are located inside of the directory my-csr-directory:
 
   On Linux and OS X, the command is:
 
   $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
   --certificate-signing-request file://my-csr-directory/{}
 
-  This command lists all of the CSRs in my-csr-directory and pipes each CSR
-  file name to the aws iot create-certificate-from-csr AWS CLI command to
-  create a certificate for the corresponding CSR.
+  This command lists all of the CSRs in my-csr-directory and pipes each CSR file
+  name to the aws iot create-certificate-from-csr AWS CLI command to create a
+  certificate for the corresponding CSR.
 
-  The aws iot create-certificate-from-csr part of the command can also be run
-  in parallel to speed up the certificate creation process:
+  The aws iot create-certificate-from-csr part of the command can also be run in
+  parallel to speed up the certificate creation process:
 
-  $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot
-  create-certificate-from-csr --certificate-signing-request
-  file://my-csr-directory/{}
+  $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
+  --certificate-signing-request file://my-csr-directory/{}
 
   On Windows PowerShell, the command to create certificates for all CSRs in
   my-csr-directory is:
 
-  &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
+  > ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
   --certificate-signing-request file://my-csr-directory/$_}
 
-  On a Windows command prompt, the command to create certificates for all
-  CSRs in my-csr-directory is:
+  On a Windows command prompt, the command to create certificates for all CSRs in
+  my-csr-directory is:
 
-  &gt; forfiles /p my-csr-directory /c "cmd /c aws iot
-  create-certificate-from-csr --certificate-signing-request file://@path"
+  > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
+  --certificate-signing-request file://@path"
   """
   def create_certificate_from_csr(client, input, options \\ []) do
     path_ = "/certificates"
@@ -332,10 +329,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Create a dimension that you can use to limit the scope of a metric used in
-  a security profile for AWS IoT Device Defender. For example, using a
-  `TOPIC_FILTER` dimension, you can narrow down the scope of the metric only
-  to MQTT topics whose name match the pattern specified in the dimension.
+  Create a dimension that you can use to limit the scope of a metric used in a
+  security profile for AWS IoT Device Defender.
+
+  For example, using a `TOPIC_FILTER` dimension, you can narrow down the scope of
+  the metric only to MQTT topics whose name match the pattern specified in the
+  dimension.
   """
   def create_dimension(client, name, input, options \\ []) do
     path_ = "/dimensions/#{URI.encode(name)}"
@@ -347,10 +346,7 @@ defmodule AWS.IoT do
   @doc """
   Creates a domain configuration.
 
-  <note> The domain configuration feature is in public preview and is subject
-  to change.
-
-  </note>
+  The domain configuration feature is in public preview and is subject to change.
   """
   def create_domain_configuration(client, domain_configuration_name, input, options \\ []) do
     path_ = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
@@ -380,10 +376,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a 2048-bit RSA key pair and issues an X.509 certificate using the
-  issued public key. You can also call `CreateKeysAndCertificate` over MQTT
-  from a device, for more information, see [Provisioning MQTT
-  API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
+  Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
+  public key.
+
+  You can also call `CreateKeysAndCertificate` over MQTT from a device, for more
+  information, see [Provisioning MQTT API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
 
   **Note** This is the only time AWS IoT issues the private key for this
   certificate, so it is important to keep it in a secure location.
@@ -401,10 +398,10 @@ defmodule AWS.IoT do
 
   @doc """
   Defines an action that can be applied to audit findings by using
-  StartAuditMitigationActionsTask. Only certain types of mitigation actions
-  can be applied to specific check names. For more information, see
-  [Mitigation
-  actions](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html).
+  StartAuditMitigationActionsTask.
+
+  Only certain types of mitigation actions can be applied to specific check names.
+  For more information, see [Mitigation actions](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html).
   Each mitigation action can apply only one type of change.
   """
   def create_mitigation_action(client, action_name, input, options \\ []) do
@@ -427,9 +424,9 @@ defmodule AWS.IoT do
   @doc """
   Creates an AWS IoT policy.
 
-  The created policy is the default version for the policy. This operation
-  creates a policy version with a version identifier of **1** and sets **1**
-  as the policy's default version.
+  The created policy is the default version for the policy. This operation creates
+  a policy version with a version identifier of **1** and sets **1** as the
+  policy's default version.
   """
   def create_policy(client, policy_name, input, options \\ []) do
     path_ = "/policies/#{URI.encode(policy_name)}"
@@ -439,14 +436,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a new version of the specified AWS IoT policy. To update a policy,
-  create a new policy version. A managed policy can have up to five versions.
-  If the policy has five versions, you must use `DeletePolicyVersion` to
-  delete an existing version before you create a new one.
+  Creates a new version of the specified AWS IoT policy.
 
-  Optionally, you can set the new version as the policy's default version.
-  The default version is the operative version (that is, the version that is
-  in effect for the certificates to which the policy is attached).
+  To update a policy, create a new policy version. A managed policy can have up to
+  five versions. If the policy has five versions, you must use
+  `DeletePolicyVersion` to delete an existing version before you create a new one.
+
+  Optionally, you can set the new version as the policy's default version. The
+  default version is the operative version (that is, the version that is in effect
+  for the certificates to which the policy is attached).
   """
   def create_policy_version(client, policy_name, input, options \\ []) do
     path_ = "/policies/#{URI.encode(policy_name)}/version"
@@ -524,10 +522,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a stream for delivering one or more large files in chunks over
-  MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT
-  messages from a source like S3. You can have one or more files associated
-  with a stream.
+  Creates a stream for delivering one or more large files in chunks over MQTT.
+
+  A stream transports data bytes in chunks or blocks packaged as MQTT messages
+  from a source like S3. You can have one or more files associated with a stream.
   """
   def create_stream(client, stream_id, input, options \\ []) do
     path_ = "/streams/#{URI.encode(stream_id)}"
@@ -537,16 +535,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a thing record in the registry. If this call is made multiple times
-  using the same thing name and configuration, the call will succeed. If this
-  call is made with the same thing name but different configuration a
-  `ResourceAlreadyExistsException` is thrown.
+  Creates a thing record in the registry.
 
-  <note> This is a control plane operation. See
+  If this call is made multiple times using the same thing name and configuration,
+  the call will succeed. If this call is made with the same thing name but
+  different configuration a `ResourceAlreadyExistsException` is thrown.
+
+  This is a control plane operation. See
   [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html)
   for information about authorizing control plane actions.
-
-  </note>
   """
   def create_thing(client, thing_name, input, options \\ []) do
     path_ = "/things/#{URI.encode(thing_name)}"
@@ -558,11 +555,9 @@ defmodule AWS.IoT do
   @doc """
   Create a thing group.
 
-  <note> This is a control plane operation. See
+  This is a control plane operation. See
   [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html)
   for information about authorizing control plane actions.
-
-  </note>
   """
   def create_thing_group(client, thing_group_name, input, options \\ []) do
     path_ = "/thing-groups/#{URI.encode(thing_group_name)}"
@@ -582,9 +577,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a rule. Creating rules is an administrator-level action. Any user
-  who has permission to create rules will be able to access data processed by
-  the rule.
+  Creates a rule.
+
+  Creating rules is an administrator-level action. Any user who has permission to
+  create rules will be able to access data processed by the rule.
   """
   def create_topic_rule(client, rule_name, input, options \\ []) do
     path_ = "/rules/#{URI.encode(rule_name)}"
@@ -598,8 +594,9 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a topic rule destination. The destination must be confirmed prior
-  to use.
+  Creates a topic rule destination.
+
+  The destination must be confirmed prior to use.
   """
   def create_topic_rule_destination(client, input, options \\ []) do
     path_ = "/destinations"
@@ -610,8 +607,9 @@ defmodule AWS.IoT do
 
   @doc """
   Restores the default settings for Device Defender audits for this account.
-  Any configuration data you entered is deleted and all audit checks are
-  reset to disabled.
+
+  Any configuration data you entered is deleted and all audit checks are reset to
+  disabled.
   """
   def delete_account_audit_configuration(client, input, options \\ []) do
     path_ = "/audit/configuration"
@@ -671,9 +669,9 @@ defmodule AWS.IoT do
   @doc """
   Deletes the specified certificate.
 
-  A certificate cannot be deleted if it has a policy or IoT thing attached to
-  it or if its status is set to ACTIVE. To delete a certificate, first use
-  the `DetachPrincipalPolicy` API to detach all policies. Next, use the
+  A certificate cannot be deleted if it has a policy or IoT thing attached to it
+  or if its status is set to ACTIVE. To delete a certificate, first use the
+  `DetachPrincipalPolicy` API to detach all policies. Next, use the
   `UpdateCertificate` API to set the certificate to the INACTIVE status.
   """
   def delete_certificate(client, certificate_id, input, options \\ []) do
@@ -700,10 +698,7 @@ defmodule AWS.IoT do
   @doc """
   Deletes the specified domain configuration.
 
-  <note> The domain configuration feature is in public preview and is subject
-  to change.
-
-  </note>
+  The domain configuration feature is in public preview and is subject to change.
   """
   def delete_domain_configuration(client, domain_configuration_name, input, options \\ []) do
     path_ = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
@@ -729,11 +724,11 @@ defmodule AWS.IoT do
   @doc """
   Deletes a job and its related job executions.
 
-  Deleting a job may take time, depending on the number of job executions
-  created for the job and various other factors. While the job is being
-  deleted, the status of the job will be shown as "DELETION_IN_PROGRESS".
-  Attempting to delete or cancel a job whose status is already
-  "DELETION_IN_PROGRESS" will result in an error.
+  Deleting a job may take time, depending on the number of job executions created
+  for the job and various other factors. While the job is being deleted, the
+  status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete
+  or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an
+  error.
 
   Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a
   LimitExceededException will occur.
@@ -791,16 +786,15 @@ defmodule AWS.IoT do
   @doc """
   Deletes the specified policy.
 
-  A policy cannot be deleted if it has non-default versions or it is attached
-  to any certificate.
+  A policy cannot be deleted if it has non-default versions or it is attached to
+  any certificate.
 
-  To delete a policy, use the DeletePolicyVersion API to delete all
-  non-default versions of the policy; use the DetachPrincipalPolicy API to
-  detach the policy from any certificate; and then use the DeletePolicy API
-  to delete the policy.
+  To delete a policy, use the DeletePolicyVersion API to delete all non-default
+  versions of the policy; use the DetachPrincipalPolicy API to detach the policy
+  from any certificate; and then use the DeletePolicy API to delete the policy.
 
-  When a policy is deleted using DeletePolicy, its default version is deleted
-  with it.
+  When a policy is deleted using DeletePolicy, its default version is deleted with
+  it.
   """
   def delete_policy(client, policy_name, input, options \\ []) do
     path_ = "/policies/#{URI.encode(policy_name)}"
@@ -810,9 +804,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified version of the specified policy. You cannot delete
-  the default version of a policy using this API. To delete the default
-  version of a policy, use `DeletePolicy`. To find out which version of a
+  Deletes the specified version of the specified policy.
+
+  You cannot delete the default version of a policy using this API. To delete the
+  default version of a policy, use `DeletePolicy`. To find out which version of a
   policy is marked as the default version, use ListPolicyVersions.
   """
   def delete_policy_version(client, policy_name, policy_version_id, input, options \\ []) do
@@ -897,8 +892,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified thing. Returns successfully with no error if the
-  deletion is successful or you specify a thing that doesn't exist.
+  Deletes the specified thing.
+
+  Returns successfully with no error if the deletion is successful or you specify
+  a thing that doesn't exist.
   """
   def delete_thing(client, thing_name, input, options \\ []) do
     path_ = "/things/#{URI.encode(thing_name)}"
@@ -926,11 +923,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified thing type. You cannot delete a thing type if it has
-  things associated with it. To delete a thing type, first mark it as
-  deprecated by calling `DeprecateThingType`, then remove any associated
-  things by calling `UpdateThing` to change the thing type on any associated
-  thing, and finally use `DeleteThingType` to delete the thing type.
+  Deletes the specified thing type.
+
+  You cannot delete a thing type if it has things associated with it. To delete a
+  thing type, first mark it as deprecated by calling `DeprecateThingType`, then
+  remove any associated things by calling `UpdateThing` to change the thing type
+  on any associated thing, and finally use `DeleteThingType` to delete the thing
+  type.
   """
   def delete_thing_type(client, thing_type_name, input, options \\ []) do
     path_ = "/thing-types/#{URI.encode(thing_type_name)}"
@@ -975,8 +974,9 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deprecates a thing type. You can not associate new things with deprecated
-  thing type.
+  Deprecates a thing type.
+
+  You can not associate new things with deprecated thing type.
   """
   def deprecate_thing_type(client, thing_type_name, input, options \\ []) do
     path_ = "/thing-types/#{URI.encode(thing_type_name)}/deprecate"
@@ -987,8 +987,9 @@ defmodule AWS.IoT do
 
   @doc """
   Gets information about the Device Defender audit settings for this account.
-  Settings include how audit notifications are sent and which audit checks
-  are enabled or disabled.
+
+  Settings include how audit notifications are sent and which audit checks are
+  enabled or disabled.
   """
   def describe_account_audit_configuration(client, options \\ []) do
     path_ = "/audit/configuration"
@@ -998,9 +999,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets information about a single audit finding. Properties include the
-  reason for noncompliance, the severity of the issue, and when the audit
-  that returned the finding was started.
+  Gets information about a single audit finding.
+
+  Properties include the reason for noncompliance, the severity of the issue, and
+  when the audit that returned the finding was started.
   """
   def describe_audit_finding(client, finding_id, options \\ []) do
     path_ = "/audit/findings/#{URI.encode(finding_id)}"
@@ -1010,10 +1012,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets information about an audit mitigation task that is used to apply
-  mitigation actions to a set of audit findings. Properties include the
-  actions being applied, the audit checks to which they're being applied, the
-  task status, and aggregated task statistics.
+  Gets information about an audit mitigation task that is used to apply mitigation
+  actions to a set of audit findings.
+
+  Properties include the actions being applied, the audit checks to which they're
+  being applied, the task status, and aggregated task statistics.
   """
   def describe_audit_mitigation_actions_task(client, task_id, options \\ []) do
     path_ = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
@@ -1105,10 +1108,7 @@ defmodule AWS.IoT do
   @doc """
   Gets summary information about a domain configuration.
 
-  <note> The domain configuration feature is in public preview and is subject
-  to change.
-
-  </note>
+  The domain configuration feature is in public preview and is subject to change.
   """
   def describe_domain_configuration(client, domain_configuration_name, options \\ []) do
     path_ = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
@@ -1314,8 +1314,8 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Disassociates a Device Defender security profile from a thing group or from
-  this account.
+  Disassociates a Device Defender security profile from a thing group or from this
+  account.
   """
   def detach_security_profile(client, security_profile_name, input, options \\ []) do
     path_ = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
@@ -1329,14 +1329,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Detaches the specified principal from the specified thing. A principal can
-  be X.509 certificates, IAM users, groups, and roles, Amazon Cognito
-  identities or federated identities.
+  Detaches the specified principal from the specified thing.
 
-  <note> This call is asynchronous. It might take several seconds for the
-  detachment to propagate.
+  A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
+  Cognito identities or federated identities.
 
-  </note>
+  This call is asynchronous. It might take several seconds for the detachment to
+  propagate.
   """
   def detach_thing_principal(client, thing_name, input, options \\ []) do
     path_ = "/things/#{URI.encode(thing_name)}/principals"
@@ -1380,9 +1379,8 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets a list of the policies that have an effect on the authorization
-  behavior of the specified device when it connects to the AWS IoT device
-  gateway.
+  Gets a list of the policies that have an effect on the authorization behavior of
+  the specified device when it connects to the AWS IoT device gateway.
   """
   def get_effective_policies(client, input, options \\ []) do
     path_ = "/effective-policies"
@@ -1418,8 +1416,7 @@ defmodule AWS.IoT do
   @doc """
   Gets the logging options.
 
-  NOTE: use of this command is not recommended. Use `GetV2LoggingOptions`
-  instead.
+  NOTE: use of this command is not recommended. Use `GetV2LoggingOptions` instead.
   """
   def get_logging_options(client, options \\ []) do
     path_ = "/loggingOptions"
@@ -1439,16 +1436,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Groups the aggregated values that match the query into percentile
-  groupings. The default percentile groupings are: 1,5,25,50,75,95,99,
-  although you can specify your own when you call `GetPercentiles`. This
-  function returns a value for each percentile group specified (or the
-  default percentile groupings). The percentile group "1" contains the
-  aggregated field value that occurs in approximately one percent of the
-  values that match the query. The percentile group "5" contains the
-  aggregated field value that occurs in approximately five percent of the
-  values that match the query, and so on. The result is an approximation, the
-  more values that match the query, the more accurate the percentile values.
+  Groups the aggregated values that match the query into percentile groupings.
+
+  The default percentile groupings are: 1,5,25,50,75,95,99, although you can
+  specify your own when you call `GetPercentiles`. This function returns a value
+  for each percentile group specified (or the default percentile groupings). The
+  percentile group "1" contains the aggregated field value that occurs in
+  approximately one percent of the values that match the query. The percentile
+  group "5" contains the aggregated field value that occurs in approximately five
+  percent of the values that match the query, and so on. The result is an
+  approximation, the more values that match the query, the more accurate the
+  percentile values.
   """
   def get_percentiles(client, input, options \\ []) do
     path_ = "/indices/percentiles"
@@ -1489,9 +1487,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Returns the count, average, sum, minimum, maximum, sum of squares,
-  variance, and standard deviation for the specified aggregated field. If the
-  aggregation field is of type `String`, only the count statistic is
+  Returns the count, average, sum, minimum, maximum, sum of squares, variance, and
+  standard deviation for the specified aggregated field.
+
+  If the aggregation field is of type `String`, only the count statistic is
   returned.
   """
   def get_statistics(client, input, options \\ []) do
@@ -1579,8 +1578,9 @@ defmodule AWS.IoT do
 
   @doc """
   Lists the findings (results) of a Device Defender audit or of the audits
-  performed during a specified time period. (Findings are retained for 90
-  days.)
+  performed during a specified time period.
+
+  (Findings are retained for 90 days.)
   """
   def list_audit_findings(client, input, options \\ []) do
     path_ = "/audit/findings"
@@ -1625,8 +1625,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets a list of audit mitigation action tasks that match the specified
-  filters.
+  Gets a list of audit mitigation action tasks that match the specified filters.
   """
   def list_audit_mitigation_actions_tasks(client, audit_task_id \\ nil, end_time, finding_id \\ nil, max_results \\ nil, next_token \\ nil, start_time, task_status \\ nil, options \\ []) do
     path_ = "/audit/mitigationactions/tasks"
@@ -1681,8 +1680,8 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the Device Defender audits that have been performed during a given
-  time period.
+  Lists the Device Defender audits that have been performed during a given time
+  period.
   """
   def list_audit_tasks(client, end_time, max_results \\ nil, next_token \\ nil, start_time, task_status \\ nil, task_type \\ nil, options \\ []) do
     path_ = "/audit/tasks"
@@ -1878,13 +1877,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets a list of domain configurations for the user. This list is sorted
-  alphabetically by domain configuration name.
+  Gets a list of domain configurations for the user.
 
-  <note> The domain configuration feature is in public preview and is subject
-  to change.
+  This list is sorted alphabetically by domain configuration name.
 
-  </note>
+  The domain configuration feature is in public preview and is subject to change.
   """
   def list_domain_configurations(client, marker \\ nil, page_size \\ nil, service_type \\ nil, options \\ []) do
     path_ = "/domainConfigurations"
@@ -2019,8 +2016,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets a list of all mitigation actions that match the specified filter
-  criteria.
+  Gets a list of all mitigation actions that match the specified filter criteria.
   """
   def list_mitigation_actions(client, action_type \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/mitigationactions/actions"
@@ -2122,8 +2118,7 @@ defmodule AWS.IoT do
   @doc """
   Lists the principals associated with the specified policy.
 
-  **Note:** This API is deprecated. Please use `ListTargetsForPolicy`
-  instead.
+  **Note:** This API is deprecated. Please use `ListTargetsForPolicy` instead.
   """
   def list_policy_principals(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, policy_name, options \\ []) do
     path_ = "/policy-principals"
@@ -2153,8 +2148,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the versions of the specified policy and identifies the default
-  version.
+  Lists the versions of the specified policy and identifies the default version.
   """
   def list_policy_versions(client, policy_name, options \\ []) do
     path_ = "/policies/#{URI.encode(policy_name)}/version"
@@ -2164,12 +2158,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the policies attached to the specified principal. If you use an
-  Cognito identity, the ID must be in [AmazonCognito Identity
-  format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
+  Lists the policies attached to the specified principal.
 
-  **Note:** This API is deprecated. Please use `ListAttachedPolicies`
-  instead.
+  If you use an Cognito identity, the ID must be in [AmazonCognito Identity format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
+
+  **Note:** This API is deprecated. Please use `ListAttachedPolicies` instead.
   """
   def list_principal_policies(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, principal, options \\ []) do
     path_ = "/principal-policies"
@@ -2199,9 +2192,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the things associated with the specified principal. A principal can
-  be X.509 certificates, IAM users, groups, and roles, Amazon Cognito
-  identities or federated identities.
+  Lists the things associated with the specified principal.
+
+  A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
+  Cognito identities or federated identities.
   """
   def list_principal_things(client, max_results \\ nil, next_token \\ nil, principal, options \\ []) do
     path_ = "/principals/things"
@@ -2311,9 +2305,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the Device Defender security profiles you have created. You can use
-  filters to list only those security profiles associated with a thing group
-  or only those associated with your account.
+  Lists the Device Defender security profiles you have created.
+
+  You can use filters to list only those security profiles associated with a thing
+  group or only those associated with your account.
   """
   def list_security_profiles(client, dimension_name \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/security-profiles"
@@ -2338,8 +2333,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the Device Defender security profiles attached to a target (thing
-  group).
+  Lists the Device Defender security profiles attached to a target (thing group).
   """
   def list_security_profiles_for_target(client, max_results \\ nil, next_token \\ nil, recursive \\ nil, security_profile_target_arn, options \\ []) do
     path_ = "/security-profiles-for-target"
@@ -2505,9 +2499,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the principals associated with the specified thing. A principal can
-  be X.509 certificates, IAM users, groups, and roles, Amazon Cognito
-  identities or federated identities.
+  Lists the principals associated with the specified thing.
+
+  A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
+  Cognito identities or federated identities.
   """
   def list_thing_principals(client, thing_name, options \\ []) do
     path_ = "/things/#{URI.encode(thing_name)}/principals"
@@ -2592,17 +2587,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists your things. Use the **attributeName** and **attributeValue**
-  parameters to filter your things. For example, calling `ListThings` with
-  attributeName=Color and attributeValue=Red retrieves all things in the
-  registry that contain an attribute **Color** with the value **Red**.
+  Lists your things.
 
-  <note> You will not be charged for calling this API if an `Access denied`
-  error is returned. You will also not be charged if no attributes or
-  pagination token was provided in request and no pagination token and no
-  results were returned.
+  Use the **attributeName** and **attributeValue** parameters to filter your
+  things. For example, calling `ListThings` with attributeName=Color and
+  attributeValue=Red retrieves all things in the registry that contain an
+  attribute **Color** with the value **Red**.
 
-  </note>
+  You will not be charged for calling this API if an `Access denied` error is
+  returned. You will also not be charged if no attributes or pagination token was
+  provided in request and no pagination token and no results were returned.
   """
   def list_things(client, attribute_name \\ nil, attribute_value \\ nil, max_results \\ nil, next_token \\ nil, thing_type_name \\ nil, options \\ []) do
     path_ = "/things"
@@ -2758,8 +2752,10 @@ defmodule AWS.IoT do
 
   @doc """
   Lists the Device Defender security profile violations discovered during the
-  given time period. You can use filters to limit the results to those alerts
-  issued for a particular security profile, behavior, or thing (device).
+  given time period.
+
+  You can use filters to limit the results to those alerts issued for a particular
+  security profile, behavior, or thing (device).
   """
   def list_violation_events(client, end_time, max_results \\ nil, next_token \\ nil, security_profile_name \\ nil, start_time, thing_name \\ nil, options \\ []) do
     path_ = "/violation-events"
@@ -2799,12 +2795,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Registers a CA certificate with AWS IoT. This CA certificate can then be
-  used to sign device certificates, which can be then registered with AWS
-  IoT. You can register up to 10 CA certificates per AWS account that have
-  the same subject field. This enables you to have up to 10 certificate
-  authorities sign your device certificates. If you have more than one CA
-  certificate registered, make sure you pass the CA certificate when you
+  Registers a CA certificate with AWS IoT.
+
+  This CA certificate can then be used to sign device certificates, which can be
+  then registered with AWS IoT. You can register up to 10 CA certificates per AWS
+  account that have the same subject field. This enables you to have up to 10
+  certificate authorities sign your device certificates. If you have more than one
+  CA certificate registered, make sure you pass the CA certificate when you
   register your device certificates with the RegisterCertificate API.
   """
   def register_c_a_certificate(client, input, options \\ []) do
@@ -2820,9 +2817,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Registers a device certificate with AWS IoT. If you have more than one CA
-  certificate that has the same subject field, you must specify the CA
-  certificate that was used to sign the device certificate being registered.
+  Registers a device certificate with AWS IoT.
+
+  If you have more than one CA certificate that has the same subject field, you
+  must specify the CA certificate that was used to sign the device certificate
+  being registered.
   """
   def register_certificate(client, input, options \\ []) do
     path_ = "/certificate/register"
@@ -2846,13 +2845,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Provisions a thing in the device registry. RegisterThing calls other AWS
-  IoT control plane APIs. These calls might exceed your account level [ AWS
-  IoT Throttling
-  Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot)
-  and cause throttle errors. Please contact [AWS Customer
-  Support](https://console.aws.amazon.com/support/home) to raise your
-  throttling limits if necessary.
+  Provisions a thing in the device registry.
+
+  RegisterThing calls other AWS IoT control plane APIs. These calls might exceed
+  your account level [ AWS IoT Throttling Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot)
+  and cause throttle errors. Please contact [AWS Customer Support](https://console.aws.amazon.com/support/home) to raise your throttling
+  limits if necessary.
   """
   def register_thing(client, input, options \\ []) do
     path_ = "/things"
@@ -2862,16 +2860,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Rejects a pending certificate transfer. After AWS IoT rejects a certificate
-  transfer, the certificate status changes from **PENDING_TRANSFER** to
-  **INACTIVE**.
+  Rejects a pending certificate transfer.
 
-  To check for pending certificate transfers, call `ListCertificates` to
-  enumerate your certificates.
+  After AWS IoT rejects a certificate transfer, the certificate status changes
+  from **PENDING_TRANSFER** to **INACTIVE**.
+
+  To check for pending certificate transfers, call `ListCertificates` to enumerate
+  your certificates.
 
   This operation can only be called by the transfer destination. After it is
-  called, the certificate will be returned to the source's account in the
-  INACTIVE state.
+  called, the certificate will be returned to the source's account in the INACTIVE
+  state.
   """
   def reject_certificate_transfer(client, certificate_id, input, options \\ []) do
     path_ = "/reject-certificate-transfer/#{URI.encode(certificate_id)}"
@@ -2893,9 +2892,9 @@ defmodule AWS.IoT do
   @doc """
   Remove the specified thing from the specified group.
 
-  You must specify either a `thingGroupArn` or a `thingGroupName` to identify
-  the thing group and either a `thingArn` or a `thingName` to identify the
-  thing to remove from the thing group.
+  You must specify either a `thingGroupArn` or a `thingGroupName` to identify the
+  thing group and either a `thingArn` or a `thingName` to identify the thing to
+  remove from the thing group.
   """
   def remove_thing_from_thing_group(client, input, options \\ []) do
     path_ = "/thing-groups/removeThingFromThingGroup"
@@ -2905,10 +2904,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Replaces the rule. You must specify all parameters for the new rule.
-  Creating rules is an administrator-level action. Any user who has
-  permission to create rules will be able to access data processed by the
-  rule.
+  Replaces the rule.
+
+  You must specify all parameters for the new rule. Creating rules is an
+  administrator-level action. Any user who has permission to create rules will be
+  able to access data processed by the rule.
   """
   def replace_topic_rule(client, rule_name, input, options \\ []) do
     path_ = "/rules/#{URI.encode(rule_name)}"
@@ -2928,8 +2928,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Sets the default authorizer. This will be used if a websocket connection is
-  made without specifying an authorizer.
+  Sets the default authorizer.
+
+  This will be used if a websocket connection is made without specifying an
+  authorizer.
   """
   def set_default_authorizer(client, input, options \\ []) do
     path_ = "/default-authorizer"
@@ -2940,9 +2942,10 @@ defmodule AWS.IoT do
 
   @doc """
   Sets the specified version of the specified policy as the policy's default
-  (operative) version. This action affects all certificates to which the
-  policy is attached. To list the principals the policy is attached to, use
-  the ListPrincipalPolicy API.
+  (operative) version.
+
+  This action affects all certificates to which the policy is attached. To list
+  the principals the policy is attached to, use the ListPrincipalPolicy API.
   """
   def set_default_policy_version(client, policy_name, policy_version_id, input, options \\ []) do
     path_ = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
@@ -2954,8 +2957,7 @@ defmodule AWS.IoT do
   @doc """
   Sets the logging options.
 
-  NOTE: use of this command is not recommended. Use `SetV2LoggingOptions`
-  instead.
+  NOTE: use of this command is not recommended. Use `SetV2LoggingOptions` instead.
   """
   def set_logging_options(client, input, options \\ []) do
     path_ = "/loggingOptions"
@@ -2985,8 +2987,7 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Starts a task that applies a set of mitigation actions to the specified
-  target.
+  Starts a task that applies a set of mitigation actions to the specified target.
   """
   def start_audit_mitigation_actions_task(client, task_id, input, options \\ []) do
     path_ = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
@@ -3026,8 +3027,9 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource. Tags are metadata which
-  can be used to manage a resource.
+  Adds to or modifies the tags of the given resource.
+
+  Tags are metadata which can be used to manage a resource.
   """
   def tag_resource(client, input, options \\ []) do
     path_ = "/tags"
@@ -3037,9 +3039,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Tests if a specified principal is authorized to perform an AWS IoT action
-  on a specified resource. Use this to test and debug the authorization
-  behavior of devices that connect to the AWS IoT device gateway.
+  Tests if a specified principal is authorized to perform an AWS IoT action on a
+  specified resource.
+
+  Use this to test and debug the authorization behavior of devices that connect to
+  the AWS IoT device gateway.
   """
   def test_authorization(client, input, options \\ []) do
     path_ = "/test-authorization"
@@ -3053,9 +3057,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Tests a custom authorization behavior by invoking a specified custom
-  authorizer. Use this to test and debug the custom authorization behavior of
-  devices that connect to the AWS IoT device gateway.
+  Tests a custom authorization behavior by invoking a specified custom authorizer.
+
+  Use this to test and debug the custom authorization behavior of devices that
+  connect to the AWS IoT device gateway.
   """
   def test_invoke_authorizer(client, authorizer_name, input, options \\ []) do
     path_ = "/authorizer/#{URI.encode(authorizer_name)}/test"
@@ -3069,11 +3074,11 @@ defmodule AWS.IoT do
 
   You can cancel the transfer until it is acknowledged by the recipient.
 
-  No notification is sent to the transfer destination's account. It is up to
-  the caller to notify the transfer target.
+  No notification is sent to the transfer destination's account. It is up to the
+  caller to notify the transfer target.
 
-  The certificate being transferred must not be in the ACTIVE state. You can
-  use the UpdateCertificate API to deactivate it.
+  The certificate being transferred must not be in the ACTIVE state. You can use
+  the UpdateCertificate API to deactivate it.
 
   The certificate must not have any policies attached to it. You can use the
   DetachPrincipalPolicy API to detach them.
@@ -3100,9 +3105,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Configures or reconfigures the Device Defender audit settings for this
-  account. Settings include how audit notifications are sent and which audit
-  checks are enabled or disabled.
+  Configures or reconfigures the Device Defender audit settings for this account.
+
+  Settings include how audit notifications are sent and which audit checks are
+  enabled or disabled.
   """
   def update_account_audit_configuration(client, input, options \\ []) do
     path_ = "/audit/configuration"
@@ -3157,16 +3163,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates the status of the specified certificate. This operation is
-  idempotent.
+  Updates the status of the specified certificate.
+
+  This operation is idempotent.
 
   Certificates must be in the ACTIVE state to authenticate devices that use a
   certificate to connect to AWS IoT.
 
   Within a few minutes of updating a certificate from the ACTIVE state to any
   other state, AWS IoT disconnects all devices that used that certificate to
-  connect. Devices cannot use a certificate that is not in the ACTIVE state
-  to reconnect.
+  connect. Devices cannot use a certificate that is not in the ACTIVE state to
+  reconnect.
   """
   def update_certificate(client, certificate_id, input, options \\ []) do
     path_ = "/certificates/#{URI.encode(certificate_id)}"
@@ -3180,8 +3187,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates the definition for a dimension. You cannot change the type of a
-  dimension after it is created (you can delete it and re-create it).
+  Updates the definition for a dimension.
+
+  You cannot change the type of a dimension after it is created (you can delete it
+  and re-create it).
   """
   def update_dimension(client, name, input, options \\ []) do
     path_ = "/dimensions/#{URI.encode(name)}"
@@ -3191,13 +3200,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates values stored in the domain configuration. Domain configurations
-  for default endpoints can't be updated.
+  Updates values stored in the domain configuration.
 
-  <note> The domain configuration feature is in public preview and is subject
-  to change.
+  Domain configurations for default endpoints can't be updated.
 
-  </note>
+  The domain configuration feature is in public preview and is subject to change.
   """
   def update_domain_configuration(client, domain_configuration_name, input, options \\ []) do
     path_ = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
@@ -3277,8 +3284,8 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates a scheduled audit, including which checks are performed and how
-  often the audit takes place.
+  Updates a scheduled audit, including which checks are performed and how often
+  the audit takes place.
   """
   def update_scheduled_audit(client, scheduled_audit_name, input, options \\ []) do
     path_ = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
@@ -3302,7 +3309,9 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates an existing stream. The stream version will be incremented by one.
+  Updates an existing stream.
+
+  The stream version will be incremented by one.
   """
   def update_stream(client, stream_id, input, options \\ []) do
     path_ = "/streams/#{URI.encode(stream_id)}"
@@ -3342,8 +3351,10 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates a topic rule destination. You use this to change the status,
-  endpoint URL, or confirmation URL of the destination.
+  Updates a topic rule destination.
+
+  You use this to change the status, endpoint URL, or confirmation URL of the
+  destination.
   """
   def update_topic_rule_destination(client, input, options \\ []) do
     path_ = "/destinations"

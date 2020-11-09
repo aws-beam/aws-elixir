@@ -5,20 +5,22 @@ defmodule AWS.ApplicationInsights do
   @moduledoc """
   Amazon CloudWatch Application Insights for .NET and SQL Server
 
-  Amazon CloudWatch Application Insights for .NET and SQL Server is a service
-  that helps you detect common problems with your .NET and SQL Server-based
-  applications. It enables you to pinpoint the source of issues in your
-  applications (built with technologies such as Microsoft IIS, .NET, and
-  Microsoft SQL Server), by providing key insights into detected problems.
+  Amazon CloudWatch Application Insights for .NET and SQL Server is a service that
+  helps you detect common problems with your .NET and SQL Server-based
+  applications.
 
-  After you onboard your application, CloudWatch Application Insights for
-  .NET and SQL Server identifies, recommends, and sets up metrics and logs.
-  It continuously analyzes and correlates your metrics and logs for unusual
-  behavior to surface actionable problems with your application. For example,
-  if your application is slow and unresponsive and leading to HTTP 500 errors
-  in your Application Load Balancer (ALB), Application Insights informs you
-  that a memory pressure problem with your SQL Server database is occurring.
-  It bases this analysis on impactful metrics and log errors.
+  It enables you to pinpoint the source of issues in your applications (built with
+  technologies such as Microsoft IIS, .NET, and Microsoft SQL Server), by
+  providing key insights into detected problems.
+
+  After you onboard your application, CloudWatch Application Insights for .NET and
+  SQL Server identifies, recommends, and sets up metrics and logs. It continuously
+  analyzes and correlates your metrics and logs for unusual behavior to surface
+  actionable problems with your application. For example, if your application is
+  slow and unresponsive and leading to HTTP 500 errors in your Application Load
+  Balancer (ALB), Application Insights informs you that a memory pressure problem
+  with your SQL Server database is occurring. It bases this analysis on impactful
+  metrics and log errors.
   """
 
   @doc """
@@ -29,8 +31,7 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
-  Creates a custom component by grouping similar standalone instances to
-  monitor.
+  Creates a custom component by grouping similar standalone instances to monitor.
   """
   def create_component(client, input, options \\ []) do
     request(client, "CreateComponent", input, options)
@@ -44,17 +45,19 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
-  Removes the specified application from monitoring. Does not delete the
-  application.
+  Removes the specified application from monitoring.
+
+  Does not delete the application.
   """
   def delete_application(client, input, options \\ []) do
     request(client, "DeleteApplication", input, options)
   end
 
   @doc """
-  Ungroups a custom component. When you ungroup custom components, all
-  applicable monitors that are set up for the component are removed and the
-  instances revert to their standalone status.
+  Ungroups a custom component.
+
+  When you ungroup custom components, all applicable monitors that are set up for
+  the component are removed and the instances revert to their standalone status.
   """
   def delete_component(client, input, options \\ []) do
     request(client, "DeleteComponent", input, options)
@@ -75,8 +78,8 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
-  Describes a component and lists the resources that are grouped together in
-  a component.
+  Describes a component and lists the resources that are grouped together in a
+  component.
   """
   def describe_component(client, input, options \\ []) do
     request(client, "DescribeComponent", input, options)
@@ -132,8 +135,7 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
-  Lists the auto-grouped, standalone, and custom components of the
-  application.
+  Lists the auto-grouped, standalone, and custom components of the application.
   """
   def list_components(client, input, options \\ []) do
     request(client, "ListComponents", input, options)
@@ -141,17 +143,17 @@ defmodule AWS.ApplicationInsights do
 
   @doc """
   Lists the INFO, WARN, and ERROR events for periodic configuration updates
-  performed by Application Insights. Examples of events represented are:
+  performed by Application Insights.
 
-  <ul> <li> INFO: creating a new alarm or updating an alarm threshold.
+  Examples of events represented are:
 
-  </li> <li> WARN: alarm not created due to insufficient data points used to
+    * INFO: creating a new alarm or updating an alarm threshold.
+
+    * WARN: alarm not created due to insufficient data points used to
   predict thresholds.
 
-  </li> <li> ERROR: alarm not created due to permission errors or exceeding
+    * ERROR: alarm not created due to permission errors or exceeding
   quotas.
-
-  </li> </ul>
   """
   def list_configuration_history(client, input, options \\ []) do
     request(client, "ListConfigurationHistory", input, options)
@@ -180,26 +182,27 @@ defmodule AWS.ApplicationInsights do
 
   @doc """
   Retrieve a list of the tags (keys and values) that are associated with a
-  specified application. A *tag* is a label that you optionally define and
-  associate with an application. Each tag consists of a required *tag key*
-  and an optional associated *tag value*. A tag key is a general label that
-  acts as a category for more specific tag values. A tag value acts as a
-  descriptor within a tag key.
+  specified application.
+
+  A *tag* is a label that you optionally define and associate with an application.
+  Each tag consists of a required *tag key* and an optional associated *tag
+  value*. A tag key is a general label that acts as a category for more specific
+  tag values. A tag value acts as a descriptor within a tag key.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Add one or more tags (keys and values) to a specified application. A *tag*
-  is a label that you optionally define and associate with an application.
-  Tags can help you categorize and manage application in different ways, such
-  as by purpose, owner, environment, or other criteria.
+  Add one or more tags (keys and values) to a specified application.
 
-  Each tag consists of a required *tag key* and an associated *tag value*,
-  both of which you define. A tag key is a general label that acts as a
-  category for more specific tag values. A tag value acts as a descriptor
-  within a tag key.
+  A *tag* is a label that you optionally define and associate with an application.
+  Tags can help you categorize and manage application in different ways, such as
+  by purpose, owner, environment, or other criteria.
+
+  Each tag consists of a required *tag key* and an associated *tag value*, both of
+  which you define. A tag key is a general label that acts as a category for more
+  specific tag values. A tag value acts as a descriptor within a tag key.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
@@ -220,17 +223,18 @@ defmodule AWS.ApplicationInsights do
   end
 
   @doc """
-  Updates the custom component name and/or the list of resources that make up
-  the component.
+  Updates the custom component name and/or the list of resources that make up the
+  component.
   """
   def update_component(client, input, options \\ []) do
     request(client, "UpdateComponent", input, options)
   end
 
   @doc """
-  Updates the monitoring configurations for the component. The configuration
-  input parameter is an escaped JSON of the configuration and should match
-  the schema of what is returned by
+  Updates the monitoring configurations for the component.
+
+  The configuration input parameter is an escaped JSON of the configuration and
+  should match the schema of what is returned by
   `DescribeComponentConfigurationRecommendation`.
   """
   def update_component_configuration(client, input, options \\ []) do

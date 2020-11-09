@@ -7,7 +7,9 @@ defmodule AWS.MediaConnect do
   """
 
   @doc """
-  Adds outputs to an existing flow. You can create up to 50 outputs per flow.
+  Adds outputs to an existing flow.
+
+  You can create up to 50 outputs per flow.
   """
   def add_flow_outputs(client, flow_arn, input, options \\ []) do
     path_ = "/v1/flows/#{URI.encode(flow_arn)}/outputs"
@@ -37,8 +39,10 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Creates a new flow. The request must include one source. The request
-  optionally can include outputs (up to 50) and entitlements (up to 50).
+  Creates a new flow.
+
+  The request must include one source. The request optionally can include outputs
+  (up to 50) and entitlements (up to 50).
   """
   def create_flow(client, input, options \\ []) do
     path_ = "/v1/flows"
@@ -48,7 +52,9 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deletes a flow. Before you can delete a flow, you must stop the flow.
+  Deletes a flow.
+
+  Before you can delete a flow, you must stop the flow.
   """
   def delete_flow(client, flow_arn, input, options \\ []) do
     path_ = "/v1/flows/#{URI.encode(flow_arn)}"
@@ -58,9 +64,10 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays the details of a flow. The response includes the flow ARN, name,
-  and Availability Zone, as well as details about the source, outputs, and
-  entitlements.
+  Displays the details of a flow.
+
+  The response includes the flow ARN, name, and Availability Zone, as well as
+  details about the source, outputs, and entitlements.
   """
   def describe_flow(client, flow_arn, options \\ []) do
     path_ = "/v1/flows/#{URI.encode(flow_arn)}"
@@ -70,9 +77,10 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays the details of an offering. The response includes the offering
-  description, duration, outbound bandwidth, price, and Amazon Resource Name
-  (ARN).
+  Displays the details of an offering.
+
+  The response includes the offering description, duration, outbound bandwidth,
+  price, and Amazon Resource Name (ARN).
   """
   def describe_offering(client, offering_arn, options \\ []) do
     path_ = "/v1/offerings/#{URI.encode(offering_arn)}"
@@ -82,10 +90,11 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays the details of a reservation. The response includes the
-  reservation name, state, start date and time, and the details of the
-  offering that make up the rest of the reservation (such as price, duration,
-  and outbound bandwidth).
+  Displays the details of a reservation.
+
+  The response includes the reservation name, state, start date and time, and the
+  details of the offering that make up the rest of the reservation (such as price,
+  duration, and outbound bandwidth).
   """
   def describe_reservation(client, reservation_arn, options \\ []) do
     path_ = "/v1/reservations/#{URI.encode(reservation_arn)}"
@@ -106,6 +115,7 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of all entitlements that have been granted to this account.
+
   This request returns 20 results per page.
   """
   def list_entitlements(client, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -126,8 +136,9 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays a list of flows that are associated with this account. This
-  request returns a paginated result.
+  Displays a list of flows that are associated with this account.
+
+  This request returns a paginated result.
   """
   def list_flows(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/v1/flows"
@@ -148,9 +159,11 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of all offerings that are available to this account in the
-  current AWS Region. If you have an active reservation (which means you've
-  purchased an offering that has already started and hasn't expired yet),
-  your account isn't eligible for other offerings.
+  current AWS Region.
+
+  If you have an active reservation (which means you've purchased an offering that
+  has already started and hasn't expired yet), your account isn't eligible for
+  other offerings.
   """
   def list_offerings(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/v1/offerings"
@@ -170,9 +183,10 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays a list of all reservations that have been purchased by this
-  account in the current AWS Region. This list includes all reservations in
-  all states (such as active and expired).
+  Displays a list of all reservations that have been purchased by this account in
+  the current AWS Region.
+
+  This list includes all reservations in all states (such as active and expired).
   """
   def list_reservations(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/v1/reservations"
@@ -202,8 +216,9 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Submits a request to purchase an offering. If you already have an active
-  reservation, you can't purchase another offering.
+  Submits a request to purchase an offering.
+
+  If you already have an active reservation, you can't purchase another offering.
   """
   def purchase_offering(client, offering_arn, input, options \\ []) do
     path_ = "/v1/offerings/#{URI.encode(offering_arn)}"
@@ -213,11 +228,12 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes an output from an existing flow. This request can be made only on
-  an output that does not have an entitlement associated with it. If the
-  output has an entitlement, you must revoke the entitlement instead. When an
-  entitlement is revoked from a flow, the service automatically removes the
-  associated output.
+  Removes an output from an existing flow.
+
+  This request can be made only on an output that does not have an entitlement
+  associated with it. If the output has an entitlement, you must revoke the
+  entitlement instead. When an entitlement is revoked from a flow, the service
+  automatically removes the associated output.
   """
   def remove_flow_output(client, flow_arn, output_arn, input, options \\ []) do
     path_ = "/v1/flows/#{URI.encode(flow_arn)}/outputs/#{URI.encode(output_arn)}"
@@ -227,8 +243,9 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes a source from an existing flow. This request can be made only if
-  there is more than one source on the flow.
+  Removes a source from an existing flow.
+
+  This request can be made only if there is more than one source on the flow.
   """
   def remove_flow_source(client, flow_arn, source_arn, input, options \\ []) do
     path_ = "/v1/flows/#{URI.encode(flow_arn)}/source/#{URI.encode(source_arn)}"
@@ -238,11 +255,12 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes a VPC Interface from an existing flow. This request can be made
-  only on a VPC interface that does not have a Source or Output associated
-  with it. If the VPC interface is referenced by a Source or Output, you must
-  first delete or update the Source or Output to no longer reference the VPC
-  interface.
+  Removes a VPC Interface from an existing flow.
+
+  This request can be made only on a VPC interface that does not have a Source or
+  Output associated with it. If the VPC interface is referenced by a Source or
+  Output, you must first delete or update the Source or Output to no longer
+  reference the VPC interface.
   """
   def remove_flow_vpc_interface(client, flow_arn, vpc_interface_name, input, options \\ []) do
     path_ = "/v1/flows/#{URI.encode(flow_arn)}/vpcInterfaces/#{URI.encode(vpc_interface_name)}"
@@ -252,9 +270,10 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Revokes an entitlement from a flow. Once an entitlement is revoked, the
-  content becomes unavailable to the subscriber and the associated output is
-  removed.
+  Revokes an entitlement from a flow.
+
+  Once an entitlement is revoked, the content becomes unavailable to the
+  subscriber and the associated output is removed.
   """
   def revoke_flow_entitlement(client, entitlement_arn, flow_arn, input, options \\ []) do
     path_ = "/v1/flows/#{URI.encode(flow_arn)}/entitlements/#{URI.encode(entitlement_arn)}"
@@ -285,9 +304,10 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Associates the specified tags to a resource with the specified resourceArn.
-  If existing tags on a resource are not specified in the request parameters,
-  they are not changed. When a resource is deleted, the tags associated with
-  that resource are deleted as well.
+
+  If existing tags on a resource are not specified in the request parameters, they
+  are not changed. When a resource is deleted, the tags associated with that
+  resource are deleted as well.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -322,8 +342,9 @@ defmodule AWS.MediaConnect do
 
   @doc """
   You can change an entitlement's description, subscribers, and encryption.
-  If you change the subscribers, the service will remove the outputs that are
-  are used by the subscribers that are removed.
+
+  If you change the subscribers, the service will remove the outputs that are are
+  used by the subscribers that are removed.
   """
   def update_flow_entitlement(client, entitlement_arn, flow_arn, input, options \\ []) do
     path_ = "/v1/flows/#{URI.encode(flow_arn)}/entitlements/#{URI.encode(entitlement_arn)}"

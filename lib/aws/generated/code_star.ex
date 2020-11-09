@@ -5,62 +5,61 @@ defmodule AWS.CodeStar do
   @moduledoc """
   AWS CodeStar
 
-  This is the API reference for AWS CodeStar. This reference provides
-  descriptions of the operations and data types for the AWS CodeStar API
-  along with usage examples.
+  This is the API reference for AWS CodeStar.
+
+  This reference provides descriptions of the operations and data types for the
+  AWS CodeStar API along with usage examples.
 
   You can use the AWS CodeStar API to work with:
 
   Projects and their resources, by calling the following:
 
-  <ul> <li> `DeleteProject`, which deletes a project.
+    * `DeleteProject`, which deletes a project.
 
-  </li> <li> `DescribeProject`, which lists the attributes of a project.
+    * `DescribeProject`, which lists the attributes of a project.
 
-  </li> <li> `ListProjects`, which lists all projects associated with your
-  AWS account.
+    * `ListProjects`, which lists all projects associated with your AWS
+  account.
 
-  </li> <li> `ListResources`, which lists the resources associated with a
+    * `ListResources`, which lists the resources associated with a
   project.
 
-  </li> <li> `ListTagsForProject`, which lists the tags associated with a
+    * `ListTagsForProject`, which lists the tags associated with a
   project.
 
-  </li> <li> `TagProject`, which adds tags to a project.
+    * `TagProject`, which adds tags to a project.
 
-  </li> <li> `UntagProject`, which removes tags from a project.
+    * `UntagProject`, which removes tags from a project.
 
-  </li> <li> `UpdateProject`, which updates the attributes of a project.
+    * `UpdateProject`, which updates the attributes of a project.
 
-  </li> </ul> Teams and team members, by calling the following:
+  Teams and team members, by calling the following:
 
-  <ul> <li> `AssociateTeamMember`, which adds an IAM user to the team for a
+    * `AssociateTeamMember`, which adds an IAM user to the team for a
   project.
 
-  </li> <li> `DisassociateTeamMember`, which removes an IAM user from the
-  team for a project.
+    * `DisassociateTeamMember`, which removes an IAM user from the team
+  for a project.
 
-  </li> <li> `ListTeamMembers`, which lists all the IAM users in the team for
-  a project, including their roles and attributes.
+    * `ListTeamMembers`, which lists all the IAM users in the team for a
+  project, including their roles and attributes.
 
-  </li> <li> `UpdateTeamMember`, which updates a team member's attributes in
-  a project.
+    * `UpdateTeamMember`, which updates a team member's attributes in a
+  project.
 
-  </li> </ul> Users, by calling the following:
+  Users, by calling the following:
 
-  <ul> <li> `CreateUserProfile`, which creates a user profile that contains
+    * `CreateUserProfile`, which creates a user profile that contains
   data associated with the user across all projects.
 
-  </li> <li> `DeleteUserProfile`, which deletes all user profile information
+    * `DeleteUserProfile`, which deletes all user profile information
   across all projects.
 
-  </li> <li> `DescribeUserProfile`, which describes the profile of a user.
+    * `DescribeUserProfile`, which describes the profile of a user.
 
-  </li> <li> `ListUserProfiles`, which lists all user profiles.
+    * `ListUserProfiles`, which lists all user profiles.
 
-  </li> <li> `UpdateUserProfile`, which updates the profile for a user.
-
-  </li> </ul>
+    * `UpdateUserProfile`, which updates the profile for a user.
   """
 
   @doc """
@@ -71,20 +70,22 @@ defmodule AWS.CodeStar do
   end
 
   @doc """
-  Creates a project, including project resources. This action creates a
-  project based on a submitted project request. A set of source code files
-  and a toolchain template file can be included with the project request. If
-  these are not provided, an empty project is created.
+  Creates a project, including project resources.
+
+  This action creates a project based on a submitted project request. A set of
+  source code files and a toolchain template file can be included with the project
+  request. If these are not provided, an empty project is created.
   """
   def create_project(client, input, options \\ []) do
     request(client, "CreateProject", input, options)
   end
 
   @doc """
-  Creates a profile for a user that includes user preferences, such as the
-  display name and email address assocciated with the user, in AWS CodeStar.
-  The user profile is not project-specific. Information in the user profile
-  is displayed wherever the user's information appears to other users in AWS
+  Creates a profile for a user that includes user preferences, such as the display
+  name and email address assocciated with the user, in AWS CodeStar.
+
+  The user profile is not project-specific. Information in the user profile is
+  displayed wherever the user's information appears to other users in AWS
   CodeStar.
   """
   def create_user_profile(client, input, options \\ []) do
@@ -92,19 +93,21 @@ defmodule AWS.CodeStar do
   end
 
   @doc """
-  Deletes a project, including project resources. Does not delete users
-  associated with the project, but does delete the IAM roles that allowed
-  access to the project.
+  Deletes a project, including project resources.
+
+  Does not delete users associated with the project, but does delete the IAM roles
+  that allowed access to the project.
   """
   def delete_project(client, input, options \\ []) do
     request(client, "DeleteProject", input, options)
   end
 
   @doc """
-  Deletes a user profile in AWS CodeStar, including all personal preference
-  data associated with that profile, such as display name and email address.
-  It does not delete the history of that user, for example the history of
-  commits made by that user.
+  Deletes a user profile in AWS CodeStar, including all personal preference data
+  associated with that profile, such as display name and email address.
+
+  It does not delete the history of that user, for example the history of commits
+  made by that user.
   """
   def delete_user_profile(client, input, options \\ []) do
     request(client, "DeleteUserProfile", input, options)
@@ -118,18 +121,19 @@ defmodule AWS.CodeStar do
   end
 
   @doc """
-  Describes a user in AWS CodeStar and the user attributes across all
-  projects.
+  Describes a user in AWS CodeStar and the user attributes across all projects.
   """
   def describe_user_profile(client, input, options \\ []) do
     request(client, "DescribeUserProfile", input, options)
   end
 
   @doc """
-  Removes a user from a project. Removing a user from a project also removes
-  the IAM policies from that user that allowed access to the project and its
-  resources. Disassociating a team member does not remove that user's profile
-  from AWS CodeStar. It does not remove the user from IAM.
+  Removes a user from a project.
+
+  Removing a user from a project also removes the IAM policies from that user that
+  allowed access to the project and its resources. Disassociating a team member
+  does not remove that user's profile from AWS CodeStar. It does not remove the
+  user from IAM.
   """
   def disassociate_team_member(client, input, options \\ []) do
     request(client, "DisassociateTeamMember", input, options)
@@ -164,8 +168,7 @@ defmodule AWS.CodeStar do
   end
 
   @doc """
-  Lists all the user profiles configured for your AWS account in AWS
-  CodeStar.
+  Lists all the user profiles configured for your AWS account in AWS CodeStar.
   """
   def list_user_profiles(client, input, options \\ []) do
     request(client, "ListUserProfiles", input, options)
@@ -193,18 +196,21 @@ defmodule AWS.CodeStar do
   end
 
   @doc """
-  Updates a team member's attributes in an AWS CodeStar project. For example,
-  you can change a team member's role in the project, or change whether they
-  have remote access to project resources.
+  Updates a team member's attributes in an AWS CodeStar project.
+
+  For example, you can change a team member's role in the project, or change
+  whether they have remote access to project resources.
   """
   def update_team_member(client, input, options \\ []) do
     request(client, "UpdateTeamMember", input, options)
   end
 
   @doc """
-  Updates a user's profile in AWS CodeStar. The user profile is not
-  project-specific. Information in the user profile is displayed wherever the
-  user's information appears to other users in AWS CodeStar.
+  Updates a user's profile in AWS CodeStar.
+
+  The user profile is not project-specific. Information in the user profile is
+  displayed wherever the user's information appears to other users in AWS
+  CodeStar.
   """
   def update_user_profile(client, input, options \\ []) do
     request(client, "UpdateUserProfile", input, options)

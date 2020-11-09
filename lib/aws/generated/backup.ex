@@ -6,14 +6,16 @@ defmodule AWS.Backup do
   AWS Backup
 
   AWS Backup is a unified backup service designed to protect AWS services and
-  their associated data. AWS Backup simplifies the creation, migration,
-  restoration, and deletion of backups, while also providing reporting and
-  auditing.
+  their associated data.
+
+  AWS Backup simplifies the creation, migration, restoration, and deletion of
+  backups, while also providing reporting and auditing.
   """
 
   @doc """
-  Creates a backup plan using a backup plan name and backup rules. A backup
-  plan is a document that contains information that AWS Backup uses to
+  Creates a backup plan using a backup plan name and backup rules.
+
+  A backup plan is a document that contains information that AWS Backup uses to
   schedule tasks that create recovery points for resources.
 
   If you call `CreateBackupPlan` with a plan that already exists, an
@@ -27,36 +29,37 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Creates a JSON document that specifies a set of resources to assign to a
-  backup plan. Resources can be included by specifying patterns for a
-  `ListOfTags` and selected `Resources`.
+  Creates a JSON document that specifies a set of resources to assign to a backup
+  plan.
+
+  Resources can be included by specifying patterns for a `ListOfTags` and selected
+  `Resources`.
 
   For example, consider the following patterns:
 
-  <ul> <li> `Resources: "arn:aws:ec2:region:account-id:volume/volume-id"`
+    * `Resources: "arn:aws:ec2:region:account-id:volume/volume-id"`
 
-  </li> <li> `ConditionKey:"department"`
+    * `ConditionKey:"department"`
 
   `ConditionValue:"finance"`
 
   `ConditionType:"StringEquals"`
 
-  </li> <li> `ConditionKey:"importance"`
+    * `ConditionKey:"importance"`
 
   `ConditionValue:"critical"`
 
   `ConditionType:"StringEquals"`
 
-  </li> </ul> Using these patterns would back up all Amazon Elastic Block
-  Store (Amazon EBS) volumes that are tagged as `"department=finance"`,
-  `"importance=critical"`, in addition to an EBS volume with the specified
-  volume ID.
+  Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS)
+  volumes that are tagged as `"department=finance"`, `"importance=critical"`, in
+  addition to an EBS volume with the specified volume ID.
 
   Resources and conditions are additive in that all resources that match the
-  pattern are selected. This shouldn't be confused with a logical AND, where
-  all conditions must match. The matching patterns are logically put together
-  using the OR operator. In other words, all patterns that match are selected
-  for backup.
+  pattern are selected. This shouldn't be confused with a logical AND, where all
+  conditions must match. The matching patterns are logically put together using
+  the OR operator. In other words, all patterns that match are selected for
+  backup.
   """
   def create_backup_selection(client, backup_plan_id, input, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/selections/"
@@ -66,14 +69,13 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Creates a logical container where backups are stored. A `CreateBackupVault`
-  request includes a name, optionally one or more resource tags, an
-  encryption key, and a request ID.
+  Creates a logical container where backups are stored.
 
-  <note> Sensitive data, such as passport numbers, should not be included the
-  name of a backup vault.
+  A `CreateBackupVault` request includes a name, optionally one or more resource
+  tags, an encryption key, and a request ID.
 
-  </note>
+  Sensitive data, such as passport numbers, should not be included the name of a
+  backup vault.
   """
   def create_backup_vault(client, backup_vault_name, input, options \\ []) do
     path_ = "/backup-vaults/#{URI.encode(backup_vault_name)}"
@@ -83,10 +85,11 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Deletes a backup plan. A backup plan can only be deleted after all
-  associated selections of resources have been deleted. Deleting a backup
-  plan deletes the current version of a backup plan. Previous versions, if
-  any, will still exist.
+  Deletes a backup plan.
+
+  A backup plan can only be deleted after all associated selections of resources
+  have been deleted. Deleting a backup plan deletes the current version of a
+  backup plan. Previous versions, if any, will still exist.
   """
   def delete_backup_plan(client, backup_plan_id, input, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}"
@@ -96,8 +99,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Deletes the resource selection associated with a backup plan that is
-  specified by the `SelectionId`.
+  Deletes the resource selection associated with a backup plan that is specified
+  by the `SelectionId`.
   """
   def delete_backup_selection(client, backup_plan_id, selection_id, input, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/selections/#{URI.encode(selection_id)}"
@@ -107,8 +110,9 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Deletes the backup vault identified by its name. A vault can be deleted
-  only if it is empty.
+  Deletes the backup vault identified by its name.
+
+  A vault can be deleted only if it is empty.
   """
   def delete_backup_vault(client, backup_vault_name, input, options \\ []) do
     path_ = "/backup-vaults/#{URI.encode(backup_vault_name)}"
@@ -179,8 +183,8 @@ defmodule AWS.Backup do
 
   @doc """
   Returns information about a saved resource, including the last time it was
-  backed up, its Amazon Resource Name (ARN), and the AWS service type of the
-  saved resource.
+  backed up, its Amazon Resource Name (ARN), and the AWS service type of the saved
+  resource.
   """
   def describe_protected_resource(client, resource_arn, options \\ []) do
     path_ = "/resources/#{URI.encode(resource_arn)}"
@@ -201,11 +205,12 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns the current service opt-in settings for the Region. If the service
-  has a value set to `true`, AWS Backup tries to protect that service's
-  resources in this Region, when included in an on-demand backup or scheduled
-  backup plan. If the value is set to `false` for a service, AWS Backup does
-  not try to protect that service's resources in this Region.
+  Returns the current service opt-in settings for the Region.
+
+  If the service has a value set to `true`, AWS Backup tries to protect that
+  service's resources in this Region, when included in an on-demand backup or
+  scheduled backup plan. If the value is set to `false` for a service, AWS Backup
+  does not try to protect that service's resources in this Region.
   """
   def describe_region_settings(client, options \\ []) do
     path_ = "/account-settings"
@@ -215,8 +220,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns metadata associated with a restore job that is specified by a job
-  ID.
+  Returns metadata associated with a restore job that is specified by a job ID.
   """
   def describe_restore_job(client, restore_job_id, options \\ []) do
     path_ = "/restore-jobs/#{URI.encode(restore_job_id)}"
@@ -226,8 +230,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns the backup plan that is specified by the plan ID as a backup
-  template.
+  Returns the backup plan that is specified by the plan ID as a backup template.
   """
   def export_backup_plan_template(client, backup_plan_id, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/toTemplate/"
@@ -237,8 +240,9 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns `BackupPlan` details for the specified `BackupPlanId`. Returns the
-  body of a backup plan in JSON format, in addition to plan metadata.
+  Returns `BackupPlan` details for the specified `BackupPlanId`.
+
+  Returns the body of a backup plan in JSON format, in addition to plan metadata.
   """
   def get_backup_plan(client, backup_plan_id, version_id \\ nil, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/"
@@ -273,8 +277,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns selection metadata and a document in JSON format that specifies a
-  list of resources that are associated with a backup plan.
+  Returns selection metadata and a document in JSON format that specifies a list
+  of resources that are associated with a backup plan.
   """
   def get_backup_selection(client, backup_plan_id, selection_id, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/selections/#{URI.encode(selection_id)}"
@@ -305,8 +309,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a set of metadata key-value pairs that were used to create the
-  backup.
+  Returns a set of metadata key-value pairs that were used to create the backup.
   """
   def get_recovery_point_restore_metadata(client, backup_vault_name, recovery_point_arn, options \\ []) do
     path_ = "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}/restore-metadata"
@@ -381,8 +384,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns metadata of your saved backup plan templates, including the
-  template ID, name, and the creation and deletion dates.
+  Returns metadata of your saved backup plan templates, including the template ID,
+  name, and the creation and deletion dates.
   """
   def list_backup_plan_templates(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/backup/template/plans"
@@ -402,9 +405,9 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns version metadata of your backup plans, including Amazon Resource
-  Names (ARNs), backup plan IDs, creation and deletion dates, plan names, and
-  version IDs.
+  Returns version metadata of your backup plans, including Amazon Resource Names
+  (ARNs), backup plan IDs, creation and deletion dates, plan names, and version
+  IDs.
   """
   def list_backup_plan_versions(client, backup_plan_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/versions/"
@@ -424,11 +427,11 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of existing backup plans for an authenticated account. The
-  list is populated only if the advanced option is set for the backup plan.
-  The list contains information such as Amazon Resource Names (ARNs), plan
-  IDs, creation and deletion dates, version IDs, plan names, and creator
-  request IDs.
+  Returns a list of existing backup plans for an authenticated account.
+
+  The list is populated only if the advanced option is set for the backup plan.
+  The list contains information such as Amazon Resource Names (ARNs), plan IDs,
+  creation and deletion dates, version IDs, plan names, and creator request IDs.
   """
   def list_backup_plans(client, include_deleted \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/backup/plans/"
@@ -453,8 +456,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns an array containing metadata of the resources associated with the
-  target backup plan.
+  Returns an array containing metadata of the resources associated with the target
+  backup plan.
   """
   def list_backup_selections(client, backup_plan_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}/selections/"
@@ -474,8 +477,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of recovery point storage containers along with information
-  about them.
+  Returns a list of recovery point storage containers along with information about
+  them.
   """
   def list_backup_vaults(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/backup-vaults/"
@@ -550,9 +553,9 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns an array of resources successfully backed up by AWS Backup,
-  including the time the resource was saved, an Amazon Resource Name (ARN) of
-  the resource, and a resource type.
+  Returns an array of resources successfully backed up by AWS Backup, including
+  the time the resource was saved, an Amazon Resource Name (ARN) of the resource,
+  and a resource type.
   """
   def list_protected_resources(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/resources/"
@@ -572,8 +575,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns detailed information about the recovery points stored in a backup
-  vault.
+  Returns detailed information about the recovery points stored in a backup vault.
   """
   def list_recovery_points_by_backup_vault(client, backup_vault_name, by_backup_plan_id \\ nil, by_created_after \\ nil, by_created_before \\ nil, by_resource_arn \\ nil, by_resource_type \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/"
@@ -618,8 +620,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns detailed information about recovery points of the type specified by
-  a resource Amazon Resource Name (ARN).
+  Returns detailed information about recovery points of the type specified by a
+  resource Amazon Resource Name (ARN).
   """
   def list_recovery_points_by_resource(client, resource_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/resources/#{URI.encode(resource_arn)}/recovery-points/"
@@ -639,8 +641,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of jobs that AWS Backup initiated to restore a saved
-  resource, including metadata about the recovery process.
+  Returns a list of jobs that AWS Backup initiated to restore a saved resource,
+  including metadata about the recovery process.
   """
   def list_restore_jobs(client, by_account_id \\ nil, by_created_after \\ nil, by_created_before \\ nil, by_status \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/restore-jobs/"
@@ -680,12 +682,10 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of key-value pairs assigned to a target recovery point,
-  backup plan, or backup vault.
+  Returns a list of key-value pairs assigned to a target recovery point, backup
+  plan, or backup vault.
 
-  <note> `ListTags` are currently only supported with Amazon EFS backups.
-
-  </note>
+  `ListTags` are currently only supported with Amazon EFS backups.
   """
   def list_tags(client, resource_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}/"
@@ -705,9 +705,10 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Sets a resource-based policy that is used to manage access permissions on
-  the target backup vault. Requires a backup vault name and an access policy
-  document in JSON format.
+  Sets a resource-based policy that is used to manage access permissions on the
+  target backup vault.
+
+  Requires a backup vault name and an access policy document in JSON format.
   """
   def put_backup_vault_access_policy(client, backup_vault_name, input, options \\ []) do
     path_ = "/backup-vaults/#{URI.encode(backup_vault_name)}/access-policy"
@@ -717,8 +718,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Turns on notifications on a backup vault for the specified topic and
-  events.
+  Turns on notifications on a backup vault for the specified topic and events.
   """
   def put_backup_vault_notifications(client, backup_vault_name, input, options \\ []) do
     path_ = "/backup-vaults/#{URI.encode(backup_vault_name)}/notification-configuration"
@@ -749,6 +749,10 @@ defmodule AWS.Backup do
 
   @doc """
   Recovers the saved resource identified by an Amazon Resource Name (ARN).
+
+  If the resource ARN is included in the request, then the last complete backup of
+  that resource is recovered. If the ARN of a recovery point is supplied, then
+  that recovery point is restored.
   """
   def start_restore_job(client, input, options \\ []) do
     path_ = "/restore-jobs"
@@ -768,8 +772,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Assigns a set of key-value pairs to a recovery point, backup plan, or
-  backup vault identified by an Amazon Resource Name (ARN).
+  Assigns a set of key-value pairs to a recovery point, backup plan, or backup
+  vault identified by an Amazon Resource Name (ARN).
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -779,8 +783,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Removes a set of key-value pairs from a recovery point, backup plan, or
-  backup vault identified by an Amazon Resource Name (ARN)
+  Removes a set of key-value pairs from a recovery point, backup plan, or backup
+  vault identified by an Amazon Resource Name (ARN)
   """
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/untag/#{URI.encode(resource_arn)}"
@@ -790,9 +794,10 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates an existing backup plan identified by its `backupPlanId` with the
-  input document in JSON format. The new version is uniquely identified by a
-  `VersionId`.
+  Updates an existing backup plan identified by its `backupPlanId` with the input
+  document in JSON format.
+
+  The new version is uniquely identified by a `VersionId`.
   """
   def update_backup_plan(client, backup_plan_id, input, options \\ []) do
     path_ = "/backup/plans/#{URI.encode(backup_plan_id)}"
@@ -804,15 +809,15 @@ defmodule AWS.Backup do
   @doc """
   Sets the transition lifecycle of a recovery point.
 
-  The lifecycle defines when a protected resource is transitioned to cold
-  storage and when it expires. AWS Backup transitions and expires backups
-  automatically according to the lifecycle that you define.
+  The lifecycle defines when a protected resource is transitioned to cold storage
+  and when it expires. AWS Backup transitions and expires backups automatically
+  according to the lifecycle that you define.
 
   Backups transitioned to cold storage must be stored in cold storage for a
-  minimum of 90 days. Therefore, the “expire after days” setting must be 90
-  days greater than the “transition to cold after days” setting. The
-  “transition to cold after days” setting cannot be changed after a backup
-  has been transitioned to cold.
+  minimum of 90 days. Therefore, the “expire after days” setting must be 90 days
+  greater than the “transition to cold after days” setting. The “transition to
+  cold after days” setting cannot be changed after a backup has been transitioned
+  to cold.
   """
   def update_recovery_point_lifecycle(client, backup_vault_name, recovery_point_arn, input, options \\ []) do
     path_ = "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}"
@@ -822,11 +827,12 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates the current service opt-in settings for the Region. If the service
-  has a value set to `true`, AWS Backup tries to protect that service's
-  resources in this Region, when included in an on-demand backup or scheduled
-  backup plan. If the value is set to `false` for a service, AWS Backup does
-  not try to protect that service's resources in this Region.
+  Updates the current service opt-in settings for the Region.
+
+  If the service has a value set to `true`, AWS Backup tries to protect that
+  service's resources in this Region, when included in an on-demand backup or
+  scheduled backup plan. If the value is set to `false` for a service, AWS Backup
+  does not try to protect that service's resources in this Region.
   """
   def update_region_settings(client, input, options \\ []) do
     path_ = "/account-settings"

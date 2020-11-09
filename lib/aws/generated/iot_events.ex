@@ -3,9 +3,10 @@
 
 defmodule AWS.IoTEvents do
   @moduledoc """
-  AWS IoT Events monitors your equipment or device fleets for failures or
-  changes in operation, and triggers actions when such events occur. You can
-  use AWS IoT Events API operations to create, read, update, and delete
+  AWS IoT Events monitors your equipment or device fleets for failures or changes
+  in operation, and triggers actions when such events occur.
+
+  You can use AWS IoT Events API operations to create, read, update, and delete
   inputs and detector models, and to list their versions.
   """
 
@@ -30,8 +31,9 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Deletes a detector model. Any active instances of the detector model are
-  also deleted.
+  Deletes a detector model.
+
+  Any active instances of the detector model are also deleted.
   """
   def delete_detector_model(client, detector_model_name, input, options \\ []) do
     path_ = "/detector-models/#{URI.encode(detector_model_name)}"
@@ -51,8 +53,10 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Describes a detector model. If the `version` parameter is not specified,
-  information about the latest version is returned.
+  Describes a detector model.
+
+  If the `version` parameter is not specified, information about the latest
+  version is returned.
   """
   def describe_detector_model(client, detector_model_name, detector_model_version \\ nil, options \\ []) do
     path_ = "/detector-models/#{URI.encode(detector_model_name)}"
@@ -87,8 +91,9 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Lists all the versions of a detector model. Only the metadata associated
-  with each detector model version is returned.
+  Lists all the versions of a detector model.
+
+  Only the metadata associated with each detector model version is returned.
   """
   def list_detector_model_versions(client, detector_model_name, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/detector-models/#{URI.encode(detector_model_name)}/versions"
@@ -108,8 +113,9 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Lists the detector models you have created. Only the metadata associated
-  with each detector model is returned.
+  Lists the detector models you have created.
+
+  Only the metadata associated with each detector model is returned.
   """
   def list_detector_models(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/detector-models"
@@ -166,11 +172,10 @@ defmodule AWS.IoTEvents do
   @doc """
   Sets or updates the AWS IoT Events logging options.
 
-  If you update the value of any `loggingOptions` field, it takes up to one
-  minute for the change to take effect. If you change the policy attached to
-  the role you specified in the `roleArn` field (for example, to correct an
-  invalid policy), it takes up to five minutes for that change to take
-  effect.
+  If you update the value of any `loggingOptions` field, it takes up to one minute
+  for the change to take effect. If you change the policy attached to the role you
+  specified in the `roleArn` field (for example, to correct an invalid policy), it
+  takes up to five minutes for that change to take effect.
   """
   def put_logging_options(client, input, options \\ []) do
     path_ = "/logging"
@@ -180,8 +185,9 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource. Tags are metadata that
-  can be used to manage a resource.
+  Adds to or modifies the tags of the given resource.
+
+  Tags are metadata that can be used to manage a resource.
   """
   def tag_resource(client, input, options \\ []) do
     path_ = "/tags"
@@ -210,8 +216,10 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Updates a detector model. Detectors (instances) spawned by the previous
-  version are deleted and then re-created as new inputs arrive.
+  Updates a detector model.
+
+  Detectors (instances) spawned by the previous version are deleted and then
+  re-created as new inputs arrive.
   """
   def update_detector_model(client, detector_model_name, input, options \\ []) do
     path_ = "/detector-models/#{URI.encode(detector_model_name)}"

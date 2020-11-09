@@ -7,12 +7,13 @@ defmodule AWS.Kendra do
   """
 
   @doc """
-  Removes one or more documents from an index. The documents must have been
-  added with the `BatchPutDocument` operation.
+  Removes one or more documents from an index.
+
+  The documents must have been added with the `BatchPutDocument` operation.
 
   The documents are deleted asynchronously. You can see the progress of the
-  deletion by using AWS CloudWatch. Any error messages releated to the
-  processing of the batch are sent to you CloudWatch log.
+  deletion by using AWS CloudWatch. Any error messages releated to the processing
+  of the batch are sent to you CloudWatch log.
   """
   def batch_delete_document(client, input, options \\ []) do
     request(client, "BatchDeleteDocument", input, options)
@@ -21,15 +22,15 @@ defmodule AWS.Kendra do
   @doc """
   Adds one or more documents to an index.
 
-  The `BatchPutDocument` operation enables you to ingest inline documents or
-  a set of documents stored in an Amazon S3 bucket. Use this operation to
-  ingest your text and unstructured text into an index, add custom attributes
-  to the documents, and to attach an access control list to the documents
-  added to the index.
+  The `BatchPutDocument` operation enables you to ingest inline documents or a set
+  of documents stored in an Amazon S3 bucket. Use this operation to ingest your
+  text and unstructured text into an index, add custom attributes to the
+  documents, and to attach an access control list to the documents added to the
+  index.
 
-  The documents are indexed asynchronously. You can see the progress of the
-  batch using AWS CloudWatch. Any error messages related to processing the
-  batch are sent to your AWS CloudWatch log.
+  The documents are indexed asynchronously. You can see the progress of the batch
+  using AWS CloudWatch. Any error messages related to processing the batch are
+  sent to your AWS CloudWatch log.
   """
   def batch_put_document(client, input, options \\ []) do
     request(client, "BatchPutDocument", input, options)
@@ -38,45 +39,44 @@ defmodule AWS.Kendra do
   @doc """
   Creates a data source that you use to with an Amazon Kendra index.
 
-  You specify a name, data source connector type and description for your
-  data source. You also specify configuration information such as document
-  metadata (author, source URI, and so on) and user context information.
+  You specify a name, data source connector type and description for your data
+  source. You also specify configuration information such as document metadata
+  (author, source URI, and so on) and user context information.
 
-  `CreateDataSource` is a synchronous operation. The operation returns 200 if
-  the data source was successfully created. Otherwise, an exception is
-  raised.
+  `CreateDataSource` is a synchronous operation. The operation returns 200 if the
+  data source was successfully created. Otherwise, an exception is raised.
   """
   def create_data_source(client, input, options \\ []) do
     request(client, "CreateDataSource", input, options)
   end
 
   @doc """
-  Creates an new set of frequently asked question (FAQ) questions and
-  answers.
+  Creates an new set of frequently asked question (FAQ) questions and answers.
   """
   def create_faq(client, input, options \\ []) do
     request(client, "CreateFaq", input, options)
   end
 
   @doc """
-  Creates a new Amazon Kendra index. Index creation is an asynchronous
-  operation. To determine if index creation has completed, check the `Status`
-  field returned from a call to . The `Status` field is set to `ACTIVE` when
-  the index is ready to use.
+  Creates a new Amazon Kendra index.
 
-  Once the index is active you can index your documents using the operation
-  or using one of the supported data sources.
+  Index creation is an asynchronous operation. To determine if index creation has
+  completed, check the `Status` field returned from a call to . The `Status` field
+  is set to `ACTIVE` when the index is ready to use.
+
+  Once the index is active you can index your documents using the operation or
+  using one of the supported data sources.
   """
   def create_index(client, input, options \\ []) do
     request(client, "CreateIndex", input, options)
   end
 
   @doc """
-  Deletes an Amazon Kendra data source. An exception is not thrown if the
-  data source is already being deleted. While the data source is being
-  deleted, the `Status` field returned by a call to the operation is set to
-  `DELETING`. For more information, see [Deleting Data
-  Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
+  Deletes an Amazon Kendra data source.
+
+  An exception is not thrown if the data source is already being deleted. While
+  the data source is being deleted, the `Status` field returned by a call to the
+  operation is set to `DELETING`. For more information, see [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
   """
   def delete_data_source(client, input, options \\ []) do
     request(client, "DeleteDataSource", input, options)
@@ -90,10 +90,11 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Deletes an existing Amazon Kendra index. An exception is not thrown if the
-  index is already being deleted. While the index is being deleted, the
-  `Status` field returned by a call to the `DescribeIndex` operation is set
-  to `DELETING`.
+  Deletes an existing Amazon Kendra index.
+
+  An exception is not thrown if the index is already being deleted. While the
+  index is being deleted, the `Status` field returned by a call to the
+  `DescribeIndex` operation is set to `DELETING`.
   """
   def delete_index(client, input, options \\ []) do
     request(client, "DeleteIndex", input, options)
@@ -149,32 +150,34 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Gets a list of tags associated with a specified resource. Indexes, FAQs,
-  and data sources can have tags associated with them.
+  Gets a list of tags associated with a specified resource.
+
+  Indexes, FAQs, and data sources can have tags associated with them.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Searches an active index. Use this API to search your documents using
-  query. The `Query` operation enables to do faceted search and to filter
-  results based on document attributes.
+  Searches an active index.
 
-  It also enables you to provide user context that Amazon Kendra uses to
-  enforce document access control in the search results.
+  Use this API to search your documents using query. The `Query` operation enables
+  to do faceted search and to filter results based on document attributes.
 
-  Amazon Kendra searches your index for text content and question and answer
-  (FAQ) content. By default the response contains three types of results.
+  It also enables you to provide user context that Amazon Kendra uses to enforce
+  document access control in the search results.
 
-  <ul> <li> Relevant passages
+  Amazon Kendra searches your index for text content and question and answer (FAQ)
+  content. By default the response contains three types of results.
 
-  </li> <li> Matching FAQs
+    * Relevant passages
 
-  </li> <li> Relevant documents
+    * Matching FAQs
 
-  </li> </ul> You can specify that the query return only one type of result
-  using the `QueryResultTypeConfig` parameter.
+    * Relevant documents
+
+  You can specify that the query return only one type of result using the
+  `QueryResultTypeConfig` parameter.
 
   Each query returns the 100 most relevant results.
   """
@@ -183,34 +186,36 @@ defmodule AWS.Kendra do
   end
 
   @doc """
-  Starts a synchronization job for a data source. If a synchronization job is
-  already in progress, Amazon Kendra returns a `ResourceInUseException`
-  exception.
+  Starts a synchronization job for a data source.
+
+  If a synchronization job is already in progress, Amazon Kendra returns a
+  `ResourceInUseException` exception.
   """
   def start_data_source_sync_job(client, input, options \\ []) do
     request(client, "StartDataSourceSyncJob", input, options)
   end
 
   @doc """
-  Stops a running synchronization job. You can't stop a scheduled
-  synchronization job.
+  Stops a running synchronization job.
+
+  You can't stop a scheduled synchronization job.
   """
   def stop_data_source_sync_job(client, input, options \\ []) do
     request(client, "StopDataSourceSyncJob", input, options)
   end
 
   @doc """
-  Enables you to provide feedback to Amazon Kendra to improve the performance
-  of the service.
+  Enables you to provide feedback to Amazon Kendra to improve the performance of
+  the service.
   """
   def submit_feedback(client, input, options \\ []) do
     request(client, "SubmitFeedback", input, options)
   end
 
   @doc """
-  Adds the specified tag to the specified index, FAQ, or data source
-  resource. If the tag already exists, the existing value is replaced with
-  the new value.
+  Adds the specified tag to the specified index, FAQ, or data source resource.
+
+  If the tag already exists, the existing value is replaced with the new value.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)

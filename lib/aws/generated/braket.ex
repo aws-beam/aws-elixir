@@ -3,8 +3,8 @@
 
 defmodule AWS.Braket do
   @moduledoc """
-  The Amazon Braket API Reference provides information about the operations
-  and structures supported in Amazon Braket.
+  The Amazon Braket API Reference provides information about the operations and
+  structures supported in Amazon Braket.
   """
 
   @doc """

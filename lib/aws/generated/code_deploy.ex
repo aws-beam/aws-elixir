@@ -5,86 +5,76 @@ defmodule AWS.CodeDeploy do
   @moduledoc """
   AWS CodeDeploy
 
-  AWS CodeDeploy is a deployment service that automates application
-  deployments to Amazon EC2 instances, on-premises instances running in your
-  own facility, serverless AWS Lambda functions, or applications in an Amazon
-  ECS service.
+  AWS CodeDeploy is a deployment service that automates application deployments to
+  Amazon EC2 instances, on-premises instances running in your own facility,
+  serverless AWS Lambda functions, or applications in an Amazon ECS service.
 
-  You can deploy a nearly unlimited variety of application content, such as
-  an updated Lambda function, updated applications in an Amazon ECS service,
-  code, web and configuration files, executables, packages, scripts,
-  multimedia files, and so on. AWS CodeDeploy can deploy application content
-  stored in Amazon S3 buckets, GitHub repositories, or Bitbucket
-  repositories. You do not need to make changes to your existing code before
-  you can use AWS CodeDeploy.
+  You can deploy a nearly unlimited variety of application content, such as an
+  updated Lambda function, updated applications in an Amazon ECS service, code,
+  web and configuration files, executables, packages, scripts, multimedia files,
+  and so on. AWS CodeDeploy can deploy application content stored in Amazon S3
+  buckets, GitHub repositories, or Bitbucket repositories. You do not need to make
+  changes to your existing code before you can use AWS CodeDeploy.
 
-  AWS CodeDeploy makes it easier for you to rapidly release new features,
-  helps you avoid downtime during application deployment, and handles the
-  complexity of updating your applications, without many of the risks
-  associated with error-prone manual deployments.
+  AWS CodeDeploy makes it easier for you to rapidly release new features, helps
+  you avoid downtime during application deployment, and handles the complexity of
+  updating your applications, without many of the risks associated with
+  error-prone manual deployments.
 
-  **AWS CodeDeploy Components**
+  ## AWS CodeDeploy Components
 
   Use the information in this guide to help you work with the following AWS
   CodeDeploy components:
 
-  <ul> <li> **Application**: A name that uniquely identifies the application
+    * **Application**: A name that uniquely identifies the application
   you want to deploy. AWS CodeDeploy uses this name, which functions as a
   container, to ensure the correct combination of revision, deployment
   configuration, and deployment group are referenced during a deployment.
 
-  </li> <li> **Deployment group**: A set of individual instances, CodeDeploy
-  Lambda deployment configuration settings, or an Amazon ECS service and
-  network details. A Lambda deployment group specifies how to route traffic
-  to a new version of a Lambda function. An Amazon ECS deployment group
-  specifies the service created in Amazon ECS to deploy, a load balancer, and
-  a listener to reroute production traffic to an updated containerized
-  application. An EC2/On-premises deployment group contains individually
-  tagged instances, Amazon EC2 instances in Amazon EC2 Auto Scaling groups,
-  or both. All deployment groups can specify optional trigger, alarm, and
-  rollback settings.
+    * **Deployment group**: A set of individual instances, CodeDeploy
+  Lambda deployment configuration settings, or an Amazon ECS service and network
+  details. A Lambda deployment group specifies how to route traffic to a new
+  version of a Lambda function. An Amazon ECS deployment group specifies the
+  service created in Amazon ECS to deploy, a load balancer, and a listener to
+  reroute production traffic to an updated containerized application. An
+  EC2/On-premises deployment group contains individually tagged instances, Amazon
+  EC2 instances in Amazon EC2 Auto Scaling groups, or both. All deployment groups
+  can specify optional trigger, alarm, and rollback settings.
 
-  </li> <li> **Deployment configuration**: A set of deployment rules and
+    * **Deployment configuration**: A set of deployment rules and
   deployment success and failure conditions used by AWS CodeDeploy during a
   deployment.
 
-  </li> <li> **Deployment**: The process and the components used when
-  updating a Lambda function, a containerized application in an Amazon ECS
-  service, or of installing content on one or more instances.
+    * **Deployment**: The process and the components used when updating
+  a Lambda function, a containerized application in an Amazon ECS service, or of
+  installing content on one or more instances.
 
-  </li> <li> **Application revisions**: For an AWS Lambda deployment, this is
-  an AppSpec file that specifies the Lambda function to be updated and one or
-  more functions to validate deployment lifecycle events. For an Amazon ECS
-  deployment, this is an AppSpec file that specifies the Amazon ECS task
-  definition, container, and port where production traffic is rerouted. For
-  an EC2/On-premises deployment, this is an archive file that contains source
-  content—source code, webpages, executable files, and deployment
-  scripts—along with an AppSpec file. Revisions are stored in Amazon S3
-  buckets or GitHub repositories. For Amazon S3, a revision is uniquely
-  identified by its Amazon S3 object key and its ETag, version, or both. For
-  GitHub, a revision is uniquely identified by its commit ID.
+    * **Application revisions**: For an AWS Lambda deployment, this is
+  an AppSpec file that specifies the Lambda function to be updated and one or more
+  functions to validate deployment lifecycle events. For an Amazon ECS deployment,
+  this is an AppSpec file that specifies the Amazon ECS task definition,
+  container, and port where production traffic is rerouted. For an EC2/On-premises
+  deployment, this is an archive file that contains source content—source code,
+  webpages, executable files, and deployment scripts—along with an AppSpec file.
+  Revisions are stored in Amazon S3 buckets or GitHub repositories. For Amazon S3,
+  a revision is uniquely identified by its Amazon S3 object key and its ETag,
+  version, or both. For GitHub, a revision is uniquely identified by its commit
+  ID.
 
-  </li> </ul> This guide also contains information to help you get details
-  about the instances in your deployments, to make on-premises instances
-  available for AWS CodeDeploy deployments, to get details about a Lambda
-  function deployment, and to get details about Amazon ECS service
-  deployments.
+  This guide also contains information to help you get details about the instances
+  in your deployments, to make on-premises instances available for AWS CodeDeploy
+  deployments, to get details about a Lambda function deployment, and to get
+  details about Amazon ECS service deployments.
 
-  **AWS CodeDeploy Information Resources**
+  ## AWS CodeDeploy Information Resources
 
-  <ul> <li> [AWS CodeDeploy User
-  Guide](https://docs.aws.amazon.com/codedeploy/latest/userguide)
+    * [AWS CodeDeploy User Guide](https://docs.aws.amazon.com/codedeploy/latest/userguide)
 
-  </li> <li> [AWS CodeDeploy API Reference
-  Guide](https://docs.aws.amazon.com/codedeploy/latest/APIReference/)
+    * [AWS CodeDeploy API Reference Guide](https://docs.aws.amazon.com/codedeploy/latest/APIReference/)
 
-  </li> <li> [AWS CLI Reference for AWS
-  CodeDeploy](https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html)
+    * [AWS CLI Reference for AWS CodeDeploy](https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html)
 
-  </li> <li> [AWS CodeDeploy Developer
-  Forum](https://forums.aws.amazon.com/forum.jspa?forumID=179)
-
-  </li> </ul>
+    * [AWS CodeDeploy Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=179)
   """
 
   @doc """
@@ -95,16 +85,18 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Gets information about one or more application revisions. The maximum
-  number of application revisions that can be returned is 25.
+  Gets information about one or more application revisions.
+
+  The maximum number of application revisions that can be returned is 25.
   """
   def batch_get_application_revisions(client, input, options \\ []) do
     request(client, "BatchGetApplicationRevisions", input, options)
   end
 
   @doc """
-  Gets information about one or more applications. The maximum number of
-  applications that can be returned is 100.
+  Gets information about one or more applications.
+
+  The maximum number of applications that can be returned is 100.
   """
   def batch_get_applications(client, input, options \\ []) do
     request(client, "BatchGetApplications", input, options)
@@ -118,53 +110,55 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  <note> This method works, but is deprecated. Use
-  `BatchGetDeploymentTargets` instead.
+  This method works, but is deprecated.
 
-  </note> Returns an array of one or more instances associated with a
-  deployment. This method works with EC2/On-premises and AWS Lambda compute
-  platforms. The newer `BatchGetDeploymentTargets` works with all compute
-  platforms. The maximum number of instances that can be returned is 25.
+  Use `BatchGetDeploymentTargets` instead.
+
+  Returns an array of one or more instances associated with a deployment. This
+  method works with EC2/On-premises and AWS Lambda compute platforms. The newer
+  `BatchGetDeploymentTargets` works with all compute platforms. The maximum number
+  of instances that can be returned is 25.
   """
   def batch_get_deployment_instances(client, input, options \\ []) do
     request(client, "BatchGetDeploymentInstances", input, options)
   end
 
   @doc """
-  Returns an array of one or more targets associated with a deployment. This
-  method works with all compute types and should be used instead of the
-  deprecated `BatchGetDeploymentInstances`. The maximum number of targets
-  that can be returned is 25.
+  Returns an array of one or more targets associated with a deployment.
 
-  The type of targets returned depends on the deployment's compute platform
-  or deployment method:
+  This method works with all compute types and should be used instead of the
+  deprecated `BatchGetDeploymentInstances`. The maximum number of targets that can
+  be returned is 25.
 
-  <ul> <li> **EC2/On-premises**: Information about EC2 instance targets.
+  The type of targets returned depends on the deployment's compute platform or
+  deployment method:
 
-  </li> <li> **AWS Lambda**: Information about Lambda functions targets.
+    * **EC2/On-premises**: Information about EC2 instance targets.
 
-  </li> <li> **Amazon ECS**: Information about Amazon ECS service targets.
+    * **AWS Lambda**: Information about Lambda functions targets.
 
-  </li> <li> **CloudFormation**: Information about targets of blue/green
+    * **Amazon ECS**: Information about Amazon ECS service targets.
+
+    * **CloudFormation**: Information about targets of blue/green
   deployments initiated by a CloudFormation stack update.
-
-  </li> </ul>
   """
   def batch_get_deployment_targets(client, input, options \\ []) do
     request(client, "BatchGetDeploymentTargets", input, options)
   end
 
   @doc """
-  Gets information about one or more deployments. The maximum number of
-  deployments that can be returned is 25.
+  Gets information about one or more deployments.
+
+  The maximum number of deployments that can be returned is 25.
   """
   def batch_get_deployments(client, input, options \\ []) do
     request(client, "BatchGetDeployments", input, options)
   end
 
   @doc """
-  Gets information about one or more on-premises instances. The maximum
-  number of on-premises instances that can be returned is 25.
+  Gets information about one or more on-premises instances.
+
+  The maximum number of on-premises instances that can be returned is 25.
   """
   def batch_get_on_premises_instances(client, input, options \\ []) do
     request(client, "BatchGetOnPremisesInstances", input, options)
@@ -173,10 +167,11 @@ defmodule AWS.CodeDeploy do
   @doc """
   For a blue/green deployment, starts the process of rerouting traffic from
   instances in the original environment to instances in the replacement
-  environment without waiting for a specified wait time to elapse. (Traffic
-  rerouting, which is achieved by registering instances in the replacement
-  environment with the load balancer, can start as soon as all instances have
-  a status of Ready.)
+  environment without waiting for a specified wait time to elapse.
+
+  (Traffic rerouting, which is achieved by registering instances in the
+  replacement environment with the load balancer, can start as soon as all
+  instances have a status of Ready.)
   """
   def continue_deployment(client, input, options \\ []) do
     request(client, "ContinueDeployment", input, options)
@@ -220,10 +215,8 @@ defmodule AWS.CodeDeploy do
   @doc """
   Deletes a deployment configuration.
 
-  <note> A deployment configuration cannot be deleted if it is currently in
-  use. Predefined configurations cannot be deleted.
-
-  </note>
+  A deployment configuration cannot be deleted if it is currently in use.
+  Predefined configurations cannot be deleted.
   """
   def delete_deployment_config(client, input, options \\ []) do
     request(client, "DeleteDeploymentConfig", input, options)
@@ -274,12 +267,10 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about a deployment.
 
-  <note> The `content` property of the `appSpecContent` object in the
-  returned revision is always null. Use `GetApplicationRevision` and the
-  `sha256` property of the returned `appSpecContent` object to get the
-  content of the deployment’s AppSpec file.
-
-  </note>
+  The `content` property of the `appSpecContent` object in the returned revision
+  is always null. Use `GetApplicationRevision` and the `sha256` property of the
+  returned `appSpecContent` object to get the content of the deployment’s AppSpec
+  file.
   """
   def get_deployment(client, input, options \\ []) do
     request(client, "GetDeployment", input, options)
@@ -342,21 +333,21 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Lists the deployment groups for an application registered with the IAM user
-  or AWS account.
+  Lists the deployment groups for an application registered with the IAM user or
+  AWS account.
   """
   def list_deployment_groups(client, input, options \\ []) do
     request(client, "ListDeploymentGroups", input, options)
   end
 
   @doc """
-  <note> The newer `BatchGetDeploymentTargets` should be used instead because
-  it works with all compute types. `ListDeploymentInstances` throws an
-  exception if it is used with a compute platform other than EC2/On-premises
-  or AWS Lambda.
+  The newer `BatchGetDeploymentTargets` should be used instead because it works
+  with all compute types.
 
-  </note> Lists the instance for a deployment associated with the IAM user or
-  AWS account.
+  `ListDeploymentInstances` throws an exception if it is used with a compute
+  platform other than EC2/On-premises or AWS Lambda.
+
+  Lists the instance for a deployment associated with the IAM user or AWS account.
   """
   def list_deployment_instances(client, input, options \\ []) do
     request(client, "ListDeploymentInstances", input, options)
@@ -370,8 +361,8 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Lists the deployments in a deployment group for an application registered
-  with the IAM user or AWS account.
+  Lists the deployments in a deployment group for an application registered with
+  the IAM user or AWS account.
   """
   def list_deployments(client, input, options \\ []) do
     request(client, "ListDeployments", input, options)
@@ -388,8 +379,8 @@ defmodule AWS.CodeDeploy do
   Gets a list of names for one or more on-premises instances.
 
   Unless otherwise specified, both registered and deregistered on-premises
-  instance names are listed. To list only registered or deregistered
-  on-premises instance names, use the registration status parameter.
+  instance names are listed. To list only registered or deregistered on-premises
+  instance names, use the registration status parameter.
   """
   def list_on_premises_instances(client, input, options \\ []) do
     request(client, "ListOnPremisesInstances", input, options)
@@ -397,26 +388,26 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Returns a list of tags for the resource identified by a specified Amazon
-  Resource Name (ARN). Tags are used to organize and categorize your
-  CodeDeploy resources.
+  Resource Name (ARN).
+
+  Tags are used to organize and categorize your CodeDeploy resources.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Sets the result of a Lambda validation function. The function validates
-  lifecycle hooks during a deployment that uses the AWS Lambda or Amazon ECS
-  compute platform. For AWS Lambda deployments, the available lifecycle hooks
-  are `BeforeAllowTraffic` and `AfterAllowTraffic`. For Amazon ECS
-  deployments, the available lifecycle hooks are `BeforeInstall`,
-  `AfterInstall`, `AfterAllowTestTraffic`, `BeforeAllowTraffic`, and
-  `AfterAllowTraffic`. Lambda validation functions return `Succeeded` or
-  `Failed`. For more information, see [AppSpec 'hooks' Section for an AWS
-  Lambda Deployment
+  Sets the result of a Lambda validation function.
+
+  The function validates lifecycle hooks during a deployment that uses the AWS
+  Lambda or Amazon ECS compute platform. For AWS Lambda deployments, the available
+  lifecycle hooks are `BeforeAllowTraffic` and `AfterAllowTraffic`. For Amazon ECS
+  deployments, the available lifecycle hooks are `BeforeInstall`, `AfterInstall`,
+  `AfterAllowTestTraffic`, `BeforeAllowTraffic`, and `AfterAllowTraffic`. Lambda
+  validation functions return `Succeeded` or `Failed`. For more information, see
+  [AppSpec 'hooks' Section for an AWS Lambda Deployment
   ](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda)
-  and [AppSpec 'hooks' Section for an Amazon ECS
-  Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs).
+  and [AppSpec 'hooks' Section for an Amazon ECS Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs).
   """
   def put_lifecycle_event_hook_execution_status(client, input, options \\ []) do
     request(client, "PutLifecycleEventHookExecutionStatus", input, options)
@@ -432,10 +423,8 @@ defmodule AWS.CodeDeploy do
   @doc """
   Registers an on-premises instance.
 
-  <note> Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported
-  in the request. You cannot use both.
-
-  </note>
+  Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the
+  request. You cannot use both.
   """
   def register_on_premises_instance(client, input, options \\ []) do
     request(client, "RegisterOnPremisesInstance", input, options)
@@ -472,9 +461,10 @@ defmodule AWS.CodeDeploy do
   end
 
   @doc """
-  Disassociates a resource from a list of tags. The resource is identified by
-  the `ResourceArn` input parameter. The tags are identified by the list of
-  keys in the `TagKeys` input parameter.
+  Disassociates a resource from a list of tags.
+
+  The resource is identified by the `ResourceArn` input parameter. The tags are
+  identified by the list of keys in the `TagKeys` input parameter.
   """
   def untag_resource(client, input, options \\ []) do
     request(client, "UntagResource", input, options)

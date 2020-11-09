@@ -7,8 +7,8 @@ defmodule AWS.MediaConvert do
   """
 
   @doc """
-  Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with
-  AWS Elemental MediaConvert.
+  Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS
+  Elemental MediaConvert.
   """
   def associate_certificate(client, input, options \\ []) do
     path_ = "/2017-08-29/certificates"
@@ -18,8 +18,9 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Permanently cancel a job. Once you have canceled a job, you can't start it
-  again.
+  Permanently cancel a job.
+
+  Once you have canceled a job, you can't start it again.
   """
   def cancel_job(client, id, input, options \\ []) do
     path_ = "/2017-08-29/jobs/#{URI.encode(id)}"
@@ -29,8 +30,9 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new transcoding job. For information about jobs and job settings,
-  see the User Guide at
+  Create a new transcoding job.
+
+  For information about jobs and job settings, see the User Guide at
   http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
   """
   def create_job(client, input, options \\ []) do
@@ -41,8 +43,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new job template. For information about job templates see the User
-  Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+  Create a new job template.
+
+  For information about job templates see the User Guide at
+  http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
   """
   def create_job_template(client, input, options \\ []) do
     path_ = "/2017-08-29/jobTemplates"
@@ -52,8 +56,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new preset. For information about job templates see the User Guide
-  at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+  Create a new preset.
+
+  For information about job templates see the User Guide at
+  http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
   """
   def create_preset(client, input, options \\ []) do
     path_ = "/2017-08-29/presets"
@@ -63,8 +69,9 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new transcoding queue. For information about queues, see Working
-  With Queues in the User Guide at
+  Create a new transcoding queue.
+
+  For information about queues, see Working With Queues in the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
   """
   def create_queue(client, input, options \\ []) do
@@ -168,9 +175,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your job templates. This will
-  return the templates themselves, not just a list of them. To retrieve the
-  next twenty templates, use the nextToken string returned with the array
+  Retrieve a JSON array of up to twenty of your job templates.
+
+  This will return the templates themselves, not just a list of them. To retrieve
+  the next twenty templates, use the nextToken string returned with the array
   """
   def list_job_templates(client, category \\ nil, list_by \\ nil, max_results \\ nil, next_token \\ nil, order \\ nil, options \\ []) do
     path_ = "/2017-08-29/jobTemplates"
@@ -206,10 +214,10 @@ defmodule AWS.MediaConvert do
 
   @doc """
   Retrieve a JSON array of up to twenty of your most recently created jobs.
-  This array includes in-process, completed, and errored jobs. This will
-  return the jobs themselves, not just a list of the jobs. To retrieve the
-  twenty next most recent jobs, use the nextToken string returned with the
-  array.
+
+  This array includes in-process, completed, and errored jobs. This will return
+  the jobs themselves, not just a list of the jobs. To retrieve the twenty next
+  most recent jobs, use the nextToken string returned with the array.
   """
   def list_jobs(client, max_results \\ nil, next_token \\ nil, order \\ nil, queue \\ nil, status \\ nil, options \\ []) do
     path_ = "/2017-08-29/jobs"
@@ -244,9 +252,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your presets. This will return the
-  presets themselves, not just a list of them. To retrieve the next twenty
-  presets, use the nextToken string returned with the array.
+  Retrieve a JSON array of up to twenty of your presets.
+
+  This will return the presets themselves, not just a list of them. To retrieve
+  the next twenty presets, use the nextToken string returned with the array.
   """
   def list_presets(client, category \\ nil, list_by \\ nil, max_results \\ nil, next_token \\ nil, order \\ nil, options \\ []) do
     path_ = "/2017-08-29/presets"
@@ -281,9 +290,10 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your queues. This will return the
-  queues themselves, not just a list of them. To retrieve the next twenty
-  queues, use the nextToken string returned with the array.
+  Retrieve a JSON array of up to twenty of your queues.
+
+  This will return the queues themselves, not just a list of them. To retrieve the
+  next twenty queues, use the nextToken string returned with the array.
   """
   def list_queues(client, list_by \\ nil, max_results \\ nil, next_token \\ nil, order \\ nil, options \\ []) do
     path_ = "/2017-08-29/queues"
@@ -323,8 +333,9 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Add tags to a MediaConvert queue, preset, or job template. For information
-  about tagging, see the User Guide at
+  Add tags to a MediaConvert queue, preset, or job template.
+
+  For information about tagging, see the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
   """
   def tag_resource(client, input, options \\ []) do
@@ -335,8 +346,9 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Remove tags from a MediaConvert queue, preset, or job template. For
-  information about tagging, see the User Guide at
+  Remove tags from a MediaConvert queue, preset, or job template.
+
+  For information about tagging, see the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
   """
   def untag_resource(client, arn, input, options \\ []) do

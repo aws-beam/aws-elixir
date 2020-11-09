@@ -7,20 +7,18 @@ defmodule AWS.TranscribeStreaming do
   """
 
   @doc """
-  Starts a bidirectional HTTP2 stream where audio is streamed to Amazon
-  Transcribe and the transcription results are streamed to your application.
+  Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe
+  and the transcription results are streamed to your application.
 
   The following are encoded as HTTP2 headers:
 
-  <ul> <li> x-amzn-transcribe-language-code
+    * x-amzn-transcribe-language-code
 
-  </li> <li> x-amzn-transcribe-media-encoding
+    * x-amzn-transcribe-media-encoding
 
-  </li> <li> x-amzn-transcribe-sample-rate
+    * x-amzn-transcribe-sample-rate
 
-  </li> <li> x-amzn-transcribe-session-id
-
-  </li> </ul>
+    * x-amzn-transcribe-session-id
   """
   def start_stream_transcription(client, input, options \\ []) do
     path_ = "/stream-transcription"

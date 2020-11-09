@@ -29,9 +29,7 @@ defmodule AWS.Schemas do
   @doc """
   Creates a schema definition.
 
-  <note>Inactive schemas will be deleted after two years.
-
-  </note>
+  Inactive schemas will be deleted after two years.
   """
   def create_schema(client, registry_name, schema_name, input, options \\ []) do
     path_ = "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}"
@@ -439,9 +437,7 @@ defmodule AWS.Schemas do
   @doc """
   Updates the schema definition
 
-  <note>Inactive schemas will be deleted after two years.
-
-  </note>
+  Inactive schemas will be deleted after two years.
   """
   def update_schema(client, registry_name, schema_name, input, options \\ []) do
     path_ = "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}"

@@ -6,18 +6,17 @@ defmodule AWS.Macie do
   Amazon Macie Classic
 
   Amazon Macie Classic is a security service that uses machine learning to
-  automatically discover, classify, and protect sensitive data in AWS. Macie
-  Classic recognizes sensitive data such as personally identifiable
-  information (PII) or intellectual property, and provides you with
-  dashboards and alerts that give visibility into how this data is being
-  accessed or moved. For more information, see the [Amazon Macie Classic User
-  Guide](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html).
+  automatically discover, classify, and protect sensitive data in AWS.
 
-  A new Amazon Macie is now available with significant design improvements
-  and additional features, at a lower price and in most AWS Regions. We
-  encourage you to explore and use the new and improved features, and benefit
-  from the reduced cost. To learn about features and pricing for the new
-  Amazon Macie, see [Amazon Macie](https://aws.amazon.com/macie/).
+  Macie Classic recognizes sensitive data such as personally identifiable
+  information (PII) or intellectual property, and provides you with dashboards and
+  alerts that give visibility into how this data is being accessed or moved. For
+  more information, see the [Amazon Macie Classic User Guide](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html).
+
+  A new Amazon Macie is now available with significant design improvements and
+  additional features, at a lower price and in most AWS Regions. We encourage you
+  to explore and use the new and improved features, and benefit from the reduced
+  cost. To learn about features and pricing for the new Amazon Macie, see [Amazon Macie](https://aws.amazon.com/macie/).
   """
 
   @doc """
@@ -29,11 +28,13 @@ defmodule AWS.Macie do
   end
 
   @doc """
-  Associates specified S3 resources with Amazon Macie Classic for monitoring
-  and data classification. If memberAccountId isn't specified, the action
-  associates specified S3 resources with Macie Classic for the current master
-  account. If memberAccountId is specified, the action associates specified
-  S3 resources with Macie Classic for the specified member account.
+  Associates specified S3 resources with Amazon Macie Classic for monitoring and
+  data classification.
+
+  If memberAccountId isn't specified, the action associates specified S3 resources
+  with Macie Classic for the current master account. If memberAccountId is
+  specified, the action associates specified S3 resources with Macie Classic for
+  the specified member account.
   """
   def associate_s3_resources(client, input, options \\ []) do
     request(client, "AssociateS3Resources", input, options)
@@ -47,11 +48,12 @@ defmodule AWS.Macie do
   end
 
   @doc """
-  Removes specified S3 resources from being monitored by Amazon Macie
-  Classic. If memberAccountId isn't specified, the action removes specified
-  S3 resources from Macie Classic for the current master account. If
-  memberAccountId is specified, the action removes specified S3 resources
-  from Macie Classic for the specified member account.
+  Removes specified S3 resources from being monitored by Amazon Macie Classic.
+
+  If memberAccountId isn't specified, the action removes specified S3 resources
+  from Macie Classic for the current master account. If memberAccountId is
+  specified, the action removes specified S3 resources from Macie Classic for the
+  specified member account.
   """
   def disassociate_s3_resources(client, input, options \\ []) do
     request(client, "DisassociateS3Resources", input, options)
@@ -66,23 +68,25 @@ defmodule AWS.Macie do
   end
 
   @doc """
-  Lists all the S3 resources associated with Amazon Macie Classic. If
-  memberAccountId isn't specified, the action lists the S3 resources
-  associated with Amazon Macie Classic for the current master account. If
-  memberAccountId is specified, the action lists the S3 resources associated
-  with Amazon Macie Classic for the specified member account.
+  Lists all the S3 resources associated with Amazon Macie Classic.
+
+  If memberAccountId isn't specified, the action lists the S3 resources associated
+  with Amazon Macie Classic for the current master account. If memberAccountId is
+  specified, the action lists the S3 resources associated with Amazon Macie
+  Classic for the specified member account.
   """
   def list_s3_resources(client, input, options \\ []) do
     request(client, "ListS3Resources", input, options)
   end
 
   @doc """
-  Updates the classification types for the specified S3 resources. If
-  memberAccountId isn't specified, the action updates the classification
-  types of the S3 resources associated with Amazon Macie Classic for the
-  current master account. If memberAccountId is specified, the action updates
-  the classification types of the S3 resources associated with Amazon Macie
-  Classic for the specified member account.
+  Updates the classification types for the specified S3 resources.
+
+  If memberAccountId isn't specified, the action updates the classification types
+  of the S3 resources associated with Amazon Macie Classic for the current master
+  account. If memberAccountId is specified, the action updates the classification
+  types of the S3 resources associated with Amazon Macie Classic for the specified
+  member account.
   """
   def update_s3_resources(client, input, options \\ []) do
     request(client, "UpdateS3Resources", input, options)

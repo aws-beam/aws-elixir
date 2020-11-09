@@ -3,25 +3,21 @@
 
 defmodule AWS.Signer do
   @moduledoc """
-  With code signing for IoT, you can sign code that you create for any IoT
-  device that is supported by Amazon Web Services (AWS). Code signing is
-  available through [Amazon
-  FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS
-  IoT Device
-  Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
-  integrated with [AWS Certificate Manager
-  (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign
-  code, you import a third-party code signing certificate with ACM that is
-  used to sign updates in Amazon FreeRTOS and AWS IoT Device Management. For
-  general information about using code signing, see the [Code Signing for IoT
-  Developer
-  Guide](http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
+  With code signing for IoT, you can sign code that you create for any IoT device
+  that is supported by Amazon Web Services (AWS).
+
+  Code signing is available through [Amazon FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
+  integrated with [AWS Certificate Manager (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign code,
+  you import a third-party code signing certificate with ACM that is used to sign
+  updates in Amazon FreeRTOS and AWS IoT Device Management. For general
+  information about using code signing, see the [Code Signing for IoT Developer Guide](http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
   """
 
   @doc """
-  Changes the state of an `ACTIVE` signing profile to `CANCELED`. A canceled
-  profile is still viewable with the `ListSigningProfiles` operation, but it
-  cannot perform new signing jobs, and is deleted two years after
+  Changes the state of an `ACTIVE` signing profile to `CANCELED`.
+
+  A canceled profile is still viewable with the `ListSigningProfiles` operation,
+  but it cannot perform new signing jobs, and is deleted two years after
   cancelation.
   """
   def cancel_signing_profile(client, profile_name, input, options \\ []) do
@@ -32,9 +28,10 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Returns information about a specific code signing job. You specify the job
-  by using the `jobId` value that is returned by the `StartSigningJob`
-  operation.
+  Returns information about a specific code signing job.
+
+  You specify the job by using the `jobId` value that is returned by the
+  `StartSigningJob` operation.
   """
   def describe_signing_job(client, job_id, options \\ []) do
     path_ = "/signing-jobs/#{URI.encode(job_id)}"
@@ -64,13 +61,15 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Lists all your signing jobs. You can use the `maxResults` parameter to
-  limit the number of signing jobs that are returned in the response. If
-  additional jobs remain to be listed, code signing returns a `nextToken`
-  value. Use this value in subsequent calls to `ListSigningJobs` to fetch the
-  remaining values. You can continue calling `ListSigningJobs` with your
-  `maxResults` parameter and with new values that code signing returns in the
-  `nextToken` parameter until all of your signing jobs have been returned.
+  Lists all your signing jobs.
+
+  You can use the `maxResults` parameter to limit the number of signing jobs that
+  are returned in the response. If additional jobs remain to be listed, code
+  signing returns a `nextToken` value. Use this value in subsequent calls to
+  `ListSigningJobs` to fetch the remaining values. You can continue calling
+  `ListSigningJobs` with your `maxResults` parameter and with new values that code
+  signing returns in the `nextToken` parameter until all of your signing jobs have
+  been returned.
   """
   def list_signing_jobs(client, max_results \\ nil, next_token \\ nil, platform_id \\ nil, requested_by \\ nil, status \\ nil, options \\ []) do
     path_ = "/signing-jobs"
@@ -105,13 +104,14 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Lists all signing platforms available in code signing that match the
-  request parameters. If additional jobs remain to be listed, code signing
-  returns a `nextToken` value. Use this value in subsequent calls to
-  `ListSigningJobs` to fetch the remaining values. You can continue calling
-  `ListSigningJobs` with your `maxResults` parameter and with new values that
-  code signing returns in the `nextToken` parameter until all of your signing
-  jobs have been returned.
+  Lists all signing platforms available in code signing that match the request
+  parameters.
+
+  If additional jobs remain to be listed, code signing returns a `nextToken`
+  value. Use this value in subsequent calls to `ListSigningJobs` to fetch the
+  remaining values. You can continue calling `ListSigningJobs` with your
+  `maxResults` parameter and with new values that code signing returns in the
+  `nextToken` parameter until all of your signing jobs have been returned.
   """
   def list_signing_platforms(client, category \\ nil, max_results \\ nil, next_token \\ nil, partner \\ nil, target \\ nil, options \\ []) do
     path_ = "/signing-platforms"
@@ -146,14 +146,15 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Lists all available signing profiles in your AWS account. Returns only
-  profiles with an `ACTIVE` status unless the `includeCanceled` request field
-  is set to `true`. If additional jobs remain to be listed, code signing
-  returns a `nextToken` value. Use this value in subsequent calls to
+  Lists all available signing profiles in your AWS account.
+
+  Returns only profiles with an `ACTIVE` status unless the `includeCanceled`
+  request field is set to `true`. If additional jobs remain to be listed, code
+  signing returns a `nextToken` value. Use this value in subsequent calls to
   `ListSigningJobs` to fetch the remaining values. You can continue calling
-  `ListSigningJobs` with your `maxResults` parameter and with new values that
-  code signing returns in the `nextToken` parameter until all of your signing
-  jobs have been returned.
+  `ListSigningJobs` with your `maxResults` parameter and with new values that code
+  signing returns in the `nextToken` parameter until all of your signing jobs have
+  been returned.
   """
   def list_signing_profiles(client, include_canceled \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/signing-profiles"
@@ -188,9 +189,10 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Creates a signing profile. A signing profile is a code signing template
-  that can be used to carry out a pre-defined signing job. For more
-  information, see
+  Creates a signing profile.
+
+  A signing profile is a code signing template that can be used to carry out a
+  pre-defined signing job. For more information, see
   [http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html](http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html)
   """
   def put_signing_profile(client, profile_name, input, options \\ []) do
@@ -201,28 +203,28 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Initiates a signing job to be performed on the code provided. Signing jobs
-  are viewable by the `ListSigningJobs` operation for two years after they
-  are performed. Note the following requirements:
+  Initiates a signing job to be performed on the code provided.
 
-  <ul> <li> You must create an Amazon S3 source bucket. For more information,
-  see [Create a
-  Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
-  in the *Amazon S3 Getting Started Guide*.
+  Signing jobs are viewable by the `ListSigningJobs` operation for two years after
+  they are performed. Note the following requirements:
 
-  </li> <li> Your S3 source bucket must be version enabled.
+    * You must create an Amazon S3 source bucket. For more information,
+  see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in
+  the *Amazon S3 Getting Started Guide*.
 
-  </li> <li> You must create an S3 destination bucket. Code signing uses your
+    * Your S3 source bucket must be version enabled.
+
+    * You must create an S3 destination bucket. Code signing uses your
   S3 destination bucket to write your signed code.
 
-  </li> <li> You specify the name of the source and destination buckets when
+    * You specify the name of the source and destination buckets when
   calling the `StartSigningJob` operation.
 
-  </li> <li> You must also specify a request token that identifies your
-  request to code signing.
+    * You must also specify a request token that identifies your request
+  to code signing.
 
-  </li> </ul> You can call the `DescribeSigningJob` and the `ListSigningJobs`
-  actions after you call `StartSigningJob`.
+  You can call the `DescribeSigningJob` and the `ListSigningJobs` actions after
+  you call `StartSigningJob`.
 
   For a Java example that shows how to use this action, see
   [http://docs.aws.amazon.com/acm/latest/userguide/](http://docs.aws.amazon.com/acm/latest/userguide/)
@@ -235,10 +237,12 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Adds one or more tags to a signing profile. Tags are labels that you can
-  use to identify and organize your AWS resources. Each tag consists of a key
-  and an optional value. To specify the signing profile, use its Amazon
-  Resource Name (ARN). To specify the tag, use a key-value pair.
+  Adds one or more tags to a signing profile.
+
+  Tags are labels that you can use to identify and organize your AWS resources.
+  Each tag consists of a key and an optional value. To specify the signing
+  profile, use its Amazon Resource Name (ARN). To specify the tag, use a key-value
+  pair.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -248,8 +252,9 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Removes one or more tags from a signing profile. To remove the tags,
-  specify a list of tag keys.
+  Removes one or more tags from a signing profile.
+
+  To remove the tags, specify a list of tag keys.
   """
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"

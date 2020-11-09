@@ -5,110 +5,97 @@ defmodule AWS.OpsWorks do
   @moduledoc """
   AWS OpsWorks
 
-  Welcome to the *AWS OpsWorks Stacks API Reference*. This guide provides
-  descriptions, syntax, and usage examples for AWS OpsWorks Stacks actions
-  and data types, including common parameters and error codes.
+  Welcome to the *AWS OpsWorks Stacks API Reference*.
+
+  This guide provides descriptions, syntax, and usage examples for AWS OpsWorks
+  Stacks actions and data types, including common parameters and error codes.
 
   AWS OpsWorks Stacks is an application management service that provides an
-  integrated experience for overseeing the complete application lifecycle.
-  For information about this product, go to the [AWS
-  OpsWorks](http://aws.amazon.com/opsworks/) details page.
+  integrated experience for overseeing the complete application lifecycle. For
+  information about this product, go to the [AWS OpsWorks](http://aws.amazon.com/opsworks/) details page.
 
-  **SDKs and CLI**
+  ## SDKs and CLI
 
   The most common way to use the AWS OpsWorks Stacks API is by using the AWS
   Command Line Interface (CLI) or by using one of the AWS SDKs to implement
   applications in your preferred language. For more information, see:
 
-  <ul> <li> [AWS
-  CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+    * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
 
-  </li> <li> [AWS SDK for
-  Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)
+    * [AWS SDK for Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)
 
-  </li> <li> [AWS SDK for
-  .NET](https://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm)
+    * [AWS SDK for .NET](https://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm)
 
-  </li> <li> [AWS SDK for PHP
-  2](https://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html)
+    * [AWS SDK for PHP 2](https://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html)
 
-  </li> <li> [AWS SDK for Ruby](http://docs.aws.amazon.com/sdkforruby/api/)
-
-  </li> <li> [AWS SDK for
+    * [AWS SDK for Ruby](http://docs.aws.amazon.com/sdkforruby/api/)     * [AWS SDK for
   Node.js](http://aws.amazon.com/documentation/sdkforjavascript/)
 
-  </li> <li> [AWS SDK for
-  Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html)
+    * [AWS SDK for Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html)
 
-  </li> </ul> **Endpoints**
+  ## Endpoints
 
   AWS OpsWorks Stacks supports the following endpoints, all HTTPS. You must
   connect to one of the following endpoints. Stacks can only be accessed or
   managed within the endpoint in which they are created.
 
-  <ul> <li> opsworks.us-east-1.amazonaws.com
+    * opsworks.us-east-1.amazonaws.com
 
-  </li> <li> opsworks.us-east-2.amazonaws.com
+    * opsworks.us-east-2.amazonaws.com
 
-  </li> <li> opsworks.us-west-1.amazonaws.com
+    * opsworks.us-west-1.amazonaws.com
 
-  </li> <li> opsworks.us-west-2.amazonaws.com
+    * opsworks.us-west-2.amazonaws.com
 
-  </li> <li> opsworks.ca-central-1.amazonaws.com (API only; not available in
+    * opsworks.ca-central-1.amazonaws.com (API only; not available in
   the AWS console)
 
-  </li> <li> opsworks.eu-west-1.amazonaws.com
+    * opsworks.eu-west-1.amazonaws.com
 
-  </li> <li> opsworks.eu-west-2.amazonaws.com
+    * opsworks.eu-west-2.amazonaws.com
 
-  </li> <li> opsworks.eu-west-3.amazonaws.com
+    * opsworks.eu-west-3.amazonaws.com
 
-  </li> <li> opsworks.eu-central-1.amazonaws.com
+    * opsworks.eu-central-1.amazonaws.com
 
-  </li> <li> opsworks.ap-northeast-1.amazonaws.com
+    * opsworks.ap-northeast-1.amazonaws.com
 
-  </li> <li> opsworks.ap-northeast-2.amazonaws.com
+    * opsworks.ap-northeast-2.amazonaws.com
 
-  </li> <li> opsworks.ap-south-1.amazonaws.com
+    * opsworks.ap-south-1.amazonaws.com
 
-  </li> <li> opsworks.ap-southeast-1.amazonaws.com
+    * opsworks.ap-southeast-1.amazonaws.com
 
-  </li> <li> opsworks.ap-southeast-2.amazonaws.com
+    * opsworks.ap-southeast-2.amazonaws.com
 
-  </li> <li> opsworks.sa-east-1.amazonaws.com
+    * opsworks.sa-east-1.amazonaws.com
 
-  </li> </ul> **Chef Versions**
+  ## Chef Versions
 
-  When you call `CreateStack`, `CloneStack`, or `UpdateStack` we recommend
-  you use the `ConfigurationManager` parameter to specify the Chef version.
-  The recommended and default value for Linux stacks is currently 12. Windows
-  stacks use Chef 12.2. For more information, see [Chef
-  Versions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html).
+  When you call `CreateStack`, `CloneStack`, or `UpdateStack` we recommend you use
+  the `ConfigurationManager` parameter to specify the Chef version. The
+  recommended and default value for Linux stacks is currently 12. Windows stacks
+  use Chef 12.2. For more information, see [Chef Versions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html).
 
-  <note> You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We
-  recommend migrating your existing Linux stacks to Chef 12 as soon as
-  possible.
-
-  </note>
+  You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend
+  migrating your existing Linux stacks to Chef 12 as soon as possible.
   """
 
   @doc """
   Assign a registered instance to a layer.
 
-  <ul> <li> You can assign registered on-premises instances to any layer
-  type.
+    * You can assign registered on-premises instances to any layer type.
 
-  </li> <li> You can assign registered Amazon EC2 instances only to custom
+    * You can assign registered Amazon EC2 instances only to custom
   layers.
 
-  </li> <li> You cannot use this action with instances that were created with
+    * You cannot use this action with instances that were created with
   AWS OpsWorks Stacks.
 
-  </li> </ul> **Required Permissions**: To use this action, an AWS Identity
-  and Access Management (IAM) user must have a Manage permissions level for
-  the stack or an attached policy that explicitly grants permissions. For
-  more information on user permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an AWS Identity and Access
+  Management (IAM) user must have a Manage permissions level for the stack or an
+  attached policy that explicitly grants permissions. For more information on user
+  permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def assign_instance(client, input, options \\ []) do
     request(client, "AssignInstance", input, options)
@@ -116,148 +103,136 @@ defmodule AWS.OpsWorks do
 
   @doc """
   Assigns one of the stack's registered Amazon EBS volumes to a specified
-  instance. The volume must first be registered with the stack by calling
-  `RegisterVolume`. After you register the volume, you must call
-  `UpdateVolume` to specify a mount point before calling `AssignVolume`. For
-  more information, see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  The volume must first be registered with the stack by calling `RegisterVolume`.
+  After you register the volume, you must call `UpdateVolume` to specify a mount
+  point before calling `AssignVolume`. For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def assign_volume(client, input, options \\ []) do
     request(client, "AssignVolume", input, options)
   end
 
   @doc """
-  Associates one of the stack's registered Elastic IP addresses with a
-  specified instance. The address must first be registered with the stack by
-  calling `RegisterElasticIp`. For more information, see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Associates one of the stack's registered Elastic IP addresses with a specified
+  instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  The address must first be registered with the stack by calling
+  `RegisterElasticIp`. For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def associate_elastic_ip(client, input, options \\ []) do
     request(client, "AssociateElasticIp", input, options)
   end
 
   @doc """
-  Attaches an Elastic Load Balancing load balancer to a specified layer. AWS
-  OpsWorks Stacks does not support Application Load Balancer. You can only
-  use Classic Load Balancer with AWS OpsWorks Stacks. For more information,
-  see [Elastic Load
-  Balancing](https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html).
+  Attaches an Elastic Load Balancing load balancer to a specified layer.
 
-  <note> You must create the Elastic Load Balancing instance separately, by
-  using the Elastic Load Balancing console, API, or CLI. For more
-  information, see [ Elastic Load Balancing Developer
+  AWS OpsWorks Stacks does not support Application Load Balancer. You can only use
+  Classic Load Balancer with AWS OpsWorks Stacks. For more information, see
+  [Elastic Load Balancing](https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html).
+
+  You must create the Elastic Load Balancing instance separately, by using the
+  Elastic Load Balancing console, API, or CLI. For more information, see [ Elastic Load Balancing Developer
   Guide](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/Welcome.html).
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def attach_elastic_load_balancer(client, input, options \\ []) do
     request(client, "AttachElasticLoadBalancer", input, options)
   end
 
   @doc """
-  Creates a clone of a specified stack. For more information, see [Clone a
-  Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html).
+  Creates a clone of a specified stack.
+
+  For more information, see [Clone a Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html).
   By default, all parameters are set to the values used by the parent stack.
 
-  **Required Permissions**: To use this action, an IAM user must have an
-  attached policy that explicitly grants permissions. For more information
-  about user permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have an attached
+  policy that explicitly grants permissions. For more information about user
+  permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def clone_stack(client, input, options \\ []) do
     request(client, "CloneStack", input, options)
   end
 
   @doc """
-  Creates an app for a specified stack. For more information, see [Creating
-  Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html).
+  Creates an app for a specified stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Creating Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_app(client, input, options \\ []) do
     request(client, "CreateApp", input, options)
   end
 
   @doc """
-  Runs deployment or stack commands. For more information, see [Deploying
-  Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html)
-  and [Run Stack
-  Commands](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html).
+  Runs deployment or stack commands.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Deploy or Manage permissions level for the stack, or an attached policy
-  that explicitly grants permissions. For more information on user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Deploying Apps](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html)
+  and [Run Stack Commands](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Deploy or
+  Manage permissions level for the stack, or an attached policy that explicitly
+  grants permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_deployment(client, input, options \\ []) do
     request(client, "CreateDeployment", input, options)
   end
 
   @doc """
-  Creates an instance in a specified stack. For more information, see [Adding
-  an Instance to a
-  Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html).
+  Creates an instance in a specified stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Adding an Instance to a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_instance(client, input, options \\ []) do
     request(client, "CreateInstance", input, options)
   end
 
   @doc """
-  Creates a layer. For more information, see [How to Create a
-  Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html).
+  Creates a layer.
 
-  <note> You should use **CreateLayer** for noncustom layer types such as PHP
-  App Server only if the stack does not have an existing layer of that type.
-  A stack can have at most one instance of each noncustom layer; if you
-  attempt to create a second instance, **CreateLayer** fails. A stack can
-  have an arbitrary number of custom layers, so you can call **CreateLayer**
-  as many times as you like for that layer type.
+  For more information, see [How to Create a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html).
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  You should use **CreateLayer** for noncustom layer types such as PHP App Server
+  only if the stack does not have an existing layer of that type. A stack can have
+  at most one instance of each noncustom layer; if you attempt to create a second
+  instance, **CreateLayer** fails. A stack can have an arbitrary number of custom
+  layers, so you can call **CreateLayer** as many times as you like for that layer
+  type.
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_layer(client, input, options \\ []) do
     request(client, "CreateLayer", input, options)
   end
 
   @doc """
-  Creates a new stack. For more information, see [Create a New
-  Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html).
+  Creates a new stack.
 
-  **Required Permissions**: To use this action, an IAM user must have an
-  attached policy that explicitly grants permissions. For more information
-  about user permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Create a New Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html).
+
+  **Required Permissions**: To use this action, an IAM user must have an attached
+  policy that explicitly grants permissions. For more information about user
+  permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_stack(client, input, options \\ []) do
     request(client, "CreateStack", input, options)
@@ -266,10 +241,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Creates a new user profile.
 
-  **Required Permissions**: To use this action, an IAM user must have an
-  attached policy that explicitly grants permissions. For more information
-  about user permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have an attached
+  policy that explicitly grants permissions. For more information about user
+  permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def create_user_profile(client, input, options \\ []) do
     request(client, "CreateUserProfile", input, options)
@@ -278,11 +252,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Deletes a specified app.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_app(client, input, options \\ []) do
     request(client, "DeleteApp", input, options)
@@ -290,48 +262,43 @@ defmodule AWS.OpsWorks do
 
   @doc """
   Deletes a specified instance, which terminates the associated Amazon EC2
-  instance. You must stop an instance before you can delete it.
+  instance.
 
-  For more information, see [Deleting
-  Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html).
+  You must stop an instance before you can delete it.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Deleting Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_instance(client, input, options \\ []) do
     request(client, "DeleteInstance", input, options)
   end
 
   @doc """
-  Deletes a specified layer. You must first stop and then delete all
-  associated instances or unassign registered instances. For more
-  information, see [How to Delete a
-  Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html).
+  Deletes a specified layer.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  You must first stop and then delete all associated instances or unassign
+  registered instances. For more information, see [How to Delete a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_layer(client, input, options \\ []) do
     request(client, "DeleteLayer", input, options)
   end
 
   @doc """
-  Deletes a specified stack. You must first delete all instances, layers, and
-  apps or deregister registered instances. For more information, see [Shut
-  Down a
-  Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html).
+  Deletes a specified stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  You must first delete all instances, layers, and apps or deregister registered
+  instances. For more information, see [Shut Down a Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_stack(client, input, options \\ []) do
     request(client, "DeleteStack", input, options)
@@ -340,24 +307,22 @@ defmodule AWS.OpsWorks do
   @doc """
   Deletes a user profile.
 
-  **Required Permissions**: To use this action, an IAM user must have an
-  attached policy that explicitly grants permissions. For more information
-  about user permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have an attached
+  policy that explicitly grants permissions. For more information about user
+  permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def delete_user_profile(client, input, options \\ []) do
     request(client, "DeleteUserProfile", input, options)
   end
 
   @doc """
-  Deregisters a specified Amazon ECS cluster from a stack. For more
-  information, see [ Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete).
+  Deregisters a specified Amazon ECS cluster from a stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see
+  For more information, see [ Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see
   [https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_ecs_cluster(client, input, options \\ []) do
@@ -365,31 +330,29 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
-  Deregisters a specified Elastic IP address. The address can then be
-  registered by another stack. For more information, see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Deregisters a specified Elastic IP address.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  The address can then be registered by another stack. For more information, see
+  [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_elastic_ip(client, input, options \\ []) do
     request(client, "DeregisterElasticIp", input, options)
   end
 
   @doc """
-  Deregister a registered Amazon EC2 or on-premises instance. This action
-  removes the instance from the stack and returns it to your control. This
-  action cannot be used with instances that were created with AWS OpsWorks
+  Deregister a registered Amazon EC2 or on-premises instance.
+
+  This action removes the instance from the stack and returns it to your control.
+  This action cannot be used with instances that were created with AWS OpsWorks
   Stacks.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_instance(client, input, options \\ []) do
     request(client, "DeregisterInstance", input, options)
@@ -398,34 +361,32 @@ defmodule AWS.OpsWorks do
   @doc """
   Deregisters an Amazon RDS instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_rds_db_instance(client, input, options \\ []) do
     request(client, "DeregisterRdsDbInstance", input, options)
   end
 
   @doc """
-  Deregisters an Amazon EBS volume. The volume can then be registered by
-  another stack. For more information, see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Deregisters an Amazon EBS volume.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  The volume can then be registered by another stack. For more information, see
+  [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def deregister_volume(client, input, options \\ []) do
     request(client, "DeregisterVolume", input, options)
   end
 
   @doc """
-  Describes the available AWS OpsWorks Stacks agent versions. You must
-  specify a stack ID or a configuration manager. `DescribeAgentVersions`
+  Describes the available AWS OpsWorks Stacks agent versions.
+
+  You must specify a stack ID or a configuration manager. `DescribeAgentVersions`
   returns a list of available agent versions for the specified stack or
   configuration manager.
   """
@@ -436,13 +397,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Requests a description of a specified set of apps.
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_apps(client, input, options \\ []) do
     request(client, "DescribeApps", input, options)
@@ -451,13 +411,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Describes the results of specified commands.
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_commands(client, input, options \\ []) do
     request(client, "DescribeCommands", input, options)
@@ -466,30 +425,29 @@ defmodule AWS.OpsWorks do
   @doc """
   Requests a description of a specified set of deployments.
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_deployments(client, input, options \\ []) do
     request(client, "DescribeDeployments", input, options)
   end
 
   @doc """
-  Describes Amazon ECS clusters that are registered with a stack. If you
-  specify only a stack ID, you can use the `MaxResults` and `NextToken`
+  Describes Amazon ECS clusters that are registered with a stack.
+
+  If you specify only a stack ID, you can use the `MaxResults` and `NextToken`
   parameters to paginate the response. However, AWS OpsWorks Stacks currently
   supports only one cluster per layer, so the result set has a maximum of one
   element.
 
   **Required Permissions**: To use this action, an IAM user must have a Show,
-  Deploy, or Manage permissions level for the stack or an attached policy
-  that explicitly grants permission. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  Deploy, or Manage permissions level for the stack or an attached policy that
+  explicitly grants permission. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
 
   This call accepts only one resource-identifying parameter.
   """
@@ -498,16 +456,14 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
-  Describes [Elastic IP
-  addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
+  Describes [Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_elastic_ips(client, input, options \\ []) do
     request(client, "DescribeElasticIps", input, options)
@@ -516,13 +472,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Describes a stack's Elastic Load Balancing instances.
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_elastic_load_balancers(client, input, options \\ []) do
     request(client, "DescribeElasticLoadBalancers", input, options)
@@ -531,13 +486,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Requests a description of a set of instances.
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_instances(client, input, options \\ []) do
     request(client, "DescribeInstances", input, options)
@@ -546,13 +500,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Requests a description of one or more layers in a specified stack.
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_layers(client, input, options \\ []) do
     request(client, "DescribeLayers", input, options)
@@ -561,13 +514,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Describes load-based auto scaling configurations for specified layers.
 
-  <note> You must specify at least one of the parameters.
+  You must specify at least one of the parameters.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_load_based_auto_scaling(client, input, options \\ []) do
     request(client, "DescribeLoadBasedAutoScaling", input, options)
@@ -578,9 +530,7 @@ defmodule AWS.OpsWorks do
 
   **Required Permissions**: To use this action, an IAM user must have
   self-management enabled or an attached policy that explicitly grants
-  permissions. For more information about user permissions, see [Managing
-  User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_my_user_profile(client, input, options \\ []) do
     request(client, "DescribeMyUserProfile", input, options)
@@ -596,11 +546,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Describes the permissions for a specified stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_permissions(client, input, options \\ []) do
     request(client, "DescribePermissions", input, options)
@@ -609,13 +557,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Describe an instance's RAID arrays.
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_raid_arrays(client, input, options \\ []) do
     request(client, "DescribeRaidArrays", input, options)
@@ -625,10 +572,9 @@ defmodule AWS.OpsWorks do
   Describes Amazon RDS instances.
 
   **Required Permissions**: To use this action, an IAM user must have a Show,
-  Deploy, or Manage permissions level for the stack, or an attached policy
-  that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
 
   This call accepts only one resource-identifying parameter.
   """
@@ -640,10 +586,9 @@ defmodule AWS.OpsWorks do
   Describes AWS OpsWorks Stacks service errors.
 
   **Required Permissions**: To use this action, an IAM user must have a Show,
-  Deploy, or Manage permissions level for the stack, or an attached policy
-  that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
 
   This call accepts only one resource-identifying parameter.
   """
@@ -655,24 +600,22 @@ defmodule AWS.OpsWorks do
   Requests a description of a stack's provisioning parameters.
 
   **Required Permissions**: To use this action, an IAM user must have a Show,
-  Deploy, or Manage permissions level for the stack or an attached policy
-  that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  Deploy, or Manage permissions level for the stack or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_stack_provisioning_parameters(client, input, options \\ []) do
     request(client, "DescribeStackProvisioningParameters", input, options)
   end
 
   @doc """
-  Describes the number of layers and apps in a specified stack, and the
-  number of instances in each state, such as `running_setup` or `online`.
+  Describes the number of layers and apps in a specified stack, and the number of
+  instances in each state, such as `running_setup` or `online`.
 
   **Required Permissions**: To use this action, an IAM user must have a Show,
-  Deploy, or Manage permissions level for the stack, or an attached policy
-  that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_stack_summary(client, input, options \\ []) do
     request(client, "DescribeStackSummary", input, options)
@@ -682,10 +625,9 @@ defmodule AWS.OpsWorks do
   Requests a description of one or more stacks.
 
   **Required Permissions**: To use this action, an IAM user must have a Show,
-  Deploy, or Manage permissions level for the stack, or an attached policy
-  that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_stacks(client, input, options \\ []) do
     request(client, "DescribeStacks", input, options)
@@ -694,13 +636,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Describes time-based auto scaling configurations for specified instances.
 
-  <note> You must specify at least one of the parameters.
+  You must specify at least one of the parameters.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_time_based_auto_scaling(client, input, options \\ []) do
     request(client, "DescribeTimeBasedAutoScaling", input, options)
@@ -709,10 +650,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Describe specified users.
 
-  **Required Permissions**: To use this action, an IAM user must have an
-  attached policy that explicitly grants permissions. For more information
-  about user permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have an attached
+  policy that explicitly grants permissions. For more information about user
+  permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_user_profiles(client, input, options \\ []) do
     request(client, "DescribeUserProfiles", input, options)
@@ -721,13 +661,12 @@ defmodule AWS.OpsWorks do
   @doc """
   Describes an instance's Amazon EBS volumes.
 
-  <note> This call accepts only one resource-identifying parameter.
+  This call accepts only one resource-identifying parameter.
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Show, Deploy, or Manage permissions level for the stack, or an attached
-  policy that explicitly grants permissions. For more information about user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Show,
+  Deploy, or Manage permissions level for the stack, or an attached policy that
+  explicitly grants permissions. For more information about user permissions, see
+  [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def describe_volumes(client, input, options \\ []) do
     request(client, "DescribeVolumes", input, options)
@@ -736,50 +675,44 @@ defmodule AWS.OpsWorks do
   @doc """
   Detaches a specified Elastic Load Balancing instance from its layer.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def detach_elastic_load_balancer(client, input, options \\ []) do
     request(client, "DetachElasticLoadBalancer", input, options)
   end
 
   @doc """
-  Disassociates an Elastic IP address from its instance. The address remains
-  registered with the stack. For more information, see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Disassociates an Elastic IP address from its instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  The address remains registered with the stack. For more information, see
+  [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def disassociate_elastic_ip(client, input, options \\ []) do
     request(client, "DisassociateElasticIp", input, options)
   end
 
   @doc """
-  Gets a generated host name for the specified layer, based on the current
-  host name theme.
+  Gets a generated host name for the specified layer, based on the current host
+  name theme.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def get_hostname_suggestion(client, input, options \\ []) do
     request(client, "GetHostnameSuggestion", input, options)
   end
 
   @doc """
-  <note> This action can be used only with Windows stacks.
+  This action can be used only with Windows stacks.
 
-  </note> Grants RDP access to a Windows instance for a specified time
-  period.
+  Grants RDP access to a Windows instance for a specified time period.
   """
   def grant_access(client, input, options \\ []) do
     request(client, "GrantAccess", input, options)
@@ -793,48 +726,42 @@ defmodule AWS.OpsWorks do
   end
 
   @doc """
-  Reboots a specified instance. For more information, see [Starting,
-  Stopping, and Rebooting
-  Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html).
+  Reboots a specified instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Starting, Stopping, and Rebooting Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def reboot_instance(client, input, options \\ []) do
     request(client, "RebootInstance", input, options)
   end
 
   @doc """
-  Registers a specified Amazon ECS cluster with a stack. You can register
-  only one cluster with a stack. A cluster can be registered with only one
-  stack. For more information, see [ Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html).
+  Registers a specified Amazon ECS cluster with a stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [ Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  You can register only one cluster with a stack. A cluster can be registered with
+  only one stack. For more information, see [ Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [ Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_ecs_cluster(client, input, options \\ []) do
     request(client, "RegisterEcsCluster", input, options)
   end
 
   @doc """
-  Registers an Elastic IP address with a specified stack. An address can be
-  registered with only one stack at a time. If the address is already
-  registered, you must first deregister it by calling `DeregisterElasticIp`.
-  For more information, see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Registers an Elastic IP address with a specified stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  An address can be registered with only one stack at a time. If the address is
+  already registered, you must first deregister it by calling
+  `DeregisterElasticIp`. For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_elastic_ip(client, input, options \\ []) do
     request(client, "RegisterElasticIp", input, options)
@@ -844,27 +771,22 @@ defmodule AWS.OpsWorks do
   Registers instances that were created outside of AWS OpsWorks Stacks with a
   specified stack.
 
-  <note> We do not recommend using this action to register instances. The
-  complete registration operation includes two tasks: installing the AWS
-  OpsWorks Stacks agent on the instance, and registering the instance with
-  the stack. `RegisterInstance` handles only the second step. You should
-  instead use the AWS CLI `register` command, which performs the entire
-  registration operation. For more information, see [ Registering an Instance
-  with an AWS OpsWorks Stacks
-  Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html).
+  We do not recommend using this action to register instances. The complete
+  registration operation includes two tasks: installing the AWS OpsWorks Stacks
+  agent on the instance, and registering the instance with the stack.
+  `RegisterInstance` handles only the second step. You should instead use the AWS
+  CLI `register` command, which performs the entire registration operation. For
+  more information, see [ Registering an Instance with an AWS OpsWorks Stacks Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html).
 
-  </note> Registered instances have the same requirements as instances that
-  are created by using the `CreateInstance` API. For example, registered
-  instances must be running a supported Linux-based operating system, and
-  they must have a supported instance type. For more information about
-  requirements for instances that you want to register, see [ Preparing the
-  Instance](https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html).
+  Registered instances have the same requirements as instances that are created by
+  using the `CreateInstance` API. For example, registered instances must be
+  running a supported Linux-based operating system, and they must have a supported
+  instance type. For more information about requirements for instances that you
+  want to register, see [ Preparing the Instance](https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html).
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_instance(client, input, options \\ []) do
     request(client, "RegisterInstance", input, options)
@@ -873,28 +795,24 @@ defmodule AWS.OpsWorks do
   @doc """
   Registers an Amazon RDS instance with a stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_rds_db_instance(client, input, options \\ []) do
     request(client, "RegisterRdsDbInstance", input, options)
   end
 
   @doc """
-  Registers an Amazon EBS volume with a specified stack. A volume can be
-  registered with only one stack at a time. If the volume is already
-  registered, you must first deregister it by calling `DeregisterVolume`. For
-  more information, see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Registers an Amazon EBS volume with a specified stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  A volume can be registered with only one stack at a time. If the volume is
+  already registered, you must first deregister it by calling `DeregisterVolume`.
+  For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def register_volume(client, input, options \\ []) do
     request(client, "RegisterVolume", input, options)
@@ -902,33 +820,30 @@ defmodule AWS.OpsWorks do
 
   @doc """
   Specify the load-based auto scaling configuration for a specified layer.
-  For more information, see [Managing Load with Time-based and Load-based
-  Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html).
 
-  <note> To use load-based auto scaling, you must create a set of load-based
-  auto scaling instances. Load-based auto scaling operates only on the
-  instances from that set, so you must ensure that you have created enough
-  instances to handle the maximum anticipated load.
+  For more information, see [Managing Load with Time-based and Load-based Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html).
 
-  </note> **Required Permissions**: To use this action, an IAM user must have
-  a Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  To use load-based auto scaling, you must create a set of load-based auto scaling
+  instances. Load-based auto scaling operates only on the instances from that set,
+  so you must ensure that you have created enough instances to handle the maximum
+  anticipated load.
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def set_load_based_auto_scaling(client, input, options \\ []) do
     request(client, "SetLoadBasedAutoScaling", input, options)
   end
 
   @doc """
-  Specifies a user's permissions. For more information, see [Security and
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html).
+  Specifies a user's permissions.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Security and Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def set_permission(client, input, options \\ []) do
     request(client, "SetPermission", input, options)
@@ -936,29 +851,25 @@ defmodule AWS.OpsWorks do
 
   @doc """
   Specify the time-based auto scaling configuration for a specified instance.
-  For more information, see [Managing Load with Time-based and Load-based
-  Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html).
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Managing Load with Time-based and Load-based Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def set_time_based_auto_scaling(client, input, options \\ []) do
     request(client, "SetTimeBasedAutoScaling", input, options)
   end
 
   @doc """
-  Starts a specified instance. For more information, see [Starting, Stopping,
-  and Rebooting
-  Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html).
+  Starts a specified instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Starting, Stopping, and Rebooting Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def start_instance(client, input, options \\ []) do
     request(client, "StartInstance", input, options)
@@ -967,28 +878,25 @@ defmodule AWS.OpsWorks do
   @doc """
   Starts a stack's instances.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def start_stack(client, input, options \\ []) do
     request(client, "StartStack", input, options)
   end
 
   @doc """
-  Stops a specified instance. When you stop a standard instance, the data
-  disappears and must be reinstalled when you restart the instance. You can
-  stop an Amazon EBS-backed instance without losing data. For more
-  information, see [Starting, Stopping, and Rebooting
+  Stops a specified instance.
+
+  When you stop a standard instance, the data disappears and must be reinstalled
+  when you restart the instance. You can stop an Amazon EBS-backed instance
+  without losing data. For more information, see [Starting, Stopping, and Rebooting
   Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html).
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def stop_instance(client, input, options \\ []) do
     request(client, "StopInstance", input, options)
@@ -997,52 +905,49 @@ defmodule AWS.OpsWorks do
   @doc """
   Stops a specified stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def stop_stack(client, input, options \\ []) do
     request(client, "StopStack", input, options)
   end
 
   @doc """
-  Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks
-  Stacks. For more information about how tagging works, see
-  [Tags](https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html)
-  in the AWS OpsWorks User Guide.
+  Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks.
+
+  For more information about how tagging works, see
+  [Tags](https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html) in
+  the AWS OpsWorks User Guide.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
   end
 
   @doc """
-  Unassigns a registered instance from all layers that are using the
-  instance. The instance remains in the stack as an unassigned instance, and
-  can be assigned to another layer as needed. You cannot use this action with
-  instances that were created with AWS OpsWorks Stacks.
+  Unassigns a registered instance from all layers that are using the instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack or an attached policy that
-  explicitly grants permissions. For more information about user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  The instance remains in the stack as an unassigned instance, and can be assigned
+  to another layer as needed. You cannot use this action with instances that were
+  created with AWS OpsWorks Stacks.
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack or an attached policy that explicitly grants
+  permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def unassign_instance(client, input, options \\ []) do
     request(client, "UnassignInstance", input, options)
   end
 
   @doc """
-  Unassigns an assigned Amazon EBS volume. The volume remains registered with
-  the stack. For more information, see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Unassigns an assigned Amazon EBS volume.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  The volume remains registered with the stack. For more information, see
+  [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def unassign_volume(client, input, options \\ []) do
     request(client, "UnassignVolume", input, options)
@@ -1058,26 +963,22 @@ defmodule AWS.OpsWorks do
   @doc """
   Updates a specified app.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Deploy or Manage permissions level for the stack, or an attached policy
-  that explicitly grants permissions. For more information on user
-  permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Deploy or
+  Manage permissions level for the stack, or an attached policy that explicitly
+  grants permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_app(client, input, options \\ []) do
     request(client, "UpdateApp", input, options)
   end
 
   @doc """
-  Updates a registered Elastic IP address's name. For more information, see
-  [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Updates a registered Elastic IP address's name.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_elastic_ip(client, input, options \\ []) do
     request(client, "UpdateElasticIp", input, options)
@@ -1086,11 +987,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Updates a specified instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_instance(client, input, options \\ []) do
     request(client, "UpdateInstance", input, options)
@@ -1099,11 +998,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Updates a specified layer.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_layer(client, input, options \\ []) do
     request(client, "UpdateLayer", input, options)
@@ -1114,9 +1011,7 @@ defmodule AWS.OpsWorks do
 
   **Required Permissions**: To use this action, an IAM user must have
   self-management enabled or an attached policy that explicitly grants
-  permissions. For more information about user permissions, see [Managing
-  User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_my_user_profile(client, input, options \\ []) do
     request(client, "UpdateMyUserProfile", input, options)
@@ -1125,11 +1020,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Updates an Amazon RDS instance.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_rds_db_instance(client, input, options \\ []) do
     request(client, "UpdateRdsDbInstance", input, options)
@@ -1138,11 +1031,9 @@ defmodule AWS.OpsWorks do
   @doc """
   Updates a specified stack.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_stack(client, input, options \\ []) do
     request(client, "UpdateStack", input, options)
@@ -1151,25 +1042,22 @@ defmodule AWS.OpsWorks do
   @doc """
   Updates a specified user profile.
 
-  **Required Permissions**: To use this action, an IAM user must have an
-  attached policy that explicitly grants permissions. For more information
-  about user permissions, see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  **Required Permissions**: To use this action, an IAM user must have an attached
+  policy that explicitly grants permissions. For more information about user
+  permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_user_profile(client, input, options \\ []) do
     request(client, "UpdateUserProfile", input, options)
   end
 
   @doc """
-  Updates an Amazon EBS volume's name or mount point. For more information,
-  see [Resource
-  Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  Updates an Amazon EBS volume's name or mount point.
 
-  **Required Permissions**: To use this action, an IAM user must have a
-  Manage permissions level for the stack, or an attached policy that
-  explicitly grants permissions. For more information on user permissions,
-  see [Managing User
-  Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
+  For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+
+  **Required Permissions**: To use this action, an IAM user must have a Manage
+  permissions level for the stack, or an attached policy that explicitly grants
+  permissions. For more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
   def update_volume(client, input, options \\ []) do
     request(client, "UpdateVolume", input, options)

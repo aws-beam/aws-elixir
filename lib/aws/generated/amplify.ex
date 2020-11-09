@@ -3,14 +3,13 @@
 
 defmodule AWS.Amplify do
   @moduledoc """
-  Amplify enables developers to develop and deploy cloud-powered mobile and
-  web apps. The Amplify Console provides a continuous delivery and hosting
-  service for web applications. For more information, see the [Amplify
-  Console User
-  Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
-  The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
-  documentation for client app development. For more information, see the
-  [Amplify Framework.](https://docs.amplify.aws/)
+  Amplify enables developers to develop and deploy cloud-powered mobile and web
+  apps.
+
+  The Amplify Console provides a continuous delivery and hosting service for web
+  applications. For more information, see the [Amplify Console User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html). The
+  Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
+  documentation for client app development. For more information, see the [Amplify Framework.](https://docs.amplify.aws/)
   """
 
   @doc """
@@ -44,8 +43,9 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Creates a deployment for a manually deployed Amplify app. Manually deployed
-  apps are not connected to a repository.
+  Creates a deployment for a manually deployed Amplify app.
+
+  Manually deployed apps are not connected to a repository.
   """
   def create_deployment(client, app_id, branch_name, input, options \\ []) do
     path_ = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/deployments"
@@ -55,8 +55,9 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Creates a new domain association for an Amplify app. This action associates
-  a custom domain with the Amplify app
+  Creates a new domain association for an Amplify app.
+
+  This action associates a custom domain with the Amplify app
   """
   def create_domain_association(client, app_id, input, options \\ []) do
     path_ = "/apps/#{URI.encode(app_id)}/domains"
@@ -136,8 +137,7 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Returns the website access logs for a specific time range using a presigned
-  URL.
+  Returns the website access logs for a specific time range using a presigned URL.
   """
   def generate_access_logs(client, app_id, input, options \\ []) do
     path_ = "/apps/#{URI.encode(app_id)}/accesslogs"
@@ -372,8 +372,9 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Starts a deployment for a manually deployed app. Manually deployed apps are
-  not connected to a repository.
+  Starts a deployment for a manually deployed app.
+
+  Manually deployed apps are not connected to a repository.
   """
   def start_deployment(client, app_id, branch_name, input, options \\ []) do
     path_ = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/deployments/start"

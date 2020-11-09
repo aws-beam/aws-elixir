@@ -3,7 +3,7 @@
 
 defmodule AWS.KinesisVideo do
   @moduledoc """
-  <p/>
+
   """
 
   @doc """
@@ -21,14 +21,13 @@ defmodule AWS.KinesisVideo do
   @doc """
   Creates a new Kinesis video stream.
 
-  When you create a new stream, Kinesis Video Streams assigns it a version
-  number. When you change the stream's metadata, Kinesis Video Streams
-  updates the version.
+  When you create a new stream, Kinesis Video Streams assigns it a version number.
+  When you change the stream's metadata, Kinesis Video Streams updates the
+  version.
 
   `CreateStream` is an asynchronous operation.
 
-  For information about how the service works, see [How it
-  Works](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html).
+  For information about how the service works, see [How it Works](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html).
 
   You must have permissions for the `KinesisVideo:CreateStream` action.
   """
@@ -40,9 +39,10 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Deletes a specified signaling channel. `DeleteSignalingChannel` is an
-  asynchronous operation. If you don't specify the channel's current version,
-  the most recent version is deleted.
+  Deletes a specified signaling channel.
+
+  `DeleteSignalingChannel` is an asynchronous operation. If you don't specify the
+  channel's current version, the most recent version is deleted.
   """
   def delete_signaling_channel(client, input, options \\ []) do
     path_ = "/deleteSignalingChannel"
@@ -57,14 +57,12 @@ defmodule AWS.KinesisVideo do
   This method marks the stream for deletion, and makes the data in the stream
   inaccessible immediately.
 
-  To ensure that you have the latest version of the stream before deleting
-  it, you can specify the stream version. Kinesis Video Streams assigns a
-  version to each stream. When you update a stream, Kinesis Video Streams
-  assigns a new version number. To get the latest stream version, use the
-  `DescribeStream` API.
+  To ensure that you have the latest version of the stream before deleting it, you
+  can specify the stream version. Kinesis Video Streams assigns a version to each
+  stream. When you update a stream, Kinesis Video Streams assigns a new version
+  number. To get the latest stream version, use the `DescribeStream` API.
 
-  This operation requires permission for the `KinesisVideo:DeleteStream`
-  action.
+  This operation requires permission for the `KinesisVideo:DeleteStream` action.
   """
   def delete_stream(client, input, options \\ []) do
     path_ = "/deleteStream"
@@ -74,9 +72,10 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Returns the most current information about the signaling channel. You must
-  specify either the name or the Amazon Resource Name (ARN) of the channel
-  that you want to describe.
+  Returns the most current information about the signaling channel.
+
+  You must specify either the name or the Amazon Resource Name (ARN) of the
+  channel that you want to describe.
   """
   def describe_signaling_channel(client, input, options \\ []) do
     path_ = "/describeSignalingChannel"
@@ -86,8 +85,9 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Returns the most current information about the specified stream. You must
-  specify either the `StreamName` or the `StreamARN`.
+  Returns the most current information about the specified stream.
+
+  You must specify either the `StreamName` or the `StreamARN`.
   """
   def describe_stream(client, input, options \\ []) do
     path_ = "/describeStream"
@@ -97,16 +97,16 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Gets an endpoint for a specified stream for either reading or writing. Use
-  this endpoint in your application to read from the specified stream (using
-  the `GetMedia` or `GetMediaForFragmentList` operations) or write to it
-  (using the `PutMedia` operation).
+  Gets an endpoint for a specified stream for either reading or writing.
 
-  <note> The returned endpoint does not have the API name appended. The
-  client needs to add the API name to the returned endpoint.
+  Use this endpoint in your application to read from the specified stream (using
+  the `GetMedia` or `GetMediaForFragmentList` operations) or write to it (using
+  the `PutMedia` operation).
 
-  </note> In the request, specify the stream either by `StreamName` or
-  `StreamARN`.
+  The returned endpoint does not have the API name appended. The client needs to
+  add the API name to the returned endpoint.
+
+  In the request, specify the stream either by `StreamName` or `StreamARN`.
   """
   def get_data_endpoint(client, input, options \\ []) do
     path_ = "/getDataEndpoint"
@@ -116,21 +116,21 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Provides an endpoint for the specified signaling channel to send and
-  receive messages. This API uses the
-  `SingleMasterChannelEndpointConfiguration` input parameter, which consists
-  of the `Protocols` and `Role` properties.
+  Provides an endpoint for the specified signaling channel to send and receive
+  messages.
 
-  `Protocols` is used to determine the communication mechanism. For example,
-  if you specify `WSS` as the protocol, this API produces a secure websocket
-  endpoint. If you specify `HTTPS` as the protocol, this API generates an
-  HTTPS endpoint.
+  This API uses the `SingleMasterChannelEndpointConfiguration` input parameter,
+  which consists of the `Protocols` and `Role` properties.
 
-  `Role` determines the messaging permissions. A `MASTER` role results in
-  this API generating an endpoint that a client can use to communicate with
-  any of the viewers on the channel. A `VIEWER` role results in this API
-  generating an endpoint that a client can use to communicate only with a
-  `MASTER`.
+  `Protocols` is used to determine the communication mechanism. For example, if
+  you specify `WSS` as the protocol, this API produces a secure websocket
+  endpoint. If you specify `HTTPS` as the protocol, this API generates an HTTPS
+  endpoint.
+
+  `Role` determines the messaging permissions. A `MASTER` role results in this API
+  generating an endpoint that a client can use to communicate with any of the
+  viewers on the channel. A `VIEWER` role results in this API generating an
+  endpoint that a client can use to communicate only with a `MASTER`.
   """
   def get_signaling_channel_endpoint(client, input, options \\ []) do
     path_ = "/getSignalingChannelEndpoint"
@@ -140,9 +140,10 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Returns an array of `ChannelInfo` objects. Each object describes a
-  signaling channel. To retrieve only those channels that satisfy a specific
-  condition, you can specify a `ChannelNameCondition`.
+  Returns an array of `ChannelInfo` objects.
+
+  Each object describes a signaling channel. To retrieve only those channels that
+  satisfy a specific condition, you can specify a `ChannelNameCondition`.
   """
   def list_signaling_channels(client, input, options \\ []) do
     path_ = "/listSignalingChannels"
@@ -152,9 +153,10 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Returns an array of `StreamInfo` objects. Each object describes a stream.
-  To retrieve only streams that satisfy a specific condition, you can specify
-  a `StreamNameCondition`.
+  Returns an array of `StreamInfo` objects.
+
+  Each object describes a stream. To retrieve only streams that satisfy a specific
+  condition, you can specify a `StreamNameCondition`.
   """
   def list_streams(client, input, options \\ []) do
     path_ = "/listStreams"
@@ -176,8 +178,7 @@ defmodule AWS.KinesisVideo do
   @doc """
   Returns a list of tags associated with the specified stream.
 
-  In the request, you must specify either the `StreamName` or the
-  `StreamARN`.
+  In the request, you must specify either the `StreamName` or the `StreamARN`.
   """
   def list_tags_for_stream(client, input, options \\ []) do
     path_ = "/listTagsForStream"
@@ -187,12 +188,12 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Adds one or more tags to a signaling channel. A *tag* is a key-value pair
-  (the value is optional) that you can define and assign to AWS resources. If
-  you specify a tag that already exists, the tag value is replaced with the
-  value that you specify in the request. For more information, see [Using
-  Cost Allocation
-  Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  Adds one or more tags to a signaling channel.
+
+  A *tag* is a key-value pair (the value is optional) that you can define and
+  assign to AWS resources. If you specify a tag that already exists, the tag value
+  is replaced with the value that you specify in the request. For more
+  information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *AWS Billing and Cost Management User Guide*.
   """
   def tag_resource(client, input, options \\ []) do
@@ -203,12 +204,12 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Adds one or more tags to a stream. A *tag* is a key-value pair (the value
-  is optional) that you can define and assign to AWS resources. If you
-  specify a tag that already exists, the tag value is replaced with the value
-  that you specify in the request. For more information, see [Using Cost
-  Allocation
-  Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  Adds one or more tags to a stream.
+
+  A *tag* is a key-value pair (the value is optional) that you can define and
+  assign to AWS resources. If you specify a tag that already exists, the tag value
+  is replaced with the value that you specify in the request. For more
+  information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *AWS Billing and Cost Management User Guide*.
 
   You must provide either the `StreamName` or the `StreamARN`.
@@ -225,9 +226,10 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Removes one or more tags from a signaling channel. In the request, specify
-  only a tag key or keys; don't specify the value. If you specify a tag key
-  that does not exist, it's ignored.
+  Removes one or more tags from a signaling channel.
+
+  In the request, specify only a tag key or keys; don't specify the value. If you
+  specify a tag key that does not exist, it's ignored.
   """
   def untag_resource(client, input, options \\ []) do
     path_ = "/UntagResource"
@@ -237,9 +239,10 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Removes one or more tags from a stream. In the request, specify only a tag
-  key or keys; don't specify the value. If you specify a tag key that does
-  not exist, it's ignored.
+  Removes one or more tags from a stream.
+
+  In the request, specify only a tag key or keys; don't specify the value. If you
+  specify a tag key that does not exist, it's ignored.
 
   In the request, you must provide the `StreamName` or `StreamARN`.
   """
@@ -251,31 +254,29 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Increases or decreases the stream's data retention period by the value that
-  you specify. To indicate whether you want to increase or decrease the data
-  retention period, specify the `Operation` parameter in the request body. In
-  the request, you must specify either the `StreamName` or the `StreamARN`.
+  Increases or decreases the stream's data retention period by the value that you
+  specify.
 
-  <note> The retention period that you specify replaces the current value.
+  To indicate whether you want to increase or decrease the data retention period,
+  specify the `Operation` parameter in the request body. In the request, you must
+  specify either the `StreamName` or the `StreamARN`.
 
-  </note> This operation requires permission for the
-  `KinesisVideo:UpdateDataRetention` action.
+  The retention period that you specify replaces the current value.
 
-  Changing the data retention period affects the data in the stream as
-  follows:
+  This operation requires permission for the `KinesisVideo:UpdateDataRetention`
+  action.
 
-  <ul> <li> If the data retention period is increased, existing data is
-  retained for the new retention period. For example, if the data retention
-  period is increased from one hour to seven hours, all existing data is
-  retained for seven hours.
+  Changing the data retention period affects the data in the stream as follows:
 
-  </li> <li> If the data retention period is decreased, existing data is
-  retained for the new retention period. For example, if the data retention
-  period is decreased from seven hours to one hour, all existing data is
-  retained for one hour, and any data older than one hour is deleted
-  immediately.
+    * If the data retention period is increased, existing data is
+  retained for the new retention period. For example, if the data retention period
+  is increased from one hour to seven hours, all existing data is retained for
+  seven hours.
 
-  </li> </ul>
+    * If the data retention period is decreased, existing data is
+  retained for the new retention period. For example, if the data retention period
+  is decreased from seven hours to one hour, all existing data is retained for one
+  hour, and any data older than one hour is deleted immediately.
   """
   def update_data_retention(client, input, options \\ []) do
     path_ = "/updateDataRetention"
@@ -285,13 +286,14 @@ defmodule AWS.KinesisVideo do
   end
 
   @doc """
-  Updates the existing signaling channel. This is an asynchronous operation
-  and takes time to complete.
+  Updates the existing signaling channel.
 
-  If the `MessageTtlSeconds` value is updated (either increased or reduced),
-  it only applies to new messages sent via this channel after it's been
-  updated. Existing messages are still expired as per the previous
-  `MessageTtlSeconds` value.
+  This is an asynchronous operation and takes time to complete.
+
+  If the `MessageTtlSeconds` value is updated (either increased or reduced), it
+  only applies to new messages sent via this channel after it's been updated.
+  Existing messages are still expired as per the previous `MessageTtlSeconds`
+  value.
   """
   def update_signaling_channel(client, input, options \\ []) do
     path_ = "/updateSignalingChannel"
@@ -306,11 +308,10 @@ defmodule AWS.KinesisVideo do
   You must provide the stream name or the Amazon Resource Name (ARN) of the
   stream.
 
-  To make sure that you have the latest version of the stream before updating
-  it, you can specify the stream version. Kinesis Video Streams assigns a
-  version to each stream. When you update a stream, Kinesis Video Streams
-  assigns a new version number. To get the latest stream version, use the
-  `DescribeStream` API.
+  To make sure that you have the latest version of the stream before updating it,
+  you can specify the stream version. Kinesis Video Streams assigns a version to
+  each stream. When you update a stream, Kinesis Video Streams assigns a new
+  version number. To get the latest stream version, use the `DescribeStream` API.
 
   `UpdateStream` is an asynchronous operation, and takes time to complete.
   """

@@ -3,15 +3,15 @@
 
 defmodule AWS.WorkLink do
   @moduledoc """
-  Amazon WorkLink is a cloud-based service that provides secure access to
-  internal websites and web apps from iOS and Android phones. In a single
-  step, your users, such as employees, can access internal websites as
-  efficiently as they access any other public website. They enter a URL in
-  their web browser, or choose a link to an internal website in an email.
-  Amazon WorkLink authenticates the user's access and securely renders
-  authorized internal web content in a secure rendering service in the AWS
-  cloud. Amazon WorkLink doesn't download or store any internal web content
-  on mobile devices.
+  Amazon WorkLink is a cloud-based service that provides secure access to internal
+  websites and web apps from iOS and Android phones.
+
+  In a single step, your users, such as employees, can access internal websites as
+  efficiently as they access any other public website. They enter a URL in their
+  web browser, or choose a link to an internal website in an email. Amazon
+  WorkLink authenticates the user's access and securely renders authorized
+  internal web content in a secure rendering service in the AWS cloud. Amazon
+  WorkLink doesn't download or store any internal web content on mobile devices.
   """
 
   @doc """
@@ -25,8 +25,10 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Associates a website authorization provider with a specified fleet. This is
-  used to authorize users against associated websites in the company network.
+  Associates a website authorization provider with a specified fleet.
+
+  This is used to authorize users against associated websites in the company
+  network.
   """
   def associate_website_authorization_provider(client, input, options \\ []) do
     path_ = "/associateWebsiteAuthorizationProvider"
@@ -36,8 +38,8 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Imports the root certificate of a certificate authority (CA) used to obtain
-  TLS certificates used by associated websites within the company network.
+  Imports the root certificate of a certificate authority (CA) used to obtain TLS
+  certificates used by associated websites within the company network.
   """
   def associate_website_certificate_authority(client, input, options \\ []) do
     path_ = "/associateWebsiteCertificateAuthority"
@@ -47,9 +49,10 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Creates a fleet. A fleet consists of resources and the configuration that
-  delivers associated websites to authorized users who download and set up
-  the Amazon WorkLink app.
+  Creates a fleet.
+
+  A fleet consists of resources and the configuration that delivers associated
+  websites to authorized users who download and set up the Amazon WorkLink app.
   """
   def create_fleet(client, input, options \\ []) do
     path_ = "/createFleet"
@@ -59,8 +62,9 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Deletes a fleet. Prevents users from accessing previously associated
-  websites.
+  Deletes a fleet.
+
+  Prevents users from accessing previously associated websites.
   """
   def delete_fleet(client, input, options \\ []) do
     path_ = "/deleteFleet"
@@ -122,8 +126,8 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Provides basic information for the specified fleet, excluding identity
-  provider, networking, and device configuration details.
+  Provides basic information for the specified fleet, excluding identity provider,
+  networking, and device configuration details.
   """
   def describe_fleet_metadata(client, input, options \\ []) do
     path_ = "/describeFleetMetadata"
@@ -153,8 +157,9 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Disassociates a domain from Amazon WorkLink. End users lose the ability to
-  access the domain with Amazon WorkLink.
+  Disassociates a domain from Amazon WorkLink.
+
+  End users lose the ability to access the domain with Amazon WorkLink.
   """
   def disassociate_domain(client, input, options \\ []) do
     path_ = "/disassociateDomain"
@@ -165,8 +170,9 @@ defmodule AWS.WorkLink do
 
   @doc """
   Disassociates a website authorization provider from a specified fleet.
-  After the disassociation, users can't load any associated websites that
-  require this authorization provider.
+
+  After the disassociation, users can't load any associated websites that require
+  this authorization provider.
   """
   def disassociate_website_authorization_provider(client, input, options \\ []) do
     path_ = "/disassociateWebsiteAuthorizationProvider"
@@ -226,8 +232,8 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Retrieves a list of website authorization providers associated with a
-  specified fleet.
+  Retrieves a list of website authorization providers associated with a specified
+  fleet.
   """
   def list_website_authorization_providers(client, input, options \\ []) do
     path_ = "/listWebsiteAuthorizationProviders"
@@ -237,8 +243,8 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Retrieves a list of certificate authorities added for the current account
-  and Region.
+  Retrieves a list of certificate authorities added for the current account and
+  Region.
   """
   def list_website_certificate_authorities(client, input, options \\ []) do
     path_ = "/listWebsiteCertificateAuthorities"
@@ -268,8 +274,9 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Signs the user out from all of their devices. The user can sign in again if
-  they have valid credentials.
+  Signs the user out from all of their devices.
+
+  The user can sign in again if they have valid credentials.
   """
   def sign_out_user(client, input, options \\ []) do
     path_ = "/signOutUser"
@@ -279,9 +286,10 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Adds or overwrites one or more tags for the specified resource, such as a
-  fleet. Each tag consists of a key and an optional value. If a resource
-  already has a tag with the same key, this operation updates its value.
+  Adds or overwrites one or more tags for the specified resource, such as a fleet.
+
+  Each tag consists of a key and an optional value. If a resource already has a
+  tag with the same key, this operation updates its value.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"

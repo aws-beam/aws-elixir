@@ -182,8 +182,9 @@ defmodule AWS.MediaPackage do
   end
 
   @doc """
-  Changes the Channel's first IngestEndpoint's username and password. WARNING
-  - This API is deprecated. Please use RotateIngestEndpointCredentials
+  Changes the Channel's first IngestEndpoint's username and password.
+
+  WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials
   instead
   """
   def rotate_channel_credentials(client, id, input, options \\ []) do

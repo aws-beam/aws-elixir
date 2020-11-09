@@ -3,27 +3,25 @@
 
 defmodule AWS.GuardDuty do
   @moduledoc """
-  Amazon GuardDuty is a continuous security monitoring service that analyzes
-  and processes the following data sources: VPC Flow Logs, AWS CloudTrail
-  event logs, and DNS logs. It uses threat intelligence feeds (such as lists
-  of malicious IPs and domains) and machine learning to identify unexpected,
-  potentially unauthorized, and malicious activity within your AWS
-  environment. This can include issues like escalations of privileges, uses
-  of exposed credentials, or communication with malicious IPs, URLs, or
-  domains. For example, GuardDuty can detect compromised EC2 instances that
-  serve malware or mine bitcoin.
+  Amazon GuardDuty is a continuous security monitoring service that analyzes and
+  processes the following data sources: VPC Flow Logs, AWS CloudTrail event logs,
+  and DNS logs.
 
-  GuardDuty also monitors AWS account access behavior for signs of
-  compromise. Some examples of this are unauthorized infrastructure
-  deployments such as EC2 instances deployed in a Region that has never been
-  used, or unusual API calls like a password policy change to reduce password
-  strength.
+  It uses threat intelligence feeds (such as lists of malicious IPs and domains)
+  and machine learning to identify unexpected, potentially unauthorized, and
+  malicious activity within your AWS environment. This can include issues like
+  escalations of privileges, uses of exposed credentials, or communication with
+  malicious IPs, URLs, or domains. For example, GuardDuty can detect compromised
+  EC2 instances that serve malware or mine bitcoin.
+
+  GuardDuty also monitors AWS account access behavior for signs of compromise.
+  Some examples of this are unauthorized infrastructure deployments such as EC2
+  instances deployed in a Region that has never been used, or unusual API calls
+  like a password policy change to reduce password strength.
 
   GuardDuty informs you of the status of your AWS environment by producing
-  security findings that you can view in the GuardDuty console or through
-  Amazon CloudWatch events. For more information, see the * [Amazon GuardDuty
-  User
-  Guide](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html)
+  security findings that you can view in the GuardDuty console or through Amazon
+  CloudWatch events. For more information, see the * [Amazon GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html)
   *.
   """
 
@@ -40,10 +38,8 @@ defmodule AWS.GuardDuty do
   @doc """
   Archives GuardDuty findings that are specified by the list of finding IDs.
 
-  <note> Only the master account can archive findings. Member accounts don't
-  have permission to archive findings from their accounts.
-
-  </note>
+  Only the master account can archive findings. Member accounts don't have
+  permission to archive findings from their accounts.
   """
   def archive_findings(client, detector_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/findings/archive"
@@ -53,11 +49,12 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates a single Amazon GuardDuty detector. A detector is a resource that
-  represents the GuardDuty service. To start using GuardDuty, you must create
-  a detector in each Region where you enable the service. You can have only
-  one detector per account per Region. All data sources are enabled in a new
-  detector by default.
+  Creates a single Amazon GuardDuty detector.
+
+  A detector is a resource that represents the GuardDuty service. To start using
+  GuardDuty, you must create a detector in each Region where you enable the
+  service. You can have only one detector per account per Region. All data sources
+  are enabled in a new detector by default.
   """
   def create_detector(client, input, options \\ []) do
     path_ = "/detector"
@@ -78,10 +75,12 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Creates a new IPSet, which is called a trusted IP list in the console user
-  interface. An IPSet is a list of IP addresses that are trusted for secure
-  communication with AWS infrastructure and applications. GuardDuty doesn't
-  generate findings for IP addresses that are included in IPSets. Only users
-  from the master account can use this operation.
+  interface.
+
+  An IPSet is a list of IP addresses that are trusted for secure communication
+  with AWS infrastructure and applications. GuardDuty doesn't generate findings
+  for IP addresses that are included in IPSets. Only users from the master account
+  can use this operation.
   """
   def create_i_p_set(client, detector_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/ipset"
@@ -91,18 +90,19 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates member accounts of the current AWS account by specifying a list of
-  AWS account IDs. This step is a prerequisite for managing the associated
-  member accounts either by invitation or through an organization.
+  Creates member accounts of the current AWS account by specifying a list of AWS
+  account IDs.
 
-  When using `Create Members` as an organizations delegated administrator
-  this action will enable GuardDuty in the added member accounts, with the
-  exception of the organization master account, which must enable GuardDuty
-  prior to being added as a member.
+  This step is a prerequisite for managing the associated member accounts either
+  by invitation or through an organization.
 
-  If you are adding accounts by invitation use this action after GuardDuty
-  has been enabled in potential member accounts and before using [ `Invite
-  Members`
+  When using `Create Members` as an organizations delegated administrator this
+  action will enable GuardDuty in the added member accounts, with the exception of
+  the organization master account, which must enable GuardDuty prior to being
+  added as a member.
+
+  If you are adding accounts by invitation use this action after GuardDuty has
+  been enabled in potential member accounts and before using [ `Invite Members`
   ](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html).
   """
   def create_members(client, detector_id, input, options \\ []) do
@@ -113,8 +113,9 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates a publishing destination to export findings to. The resource to
-  export findings to must exist before you use this operation.
+  Creates a publishing destination to export findings to.
+
+  The resource to export findings to must exist before you use this operation.
   """
   def create_publishing_destination(client, detector_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/publishingDestination"
@@ -125,8 +126,9 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Generates example findings of types specified by the list of finding types.
-  If 'NULL' is specified for `findingTypes`, the API generates example
-  findings of all supported finding types.
+
+  If 'NULL' is specified for `findingTypes`, the API generates example findings of
+  all supported finding types.
   """
   def create_sample_findings(client, detector_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/findings/create"
@@ -136,9 +138,11 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP
-  addresses. GuardDuty generates findings based on ThreatIntelSets. Only
-  users of the master account can use this operation.
+  Creates a new ThreatIntelSet.
+
+  ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates
+  findings based on ThreatIntelSets. Only users of the master account can use this
+  operation.
   """
   def create_threat_intel_set(client, detector_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/threatintelset"
@@ -179,8 +183,9 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Deletes the IPSet specified by the `ipSetId`. IPSets are called trusted IP
-  lists in the console user interface.
+  Deletes the IPSet specified by the `ipSetId`.
+
+  IPSets are called trusted IP lists in the console user interface.
   """
   def delete_i_p_set(client, detector_id, ip_set_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
@@ -190,8 +195,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Deletes invitations sent to the current member account by AWS accounts
-  specified by their account IDs.
+  Deletes invitations sent to the current member account by AWS accounts specified
+  by their account IDs.
   """
   def delete_invitations(client, input, options \\ []) do
     path_ = "/invitation/delete"
@@ -232,8 +237,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Returns information about the account selected as the delegated
-  administrator for GuardDuty.
+  Returns information about the account selected as the delegated administrator
+  for GuardDuty.
   """
   def describe_organization_configuration(client, detector_id, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/admin"
@@ -243,8 +248,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Returns information about the publishing destination specified by the
-  provided `destinationId`.
+  Returns information about the publishing destination specified by the provided
+  `destinationId`.
   """
   def describe_publishing_destination(client, destination_id, detector_id, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/publishingDestination/#{URI.encode(destination_id)}"
@@ -347,8 +352,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Returns the count of all GuardDuty membership invitations that were sent to
-  the current member account except the currently accepted invitation.
+  Returns the count of all GuardDuty membership invitations that were sent to the
+  current member account except the currently accepted invitation.
   """
   def get_invitations_count(client, options \\ []) do
     path_ = "/invitation/count"
@@ -379,8 +384,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Retrieves GuardDuty member accounts (to the current GuardDuty master
-  account) specified by the account IDs.
+  Retrieves GuardDuty member accounts (to the current GuardDuty master account)
+  specified by the account IDs.
   """
   def get_members(client, detector_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/member/get"
@@ -400,13 +405,13 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists Amazon GuardDuty usage statistics over the last 30 days for the
-  specified detector ID. For newly enabled detectors or data sources the cost
-  returned will include only the usage so far under 30 days, this may differ
-  from the cost metrics in the console, which projects usage over 30 days to
-  provide a monthly cost estimate. For more information see [Understanding
-  How Usage Costs are
-  Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
+  Lists Amazon GuardDuty usage statistics over the last 30 days for the specified
+  detector ID.
+
+  For newly enabled detectors or data sources the cost returned will include only
+  the usage so far under 30 days, this may differ from the cost metrics in the
+  console, which projects usage over 30 days to provide a monthly cost estimate.
+  For more information see [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
   """
   def get_usage_statistics(client, detector_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/usage/statistics"
@@ -416,10 +421,10 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Invites other AWS accounts (created as members of the current AWS account
-  by CreateMembers) to enable GuardDuty, and allow the current AWS account to
-  view and manage these accounts' GuardDuty findings on their behalf as the
-  master account.
+  Invites other AWS accounts (created as members of the current AWS account by
+  CreateMembers) to enable GuardDuty, and allow the current AWS account to view
+  and manage these accounts' GuardDuty findings on their behalf as the master
+  account.
   """
   def invite_members(client, detector_id, input, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/member/invite"
@@ -479,8 +484,9 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists the IPSets of the GuardDuty service specified by the detector ID. If
-  you use this operation from a member account, the IPSets returned are the
+  Lists the IPSets of the GuardDuty service specified by the detector ID.
+
+  If you use this operation from a member account, the IPSets returned are the
   IPSets from the associated master account.
   """
   def list_i_p_sets(client, detector_id, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -501,8 +507,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists all GuardDuty membership invitations that were sent to the current
-  AWS account.
+  Lists all GuardDuty membership invitations that were sent to the current AWS
+  account.
   """
   def list_invitations(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/invitation"
@@ -589,10 +595,11 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists tags for a resource. Tagging is currently supported for detectors,
-  finding filters, IP sets, and threat intel sets, with a limit of 50 tags
-  per resource. When invoked, this operation returns all assigned tags for a
-  given resource.
+  Lists tags for a resource.
+
+  Tagging is currently supported for detectors, finding filters, IP sets, and
+  threat intel sets, with a limit of 50 tags per resource. When invoked, this
+  operation returns all assigned tags for a given resource.
   """
   def list_tags_for_resource(client, resource_arn, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -602,9 +609,10 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists the ThreatIntelSets of the GuardDuty service specified by the
-  detector ID. If you use this operation from a member account, the
-  ThreatIntelSets associated with the master account are returned.
+  Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID.
+
+  If you use this operation from a member account, the ThreatIntelSets associated
+  with the master account are returned.
   """
   def list_threat_intel_sets(client, detector_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/detector/#{URI.encode(detector_id)}/threatintelset"
@@ -624,8 +632,9 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Turns on GuardDuty monitoring of the specified member accounts. Use this
-  operation to restart monitoring of accounts that you stopped monitoring
+  Turns on GuardDuty monitoring of the specified member accounts.
+
+  Use this operation to restart monitoring of accounts that you stopped monitoring
   with the `StopMonitoringMembers` operation.
   """
   def start_monitoring_members(client, detector_id, input, options \\ []) do
@@ -636,8 +645,9 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Stops GuardDuty monitoring for the specified member accounts. Use the
-  `StartMonitoringMembers` operation to restart monitoring for those
+  Stops GuardDuty monitoring for the specified member accounts.
+
+  Use the `StartMonitoringMembers` operation to restart monitoring for those
   accounts.
   """
   def stop_monitoring_members(client, detector_id, input, options \\ []) do

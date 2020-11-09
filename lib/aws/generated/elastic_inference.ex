@@ -7,8 +7,8 @@ defmodule AWS.ElasticInference do
   """
 
   @doc """
-  Describes the locations in which a given accelerator type or set of types
-  is present in a given region.
+  Describes the locations in which a given accelerator type or set of types is
+  present in a given region.
   """
   def describe_accelerator_offerings(client, input, options \\ []) do
     path_ = "/describe-accelerator-offerings"
@@ -18,8 +18,8 @@ defmodule AWS.ElasticInference do
   end
 
   @doc """
-  Describes the accelerator types available in a given region, as well as
-  their characteristics, such as memory and throughput.
+  Describes the accelerator types available in a given region, as well as their
+  characteristics, such as memory and throughput.
   """
   def describe_accelerator_types(client, options \\ []) do
     path_ = "/describe-accelerator-types"

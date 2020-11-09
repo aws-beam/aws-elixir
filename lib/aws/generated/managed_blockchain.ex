@@ -3,10 +3,13 @@
 
 defmodule AWS.ManagedBlockchain do
   @moduledoc """
-  <p/> Amazon Managed Blockchain is a fully managed service for creating and
-  managing blockchain networks using open source frameworks. Blockchain
-  allows you to build applications where multiple parties can securely and
-  transparently run transactions and share data without the need for a
+
+
+  Amazon Managed Blockchain is a fully managed service for creating and managing
+  blockchain networks using open source frameworks.
+
+  Blockchain allows you to build applications where multiple parties can securely
+  and transparently run transactions and share data without the need for a
   trusted, central authority. Currently, Managed Blockchain supports the
   Hyperledger Fabric open source framework.
   """
@@ -42,9 +45,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Creates a proposal for a change to the network that other members of the
-  network can vote on, for example, a proposal to add a new member to the
-  network. Any member can create a proposal.
+  Creates a proposal for a change to the network that other members of the network
+  can vote on, for example, a proposal to add a new member to the network.
+
+  Any member can create a proposal.
   """
   def create_proposal(client, network_id, input, options \\ []) do
     path_ = "/networks/#{URI.encode(network_id)}/proposals"
@@ -54,13 +58,15 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Deletes a member. Deleting a member removes the member and all associated
-  resources from the network. `DeleteMember` can only be called for a
-  specified `MemberId` if the principal performing the action is associated
-  with the AWS account that owns the member. In all other cases, the
-  `DeleteMember` action is carried out as the result of an approved proposal
-  to remove a member. If `MemberId` is the last member in a network specified
-  by the last AWS account, the network is deleted also.
+  Deletes a member.
+
+  Deleting a member removes the member and all associated resources from the
+  network. `DeleteMember` can only be called for a specified `MemberId` if the
+  principal performing the action is associated with the AWS account that owns the
+  member. In all other cases, the `DeleteMember` action is carried out as the
+  result of an approved proposal to remove a member. If `MemberId` is the last
+  member in a network specified by the last AWS account, the network is deleted
+  also.
   """
   def delete_member(client, member_id, network_id, input, options \\ []) do
     path_ = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}"
@@ -70,8 +76,9 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Deletes a peer node from a member that your AWS account owns. All data on
-  the node is lost and cannot be recovered.
+  Deletes a peer node from a member that your AWS account owns.
+
+  All data on the node is lost and cannot be recovered.
   """
   def delete_node(client, member_id, network_id, node_id, input, options \\ []) do
     path_ = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}/nodes/#{URI.encode(node_id)}"
@@ -238,8 +245,8 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns the listing of votes for a specified proposal, including the value
-  of each vote and the unique identifier of the member that cast the vote.
+  Returns the listing of votes for a specified proposal, including the value of
+  each vote and the unique identifier of the member that cast the vote.
   """
   def list_proposal_votes(client, network_id, proposal_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/networks/#{URI.encode(network_id)}/proposals/#{URI.encode(proposal_id)}/votes"
@@ -279,9 +286,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Rejects an invitation to join a network. This action can be called by a
-  principal in an AWS account that has received an invitation to create a
-  member and join a network.
+  Rejects an invitation to join a network.
+
+  This action can be called by a principal in an AWS account that has received an
+  invitation to create a member and join a network.
   """
   def reject_invitation(client, invitation_id, input, options \\ []) do
     path_ = "/invitations/#{URI.encode(invitation_id)}"
@@ -311,9 +319,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Casts a vote for a specified `ProposalId` on behalf of a member. The member
-  to vote as, specified by `VoterMemberId`, must be in the same AWS account
-  as the principal that calls the action.
+  Casts a vote for a specified `ProposalId` on behalf of a member.
+
+  The member to vote as, specified by `VoterMemberId`, must be in the same AWS
+  account as the principal that calls the action.
   """
   def vote_on_proposal(client, network_id, proposal_id, input, options \\ []) do
     path_ = "/networks/#{URI.encode(network_id)}/proposals/#{URI.encode(proposal_id)}/votes"

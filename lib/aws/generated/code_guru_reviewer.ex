@@ -4,45 +4,41 @@
 defmodule AWS.CodeGuruReviewer do
   @moduledoc """
   This section provides documentation for the Amazon CodeGuru Reviewer API
-  operations. CodeGuru Reviewer is a service that uses program analysis and
-  machine learning to detect potential defects that are difficult for
-  developers to find and recommends fixes in your Java code.
+  operations.
+
+  CodeGuru Reviewer is a service that uses program analysis and machine learning
+  to detect potential defects that are difficult for developers to find and
+  recommends fixes in your Java code.
 
   By proactively detecting and providing recommendations for addressing code
-  defects and implementing best practices, CodeGuru Reviewer improves the
-  overall quality and maintainability of your code base during the code
-  review stage. For more information about CodeGuru Reviewer, see the *
-  [Amazon CodeGuru Reviewer User
+  defects and implementing best practices, CodeGuru Reviewer improves the overall
+  quality and maintainability of your code base during the code review stage. For
+  more information about CodeGuru Reviewer, see the * [Amazon CodeGuru Reviewer User
   Guide](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html).*
   """
 
   @doc """
   Use to associate an AWS CodeCommit repository or a repostory managed by AWS
-  CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a
-  repository, CodeGuru Reviewer reviews source code changes in the
-  repository's pull requests and provides automatic recommendations. You can
-  view recommendations using the CodeGuru Reviewer console. For more
-  information, see [Recommendations in Amazon CodeGuru
-  Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html)
+  CodeStar Connections with Amazon CodeGuru Reviewer.
+
+  When you associate a repository, CodeGuru Reviewer reviews source code changes
+  in the repository's pull requests and provides automatic recommendations. You
+  can view recommendations using the CodeGuru Reviewer console. For more
+  information, see [Recommendations in Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html)
   in the *Amazon CodeGuru Reviewer User Guide.*
 
-  If you associate a CodeCommit repository, it must be in the same AWS Region
-  and AWS account where its CodeGuru Reviewer code reviews are configured.
+  If you associate a CodeCommit repository, it must be in the same AWS Region and
+  AWS account where its CodeGuru Reviewer code reviews are configured.
 
-  Bitbucket and GitHub Enterprise Server repositories are managed by AWS
-  CodeStar Connections to connect to CodeGuru Reviewer. For more information,
-  see [Connect to a repository source
+  Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
+  Connections to connect to CodeGuru Reviewer. For more information, see [Connect to a repository source
   provider](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider)
   in the *Amazon CodeGuru Reviewer User Guide.*
 
-  <note> You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate
-  a GitHub repository with Amazon CodeGuru Reviewer. To associate a GitHub
-  repository, use the console. For more information, see [Getting started
-  with CodeGuru
-  Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html)
+  You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate a GitHub
+  repository with Amazon CodeGuru Reviewer. To associate a GitHub repository, use
+  the console. For more information, see [Getting started with CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html)
   in the *CodeGuru Reviewer User Guide.*
-
-  </note>
   """
   def associate_repository(client, input, options \\ []) do
     path_ = "/associations"
@@ -94,8 +90,7 @@ defmodule AWS.CodeGuruReviewer do
   @doc """
   Returns a [ `RepositoryAssociation`
   ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html)
-  object that contains information about the requested repository
-  association.
+  object that contains information about the requested repository association.
   """
   def describe_repository_association(client, association_arn, options \\ []) do
     path_ = "/associations/#{URI.encode(association_arn)}"
@@ -115,8 +110,7 @@ defmodule AWS.CodeGuruReviewer do
   end
 
   @doc """
-  Lists all the code reviews that the customer has created in the past 90
-  days.
+  Lists all the code reviews that the customer has created in the past 90 days.
   """
   def list_code_reviews(client, max_results \\ nil, next_token \\ nil, provider_types \\ nil, repository_names \\ nil, states \\ nil, type, options \\ []) do
     path_ = "/codereviews"
@@ -158,8 +152,8 @@ defmodule AWS.CodeGuruReviewer do
   @doc """
   Returns a list of [ `RecommendationFeedbackSummary`
   ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html)
-  objects that contain customer recommendation feedback for all CodeGuru
-  Reviewer users.
+  objects that contain customer recommendation feedback for all CodeGuru Reviewer
+  users.
   """
   def list_recommendation_feedback(client, code_review_arn, max_results \\ nil, next_token \\ nil, recommendation_ids \\ nil, user_ids \\ nil, options \\ []) do
     path_ = "/feedback/#{URI.encode(code_review_arn)}/RecommendationFeedback"
@@ -212,6 +206,7 @@ defmodule AWS.CodeGuruReviewer do
   Returns a list of [ `RepositoryAssociationSummary`
   ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html)
   objects that contain summary information about a repository association.
+
   You can filter the returned list by [ `ProviderType`
   ](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType),
   [ `Name`
@@ -259,8 +254,9 @@ defmodule AWS.CodeGuruReviewer do
   end
 
   @doc """
-  Stores customer feedback for a CodeGuru Reviewer recommendation. When this
-  API is called again with different reactions the previous feedback is
+  Stores customer feedback for a CodeGuru Reviewer recommendation.
+
+  When this API is called again with different reactions the previous feedback is
   overwritten.
   """
   def put_recommendation_feedback(client, input, options \\ []) do

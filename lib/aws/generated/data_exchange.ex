@@ -7,8 +7,9 @@ defmodule AWS.DataExchange do
   """
 
   @doc """
-  This operation cancels a job. Jobs can be cancelled only when they are in
-  the WAITING state.
+  This operation cancels a job.
+
+  Jobs can be cancelled only when they are in the WAITING state.
   """
   def cancel_job(client, job_id, input, options \\ []) do
     path_ = "/v1/jobs/#{URI.encode(job_id)}"
@@ -118,8 +119,8 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
-  This operation lists a data set's revisions sorted by CreatedAt in
-  descending order.
+  This operation lists a data set's revisions sorted by CreatedAt in descending
+  order.
   """
   def list_data_set_revisions(client, data_set_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/v1/data-sets/#{URI.encode(data_set_id)}/revisions"
@@ -139,9 +140,11 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
-  This operation lists your data sets. When listing by origin OWNED, results
-  are sorted by CreatedAt in descending order. When listing by origin
-  ENTITLED, there is no order and the maxResults parameter is ignored.
+  This operation lists your data sets.
+
+  When listing by origin OWNED, results are sorted by CreatedAt in descending
+  order. When listing by origin ENTITLED, there is no order and the maxResults
+  parameter is ignored.
   """
   def list_data_sets(client, max_results \\ nil, next_token \\ nil, origin \\ nil, options \\ []) do
     path_ = "/v1/data-sets"
@@ -196,8 +199,8 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
-  This operation lists a revision's assets sorted alphabetically in
-  descending order.
+  This operation lists a revision's assets sorted alphabetically in descending
+  order.
   """
   def list_revision_assets(client, data_set_id, revision_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets"

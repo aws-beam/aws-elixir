@@ -7,23 +7,19 @@ defmodule AWS.S3Outposts do
   """
 
   @doc """
-  S3 on Outposts access points simplify managing data access at scale for
-  shared datasets in Amazon S3 on Outposts. S3 on Outposts uses endpoints to
-  connect to Outposts buckets so that you can perform actions within your
-  virtual private cloud (VPC).
+  S3 on Outposts access points simplify managing data access at scale for shared
+  datasets in Amazon S3 on Outposts.
 
-  This action creates an endpoint and associates it with the specified
-  Outpost.
+  S3 on Outposts uses endpoints to connect to Outposts buckets so that you can
+  perform actions within your virtual private cloud (VPC).
 
-  <p/> Related actions include:
+  This action creates an endpoint and associates it with the specified Outpost.
 
-  <ul> <li>
-  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
+  Related actions include:
 
-  </li> <li>
+    *
+  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)     *
   [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
-
-  </li> </ul>
   """
   def create_endpoint(client, input, options \\ []) do
     path_ = "/S3Outposts/CreateEndpoint"
@@ -33,22 +29,19 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  S3 on Outposts access points simplify managing data access at scale for
-  shared datasets in Amazon S3 on Outposts. S3 on Outposts uses endpoints to
-  connect to Outposts buckets so that you can perform actions within your
-  virtual private cloud (VPC).
+  S3 on Outposts access points simplify managing data access at scale for shared
+  datasets in Amazon S3 on Outposts.
+
+  S3 on Outposts uses endpoints to connect to Outposts buckets so that you can
+  perform actions within your virtual private cloud (VPC).
 
   This action deletes an endpoint.
 
-  <p/> Related actions include:
+  Related actions include:
 
-  <ul> <li>
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)
-
-  </li> <li>
+    *
+  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)     *
   [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
-
-  </li> </ul>
   """
   def delete_endpoint(client, input, options \\ []) do
     path_ = "/S3Outposts/DeleteEndpoint"
@@ -63,22 +56,19 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  S3 on Outposts access points simplify managing data access at scale for
-  shared datasets in Amazon S3 on Outposts. S3 on Outposts uses endpoints to
-  connect to Outposts buckets so that you can perform actions within your
-  virtual private cloud (VPC).
+  S3 on Outposts access points simplify managing data access at scale for shared
+  datasets in Amazon S3 on Outposts.
+
+  S3 on Outposts uses endpoints to connect to Outposts buckets so that you can
+  perform actions within your virtual private cloud (VPC).
 
   This action lists endpoints associated with the Outpost.
 
-  <p/> Related actions include:
+  Related actions include:
 
-  <ul> <li>
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)
-
-  </li> <li>
+    *
+  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)     *
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
-
-  </li> </ul>
   """
   def list_endpoints(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/S3Outposts/ListEndpoints"

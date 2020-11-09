@@ -3,12 +3,14 @@
 
 defmodule AWS.CognitoIdentityProvider do
   @moduledoc """
-  Using the Amazon Cognito User Pools API, you can create a user pool to
-  manage directories and users. You can authenticate a user to obtain tokens
-  related to user identity and access policies.
+  Using the Amazon Cognito User Pools API, you can create a user pool to manage
+  directories and users.
 
-  This API reference provides information about user pools in Amazon Cognito
-  User Pools.
+  You can authenticate a user to obtain tokens related to user identity and access
+  policies.
+
+  This API reference provides information about user pools in Amazon Cognito User
+  Pools.
 
   For more information, see the Amazon Cognito Documentation.
   """
@@ -31,6 +33,7 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Confirms user registration as an admin without using a confirmation code.
+
   Works on any user.
 
   Calling this action requires developer credentials.
@@ -45,15 +48,15 @@ defmodule AWS.CognitoIdentityProvider do
   If `MessageAction` is not set, the default is to send a welcome message via
   email or phone (SMS).
 
-  This message is based on a template that you configured in your call to
-  create or update a user pool. This template includes your custom sign-up
-  instructions and placeholders for user name and temporary password.
+  This message is based on a template that you configured in your call to create
+  or update a user pool. This template includes your custom sign-up instructions
+  and placeholders for user name and temporary password.
 
   Alternatively, you can call `AdminCreateUser` with “SUPPRESS” for the
   `MessageAction` parameter, and Amazon Cognito will not send any email.
 
-  In either case, the user will be in the `FORCE_CHANGE_PASSWORD` state until
-  they sign in and change their password.
+  In either case, the user will be in the `FORCE_CHANGE_PASSWORD` state until they
+  sign in and change their password.
 
   `AdminCreateUser` requires developer credentials.
   """
@@ -62,7 +65,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes a user as an administrator. Works on any user.
+  Deletes a user as an administrator.
+
+  Works on any user.
 
   Calling this action requires developer credentials.
   """
@@ -71,8 +76,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes the user attributes in a user pool as an administrator. Works on
-  any user.
+  Deletes the user attributes in a user pool as an administrator.
+
+  Works on any user.
 
   Calling this action requires developer credentials.
   """
@@ -81,39 +87,40 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Disables the user from signing in with the specified external (SAML or
-  social) identity provider. If the user to disable is a Cognito User Pools
-  native username + password user, they are not permitted to use their
-  password to sign-in. If the user to disable is a linked external IdP user,
-  any link between that user and an existing user is removed. The next time
-  the external user (no longer attached to the previously linked
-  `DestinationUser`) signs in, they must create a new user account. See
+  Disables the user from signing in with the specified external (SAML or social)
+  identity provider.
+
+  If the user to disable is a Cognito User Pools native username + password user,
+  they are not permitted to use their password to sign-in. If the user to disable
+  is a linked external IdP user, any link between that user and an existing user
+  is removed. The next time the external user (no longer attached to the
+  previously linked `DestinationUser`) signs in, they must create a new user
+  account. See
   [AdminLinkProviderForUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html).
 
-  This action is enabled only for admin access and requires developer
-  credentials.
+  This action is enabled only for admin access and requires developer credentials.
 
-  The `ProviderName` must match the value specified when creating an IdP for
-  the pool.
+  The `ProviderName` must match the value specified when creating an IdP for the
+  pool.
 
-  To disable a native username + password user, the `ProviderName` value must
-  be `Cognito` and the `ProviderAttributeName` must be `Cognito_Subject`,
-  with the `ProviderAttributeValue` being the name that is used in the user
-  pool for the user.
+  To disable a native username + password user, the `ProviderName` value must be
+  `Cognito` and the `ProviderAttributeName` must be `Cognito_Subject`, with the
+  `ProviderAttributeValue` being the name that is used in the user pool for the
+  user.
 
-  The `ProviderAttributeName` must always be `Cognito_Subject` for social
-  identity providers. The `ProviderAttributeValue` must always be the exact
-  subject that was used when the user was originally linked as a source user.
+  The `ProviderAttributeName` must always be `Cognito_Subject` for social identity
+  providers. The `ProviderAttributeValue` must always be the exact subject that
+  was used when the user was originally linked as a source user.
 
-  For de-linking a SAML identity, there are two scenarios. If the linked
-  identity has not yet been used to sign-in, the `ProviderAttributeName` and
+  For de-linking a SAML identity, there are two scenarios. If the linked identity
+  has not yet been used to sign-in, the `ProviderAttributeName` and
   `ProviderAttributeValue` must be the same values that were used for the
   `SourceUser` when the identities were originally linked using `
   AdminLinkProviderForUser` call. (If the linking was done with
   `ProviderAttributeName` set to `Cognito_Subject`, the same applies here).
-  However, if the user has already signed in, the `ProviderAttributeName`
-  must be `Cognito_Subject` and `ProviderAttributeValue` must be the subject
-  of the SAML assertion.
+  However, if the user has already signed in, the `ProviderAttributeName` must be
+  `Cognito_Subject` and `ProviderAttributeValue` must be the subject of the SAML
+  assertion.
   """
   def admin_disable_provider_for_user(client, input, options \\ []) do
     request(client, "AdminDisableProviderForUser", input, options)
@@ -129,7 +136,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Enables the specified user as an administrator. Works on any user.
+  Enables the specified user as an administrator.
+
+  Works on any user.
 
   Calling this action requires developer credentials.
   """
@@ -157,6 +166,7 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Gets the specified user by user name in a user pool as an administrator.
+
   Works on any user.
 
   Calling this action requires developer credentials.
@@ -175,28 +185,26 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Links an existing user account in a user pool (`DestinationUser`) to an
-  identity from an external identity provider (`SourceUser`) based on a
-  specified attribute name and value from the external identity provider.
-  This allows you to create a link from the existing user account to an
-  external federated user identity that has not yet been used to sign in, so
-  that the federated user identity can be used to sign in as the existing
-  user account.
+  Links an existing user account in a user pool (`DestinationUser`) to an identity
+  from an external identity provider (`SourceUser`) based on a specified attribute
+  name and value from the external identity provider.
 
-  For example, if there is an existing user with a username and password,
-  this API links that user to a federated user identity, so that when the
-  federated user identity is used, the user signs in as the existing user
-  account.
+  This allows you to create a link from the existing user account to an external
+  federated user identity that has not yet been used to sign in, so that the
+  federated user identity can be used to sign in as the existing user account.
 
-  <note> The maximum number of federated identities linked to a user is 5.
+  For example, if there is an existing user with a username and password, this API
+  links that user to a federated user identity, so that when the federated user
+  identity is used, the user signs in as the existing user account.
 
-  </note> <important> Because this API allows a user with an external
-  federated identity to sign in as an existing user in the user pool, it is
-  critical that it only be used with external identity providers and provider
-  attributes that have been trusted by the application owner.
+  The maximum number of federated identities linked to a user is 5.
 
-  </important> This action is enabled only for admin access and requires
-  developer credentials.
+  Because this API allows a user with an external federated identity to sign in as
+  an existing user in the user pool, it is critical that it only be used with
+  external identity providers and provider attributes that have been trusted by
+  the application owner.
+
+  This action is enabled only for admin access and requires developer credentials.
   """
   def admin_link_provider_for_user(client, input, options \\ []) do
     request(client, "AdminLinkProviderForUser", input, options)
@@ -239,17 +247,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Resets the specified user's password in a user pool as an administrator.
+
   Works on any user.
 
-  When a developer calls this API, the current password is invalidated, so it
-  must be changed. If a user tries to sign in after the API is called, the
-  app will get a PasswordResetRequiredException exception back and should
-  direct the user down the flow to reset the password, which is the same as
-  the forgot password flow. In addition, if the user pool has phone
-  verification selected and a verified phone number exists for the user, or
-  if email verification is selected and a verified email exists for the user,
-  calling this API will also result in sending a message to the end user with
-  the code to change their password.
+  When a developer calls this API, the current password is invalidated, so it must
+  be changed. If a user tries to sign in after the API is called, the app will get
+  a PasswordResetRequiredException exception back and should direct the user down
+  the flow to reset the password, which is the same as the forgot password flow.
+  In addition, if the user pool has phone verification selected and a verified
+  phone number exists for the user, or if email verification is selected and a
+  verified email exists for the user, calling this API will also result in sending
+  a message to the end user with the code to change their password.
 
   Calling this action requires developer credentials.
   """
@@ -267,12 +275,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Sets the user's multi-factor authentication (MFA) preference, including
-  which MFA options are enabled and if any are preferred. Only one factor can
-  be set as preferred. The preferred MFA factor will be used to authenticate
-  a user if multiple factors are enabled. If multiple options are enabled and
-  no preference is set, a challenge to choose an MFA option will be returned
-  during sign in.
+  Sets the user's multi-factor authentication (MFA) preference, including which
+  MFA options are enabled and if any are preferred.
+
+  Only one factor can be set as preferred. The preferred MFA factor will be used
+  to authenticate a user if multiple factors are enabled. If multiple options are
+  enabled and no preference is set, a challenge to choose an MFA option will be
+  returned during sign in.
   """
   def admin_set_user_m_f_a_preference(client, input, options \\ []) do
     request(client, "AdminSetUserMFAPreference", input, options)
@@ -280,26 +289,28 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Sets the specified user's password in a user pool as an administrator.
+
   Works on any user.
 
-  The password can be temporary or permanent. If it is temporary, the user
-  status will be placed into the `FORCE_CHANGE_PASSWORD` state. When the user
-  next tries to sign in, the InitiateAuth/AdminInitiateAuth response will
-  contain the `NEW_PASSWORD_REQUIRED` challenge. If the user does not sign in
-  before it expires, the user will not be able to sign in and their password
-  will need to be reset by an administrator.
+  The password can be temporary or permanent. If it is temporary, the user status
+  will be placed into the `FORCE_CHANGE_PASSWORD` state. When the user next tries
+  to sign in, the InitiateAuth/AdminInitiateAuth response will contain the
+  `NEW_PASSWORD_REQUIRED` challenge. If the user does not sign in before it
+  expires, the user will not be able to sign in and their password will need to be
+  reset by an administrator.
 
-  Once the user has set a new password, or the password is permanent, the
-  user status will be set to `Confirmed`.
+  Once the user has set a new password, or the password is permanent, the user
+  status will be set to `Confirmed`.
   """
   def admin_set_user_password(client, input, options \\ []) do
     request(client, "AdminSetUserPassword", input, options)
   end
 
   @doc """
-  *This action is no longer supported.* You can use it to configure only SMS
-  MFA. You can't use it to configure TOTP software token MFA. To configure
-  either type of MFA, use
+  *This action is no longer supported.* You can use it to configure only SMS MFA.
+
+  You can't use it to configure TOTP software token MFA. To configure either type
+  of MFA, use
   [AdminSetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html)
   instead.
   """
@@ -308,9 +319,11 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Provides feedback for an authentication event as to whether it was from a
-  valid user. This feedback is used for improving the risk evaluation
-  decision for the user pool as part of Amazon Cognito advanced security.
+  Provides feedback for an authentication event as to whether it was from a valid
+  user.
+
+  This feedback is used for improving the risk evaluation decision for the user
+  pool as part of Amazon Cognito advanced security.
   """
   def admin_update_auth_event_feedback(client, input, options \\ []) do
     request(client, "AdminUpdateAuthEventFeedback", input, options)
@@ -326,14 +339,16 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Updates the specified user's attributes, including developer attributes, as
-  an administrator. Works on any user.
+  Updates the specified user's attributes, including developer attributes, as an
+  administrator.
 
-  For custom attributes, you must prepend the `custom:` prefix to the
-  attribute name.
+  Works on any user.
 
-  In addition to updating user attributes, this API can also be used to mark
-  phone and email as verified.
+  For custom attributes, you must prepend the `custom:` prefix to the attribute
+  name.
+
+  In addition to updating user attributes, this API can also be used to mark phone
+  and email as verified.
 
   Calling this action requires developer credentials.
   """
@@ -342,10 +357,11 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Signs out users from all devices, as an administrator. It also invalidates
-  all refresh tokens issued to a user. The user's current access and Id
-  tokens remain valid until their expiry. Access and Id tokens expire one
-  hour after they are issued.
+  Signs out users from all devices, as an administrator.
+
+  It also invalidates all refresh tokens issued to a user. The user's current
+  access and Id tokens remain valid until their expiry. Access and Id tokens
+  expire one hour after they are issued.
 
   Calling this action requires developer credentials.
   """
@@ -354,8 +370,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Returns a unique generated shared secret key code for the user account. The
-  request takes an access token or a session string, but not both.
+  Returns a unique generated shared secret key code for the user account.
+
+  The request takes an access token or a session string, but not both.
   """
   def associate_software_token(client, input, options \\ []) do
     request(client, "AssociateSoftwareToken", input, options)
@@ -369,8 +386,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Confirms tracking of the device. This API call is the call that begins
-  device tracking.
+  Confirms tracking of the device.
+
+  This API call is the call that begins device tracking.
   """
   def confirm_device(client, input, options \\ []) do
     request(client, "ConfirmDevice", input, options)
@@ -384,8 +402,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Confirms registration of a user and handles the existing alias from a
-  previous user.
+  Confirms registration of a user and handles the existing alias from a previous
+  user.
   """
   def confirm_sign_up(client, input, options \\ []) do
     request(client, "ConfirmSignUp", input, options)
@@ -444,7 +462,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes a group. Currently only groups with no members can be deleted.
+  Deletes a group.
+
+  Currently only groups with no members can be deleted.
 
   Calling this action requires developer credentials.
   """
@@ -530,16 +550,15 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Returns the configuration information and metadata of the specified user
-  pool.
+  Returns the configuration information and metadata of the specified user pool.
   """
   def describe_user_pool(client, input, options \\ []) do
     request(client, "DescribeUserPool", input, options)
   end
 
   @doc """
-  Client method for returning the configuration information and metadata of
-  the specified user pool app client.
+  Client method for returning the configuration information and metadata of the
+  specified user pool app client.
   """
   def describe_user_pool_client(client, input, options \\ []) do
     request(client, "DescribeUserPoolClient", input, options)
@@ -560,15 +579,15 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Calling this API causes a message to be sent to the end user with a
-  confirmation code that is required to change the user's password. For the
-  `Username` parameter, you can use the username or user alias. The method
+  Calling this API causes a message to be sent to the end user with a confirmation
+  code that is required to change the user's password.
+
+  For the `Username` parameter, you can use the username or user alias. The method
   used to send the confirmation code is sent according to the specified
-  AccountRecoverySetting. For more information, see [Recovering User
-  Accounts](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html)
-  in the *Amazon Cognito Developer Guide*. If neither a verified phone number
-  nor a verified email exists, an `InvalidParameterException` is thrown. To
-  use the confirmation code for resetting the password, call
+  AccountRecoverySetting. For more information, see [Recovering User Accounts](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html)
+  in the *Amazon Cognito Developer Guide*. If neither a verified phone number nor
+  a verified email exists, an `InvalidParameterException` is thrown. To use the
+  confirmation code for resetting the password, call
   [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html).
   """
   def forgot_password(client, input, options \\ []) do
@@ -576,8 +595,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the header information for the .csv file to be used as input for the
-  user import job.
+  Gets the header information for the .csv file to be used as input for the user
+  import job.
   """
   def get_csv_header(client, input, options \\ []) do
     request(client, "GetCSVHeader", input, options)
@@ -614,11 +633,12 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the UI Customization information for a particular app client's app UI,
-  if there is something set. If nothing is set for the particular client, but
-  there is an existing pool level customization (app `clientId` will be
-  `ALL`), then that is returned. If nothing is present, then an empty shape
-  is returned.
+  Gets the UI Customization information for a particular app client's app UI, if
+  there is something set.
+
+  If nothing is set for the particular client, but there is an existing pool level
+  customization (app `clientId` will be `ALL`), then that is returned. If nothing
+  is present, then an empty shape is returned.
   """
   def get_u_i_customization(client, input, options \\ []) do
     request(client, "GetUICustomization", input, options)
@@ -646,10 +666,11 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Signs out users from all devices. It also invalidates all refresh tokens
-  issued to a user. The user's current access and Id tokens remain valid
-  until their expiry. Access and Id tokens expire one hour after they are
-  issued.
+  Signs out users from all devices.
+
+  It also invalidates all refresh tokens issued to a user. The user's current
+  access and Id tokens remain valid until their expiry. Access and Id tokens
+  expire one hour after they are issued.
   """
   def global_sign_out(client, input, options \\ []) do
     request(client, "GlobalSignOut", input, options)
@@ -695,9 +716,8 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Lists the tags that are assigned to an Amazon Cognito user pool.
 
-  A tag is a label that you can apply to user pools to categorize and manage
-  them in different ways, such as by purpose, owner, environment, or other
-  criteria.
+  A tag is a label that you can apply to user pools to categorize and manage them
+  in different ways, such as by purpose, owner, environment, or other criteria.
 
   You can use this action up to 10 times per second, per account.
   """
@@ -743,8 +763,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Resends the confirmation (for confirmation of registration) to a specific
-  user in the user pool.
+  Resends the confirmation (for confirmation of registration) to a specific user
+  in the user pool.
   """
   def resend_confirmation_code(client, input, options \\ []) do
     request(client, "ResendConfirmationCode", input, options)
@@ -758,12 +778,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Configures actions on detected risks. To delete the risk configuration for
-  `UserPoolId` or `ClientId`, pass null values for all four configuration
-  types.
+  Configures actions on detected risks.
 
-  To enable Amazon Cognito advanced security features, update the user pool
-  to include the `UserPoolAddOns` key`AdvancedSecurityMode`.
+  To delete the risk configuration for `UserPoolId` or `ClientId`, pass null
+  values for all four configuration types.
+
+  To enable Amazon Cognito advanced security features, update the user pool to
+  include the `UserPoolAddOns` key`AdvancedSecurityMode`.
   """
   def set_risk_configuration(client, input, options \\ []) do
     request(client, "SetRiskConfiguration", input, options)
@@ -773,29 +794,27 @@ defmodule AWS.CognitoIdentityProvider do
   Sets the UI customization information for a user pool's built-in app UI.
 
   You can specify app UI customization settings for a single client (with a
-  specific `clientId`) or for all clients (by setting the `clientId` to
-  `ALL`). If you specify `ALL`, the default configuration will be used for
-  every client that has no UI customization set previously. If you specify UI
-  customization settings for a particular client, it will no longer fall back
-  to the `ALL` configuration.
+  specific `clientId`) or for all clients (by setting the `clientId` to `ALL`). If
+  you specify `ALL`, the default configuration will be used for every client that
+  has no UI customization set previously. If you specify UI customization settings
+  for a particular client, it will no longer fall back to the `ALL` configuration.
 
-  <note> To use this API, your user pool must have a domain associated with
-  it. Otherwise, there is no place to host the app's pages, and the service
-  will throw an error.
-
-  </note>
+  To use this API, your user pool must have a domain associated with it.
+  Otherwise, there is no place to host the app's pages, and the service will throw
+  an error.
   """
   def set_u_i_customization(client, input, options \\ []) do
     request(client, "SetUICustomization", input, options)
   end
 
   @doc """
-  Set the user's multi-factor authentication (MFA) method preference,
-  including which MFA factors are enabled and if any are preferred. Only one
-  factor can be set as preferred. The preferred MFA factor will be used to
-  authenticate a user if multiple factors are enabled. If multiple options
-  are enabled and no preference is set, a challenge to choose an MFA option
-  will be returned during sign in.
+  Set the user's multi-factor authentication (MFA) method preference, including
+  which MFA factors are enabled and if any are preferred.
+
+  Only one factor can be set as preferred. The preferred MFA factor will be used
+  to authenticate a user if multiple factors are enabled. If multiple options are
+  enabled and no preference is set, a challenge to choose an MFA option will be
+  returned during sign in.
   """
   def set_user_m_f_a_preference(client, input, options \\ []) do
     request(client, "SetUserMFAPreference", input, options)
@@ -809,9 +828,10 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  *This action is no longer supported.* You can use it to configure only SMS
-  MFA. You can't use it to configure TOTP software token MFA. To configure
-  either type of MFA, use
+  *This action is no longer supported.* You can use it to configure only SMS MFA.
+
+  You can't use it to configure TOTP software token MFA. To configure either type
+  of MFA, use
   [SetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html)
   instead.
   """
@@ -820,8 +840,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Registers the user in the specified user pool and creates a user name,
-  password, and user attributes.
+  Registers the user in the specified user pool and creates a user name, password,
+  and user attributes.
   """
   def sign_up(client, input, options \\ []) do
     request(client, "SignUp", input, options)
@@ -842,41 +862,44 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that
-  you can use to categorize and manage user pools in different ways, such as
-  by purpose, owner, environment, or other criteria.
+  Assigns a set of tags to an Amazon Cognito user pool.
+
+  A tag is a label that you can use to categorize and manage user pools in
+  different ways, such as by purpose, owner, environment, or other criteria.
 
   Each tag consists of a key and value, both of which you define. A key is a
-  general category for more specific values. For example, if you have two
-  versions of a user pool, one for testing and another for production, you
-  might assign an `Environment` tag key to both user pools. The value of this
-  key might be `Test` for one user pool and `Production` for the other.
+  general category for more specific values. For example, if you have two versions
+  of a user pool, one for testing and another for production, you might assign an
+  `Environment` tag key to both user pools. The value of this key might be `Test`
+  for one user pool and `Production` for the other.
 
-  Tags are useful for cost tracking and access control. You can activate your
-  tags so that they appear on the Billing and Cost Management console, where
-  you can track the costs associated with your user pools. In an IAM policy,
-  you can constrain permissions for user pools based on specific tags or tag
-  values.
+  Tags are useful for cost tracking and access control. You can activate your tags
+  so that they appear on the Billing and Cost Management console, where you can
+  track the costs associated with your user pools. In an IAM policy, you can
+  constrain permissions for user pools based on specific tags or tag values.
 
-  You can use this action up to 5 times per second, per account. A user pool
-  can have as many as 50 tags.
+  You can use this action up to 5 times per second, per account. A user pool can
+  have as many as 50 tags.
   """
   def tag_resource(client, input, options \\ []) do
     request(client, "TagResource", input, options)
   end
 
   @doc """
-  Removes the specified tags from an Amazon Cognito user pool. You can use
-  this action up to 5 times per second, per account
+  Removes the specified tags from an Amazon Cognito user pool.
+
+  You can use this action up to 5 times per second, per account
   """
   def untag_resource(client, input, options \\ []) do
     request(client, "UntagResource", input, options)
   end
 
   @doc """
-  Provides the feedback for an authentication event whether it was from a
-  valid user or not. This feedback is used for improving the risk evaluation
-  decision for the user pool as part of Amazon Cognito advanced security.
+  Provides the feedback for an authentication event whether it was from a valid
+  user or not.
+
+  This feedback is used for improving the risk evaluation decision for the user
+  pool as part of Amazon Cognito advanced security.
   """
   def update_auth_event_feedback(client, input, options \\ []) do
     request(client, "UpdateAuthEventFeedback", input, options)
@@ -894,10 +917,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
 
-  <important> If you don't provide a value for an attribute, it will be set
-  to the default value.
-
-  </important>
+  If you don't provide a value for an attribute, it will be set to the default
+  value.
   """
   def update_group(client, input, options \\ []) do
     request(client, "UpdateGroup", input, options)
@@ -911,13 +932,12 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Updates the name and scopes of resource server. All other fields are
-  read-only.
+  Updates the name and scopes of resource server.
 
-  <important> If you don't provide a value for an attribute, it will be set
-  to the default value.
+  All other fields are read-only.
 
-  </important>
+  If you don't provide a value for an attribute, it will be set to the default
+  value.
   """
   def update_resource_server(client, input, options \\ []) do
     request(client, "UpdateResourceServer", input, options)
@@ -931,14 +951,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Updates the specified user pool with the specified attributes. You can get
-  a list of the current user pool settings using
+  Updates the specified user pool with the specified attributes.
+
+  You can get a list of the current user pool settings using
   [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html).
 
-  <important> If you don't provide a value for an attribute, it will be set
-  to the default value.
-
-  </important>
+  If you don't provide a value for an attribute, it will be set to the default
+  value.
   """
   def update_user_pool(client, input, options \\ []) do
     request(client, "UpdateUserPool", input, options)
@@ -946,49 +965,46 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Updates the specified user pool app client with the specified attributes.
+
   You can get a list of the current user pool app client settings using
   [DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html).
 
-  <important> If you don't provide a value for an attribute, it will be set
-  to the default value.
-
-  </important>
+  If you don't provide a value for an attribute, it will be set to the default
+  value.
   """
   def update_user_pool_client(client, input, options \\ []) do
     request(client, "UpdateUserPoolClient", input, options)
   end
 
   @doc """
-  Updates the Secure Sockets Layer (SSL) certificate for the custom domain
-  for your user pool.
+  Updates the Secure Sockets Layer (SSL) certificate for the custom domain for
+  your user pool.
 
-  You can use this operation to provide the Amazon Resource Name (ARN) of a
-  new certificate to Amazon Cognito. You cannot use it to change the domain
-  for a user pool.
+  You can use this operation to provide the Amazon Resource Name (ARN) of a new
+  certificate to Amazon Cognito. You cannot use it to change the domain for a user
+  pool.
 
-  A custom domain is used to host the Amazon Cognito hosted UI, which
-  provides sign-up and sign-in pages for your application. When you set up a
-  custom domain, you provide a certificate that you manage with AWS
-  Certificate Manager (ACM). When necessary, you can use this operation to
-  change the certificate that you applied to your custom domain.
+  A custom domain is used to host the Amazon Cognito hosted UI, which provides
+  sign-up and sign-in pages for your application. When you set up a custom domain,
+  you provide a certificate that you manage with AWS Certificate Manager (ACM).
+  When necessary, you can use this operation to change the certificate that you
+  applied to your custom domain.
 
-  Usually, this is unnecessary following routine certificate renewal with
-  ACM. When you renew your existing certificate in ACM, the ARN for your
-  certificate remains the same, and your custom domain uses the new
-  certificate automatically.
+  Usually, this is unnecessary following routine certificate renewal with ACM.
+  When you renew your existing certificate in ACM, the ARN for your certificate
+  remains the same, and your custom domain uses the new certificate automatically.
 
-  However, if you replace your existing certificate with a new one, ACM gives
-  the new certificate a new ARN. To apply the new certificate to your custom
-  domain, you must provide this ARN to Amazon Cognito.
+  However, if you replace your existing certificate with a new one, ACM gives the
+  new certificate a new ARN. To apply the new certificate to your custom domain,
+  you must provide this ARN to Amazon Cognito.
 
-  When you add your new certificate in ACM, you must choose US East (N.
-  Virginia) as the AWS Region.
+  When you add your new certificate in ACM, you must choose US East (N. Virginia)
+  as the AWS Region.
 
   After you submit your request, Amazon Cognito requires up to 1 hour to
   distribute your new certificate to your custom domain.
 
-  For more information about adding a custom domain to your user pool, see
-  [Using Your Own Domain for the Hosted
+  For more information about adding a custom domain to your user pool, see [Using Your Own Domain for the Hosted
   UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html).
   """
   def update_user_pool_domain(client, input, options \\ []) do
@@ -996,9 +1012,10 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Use this API to register a user's entered TOTP code and mark the user's
-  software token MFA status as "verified" if successful. The request takes an
-  access token or a session string, but not both.
+  Use this API to register a user's entered TOTP code and mark the user's software
+  token MFA status as "verified" if successful.
+
+  The request takes an access token or a session string, but not both.
   """
   def verify_software_token(client, input, options \\ []) do
     request(client, "VerifySoftwareToken", input, options)

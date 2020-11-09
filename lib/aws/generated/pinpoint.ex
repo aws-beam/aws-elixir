@@ -17,8 +17,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Creates a new campaign for an application or updates the settings of an
-  existing campaign for an application.
+  Creates a new campaign for an application or updates the settings of an existing
+  campaign for an application.
   """
   def create_campaign(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns"
@@ -28,8 +28,7 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Creates a message template for messages that are sent through the email
-  channel.
+  Creates a message template for messages that are sent through the email channel.
   """
   def create_email_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/email"
@@ -91,8 +90,8 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a new segment for an application or updates the configuration,
-  dimension, and other settings for an existing segment that's associated
-  with an application.
+  dimension, and other settings for an existing segment that's associated with an
+  application.
   """
   def create_segment(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments"
@@ -102,8 +101,7 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Creates a message template for messages that are sent through the SMS
-  channel.
+  Creates a message template for messages that are sent through the SMS channel.
   """
   def create_sms_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/sms"
@@ -113,8 +111,7 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Creates a message template for messages that are sent through the voice
-  channel.
+  Creates a message template for messages that are sent through the voice channel.
   """
   def create_voice_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/voice"
@@ -124,8 +121,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Disables the ADM channel for an application and deletes any existing
-  settings for the channel.
+  Disables the ADM channel for an application and deletes any existing settings
+  for the channel.
   """
   def delete_adm_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/adm"
@@ -135,8 +132,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Disables the APNs channel for an application and deletes any existing
-  settings for the channel.
+  Disables the APNs channel for an application and deletes any existing settings
+  for the channel.
   """
   def delete_apns_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns"
@@ -146,8 +143,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Disables the APNs sandbox channel for an application and deletes any
-  existing settings for the channel.
+  Disables the APNs sandbox channel for an application and deletes any existing
+  settings for the channel.
   """
   def delete_apns_sandbox_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_sandbox"
@@ -189,8 +186,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Disables the Baidu channel for an application and deletes any existing
-  settings for the channel.
+  Disables the Baidu channel for an application and deletes any existing settings
+  for the channel.
   """
   def delete_baidu_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/baidu"
@@ -210,8 +207,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Disables the email channel for an application and deletes any existing
-  settings for the channel.
+  Disables the email channel for an application and deletes any existing settings
+  for the channel.
   """
   def delete_email_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/email"
@@ -256,8 +253,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Disables the GCM channel for an application and deletes any existing
-  settings for the channel.
+  Disables the GCM channel for an application and deletes any existing settings
+  for the channel.
   """
   def delete_gcm_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/gcm"
@@ -312,8 +309,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Disables the SMS channel for an application and deletes any existing
-  settings for the channel.
+  Disables the SMS channel for an application and deletes any existing settings
+  for the channel.
   """
   def delete_sms_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/sms"
@@ -323,8 +320,7 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Deletes a message template for messages that were sent through the SMS
-  channel.
+  Deletes a message template for messages that were sent through the SMS channel.
   """
   def delete_sms_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/sms"
@@ -348,8 +344,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Disables the voice channel for an application and deletes any existing
-  settings for the channel.
+  Disables the voice channel for an application and deletes any existing settings
+  for the channel.
   """
   def delete_voice_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/voice"
@@ -374,8 +370,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the ADM channel for
-  an application.
+  Retrieves information about the status and settings of the ADM channel for an
+  application.
   """
   def get_adm_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/adm"
@@ -385,8 +381,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the APNs channel for
-  an application.
+  Retrieves information about the status and settings of the APNs channel for an
+  application.
   """
   def get_apns_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns"
@@ -396,8 +392,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the APNs sandbox
-  channel for an application.
+  Retrieves information about the status and settings of the APNs sandbox channel
+  for an application.
   """
   def get_apns_sandbox_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_sandbox"
@@ -407,8 +403,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the APNs VoIP
-  channel for an application.
+  Retrieves information about the status and settings of the APNs VoIP channel for
+  an application.
   """
   def get_apns_voip_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip"
@@ -418,8 +414,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the APNs VoIP
-  sandbox channel for an application.
+  Retrieves information about the status and settings of the APNs VoIP sandbox
+  channel for an application.
   """
   def get_apns_voip_sandbox_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip_sandbox"
@@ -439,8 +435,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves (queries) pre-aggregated data for a standard metric that applies
-  to an application.
+  Retrieves (queries) pre-aggregated data for a standard metric that applies to an
+  application.
   """
   def get_application_date_range_kpi(client, application_id, kpi_name, end_time \\ nil, next_token \\ nil, page_size \\ nil, start_time \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
@@ -480,8 +476,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about all the applications that are associated with
-  your Amazon Pinpoint account.
+  Retrieves information about all the applications that are associated with your
+  Amazon Pinpoint account.
   """
   def get_apps(client, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps"
@@ -501,8 +497,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the Baidu channel
-  for an application.
+  Retrieves information about the status and settings of the Baidu channel for an
+  application.
   """
   def get_baidu_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/baidu"
@@ -512,8 +508,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status, configuration, and other settings
-  for a campaign.
+  Retrieves information about the status, configuration, and other settings for a
+  campaign.
   """
   def get_campaign(client, application_id, campaign_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}"
@@ -543,8 +539,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves (queries) pre-aggregated data for a standard metric that applies
-  to a campaign.
+  Retrieves (queries) pre-aggregated data for a standard metric that applies to a
+  campaign.
   """
   def get_campaign_date_range_kpi(client, application_id, campaign_id, kpi_name, end_time \\ nil, next_token \\ nil, page_size \\ nil, start_time \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
@@ -574,8 +570,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status, configuration, and other settings
-  for a specific version of a campaign.
+  Retrieves information about the status, configuration, and other settings for a
+  specific version of a campaign.
   """
   def get_campaign_version(client, application_id, campaign_id, version, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/versions/#{URI.encode(version)}"
@@ -585,8 +581,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status, configuration, and other settings
-  for all versions of a campaign.
+  Retrieves information about the status, configuration, and other settings for
+  all versions of a campaign.
   """
   def get_campaign_versions(client, application_id, campaign_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/versions"
@@ -606,8 +602,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status, configuration, and other settings
-  for all the campaigns that are associated with an application.
+  Retrieves information about the status, configuration, and other settings for
+  all the campaigns that are associated with an application.
   """
   def get_campaigns(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/campaigns"
@@ -638,8 +634,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the email channel
-  for an application.
+  Retrieves information about the status and settings of the email channel for an
+  application.
   """
   def get_email_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/email"
@@ -649,8 +645,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves the content and settings of a message template for messages that
-  are sent through the email channel.
+  Retrieves the content and settings of a message template for messages that are
+  sent through the email channel.
   """
   def get_email_template(client, template_name, version \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/email"
@@ -665,8 +661,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the settings and attributes of a specific
-  endpoint for an application.
+  Retrieves information about the settings and attributes of a specific endpoint
+  for an application.
   """
   def get_endpoint(client, application_id, endpoint_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/endpoints/#{URI.encode(endpoint_id)}"
@@ -686,8 +682,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of a specific export
-  job for an application.
+  Retrieves information about the status and settings of a specific export job for
+  an application.
   """
   def get_export_job(client, application_id, job_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/export/#{URI.encode(job_id)}"
@@ -697,8 +693,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of all the export jobs
-  for an application.
+  Retrieves information about the status and settings of all the export jobs for
+  an application.
   """
   def get_export_jobs(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/export"
@@ -718,8 +714,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the GCM channel for
-  an application.
+  Retrieves information about the status and settings of the GCM channel for an
+  application.
   """
   def get_gcm_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/gcm"
@@ -729,8 +725,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of a specific import
-  job for an application.
+  Retrieves information about the status and settings of a specific import job for
+  an application.
   """
   def get_import_job(client, application_id, job_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/import/#{URI.encode(job_id)}"
@@ -740,8 +736,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of all the import jobs
-  for an application.
+  Retrieves information about the status and settings of all the import jobs for
+  an application.
   """
   def get_import_jobs(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/jobs/import"
@@ -761,8 +757,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status, configuration, and other settings
-  for a journey.
+  Retrieves information about the status, configuration, and other settings for a
+  journey.
   """
   def get_journey(client, application_id, journey_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}"
@@ -772,8 +768,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves (queries) pre-aggregated data for a standard engagement metric
-  that applies to a journey.
+  Retrieves (queries) pre-aggregated data for a standard engagement metric that
+  applies to a journey.
   """
   def get_journey_date_range_kpi(client, application_id, journey_id, kpi_name, end_time \\ nil, next_token \\ nil, page_size \\ nil, start_time \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
@@ -803,8 +799,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves (queries) pre-aggregated data for a standard execution metric
-  that applies to a journey activity.
+  Retrieves (queries) pre-aggregated data for a standard execution metric that
+  applies to a journey activity.
   """
   def get_journey_execution_activity_metrics(client, application_id, journey_activity_id, journey_id, next_token \\ nil, page_size \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/activities/#{URI.encode(journey_activity_id)}/execution-metrics"
@@ -824,8 +820,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves (queries) pre-aggregated data for a standard execution metric
-  that applies to a journey.
+  Retrieves (queries) pre-aggregated data for a standard execution metric that
+  applies to a journey.
   """
   def get_journey_execution_metrics(client, application_id, journey_id, next_token \\ nil, page_size \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/execution-metrics"
@@ -845,8 +841,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves the content and settings of a message template for messages that
-  are sent through a push notification channel.
+  Retrieves the content and settings of a message template for messages that are
+  sent through a push notification channel.
   """
   def get_push_template(client, template_name, version \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/push"
@@ -861,8 +857,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about an Amazon Pinpoint configuration for a
-  recommender model.
+  Retrieves information about an Amazon Pinpoint configuration for a recommender
+  model.
   """
   def get_recommender_configuration(client, recommender_id, options \\ []) do
     path_ = "/v1/recommenders/#{URI.encode(recommender_id)}"
@@ -872,8 +868,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about all the recommender model configurations that
-  are associated with your Amazon Pinpoint account.
+  Retrieves information about all the recommender model configurations that are
+  associated with your Amazon Pinpoint account.
   """
   def get_recommender_configurations(client, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/recommenders"
@@ -893,8 +889,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the configuration, dimension, and other
-  settings for a specific segment that's associated with an application.
+  Retrieves information about the configuration, dimension, and other settings for
+  a specific segment that's associated with an application.
   """
   def get_segment(client, application_id, segment_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}"
@@ -904,8 +900,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the export jobs for
-  a segment.
+  Retrieves information about the status and settings of the export jobs for a
+  segment.
   """
   def get_segment_export_jobs(client, application_id, segment_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/jobs/export"
@@ -925,8 +921,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the import jobs for
-  a segment.
+  Retrieves information about the status and settings of the import jobs for a
+  segment.
   """
   def get_segment_import_jobs(client, application_id, segment_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/jobs/import"
@@ -946,9 +942,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the configuration, dimension, and other
-  settings for a specific version of a segment that's associated with an
-  application.
+  Retrieves information about the configuration, dimension, and other settings for
+  a specific version of a segment that's associated with an application.
   """
   def get_segment_version(client, application_id, segment_id, version, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/versions/#{URI.encode(version)}"
@@ -958,9 +953,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the configuration, dimension, and other
-  settings for all the versions of a specific segment that's associated with
-  an application.
+  Retrieves information about the configuration, dimension, and other settings for
+  all the versions of a specific segment that's associated with an application.
   """
   def get_segment_versions(client, application_id, segment_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/versions"
@@ -980,8 +974,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the configuration, dimension, and other
-  settings for all the segments that are associated with an application.
+  Retrieves information about the configuration, dimension, and other settings for
+  all the segments that are associated with an application.
   """
   def get_segments(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments"
@@ -1001,8 +995,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the SMS channel for
-  an application.
+  Retrieves information about the status and settings of the SMS channel for an
+  application.
   """
   def get_sms_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/sms"
@@ -1012,8 +1006,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves the content and settings of a message template for messages that
-  are sent through the SMS channel.
+  Retrieves the content and settings of a message template for messages that are
+  sent through the SMS channel.
   """
   def get_sms_template(client, template_name, version \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/sms"
@@ -1039,8 +1033,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status and settings of the voice channel
-  for an application.
+  Retrieves information about the status and settings of the voice channel for an
+  application.
   """
   def get_voice_channel(client, application_id, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/voice"
@@ -1050,8 +1044,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves the content and settings of a message template for messages that
-  are sent through the voice channel.
+  Retrieves the content and settings of a message template for messages that are
+  sent through the voice channel.
   """
   def get_voice_template(client, template_name, version \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/voice"
@@ -1066,8 +1060,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about the status, configuration, and other settings
-  for all the journeys that are associated with an application.
+  Retrieves information about the status, configuration, and other settings for
+  all the journeys that are associated with an application.
   """
   def list_journeys(client, application_id, page_size \\ nil, token \\ nil, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/journeys"
@@ -1098,8 +1092,7 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about all the versions of a specific message
-  template.
+  Retrieves information about all the versions of a specific message template.
   """
   def list_template_versions(client, template_name, template_type, next_token \\ nil, page_size \\ nil, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/#{URI.encode(template_type)}/versions"
@@ -1119,8 +1112,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Retrieves information about all the message templates that are associated
-  with your Amazon Pinpoint account.
+  Retrieves information about all the message templates that are associated with
+  your Amazon Pinpoint account.
   """
   def list_templates(client, next_token \\ nil, page_size \\ nil, prefix \\ nil, template_type \\ nil, options \\ []) do
     path_ = "/v1/templates"
@@ -1171,8 +1164,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Creates a new event to record for endpoints, or creates or updates endpoint
-  data that existing events are associated with.
+  Creates a new event to record for endpoints, or creates or updates endpoint data
+  that existing events are associated with.
   """
   def put_events(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/events"
@@ -1213,8 +1206,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Adds one or more tags (keys and values) to an application, campaign,
-  message template, or segment.
+  Adds one or more tags (keys and values) to an application, campaign, message
+  template, or segment.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/v1/tags/#{URI.encode(resource_arn)}"
@@ -1239,8 +1232,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the ADM channel for an application or updates the status and
-  settings of the ADM channel for an application.
+  Enables the ADM channel for an application or updates the status and settings of
+  the ADM channel for an application.
   """
   def update_adm_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/adm"
@@ -1250,8 +1243,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the APNs channel for an application or updates the status and
-  settings of the APNs channel for an application.
+  Enables the APNs channel for an application or updates the status and settings
+  of the APNs channel for an application.
   """
   def update_apns_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns"
@@ -1261,8 +1254,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the APNs sandbox channel for an application or updates the status
-  and settings of the APNs sandbox channel for an application.
+  Enables the APNs sandbox channel for an application or updates the status and
+  settings of the APNs sandbox channel for an application.
   """
   def update_apns_sandbox_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_sandbox"
@@ -1283,8 +1276,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the APNs VoIP sandbox channel for an application or updates the
-  status and settings of the APNs VoIP sandbox channel for an application.
+  Enables the APNs VoIP sandbox channel for an application or updates the status
+  and settings of the APNs VoIP sandbox channel for an application.
   """
   def update_apns_voip_sandbox_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/apns_voip_sandbox"
@@ -1304,8 +1297,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the Baidu channel for an application or updates the status and
-  settings of the Baidu channel for an application.
+  Enables the Baidu channel for an application or updates the status and settings
+  of the Baidu channel for an application.
   """
   def update_baidu_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/baidu"
@@ -1325,8 +1318,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the email channel for an application or updates the status and
-  settings of the email channel for an application.
+  Enables the email channel for an application or updates the status and settings
+  of the email channel for an application.
   """
   def update_email_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/email"
@@ -1352,10 +1345,11 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Creates a new endpoint for an application or updates the settings and
-  attributes of an existing endpoint for an application. You can also use
-  this operation to define custom attributes for an endpoint. If an update
-  includes one or more values for a custom attribute, Amazon Pinpoint
+  Creates a new endpoint for an application or updates the settings and attributes
+  of an existing endpoint for an application.
+
+  You can also use this operation to define custom attributes for an endpoint. If
+  an update includes one or more values for a custom attribute, Amazon Pinpoint
   replaces (overwrites) any existing values with the new values.
   """
   def update_endpoint(client, application_id, endpoint_id, input, options \\ []) do
@@ -1366,12 +1360,12 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Creates a new batch of endpoints for an application or updates the settings
-  and attributes of a batch of existing endpoints for an application. You can
-  also use this operation to define custom attributes for a batch of
+  Creates a new batch of endpoints for an application or updates the settings and
+  attributes of a batch of existing endpoints for an application.
+
+  You can also use this operation to define custom attributes for a batch of
   endpoints. If an update includes one or more values for a custom attribute,
-  Amazon Pinpoint replaces (overwrites) any existing values with the new
-  values.
+  Amazon Pinpoint replaces (overwrites) any existing values with the new values.
   """
   def update_endpoints_batch(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/endpoints"
@@ -1381,8 +1375,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the GCM channel for an application or updates the status and
-  settings of the GCM channel for an application.
+  Enables the GCM channel for an application or updates the status and settings of
+  the GCM channel for an application.
   """
   def update_gcm_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/gcm"
@@ -1412,8 +1406,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Updates an existing message template for messages that are sent through a
-  push notification channel.
+  Updates an existing message template for messages that are sent through a push
+  notification channel.
   """
   def update_push_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/push"
@@ -1439,8 +1433,8 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a new segment for an application or updates the configuration,
-  dimension, and other settings for an existing segment that's associated
-  with an application.
+  dimension, and other settings for an existing segment that's associated with an
+  application.
   """
   def update_segment(client, application_id, segment_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}"
@@ -1450,8 +1444,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the SMS channel for an application or updates the status and
-  settings of the SMS channel for an application.
+  Enables the SMS channel for an application or updates the status and settings of
+  the SMS channel for an application.
   """
   def update_sms_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/sms"
@@ -1461,8 +1455,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Updates an existing message template for messages that are sent through the
-  SMS channel.
+  Updates an existing message template for messages that are sent through the SMS
+  channel.
   """
   def update_sms_template(client, template_name, input, options \\ []) do
     path_ = "/v1/templates/#{URI.encode(template_name)}/sms"
@@ -1487,8 +1481,8 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Enables the voice channel for an application or updates the status and
-  settings of the voice channel for an application.
+  Enables the voice channel for an application or updates the status and settings
+  of the voice channel for an application.
   """
   def update_voice_channel(client, application_id, input, options \\ []) do
     path_ = "/v1/apps/#{URI.encode(application_id)}/channels/voice"

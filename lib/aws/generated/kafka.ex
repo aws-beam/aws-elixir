@@ -62,8 +62,9 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Deletes the specified MSK configuration. The configuration must be in the
-  ACTIVE or DELETE_FAILED state.
+  Deletes the specified MSK configuration.
+
+  The configuration must be in the ACTIVE or DELETE_FAILED state.
   """
   def delete_configuration(client, arn, input, options \\ []) do
     path_ = "/v1/configurations/#{URI.encode(arn)}"
@@ -73,8 +74,8 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Returns a description of the MSK cluster whose Amazon Resource Name (ARN)
-  is specified in the request.
+  Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is
+  specified in the request.
   """
   def describe_cluster(client, cluster_arn, options \\ []) do
     path_ = "/v1/clusters/#{URI.encode(cluster_arn)}"
@@ -139,8 +140,8 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Returns a list of all the operations that have been performed on the
-  specified MSK cluster.
+  Returns a list of all the operations that have been performed on the specified
+  MSK cluster.
   """
   def list_cluster_operations(client, cluster_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/operations"
@@ -329,9 +330,10 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Updates the number of broker nodes in the cluster. You can use this
-  operation to increase the number of brokers in an existing cluster. You
-  can't decrease the number of brokers.
+  Updates the number of broker nodes in the cluster.
+
+  You can use this operation to increase the number of brokers in an existing
+  cluster. You can't decrease the number of brokers.
   """
   def update_broker_count(client, cluster_arn, input, options \\ []) do
     path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/count"
@@ -372,8 +374,9 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Updates an existing MSK configuration. The configuration must be in the
-  Active state.
+  Updates an existing MSK configuration.
+
+  The configuration must be in the Active state.
   """
   def update_configuration(client, arn, input, options \\ []) do
     path_ = "/v1/configurations/#{URI.encode(arn)}"
@@ -383,10 +386,11 @@ defmodule AWS.Kafka do
   end
 
   @doc """
-  Updates the monitoring settings for the cluster. You can use this operation
-  to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon
-  CloudWatch. You can also specify settings for open monitoring with
-  Prometheus.
+  Updates the monitoring settings for the cluster.
+
+  You can use this operation to specify which Apache Kafka metrics you want Amazon
+  MSK to send to Amazon CloudWatch. You can also specify settings for open
+  monitoring with Prometheus.
   """
   def update_monitoring(client, cluster_arn, input, options \\ []) do
     path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/monitoring"

@@ -3,19 +3,22 @@
 
 defmodule AWS.Greengrass do
   @moduledoc """
-  AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can
-  act locally on the data they generate, while still using the cloud for
-  management, analytics, and durable storage. AWS IoT Greengrass ensures your
-  devices can respond quickly to local events and operate with intermittent
-  connectivity. AWS IoT Greengrass minimizes the cost of transmitting data to
-  the cloud by allowing you to author AWS Lambda functions that execute
-  locally.
+  AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act
+  locally on the data they generate, while still using the cloud for management,
+  analytics, and durable storage.
+
+  AWS IoT Greengrass ensures your devices can respond quickly to local events and
+  operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of
+  transmitting data to the cloud by allowing you to author AWS Lambda functions
+  that execute locally.
   """
 
   @doc """
-  Associates a role with a group. Your Greengrass core will use the role to
-  access AWS cloud services. The role's permissions should allow Greengrass
-  core Lambda functions to perform actions against the cloud.
+  Associates a role with a group.
+
+  Your Greengrass core will use the role to access AWS cloud services. The role's
+  permissions should allow Greengrass core Lambda functions to perform actions
+  against the cloud.
   """
   def associate_role_to_group(client, group_id, input, options \\ []) do
     path_ = "/greengrass/groups/#{URI.encode(group_id)}/role"
@@ -25,10 +28,12 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Associates a role with your account. AWS IoT Greengrass will use the role
-  to access your Lambda functions and AWS IoT resources. This is necessary
-  for deployments to succeed. The role must have at least minimum permissions
-  in the policy ''AWSGreengrassResourceAccessRolePolicy''.
+  Associates a role with your account.
+
+  AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT
+  resources. This is necessary for deployments to succeed. The role must have at
+  least minimum permissions in the policy
+  ''AWSGreengrassResourceAccessRolePolicy''.
   """
   def associate_service_role_to_account(client, input, options \\ []) do
     path_ = "/greengrass/servicerole"
@@ -38,9 +43,10 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a connector definition. You may provide the initial version of the
-  connector definition now or use ''CreateConnectorDefinitionVersion'' at a
-  later time.
+  Creates a connector definition.
+
+  You may provide the initial version of the connector definition now or use
+  ''CreateConnectorDefinitionVersion'' at a later time.
   """
   def create_connector_definition(client, input, options \\ []) do
     path_ = "/greengrass/definition/connectors"
@@ -68,9 +74,11 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a core definition. You may provide the initial version of the core
-  definition now or use ''CreateCoreDefinitionVersion'' at a later time.
-  Greengrass groups must each contain exactly one Greengrass core.
+  Creates a core definition.
+
+  You may provide the initial version of the core definition now or use
+  ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each
+  contain exactly one Greengrass core.
   """
   def create_core_definition(client, input, options \\ []) do
     path_ = "/greengrass/definition/cores"
@@ -85,6 +93,7 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a version of a core definition that has already been defined.
+
   Greengrass groups must each contain exactly one Greengrass core.
   """
   def create_core_definition_version(client, core_definition_id, input, options \\ []) do
@@ -99,8 +108,10 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a deployment. ''CreateDeployment'' requests are idempotent with
-  respect to the ''X-Amzn-Client-Token'' token and the request parameters.
+  Creates a deployment.
+
+  ''CreateDeployment'' requests are idempotent with respect to the
+  ''X-Amzn-Client-Token'' token and the request parameters.
   """
   def create_deployment(client, group_id, input, options \\ []) do
     path_ = "/greengrass/groups/#{URI.encode(group_id)}/deployments"
@@ -114,9 +125,10 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a device definition. You may provide the initial version of the
-  device definition now or use ''CreateDeviceDefinitionVersion'' at a later
-  time.
+  Creates a device definition.
+
+  You may provide the initial version of the device definition now or use
+  ''CreateDeviceDefinitionVersion'' at a later time.
   """
   def create_device_definition(client, input, options \\ []) do
     path_ = "/greengrass/definition/devices"
@@ -144,11 +156,12 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a Lambda function definition which contains a list of Lambda
-  functions and their configurations to be used in a group. You can create an
-  initial version of the definition by providing a list of Lambda functions
-  and their configurations now, or use ''CreateFunctionDefinitionVersion''
-  later.
+  Creates a Lambda function definition which contains a list of Lambda functions
+  and their configurations to be used in a group.
+
+  You can create an initial version of the definition by providing a list of
+  Lambda functions and their configurations now, or use
+  ''CreateFunctionDefinitionVersion'' later.
   """
   def create_function_definition(client, input, options \\ []) do
     path_ = "/greengrass/definition/functions"
@@ -162,8 +175,7 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a version of a Lambda function definition that has already been
-  defined.
+  Creates a version of a Lambda function definition that has already been defined.
   """
   def create_function_definition_version(client, function_definition_id, input, options \\ []) do
     path_ = "/greengrass/definition/functions/#{URI.encode(function_definition_id)}/versions"
@@ -177,9 +189,10 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a group. You may provide the initial version of the group or use
-  ''CreateGroupVersion'' at a later time. Tip: You can use the
-  ''gg_group_setup'' package
+  Creates a group.
+
+  You may provide the initial version of the group or use ''CreateGroupVersion''
+  at a later time. Tip: You can use the ''gg_group_setup'' package
   (https://github.com/awslabs/aws-greengrass-group-setup) as a library or
   command-line application to create and deploy Greengrass groups.
   """
@@ -195,8 +208,9 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a CA for the group. If a CA already exists, it will rotate the
-  existing CA.
+  Creates a CA for the group.
+
+  If a CA already exists, it will rotate the existing CA.
   """
   def create_group_certificate_authority(client, group_id, input, options \\ []) do
     path_ = "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities"
@@ -224,9 +238,10 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a logger definition. You may provide the initial version of the
-  logger definition now or use ''CreateLoggerDefinitionVersion'' at a later
-  time.
+  Creates a logger definition.
+
+  You may provide the initial version of the logger definition now or use
+  ''CreateLoggerDefinitionVersion'' at a later time.
   """
   def create_logger_definition(client, input, options \\ []) do
     path_ = "/greengrass/definition/loggers"
@@ -254,10 +269,11 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a resource definition which contains a list of resources to be used
-  in a group. You can create an initial version of the definition by
-  providing a list of resources now, or use
-  ''CreateResourceDefinitionVersion'' later.
+  Creates a resource definition which contains a list of resources to be used in a
+  group.
+
+  You can create an initial version of the definition by providing a list of
+  resources now, or use ''CreateResourceDefinitionVersion'' later.
   """
   def create_resource_definition(client, input, options \\ []) do
     path_ = "/greengrass/definition/resources"
@@ -286,9 +302,11 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a software update for a core or group of cores (specified as an IoT
-  thing group.) Use this to update the OTA Agent as well as the Greengrass
-  core software. It makes use of the IoT Jobs feature which provides
-  additional commands to manage a Greengrass core software update job.
+  thing group.) Use this to update the OTA Agent as well as the Greengrass core
+  software.
+
+  It makes use of the IoT Jobs feature which provides additional commands to
+  manage a Greengrass core software update job.
   """
   def create_software_update_job(client, input, options \\ []) do
     path_ = "/greengrass/updates"
@@ -302,8 +320,9 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a subscription definition. You may provide the initial version of
-  the subscription definition now or use
+  Creates a subscription definition.
+
+  You may provide the initial version of the subscription definition now or use
   ''CreateSubscriptionDefinitionVersion'' at a later time.
   """
   def create_subscription_definition(client, input, options \\ []) do
@@ -318,8 +337,7 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a version of a subscription definition which has already been
-  defined.
+  Creates a version of a subscription definition which has already been defined.
   """
   def create_subscription_definition_version(client, subscription_definition_id, input, options \\ []) do
     path_ = "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}/versions"
@@ -423,8 +441,9 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Disassociates the service role from your account. Without a service role,
-  deployments will not work.
+  Disassociates the service role from your account.
+
+  Without a service role, deployments will not work.
   """
   def disassociate_service_role_from_account(client, input, options \\ []) do
     path_ = "/greengrass/servicerole"
@@ -475,9 +494,10 @@ defmodule AWS.Greengrass do
 
   @doc """
   Retrieves information about a connector definition version, including the
-  connectors that the version contains. Connectors are prebuilt modules that
-  interact with local infrastructure, device protocols, AWS, and other cloud
-  services.
+  connectors that the version contains.
+
+  Connectors are prebuilt modules that interact with local infrastructure, device
+  protocols, AWS, and other cloud services.
   """
   def get_connector_definition_version(client, connector_definition_id, connector_definition_version_id, next_token \\ nil, options \\ []) do
     path_ = "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}/versions/#{URI.encode(connector_definition_version_id)}"
@@ -547,8 +567,8 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Retrieves information about a Lambda function definition, including its
-  creation time and latest version.
+  Retrieves information about a Lambda function definition, including its creation
+  time and latest version.
   """
   def get_function_definition(client, function_definition_id, options \\ []) do
     path_ = "/greengrass/definition/functions/#{URI.encode(function_definition_id)}"
@@ -559,8 +579,7 @@ defmodule AWS.Greengrass do
 
   @doc """
   Retrieves information about a Lambda function definition version, including
-  which Lambda functions are included in the version and their
-  configurations.
+  which Lambda functions are included in the version and their configurations.
   """
   def get_function_definition_version(client, function_definition_id, function_definition_version_id, next_token \\ nil, options \\ []) do
     path_ = "/greengrass/definition/functions/#{URI.encode(function_definition_id)}/versions/#{URI.encode(function_definition_version_id)}"
@@ -585,7 +604,9 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Retreives the CA associated with a group. Returns the public key of the CA.
+  Retreives the CA associated with a group.
+
+  Returns the public key of the CA.
   """
   def get_group_certificate_authority(client, certificate_authority_id, group_id, options \\ []) do
     path_ = "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities/#{URI.encode(certificate_authority_id)}"
@@ -640,8 +661,8 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Retrieves information about a resource definition, including its creation
-  time and latest version.
+  Retrieves information about a resource definition, including its creation time
+  and latest version.
   """
   def get_resource_definition(client, resource_definition_id, options \\ []) do
     path_ = "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}"
@@ -749,9 +770,10 @@ defmodule AWS.Greengrass do
 
   @doc """
   Lists the versions of a connector definition, which are containers for
-  connectors. Connectors run on the Greengrass core and contain built-in
-  integration with local infrastructure, device protocols, AWS, and other
-  cloud services.
+  connectors.
+
+  Connectors run on the Greengrass core and contain built-in integration with
+  local infrastructure, device protocols, AWS, and other cloud services.
   """
   def list_connector_definition_versions(client, connector_definition_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}/versions"
@@ -1125,12 +1147,13 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Deploys multiple groups in one operation. This action starts the bulk
-  deployment of a specified set of group versions. Each group version
-  deployment will be triggered with an adaptive rate that has a fixed upper
-  limit. We recommend that you include an ''X-Amzn-Client-Token'' token in
-  every ''StartBulkDeployment'' request. These requests are idempotent with
-  respect to the token and the request parameters.
+  Deploys multiple groups in one operation.
+
+  This action starts the bulk deployment of a specified set of group versions.
+  Each group version deployment will be triggered with an adaptive rate that has a
+  fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token''
+  token in every ''StartBulkDeployment'' request. These requests are idempotent
+  with respect to the token and the request parameters.
   """
   def start_bulk_deployment(client, input, options \\ []) do
     path_ = "/greengrass/bulk/deployments"
@@ -1144,11 +1167,12 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Stops the execution of a bulk deployment. This action returns a status of
-  ''Stopping'' until the deployment is stopped. You cannot start a new bulk
-  deployment while a previous deployment is in the ''Stopping'' state. This
-  action doesn't rollback completed deployments or cancel pending
-  deployments.
+  Stops the execution of a bulk deployment.
+
+  This action returns a status of ''Stopping'' until the deployment is stopped.
+  You cannot start a new bulk deployment while a previous deployment is in the
+  ''Stopping'' state. This action doesn't rollback completed deployments or cancel
+  pending deployments.
   """
   def stop_bulk_deployment(client, bulk_deployment_id, input, options \\ []) do
     path_ = "/greengrass/bulk/deployments/#{URI.encode(bulk_deployment_id)}/$stop"
@@ -1158,10 +1182,11 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Adds tags to a Greengrass resource. Valid resources are 'Group',
-  'ConnectorDefinition', 'CoreDefinition', 'DeviceDefinition',
-  'FunctionDefinition', 'LoggerDefinition', 'SubscriptionDefinition',
-  'ResourceDefinition', and 'BulkDeployment'.
+  Adds tags to a Greengrass resource.
+
+  Valid resources are 'Group', 'ConnectorDefinition', 'CoreDefinition',
+  'DeviceDefinition', 'FunctionDefinition', 'LoggerDefinition',
+  'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -1185,9 +1210,10 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Updates the connectivity information for the core. Any devices that belong
-  to the group which has this core will receive this information in order to
-  find the location of the core and connect to it.
+  Updates the connectivity information for the core.
+
+  Any devices that belong to the group which has this core will receive this
+  information in order to find the location of the core and connect to it.
   """
   def update_connectivity_info(client, thing_name, input, options \\ []) do
     path_ = "/greengrass/things/#{URI.encode(thing_name)}/connectivityInfo"

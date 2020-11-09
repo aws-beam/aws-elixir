@@ -7,17 +7,6 @@ defmodule AWS.MediaLive do
   """
 
   @doc """
-  Accept an incoming input device transfer. The ownership of the device will
-  transfer to your AWS account.
-  """
-  def accept_input_device_transfer(client, input_device_id, input, options \\ []) do
-    path_ = "/prod/inputDevices/#{URI.encode(input_device_id)}/accept"
-    headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
-  end
-
-  @doc """
   Starts delete of resources.
   """
   def batch_delete(client, input, options \\ []) do
@@ -55,16 +44,6 @@ defmodule AWS.MediaLive do
     headers = []
     query_ = []
     request(client, :put, path_, query_, headers, input, options, 200)
-  end
-
-  @doc """
-  Cancel an input device transfer that you have requested.
-  """
-  def cancel_input_device_transfer(client, input_device_id, input, options \\ []) do
-    path_ = "/prod/inputDevices/#{URI.encode(input_device_id)}/cancel"
-    headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """
@@ -128,7 +107,9 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Starts deletion of channel. The associated outputs are also deleted.
+  Starts deletion of channel.
+
+  The associated outputs are also deleted.
   """
   def delete_channel(client, channel_id, input, options \\ []) do
     path_ = "/prod/channels/#{URI.encode(channel_id)}"
@@ -158,7 +139,9 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Delete a multiplex. The multiplex must be idle.
+  Delete a multiplex.
+
+  The multiplex must be idle.
   """
   def delete_multiplex(client, multiplex_id, input, options \\ []) do
     path_ = "/prod/multiplexes/#{URI.encode(multiplex_id)}"
@@ -353,33 +336,6 @@ defmodule AWS.MediaLive do
     path_ = "/prod/channels"
     headers = []
     query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
-  end
-
-  @doc """
-  List input devices that are currently being transferred. List input devices
-  that you are transferring from your AWS account or input devices that
-  another AWS account is transferring to you.
-  """
-  def list_input_device_transfers(client, max_results \\ nil, next_token \\ nil, transfer_type, options \\ []) do
-    path_ = "/prod/inputDeviceTransfers"
-    headers = []
-    query_ = []
-    query_ = if !is_nil(transfer_type) do
-      [{"transferType", transfer_type} | query_]
-    else
-      query_
-    end
     query_ = if !is_nil(next_token) do
       [{"nextToken", next_token} | query_]
     else
@@ -644,16 +600,6 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Reject the transfer of the specified input device to your AWS account.
-  """
-  def reject_input_device_transfer(client, input_device_id, input, options \\ []) do
-    path_ = "/prod/inputDevices/#{URI.encode(input_device_id)}/reject"
-    headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
-  end
-
-  @doc """
   Starts an existing channel
   """
   def start_channel(client, channel_id, input, options \\ []) do
@@ -664,8 +610,10 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start (run) the multiplex. Starting the multiplex does not start the
-  channels. You must explicitly start each channel.
+  Start (run) the multiplex.
+
+  Starting the multiplex does not start the channels. You must explicitly start
+  each channel.
   """
   def start_multiplex(client, multiplex_id, input, options \\ []) do
     path_ = "/prod/multiplexes/#{URI.encode(multiplex_id)}/start"
@@ -685,25 +633,15 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Stops a running multiplex. If the multiplex isn't running, this action has
-  no effect.
+  Stops a running multiplex.
+
+  If the multiplex isn't running, this action has no effect.
   """
   def stop_multiplex(client, multiplex_id, input, options \\ []) do
     path_ = "/prod/multiplexes/#{URI.encode(multiplex_id)}/stop"
     headers = []
     query_ = []
     request(client, :post, path_, query_, headers, input, options, 202)
-  end
-
-  @doc """
-  Start an input device transfer to another AWS account. After you make the
-  request, the other account must accept or reject the transfer.
-  """
-  def transfer_input_device(client, input_device_id, input, options \\ []) do
-    path_ = "/prod/inputDevices/#{URI.encode(input_device_id)}/transfer"
-    headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
   end
 
   @doc """

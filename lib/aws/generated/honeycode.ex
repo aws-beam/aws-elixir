@@ -3,16 +3,18 @@
 
 defmodule AWS.Honeycode do
   @moduledoc """
-  Amazon Honeycode is a fully managed service that allows you to quickly
-  build mobile and web apps for teams—without programming. Build Honeycode
-  apps for managing almost anything, like projects, customers, operations,
-  approvals, resources, and even your team.
+  Amazon Honeycode is a fully managed service that allows you to quickly build
+  mobile and web apps for teams—without programming.
+
+  Build Honeycode apps for managing almost anything, like projects, customers,
+  operations, approvals, resources, and even your team.
   """
 
   @doc """
-  The GetScreenData API allows retrieval of data from a screen in a Honeycode
-  app. The API allows setting local variables in the screen to filter, sort
-  or otherwise affect what will be displayed on the screen.
+  The GetScreenData API allows retrieval of data from a screen in a Honeycode app.
+
+  The API allows setting local variables in the screen to filter, sort or
+  otherwise affect what will be displayed on the screen.
   """
   def get_screen_data(client, input, options \\ []) do
     path_ = "/screendata"
@@ -22,11 +24,12 @@ defmodule AWS.Honeycode do
   end
 
   @doc """
-  The InvokeScreenAutomation API allows invoking an action defined in a
-  screen in a Honeycode app. The API allows setting local variables, which
-  can then be used in the automation being invoked. This allows automating
-  the Honeycode app interactions to write, update or delete data in the
-  workbook.
+  The InvokeScreenAutomation API allows invoking an action defined in a screen in
+  a Honeycode app.
+
+  The API allows setting local variables, which can then be used in the automation
+  being invoked. This allows automating the Honeycode app interactions to write,
+  update or delete data in the workbook.
   """
   def invoke_screen_automation(client, app_id, screen_automation_id, screen_id, workbook_id, input, options \\ []) do
     path_ = "/workbooks/#{URI.encode(workbook_id)}/apps/#{URI.encode(app_id)}/screens/#{URI.encode(screen_id)}/automations/#{URI.encode(screen_automation_id)}"

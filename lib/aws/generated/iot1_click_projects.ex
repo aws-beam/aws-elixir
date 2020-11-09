@@ -27,9 +27,10 @@ defmodule AWS.IoT1ClickProjects do
   end
 
   @doc """
-  Creates an empty project with a placement template. A project contains zero
-  or more placements that adhere to the placement template defined in the
-  project.
+  Creates an empty project with a placement template.
+
+  A project contains zero or more placements that adhere to the placement template
+  defined in the project.
   """
   def create_project(client, input, options \\ []) do
     path_ = "/projects"
@@ -39,13 +40,11 @@ defmodule AWS.IoT1ClickProjects do
   end
 
   @doc """
-  Deletes a placement. To delete a placement, it must not have any devices
-  associated with it.
+  Deletes a placement.
 
-  <note> When you delete a placement, all associated data becomes
-  irretrievable.
+  To delete a placement, it must not have any devices associated with it.
 
-  </note>
+  When you delete a placement, all associated data becomes irretrievable.
   """
   def delete_placement(client, placement_name, project_name, input, options \\ []) do
     path_ = "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}"
@@ -55,13 +54,11 @@ defmodule AWS.IoT1ClickProjects do
   end
 
   @doc """
-  Deletes a project. To delete a project, it must not have any placements
-  associated with it.
+  Deletes a project.
 
-  <note> When you delete a project, all associated data becomes
-  irretrievable.
+  To delete a project, it must not have any placements associated with it.
 
-  </note>
+  When you delete a project, all associated data becomes irretrievable.
   """
   def delete_project(client, project_name, input, options \\ []) do
     path_ = "/projects/#{URI.encode(project_name)}"
@@ -163,10 +160,10 @@ defmodule AWS.IoT1ClickProjects do
   end
 
   @doc """
-  Creates or modifies tags for a resource. Tags are key/value pairs
-  (metadata) that can be used to manage a resource. For more information, see
-  [AWS Tagging
-  Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/).
+  Creates or modifies tags for a resource.
+
+  Tags are key/value pairs (metadata) that can be used to manage a resource. For
+  more information, see [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/).
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -190,8 +187,9 @@ defmodule AWS.IoT1ClickProjects do
   end
 
   @doc """
-  Updates a placement with the given attributes. To clear an attribute, pass
-  an empty value (i.e., "").
+  Updates a placement with the given attributes.
+
+  To clear an attribute, pass an empty value (i.e., "").
   """
   def update_placement(client, placement_name, project_name, input, options \\ []) do
     path_ = "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}"
@@ -201,9 +199,10 @@ defmodule AWS.IoT1ClickProjects do
   end
 
   @doc """
-  Updates a project associated with your AWS account and region. With the
-  exception of device template names, you can pass just the values that need
-  to be updated because the update request will change only the values that
+  Updates a project associated with your AWS account and region.
+
+  With the exception of device template names, you can pass just the values that
+  need to be updated because the update request will change only the values that
   are provided. To clear a value, pass the empty string (i.e., `""`).
   """
   def update_project(client, project_name, input, options \\ []) do

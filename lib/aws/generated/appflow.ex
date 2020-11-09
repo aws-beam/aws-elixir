@@ -3,50 +3,48 @@
 
 defmodule AWS.Appflow do
   @moduledoc """
-  Welcome to the Amazon AppFlow API reference. This guide is for developers
-  who need detailed information about the Amazon AppFlow API operations, data
-  types, and errors.
+  Welcome to the Amazon AppFlow API reference.
+
+  This guide is for developers who need detailed information about the Amazon
+  AppFlow API operations, data types, and errors.
 
   Amazon AppFlow is a fully managed integration service that enables you to
-  securely transfer data between software as a service (SaaS) applications
-  like Salesforce, Marketo, Slack, and ServiceNow, and AWS services like
-  Amazon S3 and Amazon Redshift.
+  securely transfer data between software as a service (SaaS) applications like
+  Salesforce, Marketo, Slack, and ServiceNow, and AWS services like Amazon S3 and
+  Amazon Redshift.
 
   Use the following links to get started on the Amazon AppFlow API:
 
-  <ul> <li>
-  [Actions](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Operations.html):
-  An alphabetical list of all Amazon AppFlow API operations.
+    *
+  [Actions](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Operations.html): An alphabetical list of all Amazon AppFlow API operations.
 
-  </li> <li> [Data
-  types](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Types.html):
-  An alphabetical list of all Amazon AppFlow data types.
+    * [Data
+  types](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Types.html): An
+  alphabetical list of all Amazon AppFlow data types.
 
-  </li> <li> [Common
-  parameters](https://docs.aws.amazon.com/appflow/1.0/APIReference/CommonParameters.html):
+    * [Common parameters](https://docs.aws.amazon.com/appflow/1.0/APIReference/CommonParameters.html):
   Parameters that all Query operations can use.
 
-  </li> <li> [Common
-  errors](https://docs.aws.amazon.com/appflow/1.0/APIReference/CommonErrors.html):
+    * [Common errors](https://docs.aws.amazon.com/appflow/1.0/APIReference/CommonErrors.html):
   Client and server errors that all operations can return.
 
-  </li> </ul> If you're new to Amazon AppFlow, we recommend that you review
-  the [Amazon AppFlow User
+  If you're new to Amazon AppFlow, we recommend that you review the [Amazon AppFlow User
   Guide](https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html).
 
   Amazon AppFlow API users can use vendor-specific mechanisms for OAuth, and
-  include applicable OAuth attributes (such as `auth-code` and `redirecturi`)
-  with the connector-specific `ConnectorProfileProperties` when creating a
-  new connector profile using Amazon AppFlow API operations. For example,
-  Salesforce users can refer to the [ *Authorize Apps with OAuth*
+  include applicable OAuth attributes (such as `auth-code` and `redirecturi`) with
+  the connector-specific `ConnectorProfileProperties` when creating a new
+  connector profile using Amazon AppFlow API operations. For example, Salesforce
+  users can refer to the [ *Authorize Apps with OAuth*
   ](https://help.salesforce.com/articleView?id=remoteaccess_authenticate.htm)
   documentation.
   """
 
   @doc """
-  Creates a new connector profile associated with your AWS account. There is
-  a soft quota of 100 connector profiles per AWS account. If you need more
-  connector profiles than this quota allows, you can submit a request to the
+  Creates a new connector profile associated with your AWS account.
+
+  There is a soft quota of 100 connector profiles per AWS account. If you need
+  more connector profiles than this quota allows, you can submit a request to the
   Amazon AppFlow team through the Amazon AppFlow support channel.
   """
   def create_connector_profile(client, input, options \\ []) do
@@ -57,11 +55,12 @@ defmodule AWS.Appflow do
   end
 
   @doc """
-  Enables your application to create a new flow using Amazon AppFlow. You
-  must create a connector profile before calling this API. Please note that
-  the Request Syntax below shows syntax for multiple destinations, however,
-  you can only transfer data to one item in this list at a time. Amazon
-  AppFlow does not currently support flows to multiple destinations at once.
+  Enables your application to create a new flow using Amazon AppFlow.
+
+  You must create a connector profile before calling this API. Please note that
+  the Request Syntax below shows syntax for multiple destinations, however, you
+  can only transfer data to one item in this list at a time. Amazon AppFlow does
+  not currently support flows to multiple destinations at once.
   """
   def create_flow(client, input, options \\ []) do
     path_ = "/create-flow"
@@ -81,9 +80,10 @@ defmodule AWS.Appflow do
   end
 
   @doc """
-  Enables your application to delete an existing flow. Before deleting the
-  flow, Amazon AppFlow validates the request by checking the flow
-  configuration and status. You can delete flows one at a time.
+  Enables your application to delete an existing flow.
+
+  Before deleting the flow, Amazon AppFlow validates the request by checking the
+  flow configuration and status. You can delete flows one at a time.
   """
   def delete_flow(client, input, options \\ []) do
     path_ = "/delete-flow"
@@ -105,12 +105,12 @@ defmodule AWS.Appflow do
 
   @doc """
   Returns a list of `connector-profile` details matching the provided
-  `connector-profile` names and `connector-types`. Both input lists are
-  optional, and you can use them to filter the result.
+  `connector-profile` names and `connector-types`.
 
-  If no names or `connector-types` are provided, returns all connector
-  profiles in a paginated form. If there is no match, this operation returns
-  an empty list.
+  Both input lists are optional, and you can use them to filter the result.
+
+  If no names or `connector-types` are provided, returns all connector profiles in
+  a paginated form. If there is no match, this operation returns an empty list.
   """
   def describe_connector_profiles(client, input, options \\ []) do
     path_ = "/describe-connector-profiles"
@@ -120,12 +120,13 @@ defmodule AWS.Appflow do
   end
 
   @doc """
-  Describes the connectors vended by Amazon AppFlow for specified connector
-  types. If you don't specify a connector type, this operation describes all
-  connectors vended by Amazon AppFlow. If there are more connectors than can
-  be returned in one page, the response contains a `nextToken` object, which
-  can be be passed in to the next call to the `DescribeConnectors` API
-  operation to retrieve the next page.
+  Describes the connectors vended by Amazon AppFlow for specified connector types.
+
+  If you don't specify a connector type, this operation describes all connectors
+  vended by Amazon AppFlow. If there are more connectors than can be returned in
+  one page, the response contains a `nextToken` object, which can be be passed in
+  to the next call to the `DescribeConnectors` API operation to retrieve the next
+  page.
   """
   def describe_connectors(client, input, options \\ []) do
     path_ = "/describe-connectors"
@@ -155,9 +156,10 @@ defmodule AWS.Appflow do
   end
 
   @doc """
-  Returns the list of available connector entities supported by Amazon
-  AppFlow. For example, you can query Salesforce for *Account* and
-  *Opportunity* entities, or query ServiceNow for the *Incident* entity.
+  Returns the list of available connector entities supported by Amazon AppFlow.
+
+  For example, you can query Salesforce for *Account* and *Opportunity* entities,
+  or query ServiceNow for the *Incident* entity.
   """
   def list_connector_entities(client, input, options \\ []) do
     path_ = "/list-connector-entities"
@@ -187,9 +189,10 @@ defmodule AWS.Appflow do
   end
 
   @doc """
-  Activates an existing flow. For on-demand flows, this operation runs the
-  flow immediately. For schedule and event-triggered flows, this operation
-  activates the flow.
+  Activates an existing flow.
+
+  For on-demand flows, this operation runs the flow immediately. For schedule and
+  event-triggered flows, this operation activates the flow.
   """
   def start_flow(client, input, options \\ []) do
     path_ = "/start-flow"
@@ -199,9 +202,11 @@ defmodule AWS.Appflow do
   end
 
   @doc """
-  Deactivates the existing flow. For on-demand flows, this operation returns
-  an `unsupportedOperationException` error message. For schedule and
-  event-triggered flows, this operation deactivates the flow.
+  Deactivates the existing flow.
+
+  For on-demand flows, this operation returns an `unsupportedOperationException`
+  error message. For schedule and event-triggered flows, this operation
+  deactivates the flow.
   """
   def stop_flow(client, input, options \\ []) do
     path_ = "/stop-flow"

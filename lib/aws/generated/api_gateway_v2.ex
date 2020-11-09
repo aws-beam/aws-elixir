@@ -127,8 +127,9 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Deletes the AccessLogSettings for a Stage. To disable access logging for a
-  Stage, delete its AccessLogSettings.
+  Deletes the AccessLogSettings for a Stage.
+
+  To disable access logging for a Stage, delete its AccessLogSettings.
   """
   def delete_access_log_settings(client, api_id, stage_name, input, options \\ []) do
     path_ = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/accesslogsettings"
@@ -288,8 +289,7 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Exports a definition of an API in a particular output format and
-  specification.
+  Exports a definition of an API in a particular output format and specification.
   """
   def export_api(client, api_id, specification, export_version \\ nil, include_extensions \\ nil, output_type, stage_name \\ nil, options \\ []) do
     path_ = "/v2/apis/#{URI.encode(api_id)}/exports/#{URI.encode(specification)}"
@@ -729,8 +729,9 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Resets all authorizer cache entries for the specified stage. Supported only
-  for HTTP API Lambda authorizers.
+  Resets all authorizer cache entries for the specified stage.
+
+  Supported only for HTTP API Lambda authorizers.
   """
   def reset_authorizers_cache(client, api_id, stage_name, input, options \\ []) do
     path_ = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/cache/authorizers"

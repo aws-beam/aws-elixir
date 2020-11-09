@@ -3,15 +3,18 @@
 
 defmodule AWS.Mq do
   @moduledoc """
-  Amazon MQ is a managed message broker service for Apache ActiveMQ that
-  makes it easy to set up and operate message brokers in the cloud. A message
-  broker allows software applications and components to communicate using
-  various programming languages, operating systems, and formal messaging
+  Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it
+  easy to set up and operate message brokers in the cloud.
+
+  A message broker allows software applications and components to communicate
+  using various programming languages, operating systems, and formal messaging
   protocols.
   """
 
   @doc """
-  Creates a broker. Note: This API is asynchronous.
+  Creates a broker.
+
+  Note: This API is asynchronous.
   """
   def create_broker(client, input, options \\ []) do
     path_ = "/v1/brokers"
@@ -21,8 +24,9 @@ defmodule AWS.Mq do
   end
 
   @doc """
-  Creates a new configuration for the specified configuration name. Amazon MQ
-  uses the default configuration (the engine type and version).
+  Creates a new configuration for the specified configuration name.
+
+  Amazon MQ uses the default configuration (the engine type and version).
   """
   def create_configuration(client, input, options \\ []) do
     path_ = "/v1/configurations"
@@ -52,7 +56,9 @@ defmodule AWS.Mq do
   end
 
   @doc """
-  Deletes a broker. Note: This API is asynchronous.
+  Deletes a broker.
+
+  Note: This API is asynchronous.
   """
   def delete_broker(client, broker_id, input, options \\ []) do
     path_ = "/v1/brokers/#{URI.encode(broker_id)}"
@@ -166,8 +172,7 @@ defmodule AWS.Mq do
   end
 
   @doc """
-  Returns the specified configuration revision for the specified
-  configuration.
+  Returns the specified configuration revision for the specified configuration.
   """
   def describe_configuration_revision(client, configuration_id, configuration_revision, options \\ []) do
     path_ = "/v1/configurations/#{URI.encode(configuration_id)}/revisions/#{URI.encode(configuration_revision)}"
@@ -277,7 +282,9 @@ defmodule AWS.Mq do
   end
 
   @doc """
-  Reboots a broker. Note: This API is asynchronous.
+  Reboots a broker.
+
+  Note: This API is asynchronous.
   """
   def reboot_broker(client, broker_id, input, options \\ []) do
     path_ = "/v1/brokers/#{URI.encode(broker_id)}/reboot"

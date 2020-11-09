@@ -3,41 +3,28 @@
 
 defmodule AWS.AppMesh do
   @moduledoc """
-  AWS App Mesh is a service mesh based on the Envoy proxy that makes it easy
-  to monitor and
+  AWS App Mesh is a service mesh based on the Envoy proxy that makes it easy to
+  monitor and
+  control microservices.
 
-  control microservices. App Mesh standardizes how your microservices
-  communicate, giving you
-
+  App Mesh standardizes how your microservices communicate, giving you
   end-to-end visibility and helping to ensure high availability for your
   applications.
 
-  App Mesh gives you consistent visibility and network traffic controls for
-  every
-
-  microservice in an application. You can use App Mesh with AWS Fargate,
-  Amazon ECS, Amazon EKS,
-
+  App Mesh gives you consistent visibility and network traffic controls for every
+  microservice in an application. You can use App Mesh with AWS Fargate, Amazon
+  ECS, Amazon EKS,
   Kubernetes on AWS, and Amazon EC2.
 
-  <note>
-
-  App Mesh supports microservice applications that use service discovery
-  naming for their
-
+  App Mesh supports microservice applications that use service discovery naming
+  for their
   components. For more information about service discovery on Amazon ECS, see
-  [Service
-  Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html)
+  [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html)
   in the *Amazon Elastic Container Service Developer Guide*. Kubernetes
-
   `kube-dns` and `coredns` are supported. For more information,
-
-  see <a
-  href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">DNS
-
-  for Services and Pods` in the Kubernetes documentation.
-
-  </note>
+  see [DNS for Services and
+  Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
+  in the Kubernetes documentation.
   """
 
   @doc """
@@ -45,12 +32,10 @@ defmodule AWS.AppMesh do
 
   A gateway route is attached to a virtual gateway and routes traffic to an
   existing
+  virtual service. If a route matches a request, it can distribute traffic to a
+  target virtual service.
 
-  virtual service. If a route matches a request, it can distribute traffic to
-  a target virtual service.
-
-  For more information about gateway routes, see [Gateway
-  routes](https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html).
+  For more information about gateway routes, see [Gateway routes](https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html).
   """
   def create_gateway_route(client, mesh_name, virtual_gateway_name, input, options \\ []) do
     path_ = "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{URI.encode(virtual_gateway_name)}/gatewayRoutes"
@@ -66,19 +51,15 @@ defmodule AWS.AppMesh do
   @doc """
   Creates a service mesh.
 
-  A service mesh is a logical boundary for network traffic between services
-  that are
-
-  represented by resources within the mesh. After you create your service
-  mesh, you can
-
+  A service mesh is a logical boundary for network traffic between services that
+  are
+  represented by resources within the mesh. After you create your service mesh,
+  you can
   create virtual services, virtual nodes, virtual routers, and routes to
   distribute traffic
-
   between the applications in your mesh.
 
-  For more information about service meshes, see [Service
-  meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html).
+  For more information about service meshes, see [Service meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html).
   """
   def create_mesh(client, input, options \\ []) do
     path_ = "/v20190125/meshes"
@@ -90,9 +71,7 @@ defmodule AWS.AppMesh do
   @doc """
   Creates a route that is associated with a virtual router.
 
-  You can route several different protocols and define a retry policy for a
-  route.
-
+  You can route several different protocols and define a retry policy for a route.
   Traffic can be routed to one or more virtual nodes.
 
   For more information about routes, see
@@ -112,20 +91,16 @@ defmodule AWS.AppMesh do
   @doc """
   Creates a virtual gateway.
 
-  A virtual gateway allows resources outside your mesh to communicate to
-  resources that
+  A virtual gateway allows resources outside your mesh to communicate to resources
+  that
+  are inside your mesh. The virtual gateway represents an Envoy proxy running in
+  an Amazon ECS
+  task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual
+  node, which
+  represents an Envoy running with an application, a virtual gateway represents
+  Envoy deployed by itself.
 
-  are inside your mesh. The virtual gateway represents an Envoy proxy running
-  in an Amazon ECS
-
-  task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a
-  virtual node, which
-
-  represents an Envoy running with an application, a virtual gateway
-  represents Envoy deployed by itself.
-
-  For more information about virtual gateways, see [Virtual
-  gateways](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html).
+  For more information about virtual gateways, see [Virtual gateways](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html).
   """
   def create_virtual_gateway(client, mesh_name, input, options \\ []) do
     path_ = "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateways"
@@ -141,55 +116,34 @@ defmodule AWS.AppMesh do
   @doc """
   Creates a virtual node within a service mesh.
 
-  A virtual node acts as a logical pointer to a particular task group, such
-  as an Amazon ECS
-
+  A virtual node acts as a logical pointer to a particular task group, such as an
+  Amazon ECS
   service or a Kubernetes deployment. When you create a virtual node, you can
   specify the
-
-  service discovery information for your task group, and whether the proxy
-  running in a task
-
-  group will communicate with other proxies using Transport Layer Security
-  (TLS).
+  service discovery information for your task group, and whether the proxy running
+  in a task
+  group will communicate with other proxies using Transport Layer Security (TLS).
 
   You define a `listener` for any inbound traffic that your virtual node
-
-  expects. Any virtual service that your virtual node expects to communicate
-  to is specified
-
+  expects. Any virtual service that your virtual node expects to communicate to is
+  specified
   as a `backend`.
 
   The response metadata for your new virtual node contains the `arn` that is
-
-  associated with the virtual node. Set this value (either the full ARN or
-  the truncated
-
+  associated with the virtual node. Set this value (either the full ARN or the
+  truncated
   resource name: for example, `mesh/default/virtualNode/simpleapp`) as the
-
-  `APPMESH_VIRTUAL_NODE_NAME` environment variable for your task group's
-  Envoy
-
-  proxy container in your task definition or pod spec. This is then mapped to
-  the
-
+  `APPMESH_VIRTUAL_NODE_NAME` environment variable for your task group's Envoy
+  proxy container in your task definition or pod spec. This is then mapped to the
   `node.id` and `node.cluster` Envoy parameters.
-
-  <note>
 
   If you require your Envoy stats or tracing to use a different name, you can
   override
-
   the `node.cluster` value that is set by
-
   `APPMESH_VIRTUAL_NODE_NAME` with the
-
   `APPMESH_VIRTUAL_NODE_CLUSTER` environment variable.
 
-  </note>
-
-  For more information about virtual nodes, see [Virtual
-  nodes](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html).
+  For more information about virtual nodes, see [Virtual nodes](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html).
   """
   def create_virtual_node(client, mesh_name, input, options \\ []) do
     path_ = "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualNodes"
@@ -206,20 +160,15 @@ defmodule AWS.AppMesh do
   Creates a virtual router within a service mesh.
 
   Specify a `listener` for any inbound traffic that your virtual router
-
-  receives. Create a virtual router for each protocol and port that you need
-  to route.
-
+  receives. Create a virtual router for each protocol and port that you need to
+  route.
   Virtual routers handle traffic for one or more virtual services within your
   mesh. After you
-
-  create your virtual router, create and associate routes for your virtual
-  router that direct
-
+  create your virtual router, create and associate routes for your virtual router
+  that direct
   incoming requests to different virtual nodes.
 
-  For more information about virtual routers, see [Virtual
-  routers](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html).
+  For more information about virtual routers, see [Virtual routers](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html).
   """
   def create_virtual_router(client, mesh_name, input, options \\ []) do
     path_ = "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouters"
@@ -237,19 +186,13 @@ defmodule AWS.AppMesh do
 
   A virtual service is an abstraction of a real service that is provided by a
   virtual node
-
-  directly or indirectly by means of a virtual router. Dependent services
-  call your virtual
-
+  directly or indirectly by means of a virtual router. Dependent services call
+  your virtual
   service by its `virtualServiceName`, and those requests are routed to the
-
-  virtual node or virtual router that is specified as the provider for the
-  virtual
-
+  virtual node or virtual router that is specified as the provider for the virtual
   service.
 
-  For more information about virtual services, see [Virtual
-  services](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html).
+  For more information about virtual services, see [Virtual services](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html).
   """
   def create_virtual_service(client, mesh_name, input, options \\ []) do
     path_ = "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualServices"
@@ -279,9 +222,8 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes an existing service mesh.
 
-  You must delete all resources (virtual services, routes, virtual routers,
-  and virtual
-
+  You must delete all resources (virtual services, routes, virtual routers, and
+  virtual
   nodes) in the service mesh before you can delete the mesh itself.
   """
   def delete_mesh(client, mesh_name, input, options \\ []) do
@@ -306,9 +248,9 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Deletes an existing virtual gateway. You cannot delete a virtual gateway if
-  any gateway
+  Deletes an existing virtual gateway.
 
+  You cannot delete a virtual gateway if any gateway
   routes are associated to it.
   """
   def delete_virtual_gateway(client, mesh_name, virtual_gateway_name, input, options \\ []) do
@@ -327,7 +269,6 @@ defmodule AWS.AppMesh do
 
   You must delete any virtual services that list a virtual node as a service
   provider
-
   before you can delete the virtual node itself.
   """
   def delete_virtual_node(client, mesh_name, virtual_node_name, input, options \\ []) do
@@ -344,9 +285,8 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes an existing virtual router.
 
-  You must delete any routes associated with the virtual router before you
-  can delete the
-
+  You must delete any routes associated with the virtual router before you can
+  delete the
   router itself.
   """
   def delete_virtual_router(client, mesh_name, virtual_router_name, input, options \\ []) do
@@ -481,7 +421,6 @@ defmodule AWS.AppMesh do
 
   @doc """
   Returns a list of existing gateway routes that are associated to a virtual
-
   gateway.
   """
   def list_gateway_routes(client, mesh_name, virtual_gateway_name, limit \\ nil, mesh_owner \\ nil, next_token \\ nil, options \\ []) do
@@ -677,15 +616,12 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified
-  `resourceArn`.
+  Associates the specified tags to a resource with the specified `resourceArn`.
 
-  If existing tags on a resource aren't specified in the request parameters,
-  they aren't
-
-  changed. When a resource is deleted, the tags associated with that resource
-  are also
-
+  If existing tags on a resource aren't specified in the request parameters, they
+  aren't
+  changed. When a resource is deleted, the tags associated with that resource are
+  also
   deleted.
   """
   def tag_resource(client, input, options \\ []) do
@@ -716,7 +652,6 @@ defmodule AWS.AppMesh do
   @doc """
   Updates an existing gateway route that is associated to a specified virtual
   gateway in a
-
   service mesh.
   """
   def update_gateway_route(client, gateway_route_name, mesh_name, virtual_gateway_name, input, options \\ []) do

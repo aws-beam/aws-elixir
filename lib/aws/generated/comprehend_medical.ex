@@ -4,20 +4,24 @@
 defmodule AWS.ComprehendMedical do
   @moduledoc """
   Amazon Comprehend Medical extracts structured information from unstructured
-  clinical text. Use these actions to gain insight in your documents.
+  clinical text.
+
+  Use these actions to gain insight in your documents.
   """
 
   @doc """
-  Gets the properties associated with a medical entities detection job. Use
-  this operation to get the status of a detection job.
+  Gets the properties associated with a medical entities detection job.
+
+  Use this operation to get the status of a detection job.
   """
   def describe_entities_detection_v2_job(client, input, options \\ []) do
     request(client, "DescribeEntitiesDetectionV2Job", input, options)
   end
 
   @doc """
-  Gets the properties associated with an InferICD10CM job. Use this operation
-  to get the status of an inference job.
+  Gets the properties associated with an InferICD10CM job.
+
+  Use this operation to get the status of an inference job.
   """
   def describe_i_c_d10_c_m_inference_job(client, input, options \\ []) do
     request(client, "DescribeICD10CMInferenceJob", input, options)
@@ -25,23 +29,27 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Gets the properties associated with a protected health information (PHI)
-  detection job. Use this operation to get the status of a detection job.
+  detection job.
+
+  Use this operation to get the status of a detection job.
   """
   def describe_p_h_i_detection_job(client, input, options \\ []) do
     request(client, "DescribePHIDetectionJob", input, options)
   end
 
   @doc """
-  Gets the properties associated with an InferRxNorm job. Use this operation
-  to get the status of an inference job.
+  Gets the properties associated with an InferRxNorm job.
+
+  Use this operation to get the status of an inference job.
   """
   def describe_rx_norm_inference_job(client, input, options \\ []) do
     request(client, "DescribeRxNormInferenceJob", input, options)
   end
 
   @doc """
-  The `DetectEntities` operation is deprecated. You should use the
-  `DetectEntitiesV2` operation instead.
+  The `DetectEntities` operation is deprecated.
+
+  You should use the `DetectEntitiesV2` operation instead.
 
   Inspects the clinical text for a variety of medical entities and returns
   specific information about them such as entity category, location, and
@@ -54,47 +62,52 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Inspects the clinical text for a variety of medical entities and returns
   specific information about them such as entity category, location, and
-  confidence score on that information. Amazon Comprehend Medical only
-  detects medical entities in English language texts.
+  confidence score on that information.
 
-  The `DetectEntitiesV2` operation replaces the `DetectEntities` operation.
-  This new action uses a different model for determining the entities in your
-  medical text and changes the way that some entities are returned in the
-  output. You should use the `DetectEntitiesV2` operation in all new
-  applications.
+  Amazon Comprehend Medical only detects medical entities in English language
+  texts.
 
-  The `DetectEntitiesV2` operation returns the `Acuity` and `Direction`
-  entities as attributes instead of types.
+  The `DetectEntitiesV2` operation replaces the `DetectEntities` operation. This
+  new action uses a different model for determining the entities in your medical
+  text and changes the way that some entities are returned in the output. You
+  should use the `DetectEntitiesV2` operation in all new applications.
+
+  The `DetectEntitiesV2` operation returns the `Acuity` and `Direction` entities
+  as attributes instead of types.
   """
   def detect_entities_v2(client, input, options \\ []) do
     request(client, "DetectEntitiesV2", input, options)
   end
 
   @doc """
-  Inspects the clinical text for protected health information (PHI) entities
-  and returns the entity category, location, and confidence score for each
-  entity. Amazon Comprehend Medical only detects entities in English language
-  texts.
+  Inspects the clinical text for protected health information (PHI) entities and
+  returns the entity category, location, and confidence score for each entity.
+
+  Amazon Comprehend Medical only detects entities in English language texts.
   """
   def detect_p_h_i(client, input, options \\ []) do
     request(client, "DetectPHI", input, options)
   end
 
   @doc """
-  InferICD10CM detects medical conditions as entities listed in a patient
-  record and links those entities to normalized concept identifiers in the
-  ICD-10-CM knowledge base from the Centers for Disease Control. Amazon
-  Comprehend Medical only detects medical entities in English language texts.
+  InferICD10CM detects medical conditions as entities listed in a patient record
+  and links those entities to normalized concept identifiers in the ICD-10-CM
+  knowledge base from the Centers for Disease Control.
+
+  Amazon Comprehend Medical only detects medical entities in English language
+  texts.
   """
   def infer_i_c_d10_c_m(client, input, options \\ []) do
     request(client, "InferICD10CM", input, options)
   end
 
   @doc """
-  InferRxNorm detects medications as entities listed in a patient record and
-  links to the normalized concept identifiers in the RxNorm database from the
-  National Library of Medicine. Amazon Comprehend Medical only detects
-  medical entities in English language texts.
+  InferRxNorm detects medications as entities listed in a patient record and links
+  to the normalized concept identifiers in the RxNorm database from the National
+  Library of Medicine.
+
+  Amazon Comprehend Medical only detects medical entities in English language
+  texts.
   """
   def infer_rx_norm(client, input, options \\ []) do
     request(client, "InferRxNorm", input, options)
@@ -115,8 +128,8 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-  Gets a list of protected health information (PHI) detection jobs that you
-  have submitted.
+  Gets a list of protected health information (PHI) detection jobs that you have
+  submitted.
   """
   def list_p_h_i_detection_jobs(client, input, options \\ []) do
     request(client, "ListPHIDetectionJobs", input, options)
@@ -131,17 +144,19 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Starts an asynchronous medical entity detection job for a collection of
-  documents. Use the `DescribeEntitiesDetectionV2Job` operation to track the
-  status of a job.
+  documents.
+
+  Use the `DescribeEntitiesDetectionV2Job` operation to track the status of a job.
   """
   def start_entities_detection_v2_job(client, input, options \\ []) do
     request(client, "StartEntitiesDetectionV2Job", input, options)
   end
 
   @doc """
-  Starts an asynchronous job to detect medical conditions and link them to
-  the ICD-10-CM ontology. Use the `DescribeICD10CMInferenceJob` operation to
-  track the status of a job.
+  Starts an asynchronous job to detect medical conditions and link them to the
+  ICD-10-CM ontology.
+
+  Use the `DescribeICD10CMInferenceJob` operation to track the status of a job.
   """
   def start_i_c_d10_c_m_inference_job(client, input, options \\ []) do
     request(client, "StartICD10CMInferenceJob", input, options)
@@ -149,6 +164,7 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Starts an asynchronous job to detect protected health information (PHI).
+
   Use the `DescribePHIDetectionJob` operation to track the status of a job.
   """
   def start_p_h_i_detection_job(client, input, options \\ []) do
@@ -156,9 +172,10 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-  Starts an asynchronous job to detect medication entities and link them to
-  the RxNorm ontology. Use the `DescribeRxNormInferenceJob` operation to
-  track the status of a job.
+  Starts an asynchronous job to detect medication entities and link them to the
+  RxNorm ontology.
+
+  Use the `DescribeRxNormInferenceJob` operation to track the status of a job.
   """
   def start_rx_norm_inference_job(client, input, options \\ []) do
     request(client, "StartRxNormInferenceJob", input, options)

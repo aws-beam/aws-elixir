@@ -5,20 +5,21 @@ defmodule AWS.FMS do
   @moduledoc """
   AWS Firewall Manager
 
-  This is the *AWS Firewall Manager API Reference*. This guide is for
-  developers who need detailed information about the AWS Firewall Manager API
-  actions, data types, and errors. For detailed information about AWS
-  Firewall Manager features, see the [AWS Firewall Manager Developer
-  Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html).
+  This is the *AWS Firewall Manager API Reference*.
+
+  This guide is for developers who need detailed information about the AWS
+  Firewall Manager API actions, data types, and errors. For detailed information
+  about AWS Firewall Manager features, see the [AWS Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html).
   """
 
   @doc """
-  Sets the AWS Firewall Manager administrator account. AWS Firewall Manager
-  must be associated with the master account of your AWS organization or
-  associated with a member account that has the appropriate permissions. If
-  the account ID that you submit is not an AWS Organizations master account,
-  AWS Firewall Manager will set the appropriate permissions for the given
-  member account.
+  Sets the AWS Firewall Manager administrator account.
+
+  AWS Firewall Manager must be associated with the master account of your AWS
+  organization or associated with a member account that has the appropriate
+  permissions. If the account ID that you submit is not an AWS Organizations
+  master account, AWS Firewall Manager will set the appropriate permissions for
+  the given member account.
 
   The account that you associate with AWS Firewall Manager is called the AWS
   Firewall Manager administrator account.
@@ -35,9 +36,9 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Deletes an AWS Firewall Manager association with the IAM role and the
-  Amazon Simple Notification Service (SNS) topic that is used to record AWS
-  Firewall Manager SNS logs.
+  Deletes an AWS Firewall Manager association with the IAM role and the Amazon
+  Simple Notification Service (SNS) topic that is used to record AWS Firewall
+  Manager SNS logs.
   """
   def delete_notification_channel(client, input, options \\ []) do
     request(client, "DeleteNotificationChannel", input, options)
@@ -59,8 +60,10 @@ defmodule AWS.FMS do
 
   @doc """
   Disassociates the account that has been set as the AWS Firewall Manager
-  administrator account. To set a different account as the administrator
-  account, you must submit an `AssociateAdminAccount` request.
+  administrator account.
+
+  To set a different account as the administrator account, you must submit an
+  `AssociateAdminAccount` request.
   """
   def disassociate_admin_account(client, input, options \\ []) do
     request(client, "DisassociateAdminAccount", input, options)
@@ -75,8 +78,7 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Returns information about the specified AWS Firewall Manager applications
-  list.
+  Returns information about the specified AWS Firewall Manager applications list.
   """
   def get_apps_list(client, input, options \\ []) do
     request(client, "GetAppsList", input, options)
@@ -84,20 +86,21 @@ defmodule AWS.FMS do
 
   @doc """
   Returns detailed compliance information about the specified member account.
-  Details include resources that are in and out of compliance with the
-  specified policy. Resources are considered noncompliant for AWS WAF and
-  Shield Advanced policies if the specified policy has not been applied to
-  them. Resources are considered noncompliant for security group policies if
-  they are in scope of the policy, they violate one or more of the policy
-  rules, and remediation is disabled or not possible.
+
+  Details include resources that are in and out of compliance with the specified
+  policy. Resources are considered noncompliant for AWS WAF and Shield Advanced
+  policies if the specified policy has not been applied to them. Resources are
+  considered noncompliant for security group policies if they are in scope of the
+  policy, they violate one or more of the policy rules, and remediation is
+  disabled or not possible.
   """
   def get_compliance_detail(client, input, options \\ []) do
     request(client, "GetComplianceDetail", input, options)
   end
 
   @doc """
-  Information about the Amazon Simple Notification Service (SNS) topic that
-  is used to record AWS Firewall Manager SNS logs.
+  Information about the Amazon Simple Notification Service (SNS) topic that is
+  used to record AWS Firewall Manager SNS logs.
   """
   def get_notification_channel(client, input, options \\ []) do
     request(client, "GetNotificationChannel", input, options)
@@ -111,25 +114,25 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  If you created a Shield Advanced policy, returns policy-level attack
-  summary information in the event of a potential DDoS attack. Other policy
-  types are currently unsupported.
+  If you created a Shield Advanced policy, returns policy-level attack summary
+  information in the event of a potential DDoS attack.
+
+  Other policy types are currently unsupported.
   """
   def get_protection_status(client, input, options \\ []) do
     request(client, "GetProtectionStatus", input, options)
   end
 
   @doc """
-  Returns information about the specified AWS Firewall Manager protocols
-  list.
+  Returns information about the specified AWS Firewall Manager protocols list.
   """
   def get_protocols_list(client, input, options \\ []) do
     request(client, "GetProtocolsList", input, options)
   end
 
   @doc """
-  Retrieves violations for a resource based on the specified AWS Firewall
-  Manager policy and AWS account.
+  Retrieves violations for a resource based on the specified AWS Firewall Manager
+  policy and AWS account.
   """
   def get_violation_details(client, input, options \\ []) do
     request(client, "GetViolationDetails", input, options)
@@ -143,8 +146,9 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Returns an array of `PolicyComplianceStatus` objects. Use
-  `PolicyComplianceStatus` to get a summary of which member accounts are
+  Returns an array of `PolicyComplianceStatus` objects.
+
+  Use `PolicyComplianceStatus` to get a summary of which member accounts are
   protected by the specified policy.
   """
   def list_compliance_status(client, input, options \\ []) do
@@ -155,8 +159,8 @@ defmodule AWS.FMS do
   Returns a `MemberAccounts` object that lists the member accounts in the
   administrator's AWS organization.
 
-  The `ListMemberAccounts` must be submitted by the account that is set as
-  the AWS Firewall Manager administrator.
+  The `ListMemberAccounts` must be submitted by the account that is set as the AWS
+  Firewall Manager administrator.
   """
   def list_member_accounts(client, input, options \\ []) do
     request(client, "ListMemberAccounts", input, options)
@@ -191,8 +195,8 @@ defmodule AWS.FMS do
   end
 
   @doc """
-  Designates the IAM role and Amazon Simple Notification Service (SNS) topic
-  that AWS Firewall Manager uses to record SNS logs.
+  Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
+  AWS Firewall Manager uses to record SNS logs.
   """
   def put_notification_channel(client, input, options \\ []) do
     request(client, "PutNotificationChannel", input, options)
@@ -203,25 +207,24 @@ defmodule AWS.FMS do
 
   Firewall Manager provides the following types of policies:
 
-  <ul> <li> A Shield Advanced policy, which applies Shield Advanced
-  protection to specified accounts and resources
+    * A Shield Advanced policy, which applies Shield Advanced protection
+  to specified accounts and resources
 
-  </li> <li> An AWS WAF policy (type WAFV2), which defines rule groups to run
-  first in the corresponding AWS WAF web ACL and rule groups to run last in
-  the web ACL.
+    * An AWS WAF policy (type WAFV2), which defines rule groups to run
+  first in the corresponding AWS WAF web ACL and rule groups to run last in the
+  web ACL.
 
-  </li> <li> An AWS WAF Classic policy (type WAF), which defines a rule
-  group.
+    * An AWS WAF Classic policy (type WAF), which defines a rule group.
 
-  </li> <li> A security group policy, which manages VPC security groups
-  across your AWS organization.
+    * A security group policy, which manages VPC security groups across
+  your AWS organization.
 
-  </li> </ul> Each policy is specific to one of the types. If you want to
-  enforce more than one policy type across accounts, create multiple
-  policies. You can create multiple policies for each type.
+  Each policy is specific to one of the types. If you want to enforce more than
+  one policy type across accounts, create multiple policies. You can create
+  multiple policies for each type.
 
-  You must be subscribed to Shield Advanced to create a Shield Advanced
-  policy. For more information about subscribing to Shield Advanced, see
+  You must be subscribed to Shield Advanced to create a Shield Advanced policy.
+  For more information about subscribing to Shield Advanced, see
   [CreateSubscription](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html).
   """
   def put_policy(client, input, options \\ []) do

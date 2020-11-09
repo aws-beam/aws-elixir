@@ -3,9 +3,9 @@
 
 defmodule AWS.ConnectParticipant do
   @moduledoc """
-  Amazon Connect is a cloud-based contact center solution that makes it easy
-  to set up and manage a customer contact center and provide reliable
-  customer engagement at any scale.
+  Amazon Connect is a cloud-based contact center solution that makes it easy to
+  set up and manage a customer contact center and provide reliable customer
+  engagement at any scale.
 
   Amazon Connect enables customer contacts through voice or chat.
 
@@ -14,15 +14,17 @@ defmodule AWS.ConnectParticipant do
   """
 
   @doc """
-  Creates the participant's connection. Note that ParticipantToken is used
-  for invoking this API instead of ConnectionToken.
+  Creates the participant's connection.
 
-  The participant token is valid for the lifetime of the participant – until
-  the they are part of a contact.
+  Note that ParticipantToken is used for invoking this API instead of
+  ConnectionToken.
+
+  The participant token is valid for the lifetime of the participant – until the
+  they are part of a contact.
 
   The response URL for `WEBSOCKET` Type has a connect expiry timeout of 100s.
-  Clients must manually connect to the returned websocket URL and subscribe
-  to the desired topic.
+  Clients must manually connect to the returned websocket URL and subscribe to the
+  desired topic.
 
   For chat, you need to publish the following on the established websocket
   connection:
@@ -30,8 +32,8 @@ defmodule AWS.ConnectParticipant do
   `{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}`
 
   Upon websocket URL expiry, as specified in the response ConnectionExpiry
-  parameter, clients need to call this API again to obtain a new websocket
-  URL and perform the same steps as before.
+  parameter, clients need to call this API again to obtain a new websocket URL and
+  perform the same steps as before.
   """
   def create_participant_connection(client, input, options \\ []) do
     path_ = "/participant/connection"
@@ -45,8 +47,10 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
-  Disconnects a participant. Note that ConnectionToken is used for invoking
-  this API instead of ParticipantToken.
+  Disconnects a participant.
+
+  Note that ConnectionToken is used for invoking this API instead of
+  ParticipantToken.
   """
   def disconnect_participant(client, input, options \\ []) do
     path_ = "/participant/disconnect"
@@ -60,8 +64,10 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
-  Retrieves a transcript of the session. Note that ConnectionToken is used
-  for invoking this API instead of ParticipantToken.
+  Retrieves a transcript of the session.
+
+  Note that ConnectionToken is used for invoking this API instead of
+  ParticipantToken.
   """
   def get_transcript(client, input, options \\ []) do
     path_ = "/participant/transcript"
@@ -75,8 +81,10 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
-  Sends an event. Note that ConnectionToken is used for invoking this API
-  instead of ParticipantToken.
+  Sends an event.
+
+  Note that ConnectionToken is used for invoking this API instead of
+  ParticipantToken.
   """
   def send_event(client, input, options \\ []) do
     path_ = "/participant/event"
@@ -90,8 +98,10 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
-  Sends a message. Note that ConnectionToken is used for invoking this API
-  instead of ParticipantToken.
+  Sends a message.
+
+  Note that ConnectionToken is used for invoking this API instead of
+  ParticipantToken.
   """
   def send_message(client, input, options \\ []) do
     path_ = "/participant/message"

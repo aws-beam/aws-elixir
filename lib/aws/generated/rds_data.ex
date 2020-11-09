@@ -5,35 +5,30 @@ defmodule AWS.RDSData do
   @moduledoc """
   Amazon RDS Data Service
 
-  Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon
-  Aurora Serverless DB cluster. To run these statements, you work with the
-  Data Service API.
+  Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora
+  Serverless DB cluster.
 
-  For more information about the Data Service API, see [Using the Data API
-  for Aurora
+  To run these statements, you work with the Data Service API.
+
+  For more information about the Data Service API, see [Using the Data API for Aurora
   Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
   in the *Amazon Aurora User Guide*.
 
-  <note> If you have questions or comments related to the Data API, send
-  email to
+  If you have questions or comments related to the Data API, send email to
   [Rds-data-api-feedback@amazon.com](mailto:Rds-data-api-feedback@amazon.com).
-
-  </note>
   """
 
   @doc """
   Runs a batch SQL statement over an array of data.
 
-  You can run bulk update and insert operations for multiple records using a
-  DML statement with different parameter sets. Bulk operations can provide a
+  You can run bulk update and insert operations for multiple records using a DML
+  statement with different parameter sets. Bulk operations can provide a
   significant performance improvement over individual insert and update
   operations.
 
-  <important> If a call isn't part of a transaction because it doesn't
-  include the `transactionID` parameter, changes that result from the call
-  are committed automatically.
-
-  </important>
+  If a call isn't part of a transaction because it doesn't include the
+  `transactionID` parameter, changes that result from the call are committed
+  automatically.
   """
   def batch_execute_statement(client, input, options \\ []) do
     path_ = "/BatchExecute"
@@ -45,16 +40,17 @@ defmodule AWS.RDSData do
   @doc """
   Starts a SQL transaction.
 
-  <pre>` &lt;important&gt; &lt;p&gt;A transaction can run for a maximum of 24
-  hours. A transaction is terminated and rolled back automatically after 24
-  hours.&lt;/p&gt; &lt;p&gt;A transaction times out if no calls use its
-  transaction ID in three minutes. If a transaction times out before it's
-  committed, it's rolled back automatically.&lt;/p&gt; &lt;p&gt;DDL
-  statements inside a transaction cause an implicit commit. We recommend that
-  you run each DDL statement in a separate
-  &lt;code&gt;ExecuteStatement&lt;/code&gt; call with
-  &lt;code&gt;continueAfterTimeout&lt;/code&gt; enabled.&lt;/p&gt;
-  &lt;/important&gt; `</pre>
+  ` A transaction can run for a maximum of 24 hours. A transaction is terminated
+  and rolled back automatically after 24 hours.
+
+  A transaction times out if no calls use its transaction ID in three minutes. If
+  a transaction times out before it's committed, it's rolled back automatically.
+
+  DDL statements inside a transaction cause an implicit commit. We recommend that
+  you run each DDL statement in a separate `ExecuteStatement` call with
+  `continueAfterTimeout` enabled.
+
+  `
   """
   def begin_transaction(client, input, options \\ []) do
     path_ = "/BeginTransaction"
@@ -64,8 +60,8 @@ defmodule AWS.RDSData do
   end
 
   @doc """
-  Ends a SQL transaction started with the `BeginTransaction` operation and
-  commits the changes.
+  Ends a SQL transaction started with the `BeginTransaction` operation and commits
+  the changes.
   """
   def commit_transaction(client, input, options \\ []) do
     path_ = "/CommitTransaction"
@@ -77,10 +73,8 @@ defmodule AWS.RDSData do
   @doc """
   Runs one or more SQL statements.
 
-  <important> This operation is deprecated. Use the `BatchExecuteStatement`
-  or `ExecuteStatement` operation.
-
-  </important>
+  This operation is deprecated. Use the `BatchExecuteStatement` or
+  `ExecuteStatement` operation.
   """
   def execute_sql(client, input, options \\ []) do
     path_ = "/ExecuteSql"
@@ -92,12 +86,12 @@ defmodule AWS.RDSData do
   @doc """
   Runs a SQL statement against a database.
 
-  <important> If a call isn't part of a transaction because it doesn't
-  include the `transactionID` parameter, changes that result from the call
-  are committed automatically.
+  If a call isn't part of a transaction because it doesn't include the
+  `transactionID` parameter, changes that result from the call are committed
+  automatically.
 
-  </important> The response size limit is 1 MB. If the call returns more than
-  1 MB of response data, the call is terminated.
+  The response size limit is 1 MB. If the call returns more than 1 MB of response
+  data, the call is terminated.
   """
   def execute_statement(client, input, options \\ []) do
     path_ = "/Execute"
@@ -107,8 +101,9 @@ defmodule AWS.RDSData do
   end
 
   @doc """
-  Performs a rollback of a transaction. Rolling back a transaction cancels
-  its changes.
+  Performs a rollback of a transaction.
+
+  Rolling back a transaction cancels its changes.
   """
   def rollback_transaction(client, input, options \\ []) do
     path_ = "/RollbackTransaction"

@@ -5,27 +5,28 @@ defmodule AWS.DatabaseMigration do
   @moduledoc """
   AWS Database Migration Service
 
-  AWS Database Migration Service (AWS DMS) can migrate your data to and from
-  the most widely used commercial and open-source databases such as Oracle,
+  AWS Database Migration Service (AWS DMS) can migrate your data to and from the
+  most widely used commercial and open-source databases such as Oracle,
   PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora,
-  MySQL, and SAP Adaptive Server Enterprise (ASE). The service supports
-  homogeneous migrations such as Oracle to Oracle, as well as heterogeneous
-  migrations between different database platforms, such as Oracle to MySQL or
-  SQL Server to PostgreSQL.
+  MySQL, and SAP Adaptive Server Enterprise (ASE).
 
-  For more information about AWS DMS, see [What Is AWS Database Migration
-  Service?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html) in
-  the *AWS Database Migration User Guide.*
+  The service supports homogeneous migrations such as Oracle to Oracle, as well as
+  heterogeneous migrations between different database platforms, such as Oracle to
+  MySQL or SQL Server to PostgreSQL.
+
+  For more information about AWS DMS, see [What Is AWS Database Migration Service?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html) in the
+  *AWS Database Migration User Guide.*
   """
 
   @doc """
   Adds metadata tags to an AWS DMS resource, including replication instance,
-  endpoint, security group, and migration task. These tags can also be used
-  with cost allocation reporting to track cost associated with DMS resources,
-  or used in a Condition statement in an IAM policy for DMS. For more
-  information, see [ `Tag`
-  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data
-  type description.
+  endpoint, security group, and migration task.
+
+  These tags can also be used with cost allocation reporting to track cost
+  associated with DMS resources, or used in a Condition statement in an IAM policy
+  for DMS. For more information, see [ `Tag`
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
+  description.
   """
   def add_tags_to_resource(client, input, options \\ []) do
     request(client, "AddTagsToResource", input, options)
@@ -42,9 +43,9 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Cancels a single premigration assessment run.
 
-  This operation prevents any individual assessments from running if they
-  haven't started running. It also attempts to cancel any individual
-  assessments that are currently running.
+  This operation prevents any individual assessments from running if they haven't
+  started running. It also attempts to cancel any individual assessments that are
+  currently running.
   """
   def cancel_replication_task_assessment_run(client, input, options \\ []) do
     request(client, "CancelReplicationTaskAssessmentRun", input, options)
@@ -60,21 +61,19 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates an AWS DMS event notification subscription.
 
-  You can specify the type of source (`SourceType`) you want to be notified
-  of, provide a list of AWS DMS source IDs (`SourceIds`) that triggers the
-  events, and provide a list of event categories (`EventCategories`) for
-  events you want to be notified of. If you specify both the `SourceType` and
-  `SourceIds`, such as `SourceType = replication-instance` and
-  `SourceIdentifier = my-replinstance`, you will be notified of all the
-  replication instance events for the specified source. If you specify a
-  `SourceType` but don't specify a `SourceIdentifier`, you receive notice of
-  the events for that source type for all your AWS DMS sources. If you don't
-  specify either `SourceType` nor `SourceIdentifier`, you will be notified of
-  events generated from all AWS DMS sources belonging to your customer
-  account.
+  You can specify the type of source (`SourceType`) you want to be notified of,
+  provide a list of AWS DMS source IDs (`SourceIds`) that triggers the events, and
+  provide a list of event categories (`EventCategories`) for events you want to be
+  notified of. If you specify both the `SourceType` and `SourceIds`, such as
+  `SourceType = replication-instance` and `SourceIdentifier = my-replinstance`,
+  you will be notified of all the replication instance events for the specified
+  source. If you specify a `SourceType` but don't specify a `SourceIdentifier`,
+  you receive notice of the events for that source type for all your AWS DMS
+  sources. If you don't specify either `SourceType` nor `SourceIdentifier`, you
+  will be notified of events generated from all AWS DMS sources belonging to your
+  customer account.
 
-  For more information about AWS DMS events, see [Working with Events and
-  Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
+  For more information about AWS DMS events, see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
   in the *AWS Database Migration Service User Guide.*
   """
   def create_event_subscription(client, input, options \\ []) do
@@ -85,12 +84,9 @@ defmodule AWS.DatabaseMigration do
   Creates the replication instance using the specified parameters.
 
   AWS DMS requires that your account have certain roles with appropriate
-  permissions before you can create a replication instance. For information
-  on the required roles, see [Creating the IAM Roles to Use With the AWS CLI
-  and AWS DMS
-  API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole).
-  For information on the required permissions, see [IAM Permissions Needed to
-  Use AWS
+  permissions before you can create a replication instance. For information on the
+  required roles, see [Creating the IAM Roles to Use With the AWS CLI and AWS DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole).
+  For information on the required permissions, see [IAM Permissions Needed to Use AWS
   DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
   """
   def create_replication_instance(client, input, options \\ []) do
@@ -128,10 +124,8 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified endpoint.
 
-  <note> All tasks associated with the endpoint must be deleted before you
-  can delete the endpoint.
-
-  </note> <p/>
+  All tasks associated with the endpoint must be deleted before you can delete the
+  endpoint.
   """
   def delete_endpoint(client, input, options \\ []) do
     request(client, "DeleteEndpoint", input, options)
@@ -147,10 +141,8 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the specified replication instance.
 
-  <note> You must delete any migration tasks that are associated with the
-  replication instance before you can delete it.
-
-  </note> <p/>
+  You must delete any migration tasks that are associated with the replication
+  instance before you can delete it.
   """
   def delete_replication_instance(client, input, options \\ []) do
     request(client, "DeleteReplicationInstance", input, options)
@@ -173,23 +165,23 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the record of a single premigration assessment run.
 
-  This operation removes all metadata that AWS DMS maintains about this
-  assessment run. However, the operation leaves untouched all information
-  about this assessment run that is stored in your Amazon S3 bucket.
+  This operation removes all metadata that AWS DMS maintains about this assessment
+  run. However, the operation leaves untouched all information about this
+  assessment run that is stored in your Amazon S3 bucket.
   """
   def delete_replication_task_assessment_run(client, input, options \\ []) do
     request(client, "DeleteReplicationTaskAssessmentRun", input, options)
   end
 
   @doc """
-  Lists all of the AWS DMS attributes for a customer account. These
-  attributes include AWS DMS quotas for the account and a unique account
-  identifier in a particular DMS region. DMS quotas include a list of
-  resource quotas supported by the account, such as the number of replication
-  instances allowed. The description for each resource quota, includes the
-  quota name, current usage toward that quota, and the quota's maximum value.
-  DMS uses the unique account identifier to name each artifact used by DMS in
-  the given region.
+  Lists all of the AWS DMS attributes for a customer account.
+
+  These attributes include AWS DMS quotas for the account and a unique account
+  identifier in a particular DMS region. DMS quotas include a list of resource
+  quotas supported by the account, such as the number of replication instances
+  allowed. The description for each resource quota, includes the quota name,
+  current usage toward that quota, and the quota's maximum value. DMS uses the
+  unique account identifier to name each artifact used by DMS in the given region.
 
   This command does not take any parameters.
   """
@@ -201,25 +193,24 @@ defmodule AWS.DatabaseMigration do
   Provides a list of individual assessments that you can specify for a new
   premigration assessment run, given one or more parameters.
 
-  If you specify an existing migration task, this operation provides the
-  default individual assessments you can specify for that task. Otherwise,
-  the specified parameters model elements of a possible migration task on
-  which to base a premigration assessment run.
+  If you specify an existing migration task, this operation provides the default
+  individual assessments you can specify for that task. Otherwise, the specified
+  parameters model elements of a possible migration task on which to base a
+  premigration assessment run.
 
-  To use these migration task modeling parameters, you must specify an
-  existing replication instance, a source database engine, a target database
-  engine, and a migration type. This combination of parameters potentially
-  limits the default individual assessments available for an assessment run
-  created for a corresponding migration task.
+  To use these migration task modeling parameters, you must specify an existing
+  replication instance, a source database engine, a target database engine, and a
+  migration type. This combination of parameters potentially limits the default
+  individual assessments available for an assessment run created for a
+  corresponding migration task.
 
-  If you specify no parameters, this operation provides a list of all
-  possible individual assessments that you can specify for an assessment run.
-  If you specify any one of the task modeling parameters, you must specify
-  all of them or the operation cannot provide a list of individual
-  assessments. The only parameter that you can specify alone is for an
-  existing migration task. The specified task definition then determines the
-  default list of individual assessments that you can specify in an
-  assessment run for the task.
+  If you specify no parameters, this operation provides a list of all possible
+  individual assessments that you can specify for an assessment run. If you
+  specify any one of the task modeling parameters, you must specify all of them or
+  the operation cannot provide a list of individual assessments. The only
+  parameter that you can specify alone is for an existing migration task. The
+  specified task definition then determines the default list of individual
+  assessments that you can specify in an assessment run for the task.
   """
   def describe_applicable_individual_assessments(client, input, options \\ []) do
     request(client, "DescribeApplicableIndividualAssessments", input, options)
@@ -234,8 +225,9 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Describes the status of the connections that have been made between the
-  replication instance and an endpoint. Connections are created when you test
-  an endpoint.
+  replication instance and an endpoint.
+
+  Connections are created when you test an endpoint.
   """
   def describe_connections(client, input, options \\ []) do
     request(client, "DescribeConnections", input, options)
@@ -249,17 +241,17 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Returns information about the endpoints for your account in the current
-  region.
+  Returns information about the endpoints for your account in the current region.
   """
   def describe_endpoints(client, input, options \\ []) do
     request(client, "DescribeEndpoints", input, options)
   end
 
   @doc """
-  Lists categories for all event source types, or, if specified, for a
-  specified source type. You can see a list of the event categories and
-  source types in [Working with Events and
+  Lists categories for all event source types, or, if specified, for a specified
+  source type.
+
+  You can see a list of the event categories and source types in [Working with Events and
   Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
   in the *AWS Database Migration Service User Guide.*
   """
@@ -268,22 +260,23 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Lists all the event subscriptions for a customer account. The description
-  of a subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`,
-  `SourceType`, `SourceID`, `CreationTime`, and `Status`.
+  Lists all the event subscriptions for a customer account.
 
-  If you specify `SubscriptionName`, this action lists the description for
-  that subscription.
+  The description of a subscription includes `SubscriptionName`, `SNSTopicARN`,
+  `CustomerID`, `SourceType`, `SourceID`, `CreationTime`, and `Status`.
+
+  If you specify `SubscriptionName`, this action lists the description for that
+  subscription.
   """
   def describe_event_subscriptions(client, input, options \\ []) do
     request(client, "DescribeEventSubscriptions", input, options)
   end
 
   @doc """
-  Lists events for a given source identifier and source type. You can also
-  specify a start and end time. For more information on AWS DMS events, see
-  [Working with Events and
-  Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
+  Lists events for a given source identifier and source type.
+
+  You can also specify a start and end time. For more information on AWS DMS
+  events, see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
   in the *AWS Database Migration User Guide.*
   """
   def describe_events(client, input, options \\ []) do
@@ -291,8 +284,8 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Returns information about the replication instance types that can be
-  created in the specified region.
+  Returns information about the replication instance types that can be created in
+  the specified region.
   """
   def describe_orderable_replication_instances(client, input, options \\ []) do
     request(client, "DescribeOrderableReplicationInstances", input, options)
@@ -320,8 +313,8 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Returns information about replication instances for your account in the
-  current region.
+  Returns information about replication instances for your account in the current
+  region.
   """
   def describe_replication_instances(client, input, options \\ []) do
     request(client, "DescribeReplicationInstances", input, options)
@@ -335,8 +328,9 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Returns the task assessment results from Amazon S3. This action always
-  returns the latest results.
+  Returns the task assessment results from Amazon S3.
+
+  This action always returns the latest results.
   """
   def describe_replication_task_assessment_results(client, input, options \\ []) do
     request(client, "DescribeReplicationTaskAssessmentResults", input, options)
@@ -346,26 +340,21 @@ defmodule AWS.DatabaseMigration do
   Returns a paginated list of premigration assessment runs based on filter
   settings.
 
-  These filter settings can specify a combination of premigration assessment
-  runs, migration tasks, replication instances, and assessment run status
-  values.
+  These filter settings can specify a combination of premigration assessment runs,
+  migration tasks, replication instances, and assessment run status values.
 
-  <note> This operation doesn't return information about individual
-  assessments. For this information, see the
-  `DescribeReplicationTaskIndividualAssessments` operation.
-
-  </note>
+  This operation doesn't return information about individual assessments. For this
+  information, see the `DescribeReplicationTaskIndividualAssessments` operation.
   """
   def describe_replication_task_assessment_runs(client, input, options \\ []) do
     request(client, "DescribeReplicationTaskAssessmentRuns", input, options)
   end
 
   @doc """
-  Returns a paginated list of individual assessments based on filter
-  settings.
+  Returns a paginated list of individual assessments based on filter settings.
 
-  These filter settings can specify a combination of premigration assessment
-  runs, migration tasks, and assessment status values.
+  These filter settings can specify a combination of premigration assessment runs,
+  migration tasks, and assessment status values.
   """
   def describe_replication_task_individual_assessments(client, input, options \\ []) do
     request(client, "DescribeReplicationTaskIndividualAssessments", input, options)
@@ -381,20 +370,18 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Returns information about the schema for the specified endpoint.
-
-  <p/>
   """
   def describe_schemas(client, input, options \\ []) do
     request(client, "DescribeSchemas", input, options)
   end
 
   @doc """
-  Returns table statistics on the database migration task, including table
-  name, rows inserted, rows updated, and rows deleted.
+  Returns table statistics on the database migration task, including table name,
+  rows inserted, rows updated, and rows deleted.
 
-  Note that the "last updated" column the DMS console only indicates the time
-  that AWS DMS last updated the table statistics record for a table. It does
-  not indicate the time of the last update to the table.
+  Note that the "last updated" column the DMS console only indicates the time that
+  AWS DMS last updated the table statistics record for a table. It does not
+  indicate the time of the last update to the table.
   """
   def describe_table_statistics(client, input, options \\ []) do
     request(client, "DescribeTableStatistics", input, options)
@@ -408,11 +395,12 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Lists all metadata tags attached to an AWS DMS resource, including
-  replication instance, endpoint, security group, and migration task. For
-  more information, see [ `Tag`
-  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data
-  type description.
+  Lists all metadata tags attached to an AWS DMS resource, including replication
+  instance, endpoint, security group, and migration task.
+
+  For more information, see [ `Tag`
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
+  description.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
@@ -433,13 +421,12 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Modifies the replication instance to apply new settings. You can change one
-  or more parameters by specifying these parameters and the new values in the
-  request.
+  Modifies the replication instance to apply new settings.
+
+  You can change one or more parameters by specifying these parameters and the new
+  values in the request.
 
   Some settings are applied during the maintenance window.
-
-  <p/>
   """
   def modify_replication_instance(client, input, options \\ []) do
     request(client, "ModifyReplicationInstance", input, options)
@@ -455,29 +442,32 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Modifies the specified replication task.
 
-  You can't modify the task endpoints. The task must be stopped before you
-  can modify it.
+  You can't modify the task endpoints. The task must be stopped before you can
+  modify it.
 
-  For more information about AWS DMS tasks, see [Working with Migration
-  Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in
-  the *AWS Database Migration Service User Guide*.
+  For more information about AWS DMS tasks, see [Working with Migration Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
+  *AWS Database Migration Service User Guide*.
   """
   def modify_replication_task(client, input, options \\ []) do
     request(client, "ModifyReplicationTask", input, options)
   end
 
   @doc """
-  Reboots a replication instance. Rebooting results in a momentary outage,
-  until the replication instance becomes available again.
+  Reboots a replication instance.
+
+  Rebooting results in a momentary outage, until the replication instance becomes
+  available again.
   """
   def reboot_replication_instance(client, input, options \\ []) do
     request(client, "RebootReplicationInstance", input, options)
   end
 
   @doc """
-  Populates the schema for the specified endpoint. This is an asynchronous
-  operation and can take several minutes. You can check the status of this
-  operation by calling the DescribeRefreshSchemasStatus operation.
+  Populates the schema for the specified endpoint.
+
+  This is an asynchronous operation and can take several minutes. You can check
+  the status of this operation by calling the DescribeRefreshSchemasStatus
+  operation.
   """
   def refresh_schemas(client, input, options \\ []) do
     request(client, "RefreshSchemas", input, options)
@@ -491,11 +481,12 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Removes metadata tags from an AWS DMS resource, including replication
-  instance, endpoint, security group, and migration task. For more
-  information, see [ `Tag`
-  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data
-  type description.
+  Removes metadata tags from an AWS DMS resource, including replication instance,
+  endpoint, security group, and migration task.
+
+  For more information, see [ `Tag`
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
+  description.
   """
   def remove_tags_from_resource(client, input, options \\ []) do
     request(client, "RemoveTagsFromResource", input, options)
@@ -505,31 +496,31 @@ defmodule AWS.DatabaseMigration do
   Starts the replication task.
 
   For more information about AWS DMS tasks, see [Working with Migration Tasks
-  ](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
-  *AWS Database Migration Service User Guide.*
+  ](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the *AWS
+  Database Migration Service User Guide.*
   """
   def start_replication_task(client, input, options \\ []) do
     request(client, "StartReplicationTask", input, options)
   end
 
   @doc """
-  Starts the replication task assessment for unsupported data types in the
-  source database.
+  Starts the replication task assessment for unsupported data types in the source
+  database.
   """
   def start_replication_task_assessment(client, input, options \\ []) do
     request(client, "StartReplicationTaskAssessment", input, options)
   end
 
   @doc """
-  Starts a new premigration assessment run for one or more individual
-  assessments of a migration task.
+  Starts a new premigration assessment run for one or more individual assessments
+  of a migration task.
 
-  The assessments that you can specify depend on the source and target
-  database engine and the migration type defined for the given task. To run
-  this operation, your migration task must already be created. After you run
-  this operation, you can review the status of each individual assessment.
-  You can also run the migration task manually after the assessment run and
-  its individual assessments complete.
+  The assessments that you can specify depend on the source and target database
+  engine and the migration type defined for the given task. To run this operation,
+  your migration task must already be created. After you run this operation, you
+  can review the status of each individual assessment. You can also run the
+  migration task manually after the assessment run and its individual assessments
+  complete.
   """
   def start_replication_task_assessment_run(client, input, options \\ []) do
     request(client, "StartReplicationTaskAssessmentRun", input, options)

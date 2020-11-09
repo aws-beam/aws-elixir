@@ -4,24 +4,26 @@
 defmodule AWS.Transfer do
   @moduledoc """
   AWS Transfer Family is a fully managed service that enables the transfer of
-  files over the File Transfer Protocol (FTP), File Transfer Protocol over
-  SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly
-  into and out of Amazon Simple Storage Service (Amazon S3). AWS helps you
-  seamlessly migrate your file transfer workflows to AWS Transfer Family by
-  integrating with existing authentication systems, and providing DNS routing
-  with Amazon Route 53 so nothing changes for your customers and partners, or
-  their applications. With your data in Amazon S3, you can use it with AWS
-  services for processing, analytics, machine learning, and archiving.
-  Getting started with AWS Transfer Family is easy since there is no
-  infrastructure to buy and set up.
+  files over the File Transfer Protocol (FTP), File Transfer Protocol over SSL
+  (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly into and
+  out of Amazon Simple Storage Service (Amazon S3).
+
+  AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer
+  Family by integrating with existing authentication systems, and providing DNS
+  routing with Amazon Route 53 so nothing changes for your customers and partners,
+  or their applications. With your data in Amazon S3, you can use it with AWS
+  services for processing, analytics, machine learning, and archiving. Getting
+  started with AWS Transfer Family is easy since there is no infrastructure to buy
+  and set up.
   """
 
   @doc """
-  Instantiates an autoscaling virtual server based on the selected file
-  transfer protocol in AWS. When you make updates to your file transfer
-  protocol-enabled server or when you work with users, use the
-  service-generated `ServerId` property that is assigned to the newly created
-  server.
+  Instantiates an autoscaling virtual server based on the selected file transfer
+  protocol in AWS.
+
+  When you make updates to your file transfer protocol-enabled server or when you
+  work with users, use the service-generated `ServerId` property that is assigned
+  to the newly created server.
   """
   def create_server(client, input, options \\ []) do
     request(client, "CreateServer", input, options)
@@ -29,13 +31,14 @@ defmodule AWS.Transfer do
 
   @doc """
   Creates a user and associates them with an existing file transfer
-  protocol-enabled server. You can only create and associate users with
-  servers that have the `IdentityProviderType` set to `SERVICE_MANAGED`.
-  Using parameters for `CreateUser`, you can specify the user name, set the
-  home directory, store the user's public key, and assign the user's AWS
-  Identity and Access Management (IAM) role. You can also optionally add a
-  scope-down policy, and assign metadata with tags that can be used to group
-  and search for users.
+  protocol-enabled server.
+
+  You can only create and associate users with servers that have the
+  `IdentityProviderType` set to `SERVICE_MANAGED`. Using parameters for
+  `CreateUser`, you can specify the user name, set the home directory, store the
+  user's public key, and assign the user's AWS Identity and Access Management
+  (IAM) role. You can also optionally add a scope-down policy, and assign metadata
+  with tags that can be used to group and search for users.
   """
   def create_user(client, input, options \\ []) do
     request(client, "CreateUser", input, options)
@@ -65,10 +68,7 @@ defmodule AWS.Transfer do
 
   No response returns from this operation.
 
-  <note> When you delete a user from a server, the user's information is
-  lost.
-
-  </note>
+  When you delete a user from a server, the user's information is lost.
   """
   def delete_user(client, input, options \\ []) do
     request(client, "DeleteUser", input, options)
@@ -76,18 +76,18 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the security policy that is attached to your file transfer
-  protocol-enabled server. The response contains a description of the
-  security policy's properties. For more information about security policies,
-  see [Working with security
-  policies](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html).
+  protocol-enabled server.
+
+  The response contains a description of the security policy's properties. For
+  more information about security policies, see [Working with security policies](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html).
   """
   def describe_security_policy(client, input, options \\ []) do
     request(client, "DescribeSecurityPolicy", input, options)
   end
 
   @doc """
-  Describes a file transfer protocol-enabled server that you specify by
-  passing the `ServerId` parameter.
+  Describes a file transfer protocol-enabled server that you specify by passing
+  the `ServerId` parameter.
 
   The response contains a description of a server's properties. When you set
   `EndpointType` to VPC, the response will contain the `EndpointDetails`.
@@ -100,8 +100,8 @@ defmodule AWS.Transfer do
   Describes the user assigned to the specific file transfer protocol-enabled
   server, as identified by its `ServerId` property.
 
-  The response from this call returns the properties of the user associated
-  with the `ServerId` value that was specified.
+  The response from this call returns the properties of the user associated with
+  the `ServerId` value that was specified.
   """
   def describe_user(client, input, options \\ []) do
     request(client, "DescribeUser", input, options)
@@ -109,11 +109,11 @@ defmodule AWS.Transfer do
 
   @doc """
   Adds a Secure Shell (SSH) public key to a user account identified by a
-  `UserName` value assigned to the specific file transfer protocol-enabled
-  server, identified by `ServerId`.
+  `UserName` value assigned to the specific file transfer protocol-enabled server,
+  identified by `ServerId`.
 
-  The response returns the `UserName` value, the `ServerId` value, and the
-  name of the `SshPublicKeyId`.
+  The response returns the `UserName` value, the `ServerId` value, and the name of
+  the `SshPublicKeyId`.
   """
   def import_ssh_public_key(client, input, options \\ []) do
     request(client, "ImportSshPublicKey", input, options)
@@ -128,8 +128,8 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Lists the file transfer protocol-enabled servers that are associated with
-  your AWS account.
+  Lists the file transfer protocol-enabled servers that are associated with your
+  AWS account.
   """
   def list_servers(client, input, options \\ []) do
     request(client, "ListServers", input, options)
@@ -137,27 +137,31 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists all of the tags associated with the Amazon Resource Number (ARN) you
-  specify. The resource can be a user, server, or role.
+  specify.
+
+  The resource can be a user, server, or role.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     request(client, "ListTagsForResource", input, options)
   end
 
   @doc """
-  Lists the users for a file transfer protocol-enabled server that you
-  specify by passing the `ServerId` parameter.
+  Lists the users for a file transfer protocol-enabled server that you specify by
+  passing the `ServerId` parameter.
   """
   def list_users(client, input, options \\ []) do
     request(client, "ListUsers", input, options)
   end
 
   @doc """
-  Changes the state of a file transfer protocol-enabled server from `OFFLINE`
-  to `ONLINE`. It has no impact on a server that is already `ONLINE`. An
-  `ONLINE` server can accept and process file transfer jobs.
+  Changes the state of a file transfer protocol-enabled server from `OFFLINE` to
+  `ONLINE`.
 
-  The state of `STARTING` indicates that the server is in an intermediate
-  state, either not fully able to respond, or not fully online. The values of
+  It has no impact on a server that is already `ONLINE`. An `ONLINE` server can
+  accept and process file transfer jobs.
+
+  The state of `STARTING` indicates that the server is in an intermediate state,
+  either not fully able to respond, or not fully online. The values of
   `START_FAILED` can indicate an error condition.
 
   No response is returned from this call.
@@ -167,17 +171,17 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Changes the state of a file transfer protocol-enabled server from `ONLINE`
-  to `OFFLINE`. An `OFFLINE` server cannot accept and process file transfer
-  jobs. Information tied to your server, such as server and user properties,
-  are not affected by stopping your server.
+  Changes the state of a file transfer protocol-enabled server from `ONLINE` to
+  `OFFLINE`.
 
-  <note> Stopping the server will not reduce or impact your file transfer
-  protocol endpoint billing; you must delete the server to stop being billed.
+  An `OFFLINE` server cannot accept and process file transfer jobs. Information
+  tied to your server, such as server and user properties, are not affected by
+  stopping your server. Stopping the server will not reduce or impact your file
+  transfer protocol endpoint billing.
 
-  </note> The state of `STOPPING` indicates that the server is in an
-  intermediate state, either not fully able to respond, or not fully offline.
-  The values of `STOP_FAILED` can indicate an error condition.
+  The state of `STOPPING` indicates that the server is in an intermediate state,
+  either not fully able to respond, or not fully offline. The values of
+  `STOP_FAILED` can indicate an error condition.
 
   No response is returned from this call.
   """
@@ -186,9 +190,10 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Attaches a key-value pair to a resource, as identified by its Amazon
-  Resource Name (ARN). Resources are users, servers, roles, and other
-  entities.
+  Attaches a key-value pair to a resource, as identified by its Amazon Resource
+  Name (ARN).
+
+  Resources are users, servers, roles, and other entities.
 
   There is no response returned from this call.
   """
@@ -198,8 +203,9 @@ defmodule AWS.Transfer do
 
   @doc """
   If the `IdentityProviderType` of a file transfer protocol-enabled server is
-  `API_Gateway`, tests whether your API Gateway is set up successfully. We
-  highly recommend that you call this operation to test your authentication
+  `API_Gateway`, tests whether your API Gateway is set up successfully.
+
+  We highly recommend that you call this operation to test your authentication
   method as soon as you create your server. By doing so, you can troubleshoot
   issues with the API Gateway integration to ensure that your users can
   successfully use the service.
@@ -209,9 +215,10 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Detaches a key-value pair from a resource, as identified by its Amazon
-  Resource Name (ARN). Resources are users, servers, roles, and other
-  entities.
+  Detaches a key-value pair from a resource, as identified by its Amazon Resource
+  Name (ARN).
+
+  Resources are users, servers, roles, and other entities.
 
   No response is returned from this call.
   """
@@ -220,8 +227,8 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Updates the file transfer protocol-enabled server's properties after that
-  server has been created.
+  Updates the file transfer protocol-enabled server's properties after that server
+  has been created.
 
   The `UpdateServer` call returns the `ServerId` of the server you updated.
   """
@@ -230,12 +237,12 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Assigns new properties to a user. Parameters you pass modify any or all of
-  the following: the home directory, role, and policy for the `UserName` and
-  `ServerId` you specify.
+  Assigns new properties to a user.
 
-  The response returns the `ServerId` and the `UserName` for the updated
-  user.
+  Parameters you pass modify any or all of the following: the home directory,
+  role, and policy for the `UserName` and `ServerId` you specify.
+
+  The response returns the `ServerId` and the `UserName` for the updated user.
   """
   def update_user(client, input, options \\ []) do
     request(client, "UpdateUser", input, options)

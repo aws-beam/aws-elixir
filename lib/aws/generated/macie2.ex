@@ -3,19 +3,21 @@
 
 defmodule AWS.Macie2 do
   @moduledoc """
-  Amazon Macie is a fully managed data security and data privacy service that
-  uses machine learning and pattern matching to discover and protect your
-  sensitive data in AWS. Macie automates the discovery of sensitive data,
-  such as PII and intellectual property, to provide you with insight into the
-  data that your organization stores in AWS. Macie also provides an inventory
-  of your Amazon S3 buckets, which it continually monitors for you. If Macie
-  detects sensitive data or potential data access issues, it generates
-  detailed findings for you to review and act upon as necessary.
+  Amazon Macie is a fully managed data security and data privacy service that uses
+  machine learning and pattern matching to discover and protect your sensitive
+  data in AWS.
+
+  Macie automates the discovery of sensitive data, such as PII and intellectual
+  property, to provide you with insight into the data that your organization
+  stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which
+  it continually monitors for you. If Macie detects sensitive data or potential
+  data access issues, it generates detailed findings for you to review and act
+  upon as necessary.
   """
 
   @doc """
-  Accepts an Amazon Macie membership invitation that was received from a
-  specific account.
+  Accepts an Amazon Macie membership invitation that was received from a specific
+  account.
   """
   def accept_invitation(client, input, options \\ []) do
     path_ = "/invitations/accept"
@@ -96,8 +98,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Declines Amazon Macie membership invitations that were received from
-  specific accounts.
+  Declines Amazon Macie membership invitations that were received from specific
+  accounts.
   """
   def decline_invitations(client, input, options \\ []) do
     path_ = "/invitations/decline"
@@ -127,8 +129,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Deletes Amazon Macie membership invitations that were received from
-  specific accounts.
+  Deletes Amazon Macie membership invitations that were received from specific
+  accounts.
   """
   def delete_invitations(client, input, options \\ []) do
     path_ = "/invitations/delete"
@@ -138,8 +140,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Deletes the association between an Amazon Macie master account and an
-  account.
+  Deletes the association between an Amazon Macie master account and an account.
   """
   def delete_member(client, id, input, options \\ []) do
     path_ = "/members/#{URI.encode(id)}"
@@ -149,8 +150,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves (queries) statistical data and other information about one or
-  more S3 buckets that Amazon Macie monitors and analyzes.
+  Retrieves (queries) statistical data and other information about one or more S3
+  buckets that Amazon Macie monitors and analyzes.
   """
   def describe_buckets(client, input, options \\ []) do
     path_ = "/datasources/s3"
@@ -160,7 +161,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the status and settings for a classification job.
+  Retrieves information about the status and settings for a classification job.
   """
   def describe_classification_job(client, job_id, options \\ []) do
     path_ = "/jobs/#{URI.encode(job_id)}"
@@ -170,7 +171,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the Amazon Macie configuration settings for an AWS organization.
+  Retrieves information about the Amazon Macie configuration settings for an AWS
+  organization.
   """
   def describe_organization_configuration(client, options \\ []) do
     path_ = "/admin/configuration"
@@ -180,8 +182,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Disables an Amazon Macie account and deletes Macie resources for the
-  account.
+  Disables an Amazon Macie account and deletes Macie resources for the account.
   """
   def disable_macie(client, input, options \\ []) do
     path_ = "/macie"
@@ -191,8 +192,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Disables an account as the delegated Amazon Macie administrator account for
-  an AWS organization.
+  Disables an account as a delegated administrator of Amazon Macie for an AWS
+  organization.
   """
   def disable_organization_admin_account(client, input, options \\ []) do
     path_ = "/admin"
@@ -237,8 +238,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Designates an account as the delegated Amazon Macie administrator account
-  for an AWS organization.
+  Enables an account as a delegated administrator of Amazon Macie for an AWS
+  organization.
   """
   def enable_organization_admin_account(client, input, options \\ []) do
     path_ = "/admin"
@@ -259,8 +260,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the configuration settings for storing data classification
-  results.
+  Retrieves the configuration settings for storing data classification results.
   """
   def get_classification_export_configuration(client, options \\ []) do
     path_ = "/classification-export-configuration"
@@ -270,7 +270,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the criteria and other settings for a custom data identifier.
+  Retrieves information about the criteria and other settings for a custom data
+  identifier.
   """
   def get_custom_data_identifier(client, id, options \\ []) do
     path_ = "/custom-data-identifiers/#{URI.encode(id)}"
@@ -290,7 +291,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the details of one or more findings.
+  Retrieves information about one or more findings.
   """
   def get_findings(client, input, options \\ []) do
     path_ = "/findings/describe"
@@ -300,7 +301,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the criteria and other settings for a findings filter.
+  Retrieves information about the criteria and other settings for a findings
+  filter.
   """
   def get_findings_filter(client, id, options \\ []) do
     path_ = "/findingsfilters/#{URI.encode(id)}"
@@ -310,8 +312,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the count of Amazon Macie membership invitations that were
-  received by an account.
+  Retrieves the count of Amazon Macie membership invitations that were received by
+  an account.
   """
   def get_invitations_count(client, options \\ []) do
     path_ = "/invitations/count"
@@ -321,8 +323,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the current status and configuration settings for an Amazon Macie
-  account.
+  Retrieves information about the current status and configuration settings for an
+  Amazon Macie account.
   """
   def get_macie_session(client, options \\ []) do
     path_ = "/macie"
@@ -342,8 +344,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about a member account that's associated with an
-  Amazon Macie master account.
+  Retrieves information about a member account that's associated with an Amazon
+  Macie master account.
   """
   def get_member(client, id, options \\ []) do
     path_ = "/members/#{URI.encode(id)}"
@@ -353,8 +355,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves (queries) quotas and aggregated usage data for one or more
-  accounts.
+  Retrieves (queries) quotas and aggregated usage data for one or more accounts.
   """
   def get_usage_statistics(client, input, options \\ []) do
     path_ = "/usage/statistics"
@@ -384,8 +385,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves a subset of information about all the custom data identifiers for
-  an account.
+  Retrieves a subset of information about all the custom data identifiers for an
+  account.
   """
   def list_custom_data_identifiers(client, input, options \\ []) do
     path_ = "/custom-data-identifiers/list"
@@ -405,8 +406,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves a subset of information about all the findings filters for an
-  account.
+  Retrieves a subset of information about all the findings filters for an account.
   """
   def list_findings_filters(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/findingsfilters"
@@ -426,8 +426,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about all the Amazon Macie membership invitations
-  that were received by an account.
+  Retrieves information about all the Amazon Macie membership invitations that
+  were received by an account.
   """
   def list_invitations(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/invitations"
@@ -473,8 +473,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about the delegated Amazon Macie administrator
-  account for an AWS organization.
+  Retrieves information about the account that's designated as the delegated
+  administrator of Amazon Macie for an AWS organization.
   """
   def list_organization_admin_accounts(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/admin"
@@ -494,9 +494,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the tags (keys and values) that are associated with a
-  classification job, custom data identifier, findings filter, or member
-  account.
+  Retrieves the tags (keys and values) that are associated with a classification
+  job, custom data identifier, findings filter, or member account.
   """
   def list_tags_for_resource(client, resource_arn, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -506,8 +505,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Creates or updates the configuration settings for storing data
-  classification results.
+  Creates or updates the configuration settings for storing data classification
+  results.
   """
   def put_classification_export_configuration(client, input, options \\ []) do
     path_ = "/classification-export-configuration"
@@ -517,9 +516,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Adds or updates one or more tags (keys and values) that are associated with
-  a classification job, custom data identifier, findings filter, or member
-  account.
+  Adds or updates one or more tags (keys and values) that are associated with a
+  classification job, custom data identifier, findings filter, or member account.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -539,8 +537,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Removes one or more tags (keys and values) from a classification job,
-  custom data identifier, findings filter, or member account.
+  Removes one or more tags (keys and values) from a classification job, custom
+  data identifier, findings filter, or member account.
   """
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -554,7 +552,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Changes the status of a classification job.
+  Cancels a classification job.
   """
   def update_classification_job(client, job_id, input, options \\ []) do
     path_ = "/jobs/#{URI.encode(job_id)}"
@@ -574,8 +572,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Suspends or re-enables an Amazon Macie account, or updates the
-  configuration settings for a Macie account.
+  Suspends or re-enables an Amazon Macie account, or updates the configuration
+  settings for a Macie account.
   """
   def update_macie_session(client, input, options \\ []) do
     path_ = "/macie"
@@ -585,8 +583,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Enables an Amazon Macie master account to suspend or re-enable a member
-  account.
+  Enables an Amazon Macie master account to suspend or re-enable a member account.
   """
   def update_member_session(client, id, input, options \\ []) do
     path_ = "/macie/members/#{URI.encode(id)}"
@@ -596,7 +593,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Updates the Amazon Macie configuration settings for an AWS organization.
+  Updates Amazon Macie configuration settings for an AWS organization.
   """
   def update_organization_configuration(client, input, options \\ []) do
     path_ = "/admin/configuration"

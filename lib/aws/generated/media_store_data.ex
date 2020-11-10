@@ -4,8 +4,10 @@
 defmodule AWS.MediaStoreData do
   @moduledoc """
   An AWS Elemental MediaStore asset is an object, similar to an object in the
-  Amazon S3 service. Objects are the fundamental entities that are stored in
-  AWS Elemental MediaStore.
+  Amazon S3 service.
+
+  Objects are the fundamental entities that are stored in AWS Elemental
+  MediaStore.
   """
 
   @doc """
@@ -50,9 +52,10 @@ defmodule AWS.MediaStoreData do
   end
 
   @doc """
-  Downloads the object at the specified path. If the object’s upload
-  availability is set to `streaming`, AWS Elemental MediaStore downloads the
-  object even if it’s still uploading the object.
+  Downloads the object at the specified path.
+
+  If the object’s upload availability is set to `streaming`, AWS Elemental
+  MediaStore downloads the object even if it’s still uploading the object.
   """
   def get_object(client, path, range \\ nil, options \\ []) do
     path_ = "/#{AWS.Util.encode_uri(path, true)}"
@@ -89,8 +92,8 @@ defmodule AWS.MediaStoreData do
   end
 
   @doc """
-  Provides a list of metadata entries about folders and objects in the
-  specified folder.
+  Provides a list of metadata entries about folders and objects in the specified
+  folder.
   """
   def list_items(client, max_results \\ nil, next_token \\ nil, path \\ nil, options \\ []) do
     path_ = "/"
@@ -115,9 +118,10 @@ defmodule AWS.MediaStoreData do
   end
 
   @doc """
-  Uploads an object to the specified path. Object sizes are limited to 25 MB
-  for standard upload availability and 10 MB for streaming upload
-  availability.
+  Uploads an object to the specified path.
+
+  Object sizes are limited to 25 MB for standard upload availability and 10 MB for
+  streaming upload availability.
   """
   def put_object(client, path, input, options \\ []) do
     path_ = "/#{AWS.Util.encode_uri(path, true)}"

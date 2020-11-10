@@ -3,8 +3,8 @@
 
 defmodule AWS.Translate do
   @moduledoc """
-  Provides translation between one source language and another of the same
-  set of languages.
+  Provides translation between one source language and another of the same set of
+  languages.
   """
 
   @doc """
@@ -31,17 +31,18 @@ defmodule AWS.Translate do
   end
 
   @doc """
-  Creates or updates a custom terminology, depending on whether or not one
-  already exists for the given terminology name. Importing a terminology with
-  the same name as an existing one will merge the terminologies based on the
-  chosen merge strategy. Currently, the only supported merge strategy is
-  OVERWRITE, and so the imported terminology will overwrite an existing
-  terminology of the same name.
+  Creates or updates a custom terminology, depending on whether or not one already
+  exists for the given terminology name.
 
-  If you import a terminology that overwrites an existing one, the new
-  terminology take up to 10 minutes to fully propagate and be available for
-  use in a translation due to cache policies with the DataPlane service that
-  performs the translations.
+  Importing a terminology with the same name as an existing one will merge the
+  terminologies based on the chosen merge strategy. Currently, the only supported
+  merge strategy is OVERWRITE, and so the imported terminology will overwrite an
+  existing terminology of the same name.
+
+  If you import a terminology that overwrites an existing one, the new terminology
+  take up to 10 minutes to fully propagate and be available for use in a
+  translation due to cache policies with the DataPlane service that performs the
+  translations.
   """
   def import_terminology(client, input, options \\ []) do
     request(client, "ImportTerminology", input, options)
@@ -62,19 +63,17 @@ defmodule AWS.Translate do
   end
 
   @doc """
-  Starts an asynchronous batch translation job. Batch translation jobs can be
-  used to translate large volumes of text across multiple documents at once.
-  For more information, see `async`.
+  Starts an asynchronous batch translation job.
 
-  Batch translation jobs can be described with the
-  `DescribeTextTranslationJob` operation, listed with the
-  `ListTextTranslationJobs` operation, and stopped with the
-  `StopTextTranslationJob` operation.
+  Batch translation jobs can be used to translate large volumes of text across
+  multiple documents at once. For more information, see `async`.
 
-  <note> Amazon Translate does not support batch translation of multiple
-  source languages at once.
+  Batch translation jobs can be described with the `DescribeTextTranslationJob`
+  operation, listed with the `ListTextTranslationJobs` operation, and stopped with
+  the `StopTextTranslationJob` operation.
 
-  </note>
+  Amazon Translate does not support batch translation of multiple source languages
+  at once.
   """
   def start_text_translation_job(client, input, options \\ []) do
     request(client, "StartTextTranslationJob", input, options)
@@ -83,23 +82,24 @@ defmodule AWS.Translate do
   @doc """
   Stops an asynchronous batch translation job that is in progress.
 
-  If the job's state is `IN_PROGRESS`, the job will be marked for termination
-  and put into the `STOP_REQUESTED` state. If the job completes before it can
-  be stopped, it is put into the `COMPLETED` state. Otherwise, the job is put
-  into the `STOPPED` state.
+  If the job's state is `IN_PROGRESS`, the job will be marked for termination and
+  put into the `STOP_REQUESTED` state. If the job completes before it can be
+  stopped, it is put into the `COMPLETED` state. Otherwise, the job is put into
+  the `STOPPED` state.
 
   Asynchronous batch translation jobs are started with the
   `StartTextTranslationJob` operation. You can use the
-  `DescribeTextTranslationJob` or `ListTextTranslationJobs` operations to get
-  a batch translation job's `JobId`.
+  `DescribeTextTranslationJob` or `ListTextTranslationJobs` operations to get a
+  batch translation job's `JobId`.
   """
   def stop_text_translation_job(client, input, options \\ []) do
     request(client, "StopTextTranslationJob", input, options)
   end
 
   @doc """
-  Translates input text from the source language to the target language. For
-  a list of available languages and language codes, see `what-is-languages`.
+  Translates input text from the source language to the target language.
+
+  For a list of available languages and language codes, see `what-is-languages`.
   """
   def translate_text(client, input, options \\ []) do
     request(client, "TranslateText", input, options)

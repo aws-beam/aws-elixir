@@ -3,10 +3,10 @@
 
 defmodule AWS.Mobile do
   @moduledoc """
-  AWS Mobile Service provides mobile app and website developers with
-  capabilities required to configure AWS resources and bootstrap their
-  developer desktop projects with the necessary SDKs, constants, tools and
-  samples to make use of those resources.
+  AWS Mobile Service provides mobile app and website developers with capabilities
+  required to configure AWS resources and bootstrap their developer desktop
+  projects with the necessary SDKs, constants, tools and samples to make use of
+  those resources.
   """
 
   @doc """
@@ -66,9 +66,8 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-  Generates customized software development kit (SDK) and or tool packages
-  used to integrate mobile web or mobile app clients with backend AWS
-  resources.
+  Generates customized software development kit (SDK) and or tool packages used to
+  integrate mobile web or mobile app clients with backend AWS resources.
   """
   def export_bundle(client, bundle_id, input, options \\ []) do
     path_ = "/bundles/#{URI.encode(bundle_id)}"
@@ -83,10 +82,10 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-  Exports project configuration to a snapshot which can be downloaded and
-  shared. Note that mobile app push credentials are encrypted in exported
-  projects, so they can only be shared successfully within the same AWS
-  account.
+  Exports project configuration to a snapshot which can be downloaded and shared.
+
+  Note that mobile app push credentials are encrypted in exported projects, so
+  they can only be shared successfully within the same AWS account.
   """
   def export_project(client, project_id, input, options \\ []) do
     path_ = "/exports/#{URI.encode(project_id)}"

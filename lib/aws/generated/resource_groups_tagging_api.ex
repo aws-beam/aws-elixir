@@ -7,398 +7,259 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   This guide describes the API operations for the resource groups tagging.
 
-  A tag is a label that you assign to an AWS resource. A tag consists of a
-  key and a value, both of which you define. For example, if you have two
-  Amazon EC2 instances, you might assign both a tag key of "Stack." But the
-  value of "Stack" might be "Testing" for one and "Production" for the other.
+  A tag is a label that you assign to an AWS resource. A tag consists of a key and
+  a value, both of which you define. For example, if you have two Amazon EC2
+  instances, you might assign both a tag key of "Stack." But the value of "Stack"
+  might be "Testing" for one and "Production" for the other.
 
-  <important> Do not store personally identifiable information (PII) or other
-  confidential or sensitive information in tags. We use tags to provide you
-  with billing and administration services. Tags are not intended to be used
-  for private or sensitive data.
+  Do not store personally identifiable information (PII) or other confidential or
+  sensitive information in tags. We use tags to provide you with billing and
+  administration services. Tags are not intended to be used for private or
+  sensitive data.
 
-  </important> Tagging can help you organize your resources and enables you
-  to simplify resource management, access management and cost allocation.
+  Tagging can help you organize your resources and enables you to simplify
+  resource management, access management and cost allocation.
 
-  You can use the resource groups tagging API operations to complete the
-  following tasks:
+  You can use the resource groups tagging API operations to complete the following
+  tasks:
 
-  <ul> <li> Tag and untag supported resources located in the specified Region
+    * Tag and untag supported resources located in the specified Region
   for the AWS account.
 
-  </li> <li> Use tag-based filters to search for resources located in the
+    * Use tag-based filters to search for resources located in the
   specified Region for the AWS account.
 
-  </li> <li> List all existing tag keys in the specified Region for the AWS
+    * List all existing tag keys in the specified Region for the AWS
   account.
 
-  </li> <li> List all existing values for the specified key in the specified
+    * List all existing values for the specified key in the specified
   Region for the AWS account.
 
-  </li> </ul> To use resource groups tagging API operations, you must add the
-  following permissions to your IAM policy:
+  To use resource groups tagging API operations, you must add the following
+  permissions to your IAM policy:
 
-  <ul> <li> `tag:GetResources`
+    * `tag:GetResources`
 
-  </li> <li> `tag:TagResources`
+    * `tag:TagResources`
 
-  </li> <li> `tag:UntagResources`
+    * `tag:UntagResources`
 
-  </li> <li> `tag:GetTagKeys`
+    * `tag:GetTagKeys`
 
-  </li> <li> `tag:GetTagValues`
+    * `tag:GetTagValues`
 
-  </li> </ul> You'll also need permissions to access the resources of
-  individual services so that you can tag and untag those resources.
+  You'll also need permissions to access the resources of individual services so
+  that you can tag and untag those resources.
 
-  For more information on IAM policies, see [Managing IAM
-  Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html)
+  For more information on IAM policies, see [Managing IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html)
   in the *IAM User Guide*.
 
   * **Services that support the Resource Groups Tagging API** *
 
-  You can use the Resource Groups Tagging API to tag resources for the
-  following AWS services.
+  You can use the Resource Groups Tagging API to tag resources for the following
+  AWS services.
 
-  <ul> <li> [Alexa for Business (a4b)](https://docs.aws.amazon.com/a4b)
+    * [Alexa for Business (a4b)](https://docs.aws.amazon.com/a4b)     * [API Gateway](https://docs.aws.amazon.com/apigateway)
 
-  </li> <li> [API Gateway](https://docs.aws.amazon.com/apigateway)
+    * [Amazon AppStream](https://docs.aws.amazon.com/appstream2)     * [AWS AppSync](https://docs.aws.amazon.com/appsync)
 
-  </li> <li> [Amazon AppStream](https://docs.aws.amazon.com/appstream2)
+    * [AWS App Mesh](https://docs.aws.amazon.com/app-mesh)     * [Amazon Athena](https://docs.aws.amazon.com/athena)
 
-  </li> <li> [AWS AppSync](https://docs.aws.amazon.com/appsync)
+    * [Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide)
 
-  </li> <li> [AWS App Mesh](https://docs.aws.amazon.com/app-mesh)
+    * [AWS Backup](https://docs.aws.amazon.com/aws-backup)     * [AWS Certificate Manager](https://docs.aws.amazon.com/acm)
 
-  </li> <li> [Amazon Athena](https://docs.aws.amazon.com/athena)
+    * [AWS Certificate Manager Private CA](https://docs.aws.amazon.com/acm)
 
-  </li> <li> [Amazon
-  Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide)
+    * [Amazon Cloud Directory](https://docs.aws.amazon.com/clouddirectory)
 
-  </li> <li> [AWS Backup](https://docs.aws.amazon.com/aws-backup)
+    * [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map)     * [AWS CloudFormation](https://docs.aws.amazon.com/cloudformation)
 
-  </li> <li> [AWS Certificate Manager](https://docs.aws.amazon.com/acm)
+    * [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront)     * [AWS CloudHSM](https://docs.aws.amazon.com/cloudhsm)
 
-  </li> <li> [AWS Certificate Manager Private
-  CA](https://docs.aws.amazon.com/acm)
-
-  </li> <li> [Amazon Cloud
-  Directory](https://docs.aws.amazon.com/clouddirectory)
-
-  </li> <li> [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map)
-
-  </li> <li> [AWS CloudFormation](https://docs.aws.amazon.com/cloudformation)
-
-  </li> <li> [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront)
-
-  </li> <li> [AWS CloudHSM](https://docs.aws.amazon.com/cloudhsm)
-
-  </li> <li> [AWS CloudTrail](https://docs.aws.amazon.com/cloudtrail)
-
-  </li> <li> [Amazon CloudWatch (alarms
+    * [AWS CloudTrail](https://docs.aws.amazon.com/cloudtrail)     * [Amazon CloudWatch (alarms
   only)](https://docs.aws.amazon.com/cloudwatch)
 
-  </li> <li> [Amazon CloudWatch
-  Events](https://docs.aws.amazon.com/cloudwatch/?id=docs_gateway#amazon-cloudwatch-events)
+    * [Amazon CloudWatch Events](https://docs.aws.amazon.com/cloudwatch/?id=docs_gateway#amazon-cloudwatch-events)
 
-  </li> <li> [Amazon CloudWatch
-  Logs](https://docs.aws.amazon.com/cloudwatch/?id=docs_gateway#amazon-cloudwatch-logs)
+    * [Amazon CloudWatch Logs](https://docs.aws.amazon.com/cloudwatch/?id=docs_gateway#amazon-cloudwatch-logs)
 
-  </li> <li> [Amazon Cloudwatch
-  Synthetics](https://docs.aws.amazon.com/cloudwatch)
+    * [Amazon Cloudwatch Synthetics](https://docs.aws.amazon.com/cloudwatch)
 
-  </li> <li> [AWS CodeBuild](https://docs.aws.amazon.com/codebuild)
+    * [AWS CodeBuild](https://docs.aws.amazon.com/codebuild)     * [AWS CodeCommit](https://docs.aws.amazon.com/codecommit)
 
-  </li> <li> [AWS CodeCommit](https://docs.aws.amazon.com/codecommit)
+    * [AWS CodeGuru Profiler](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/)
 
-  </li> <li> [AWS CodeGuru
-  Profiler](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/)
+    * [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline)     * [AWS CodeStar](https://docs.aws.amazon.com/codestar)
 
-  </li> <li> [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline)
+    * [AWS CodeStar Connections](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/)
 
-  </li> <li> [AWS CodeStar](https://docs.aws.amazon.com/codestar)
+    * [Amazon Cognito Identity](https://docs.aws.amazon.com/cognito)     * [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito)
 
-  </li> <li> [AWS CodeStar
-  Connections](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/)
+    * [Amazon Comprehend](https://docs.aws.amazon.com/comprehend)     * [AWS Config](https://docs.aws.amazon.com/config)
 
-  </li> <li> [Amazon Cognito Identity](https://docs.aws.amazon.com/cognito)
+    * [Amazon Connect](http://aws.amazon.com/connect/resources/?whats-new-cards#Documentation)
 
-  </li> <li> [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito)
+    * [AWS Data Exchange](https://docs.aws.amazon.com/data-exchange)     * [AWS Data Pipeline](https://docs.aws.amazon.com/data-pipeline)
 
-  </li> <li> [Amazon Comprehend](https://docs.aws.amazon.com/comprehend)
+    * [AWS Database Migration Service](https://docs.aws.amazon.com/dms)     * [AWS DataSync](https://docs.aws.amazon.com/datasync)
 
-  </li> <li> [AWS Config](https://docs.aws.amazon.com/config)
+    * [AWS Device Farm](https://docs.aws.amazon.com/devicefarm)     * [AWS Direct Connect](https://docs.aws.amazon.com/directconnect)
 
-  </li> <li> [Amazon
-  Connect](http://aws.amazon.com/connect/resources/?whats-new-cards#Documentation)
+    * [AWS Directory Service](https://docs.aws.amazon.com/directory-service)
 
-  </li> <li> [AWS Data Exchange](https://docs.aws.amazon.com/data-exchange)
+    * [Amazon DynamoDB](https://docs.aws.amazon.com/dynamodb)     * [Amazon EBS](https://docs.aws.amazon.com/ebs)
 
-  </li> <li> [AWS Data Pipeline](https://docs.aws.amazon.com/data-pipeline)
+    * [Amazon EC2](https://docs.aws.amazon.com/ec2)     * [EC2 Image Builder](https://docs.aws.amazon.com/imagebuilder)
 
-  </li> <li> [AWS Database Migration
-  Service](https://docs.aws.amazon.com/dms)
+    * [Amazon ECR](https://docs.aws.amazon.com/ecr)     * [Amazon ECS](https://docs.aws.amazon.com/ecs)
 
-  </li> <li> [AWS DataSync](https://docs.aws.amazon.com/datasync)
-
-  </li> <li> [AWS Device Farm](https://docs.aws.amazon.com/devicefarm)
-
-  </li> <li> [AWS Direct Connect](https://docs.aws.amazon.com/directconnect)
-
-  </li> <li> [AWS Directory
-  Service](https://docs.aws.amazon.com/directory-service)
-
-  </li> <li> [Amazon DynamoDB](https://docs.aws.amazon.com/dynamodb)
-
-  </li> <li> [Amazon EBS](https://docs.aws.amazon.com/ebs)
-
-  </li> <li> [Amazon EC2](https://docs.aws.amazon.com/ec2)
-
-  </li> <li> [EC2 Image Builder](https://docs.aws.amazon.com/imagebuilder)
-
-  </li> <li> [Amazon ECR](https://docs.aws.amazon.com/ecr)
-
-  </li> <li> [Amazon ECS](https://docs.aws.amazon.com/ecs)
-
-  </li> <li> [Amazon EKS](https://docs.aws.amazon.com/eks)
-
-  </li> <li> [AWS Elastic
+    * [Amazon EKS](https://docs.aws.amazon.com/eks)     * [AWS Elastic
   Beanstalk](https://docs.aws.amazon.com/elastic-beanstalk)
 
-  </li> <li> [Amazon Elastic File System](https://docs.aws.amazon.com/efs)
-
-  </li> <li> [Elastic Load
+    * [Amazon Elastic File System](https://docs.aws.amazon.com/efs)     * [Elastic Load
   Balancing](https://docs.aws.amazon.com/elasticloadbalancing)
 
-  </li> <li> [Amazon Elastic
-  Inference](https://docs.aws.amazon.com/elastic-inference)
+    * [Amazon Elastic Inference](https://docs.aws.amazon.com/elastic-inference)
 
-  </li> <li> [Amazon ElastiCache](https://docs.aws.amazon.com/elasticache)
-
-  </li> <li> [Amazon Elasticsearch
+    * [Amazon ElastiCache](https://docs.aws.amazon.com/elasticache)     * [Amazon Elasticsearch
   Service](https://docs.aws.amazon.com/elasticsearch-service)
 
-  </li> <li> [AWS Elemental MediaLive](https://docs.aws.amazon.com/medialive)
-
-  </li> <li> [AWS Elemental
+    * [AWS Elemental MediaLive](https://docs.aws.amazon.com/medialive)     * [AWS Elemental
   MediaPackage](https://docs.aws.amazon.com/mediapackage)
 
-  </li> <li> [AWS Elemental MediaPackage
-  VoD](https://docs.aws.amazon.com/mediapackage)
+    * [AWS Elemental MediaPackage VoD](https://docs.aws.amazon.com/mediapackage)
 
-  </li> <li> [AWS Elemental
-  MediaTailor](https://docs.aws.amazon.com/mediatailor)
+    * [AWS Elemental MediaTailor](https://docs.aws.amazon.com/mediatailor)
 
-  </li> <li> [Amazon EMR](https://docs.aws.amazon.com/emr)
-
-  </li> <li> [Amazon EventBridge
+    * [Amazon EMR](https://docs.aws.amazon.com/emr)     * [Amazon EventBridge
   Schema](https://docs.aws.amazon.com/eventbridge)
 
-  </li> <li> [AWS Firewall
-  Manager](https://docs.aws.amazon.com/firewall-manager)
+    * [AWS Firewall Manager](https://docs.aws.amazon.com/firewall-manager)
 
-  </li> <li> [Amazon Forecast](https://docs.aws.amazon.com/forecast)
+    * [Amazon Forecast](https://docs.aws.amazon.com/forecast)     * [Amazon Fraud Detector](https://docs.aws.amazon.com/frauddetector)
 
-  </li> <li> [Amazon Fraud
-  Detector](https://docs.aws.amazon.com/frauddetector)
-
-  </li> <li> [Amazon FSx](https://docs.aws.amazon.com/fsx)
-
-  </li> <li> [Amazon S3
+    * [Amazon FSx](https://docs.aws.amazon.com/fsx)     * [Amazon S3
   Glacier](https://docs.aws.amazon.com/s3/?id=docs_gateway#amazon-s3-glacier)
 
-  </li> <li> [AWS Global
-  Accelerator](https://docs.aws.amazon.com/global-accelerator)
+    * [AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator)
 
-  </li> <li> [AWS Ground Station](https://docs.aws.amazon.com/ground-station)
+    * [AWS Ground Station](https://docs.aws.amazon.com/ground-station)     * [AWS Glue](https://docs.aws.amazon.com/glue)
 
-  </li> <li> [AWS Glue](https://docs.aws.amazon.com/glue)
+    * [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty)     * [Amazon Inspector](https://docs.aws.amazon.com/inspector)
 
-  </li> <li> [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty)
+    * [Amazon Interactive Video Service](https://docs.aws.amazon.com/ivs)
 
-  </li> <li> [Amazon Inspector](https://docs.aws.amazon.com/inspector)
+    * [AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics)     * [AWS IoT Core](https://docs.aws.amazon.com/iot)
 
-  </li> <li> [Amazon Interactive Video
-  Service](https://docs.aws.amazon.com/ivs)
+    * [AWS IoT Device Defender](https://docs.aws.amazon.com/iot-device-defender)
 
-  </li> <li> [AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics)
+    * [AWS IoT Device Management](https://docs.aws.amazon.com/iot-device-management)
 
-  </li> <li> [AWS IoT Core](https://docs.aws.amazon.com/iot)
+    * [AWS IoT Events](https://docs.aws.amazon.com/iotevents)     * [AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass)
 
-  </li> <li> [AWS IoT Device
-  Defender](https://docs.aws.amazon.com/iot-device-defender)
+    * [AWS IoT 1-Click](https://docs.aws.amazon.com/iot-1-click)     * [AWS IoT Sitewise](https://docs.aws.amazon.com/iot-sitewise)
 
-  </li> <li> [AWS IoT Device
-  Management](https://docs.aws.amazon.com/iot-device-management)
+    * [AWS IoT Things Graph](https://docs.aws.amazon.com/thingsgraph)     * [Amazon Kendra](https://docs.aws.amazon.com/kendra)
 
-  </li> <li> [AWS IoT Events](https://docs.aws.amazon.com/iotevents)
+    * [AWS Key Management Service](https://docs.aws.amazon.com/kms)     * [Amazon Kinesis](https://docs.aws.amazon.com/kinesis)
 
-  </li> <li> [AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass)
+    * [Amazon Kinesis Data Analytics](https://docs.aws.amazon.com/kinesis/?id=docs_gateway#amazon-kinesis-data-analytics)
 
-  </li> <li> [AWS IoT 1-Click](https://docs.aws.amazon.com/iot-1-click)
+    * [Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/kinesis/?id=docs_gateway#amazon-kinesis-data-firehose)
 
-  </li> <li> [AWS IoT Sitewise](https://docs.aws.amazon.com/iot-sitewise)
+    * [AWS Lambda](https://docs.aws.amazon.com/lambda)     * [Amazon Lex](https://docs.aws.amazon.com/lex)
 
-  </li> <li> [AWS IoT Things Graph](https://docs.aws.amazon.com/thingsgraph)
+    * [AWS License Manager](https://docs.aws.amazon.com/license-manager)     * [Amazon Lightsail](https://docs.aws.amazon.com/lightsail)
 
-  </li> <li> [Amazon Kendra](https://docs.aws.amazon.com/kendra)
-
-  </li> <li> [AWS Key Management Service](https://docs.aws.amazon.com/kms)
-
-  </li> <li> [Amazon Kinesis](https://docs.aws.amazon.com/kinesis)
-
-  </li> <li> [Amazon Kinesis Data
-  Analytics](https://docs.aws.amazon.com/kinesis/?id=docs_gateway#amazon-kinesis-data-analytics)
-
-  </li> <li> [Amazon Kinesis Data
-  Firehose](https://docs.aws.amazon.com/kinesis/?id=docs_gateway#amazon-kinesis-data-firehose)
-
-  </li> <li> [AWS Lambda](https://docs.aws.amazon.com/lambda)
-
-  </li> <li> [Amazon Lex](https://docs.aws.amazon.com/lex)
-
-  </li> <li> [AWS License
-  Manager](https://docs.aws.amazon.com/license-manager)
-
-  </li> <li> [Amazon Lightsail](https://docs.aws.amazon.com/lightsail)
-
-  </li> <li> [Amazon Macie](https://docs.aws.amazon.com/macie)
-
-  </li> <li> [Amazon Machine
+    * [Amazon Macie](https://docs.aws.amazon.com/macie)     * [Amazon Machine
   Learning](https://docs.aws.amazon.com/machine-learning)
 
-  </li> <li> [Amazon MQ](https://docs.aws.amazon.com/amazon-mq)
+    * [Amazon MQ](https://docs.aws.amazon.com/amazon-mq)     * [Amazon MSK](https://docs.aws.amazon.com/msk)
 
-  </li> <li> [Amazon MSK](https://docs.aws.amazon.com/msk)
+    * [Amazon MSK](https://docs.aws.amazon.com/msk)     * [Amazon Neptune](https://docs.aws.amazon.com/neptune)
 
-  </li> <li> [Amazon MSK](https://docs.aws.amazon.com/msk)
+    * [AWS Network Manager](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)
 
-  </li> <li> [Amazon Neptune](https://docs.aws.amazon.com/neptune)
+    * [AWS OpsWorks](https://docs.aws.amazon.com/opsworks)     * [AWS OpsWorks CM](https://docs.aws.amazon.com/opsworks)
 
-  </li> <li> [AWS Network
-  Manager](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html)
+    * [AWS Organizations](https://docs.aws.amazon.com/organizations)     * [Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint)
 
-  </li> <li> [AWS OpsWorks](https://docs.aws.amazon.com/opsworks)
+    * [Amazon Quantum Ledger Database (QLDB)](https://docs.aws.amazon.com/qldb)
 
-  </li> <li> [AWS OpsWorks CM](https://docs.aws.amazon.com/opsworks)
+    * [Amazon RDS](https://docs.aws.amazon.com/rds)     * [Amazon Redshift](https://docs.aws.amazon.com/redshift)
 
-  </li> <li> [AWS Organizations](https://docs.aws.amazon.com/organizations)
+    * [AWS Resource Access Manager](https://docs.aws.amazon.com/ram)     * [AWS Resource Groups](https://docs.aws.amazon.com/ARG)
 
-  </li> <li> [Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint)
+    * [AWS RoboMaker](https://docs.aws.amazon.com/robomaker)     * [Amazon Route 53](https://docs.aws.amazon.com/route53)
 
-  </li> <li> [Amazon Quantum Ledger Database
-  (QLDB)](https://docs.aws.amazon.com/qldb)
+    * [Amazon Route 53 Resolver](https://docs.aws.amazon.com/route53)     * [Amazon S3 (buckets only)](https://docs.aws.amazon.com/s3)
 
-  </li> <li> [Amazon RDS](https://docs.aws.amazon.com/rds)
+    * [Amazon SageMaker](https://docs.aws.amazon.com/sagemaker)     * [Savings Plans](https://docs.aws.amazon.com/savingsplans)
 
-  </li> <li> [Amazon Redshift](https://docs.aws.amazon.com/redshift)
+    * [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager)     * [AWS Security Hub](https://docs.aws.amazon.com/securityhub)
 
-  </li> <li> [AWS Resource Access Manager](https://docs.aws.amazon.com/ram)
-
-  </li> <li> [AWS Resource Groups](https://docs.aws.amazon.com/ARG)
-
-  </li> <li> [AWS RoboMaker](https://docs.aws.amazon.com/robomaker)
-
-  </li> <li> [Amazon Route 53](https://docs.aws.amazon.com/route53)
-
-  </li> <li> [Amazon Route 53 Resolver](https://docs.aws.amazon.com/route53)
-
-  </li> <li> [Amazon S3 (buckets only)](https://docs.aws.amazon.com/s3)
-
-  </li> <li> [Amazon SageMaker](https://docs.aws.amazon.com/sagemaker)
-
-  </li> <li> [Savings Plans](https://docs.aws.amazon.com/savingsplans)
-
-  </li> <li> [AWS Secrets
-  Manager](https://docs.aws.amazon.com/secretsmanager)
-
-  </li> <li> [AWS Security Hub](https://docs.aws.amazon.com/securityhub)
-
-  </li> <li> [AWS Service
-  Catalog](https://docs.aws.amazon.com/servicecatalog)
-
-  </li> <li> [Amazon Simple Email Service
+    * [AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog)     * [Amazon Simple Email Service
   (SES)](https://docs.aws.amazon.com/ses)
 
-  </li> <li> [Amazon Simple Notification Service
-  (SNS)](https://docs.aws.amazon.com/sns)
+    * [Amazon Simple Notification Service (SNS)](https://docs.aws.amazon.com/sns)
 
-  </li> <li> [Amazon Simple Queue Service
-  (SQS)](https://docs.aws.amazon.com/sqs)
+    * [Amazon Simple Queue Service (SQS)](https://docs.aws.amazon.com/sqs)
 
-  </li> <li> [Amazon Simple Workflow
-  Service](https://docs.aws.amazon.com/swf)
+    * [Amazon Simple Workflow Service](https://docs.aws.amazon.com/swf)     * [AWS Step Functions](https://docs.aws.amazon.com/step-functions)
 
-  </li> <li> [AWS Step Functions](https://docs.aws.amazon.com/step-functions)
+    * [AWS Storage Gateway](https://docs.aws.amazon.com/storagegateway)     * [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager)
 
-  </li> <li> [AWS Storage
-  Gateway](https://docs.aws.amazon.com/storagegateway)
+    * [AWS Transfer for SFTP](https://docs.aws.amazon.com/transfer)     * [Amazon VPC](https://docs.aws.amazon.com/vpc)
 
-  </li> <li> [AWS Systems
-  Manager](https://docs.aws.amazon.com/systems-manager)
+    * [AWS WAF](https://docs.aws.amazon.com/waf)     * [AWS WAF Regional](https://docs.aws.amazon.com/waf)
 
-  </li> <li> [AWS Transfer for SFTP](https://docs.aws.amazon.com/transfer)
-
-  </li> <li> [Amazon VPC](https://docs.aws.amazon.com/vpc)
-
-  </li> <li> [AWS WAF](https://docs.aws.amazon.com/waf)
-
-  </li> <li> [AWS WAF Regional](https://docs.aws.amazon.com/waf)
-
-  </li> <li> [Amazon WorkLink](https://docs.aws.amazon.com/worklink)
-
-  </li> <li> [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces)
-
-  </li> </ul>
+    * [Amazon WorkLink](https://docs.aws.amazon.com/worklink)     * [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces)
   """
 
   @doc """
   Describes the status of the `StartReportCreation` operation.
 
-  You can call this operation only from the organization's master account and
-  from the us-east-1 Region.
+  You can call this operation only from the organization's master account and from
+  the us-east-1 Region.
   """
   def describe_report_creation(client, input, options \\ []) do
     request(client, "DescribeReportCreation", input, options)
   end
 
   @doc """
-  Returns a table that shows counts of resources that are noncompliant with
-  their tag policies.
+  Returns a table that shows counts of resources that are noncompliant with their
+  tag policies.
 
-  For more information on tag policies, see [Tag
-  Policies](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
+  For more information on tag policies, see [Tag Policies](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
   in the *AWS Organizations User Guide.*
 
-  You can call this operation only from the organization's master account and
-  from the us-east-1 Region.
+  You can call this operation only from the organization's master account and from
+  the us-east-1 Region.
   """
   def get_compliance_summary(client, input, options \\ []) do
     request(client, "GetComplianceSummary", input, options)
   end
 
   @doc """
-  Returns all the tagged or previously tagged resources that are located in
-  the specified Region for the AWS account.
+  Returns all the tagged or previously tagged resources that are located in the
+  specified Region for the AWS account.
 
   Depending on what information you want returned, you can also specify the
   following:
 
-  <ul> <li> *Filters* that specify what tags and resource types you want
-  returned. The response includes all tags that are associated with the
-  requested resources.
+    * *Filters* that specify what tags and resource types you want
+  returned. The response includes all tags that are associated with the requested
+  resources.
 
-  </li> <li> Information about compliance with the account's effective tag
-  policy. For more information on tag policies, see [Tag
-  Policies](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
+    * Information about compliance with the account's effective tag
+  policy. For more information on tag policies, see [Tag Policies](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
   in the *AWS Organizations User Guide.*
 
-  </li> </ul> <note> You can check the `PaginationToken` response parameter
-  to determine if a query is complete. Queries occasionally return fewer
-  results on a page than allowed. The `PaginationToken` response parameter
-  value is `null` *only* when there are no more results to display.
-
-  </note>
+  You can check the `PaginationToken` response parameter to determine if a query
+  is complete. Queries occasionally return fewer results on a page than allowed.
+  The `PaginationToken` response parameter value is `null` *only* when there are
+  no more results to display.
   """
   def get_resources(client, input, options \\ []) do
     request(client, "GetResources", input, options)
@@ -412,8 +273,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   end
 
   @doc """
-  Returns all tag values for the specified key in the specified Region for
-  the AWS account.
+  Returns all tag values for the specified key in the specified Region for the AWS
+  account.
   """
   def get_tag_values(client, input, options \\ []) do
     request(client, "GetTagValues", input, options)
@@ -421,66 +282,63 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   @doc """
   Generates a report that lists all tagged resources in accounts across your
-  organization and tells whether each resource is compliant with the
-  effective tag policy. Compliance data is refreshed daily.
+  organization and tells whether each resource is compliant with the effective tag
+  policy.
+
+  Compliance data is refreshed daily.
 
   The generated report is saved to the following location:
 
   `s3://example-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv`
 
-  You can call this operation only from the organization's master account and
-  from the us-east-1 Region.
+  You can call this operation only from the organization's master account and from
+  the us-east-1 Region.
   """
   def start_report_creation(client, input, options \\ []) do
     request(client, "StartReportCreation", input, options)
   end
 
   @doc """
-  Applies one or more tags to the specified resources. Note the following:
+  Applies one or more tags to the specified resources.
 
-  <ul> <li> Not all resources can have tags. For a list of services that
-  support tagging, see [this
-  list](http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html).
+  Note the following:
 
-  </li> <li> Each resource can have up to 50 tags. For other limits, see [Tag
-  Naming and Usage
+    * Not all resources can have tags. For a list of services that
+  support tagging, see [this list](http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html).
+
+    * Each resource can have up to 50 tags. For other limits, see [Tag Naming and Usage
   Conventions](http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions)
   in the *AWS General Reference.*
 
-  </li> <li> You can only tag resources that are located in the specified
+    * You can only tag resources that are located in the specified
   Region for the AWS account.
 
-  </li> <li> To add tags to a resource, you need the necessary permissions
-  for the service that the resource belongs to as well as permissions for
-  adding tags. For more information, see [this
-  list](http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html).
+    * To add tags to a resource, you need the necessary permissions for
+  the service that the resource belongs to as well as permissions for adding tags.
+  For more information, see [this list](http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html).
 
-  </li> </ul> <important> Do not store personally identifiable information
-  (PII) or other confidential or sensitive information in tags. We use tags
-  to provide you with billing and administration services. Tags are not
-  intended to be used for private or sensitive data.
-
-  </important>
+  Do not store personally identifiable information (PII) or other confidential or
+  sensitive information in tags. We use tags to provide you with billing and
+  administration services. Tags are not intended to be used for private or
+  sensitive data.
   """
   def tag_resources(client, input, options \\ []) do
     request(client, "TagResources", input, options)
   end
 
   @doc """
-  Removes the specified tags from the specified resources. When you specify a
-  tag key, the action removes both that key and its associated value. The
-  operation succeeds even if you attempt to remove tags from a resource that
-  were already removed. Note the following:
+  Removes the specified tags from the specified resources.
 
-  <ul> <li> To remove tags from a resource, you need the necessary
-  permissions for the service that the resource belongs to as well as
-  permissions for removing tags. For more information, see [this
-  list](http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html).
+  When you specify a tag key, the action removes both that key and its associated
+  value. The operation succeeds even if you attempt to remove tags from a resource
+  that were already removed. Note the following:
 
-  </li> <li> You can only tag resources that are located in the specified
+    * To remove tags from a resource, you need the necessary permissions
+  for the service that the resource belongs to as well as permissions for removing
+  tags. For more information, see [this list](http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html).
+
+    * You can only tag resources that are located in the specified
   Region for the AWS account.
-
-  </li> </ul>
   """
   def untag_resources(client, input, options \\ []) do
     request(client, "UntagResources", input, options)

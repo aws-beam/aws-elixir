@@ -7,17 +7,18 @@ defmodule AWS.Transcribe do
   """
 
   @doc """
-  Creates a new custom language model. Use Amazon S3 prefixes to provide the
-  location of your input files. The time it takes to create your model
-  depends on the size of your training data.
+  Creates a new custom language model.
+
+  Use Amazon S3 prefixes to provide the location of your input files. The time it
+  takes to create your model depends on the size of your training data.
   """
   def create_language_model(client, input, options \\ []) do
     request(client, "CreateLanguageModel", input, options)
   end
 
   @doc """
-  Creates a new custom vocabulary that you can use to change how Amazon
-  Transcribe Medical transcribes your audio file.
+  Creates a new custom vocabulary that you can use to change how Amazon Transcribe
+  Medical transcribes your audio file.
   """
   def create_medical_vocabulary(client, input, options \\ []) do
     request(client, "CreateMedicalVocabulary", input, options)
@@ -62,8 +63,8 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Deletes a previously submitted transcription job along with any other
-  generated results such as the transcription, models, and so on.
+  Deletes a previously submitted transcription job along with any other generated
+  results such as the transcription, models, and so on.
   """
   def delete_transcription_job(client, input, options \\ []) do
     request(client, "DeleteTranscriptionJob", input, options)
@@ -84,23 +85,25 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Gets information about a single custom language model. Use this information
-  to see details about the language model in your AWS account. You can also
-  see whether the base language model used to create your custom language
-  model has been updated. If Amazon Transcribe has updated the base model,
-  you can create a new custom language model using the updated base model. If
-  the language model wasn't created, you can use this operation to understand
-  why Amazon Transcribe couldn't create it.
+  Gets information about a single custom language model.
+
+  Use this information to see details about the language model in your AWS
+  account. You can also see whether the base language model used to create your
+  custom language model has been updated. If Amazon Transcribe has updated the
+  base model, you can create a new custom language model using the updated base
+  model. If the language model wasn't created, you can use this operation to
+  understand why Amazon Transcribe couldn't create it.
   """
   def describe_language_model(client, input, options \\ []) do
     request(client, "DescribeLanguageModel", input, options)
   end
 
   @doc """
-  Returns information about a transcription job from Amazon Transcribe
-  Medical. To see the status of the job, check the `TranscriptionJobStatus`
-  field. If the status is `COMPLETED`, the job is finished. You find the
-  results of the completed job in the `TranscriptFileUri` field.
+  Returns information about a transcription job from Amazon Transcribe Medical.
+
+  To see the status of the job, check the `TranscriptionJobStatus` field. If the
+  status is `COMPLETED`, the job is finished. You find the results of the
+  completed job in the `TranscriptFileUri` field.
   """
   def get_medical_transcription_job(client, input, options \\ []) do
     request(client, "GetMedicalTranscriptionJob", input, options)
@@ -114,9 +117,10 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Returns information about a transcription job. To see the status of the
-  job, check the `TranscriptionJobStatus` field. If the status is
-  `COMPLETED`, the job is finished and you can find the results at the
+  Returns information about a transcription job.
+
+  To see the status of the job, check the `TranscriptionJobStatus` field. If the
+  status is `COMPLETED`, the job is finished and you can find the results at the
   location specified in the `TranscriptFileUri` field. If you enable content
   redaction, the redacted transcript appears in `RedactedTranscriptFileUri`.
   """
@@ -140,6 +144,7 @@ defmodule AWS.Transcribe do
 
   @doc """
   Provides more information about the custom language models you've created.
+
   You can use the information in this list to find a specific custom language
   model. You can then use the operation to get more information about it.
   """
@@ -156,8 +161,9 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Returns a list of vocabularies that match the specified criteria. If you
-  don't enter a value in any of the request parameters, returns the entire
+  Returns a list of vocabularies that match the specified criteria.
+
+  If you don't enter a value in any of the request parameters, returns the entire
   list of vocabularies.
   """
   def list_medical_vocabularies(client, input, options \\ []) do
@@ -172,8 +178,9 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Returns a list of vocabularies that match the specified criteria. If no
-  criteria are specified, returns the entire list of vocabularies.
+  Returns a list of vocabularies that match the specified criteria.
+
+  If no criteria are specified, returns the entire list of vocabularies.
   """
   def list_vocabularies(client, input, options \\ []) do
     request(client, "ListVocabularies", input, options)
@@ -201,9 +208,10 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Updates a vocabulary with new values that you provide in a different text
-  file from the one you used to create the vocabulary. The
-  `UpdateMedicalVocabulary` operation overwrites all of the existing
+  Updates a vocabulary with new values that you provide in a different text file
+  from the one you used to create the vocabulary.
+
+  The `UpdateMedicalVocabulary` operation overwrites all of the existing
   information with the values that you provide in the request.
   """
   def update_medical_vocabulary(client, input, options \\ []) do
@@ -211,9 +219,10 @@ defmodule AWS.Transcribe do
   end
 
   @doc """
-  Updates an existing vocabulary with new values. The `UpdateVocabulary`
-  operation overwrites all of the existing information with the values that
-  you provide in the request.
+  Updates an existing vocabulary with new values.
+
+  The `UpdateVocabulary` operation overwrites all of the existing information with
+  the values that you provide in the request.
   """
   def update_vocabulary(client, input, options \\ []) do
     request(client, "UpdateVocabulary", input, options)

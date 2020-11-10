@@ -6,18 +6,19 @@ defmodule AWS.CloudDirectory do
   Amazon Cloud Directory
 
   Amazon Cloud Directory is a component of the AWS Directory Service that
-  simplifies the development and management of cloud-scale web, mobile, and
-  IoT applications. This guide describes the Cloud Directory operations that
-  you can call programmatically and includes detailed information on data
-  types and errors. For information about Cloud Directory features, see [AWS
-  Directory Service](https://aws.amazon.com/directoryservice/) and the
-  [Amazon Cloud Directory Developer
+  simplifies the development and management of cloud-scale web, mobile, and IoT
+  applications.
+
+  This guide describes the Cloud Directory operations that you can call
+  programmatically and includes detailed information on data types and errors. For
+  information about Cloud Directory features, see [AWS Directory Service](https://aws.amazon.com/directoryservice/) and the [Amazon Cloud Directory Developer
   Guide](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/what_is_cloud_directory.html).
   """
 
   @doc """
-  Adds a new `Facet` to an object. An object can have more than one facet
-  applied on it.
+  Adds a new `Facet` to an object.
+
+  An object can have more than one facet applied on it.
   """
   def add_facet_to_object(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/object/facets"
@@ -46,14 +47,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Attaches an existing object to another object. An object can be accessed in
-  two ways:
+  Attaches an existing object to another object.
 
-  <ol> <li> Using the path
+  An object can be accessed in two ways:
 
-  </li> <li> Using `ObjectIdentifier`
+    1. Using the path
 
-  </li> </ol>
+    2. Using `ObjectIdentifier`
   """
   def attach_object(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/object/attach"
@@ -67,8 +67,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Attaches a policy object to a regular object. An object can have a limited
-  number of attached policies.
+  Attaches a policy object to a regular object.
+
+  An object can have a limited number of attached policies.
   """
   def attach_policy(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/policy/attach"
@@ -96,9 +97,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Attaches a typed link to a specified source and target object. For more
-  information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Attaches a typed link to a specified source and target object.
+
+  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def attach_typed_link(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/attach"
@@ -127,8 +128,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Performs all the write operations in a batch. Either all the operations
-  succeed or none.
+  Performs all the write operations in a batch.
+
+  Either all the operations succeed or none.
   """
   def batch_write(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/batchwrite"
@@ -142,12 +144,12 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates a `Directory` by copying the published schema into the directory. A
-  directory cannot be created without a schema.
+  Creates a `Directory` by copying the published schema into the directory.
+
+  A directory cannot be created without a schema.
 
   You can also quickly create a directory using a managed schema, called the
-  `QuickStartSchema`. For more information, see [Managed
-  Schema](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html)
+  `QuickStartSchema`. For more information, see [Managed Schema](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html)
   in the *Amazon Cloud Directory Developer Guide*.
   """
   def create_directory(client, input, options \\ []) do
@@ -162,8 +164,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates a new `Facet` in a schema. Facet creation is allowed only in
-  development or applied schemas.
+  Creates a new `Facet` in a schema.
+
+  Facet creation is allowed only in development or applied schemas.
   """
   def create_facet(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/facet/create"
@@ -177,8 +180,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates an index object. See [Indexing and
-  search](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html)
+  Creates an index object.
+
+  See [Indexing and search](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html)
   for more information.
   """
   def create_index(client, input, options \\ []) do
@@ -193,11 +197,12 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates an object in a `Directory`. Additionally attaches the object to a
-  parent, if a parent reference and `LinkName` is specified. An object is
-  simply a collection of `Facet` attributes. You can also use this API call
-  to create a policy object, if the facet from which you create the object is
-  a policy facet.
+  Creates an object in a `Directory`.
+
+  Additionally attaches the object to a parent, if a parent reference and
+  `LinkName` is specified. An object is simply a collection of `Facet` attributes.
+  You can also use this API call to create a policy object, if the facet from
+  which you create the object is a policy facet.
   """
   def create_object(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/object"
@@ -211,22 +216,20 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates a new schema in a development state. A schema can exist in three
-  phases:
+  Creates a new schema in a development state.
 
-  <ul> <li> *Development:* This is a mutable phase of the schema. All new
-  schemas are in the development phase. Once the schema is finalized, it can
-  be published.
+  A schema can exist in three phases:
 
-  </li> <li> *Published:* Published schemas are immutable and have a version
+    * *Development:* This is a mutable phase of the schema. All new
+  schemas are in the development phase. Once the schema is finalized, it can be
+  published.
+
+    * *Published:* Published schemas are immutable and have a version
   associated with them.
 
-  </li> <li> *Applied:* Applied schemas are mutable in a way that allows you
-  to add new schema facets. You can also add new, nonrequired attributes to
-  existing schema facets. You can apply only published schemas to
-  directories.
-
-  </li> </ul>
+    * *Applied:* Applied schemas are mutable in a way that allows you to
+  add new schema facets. You can also add new, nonrequired attributes to existing
+  schema facets. You can apply only published schemas to directories.
   """
   def create_schema(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/create"
@@ -236,8 +239,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates a `TypedLinkFacet`. For more information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Creates a `TypedLinkFacet`.
+
+  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def create_typed_link_facet(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
@@ -251,9 +255,10 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes a directory. Only disabled directories can be deleted. A deleted
-  directory cannot be undone. Exercise extreme caution when deleting
-  directories.
+  Deletes a directory.
+
+  Only disabled directories can be deleted. A deleted directory cannot be undone.
+  Exercise extreme caution when deleting directories.
   """
   def delete_directory(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/directory"
@@ -267,9 +272,10 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes a given `Facet`. All attributes and `Rule`s that are associated
-  with the facet will be deleted. Only development schema facets are allowed
-  deletion.
+  Deletes a given `Facet`.
+
+  All attributes and `Rule`s that are associated with the facet will be deleted.
+  Only development schema facets are allowed deletion.
   """
   def delete_facet(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/facet/delete"
@@ -283,11 +289,11 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes an object and its associated attributes. Only objects with no
-  children and no parents can be deleted. The maximum number of attributes
-  that can be deleted during an object deletion is 30. For more information,
-  see [Amazon Cloud Directory
-  Limits](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html).
+  Deletes an object and its associated attributes.
+
+  Only objects with no children and no parents can be deleted. The maximum number
+  of attributes that can be deleted during an object deletion is 30. For more
+  information, see [Amazon Cloud Directory Limits](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html).
   """
   def delete_object(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/object/delete"
@@ -301,8 +307,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes a given schema. Schemas in a development and published state can
-  only be deleted.
+  Deletes a given schema.
+
+  Schemas in a development and published state can only be deleted.
   """
   def delete_schema(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema"
@@ -316,8 +323,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes a `TypedLinkFacet`. For more information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Deletes a `TypedLinkFacet`.
+
+  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def delete_typed_link_facet(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
@@ -345,8 +353,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Detaches a given object from the parent object. The object that is to be
-  detached from the parent is specified by the link name.
+  Detaches a given object from the parent object.
+
+  The object that is to be detached from the parent is specified by the link name.
   """
   def detach_object(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/object/detach"
@@ -374,9 +383,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Detaches a typed link from a specified source and target object. For more
-  information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Detaches a typed link from a specified source and target object.
+
+  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def detach_typed_link(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/detach"
@@ -390,9 +399,10 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Disables the specified directory. Disabled directories cannot be read or
-  written to. Only enabled directories can be disabled. Disabled directories
-  may be reenabled.
+  Disables the specified directory.
+
+  Disabled directories cannot be read or written to. Only enabled directories can
+  be disabled. Disabled directories may be reenabled.
   """
   def disable_directory(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/directory/disable"
@@ -406,8 +416,10 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Enables the specified directory. Only disabled directories can be enabled.
-  Once enabled, the directory can then be read and written to.
+  Enables the specified directory.
+
+  Only disabled directories can be enabled. Once enabled, the directory can then
+  be read and written to.
   """
   def enable_directory(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/directory/enable"
@@ -421,8 +433,7 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns current applied schema version ARN, including the minor version in
-  use.
+  Returns current applied schema version ARN, including the minor version in use.
   """
   def get_applied_schema_version(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
@@ -447,8 +458,10 @@ defmodule AWS.CloudDirectory do
 
   @doc """
   Gets details of the `Facet`, such as facet name, attributes, `Rule`s, or
-  `ObjectType`. You can call this on all kinds of schema facets -- published,
-  development, or applied.
+  `ObjectType`.
+
+  You can call this on all kinds of schema facets -- published, development, or
+  applied.
   """
   def get_facet(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/facet"
@@ -506,8 +519,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Retrieves a JSON representation of the schema. See [JSON Schema
-  Format](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json)
+  Retrieves a JSON representation of the schema.
+
+  See [JSON Schema Format](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json)
   for more information.
   """
   def get_schema_as_json(client, input, options \\ []) do
@@ -522,9 +536,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns the identity attribute order for a specific `TypedLinkFacet`. For
-  more information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Returns the identity attribute order for a specific `TypedLinkFacet`.
+
+  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def get_typed_link_facet_information(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
@@ -538,8 +552,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Lists schema major versions applied to a directory. If `SchemaArn` is
-  provided, lists the minor version.
+  Lists schema major versions applied to a directory.
+
+  If `SchemaArn` is provided, lists the minor version.
   """
   def list_applied_schema_arns(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/applied"
@@ -564,8 +579,7 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Retrieves each Amazon Resource Name (ARN) of schemas in the development
-  state.
+  Retrieves each Amazon Resource Name (ARN) of schemas in the development state.
   """
   def list_development_schema_arns(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/development"
@@ -613,10 +627,11 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns a paginated list of all the incoming `TypedLinkSpecifier`
-  information for an object. It also supports filtering by typed link facet
-  and identity attributes. For more information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Returns a paginated list of all the incoming `TypedLinkSpecifier` information
+  for an object.
+
+  It also supports filtering by typed link facet and identity attributes. For more
+  information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def list_incoming_typed_links(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/incoming"
@@ -645,9 +660,10 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Lists the major version families of each managed schema. If a major version
-  ARN is provided as SchemaArn, the minor version revisions in that family
-  are listed instead.
+  Lists the major version families of each managed schema.
+
+  If a major version ARN is provided as SchemaArn, the minor version revisions in
+  that family are listed instead.
   """
   def list_managed_schema_arns(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/managed"
@@ -689,17 +705,16 @@ defmodule AWS.CloudDirectory do
 
   @doc """
   Retrieves all available parent paths for any object type such as node, leaf
-  node, policy node, and index node objects. For more information about
-  objects, see [Directory
-  Structure](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html).
+  node, policy node, and index node objects.
 
-  Use this API to evaluate all parents for an object. The call returns all
-  objects from the root of the directory up to the requested object. The API
-  returns the number of paths based on user-defined `MaxResults`, in case
-  there are multiple paths to the parent. The order of the paths and nodes
-  returned is consistent among multiple API calls unless the objects are
-  deleted or moved. Paths not leading to the directory root are ignored from
-  the target object.
+  For more information about objects, see [Directory Structure](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html).
+
+  Use this API to evaluate all parents for an object. The call returns all objects
+  from the root of the directory up to the requested object. The API returns the
+  number of paths based on user-defined `MaxResults`, in case there are multiple
+  paths to the parent. The order of the paths and nodes returned is consistent
+  among multiple API calls unless the objects are deleted or moved. Paths not
+  leading to the directory root are ignored from the target object.
   """
   def list_object_parent_paths(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/object/parentpaths"
@@ -744,10 +759,11 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns a paginated list of all the outgoing `TypedLinkSpecifier`
-  information for an object. It also supports filtering by typed link facet
-  and identity attributes. For more information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Returns a paginated list of all the outgoing `TypedLinkSpecifier` information
+  for an object.
+
+  It also supports filtering by typed link facet and identity attributes. For more
+  information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def list_outgoing_typed_links(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
@@ -776,9 +792,10 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Lists the major version families of each published schema. If a major
-  version ARN is provided as `SchemaArn`, the minor version revisions in that
-  family are listed instead.
+  Lists the major version families of each published schema.
+
+  If a major version ARN is provided as `SchemaArn`, the minor version revisions
+  in that family are listed instead.
   """
   def list_published_schema_arns(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/published"
@@ -788,9 +805,10 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns tags for a resource. Tagging is currently supported only for
-  directories with a limit of 50 tags per directory. All 50 tags are returned
-  for a given directory with this API call.
+  Returns tags for a resource.
+
+  Tagging is currently supported only for directories with a limit of 50 tags per
+  directory. All 50 tags are returned for a given directory with this API call.
   """
   def list_tags_for_resource(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/tags"
@@ -801,8 +819,9 @@ defmodule AWS.CloudDirectory do
 
   @doc """
   Returns a paginated list of all attribute definitions for a particular
-  `TypedLinkFacet`. For more information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  `TypedLinkFacet`.
+
+  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def list_typed_link_facet_attributes(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
@@ -816,9 +835,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns a paginated list of `TypedLink` facet names for a particular
-  schema. For more information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Returns a paginated list of `TypedLink` facet names for a particular schema.
+
+  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def list_typed_link_facet_names(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet/list"
@@ -832,13 +851,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Lists all policies from the root of the `Directory` to the object
-  specified. If there are no policies present, an empty list is returned. If
-  policies are present, and if some objects don't have the policies attached,
-  it returns the `ObjectIdentifier` for such objects. If policies are
-  present, it returns `ObjectIdentifier`, `policyId`, and `policyType`. Paths
-  that don't lead to the root from the target object are ignored. For more
-  information, see
+  Lists all policies from the root of the `Directory` to the object specified.
+
+  If there are no policies present, an empty list is returned. If policies are
+  present, and if some objects don't have the policies attached, it returns the
+  `ObjectIdentifier` for such objects. If policies are present, it returns
+  `ObjectIdentifier`, `policyId`, and `policyType`. Paths that don't lead to the
+  root from the target object are ignored. For more information, see
   [Policies](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies).
   """
   def lookup_policy(client, input, options \\ []) do
@@ -868,9 +887,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Allows a schema to be updated using JSON upload. Only available for
-  development schemas. See [JSON Schema
-  Format](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json)
+  Allows a schema to be updated using JSON upload.
+
+  Only available for development schemas. See [JSON Schema Format](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json)
   for more information.
   """
   def put_schema_from_json(client, input, options \\ []) do
@@ -921,13 +940,13 @@ defmodule AWS.CloudDirectory do
   @doc """
   Does the following:
 
-  <ol> <li> Adds new `Attributes`, `Rules`, or `ObjectTypes`.
+    1.
 
-  </li> <li> Updates existing `Attributes`, `Rules`, or `ObjectTypes`.
+  Adds new `Attributes`, `Rules`, or `ObjectTypes`.
 
-  </li> <li> Deletes existing `Attributes`, `Rules`, or `ObjectTypes`.
+    2. Updates existing `Attributes`, `Rules`, or `ObjectTypes`.
 
-  </li> </ol>
+    3. Deletes existing `Attributes`, `Rules`, or `ObjectTypes`.
   """
   def update_facet(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/facet"
@@ -941,9 +960,10 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Updates a given typed link’s attributes. Attributes to be updated must not
-  contribute to the typed link’s identity, as defined by its
-  `IdentityAttributeOrder`.
+  Updates a given typed link’s attributes.
+
+  Attributes to be updated must not contribute to the typed link’s identity, as
+  defined by its `IdentityAttributeOrder`.
   """
   def update_link_attributes(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
@@ -971,8 +991,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Updates the schema name with a new name. Only development schema names can
-  be updated.
+  Updates the schema name with a new name.
+
+  Only development schema names can be updated.
   """
   def update_schema(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/update"
@@ -986,8 +1007,9 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Updates a `TypedLinkFacet`. For more information, see [Typed
-  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  Updates a `TypedLinkFacet`.
+
+  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
   """
   def update_typed_link_facet(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/typedlink/facet"
@@ -1001,12 +1023,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Upgrades a single directory in-place using the `PublishedSchemaArn` with
-  schema updates found in `MinorVersion`. Backwards-compatible minor version
-  upgrades are instantaneously available for readers on all objects in the
-  directory. Note: This is a synchronous API call and upgrades only one
-  schema on a given directory per call. To upgrade multiple directories from
-  one schema, you would need to call this API on each directory.
+  Upgrades a single directory in-place using the `PublishedSchemaArn` with schema
+  updates found in `MinorVersion`.
+
+  Backwards-compatible minor version upgrades are instantaneously available for
+  readers on all objects in the directory. Note: This is a synchronous API call
+  and upgrades only one schema on a given directory per call. To upgrade multiple
+  directories from one schema, you would need to call this API on each directory.
   """
   def upgrade_applied_schema(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
@@ -1016,8 +1039,8 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Upgrades a published schema under a new minor version revision using the
-  current contents of `DevelopmentSchemaArn`.
+  Upgrades a published schema under a new minor version revision using the current
+  contents of `DevelopmentSchemaArn`.
   """
   def upgrade_published_schema(client, input, options \\ []) do
     path_ = "/amazonclouddirectory/2017-01-11/schema/upgradepublished"

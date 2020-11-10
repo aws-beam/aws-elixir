@@ -10,8 +10,8 @@ defmodule AWS.EC2InstanceConnect do
   """
 
   @doc """
-  Pushes an SSH public key to a particular OS user on a given EC2 instance
-  for 60 seconds.
+  Pushes an SSH public key to a particular OS user on a given EC2 instance for 60
+  seconds.
   """
   def send_s_s_h_public_key(client, input, options \\ []) do
     request(client, "SendSSHPublicKey", input, options)

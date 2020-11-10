@@ -7,19 +7,19 @@ defmodule AWS.IoTDataPlane do
 
   AWS IoT-Data enables secure, bi-directional communication between
   Internet-connected things (such as sensors, actuators, embedded devices, or
-  smart appliances) and the AWS cloud. It implements a broker for
-  applications and things to publish messages over HTTP (Publish) and
-  retrieve, update, and delete shadows. A shadow is a persistent
+  smart appliances) and the AWS cloud.
+
+  It implements a broker for applications and things to publish messages over HTTP
+  (Publish) and retrieve, update, and delete shadows. A shadow is a persistent
   representation of your things and their state in the AWS cloud.
 
-  Find the endpoint address for actions in the AWS IoT data plane by running
-  this CLI command:
+  Find the endpoint address for actions in the AWS IoT data plane by running this
+  CLI command:
 
   `aws iot describe-endpoint --endpoint-type iot:Data-ATS`
 
-  The service name used by [AWS Signature Version
-  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
-  to sign requests is: *iotdevicegateway*.
+  The service name used by [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to
+  sign requests is: *iotdevicegateway*.
   """
 
   @doc """
@@ -82,8 +82,7 @@ defmodule AWS.IoTDataPlane do
   @doc """
   Publishes state information.
 
-  For more information, see [HTTP
-  Protocol](http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http)
+  For more information, see [HTTP Protocol](http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http)
   in the AWS IoT Developer Guide.
   """
   def publish(client, topic, input, options \\ []) do

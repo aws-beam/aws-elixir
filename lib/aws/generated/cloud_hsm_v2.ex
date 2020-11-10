@@ -3,9 +3,7 @@
 
 defmodule AWS.CloudHSMV2 do
   @moduledoc """
-  For more information about AWS CloudHSM, see [AWS
-  CloudHSM](http://aws.amazon.com/cloudhsm/) and the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/).
+  For more information about AWS CloudHSM, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/) and the [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/).
   """
 
   @doc """
@@ -31,18 +29,20 @@ defmodule AWS.CloudHSMV2 do
   end
 
   @doc """
-  Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7
-  days after the DeleteBackup request is made. For more information on
-  restoring a backup, see `RestoreBackup`.
+  Deletes a specified AWS CloudHSM backup.
+
+  A backup can be restored up to 7 days after the DeleteBackup request is made.
+  For more information on restoring a backup, see `RestoreBackup`.
   """
   def delete_backup(client, input, options \\ []) do
     request(client, "DeleteBackup", input, options)
   end
 
   @doc """
-  Deletes the specified AWS CloudHSM cluster. Before you can delete a
-  cluster, you must delete all HSMs in the cluster. To see if the cluster
-  contains any HSMs, use `DescribeClusters`. To delete an HSM, use
+  Deletes the specified AWS CloudHSM cluster.
+
+  Before you can delete a cluster, you must delete all HSMs in the cluster. To see
+  if the cluster contains any HSMs, use `DescribeClusters`. To delete an HSM, use
   `DeleteHsm`.
   """
   def delete_cluster(client, input, options \\ []) do
@@ -50,10 +50,11 @@ defmodule AWS.CloudHSMV2 do
   end
 
   @doc """
-  Deletes the specified HSM. To specify an HSM, you can use its identifier
-  (ID), the IP address of the HSM's elastic network interface (ENI), or the
-  ID of the HSM's ENI. You need to specify only one of these values. To find
-  these values, use `DescribeClusters`.
+  Deletes the specified HSM.
+
+  To specify an HSM, you can use its identifier (ID), the IP address of the HSM's
+  elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify
+  only one of these values. To find these values, use `DescribeClusters`.
   """
   def delete_hsm(client, input, options \\ []) do
     request(client, "DeleteHsm", input, options)
@@ -62,12 +63,12 @@ defmodule AWS.CloudHSMV2 do
   @doc """
   Gets information about backups of AWS CloudHSM clusters.
 
-  This is a paginated operation, which means that each response might contain
-  only a subset of all the backups. When the response contains only a subset
-  of backups, it includes a `NextToken` value. Use this value in a subsequent
-  `DescribeBackups` request to get more backups. When you receive a response
-  with no `NextToken` (or an empty or null value), that means there are no
-  more backups to get.
+  This is a paginated operation, which means that each response might contain only
+  a subset of all the backups. When the response contains only a subset of
+  backups, it includes a `NextToken` value. Use this value in a subsequent
+  `DescribeBackups` request to get more backups. When you receive a response with
+  no `NextToken` (or an empty or null value), that means there are no more backups
+  to get.
   """
   def describe_backups(client, input, options \\ []) do
     request(client, "DescribeBackups", input, options)
@@ -76,22 +77,23 @@ defmodule AWS.CloudHSMV2 do
   @doc """
   Gets information about AWS CloudHSM clusters.
 
-  This is a paginated operation, which means that each response might contain
-  only a subset of all the clusters. When the response contains only a subset
-  of clusters, it includes a `NextToken` value. Use this value in a
-  subsequent `DescribeClusters` request to get more clusters. When you
-  receive a response with no `NextToken` (or an empty or null value), that
-  means there are no more clusters to get.
+  This is a paginated operation, which means that each response might contain only
+  a subset of all the clusters. When the response contains only a subset of
+  clusters, it includes a `NextToken` value. Use this value in a subsequent
+  `DescribeClusters` request to get more clusters. When you receive a response
+  with no `NextToken` (or an empty or null value), that means there are no more
+  clusters to get.
   """
   def describe_clusters(client, input, options \\ []) do
     request(client, "DescribeClusters", input, options)
   end
 
   @doc """
-  Claims an AWS CloudHSM cluster by submitting the cluster certificate issued
-  by your issuing certificate authority (CA) and the CA's root certificate.
-  Before you can claim a cluster, you must sign the cluster's certificate
-  signing request (CSR) with your issuing CA. To get the cluster's CSR, use
+  Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by
+  your issuing certificate authority (CA) and the CA's root certificate.
+
+  Before you can claim a cluster, you must sign the cluster's certificate signing
+  request (CSR) with your issuing CA. To get the cluster's CSR, use
   `DescribeClusters`.
   """
   def initialize_cluster(client, input, options \\ []) do
@@ -101,12 +103,11 @@ defmodule AWS.CloudHSMV2 do
   @doc """
   Gets a list of tags for the specified AWS CloudHSM cluster.
 
-  This is a paginated operation, which means that each response might contain
-  only a subset of all the tags. When the response contains only a subset of
-  tags, it includes a `NextToken` value. Use this value in a subsequent
-  `ListTags` request to get more tags. When you receive a response with no
-  `NextToken` (or an empty or null value), that means there are no more tags
-  to get.
+  This is a paginated operation, which means that each response might contain only
+  a subset of all the tags. When the response contains only a subset of tags, it
+  includes a `NextToken` value. Use this value in a subsequent `ListTags` request
+  to get more tags. When you receive a response with no `NextToken` (or an empty
+  or null value), that means there are no more tags to get.
   """
   def list_tags(client, input, options \\ []) do
     request(client, "ListTags", input, options)
@@ -114,7 +115,9 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Restores a specified AWS CloudHSM backup that is in the `PENDING_DELETION`
-  state. For mor information on deleting a backup, see `DeleteBackup`.
+  state.
+
+  For mor information on deleting a backup, see `DeleteBackup`.
   """
   def restore_backup(client, input, options \\ []) do
     request(client, "RestoreBackup", input, options)

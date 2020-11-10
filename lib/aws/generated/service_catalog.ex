@@ -5,10 +5,11 @@ defmodule AWS.ServiceCatalog do
   @moduledoc """
   AWS Service Catalog
 
-  [AWS Service Catalog](https://aws.amazon.com/servicecatalog/) enables
-  organizations to create and manage catalogs of IT services that are
-  approved for use on AWS. To get the most out of this documentation, you
-  should be familiar with the terminology discussed in [AWS Service Catalog
+  [AWS Service Catalog](https://aws.amazon.com/servicecatalog/) enables organizations to create and manage catalogs of IT services that are approved for
+  use on AWS.
+
+  To get the most out of this documentation, you should be familiar with the
+  terminology discussed in [AWS Service Catalog
   Concepts](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html).
   """
 
@@ -64,19 +65,19 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Disassociates a batch of self-service actions from the specified
-  provisioning artifact.
+  Disassociates a batch of self-service actions from the specified provisioning
+  artifact.
   """
   def batch_disassociate_service_action_from_provisioning_artifact(client, input, options \\ []) do
     request(client, "BatchDisassociateServiceActionFromProvisioningArtifact", input, options)
   end
 
   @doc """
-  Copies the specified source product to the specified target product or a
-  new product.
+  Copies the specified source product to the specified target product or a new
+  product.
 
-  You can copy a product to the same account or another account. You can copy
-  a product to the same region or another region.
+  You can copy a product to the same account or another account. You can copy a
+  product to the same region or another region.
 
   This operation is performed asynchronously. To track the progress of the
   operation, use `DescribeCopyProductStatus`.
@@ -104,17 +105,17 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Shares the specified portfolio with the specified account or organization
-  node. Shares to an organization node can only be created by the management
-  account of an organization or by a delegated administrator. You can share
-  portfolios to an organization, an organizational unit, or a specific
-  account.
+  Shares the specified portfolio with the specified account or organization node.
+
+  Shares to an organization node can only be created by the management account of
+  an organization or by a delegated administrator. You can share portfolios to an
+  organization, an organizational unit, or a specific account.
 
   Note that if a delegated admin is de-registered, they can no longer create
   portfolio shares.
 
-  `AWSOrganizationsAccess` must be enabled in order to create a portfolio
-  share to an organization node.
+  `AWSOrganizationsAccess` must be enabled in order to create a portfolio share to
+  an organization node.
 
   You can't share a shared resource. This includes portfolios that contain a
   shared product.
@@ -133,17 +134,18 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Creates a plan. A plan includes the list of resources to be created (when
-  provisioning a new product) or modified (when updating a provisioned
-  product) when the plan is executed.
+  Creates a plan.
+
+  A plan includes the list of resources to be created (when provisioning a new
+  product) or modified (when updating a provisioned product) when the plan is
+  executed.
 
   You can create one plan per provisioned product. To create a plan for an
-  existing provisioned product, the product status must be AVAILBLE or
-  TAINTED.
+  existing provisioned product, the product status must be AVAILBLE or TAINTED.
 
   To view the resource changes in the change set, use
-  `DescribeProvisionedProductPlan`. To create or modify the provisioned
-  product, use `ExecuteProvisionedProductPlan`.
+  `DescribeProvisionedProductPlan`. To create or modify the provisioned product,
+  use `ExecuteProvisionedProductPlan`.
   """
   def create_provisioned_product_plan(client, input, options \\ []) do
     request(client, "CreateProvisionedProductPlan", input, options)
@@ -153,8 +155,8 @@ defmodule AWS.ServiceCatalog do
   Creates a provisioning artifact (also known as a version) for the specified
   product.
 
-  You cannot create a provisioning artifact for a product that was shared
-  with you.
+  You cannot create a provisioning artifact for a product that was shared with
+  you.
   """
   def create_provisioning_artifact(client, input, options \\ []) do
     request(client, "CreateProvisioningArtifact", input, options)
@@ -186,8 +188,8 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Deletes the specified portfolio.
 
-  You cannot delete a portfolio if it was shared with you or if it has
-  associated products, users, constraints, or shared accounts.
+  You cannot delete a portfolio if it was shared with you or if it has associated
+  products, users, constraints, or shared accounts.
 
   A delegated admin is authorized to invoke this command.
   """
@@ -196,12 +198,14 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Stops sharing the specified portfolio with the specified account or
-  organization node. Shares to an organization node can only be deleted by
-  the management account of an organization or by a delegated administrator.
+  Stops sharing the specified portfolio with the specified account or organization
+  node.
 
-  Note that if a delegated admin is de-registered, portfolio shares created
-  from that account are removed.
+  Shares to an organization node can only be deleted by the management account of
+  an organization or by a delegated administrator.
+
+  Note that if a delegated admin is de-registered, portfolio shares created from
+  that account are removed.
   """
   def delete_portfolio_share(client, input, options \\ []) do
     request(client, "DeletePortfolioShare", input, options)
@@ -210,8 +214,8 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Deletes the specified product.
 
-  You cannot delete a product if it was shared with you or is associated with
-  a portfolio.
+  You cannot delete a product if it was shared with you or is associated with a
+  portfolio.
 
   A delegated admin is authorized to invoke this command.
   """
@@ -227,12 +231,12 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Deletes the specified provisioning artifact (also known as a version) for
-  the specified product.
+  Deletes the specified provisioning artifact (also known as a version) for the
+  specified product.
 
-  You cannot delete a provisioning artifact associated with a product that
-  was shared with you. You cannot delete the last provisioning artifact for a
-  product, because a product must have at least one provisioning artifact.
+  You cannot delete a provisioning artifact associated with a product that was
+  shared with you. You cannot delete the last provisioning artifact for a product,
+  because a product must have at least one provisioning artifact.
   """
   def delete_provisioning_artifact(client, input, options \\ []) do
     request(client, "DeleteProvisioningArtifact", input, options)
@@ -248,8 +252,7 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Deletes the specified TagOption.
 
-  You cannot delete a TagOption if it is associated with a product or
-  portfolio.
+  You cannot delete a TagOption if it is associated with a product or portfolio.
   """
   def delete_tag_option(client, input, options \\ []) do
     request(client, "DeleteTagOption", input, options)
@@ -279,9 +282,10 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Gets the status of the specified portfolio share operation. This API can
-  only be called by the management account in the organization or by a
-  delegated admin.
+  Gets the status of the specified portfolio share operation.
+
+  This API can only be called by the management account in the organization or by
+  a delegated admin.
   """
   def describe_portfolio_share_status(client, input, options \\ []) do
     request(client, "DescribePortfolioShareStatus", input, options)
@@ -295,8 +299,9 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Gets information about the specified product. This operation is run with
-  administrator access.
+  Gets information about the specified product.
+
+  This operation is run with administrator access.
   """
   def describe_product_as_admin(client, input, options \\ []) do
     request(client, "DescribeProductAsAdmin", input, options)
@@ -332,15 +337,15 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Gets information about the configuration required to provision the
-  specified product using the specified provisioning artifact.
+  Gets information about the configuration required to provision the specified
+  product using the specified provisioning artifact.
 
-  If the output contains a TagOption key with an empty list of values, there
-  is a TagOption conflict for that key. The end user cannot take action to
-  fix the conflict, and launch is not blocked. In subsequent calls to
-  `ProvisionProduct`, do not include conflicted TagOption keys as tags, or
-  this causes the error "Parameter validation failed: Missing required
-  parameter in Tags[*N*]:*Value*". Tag the provisioned product with the value
+  If the output contains a TagOption key with an empty list of values, there is a
+  TagOption conflict for that key. The end user cannot take action to fix the
+  conflict, and launch is not blocked. In subsequent calls to `ProvisionProduct`,
+  do not include conflicted TagOption keys as tags, or this causes the error
+  "Parameter validation failed: Missing required parameter in Tags[*N*]:*Value*".
+  Tag the provisioned product with the value
   `sc-tagoption-conflict-portfolioId-productId`.
   """
   def describe_provisioning_parameters(client, input, options \\ []) do
@@ -354,14 +359,11 @@ defmodule AWS.ServiceCatalog do
   `ProvisionProduct`, `TerminateProvisionedProduct`, or
   `UpdateProvisionedProduct`).
 
-  <note> If a provisioned product was transferred to a new owner using
-  `UpdateProvisionedProductProperties`, the new owner will be able to
-  describe all past records for that product. The previous owner will no
-  longer be able to describe the records, but will be able to use
-  `ListRecordHistory` to see the product's history from when he was the
-  owner.
-
-  </note>
+  If a provisioned product was transferred to a new owner using
+  `UpdateProvisionedProductProperties`, the new owner will be able to describe all
+  past records for that product. The previous owner will no longer be able to
+  describe the records, but will be able to use `ListRecordHistory` to see the
+  product's history from when he was the owner.
   """
   def describe_record(client, input, options \\ []) do
     request(client, "DescribeRecord", input, options)
@@ -375,8 +377,8 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Finds the default parameters for a specific self-service action on a
-  specific provisioned product and returns a map of the results to the user.
+  Finds the default parameters for a specific self-service action on a specific
+  provisioned product and returns a map of the results to the user.
   """
   def describe_service_action_execution_parameters(client, input, options \\ []) do
     request(client, "DescribeServiceActionExecutionParameters", input, options)
@@ -390,14 +392,15 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Disable portfolio sharing through AWS Organizations feature. This feature
-  will not delete your current shares but it will prevent you from creating
-  new shares throughout your organization. Current shares will not be in sync
-  with your organization structure if it changes after calling this API. This
+  Disable portfolio sharing through AWS Organizations feature.
+
+  This feature will not delete your current shares but it will prevent you from
+  creating new shares throughout your organization. Current shares will not be in
+  sync with your organization structure if it changes after calling this API. This
   API can only be called by the management account in the organization.
 
-  This API can't be invoked if there are active delegated administrators in
-  the organization.
+  This API can't be invoked if there are active delegated administrators in the
+  organization.
 
   Note that a delegated administrator is not authorized to invoke
   `DisableAWSOrganizationsAccess`.
@@ -414,8 +417,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Disassociates a previously associated principal ARN from a specified
-  portfolio.
+  Disassociates a previously associated principal ARN from a specified portfolio.
   """
   def disassociate_principal_from_portfolio(client, input, options \\ []) do
     request(client, "DisassociatePrincipalFromPortfolio", input, options)
@@ -431,8 +433,8 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Disassociates the specified self-service action association from the
-  specified provisioning artifact.
+  Disassociates the specified self-service action association from the specified
+  provisioning artifact.
   """
   def disassociate_service_action_from_provisioning_artifact(client, input, options \\ []) do
     request(client, "DisassociateServiceActionFromProvisioningArtifact", input, options)
@@ -446,14 +448,15 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Enable portfolio sharing feature through AWS Organizations. This API will
-  allow Service Catalog to receive updates on your organization in order to
-  sync your shares with the current structure. This API can only be called by
-  the management account in the organization.
+  Enable portfolio sharing feature through AWS Organizations.
+
+  This API will allow Service Catalog to receive updates on your organization in
+  order to sync your shares with the current structure. This API can only be
+  called by the management account in the organization.
 
   By calling this API Service Catalog will make a call to
-  organizations:EnableAWSServiceAccess on your behalf so that your shares can
-  be in sync with any changes in your AWS Organizations structure.
+  organizations:EnableAWSServiceAccess on your behalf so that your shares can be
+  in sync with any changes in your AWS Organizations structure.
 
   Note that a delegated administrator is not authorized to invoke
   `EnableAWSOrganizationsAccess`.
@@ -463,8 +466,8 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Provisions or modifies a product based on the resource changes for the
-  specified plan.
+  Provisions or modifies a product based on the resource changes for the specified
+  plan.
   """
   def execute_provisioned_product_plan(client, input, options \\ []) do
     request(client, "ExecuteProvisionedProductPlan", input, options)
@@ -478,8 +481,9 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Get the Access Status for AWS Organization portfolio share feature. This
-  API can only be called by the management account in the organization or by
+  Get the Access Status for AWS Organization portfolio share feature.
+
+  This API can only be called by the management account in the organization or by
   a delegated admin.
   """
   def get_a_w_s_organizations_access_status(client, input, options \\ []) do
@@ -487,9 +491,9 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  This API takes either a `ProvisonedProductId` or a
-  `ProvisionedProductName`, along with a list of one or more output keys, and
-  responds with the key/value pairs of those outputs.
+  This API takes either a `ProvisonedProductId` or a `ProvisionedProductName`,
+  along with a list of one or more output keys, and responds with the key/value
+  pairs of those outputs.
   """
   def get_provisioned_product_outputs(client, input, options \\ []) do
     request(client, "GetProvisionedProductOutputs", input, options)
@@ -517,9 +521,11 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Lists the paths to the specified product. A path is how the user has access
-  to a specified product, and is necessary when provisioning a product. A
-  path also determines the constraints put on the product.
+  Lists the paths to the specified product.
+
+  A path is how the user has access to a specified product, and is necessary when
+  provisioning a product. A path also determines the constraints put on the
+  product.
   """
   def list_launch_paths(client, input, options \\ []) do
     request(client, "ListLaunchPaths", input, options)
@@ -527,8 +533,9 @@ defmodule AWS.ServiceCatalog do
 
   @doc """
   Lists the organization nodes that have access to the specified portfolio.
-  This API can only be called by the management account in the organization
-  or by a delegated admin.
+
+  This API can only be called by the management account in the organization or by
+  a delegated admin.
 
   If a delegated admin is de-registered, they can no longer perform this
   operation.
@@ -541,8 +548,8 @@ defmodule AWS.ServiceCatalog do
   Lists the account IDs that have access to the specified portfolio.
 
   A delegated admin can list the accounts that have access to the shared
-  portfolio. Note that if a delegated admin is de-registered, they can no
-  longer perform this operation.
+  portfolio. Note that if a delegated admin is de-registered, they can no longer
+  perform this operation.
   """
   def list_portfolio_access(client, input, options \\ []) do
     request(client, "ListPortfolioAccess", input, options)
@@ -570,8 +577,8 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Lists the plans for the specified provisioned product or all plans to which
-  the user has access.
+  Lists the plans for the specified provisioned product or all plans to which the
+  user has access.
   """
   def list_provisioned_product_plans(client, input, options \\ []) do
     request(client, "ListProvisionedProductPlans", input, options)
@@ -615,18 +622,19 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Returns a paginated list of self-service actions associated with the
-  specified Product ID and Provisioning Artifact ID.
+  Returns a paginated list of self-service actions associated with the specified
+  Product ID and Provisioning Artifact ID.
   """
   def list_service_actions_for_provisioning_artifact(client, input, options \\ []) do
     request(client, "ListServiceActionsForProvisioningArtifact", input, options)
   end
 
   @doc """
-  Returns summary information about stack instances that are associated with
-  the specified `CFN_STACKSET` type provisioned product. You can filter for
-  stack instances that are associated with a specific AWS account name or
-  region.
+  Returns summary information about stack instances that are associated with the
+  specified `CFN_STACKSET` type provisioned product.
+
+  You can filter for stack instances that are associated with a specific AWS
+  account name or region.
   """
   def list_stack_instances_for_provisioned_product(client, input, options \\ []) do
     request(client, "ListStackInstancesForProvisionedProduct", input, options)
@@ -644,13 +652,13 @@ defmodule AWS.ServiceCatalog do
 
   A provisioned product is a resourced instance of a product. For example,
   provisioning a product based on a CloudFormation template launches a
-  CloudFormation stack and its underlying resources. You can check the status
-  of this request using `DescribeRecord`.
+  CloudFormation stack and its underlying resources. You can check the status of
+  this request using `DescribeRecord`.
 
-  If the request contains a tag key with an empty list of values, there is a
-  tag conflict for that key. Do not include conflicted keys as tags, or this
-  causes the error "Parameter validation failed: Missing required parameter
-  in Tags[*N*]:*Value*".
+  If the request contains a tag key with an empty list of values, there is a tag
+  conflict for that key. Do not include conflicted keys as tags, or this causes
+  the error "Parameter validation failed: Missing required parameter in
+  Tags[*N*]:*Value*".
   """
   def provision_product(client, input, options \\ []) do
     request(client, "ProvisionProduct", input, options)
@@ -680,8 +688,7 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Gets information about the products for the specified portfolio or all
-  products.
+  Gets information about the products for the specified portfolio or all products.
   """
   def search_products_as_admin(client, input, options \\ []) do
     request(client, "SearchProductsAsAdmin", input, options)
@@ -733,10 +740,10 @@ defmodule AWS.ServiceCatalog do
   @doc """
   Requests updates to the configuration of the specified provisioned product.
 
-  If there are tags associated with the object, they cannot be updated or
-  added. Depending on the specific updates requested, this operation can
-  update with no interruption, with some interruption, or replace the
-  provisioned product entirely.
+  If there are tags associated with the object, they cannot be updated or added.
+  Depending on the specific updates requested, this operation can update with no
+  interruption, with some interruption, or replace the provisioned product
+  entirely.
 
   You can check the status of this request using `DescribeRecord`.
   """
@@ -752,11 +759,11 @@ defmodule AWS.ServiceCatalog do
   end
 
   @doc """
-  Updates the specified provisioning artifact (also known as a version) for
-  the specified product.
+  Updates the specified provisioning artifact (also known as a version) for the
+  specified product.
 
-  You cannot update a provisioning artifact for a product that was shared
-  with you.
+  You cannot update a provisioning artifact for a product that was shared with
+  you.
   """
   def update_provisioning_artifact(client, input, options \\ []) do
     request(client, "UpdateProvisioningArtifact", input, options)

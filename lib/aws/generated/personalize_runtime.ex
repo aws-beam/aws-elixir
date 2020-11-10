@@ -3,17 +3,17 @@
 
 defmodule AWS.PersonalizeRuntime do
   @moduledoc """
-  <p/>
+
   """
 
   @doc """
-  Re-ranks a list of recommended items for the given user. The first item in
-  the list is deemed the most likely item to be of interest to the user.
+  Re-ranks a list of recommended items for the given user.
 
-  <note> The solution backing the campaign must have been created using a
-  recipe of type PERSONALIZED_RANKING.
+  The first item in the list is deemed the most likely item to be of interest to
+  the user.
 
-  </note>
+  The solution backing the campaign must have been created using a recipe of type
+  PERSONALIZED_RANKING.
   """
   def get_personalized_ranking(client, input, options \\ []) do
     path_ = "/personalize-ranking"
@@ -23,17 +23,17 @@ defmodule AWS.PersonalizeRuntime do
   end
 
   @doc """
-  Returns a list of recommended items. The required input depends on the
-  recipe type used to create the solution backing the campaign, as follows:
+  Returns a list of recommended items.
 
-  <ul> <li> RELATED_ITEMS - `itemId` required, `userId` not used
+  The required input depends on the recipe type used to create the solution
+  backing the campaign, as follows:
 
-  </li> <li> USER_PERSONALIZATION - `itemId` optional, `userId` required
+    * RELATED_ITEMS - `itemId` required, `userId` not used
 
-  </li> </ul> <note> Campaigns that are backed by a solution created using a
-  recipe of type PERSONALIZED_RANKING use the API.
+    * USER_PERSONALIZATION - `itemId` optional, `userId` required
 
-  </note>
+  Campaigns that are backed by a solution created using a recipe of type
+  PERSONALIZED_RANKING use the API.
   """
   def get_recommendations(client, input, options \\ []) do
     path_ = "/recommendations"

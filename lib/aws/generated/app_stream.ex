@@ -5,29 +5,25 @@ defmodule AWS.AppStream do
   @moduledoc """
   Amazon AppStream 2.0
 
-  This is the *Amazon AppStream 2.0 API Reference*. This documentation
-  provides descriptions and syntax for each of the actions and data types in
-  AppStream 2.0. AppStream 2.0 is a fully managed, secure application
-  streaming service that lets you stream desktop applications to users
-  without rewriting applications. AppStream 2.0 manages the AWS resources
-  that are required to host and run your applications, scales automatically,
-  and provides access to your users on demand.
+  This is the *Amazon AppStream 2.0 API Reference*.
 
-  <note> You can call the AppStream 2.0 API operations by using an interface
-  VPC endpoint (interface endpoint). For more information, see [Access
-  AppStream 2.0 API Operations and CLI Commands Through an Interface VPC
+  This documentation provides descriptions and syntax for each of the actions and
+  data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure
+  application streaming service that lets you stream desktop applications to users
+  without rewriting applications. AppStream 2.0 manages the AWS resources that are
+  required to host and run your applications, scales automatically, and provides
+  access to your users on demand.
+
+  You can call the AppStream 2.0 API operations by using an interface VPC endpoint
+  (interface endpoint). For more information, see [Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC
   Endpoint](https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html)
   in the *Amazon AppStream 2.0 Administration Guide*.
 
-  </note> To learn more about AppStream 2.0, see the following resources:
+  To learn more about AppStream 2.0, see the following resources:
 
-  <ul> <li> [Amazon AppStream 2.0 product
-  page](http://aws.amazon.com/appstream2)
+    * [Amazon AppStream 2.0 product page](http://aws.amazon.com/appstream2)
 
-  </li> <li> [Amazon AppStream 2.0
-  documentation](http://aws.amazon.com/documentation/appstream2)
-
-  </li> </ul>
+    * [Amazon AppStream 2.0 documentation](http://aws.amazon.com/documentation/appstream2)
   """
 
   @doc """
@@ -38,9 +34,10 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Associates the specified users with the specified stacks. Users in a user
-  pool cannot be assigned to stacks with fleets that are joined to an Active
-  Directory domain.
+  Associates the specified users with the specified stacks.
+
+  Users in a user pool cannot be assigned to stacks with fleets that are joined to
+  an Active Directory domain.
   """
   def batch_associate_user_stack(client, input, options \\ []) do
     request(client, "BatchAssociateUserStack", input, options)
@@ -54,36 +51,41 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Copies the image within the same region or to a new region within the same
-  AWS account. Note that any tags you added to the image will not be copied.
+  Copies the image within the same region or to a new region within the same AWS
+  account.
+
+  Note that any tags you added to the image will not be copied.
   """
   def copy_image(client, input, options \\ []) do
     request(client, "CopyImage", input, options)
   end
 
   @doc """
-  Creates a Directory Config object in AppStream 2.0. This object includes
-  the configuration information required to join fleets and image builders to
-  Microsoft Active Directory domains.
+  Creates a Directory Config object in AppStream 2.0.
+
+  This object includes the configuration information required to join fleets and
+  image builders to Microsoft Active Directory domains.
   """
   def create_directory_config(client, input, options \\ []) do
     request(client, "CreateDirectoryConfig", input, options)
   end
 
   @doc """
-  Creates a fleet. A fleet consists of streaming instances that run a
-  specified image.
+  Creates a fleet.
+
+  A fleet consists of streaming instances that run a specified image.
   """
   def create_fleet(client, input, options \\ []) do
     request(client, "CreateFleet", input, options)
   end
 
   @doc """
-  Creates an image builder. An image builder is a virtual machine that is
-  used to create an image.
+  Creates an image builder.
 
-  The initial state of the builder is `PENDING`. When it is ready, the state
-  is `RUNNING`.
+  An image builder is a virtual machine that is used to create an image.
+
+  The initial state of the builder is `PENDING`. When it is ready, the state is
+  `RUNNING`.
   """
   def create_image_builder(client, input, options \\ []) do
     request(client, "CreateImageBuilder", input, options)
@@ -97,8 +99,10 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Creates a stack to start streaming applications to users. A stack consists
-  of an associated fleet, user access policies, and storage configurations.
+  Creates a stack to start streaming applications to users.
+
+  A stack consists of an associated fleet, user access policies, and storage
+  configurations.
   """
   def create_stack(client, input, options \\ []) do
     request(client, "CreateStack", input, options)
@@ -106,15 +110,18 @@ defmodule AWS.AppStream do
 
   @doc """
   Creates a temporary URL to start an AppStream 2.0 streaming session for the
-  specified user. A streaming URL enables application streaming to be tested
-  without user setup.
+  specified user.
+
+  A streaming URL enables application streaming to be tested without user setup.
   """
   def create_streaming_u_r_l(client, input, options \\ []) do
     request(client, "CreateStreamingURL", input, options)
   end
 
   @doc """
-  Creates a usage report subscription. Usage reports are generated daily.
+  Creates a usage report subscription.
+
+  Usage reports are generated daily.
   """
   def create_usage_report_subscription(client, input, options \\ []) do
     request(client, "CreateUsageReportSubscription", input, options)
@@ -128,8 +135,9 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Deletes the specified Directory Config object from AppStream 2.0. This
-  object includes the information required to join streaming instances to an
+  Deletes the specified Directory Config object from AppStream 2.0.
+
+  This object includes the information required to join streaming instances to an
   Active Directory domain.
   """
   def delete_directory_config(client, input, options \\ []) do
@@ -144,9 +152,10 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Deletes the specified image. You cannot delete an image when it is in use.
-  After you delete an image, you cannot provision new capacity using the
-  image.
+  Deletes the specified image.
+
+  You cannot delete an image when it is in use. After you delete an image, you
+  cannot provision new capacity using the image.
   """
   def delete_image(client, input, options \\ []) do
     request(client, "DeleteImage", input, options)
@@ -160,19 +169,21 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Deletes permissions for the specified private image. After you delete
-  permissions for an image, AWS accounts to which you previously granted
-  these permissions can no longer use the image.
+  Deletes permissions for the specified private image.
+
+  After you delete permissions for an image, AWS accounts to which you previously
+  granted these permissions can no longer use the image.
   """
   def delete_image_permissions(client, input, options \\ []) do
     request(client, "DeleteImagePermissions", input, options)
   end
 
   @doc """
-  Deletes the specified stack. After the stack is deleted, the application
-  streaming environment provided by the stack is no longer available to
-  users. Also, any reservations made for application streaming sessions for
-  the stack are released.
+  Deletes the specified stack.
+
+  After the stack is deleted, the application streaming environment provided by
+  the stack is no longer available to users. Also, any reservations made for
+  application streaming sessions for the stack are released.
   """
   def delete_stack(client, input, options \\ []) do
     request(client, "DeleteStack", input, options)
@@ -193,67 +204,75 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Retrieves a list that describes one or more specified Directory Config
-  objects for AppStream 2.0, if the names for these objects are provided.
-  Otherwise, all Directory Config objects in the account are described. These
-  objects include the configuration information required to join fleets and
-  image builders to Microsoft Active Directory domains.
+  Retrieves a list that describes one or more specified Directory Config objects
+  for AppStream 2.0, if the names for these objects are provided.
 
-  Although the response syntax in this topic includes the account password,
-  this password is not returned in the actual response.
+  Otherwise, all Directory Config objects in the account are described. These
+  objects include the configuration information required to join fleets and image
+  builders to Microsoft Active Directory domains.
+
+  Although the response syntax in this topic includes the account password, this
+  password is not returned in the actual response.
   """
   def describe_directory_configs(client, input, options \\ []) do
     request(client, "DescribeDirectoryConfigs", input, options)
   end
 
   @doc """
-  Retrieves a list that describes one or more specified fleets, if the fleet
-  names are provided. Otherwise, all fleets in the account are described.
+  Retrieves a list that describes one or more specified fleets, if the fleet names
+  are provided.
+
+  Otherwise, all fleets in the account are described.
   """
   def describe_fleets(client, input, options \\ []) do
     request(client, "DescribeFleets", input, options)
   end
 
   @doc """
-  Retrieves a list that describes one or more specified image builders, if
-  the image builder names are provided. Otherwise, all image builders in the
-  account are described.
+  Retrieves a list that describes one or more specified image builders, if the
+  image builder names are provided.
+
+  Otherwise, all image builders in the account are described.
   """
   def describe_image_builders(client, input, options \\ []) do
     request(client, "DescribeImageBuilders", input, options)
   end
 
   @doc """
-  Retrieves a list that describes the permissions for shared AWS account IDs
-  on a private image that you own.
+  Retrieves a list that describes the permissions for shared AWS account IDs on a
+  private image that you own.
   """
   def describe_image_permissions(client, input, options \\ []) do
     request(client, "DescribeImagePermissions", input, options)
   end
 
   @doc """
-  Retrieves a list that describes one or more specified images, if the image
-  names or image ARNs are provided. Otherwise, all images in the account are
-  described.
+  Retrieves a list that describes one or more specified images, if the image names
+  or image ARNs are provided.
+
+  Otherwise, all images in the account are described.
   """
   def describe_images(client, input, options \\ []) do
     request(client, "DescribeImages", input, options)
   end
 
   @doc """
-  Retrieves a list that describes the streaming sessions for a specified
-  stack and fleet. If a UserId is provided for the stack and fleet, only
-  streaming sessions for that user are described. If an authentication type
-  is not provided, the default is to authenticate users using a streaming
-  URL.
+  Retrieves a list that describes the streaming sessions for a specified stack and
+  fleet.
+
+  If a UserId is provided for the stack and fleet, only streaming sessions for
+  that user are described. If an authentication type is not provided, the default
+  is to authenticate users using a streaming URL.
   """
   def describe_sessions(client, input, options \\ []) do
     request(client, "DescribeSessions", input, options)
   end
 
   @doc """
-  Retrieves a list that describes one or more specified stacks, if the stack
-  names are provided. Otherwise, all stacks in the account are described.
+  Retrieves a list that describes one or more specified stacks, if the stack names
+  are provided.
+
+  Otherwise, all stacks in the account are described.
   """
   def describe_stacks(client, input, options \\ []) do
     request(client, "DescribeStacks", input, options)
@@ -267,32 +286,31 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Retrieves a list that describes the UserStackAssociation objects. You must
-  specify either or both of the following:
+  Retrieves a list that describes the UserStackAssociation objects.
 
-  <ul> <li> The stack name
+  You must specify either or both of the following:
 
-  </li> <li> The user name (email address of the user associated with the
+    * The stack name
+
+    * The user name (email address of the user associated with the
   stack) and the authentication type for the user
-
-  </li> </ul>
   """
   def describe_user_stack_associations(client, input, options \\ []) do
     request(client, "DescribeUserStackAssociations", input, options)
   end
 
   @doc """
-  Retrieves a list that describes one or more specified users in the user
-  pool.
+  Retrieves a list that describes one or more specified users in the user pool.
   """
   def describe_users(client, input, options \\ []) do
     request(client, "DescribeUsers", input, options)
   end
 
   @doc """
-  Disables the specified user in the user pool. Users can't sign in to
-  AppStream 2.0 until they are re-enabled. This action does not delete the
-  user.
+  Disables the specified user in the user pool.
+
+  Users can't sign in to AppStream 2.0 until they are re-enabled. This action does
+  not delete the user.
   """
   def disable_user(client, input, options \\ []) do
     request(client, "DisableUser", input, options)
@@ -306,9 +324,10 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Enables a user in the user pool. After being enabled, users can sign in to
-  AppStream 2.0 and open applications from the stacks to which they are
-  assigned.
+  Enables a user in the user pool.
+
+  After being enabled, users can sign in to AppStream 2.0 and open applications
+  from the stacks to which they are assigned.
   """
   def enable_user(client, input, options \\ []) do
     request(client, "EnableUser", input, options)
@@ -322,27 +341,25 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Retrieves the name of the fleet that is associated with the specified
-  stack.
+  Retrieves the name of the fleet that is associated with the specified stack.
   """
   def list_associated_fleets(client, input, options \\ []) do
     request(client, "ListAssociatedFleets", input, options)
   end
 
   @doc """
-  Retrieves the name of the stack with which the specified fleet is
-  associated.
+  Retrieves the name of the stack with which the specified fleet is associated.
   """
   def list_associated_stacks(client, input, options \\ []) do
     request(client, "ListAssociatedStacks", input, options)
   end
 
   @doc """
-  Retrieves a list of all tags for the specified AppStream 2.0 resource. You
-  can tag AppStream 2.0 image builders, images, fleets, and stacks.
+  Retrieves a list of all tags for the specified AppStream 2.0 resource.
 
-  For more information about tags, see [Tagging Your
-  Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
+  You can tag AppStream 2.0 image builders, images, fleets, and stacks.
+
+  For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def list_tags_for_resource(client, input, options \\ []) do
@@ -378,18 +395,17 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Adds or overwrites one or more tags for the specified AppStream 2.0
-  resource. You can tag AppStream 2.0 image builders, images, fleets, and
-  stacks.
+  Adds or overwrites one or more tags for the specified AppStream 2.0 resource.
 
-  Each tag consists of a key and an optional value. If a resource already has
-  a tag with the same key, this operation updates its value.
+  You can tag AppStream 2.0 image builders, images, fleets, and stacks.
+
+  Each tag consists of a key and an optional value. If a resource already has a
+  tag with the same key, this operation updates its value.
 
   To list the current tags for your resources, use `ListTagsForResource`. To
   disassociate tags from your resources, use `UntagResource`.
 
-  For more information about tags, see [Tagging Your
-  Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
+  For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def tag_resource(client, input, options \\ []) do
@@ -402,8 +418,7 @@ defmodule AWS.AppStream do
 
   To list the current tags for your resources, use `ListTagsForResource`.
 
-  For more information about tags, see [Tagging Your
-  Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
+  For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
   def untag_resource(client, input, options \\ []) do
@@ -411,9 +426,10 @@ defmodule AWS.AppStream do
   end
 
   @doc """
-  Updates the specified Directory Config object in AppStream 2.0. This object
-  includes the configuration information required to join fleets and image
-  builders to Microsoft Active Directory domains.
+  Updates the specified Directory Config object in AppStream 2.0.
+
+  This object includes the configuration information required to join fleets and
+  image builders to Microsoft Active Directory domains.
   """
   def update_directory_config(client, input, options \\ []) do
     request(client, "UpdateDirectoryConfig", input, options)
@@ -422,12 +438,11 @@ defmodule AWS.AppStream do
   @doc """
   Updates the specified fleet.
 
-  If the fleet is in the `STOPPED` state, you can update any attribute except
-  the fleet name. If the fleet is in the `RUNNING` state, you can update the
+  If the fleet is in the `STOPPED` state, you can update any attribute except the
+  fleet name. If the fleet is in the `RUNNING` state, you can update the
   `DisplayName`, `ComputeCapacity`, `ImageARN`, `ImageName`,
-  `IdleDisconnectTimeoutInSeconds`, and `DisconnectTimeoutInSeconds`
-  attributes. If the fleet is in the `STARTING` or `STOPPING` state, you
-  can't update it.
+  `IdleDisconnectTimeoutInSeconds`, and `DisconnectTimeoutInSeconds` attributes.
+  If the fleet is in the `STARTING` or `STOPPING` state, you can't update it.
   """
   def update_fleet(client, input, options \\ []) do
     request(client, "UpdateFleet", input, options)

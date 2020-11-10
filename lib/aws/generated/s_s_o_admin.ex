@@ -9,12 +9,9 @@ defmodule AWS.SSOAdmin do
   @doc """
   Attaches an IAM managed policy ARN to a permission set.
 
-  <note> If the permission set is already referenced by one or more account
-  assignments, you will need to call ` `ProvisionPermissionSet` ` after this
-  action to apply the corresponding IAM policy updates to all assigned
-  accounts.
-
-  </note>
+  If the permission set is already referenced by one or more account assignments,
+  you will need to call ` `ProvisionPermissionSet` ` after this action to apply
+  the corresponding IAM policy updates to all assigned accounts.
   """
   def attach_managed_policy_to_permission_set(client, input, options \\ []) do
     request(client, "AttachManagedPolicyToPermissionSet", input, options)
@@ -24,18 +21,14 @@ defmodule AWS.SSOAdmin do
   Assigns access to a principal for a specified AWS account using a specified
   permission set.
 
-  <note> The term *principal* here refers to a user or group that is defined
-  in AWS SSO.
+  The term *principal* here refers to a user or group that is defined in AWS SSO.
 
-  </note> <note> As part of a successful `CreateAccountAssignment` call, the
-  specified permission set will automatically be provisioned to the account
-  in the form of an IAM policy attached to the SSO-created IAM role. If the
-  permission set is subsequently updated, the corresponding IAM policies
-  attached to roles in your accounts will not be updated automatically. In
-  this case, you will need to call ` `ProvisionPermissionSet` ` to make these
-  updates.
-
-  </note>
+  As part of a successful `CreateAccountAssignment` call, the specified permission
+  set will automatically be provisioned to the account in the form of an IAM
+  policy attached to the SSO-created IAM role. If the permission set is
+  subsequently updated, the corresponding IAM policies attached to roles in your
+  accounts will not be updated automatically. In this case, you will need to call
+  ` `ProvisionPermissionSet` ` to make these updates.
   """
   def create_account_assignment(client, input, options \\ []) do
     request(client, "CreateAccountAssignment", input, options)
@@ -44,10 +37,8 @@ defmodule AWS.SSOAdmin do
   @doc """
   Creates a permission set within a specified SSO instance.
 
-  <note> To grant users and groups access to AWS account resources, use `
+  To grant users and groups access to AWS account resources, use `
   `CreateAccountAssignment` `.
-
-  </note>
   """
   def create_permission_set(client, input, options \\ []) do
     request(client, "CreatePermissionSet", input, options)
@@ -104,8 +95,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Detaches the attached IAM managed policy ARN from the specified permission
-  set.
+  Detaches the attached IAM managed policy ARN from the specified permission set.
   """
   def detach_managed_policy_from_permission_set(client, input, options \\ []) do
     request(client, "DetachManagedPolicyFromPermissionSet", input, options)
@@ -119,32 +109,31 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the status of the AWS account assignment creation requests for a
-  specified SSO instance.
+  Lists the status of the AWS account assignment creation requests for a specified
+  SSO instance.
   """
   def list_account_assignment_creation_status(client, input, options \\ []) do
     request(client, "ListAccountAssignmentCreationStatus", input, options)
   end
 
   @doc """
-  Lists the status of the AWS account assignment deletion requests for a
-  specified SSO instance.
+  Lists the status of the AWS account assignment deletion requests for a specified
+  SSO instance.
   """
   def list_account_assignment_deletion_status(client, input, options \\ []) do
     request(client, "ListAccountAssignmentDeletionStatus", input, options)
   end
 
   @doc """
-  Lists the assignee of the specified AWS account with the specified
-  permission set.
+  Lists the assignee of the specified AWS account with the specified permission
+  set.
   """
   def list_account_assignments(client, input, options \\ []) do
     request(client, "ListAccountAssignments", input, options)
   end
 
   @doc """
-  Lists all the AWS accounts where the specified permission set is
-  provisioned.
+  Lists all the AWS accounts where the specified permission set is provisioned.
   """
   def list_accounts_for_provisioned_permission_set(client, input, options \\ []) do
     request(client, "ListAccountsForProvisionedPermissionSet", input, options)
@@ -158,16 +147,15 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists the IAM managed policy that is attached to a specified permission
-  set.
+  Lists the IAM managed policy that is attached to a specified permission set.
   """
   def list_managed_policies_in_permission_set(client, input, options \\ []) do
     request(client, "ListManagedPoliciesInPermissionSet", input, options)
   end
 
   @doc """
-  Lists the status of the permission set provisioning requests for a
-  specified SSO instance.
+  Lists the status of the permission set provisioning requests for a specified SSO
+  instance.
   """
   def list_permission_set_provisioning_status(client, input, options \\ []) do
     request(client, "ListPermissionSetProvisioningStatus", input, options)
@@ -181,8 +169,7 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  Lists all the permission sets that are provisioned to a specified AWS
-  account.
+  Lists all the permission sets that are provisioned to a specified AWS account.
   """
   def list_permission_sets_provisioned_to_account(client, input, options \\ []) do
     request(client, "ListPermissionSetsProvisionedToAccount", input, options)
@@ -196,8 +183,8 @@ defmodule AWS.SSOAdmin do
   end
 
   @doc """
-  The process by which a specified permission set is provisioned to the
-  specified target.
+  The process by which a specified permission set is provisioned to the specified
+  target.
   """
   def provision_permission_set(client, input, options \\ []) do
     request(client, "ProvisionPermissionSet", input, options)
@@ -206,12 +193,9 @@ defmodule AWS.SSOAdmin do
   @doc """
   Attaches an IAM inline policy to a permission set.
 
-  <note> If the permission set is already referenced by one or more account
-  assignments, you will need to call ` `ProvisionPermissionSet` ` after this
-  action to apply the corresponding IAM policy updates to all assigned
-  accounts.
-
-  </note>
+  If the permission set is already referenced by one or more account assignments,
+  you will need to call ` `ProvisionPermissionSet` ` after this action to apply
+  the corresponding IAM policy updates to all assigned accounts.
   """
   def put_inline_policy_to_permission_set(client, input, options \\ []) do
     request(client, "PutInlinePolicyToPermissionSet", input, options)

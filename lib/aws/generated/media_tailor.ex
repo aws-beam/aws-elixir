@@ -3,15 +3,17 @@
 
 defmodule AWS.MediaTailor do
   @moduledoc """
-  Use the AWS Elemental MediaTailor SDK to configure scalable ad insertion
-  for your live and VOD content. With AWS Elemental MediaTailor, you can
-  serve targeted ads to viewers while maintaining broadcast quality in
-  over-the-top (OTT) video applications. For information about using the
-  service, including detailed information about the settings covered in this
-  guide, see the AWS Elemental MediaTailor User Guide.Through the SDK, you
-  manage AWS Elemental MediaTailor configurations the same as you do through
-  the console. For example, you specify ad insertion behavior and mapping
-  information for the origin server and the ad decision server (ADS).
+  Use the AWS Elemental MediaTailor SDK to configure scalable ad insertion for
+  your live and VOD content.
+
+  With AWS Elemental MediaTailor, you can serve targeted ads to viewers while
+  maintaining broadcast quality in over-the-top (OTT) video applications. For
+  information about using the service, including detailed information about the
+  settings covered in this guide, see the AWS Elemental MediaTailor User Guide.
+
+  Through the SDK, you manage AWS Elemental MediaTailor configurations the same as
+  you do through the console. For example, you specify ad insertion behavior and
+  mapping information for the origin server and the ad decision server (ADS).
   """
 
   @doc """
@@ -36,10 +38,12 @@ defmodule AWS.MediaTailor do
 
   @doc """
   Returns a list of the playback configurations defined in AWS Elemental
-  MediaTailor. You can specify a maximum number of configurations to return
-  at a time. The default maximum is 50. Results are returned in pagefuls. If
-  MediaTailor has more configurations than the specified maximum, it provides
-  parameters in the response that you can use to retrieve the next pageful.
+  MediaTailor.
+
+  You can specify a maximum number of configurations to return at a time. The
+  default maximum is 50. Results are returned in pagefuls. If MediaTailor has more
+  configurations than the specified maximum, it provides parameters in the
+  response that you can use to retrieve the next pageful.
   """
   def list_playback_configurations(client, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/playbackConfigurations"
@@ -80,8 +84,9 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Adds tags to the specified playback configuration resource. You can specify
-  one or more tags to add.
+  Adds tags to the specified playback configuration resource.
+
+  You can specify one or more tags to add.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -91,8 +96,9 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Removes tags from the specified playback configuration resource. You can
-  specify one or more tags to remove.
+  Removes tags from the specified playback configuration resource.
+
+  You can specify one or more tags to remove.
   """
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"

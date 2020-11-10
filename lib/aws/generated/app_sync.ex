@@ -3,8 +3,8 @@
 
 defmodule AWS.AppSync do
   @moduledoc """
-  AWS AppSync provides API actions for creating and interacting with data
-  sources using GraphQL from your application.
+  AWS AppSync provides API actions for creating and interacting with data sources
+  using GraphQL from your application.
   """
 
   @doc """
@@ -18,8 +18,8 @@ defmodule AWS.AppSync do
   end
 
   @doc """
-  Creates a unique key that you can distribute to clients who are executing
-  your API.
+  Creates a unique key that you can distribute to clients who are executing your
+  API.
   """
   def create_api_key(client, api_id, input, options \\ []) do
     path_ = "/v1/apis/#{URI.encode(api_id)}/apikeys"
@@ -41,8 +41,8 @@ defmodule AWS.AppSync do
   @doc """
   Creates a `Function` object.
 
-  A function is a reusable entity. Multiple functions can be used to compose
-  the resolver logic.
+  A function is a reusable entity. Multiple functions can be used to compose the
+  resolver logic.
   """
   def create_function(client, api_id, input, options \\ []) do
     path_ = "/v1/apis/#{URI.encode(api_id)}/functions"
@@ -262,12 +262,10 @@ defmodule AWS.AppSync do
   @doc """
   Lists the API keys for a given API.
 
-  <note> API keys are deleted automatically 60 days after they expire.
-  However, they may still be included in the response until they have
-  actually been deleted. You can safely call `DeleteApiKey` to manually
-  delete a key before it's automatically deleted.
-
-  </note>
+  API keys are deleted automatically 60 days after they expire. However, they may
+  still be included in the response until they have actually been deleted. You can
+  safely call `DeleteApiKey` to manually delete a key before it's automatically
+  deleted.
   """
   def list_api_keys(client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/v1/apis/#{URI.encode(api_id)}/apikeys"
@@ -468,7 +466,9 @@ defmodule AWS.AppSync do
   end
 
   @doc """
-  Updates an API key. The key can be updated while it is not deleted.
+  Updates an API key.
+
+  The key can be updated while it is not deleted.
   """
   def update_api_key(client, api_id, id, input, options \\ []) do
     path_ = "/v1/apis/#{URI.encode(api_id)}/apikeys/#{URI.encode(id)}"

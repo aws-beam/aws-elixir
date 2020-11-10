@@ -3,19 +3,21 @@
 
 defmodule AWS.IoTEventsData do
   @moduledoc """
-  AWS IoT Events monitors your equipment or device fleets for failures or
-  changes in operation, and triggers actions when such events occur. AWS IoT
-  Events Data API commands enable you to send inputs to detectors, list
+  AWS IoT Events monitors your equipment or device fleets for failures or changes
+  in operation, and triggers actions when such events occur.
+
+  AWS IoT Events Data API commands enable you to send inputs to detectors, list
   detectors, and view or update a detector's status.
   """
 
   @doc """
-  Sends a set of messages to the AWS IoT Events system. Each message payload
-  is transformed into the input you specify (`"inputName"`) and ingested into
-  any detectors that monitor that input. If multiple messages are sent, the
-  order in which the messages are processed isn't guaranteed. To guarantee
-  ordering, you must send messages one at a time and wait for a successful
-  response.
+  Sends a set of messages to the AWS IoT Events system.
+
+  Each message payload is transformed into the input you specify (`"inputName"`)
+  and ingested into any detectors that monitor that input. If multiple messages
+  are sent, the order in which the messages are processed isn't guaranteed. To
+  guarantee ordering, you must send messages one at a time and wait for a
+  successful response.
   """
   def batch_put_message(client, input, options \\ []) do
     path_ = "/inputs/messages"
@@ -25,8 +27,8 @@ defmodule AWS.IoTEventsData do
   end
 
   @doc """
-  Updates the state, variable values, and timer settings of one or more
-  detectors (instances) of a specified detector model.
+  Updates the state, variable values, and timer settings of one or more detectors
+  (instances) of a specified detector model.
   """
   def batch_update_detector(client, input, options \\ []) do
     path_ = "/detectors"

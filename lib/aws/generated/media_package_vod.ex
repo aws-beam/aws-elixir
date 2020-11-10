@@ -77,8 +77,7 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Returns a description of a MediaPackage VOD PackagingConfiguration
-  resource.
+  Returns a description of a MediaPackage VOD PackagingConfiguration resource.
   """
   def describe_packaging_configuration(client, id, options \\ []) do
     path_ = "/packaging_configurations/#{URI.encode(id)}"
@@ -178,8 +177,9 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Adds tags to the specified resource. You can specify one or more tags to
-  add.
+  Adds tags to the specified resource.
+
+  You can specify one or more tags to add.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -189,8 +189,9 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Removes tags from the specified resource. You can specify one or more tags
-  to remove.
+  Removes tags from the specified resource.
+
+  You can specify one or more tags to remove.
   """
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -204,8 +205,9 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Updates a specific packaging group. You can't change the id attribute or
-  any other system-generated attributes.
+  Updates a specific packaging group.
+
+  You can't change the id attribute or any other system-generated attributes.
   """
   def update_packaging_group(client, id, input, options \\ []) do
     path_ = "/packaging_groups/#{URI.encode(id)}"

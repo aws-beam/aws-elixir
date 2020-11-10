@@ -47,9 +47,10 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Cancels a simulation job batch. When you cancel a simulation job batch, you
-  are also cancelling all of the active simulation jobs created as part of
-  the batch.
+  Cancels a simulation job batch.
+
+  When you cancel a simulation job batch, you are also cancelling all of the
+  active simulation jobs created as part of the batch.
   """
   def cancel_simulation_job_batch(client, input, options \\ []) do
     path_ = "/cancelSimulationJobBatch"
@@ -81,15 +82,12 @@ defmodule AWS.RoboMaker do
   @doc """
   Deploys a specific version of a robot application to robots in a fleet.
 
-  The robot application must have a numbered `applicationVersion` for
-  consistency reasons. To create a new version, use
-  `CreateRobotApplicationVersion` or see [Creating a Robot Application
-  Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
+  The robot application must have a numbered `applicationVersion` for consistency
+  reasons. To create a new version, use `CreateRobotApplicationVersion` or see
+  [Creating a Robot Application Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
 
-  <note> After 90 days, deployment jobs expire and will be deleted. They will
-  no longer be accessible.
-
-  </note>
+  After 90 days, deployment jobs expire and will be deleted. They will no longer
+  be accessible.
   """
   def create_deployment_job(client, input, options \\ []) do
     path_ = "/createDeploymentJob"
@@ -99,8 +97,7 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Creates a fleet, a logical group of robots running the same robot
-  application.
+  Creates a fleet, a logical group of robots running the same robot application.
   """
   def create_fleet(client, input, options \\ []) do
     path_ = "/createFleet"
@@ -162,10 +159,8 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a simulation job.
 
-  <note> After 90 days, simulation jobs expire and will be deleted. They will
-  no longer be accessible.
-
-  </note>
+  After 90 days, simulation jobs expire and will be deleted. They will no longer
+  be accessible.
   """
   def create_simulation_job(client, input, options \\ []) do
     path_ = "/createSimulationJob"
@@ -385,8 +380,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of deployment jobs for a fleet. You can optionally provide
-  filters to retrieve specific deployment jobs.
+  Returns a list of deployment jobs for a fleet.
+
+  You can optionally provide filters to retrieve specific deployment jobs.
   """
   def list_deployment_jobs(client, input, options \\ []) do
     path_ = "/listDeploymentJobs"
@@ -396,8 +392,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of fleets. You can optionally provide filters to retrieve
-  specific fleets.
+  Returns a list of fleets.
+
+  You can optionally provide filters to retrieve specific fleets.
   """
   def list_fleets(client, input, options \\ []) do
     path_ = "/listFleets"
@@ -407,8 +404,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of robot application. You can optionally provide filters to
-  retrieve specific robot applications.
+  Returns a list of robot application.
+
+  You can optionally provide filters to retrieve specific robot applications.
   """
   def list_robot_applications(client, input, options \\ []) do
     path_ = "/listRobotApplications"
@@ -418,8 +416,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of robots. You can optionally provide filters to retrieve
-  specific robots.
+  Returns a list of robots.
+
+  You can optionally provide filters to retrieve specific robots.
   """
   def list_robots(client, input, options \\ []) do
     path_ = "/listRobots"
@@ -429,8 +428,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of simulation applications. You can optionally provide
-  filters to retrieve specific simulation applications.
+  Returns a list of simulation applications.
+
+  You can optionally provide filters to retrieve specific simulation applications.
   """
   def list_simulation_applications(client, input, options \\ []) do
     path_ = "/listSimulationApplications"
@@ -440,8 +440,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list simulation job batches. You can optionally provide filters
-  to retrieve specific simulation batch jobs.
+  Returns a list simulation job batches.
+
+  You can optionally provide filters to retrieve specific simulation batch jobs.
   """
   def list_simulation_job_batches(client, input, options \\ []) do
     path_ = "/listSimulationJobBatches"
@@ -451,8 +452,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of simulation jobs. You can optionally provide filters to
-  retrieve specific simulation jobs.
+  Returns a list of simulation jobs.
+
+  You can optionally provide filters to retrieve specific simulation jobs.
   """
   def list_simulation_jobs(client, input, options \\ []) do
     path_ = "/listSimulationJobs"
@@ -532,8 +534,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Starts a new simulation job batch. The batch is defined using one or more
-  `SimulationJobRequest` objects.
+  Starts a new simulation job batch.
+
+  The batch is defined using one or more `SimulationJobRequest` objects.
   """
   def start_simulation_job_batch(client, input, options \\ []) do
     path_ = "/startSimulationJobBatch"
@@ -543,8 +546,9 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Syncrhonizes robots in a fleet to the latest deployment. This is helpful if
-  robots were added after a deployment.
+  Syncrhonizes robots in a fleet to the latest deployment.
+
+  This is helpful if robots were added after a deployment.
   """
   def sync_deployment_job(client, input, options \\ []) do
     path_ = "/syncDeploymentJob"
@@ -556,12 +560,11 @@ defmodule AWS.RoboMaker do
   @doc """
   Adds or edits tags for a AWS RoboMaker resource.
 
-  Each tag consists of a tag key and a tag value. Tag keys and tag values are
-  both required, but tag values can be empty strings.
+  Each tag consists of a tag key and a tag value. Tag keys and tag values are both
+  required, but tag values can be empty strings.
 
   For information about the rules that apply to tag keys and tag values, see
-  [User-Defined Tag
-  Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
+  [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
   in the *AWS Billing and Cost Management User Guide*.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
@@ -574,8 +577,8 @@ defmodule AWS.RoboMaker do
   @doc """
   Removes the specified tags from the specified AWS RoboMaker resource.
 
-  To remove a tag, specify the tag key. To change the tag value of an
-  existing tag key, use [ `TagResource`
+  To remove a tag, specify the tag key. To change the tag value of an existing tag
+  key, use [ `TagResource`
   ](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html).
   """
   def untag_resource(client, resource_arn, input, options \\ []) do

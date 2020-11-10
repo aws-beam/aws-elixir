@@ -5,57 +5,55 @@ defmodule AWS.AppConfig do
   @moduledoc """
   AWS AppConfig
 
-  Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage,
-  and quickly deploy application configurations. AppConfig supports
-  controlled deployments to applications of any size and includes built-in
-  validation checks and monitoring. You can use AppConfig with applications
-  hosted on Amazon EC2 instances, AWS Lambda, containers, mobile
+  Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and
+  quickly deploy application configurations.
+
+  AppConfig supports controlled deployments to applications of any size and
+  includes built-in validation checks and monitoring. You can use AppConfig with
+  applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile
   applications, or IoT devices.
 
   To prevent errors when deploying application configurations, especially for
   production systems where a simple typo could cause an unexpected outage,
   AppConfig includes validators. A validator provides a syntactic or semantic
-  check to ensure that the configuration you want to deploy works as
-  intended. To validate your application configuration data, you provide a
-  schema or a Lambda function that runs against the configuration. The
-  configuration deployment or update can only proceed when the configuration
-  data is valid.
+  check to ensure that the configuration you want to deploy works as intended. To
+  validate your application configuration data, you provide a schema or a Lambda
+  function that runs against the configuration. The configuration deployment or
+  update can only proceed when the configuration data is valid.
 
-  During a configuration deployment, AppConfig monitors the application to
-  ensure that the deployment is successful. If the system encounters an
-  error, AppConfig rolls back the change to minimize impact for your
-  application users. You can configure a deployment strategy for each
-  application or environment that includes deployment criteria, including
-  velocity, bake time, and alarms to monitor. Similar to error monitoring, if
-  a deployment triggers an alarm, AppConfig automatically rolls back to the
-  previous version.
+  During a configuration deployment, AppConfig monitors the application to ensure
+  that the deployment is successful. If the system encounters an error, AppConfig
+  rolls back the change to minimize impact for your application users. You can
+  configure a deployment strategy for each application or environment that
+  includes deployment criteria, including velocity, bake time, and alarms to
+  monitor. Similar to error monitoring, if a deployment triggers an alarm,
+  AppConfig automatically rolls back to the previous version.
 
   AppConfig supports multiple use cases. Here are some examples.
 
-  <ul> <li> **Application tuning**: Use AppConfig to carefully introduce
-  changes to your application that can only be tested with production
-  traffic.
+    * **Application tuning**: Use AppConfig to carefully introduce
+  changes to your application that can only be tested with production traffic.
 
-  </li> <li> **Feature toggle**: Use AppConfig to turn on new features that
+    * **Feature toggle**: Use AppConfig to turn on new features that
   require a timely deployment, such as a product launch or announcement.
 
-  </li> <li> **Allow list**: Use AppConfig to allow premium subscribers to
+    * **Allow list**: Use AppConfig to allow premium subscribers to
   access paid content.
 
-  </li> <li> **Operational issues**: Use AppConfig to reduce stress on your
+    * **Operational issues**: Use AppConfig to reduce stress on your
   application when a dependency or other external factor impacts the system.
 
-  </li> </ul> This reference is intended to be used with the [AWS AppConfig
-  User
-  Guide](http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html).
+  This reference is intended to be used with the [AWS AppConfig User Guide](http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html).
   """
 
   @doc """
-  An application in AppConfig is a logical unit of code that provides
-  capabilities for your customers. For example, an application can be a
-  microservice that runs on Amazon EC2 instances, a mobile application
-  installed by your users, a serverless application using Amazon API Gateway
-  and AWS Lambda, or any system you run on behalf of others.
+  An application in AppConfig is a logical unit of code that provides capabilities
+  for your customers.
+
+  For example, an application can be a microservice that runs on Amazon EC2
+  instances, a mobile application installed by your users, a serverless
+  application using Amazon API Gateway and AWS Lambda, or any system you run on
+  behalf of others.
   """
   def create_application(client, input, options \\ []) do
     path_ = "/applications"
@@ -66,21 +64,20 @@ defmodule AWS.AppConfig do
 
   @doc """
   Information that enables AppConfig to access the configuration source.
+
   Valid configuration sources include Systems Manager (SSM) documents, SSM
   Parameter Store parameters, and Amazon S3 objects. A configuration profile
   includes the following information.
 
-  <ul> <li> The Uri location of the configuration data.
+    * The Uri location of the configuration data.
 
-  </li> <li> The AWS Identity and Access Management (IAM) role that provides
+    * The AWS Identity and Access Management (IAM) role that provides
   access to the configuration data.
 
-  </li> <li> A validator for the configuration data. Available validators
+    * A validator for the configuration data. Available validators
   include either a JSON Schema or an AWS Lambda function.
 
-  </li> </ul> For more information, see [Create a Configuration and a
-  Configuration
-  Profile](http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html)
+  For more information, see [Create a Configuration and a Configuration Profile](http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html)
   in the *AWS AppConfig User Guide*.
   """
   def create_configuration_profile(client, application_id, input, options \\ []) do
@@ -92,10 +89,11 @@ defmodule AWS.AppConfig do
 
   @doc """
   A deployment strategy defines important criteria for rolling out your
-  configuration to the designated targets. A deployment strategy includes:
-  the overall duration required, a percentage of targets to receive the
-  deployment during each interval, an algorithm that defines how percentage
-  grows, and bake time.
+  configuration to the designated targets.
+
+  A deployment strategy includes: the overall duration required, a percentage of
+  targets to receive the deployment during each interval, an algorithm that
+  defines how percentage grows, and bake time.
   """
   def create_deployment_strategy(client, input, options \\ []) do
     path_ = "/deploymentstrategies"
@@ -105,14 +103,14 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  For each application, you define one or more environments. An environment
-  is a logical deployment group of AppConfig targets, such as applications in
-  a `Beta` or `Production` environment. You can also define environments for
-  application subcomponents such as the `Web`, `Mobile` and `Back-end`
-  components for your application. You can configure Amazon CloudWatch alarms
-  for each environment. The system monitors alarms during a configuration
-  deployment. If an alarm is triggered, the system rolls back the
-  configuration.
+  For each application, you define one or more environments.
+
+  An environment is a logical deployment group of AppConfig targets, such as
+  applications in a `Beta` or `Production` environment. You can also define
+  environments for application subcomponents such as the `Web`, `Mobile` and
+  `Back-end` components for your application. You can configure Amazon CloudWatch
+  alarms for each environment. The system monitors alarms during a configuration
+  deployment. If an alarm is triggered, the system rolls back the configuration.
   """
   def create_environment(client, application_id, input, options \\ []) do
     path_ = "/applications/#{URI.encode(application_id)}/environments"
@@ -159,8 +157,9 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Delete an application. Deleting an application does not delete a
-  configuration from a host.
+  Delete an application.
+
+  Deleting an application does not delete a configuration from a host.
   """
   def delete_application(client, application_id, input, options \\ []) do
     path_ = "/applications/#{URI.encode(application_id)}"
@@ -170,8 +169,9 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Delete a configuration profile. Deleting a configuration profile does not
-  delete a configuration from a host.
+  Delete a configuration profile.
+
+  Deleting a configuration profile does not delete a configuration from a host.
   """
   def delete_configuration_profile(client, application_id, configuration_profile_id, input, options \\ []) do
     path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
@@ -181,8 +181,9 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Delete a deployment strategy. Deleting a deployment strategy does not
-  delete a configuration from a host.
+  Delete a deployment strategy.
+
+  Deleting a deployment strategy does not delete a configuration from a host.
   """
   def delete_deployment_strategy(client, deployment_strategy_id, input, options \\ []) do
     path_ = "/deployementstrategies/#{URI.encode(deployment_strategy_id)}"
@@ -192,8 +193,9 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Delete an environment. Deleting an environment does not delete a
-  configuration from a host.
+  Delete an environment.
+
+  Deleting an environment does not delete a configuration from a host.
   """
   def delete_environment(client, application_id, environment_id, input, options \\ []) do
     path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
@@ -225,20 +227,16 @@ defmodule AWS.AppConfig do
   @doc """
   Receive information about a configuration.
 
-  <important> AWS AppConfig uses the value of the
-  `ClientConfigurationVersion` parameter to identify the configuration
-  version on your clients. If you don’t send `ClientConfigurationVersion`
-  with each call to `GetConfiguration`, your clients receive the current
-  configuration. You are charged each time your clients receive a
-  configuration.
+  AWS AppConfig uses the value of the `ClientConfigurationVersion` parameter to
+  identify the configuration version on your clients. If you don’t send
+  `ClientConfigurationVersion` with each call to `GetConfiguration`, your clients
+  receive the current configuration. You are charged each time your clients
+  receive a configuration.
 
   To avoid excess charges, we recommend that you include the
-  `ClientConfigurationVersion` value with every call to `GetConfiguration`.
-  This value must be saved on your client. Subsequent calls to
-  `GetConfiguration` must pass this value by using the
-  `ClientConfigurationVersion` parameter.
-
-  </important>
+  `ClientConfigurationVersion` value with every call to `GetConfiguration`. This
+  value must be saved on your client. Subsequent calls to `GetConfiguration` must
+  pass this value by using the `ClientConfigurationVersion` parameter.
   """
   def get_configuration(client, application, configuration, environment, client_configuration_version \\ nil, client_id, options \\ []) do
     path_ = "/applications/#{URI.encode(application)}/environments/#{URI.encode(environment)}/configurations/#{URI.encode(configuration)}"
@@ -296,11 +294,13 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Retrieve information about a deployment strategy. A deployment strategy
-  defines important criteria for rolling out your configuration to the
-  designated targets. A deployment strategy includes: the overall duration
-  required, a percentage of targets to receive the deployment during each
-  interval, an algorithm that defines how percentage grows, and bake time.
+  Retrieve information about a deployment strategy.
+
+  A deployment strategy defines important criteria for rolling out your
+  configuration to the designated targets. A deployment strategy includes: the
+  overall duration required, a percentage of targets to receive the deployment
+  during each interval, an algorithm that defines how percentage grows, and bake
+  time.
   """
   def get_deployment_strategy(client, deployment_strategy_id, options \\ []) do
     path_ = "/deploymentstrategies/#{URI.encode(deployment_strategy_id)}"
@@ -310,12 +310,13 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Retrieve information about an environment. An environment is a logical
-  deployment group of AppConfig applications, such as applications in a
-  `Production` environment or in an `EU_Region` environment. Each
-  configuration deployment targets an environment. You can enable one or more
-  Amazon CloudWatch alarms for an environment. If an alarm is triggered
-  during a deployment, AppConfig roles back the configuration.
+  Retrieve information about an environment.
+
+  An environment is a logical deployment group of AppConfig applications, such as
+  applications in a `Production` environment or in an `EU_Region` environment.
+  Each configuration deployment targets an environment. You can enable one or more
+  Amazon CloudWatch alarms for an environment. If an alarm is triggered during a
+  deployment, AppConfig roles back the configuration.
   """
   def get_environment(client, application_id, environment_id, options \\ []) do
     path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
@@ -456,8 +457,8 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  View a list of configurations stored in the AppConfig configuration store
-  by version.
+  View a list of configurations stored in the AppConfig configuration store by
+  version.
   """
   def list_hosted_configuration_versions(client, application_id, configuration_profile_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions"
@@ -497,9 +498,10 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Stops a deployment. This API action works only on deployments that have a
-  status of `DEPLOYING`. This action moves the deployment to a status of
-  `ROLLED_BACK`.
+  Stops a deployment.
+
+  This API action works only on deployments that have a status of `DEPLOYING`.
+  This action moves the deployment to a status of `ROLLED_BACK`.
   """
   def stop_deployment(client, application_id, deployment_number, environment_id, input, options \\ []) do
     path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{URI.encode(deployment_number)}"
@@ -509,10 +511,11 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Metadata to assign to an AppConfig resource. Tags help organize and
-  categorize your AppConfig resources. Each tag consists of a key and an
-  optional value, both of which you define. You can specify a maximum of 50
-  tags for a resource.
+  Metadata to assign to an AppConfig resource.
+
+  Tags help organize and categorize your AppConfig resources. Each tag consists of
+  a key and an optional value, both of which you define. You can specify a maximum
+  of 50 tags for a resource.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"

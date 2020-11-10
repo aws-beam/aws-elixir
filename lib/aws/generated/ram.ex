@@ -3,15 +3,15 @@
 
 defmodule AWS.RAM do
   @moduledoc """
-  Use AWS Resource Access Manager to share AWS resources between AWS
-  accounts. To share a resource, you create a resource share, associate the
-  resource with the resource share, and specify the principals that can
-  access the resources associated with the resource share. The following
-  principals are supported: AWS accounts, organizational units (OU) from AWS
-  Organizations, and organizations from AWS Organizations.
+  Use AWS Resource Access Manager to share AWS resources between AWS accounts.
 
-  For more information, see the [AWS Resource Access Manager User
-  Guide](https://docs.aws.amazon.com/ram/latest/userguide/).
+  To share a resource, you create a resource share, associate the resource with
+  the resource share, and specify the principals that can access the resources
+  associated with the resource share. The following principals are supported: AWS
+  accounts, organizational units (OU) from AWS Organizations, and organizations
+  from AWS Organizations.
+
+  For more information, see the [AWS Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/).
   """
 
   @doc """
@@ -71,8 +71,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Disassociates the specified principals or resources from the specified
-  resource share.
+  Disassociates the specified principals or resources from the specified resource
+  share.
   """
   def disassociate_resource_share(client, input, options \\ []) do
     path_ = "/disassociateresourceshare"
@@ -144,8 +144,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Gets the resource shares that you own or the resource shares that are
-  shared with you.
+  Gets the resource shares that you own or the resource shares that are shared
+  with you.
   """
   def get_resource_shares(client, input, options \\ []) do
     path_ = "/getresourceshares"
@@ -155,8 +155,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the resources in a resource share that is shared with you but that
-  the invitation is still pending for.
+  Lists the resources in a resource share that is shared with you but that the
+  invitation is still pending for.
   """
   def list_pending_invitation_resources(client, input, options \\ []) do
     path_ = "/listpendinginvitationresources"
@@ -176,8 +176,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the principals that you have shared resources with or that have
-  shared resources with you.
+  Lists the principals that you have shared resources with or that have shared
+  resources with you.
   """
   def list_principals(client, input, options \\ []) do
     path_ = "/listprincipals"
@@ -207,8 +207,8 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Lists the resources that you added to a resource shares or the resources
-  that are shared with you.
+  Lists the resources that you added to a resource shares or the resources that
+  are shared with you.
   """
   def list_resources(client, input, options \\ []) do
     path_ = "/listresources"
@@ -222,14 +222,12 @@ defmodule AWS.RAM do
   visible only to the resource share owner, and the resource share cannot be
   modified in AWS RAM.
 
-  Use this API action to promote the resource share. When you promote the
-  resource share, it becomes:
+  Use this API action to promote the resource share. When you promote the resource
+  share, it becomes:
 
-  <ul> <li> Visible to all principals that it is shared with.
+    * Visible to all principals that it is shared with.
 
-  </li> <li> Modifiable in AWS RAM.
-
-  </li> </ul>
+    * Modifiable in AWS RAM.
   """
   def promote_resource_share_created_from_policy(client, input, options \\ []) do
     path_ = "/promoteresourcesharecreatedfrompolicy"

@@ -7,35 +7,34 @@ defmodule AWS.MigrationHub do
   migration status and integrate your resource-specific migration tool by
   providing a programmatic interface to Migration Hub.
 
-  Remember that you must set your AWS Migration Hub home region before you
-  call any of these APIs, or a `HomeRegionNotSetException` error will be
-  returned. Also, you must make the API calls while in your home region.
+  Remember that you must set your AWS Migration Hub home region before you call
+  any of these APIs, or a `HomeRegionNotSetException` error will be returned.
+  Also, you must make the API calls while in your home region.
   """
 
   @doc """
-  Associates a created artifact of an AWS cloud resource, the target
-  receiving the migration, with the migration task performed by a migration
-  tool. This API has the following traits:
+  Associates a created artifact of an AWS cloud resource, the target receiving the
+  migration, with the migration task performed by a migration tool.
 
-  <ul> <li> Migration tools can call the `AssociateCreatedArtifact` operation
+  This API has the following traits:
+
+    * Migration tools can call the `AssociateCreatedArtifact` operation
   to indicate which AWS artifact is associated with a migration task.
 
-  </li> <li> The created artifact name must be provided in ARN (Amazon
-  Resource Name) format which will contain information about type and region;
-  for example: `arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b`.
+    * The created artifact name must be provided in ARN (Amazon Resource
+  Name) format which will contain information about type and region; for example:
+  `arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b`.
 
-  </li> <li> Examples of the AWS resource behind the created artifact are,
+    * Examples of the AWS resource behind the created artifact are,
   AMI's, EC2 instance, or DMS endpoint, etc.
-
-  </li> </ul>
   """
   def associate_created_artifact(client, input, options \\ []) do
     request(client, "AssociateCreatedArtifact", input, options)
   end
 
   @doc """
-  Associates a discovered resource ID from Application Discovery Service with
-  a migration task.
+  Associates a discovered resource ID from Application Discovery Service with a
+  migration task.
   """
   def associate_discovered_resource(client, input, options \\ []) do
     request(client, "AssociateDiscoveredResource", input, options)
@@ -44,9 +43,11 @@ defmodule AWS.MigrationHub do
   @doc """
   Creates a progress update stream which is an AWS resource used for access
   control as well as a namespace for migration task names that is implicitly
-  linked to your AWS account. It must uniquely identify the migration tool as
-  it is used for all updates made by the tool; however, it does not need to
-  be unique for each AWS account because it is scoped to the AWS account.
+  linked to your AWS account.
+
+  It must uniquely identify the migration tool as it is used for all updates made
+  by the tool; however, it does not need to be unique for each AWS account because
+  it is scoped to the AWS account.
   """
   def create_progress_update_stream(client, input, options \\ []) do
     request(client, "CreateProgressUpdateStream", input, options)
@@ -54,30 +55,29 @@ defmodule AWS.MigrationHub do
 
   @doc """
   Deletes a progress update stream, including all of its tasks, which was
-  previously created as an AWS resource used for access control. This API has
-  the following traits:
+  previously created as an AWS resource used for access control.
 
-  <ul> <li> The only parameter needed for `DeleteProgressUpdateStream` is the
+  This API has the following traits:
+
+    * The only parameter needed for `DeleteProgressUpdateStream` is the
   stream name (same as a `CreateProgressUpdateStream` call).
 
-  </li> <li> The call will return, and a background process will
-  asynchronously delete the stream and all of its resources (tasks,
-  associated resources, resource attributes, created artifacts).
+    * The call will return, and a background process will asynchronously
+  delete the stream and all of its resources (tasks, associated resources,
+  resource attributes, created artifacts).
 
-  </li> <li> If the stream takes time to be deleted, it might still show up
-  on a `ListProgressUpdateStreams` call.
+    * If the stream takes time to be deleted, it might still show up on
+  a `ListProgressUpdateStreams` call.
 
-  </li> <li> `CreateProgressUpdateStream`, `ImportMigrationTask`,
+    * `CreateProgressUpdateStream`, `ImportMigrationTask`,
   `NotifyMigrationTaskState`, and all Associate[*] APIs related to the tasks
-  belonging to the stream will throw "InvalidInputException" if the stream of
-  the same name is in the process of being deleted.
+  belonging to the stream will throw "InvalidInputException" if the stream of the
+  same name is in the process of being deleted.
 
-  </li> <li> Once the stream and all of its resources are deleted,
-  `CreateProgressUpdateStream` for a stream of the same name will succeed,
-  and that stream will be an entirely new logical resource (without any
-  resources associated with the old stream).
-
-  </li> </ul>
+    * Once the stream and all of its resources are deleted,
+  `CreateProgressUpdateStream` for a stream of the same name will succeed, and
+  that stream will be an entirely new logical resource (without any resources
+  associated with the old stream).
   """
   def delete_progress_update_stream(client, input, options \\ []) do
     request(client, "DeleteProgressUpdateStream", input, options)
@@ -91,8 +91,7 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
-  Retrieves a list of all attributes associated with a specific migration
-  task.
+  Retrieves a list of all attributes associated with a specific migration task.
   """
   def describe_migration_task(client, input, options \\ []) do
     request(client, "DescribeMigrationTask", input, options)
@@ -100,20 +99,19 @@ defmodule AWS.MigrationHub do
 
   @doc """
   Disassociates a created artifact of an AWS resource with a migration task
-  performed by a migration tool that was previously associated. This API has
-  the following traits:
+  performed by a migration tool that was previously associated.
 
-  <ul> <li> A migration user can call the `DisassociateCreatedArtifacts`
+  This API has the following traits:
+
+    * A migration user can call the `DisassociateCreatedArtifacts`
   operation to disassociate a created AWS Artifact from a migration task.
 
-  </li> <li> The created artifact name must be provided in ARN (Amazon
-  Resource Name) format which will contain information about type and region;
-  for example: `arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b`.
+    * The created artifact name must be provided in ARN (Amazon Resource
+  Name) format which will contain information about type and region; for example:
+  `arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b`.
 
-  </li> <li> Examples of the AWS resource behind the created artifact are,
+    * Examples of the AWS resource behind the created artifact are,
   AMI's, EC2 instance, or RDS instance, etc.
-
-  </li> </ul>
   """
   def disassociate_created_artifact(client, input, options \\ []) do
     request(client, "DisassociateCreatedArtifact", input, options)
@@ -128,21 +126,21 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
-  Registers a new migration task which represents a server, database, etc.,
-  being migrated to AWS by a migration tool.
+  Registers a new migration task which represents a server, database, etc., being
+  migrated to AWS by a migration tool.
 
-  This API is a prerequisite to calling the `NotifyMigrationTaskState` API as
-  the migration tool must first register the migration task with Migration
-  Hub.
+  This API is a prerequisite to calling the `NotifyMigrationTaskState` API as the
+  migration tool must first register the migration task with Migration Hub.
   """
   def import_migration_task(client, input, options \\ []) do
     request(client, "ImportMigrationTask", input, options)
   end
 
   @doc """
-  Lists all the migration statuses for your applications. If you use the
-  optional `ApplicationIds` parameter, only the migration statuses for those
-  applications will be returned.
+  Lists all the migration statuses for your applications.
+
+  If you use the optional `ApplicationIds` parameter, only the migration statuses
+  for those applications will be returned.
   """
   def list_application_states(client, input, options \\ []) do
     request(client, "ListApplicationStates", input, options)
@@ -150,17 +148,17 @@ defmodule AWS.MigrationHub do
 
   @doc """
   Lists the created artifacts attached to a given migration task in an update
-  stream. This API has the following traits:
+  stream.
 
-  <ul> <li> Gets the list of the created artifacts while migration is taking
+  This API has the following traits:
+
+    * Gets the list of the created artifacts while migration is taking
   place.
 
-  </li> <li> Shows the artifacts created by the migration tool that was
+    * Shows the artifacts created by the migration tool that was
   associated by the `AssociateCreatedArtifact` API.
 
-  </li> <li> Lists created artifacts in a paginated interface.
-
-  </li> </ul>
+    * Lists created artifacts in a paginated interface.
   """
   def list_created_artifacts(client, input, options \\ []) do
     request(client, "ListCreatedArtifacts", input, options)
@@ -174,35 +172,35 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
-  Lists all, or filtered by resource name, migration tasks associated with
-  the user account making this call. This API has the following traits:
+  Lists all, or filtered by resource name, migration tasks associated with the
+  user account making this call.
 
-  <ul> <li> Can show a summary list of the most recent migration tasks.
+  This API has the following traits:
 
-  </li> <li> Can show a summary list of migration tasks associated with a
-  given discovered resource.
+    * Can show a summary list of the most recent migration tasks.
 
-  </li> <li> Lists migration tasks in a paginated interface.
+    * Can show a summary list of migration tasks associated with a given
+  discovered resource.
 
-  </li> </ul>
+    * Lists migration tasks in a paginated interface.
   """
   def list_migration_tasks(client, input, options \\ []) do
     request(client, "ListMigrationTasks", input, options)
   end
 
   @doc """
-  Lists progress update streams associated with the user account making this
-  call.
+  Lists progress update streams associated with the user account making this call.
   """
   def list_progress_update_streams(client, input, options \\ []) do
     request(client, "ListProgressUpdateStreams", input, options)
   end
 
   @doc """
-  Sets the migration state of an application. For a given application
-  identified by the value passed to `ApplicationId`, its status is set or
-  updated by passing one of three values to `Status`: `NOT_STARTED |
-  IN_PROGRESS | COMPLETED`.
+  Sets the migration state of an application.
+
+  For a given application identified by the value passed to `ApplicationId`, its
+  status is set or updated by passing one of three values to `Status`:
+  `NOT_STARTED | IN_PROGRESS | COMPLETED`.
   """
   def notify_application_state(client, input, options \\ []) do
     request(client, "NotifyApplicationState", input, options)
@@ -210,45 +208,43 @@ defmodule AWS.MigrationHub do
 
   @doc """
   Notifies Migration Hub of the current status, progress, or other detail
-  regarding a migration task. This API has the following traits:
+  regarding a migration task.
 
-  <ul> <li> Migration tools will call the `NotifyMigrationTaskState` API to
+  This API has the following traits:
+
+    * Migration tools will call the `NotifyMigrationTaskState` API to
   share the latest progress and status.
 
-  </li> <li> `MigrationTaskName` is used for addressing updates to the
-  correct target.
+    * `MigrationTaskName` is used for addressing updates to the correct
+  target.
 
-  </li> <li> `ProgressUpdateStream` is used for access control and to provide
-  a namespace for each migration tool.
-
-  </li> </ul>
+    * `ProgressUpdateStream` is used for access control and to provide a
+  namespace for each migration tool.
   """
   def notify_migration_task_state(client, input, options \\ []) do
     request(client, "NotifyMigrationTaskState", input, options)
   end
 
   @doc """
-  Provides identifying details of the resource being migrated so that it can
-  be associated in the Application Discovery Service repository. This
-  association occurs asynchronously after `PutResourceAttributes` returns.
+  Provides identifying details of the resource being migrated so that it can be
+  associated in the Application Discovery Service repository.
 
-  <important> <ul> <li> Keep in mind that subsequent calls to
-  PutResourceAttributes will override previously stored attributes. For
-  example, if it is first called with a MAC address, but later, it is desired
-  to *add* an IP address, it will then be required to call it with *both* the
-  IP and MAC addresses to prevent overriding the MAC address.
+  This association occurs asynchronously after `PutResourceAttributes` returns.
 
-  </li> <li> Note the instructions regarding the special use case of the [
+     Keep in mind that subsequent calls to PutResourceAttributes will
+  override previously stored attributes. For example, if it is first called with a
+  MAC address, but later, it is desired to *add* an IP address, it will then be
+  required to call it with *both* the IP and MAC addresses to prevent overriding
+  the MAC address.
+
+     Note the instructions regarding the special use case of the [
   `ResourceAttributeList`
   ](https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList)
   parameter when specifying any "VM" related value.
 
-  </li> </ul> </important> <note> Because this is an asynchronous call, it
-  will always return 200, whether an association occurs or not. To confirm if
-  an association was found based on the provided details, call
-  `ListDiscoveredResources`.
-
-  </note>
+  Because this is an asynchronous call, it will always return 200, whether an
+  association occurs or not. To confirm if an association was found based on the
+  provided details, call `ListDiscoveredResources`.
   """
   def put_resource_attributes(client, input, options \\ []) do
     request(client, "PutResourceAttributes", input, options)

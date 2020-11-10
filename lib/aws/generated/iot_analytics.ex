@@ -3,31 +3,31 @@
 
 defmodule AWS.IoTAnalytics do
   @moduledoc """
-  AWS IoT Analytics allows you to collect large amounts of device data,
-  process messages, and store them. You can then query the data and run
-  sophisticated analytics on it. AWS IoT Analytics enables advanced data
-  exploration through integration with Jupyter Notebooks and data
-  visualization through integration with Amazon QuickSight.
+  AWS IoT Analytics allows you to collect large amounts of device data, process
+  messages, and store them.
 
-  Traditional analytics and business intelligence tools are designed to
-  process structured data. IoT data often comes from devices that record
-  noisy processes (such as temperature, motion, or sound). As a result the
-  data from these devices can have significant gaps, corrupted messages, and
-  false readings that must be cleaned up before analysis can occur. Also, IoT
-  data is often only meaningful in the context of other data from external
-  sources.
+  You can then query the data and run sophisticated analytics on it. AWS IoT
+  Analytics enables advanced data exploration through integration with Jupyter
+  Notebooks and data visualization through integration with Amazon QuickSight.
 
-  AWS IoT Analytics automates the steps required to analyze data from IoT
-  devices. AWS IoT Analytics filters, transforms, and enriches IoT data
-  before storing it in a time-series data store for analysis. You can set up
-  the service to collect only the data you need from your devices, apply
-  mathematical transforms to process the data, and enrich the data with
-  device-specific metadata such as device type and location before storing
-  it. Then, you can analyze your data by running queries using the built-in
-  SQL query engine, or perform more complex analytics and machine learning
-  inference. AWS IoT Analytics includes pre-built models for common IoT use
-  cases so you can answer questions like which devices are about to fail or
-  which customers are at risk of abandoning their wearable devices.
+  Traditional analytics and business intelligence tools are designed to process
+  structured data. IoT data often comes from devices that record noisy processes
+  (such as temperature, motion, or sound). As a result the data from these devices
+  can have significant gaps, corrupted messages, and false readings that must be
+  cleaned up before analysis can occur. Also, IoT data is often only meaningful in
+  the context of other data from external sources.
+
+  AWS IoT Analytics automates the steps required to analyze data from IoT devices.
+  AWS IoT Analytics filters, transforms, and enriches IoT data before storing it
+  in a time-series data store for analysis. You can set up the service to collect
+  only the data you need from your devices, apply mathematical transforms to
+  process the data, and enrich the data with device-specific metadata such as
+  device type and location before storing it. Then, you can analyze your data by
+  running queries using the built-in SQL query engine, or perform more complex
+  analytics and machine learning inference. AWS IoT Analytics includes pre-built
+  models for common IoT use cases so you can answer questions like which devices
+  are about to fail or which customers are at risk of abandoning their wearable
+  devices.
   """
 
   @doc """
@@ -51,8 +51,10 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates a channel. A channel collects data from an MQTT topic and archives
-  the raw, unprocessed messages before publishing the data to a pipeline.
+  Creates a channel.
+
+  A channel collects data from an MQTT topic and archives the raw, unprocessed
+  messages before publishing the data to a pipeline.
   """
   def create_channel(client, input, options \\ []) do
     path_ = "/channels"
@@ -62,12 +64,13 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates a data set. A data set stores data retrieved from a data store by
-  applying a "queryAction" (a SQL query) or a "containerAction" (executing a
-  containerized application). This operation creates the skeleton of a data
-  set. The data set can be populated manually by calling
-  "CreateDatasetContent" or automatically according to a "trigger" you
-  specify.
+  Creates a data set.
+
+  A data set stores data retrieved from a data store by applying a "queryAction"
+  (a SQL query) or a "containerAction" (executing a containerized application).
+  This operation creates the skeleton of a data set. The data set can be populated
+  manually by calling "CreateDatasetContent" or automatically according to a
+  "trigger" you specify.
   """
   def create_dataset(client, input, options \\ []) do
     path_ = "/datasets"
@@ -77,8 +80,8 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates the content of a data set by applying a "queryAction" (a SQL query)
-  or a "containerAction" (executing a containerized application).
+  Creates the content of a data set by applying a "queryAction" (a SQL query) or a
+  "containerAction" (executing a containerized application).
   """
   def create_dataset_content(client, dataset_name, input, options \\ []) do
     path_ = "/datasets/#{URI.encode(dataset_name)}/content"
@@ -98,10 +101,12 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates a pipeline. A pipeline consumes messages from a channel and allows
-  you to process the messages before storing them in a data store. You must
-  specify both a `channel` and a `datastore` activity and, optionally, as
-  many as 23 additional activities in the `pipelineActivities` array.
+  Creates a pipeline.
+
+  A pipeline consumes messages from a channel and allows you to process the
+  messages before storing them in a data store. You must specify both a `channel`
+  and a `datastore` activity and, optionally, as many as 23 additional activities
+  in the `pipelineActivities` array.
   """
   def create_pipeline(client, input, options \\ []) do
     path_ = "/pipelines"
@@ -123,8 +128,8 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified data set.
 
-  You do not have to delete the content of the data set before you perform
-  this operation.
+  You do not have to delete the content of the data set before you perform this
+  operation.
   """
   def delete_dataset(client, dataset_name, input, options \\ []) do
     path_ = "/datasets/#{URI.encode(dataset_name)}"
@@ -370,11 +375,10 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Sets or updates the AWS IoT Analytics logging options.
 
-  Note that if you update the value of any `loggingOptions` field, it takes
-  up to one minute for the change to take effect. Also, if you change the
-  policy attached to the role you specified in the roleArn field (for
-  example, to correct an invalid policy) it takes up to 5 minutes for that
-  change to take effect.
+  Note that if you update the value of any `loggingOptions` field, it takes up to
+  one minute for the change to take effect. Also, if you change the policy
+  attached to the role you specified in the roleArn field (for example, to correct
+  an invalid policy) it takes up to 5 minutes for that change to take effect.
   """
   def put_logging_options(client, input, options \\ []) do
     path_ = "/logging"
@@ -394,8 +398,10 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Retrieves a sample of messages from the specified channel ingested during
-  the specified timeframe. Up to 10 messages can be retrieved.
+  Retrieves a sample of messages from the specified channel ingested during the
+  specified timeframe.
+
+  Up to 10 messages can be retrieved.
   """
   def sample_channel_data(client, channel_name, end_time \\ nil, max_messages \\ nil, start_time \\ nil, options \\ []) do
     path_ = "/channels/#{URI.encode(channel_name)}/sample"
@@ -430,8 +436,9 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource. Tags are metadata which
-  can be used to manage a resource.
+  Adds to or modifies the tags of the given resource.
+
+  Tags are metadata which can be used to manage a resource.
   """
   def tag_resource(client, input, options \\ []) do
     path_ = "/tags"
@@ -490,9 +497,10 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Updates the settings of a pipeline. You must specify both a `channel` and a
-  `datastore` activity and, optionally, as many as 23 additional activities
-  in the `pipelineActivities` array.
+  Updates the settings of a pipeline.
+
+  You must specify both a `channel` and a `datastore` activity and, optionally, as
+  many as 23 additional activities in the `pipelineActivities` array.
   """
   def update_pipeline(client, pipeline_name, input, options \\ []) do
     path_ = "/pipelines/#{URI.encode(pipeline_name)}"

@@ -3,22 +3,24 @@
 
 defmodule AWS.AlexaForBusiness do
   @moduledoc """
-  Alexa for Business helps you use Alexa in your organization. Alexa for
-  Business provides you with the tools to manage Alexa devices, enroll your
-  users, and assign skills, at scale. You can build your own context-aware
+  Alexa for Business helps you use Alexa in your organization.
+
+  Alexa for Business provides you with the tools to manage Alexa devices, enroll
+  your users, and assign skills, at scale. You can build your own context-aware
   voice skills using the Alexa Skills Kit and the Alexa for Business API
   operations. You can also make these available as private skills for your
   organization. Alexa for Business makes it efficient to voice-enable your
-  products and services, thus providing context-aware voice experiences for
-  your customers. Device makers building with the Alexa Voice Service (AVS)
-  can create fully integrated solutions, register their products with Alexa
-  for Business, and manage them as shared devices in their organization.
+  products and services, thus providing context-aware voice experiences for your
+  customers. Device makers building with the Alexa Voice Service (AVS) can create
+  fully integrated solutions, register their products with Alexa for Business, and
+  manage them as shared devices in their organization.
   """
 
   @doc """
   Associates a skill with the organization under the customer's AWS account.
-  If a skill is private, the user implicitly accepts access to this skill
-  during enablement.
+
+  If a skill is private, the user implicitly accepts access to this skill during
+  enablement.
   """
   def approve_skill(client, input, options \\ []) do
     request(client, "ApproveSkill", input, options)
@@ -39,18 +41,21 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Associates a device with a given room. This applies all the settings from
-  the room profile to the device, and all the skills in any skill groups
-  added to that room. This operation requires the device to be online, or
-  else a manual sync is required.
+  Associates a device with a given room.
+
+  This applies all the settings from the room profile to the device, and all the
+  skills in any skill groups added to that room. This operation requires the
+  device to be online, or else a manual sync is required.
   """
   def associate_device_with_room(client, input, options \\ []) do
     request(client, "AssociateDeviceWithRoom", input, options)
   end
 
   @doc """
-  Associates a skill group with a given room. This enables all skills in the
-  associated skill group on all devices in the room.
+  Associates a skill group with a given room.
+
+  This enables all skills in the associated skill group on all devices in the
+  room.
   """
   def associate_skill_group_with_room(client, input, options \\ []) do
     request(client, "AssociateSkillGroupWithRoom", input, options)
@@ -64,8 +69,7 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Makes a private skill available for enrolled users to enable on their
-  devices.
+  Makes a private skill available for enrolled users to enable on their devices.
   """
   def associate_skill_with_users(client, input, options \\ []) do
     request(client, "AssociateSkillWithUsers", input, options)
@@ -79,8 +83,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Creates a recurring schedule for usage reports to deliver to the specified
-  S3 location with a specified daily or weekly interval.
+  Creates a recurring schedule for usage reports to deliver to the specified S3
+  location with a specified daily or weekly interval.
   """
   def create_business_report_schedule(client, input, options \\ []) do
     request(client, "CreateBusinessReportSchedule", input, options)
@@ -150,8 +154,7 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Deletes the recurring report delivery schedule with the specified schedule
-  ARN.
+  Deletes the recurring report delivery schedule with the specified schedule ARN.
   """
   def delete_business_report_schedule(client, input, options \\ []) do
     request(client, "DeleteBusinessReportSchedule", input, options)
@@ -179,10 +182,11 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  When this action is called for a specified shared device, it allows
-  authorized users to delete the device's entire previous history of voice
-  input data and associated response data. This action can be called once
-  every 24 hours for a specific shared device.
+  When this action is called for a specified shared device, it allows authorized
+  users to delete the device's entire previous history of voice input data and
+  associated response data.
+
+  This action can be called once every 24 hours for a specific shared device.
   """
   def delete_device_usage_data(client, input, options \\ []) do
     request(client, "DeleteDeviceUsageData", input, options)
@@ -252,9 +256,11 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Disassociates a device from its current room. The device continues to be
-  connected to the Wi-Fi network and is still registered to the account. The
-  device settings and skills are removed from the room.
+  Disassociates a device from its current room.
+
+  The device continues to be connected to the Wi-Fi network and is still
+  registered to the account. The device settings and skills are removed from the
+  room.
   """
   def disassociate_device_from_room(client, input, options \\ []) do
     request(client, "DisassociateDeviceFromRoom", input, options)
@@ -276,8 +282,9 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Disassociates a skill group from a specified room. This disables all skills
-  in the skill group on all devices in the room.
+  Disassociates a skill group from a specified room.
+
+  This disables all skills in the skill group on all devices in the room.
   """
   def disassociate_skill_group_from_room(client, input, options \\ []) do
     request(client, "DisassociateSkillGroupFromRoom", input, options)
@@ -383,10 +390,11 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Lists the details of the schedules that a user configured. A download URL
-  of the report associated with each schedule is returned every time this
-  action is called. A new download URL is returned each time, and is valid
-  for 24 hours.
+  Lists the details of the schedules that a user configured.
+
+  A download URL of the report associated with each schedule is returned every
+  time this action is called. A new download URL is returned each time, and is
+  valid for 24 hours.
   """
   def list_business_report_schedules(client, input, options \\ []) do
     request(client, "ListBusinessReportSchedules", input, options)
@@ -400,26 +408,28 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Lists the device event history, including device connection status, for up
-  to 30 days.
+  Lists the device event history, including device connection status, for up to 30
+  days.
   """
   def list_device_events(client, input, options \\ []) do
     request(client, "ListDeviceEvents", input, options)
   end
 
   @doc """
-  Retrieves a list of gateway group summaries. Use GetGatewayGroup to
-  retrieve details of a specific gateway group.
+  Retrieves a list of gateway group summaries.
+
+  Use GetGatewayGroup to retrieve details of a specific gateway group.
   """
   def list_gateway_groups(client, input, options \\ []) do
     request(client, "ListGatewayGroups", input, options)
   end
 
   @doc """
-  Retrieves a list of gateway summaries. Use GetGateway to retrieve details
-  of a specific gateway. An optional gateway group ARN can be provided to
-  only retrieve gateway summaries of gateways that are associated with that
-  gateway group ARN.
+  Retrieves a list of gateway summaries.
+
+  Use GetGateway to retrieve details of a specific gateway. An optional gateway
+  group ARN can be provided to only retrieve gateway summaries of gateways that
+  are associated with that gateway group ARN.
   """
   def list_gateways(client, input, options \\ []) do
     request(client, "ListGateways", input, options)
@@ -461,8 +471,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Sets the conference preferences on a specific conference provider at the
-  account level.
+  Sets the conference preferences on a specific conference provider at the account
+  level.
   """
   def put_conference_preference(client, input, options \\ []) do
     request(client, "PutConferencePreference", input, options)
@@ -478,6 +488,7 @@ defmodule AWS.AlexaForBusiness do
 
   @doc """
   Updates room skill parameter details by room, skill, and parameter key ID.
+
   Not all skills have a room skill parameter.
   """
   def put_room_skill_parameter(client, input, options \\ []) do
@@ -485,9 +496,10 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Links a user's account to a third-party skill provider. If this API
-  operation is called by an assumed IAM role, the skill being linked must be
-  a private skill. Also, the skill must be owned by the AWS account that
+  Links a user's account to a third-party skill provider.
+
+  If this API operation is called by an assumed IAM role, the skill being linked
+  must be a private skill. Also, the skill must be owned by the AWS account that
   assumed the IAM role.
   """
   def put_skill_authorization(client, input, options \\ []) do
@@ -495,16 +507,17 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Registers an Alexa-enabled device built by an Original Equipment
-  Manufacturer (OEM) using Alexa Voice Service (AVS).
+  Registers an Alexa-enabled device built by an Original Equipment Manufacturer
+  (OEM) using Alexa Voice Service (AVS).
   """
   def register_a_v_s_device(client, input, options \\ []) do
     request(client, "RegisterAVSDevice", input, options)
   end
 
   @doc """
-  Disassociates a skill from the organization under a user's AWS account. If
-  the skill is a private skill, it moves to an AcceptStatus of PENDING. Any
+  Disassociates a skill from the organization under a user's AWS account.
+
+  If the skill is a private skill, it moves to an AcceptStatus of PENDING. Any
   private or public skill that is rejected can be added later by calling the
   ApproveSkill API.
   """
@@ -514,6 +527,7 @@ defmodule AWS.AlexaForBusiness do
 
   @doc """
   Determines the details for the room from which a skill request was invoked.
+
   This operation is used by skill developers.
   """
   def resolve_room(client, input, options \\ []) do
@@ -528,8 +542,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Searches address books and lists the ones that meet a set of filter and
-  sort criteria.
+  Searches address books and lists the ones that meet a set of filter and sort
+  criteria.
   """
   def search_address_books(client, input, options \\ []) do
     request(client, "SearchAddressBooks", input, options)
@@ -551,24 +565,22 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Searches network profiles and lists the ones that meet a set of filter and
-  sort criteria.
+  Searches network profiles and lists the ones that meet a set of filter and sort
+  criteria.
   """
   def search_network_profiles(client, input, options \\ []) do
     request(client, "SearchNetworkProfiles", input, options)
   end
 
   @doc """
-  Searches room profiles and lists the ones that meet a set of filter
-  criteria.
+  Searches room profiles and lists the ones that meet a set of filter criteria.
   """
   def search_profiles(client, input, options \\ []) do
     request(client, "SearchProfiles", input, options)
   end
 
   @doc """
-  Searches rooms and lists the ones that meet a set of filter and sort
-  criteria.
+  Searches rooms and lists the ones that meet a set of filter and sort criteria.
   """
   def search_rooms(client, input, options \\ []) do
     request(client, "SearchRooms", input, options)
@@ -583,8 +595,7 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Searches users and lists the ones that meet a set of filter and sort
-  criteria.
+  Searches users and lists the ones that meet a set of filter and sort criteria.
   """
   def search_users(client, input, options \\ []) do
     request(client, "SearchUsers", input, options)
@@ -599,41 +610,42 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Sends an enrollment invitation email with a URL to a user. The URL is valid
-  for 30 days or until you call this operation again, whichever comes first.
+  Sends an enrollment invitation email with a URL to a user.
+
+  The URL is valid for 30 days or until you call this operation again, whichever
+  comes first.
   """
   def send_invitation(client, input, options \\ []) do
     request(client, "SendInvitation", input, options)
   end
 
   @doc """
-  Resets a device and its account to the known default settings. This clears
-  all information and settings set by previous users in the following ways:
+  Resets a device and its account to the known default settings.
 
-  <ul> <li> Bluetooth - This unpairs all bluetooth devices paired with your
+  This clears all information and settings set by previous users in the following
+  ways:
+
+    * Bluetooth - This unpairs all bluetooth devices paired with your
   echo device.
 
-  </li> <li> Volume - This resets the echo device's volume to the default
+    * Volume - This resets the echo device's volume to the default
   value.
 
-  </li> <li> Notifications - This clears all notifications from your echo
+    * Notifications - This clears all notifications from your echo
   device.
 
-  </li> <li> Lists - This clears all to-do items from your echo device.
+    * Lists - This clears all to-do items from your echo device.
 
-  </li> <li> Settings - This internally syncs the room's profile (if the
-  device is assigned to a room), contacts, address books, delegation access
-  for account linking, and communications (if enabled on the room profile).
-
-  </li> </ul>
+    * Settings - This internally syncs the room's profile (if the device
+  is assigned to a room), contacts, address books, delegation access for account
+  linking, and communications (if enabled on the room profile).
   """
   def start_device_sync(client, input, options \\ []) do
     request(client, "StartDeviceSync", input, options)
   end
 
   @doc """
-  Initiates the discovery of any smart home appliances associated with the
-  room.
+  Initiates the discovery of any smart home appliances associated with the room.
   """
   def start_smart_home_appliance_discovery(client, input, options \\ []) do
     request(client, "StartSmartHomeApplianceDiscovery", input, options)
@@ -661,8 +673,8 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Updates the configuration of the report delivery schedule with the
-  specified schedule ARN.
+  Updates the configuration of the report delivery schedule with the specified
+  schedule ARN.
   """
   def update_business_report_schedule(client, input, options \\ []) do
     request(client, "UpdateBusinessReportSchedule", input, options)
@@ -690,16 +702,20 @@ defmodule AWS.AlexaForBusiness do
   end
 
   @doc """
-  Updates the details of a gateway. If any optional field is not provided,
-  the existing corresponding value is left unmodified.
+  Updates the details of a gateway.
+
+  If any optional field is not provided, the existing corresponding value is left
+  unmodified.
   """
   def update_gateway(client, input, options \\ []) do
     request(client, "UpdateGateway", input, options)
   end
 
   @doc """
-  Updates the details of a gateway group. If any optional field is not
-  provided, the existing corresponding value is left unmodified.
+  Updates the details of a gateway group.
+
+  If any optional field is not provided, the existing corresponding value is left
+  unmodified.
   """
   def update_gateway_group(client, input, options \\ []) do
     request(client, "UpdateGatewayGroup", input, options)

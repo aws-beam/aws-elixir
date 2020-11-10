@@ -5,19 +5,19 @@ defmodule AWS.LicenseManager do
   @moduledoc """
   AWS License Manager
 
-  AWS License Manager makes it easier to manage licenses from software
-  vendors across multiple AWS accounts and on-premises servers.
+  AWS License Manager makes it easier to manage licenses from software vendors
+  across multiple AWS accounts and on-premises servers.
   """
 
   @doc """
   Creates a license configuration.
 
-  A license configuration is an abstraction of a customer license agreement
-  that can be consumed and enforced by License Manager. Components include
+  A license configuration is an abstraction of a customer license agreement that
+  can be consumed and enforced by License Manager. Components include
   specifications for the license type (licensing by instance, socket, CPU, or
-  vCPU), allowed tenancy (shared tenancy, Dedicated Instance, Dedicated Host,
-  or all of these), license affinity to host (how long a license must be
-  associated with a host), and the number of licenses purchased and used.
+  vCPU), allowed tenancy (shared tenancy, Dedicated Instance, Dedicated Host, or
+  all of these), license affinity to host (how long a license must be associated
+  with a host), and the number of licenses purchased and used.
   """
   def create_license_configuration(client, input, options \\ []) do
     request(client, "CreateLicenseConfiguration", input, options)
@@ -49,9 +49,9 @@ defmodule AWS.LicenseManager do
   @doc """
   Lists the resource associations for the specified license configuration.
 
-  Resource associations need not consume licenses from a license
-  configuration. For example, an AMI or a stopped instance might not consume
-  a license (depending on the license rules).
+  Resource associations need not consume licenses from a license configuration.
+  For example, an AMI or a stopped instance might not consume a license (depending
+  on the license rules).
   """
   def list_associations_for_license_configuration(client, input, options \\ []) do
     request(client, "ListAssociationsForLicenseConfiguration", input, options)
@@ -93,9 +93,10 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Lists all license usage records for a license configuration, displaying
-  license consumption details by resource at a selected point in time. Use
-  this action to audit the current license consumption for any license
+  Lists all license usage records for a license configuration, displaying license
+  consumption details by resource at a selected point in time.
+
+  Use this action to audit the current license consumption for any license
   inventory and configuration.
   """
   def list_usage_for_license_configuration(client, input, options \\ []) do
@@ -127,10 +128,10 @@ defmodule AWS.LicenseManager do
   Adds or removes the specified license configurations for the specified AWS
   resource.
 
-  You can update the license specifications of AMIs, instances, and hosts.
-  You cannot update the license specifications for launch templates and AWS
-  CloudFormation templates, as they send license configurations to the
-  operation that creates the resource.
+  You can update the license specifications of AMIs, instances, and hosts. You
+  cannot update the license specifications for launch templates and AWS
+  CloudFormation templates, as they send license configurations to the operation
+  that creates the resource.
   """
   def update_license_specifications_for_resource(client, input, options \\ []) do
     request(client, "UpdateLicenseSpecificationsForResource", input, options)

@@ -7,12 +7,13 @@ defmodule AWS.QLDB do
   """
 
   @doc """
-  Ends a given Amazon QLDB journal stream. Before a stream can be canceled,
-  its current status must be `ACTIVE`.
+  Ends a given Amazon QLDB journal stream.
 
-  You can't restart a stream after you cancel it. Canceled QLDB stream
-  resources are subject to a 7-day retention period, so they are
-  automatically deleted after this limit expires.
+  Before a stream can be canceled, its current status must be `ACTIVE`.
+
+  You can't restart a stream after you cancel it. Canceled QLDB stream resources
+  are subject to a 7-day retention period, so they are automatically deleted after
+  this limit expires.
   """
   def cancel_journal_kinesis_stream(client, ledger_name, stream_id, input, options \\ []) do
     path_ = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams/#{URI.encode(stream_id)}"
@@ -32,13 +33,15 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Deletes a ledger and all of its contents. This action is irreversible.
+  Deletes a ledger and all of its contents.
+
+  This action is irreversible.
 
   If deletion protection is enabled, you must first disable it before you can
   delete the ledger using the QLDB API or the AWS Command Line Interface (AWS
-  CLI). You can disable it by calling the `UpdateLedger` operation to set the
-  flag to `false`. The QLDB console disables deletion protection for you when
-  you use it to delete a ledger.
+  CLI). You can disable it by calling the `UpdateLedger` operation to set the flag
+  to `false`. The QLDB console disables deletion protection for you when you use
+  it to delete a ledger.
   """
   def delete_ledger(client, name, input, options \\ []) do
     path_ = "/ledgers/#{URI.encode(name)}"
@@ -48,10 +51,10 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns detailed information about a given Amazon QLDB journal stream. The
-  output includes the Amazon Resource Name (ARN), stream name, current
-  status, creation time, and the parameters of your original stream creation
-  request.
+  Returns detailed information about a given Amazon QLDB journal stream.
+
+  The output includes the Amazon Resource Name (ARN), stream name, current status,
+  creation time, and the parameters of your original stream creation request.
   """
   def describe_journal_kinesis_stream(client, ledger_name, stream_id, options \\ []) do
     path_ = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams/#{URI.encode(stream_id)}"
@@ -65,9 +68,8 @@ defmodule AWS.QLDB do
   export ID, when it was created, current status, and its start and end time
   export parameters.
 
-  This action does not return any expired export jobs. For more information,
-  see [Export Job
-  Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
+  This action does not return any expired export jobs. For more information, see
+  [Export Job Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
   in the *Amazon QLDB Developer Guide*.
 
   If the export job with the given `ExportId` doesn't exist, then throws
@@ -84,8 +86,7 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns information about a ledger, including its state and when it was
-  created.
+  Returns information about a ledger, including its state and when it was created.
   """
   def describe_ledger(client, name, options \\ []) do
     path_ = "/ledgers/#{URI.encode(name)}"
@@ -96,8 +97,9 @@ defmodule AWS.QLDB do
 
   @doc """
   Exports journal contents within a date and time range from a ledger into a
-  specified Amazon Simple Storage Service (Amazon S3) bucket. The data is
-  written as files in Amazon Ion format.
+  specified Amazon Simple Storage Service (Amazon S3) bucket.
+
+  The data is written as files in Amazon Ion format.
 
   If the ledger with the given `Name` doesn't exist, then throws
   `ResourceNotFoundException`.
@@ -105,9 +107,8 @@ defmodule AWS.QLDB do
   If the ledger with the given `Name` is in `CREATING` status, then throws
   `ResourcePreconditionNotMetException`.
 
-  You can initiate up to two concurrent journal export requests for each
-  ledger. Beyond this limit, journal export requests throw
-  `LimitExceededException`.
+  You can initiate up to two concurrent journal export requests for each ledger.
+  Beyond this limit, journal export requests throw `LimitExceededException`.
   """
   def export_journal_to_s3(client, name, input, options \\ []) do
     path_ = "/ledgers/#{URI.encode(name)}/journal-s3-exports"
@@ -117,16 +118,16 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns a block object at a specified address in a journal. Also returns a
-  proof of the specified block for verification if `DigestTipAddress` is
-  provided.
+  Returns a block object at a specified address in a journal.
 
-  For information about the data contents in a block, see [Journal
-  contents](https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html)
+  Also returns a proof of the specified block for verification if
+  `DigestTipAddress` is provided.
+
+  For information about the data contents in a block, see [Journal contents](https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html)
   in the *Amazon QLDB Developer Guide*.
 
-  If the specified ledger doesn't exist or is in `DELETING` status, then
-  throws `ResourceNotFoundException`.
+  If the specified ledger doesn't exist or is in `DELETING` status, then throws
+  `ResourceNotFoundException`.
 
   If the specified ledger is in `CREATING` status, then throws
   `ResourcePreconditionNotMetException`.
@@ -142,8 +143,9 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns the digest of a ledger at the latest committed block in the
-  journal. The response includes a 256-bit hash value and a block address.
+  Returns the digest of a ledger at the latest committed block in the journal.
+
+  The response includes a 256-bit hash value and a block address.
   """
   def get_digest(client, name, input, options \\ []) do
     path_ = "/ledgers/#{URI.encode(name)}/digest"
@@ -153,8 +155,9 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns a revision data object for a specified document ID and block
-  address. Also returns a proof of the specified revision for verification if
+  Returns a revision data object for a specified document ID and block address.
+
+  Also returns a proof of the specified revision for verification if
   `DigestTipAddress` is provided.
   """
   def get_revision(client, name, input, options \\ []) do
@@ -166,12 +169,14 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns an array of all Amazon QLDB journal stream descriptors for a given
-  ledger. The output of each stream descriptor includes the same details that
-  are returned by `DescribeJournalKinesisStream`.
+  ledger.
 
-  This action returns a maximum of `MaxResults` items. It is paginated so
-  that you can retrieve all the items by calling
-  `ListJournalKinesisStreamsForLedger` multiple times.
+  The output of each stream descriptor includes the same details that are returned
+  by `DescribeJournalKinesisStream`.
+
+  This action returns a maximum of `MaxResults` items. It is paginated so that you
+  can retrieve all the items by calling `ListJournalKinesisStreamsForLedger`
+  multiple times.
   """
   def list_journal_kinesis_streams_for_ledger(client, ledger_name, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams"
@@ -191,16 +196,14 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns an array of journal export job descriptions for all ledgers that
-  are associated with the current AWS account and Region.
+  Returns an array of journal export job descriptions for all ledgers that are
+  associated with the current AWS account and Region.
 
-  This action returns a maximum of `MaxResults` items, and is paginated so
-  that you can retrieve all the items by calling `ListJournalS3Exports`
-  multiple times.
+  This action returns a maximum of `MaxResults` items, and is paginated so that
+  you can retrieve all the items by calling `ListJournalS3Exports` multiple times.
 
-  This action does not return any expired export jobs. For more information,
-  see [Export Job
-  Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
+  This action does not return any expired export jobs. For more information, see
+  [Export Job Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
   in the *Amazon QLDB Developer Guide*.
   """
   def list_journal_s3_exports(client, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -223,13 +226,12 @@ defmodule AWS.QLDB do
   @doc """
   Returns an array of journal export job descriptions for a specified ledger.
 
-  This action returns a maximum of `MaxResults` items, and is paginated so
-  that you can retrieve all the items by calling
-  `ListJournalS3ExportsForLedger` multiple times.
+  This action returns a maximum of `MaxResults` items, and is paginated so that
+  you can retrieve all the items by calling `ListJournalS3ExportsForLedger`
+  multiple times.
 
-  This action does not return any expired export jobs. For more information,
-  see [Export Job
-  Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
+  This action does not return any expired export jobs. For more information, see
+  [Export Job Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
   in the *Amazon QLDB Developer Guide*.
   """
   def list_journal_s3_exports_for_ledger(client, name, max_results \\ nil, next_token \\ nil, options \\ []) do
@@ -250,8 +252,8 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns an array of ledger summaries that are associated with the current
-  AWS account and Region.
+  Returns an array of ledger summaries that are associated with the current AWS
+  account and Region.
 
   This action returns a maximum of 100 items and is paginated so that you can
   retrieve all the items by calling `ListLedgers` multiple times.
@@ -284,9 +286,11 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Creates a journal stream for a given Amazon QLDB ledger. The stream
-  captures every document revision that is committed to the ledger's journal
-  and delivers the data to a specified Amazon Kinesis Data Streams resource.
+  Creates a journal stream for a given Amazon QLDB ledger.
+
+  The stream captures every document revision that is committed to the ledger's
+  journal and delivers the data to a specified Amazon Kinesis Data Streams
+  resource.
   """
   def stream_journal_to_kinesis(client, ledger_name, input, options \\ []) do
     path_ = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams"
@@ -298,8 +302,8 @@ defmodule AWS.QLDB do
   @doc """
   Adds one or more tags to a specified Amazon QLDB resource.
 
-  A resource can have up to 50 tags. If you try to create more than 50 tags
-  for a resource, your request fails and returns an error.
+  A resource can have up to 50 tags. If you try to create more than 50 tags for a
+  resource, your request fails and returns an error.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"
@@ -309,8 +313,9 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Removes one or more tags from a specified Amazon QLDB resource. You can
-  specify up to 50 tag keys to remove.
+  Removes one or more tags from a specified Amazon QLDB resource.
+
+  You can specify up to 50 tag keys to remove.
   """
   def untag_resource(client, resource_arn, input, options \\ []) do
     path_ = "/tags/#{URI.encode(resource_arn)}"

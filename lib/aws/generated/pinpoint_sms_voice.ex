@@ -7,8 +7,10 @@ defmodule AWS.PinpointSMSVoice do
   """
 
   @doc """
-  Create a new configuration set. After you create the configuration set, you
-  can add one or more event destinations to it.
+  Create a new configuration set.
+
+  After you create the configuration set, you can add one or more event
+  destinations to it.
   """
   def create_configuration_set(client, input, options \\ []) do
     path_ = "/v1/sms-voice/configuration-sets"
@@ -48,9 +50,9 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   @doc """
-  Obtain information about an event destination, including the types of
-  events it reports, the Amazon Resource Name (ARN) of the destination, and
-  the name of the event destination.
+  Obtain information about an event destination, including the types of events it
+  reports, the Amazon Resource Name (ARN) of the destination, and the name of the
+  event destination.
   """
   def get_configuration_set_event_destinations(client, configuration_set_name, options \\ []) do
     path_ = "/v1/sms-voice/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations"
@@ -60,8 +62,8 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   @doc """
-  List all of the configuration sets associated with your Amazon Pinpoint
-  account in the current region.
+  List all of the configuration sets associated with your Amazon Pinpoint account
+  in the current region.
   """
   def list_configuration_sets(client, next_token \\ nil, page_size \\ nil, options \\ []) do
     path_ = "/v1/sms-voice/configuration-sets"
@@ -91,10 +93,11 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   @doc """
-  Update an event destination in a configuration set. An event destination is
-  a location that you publish information about your voice calls to. For
-  example, you can log an event to an Amazon CloudWatch destination when a
-  call fails.
+  Update an event destination in a configuration set.
+
+  An event destination is a location that you publish information about your voice
+  calls to. For example, you can log an event to an Amazon CloudWatch destination
+  when a call fails.
   """
   def update_configuration_set_event_destination(client, configuration_set_name, event_destination_name, input, options \\ []) do
     path_ = "/v1/sms-voice/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"

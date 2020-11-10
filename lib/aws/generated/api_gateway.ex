@@ -5,18 +5,18 @@ defmodule AWS.APIGateway do
   @moduledoc """
   Amazon API Gateway
 
-  Amazon API Gateway helps developers deliver robust, secure, and scalable
-  mobile and web application back ends. API Gateway allows developers to
-  securely connect mobile and web applications to APIs that run on AWS
-  Lambda, Amazon EC2, or other publicly addressable web services that are
-  hosted outside of AWS.
+  Amazon API Gateway helps developers deliver robust, secure, and scalable mobile
+  and web application back ends.
+
+  API Gateway allows developers to securely connect mobile and web applications to
+  APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web
+  services that are hosted outside of AWS.
   """
 
   @doc """
   Create an `ApiKey` resource.
 
-  <div class="seeAlso">[AWS
-  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html)</div>
+  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html)
   """
   def create_api_key(client, input, options \\ []) do
     path_ = "/apikeys"
@@ -28,8 +28,7 @@ defmodule AWS.APIGateway do
   @doc """
   Adds a new `Authorizer` resource to an existing `RestApi` resource.
 
-  <div class="seeAlso">[AWS
-  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html)</div>
+  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html)
   """
   def create_authorizer(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
@@ -49,8 +48,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a `Deployment` resource, which makes a specified `RestApi` callable
-  over the internet.
+  Creates a `Deployment` resource, which makes a specified `RestApi` callable over
+  the internet.
   """
   def create_deployment(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/deployments"
@@ -130,8 +129,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a new `Stage` resource that references a pre-existing `Deployment`
-  for the API.
+  Creates a new `Stage` resource that references a pre-existing `Deployment` for
+  the API.
   """
   def create_stage(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/stages"
@@ -163,9 +162,10 @@ defmodule AWS.APIGateway do
 
   @doc """
   Creates a VPC link, under the caller's account in a selected region, in an
-  asynchronous operation that typically takes 2-4 minutes to complete and
-  become operational. The caller must have permissions to create and update
-  VPC Endpoint services.
+  asynchronous operation that typically takes 2-4 minutes to complete and become
+  operational.
+
+  The caller must have permissions to create and update VPC Endpoint services.
   """
   def create_vpc_link(client, input, options \\ []) do
     path_ = "/vpclinks"
@@ -187,8 +187,7 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes an existing `Authorizer` resource.
 
-  <div class="seeAlso">[AWS
-  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html)</div>
+  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html)
   """
   def delete_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
@@ -218,8 +217,10 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes a `Deployment` resource. Deleting a deployment will only succeed if
-  there are no `Stage` resources associated with it.
+  Deletes a `Deployment` resource.
+
+  Deleting a deployment will only succeed if there are no `Stage` resources
+  associated with it.
   """
   def delete_deployment(client, deployment_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/deployments/#{URI.encode(deployment_id)}"
@@ -259,8 +260,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Clears any customization of a `GatewayResponse` of a specified response
-  type on the given `RestApi` and resets it with the default settings.
+  Clears any customization of a `GatewayResponse` of a specified response type on
+  the given `RestApi` and resets it with the default settings.
   """
   def delete_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
@@ -370,8 +371,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Deletes a usage plan key and remove the underlying API key from the
-  associated usage plan.
+  Deletes a usage plan key and remove the underlying API key from the associated
+  usage plan.
   """
   def delete_usage_plan_key(client, key_id, usage_plan_id, input, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}"
@@ -483,8 +484,7 @@ defmodule AWS.APIGateway do
   @doc """
   Describe an existing `Authorizer` resource.
 
-  <div class="seeAlso">[AWS
-  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html)</div>
+  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html)
   """
   def get_authorizer(client, authorizer_id, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
@@ -496,8 +496,7 @@ defmodule AWS.APIGateway do
   @doc """
   Describe an existing `Authorizers` resource.
 
-  <div class="seeAlso">[AWS
-  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html)</div>
+  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html)
   """
   def get_authorizers(client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers"
@@ -692,8 +691,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Represents a domain name that is contained in a simpler, more intuitive URL
-  that can be called.
+  Represents a domain name that is contained in a simpler, more intuitive URL that
+  can be called.
   """
   def get_domain_name(client, domain_name, options \\ []) do
     path_ = "/domainnames/#{URI.encode(domain_name)}"
@@ -761,8 +760,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets a `GatewayResponse` of a specified response type on the given
-  `RestApi`.
+  Gets a `GatewayResponse` of a specified response type on the given `RestApi`.
   """
   def get_gateway_response(client, response_type, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
@@ -772,10 +770,11 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets the `GatewayResponses` collection on the given `RestApi`. If an API
-  developer has not added any definitions for gateway responses, the result
-  will be the API Gateway-generated default `GatewayResponses` collection for
-  the supported response types.
+  Gets the `GatewayResponses` collection on the given `RestApi`.
+
+  If an API developer has not added any definitions for gateway responses, the
+  result will be the API Gateway-generated default `GatewayResponses` collection
+  for the supported response types.
   """
   def get_gateway_responses(client, rest_api_id, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses"
@@ -850,8 +849,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Generates a sample mapping template that can be used to transform a payload
-  into the structure of a model.
+  Generates a sample mapping template that can be used to transform a payload into
+  the structure of a model.
   """
   def get_model_template(client, model_name, rest_api_id, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/models/#{URI.encode(model_name)}/default_template"
@@ -1205,8 +1204,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Gets the `VpcLinks` collection under the caller's account in a selected
-  region.
+  Gets the `VpcLinks` collection under the caller's account in a selected region.
   """
   def get_vpc_links(client, limit \\ nil, position \\ nil, options \\ []) do
     path_ = "/vpclinks"
@@ -1272,8 +1270,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Creates a customization of a `GatewayResponse` of a specified response type
-  and status code on the given `RestApi`.
+  Creates a customization of a `GatewayResponse` of a specified response type and
+  status code on the given `RestApi`.
   """
   def put_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
@@ -1323,10 +1321,11 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  A feature of the API Gateway control service for updating an existing API
-  with an input of external API definitions. The update can take the form of
-  merging the supplied definition into the existing API or overwriting the
-  existing API.
+  A feature of the API Gateway control service for updating an existing API with
+  an input of external API definitions.
+
+  The update can take the form of merging the supplied definition into the
+  existing API or overwriting the existing API.
   """
   def put_rest_api(client, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}"
@@ -1355,11 +1354,8 @@ defmodule AWS.APIGateway do
   Simulate the execution of an `Authorizer` in your `RestApi` with headers,
   parameters, and an incoming request body.
 
-  <div class="seeAlso"> [Use Lambda Function as
-  Authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
-  [Use Cognito User Pool as
-  Authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
-  </div>
+  See also: [Use Lambda Function as Authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
+  [Use Cognito User Pool as Authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
   """
   def test_invoke_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
@@ -1369,8 +1365,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Simulate the execution of a `Method` in your `RestApi` with headers,
-  parameters, and an incoming request body.
+  Simulate the execution of a `Method` in your `RestApi` with headers, parameters,
+  and an incoming request body.
   """
   def test_invoke_method(client, http_method, resource_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
@@ -1416,8 +1412,7 @@ defmodule AWS.APIGateway do
   @doc """
   Updates an existing `Authorizer` resource.
 
-  <div class="seeAlso">[AWS
-  CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html)</div>
+  See also: [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html)
   """
   def update_authorizer(client, authorizer_id, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/authorizers/#{URI.encode(authorizer_id)}"
@@ -1487,8 +1482,7 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Updates a `GatewayResponse` of a specified response type on the given
-  `RestApi`.
+  Updates a `GatewayResponse` of a specified response type on the given `RestApi`.
   """
   def update_gateway_response(client, response_type, rest_api_id, input, options \\ []) do
     path_ = "/restapis/#{URI.encode(rest_api_id)}/gatewayresponses/#{URI.encode(response_type)}"
@@ -1588,8 +1582,8 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
-  Grants a temporary extension to the remaining quota of a usage plan
-  associated with a specified API key.
+  Grants a temporary extension to the remaining quota of a usage plan associated
+  with a specified API key.
   """
   def update_usage(client, key_id, usage_plan_id, input, options \\ []) do
     path_ = "/usageplans/#{URI.encode(usage_plan_id)}/keys/#{URI.encode(key_id)}/usage"

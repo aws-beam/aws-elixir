@@ -8,14 +8,12 @@ defmodule AWS.IoT1ClickDevices do
 
   Also provides sample requests, responses, and errors for the supported web
   services
-
   protocols.
   """
 
   @doc """
-  Adds device(s) to your account (i.e., claim one or more devices) if and
-  only if you
-
+  Adds device(s) to your account (i.e., claim one or more devices) if and only if
+  you
   received a claim code with the device(s).
   """
   def claim_devices_by_claim_code(client, claim_code, input, options \\ []) do
@@ -27,7 +25,6 @@ defmodule AWS.IoT1ClickDevices do
 
   @doc """
   Given a device ID, returns a DescribeDeviceResponse object describing the
-
   details of the device.
   """
   def describe_device(client, device_id, options \\ []) do
@@ -40,16 +37,10 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, finalizes the claim request for the associated device.
 
-  <note>
-
   Claiming a device consists of initiating a claim, then publishing a device
   event,
-
   and finalizing the claim. For a device of type button, a device event can
-
   be published by simply clicking the device.
-
-  </note>
   """
   def finalize_device_claim(client, device_id, input, options \\ []) do
     path_ = "/devices/#{URI.encode(device_id)}/finalize-claim"
@@ -59,8 +50,7 @@ defmodule AWS.IoT1ClickDevices do
   end
 
   @doc """
-  Given a device ID, returns the invokable methods associated with the
-  device.
+  Given a device ID, returns the invokable methods associated with the device.
   """
   def get_device_methods(client, device_id, options \\ []) do
     path_ = "/devices/#{URI.encode(device_id)}/methods"
@@ -72,16 +62,10 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, initiates a claim request for the associated device.
 
-  <note>
-
   Claiming a device consists of initiating a claim, then publishing a device
   event,
-
   and finalizing the claim. For a device of type button, a device event can
-
   be published by simply clicking the device.
-
-  </note>
   """
   def initiate_device_claim(client, device_id, input, options \\ []) do
     path_ = "/devices/#{URI.encode(device_id)}/initiate-claim"
@@ -93,8 +77,9 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, issues a request to invoke a named device method (with
   possible
+  parameters).
 
-  parameters). See the "Example POST" code snippet below.
+  See the "Example POST" code snippet below.
   """
   def invoke_device_method(client, device_id, input, options \\ []) do
     path_ = "/devices/#{URI.encode(device_id)}/methods"
@@ -105,7 +90,6 @@ defmodule AWS.IoT1ClickDevices do
 
   @doc """
   Using a device ID, returns a DeviceEventsResponse object containing an
-
   array of events for the device.
   """
   def list_device_events(client, device_id, from_time_stamp, max_results \\ nil, next_token \\ nil, to_time_stamp, options \\ []) do
@@ -171,11 +155,10 @@ defmodule AWS.IoT1ClickDevices do
   end
 
   @doc """
-  Adds or updates the tags associated with the resource ARN. See [AWS IoT
-  1-Click Service
-  Limits](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits)
-  for the maximum number of tags allowed per
+  Adds or updates the tags associated with the resource ARN.
 
+  See [AWS IoT 1-Click Service Limits](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits)
+  for the maximum number of tags allowed per
   resource.
   """
   def tag_resource(client, resource_arn, input, options \\ []) do
@@ -196,9 +179,7 @@ defmodule AWS.IoT1ClickDevices do
   end
 
   @doc """
-  Using tag keys, deletes the tags (key/value pairs) associated with the
-  specified
-
+  Using tag keys, deletes the tags (key/value pairs) associated with the specified
   resource ARN.
   """
   def untag_resource(client, resource_arn, input, options \\ []) do
@@ -214,7 +195,6 @@ defmodule AWS.IoT1ClickDevices do
 
   @doc """
   Using a Boolean value (true or false), this operation
-
   enables or disables the device given a device ID.
   """
   def update_device_state(client, device_id, input, options \\ []) do

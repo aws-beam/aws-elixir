@@ -3,63 +3,66 @@
 
 defmodule AWS.Codestarnotifications do
   @moduledoc """
-  This AWS CodeStar Notifications API Reference provides descriptions and
-  usage examples of the operations and data types for the AWS CodeStar
-  Notifications API. You can use the AWS CodeStar Notifications API to work
-  with the following objects:
+  This AWS CodeStar Notifications API Reference provides descriptions and usage
+  examples of the operations and data types for the AWS CodeStar Notifications
+  API.
+
+  You can use the AWS CodeStar Notifications API to work with the following
+  objects:
 
   Notification rules, by calling the following:
 
-  <ul> <li> `CreateNotificationRule`, which creates a notification rule for a
+    * `CreateNotificationRule`, which creates a notification rule for a
   resource in your account.
 
-  </li> <li> `DeleteNotificationRule`, which deletes a notification rule.
+    * `DeleteNotificationRule`, which deletes a notification rule.
 
-  </li> <li> `DescribeNotificationRule`, which provides information about a
+    * `DescribeNotificationRule`, which provides information about a
   notification rule.
 
-  </li> <li> `ListNotificationRules`, which lists the notification rules
+    * `ListNotificationRules`, which lists the notification rules
   associated with your account.
 
-  </li> <li> `UpdateNotificationRule`, which changes the name, events, or
+    * `UpdateNotificationRule`, which changes the name, events, or
   targets associated with a notification rule.
 
-  </li> <li> `Subscribe`, which subscribes a target to a notification rule.
+    * `Subscribe`, which subscribes a target to a notification rule.
 
-  </li> <li> `Unsubscribe`, which removes a target from a notification rule.
+    * `Unsubscribe`, which removes a target from a notification rule.
 
-  </li> </ul> Targets, by calling the following:
+  Targets, by calling the following:
 
-  <ul> <li> `DeleteTarget`, which removes a notification rule target (SNS
+    * `DeleteTarget`, which removes a notification rule target (SNS
   topic) from a notification rule.
 
-  </li> <li> `ListTargets`, which lists the targets associated with a
+    * `ListTargets`, which lists the targets associated with a
   notification rule.
 
-  </li> </ul> Events, by calling the following:
+  Events, by calling the following:
 
-  <ul> <li> `ListEventTypes`, which lists the event types you can include in
-  a notification rule.
+    * `ListEventTypes`, which lists the event types you can include in a
+  notification rule.
 
-  </li> </ul> Tags, by calling the following:
+  Tags, by calling the following:
 
-  <ul> <li> `ListTagsForResource`, which lists the tags already associated
+    * `ListTagsForResource`, which lists the tags already associated
   with a notification rule in your account.
 
-  </li> <li> `TagResource`, which associates a tag you provide with a
+    * `TagResource`, which associates a tag you provide with a
   notification rule in your account.
 
-  </li> <li> `UntagResource`, which removes a tag from a notification rule in
+    * `UntagResource`, which removes a tag from a notification rule in
   your account.
 
-  </li> </ul> For information about how to use AWS CodeStar Notifications,
-  see link in the CodeStarNotifications User Guide.
+  For information about how to use AWS CodeStar Notifications, see link in the
+  CodeStarNotifications User Guide.
   """
 
   @doc """
-  Creates a notification rule for a resource. The rule specifies the events
-  you want notifications about and the targets (such as SNS topics) where you
-  want to receive them.
+  Creates a notification rule for a resource.
+
+  The rule specifies the events you want notifications about and the targets (such
+  as SNS topics) where you want to receive them.
   """
   def create_notification_rule(client, input, options \\ []) do
     path_ = "/createNotificationRule"
@@ -140,9 +143,9 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Creates an association between a notification rule and an SNS topic so that
-  the associated target can receive notifications when the events described
-  in the rule are triggered.
+  Creates an association between a notification rule and an SNS topic so that the
+  associated target can receive notifications when the events described in the
+  rule are triggered.
   """
   def subscribe(client, input, options \\ []) do
     path_ = "/subscribe"
@@ -162,9 +165,9 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Removes an association between a notification rule and an Amazon SNS topic
-  so that subscribers to that topic stop receiving notifications when the
-  events described in the rule are triggered.
+  Removes an association between a notification rule and an Amazon SNS topic so
+  that subscribers to that topic stop receiving notifications when the events
+  described in the rule are triggered.
   """
   def unsubscribe(client, input, options \\ []) do
     path_ = "/unsubscribe"
@@ -174,8 +177,8 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Removes the association between one or more provided tags and a
-  notification rule.
+  Removes the association between one or more provided tags and a notification
+  rule.
   """
   def untag_resource(client, input, options \\ []) do
     path_ = "/untagResource"
@@ -185,14 +188,13 @@ defmodule AWS.Codestarnotifications do
   end
 
   @doc """
-  Updates a notification rule for a resource. You can change the events that
-  trigger the notification rule, the status of the rule, and the targets that
-  receive the notifications.
+  Updates a notification rule for a resource.
 
-  <note> To add or remove tags for a notification rule, you must use
-  `TagResource` and `UntagResource`.
+  You can change the events that trigger the notification rule, the status of the
+  rule, and the targets that receive the notifications.
 
-  </note>
+  To add or remove tags for a notification rule, you must use `TagResource` and
+  `UntagResource`.
   """
   def update_notification_rule(client, input, options \\ []) do
     path_ = "/updateNotificationRule"

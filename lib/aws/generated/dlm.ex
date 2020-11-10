@@ -5,18 +5,20 @@ defmodule AWS.DLM do
   @moduledoc """
   Amazon Data Lifecycle Manager
 
-  With Amazon Data Lifecycle Manager, you can manage the lifecycle of your
-  AWS resources. You create lifecycle policies, which are used to automate
-  operations on the specified resources.
+  With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS
+  resources.
+
+  You create lifecycle policies, which are used to automate operations on the
+  specified resources.
 
   Amazon DLM supports Amazon EBS volumes and snapshots. For information about
-  using Amazon DLM with Amazon EBS, see [Automating the Amazon EBS Snapshot
-  Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
+  using Amazon DLM with Amazon EBS, see [Automating the Amazon EBS Snapshot Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
   in the *Amazon EC2 User Guide*.
   """
 
   @doc """
   Creates a policy to manage the lifecycle of the specified AWS resources.
+
   You can create up to 100 lifecycle policies.
   """
   def create_lifecycle_policy(client, input, options \\ []) do
@@ -27,8 +29,8 @@ defmodule AWS.DLM do
   end
 
   @doc """
-  Deletes the specified lifecycle policy and halts the automated operations
-  that the policy specified.
+  Deletes the specified lifecycle policy and halts the automated operations that
+  the policy specified.
   """
   def delete_lifecycle_policy(client, policy_id, input, options \\ []) do
     path_ = "/policies/#{URI.encode(policy_id)}/"
@@ -38,8 +40,7 @@ defmodule AWS.DLM do
   end
 
   @doc """
-  Gets summary information about all or the specified data lifecycle
-  policies.
+  Gets summary information about all or the specified data lifecycle policies.
 
   To get complete information about a policy, use `GetLifecyclePolicy`.
   """

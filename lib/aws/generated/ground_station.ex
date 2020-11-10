@@ -3,11 +3,12 @@
 
 defmodule AWS.GroundStation do
   @moduledoc """
-  Welcome to the AWS Ground Station API Reference. AWS Ground Station is a
-  fully managed service that enables you to control satellite communications,
-  downlink and process satellite data, and scale your satellite operations
-  efficiently and cost-effectively without having to build or manage your own
-  ground station infrastructure.
+  Welcome to the AWS Ground Station API Reference.
+
+  AWS Ground Station is a fully managed service that enables you to control
+  satellite communications, downlink and process satellite data, and scale your
+  satellite operations efficiently and cost-effectively without having to build or
+  manage your own ground station infrastructure.
   """
 
   @doc """
@@ -37,11 +38,10 @@ defmodule AWS.GroundStation do
   `DataflowEndpoint` objects.
 
   The `name` field in each endpoint is used in your mission profile
-  `DataflowEndpointConfig` to specify which endpoints to use during a
-  contact.
+  `DataflowEndpointConfig` to specify which endpoints to use during a contact.
 
-  When a contact uses multiple `DataflowEndpointConfig` objects, each
-  `Config` must match a `DataflowEndpoint` in the same group.
+  When a contact uses multiple `DataflowEndpointConfig` objects, each `Config`
+  must match a `DataflowEndpoint` in the same group.
   """
   def create_dataflow_endpoint_group(client, input, options \\ []) do
     path_ = "/dataflowEndpointGroup"
@@ -53,8 +53,8 @@ defmodule AWS.GroundStation do
   @doc """
   Creates a mission profile.
 
-  `dataflowEdges` is a list of lists of strings. Each lower level list of
-  strings has two elements: a *from* ARN and a *to* ARN.
+  `dataflowEdges` is a list of lists of strings. Each lower level list of strings
+  has two elements: a *from* ARN and a *to* ARN.
   """
   def create_mission_profile(client, input, options \\ []) do
     path_ = "/missionprofile"
@@ -178,8 +178,8 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of contacts.
 
-  If `statusList` contains AVAILABLE, the request must include
-  `groundStation`, `missionprofileArn`, and `satelliteArn`.
+  If `statusList` contains AVAILABLE, the request must include `groundStation`,
+  `missionprofileArn`, and `satelliteArn`.
   """
   def list_contacts(client, input, options \\ []) do
     path_ = "/contacts"
@@ -320,8 +320,8 @@ defmodule AWS.GroundStation do
   @doc """
   Updates the `Config` used when scheduling contacts.
 
-  Updating a `Config` will not update the execution parameters for existing
-  future contacts scheduled with this `Config`.
+  Updating a `Config` will not update the execution parameters for existing future
+  contacts scheduled with this `Config`.
   """
   def update_config(client, config_id, config_type, input, options \\ []) do
     path_ = "/config/#{URI.encode(config_type)}/#{URI.encode(config_id)}"
@@ -333,8 +333,8 @@ defmodule AWS.GroundStation do
   @doc """
   Updates a mission profile.
 
-  Updating a mission profile will not update the execution parameters for
-  existing future contacts.
+  Updating a mission profile will not update the execution parameters for existing
+  future contacts.
   """
   def update_mission_profile(client, mission_profile_id, input, options \\ []) do
     path_ = "/missionprofile/#{URI.encode(mission_profile_id)}"

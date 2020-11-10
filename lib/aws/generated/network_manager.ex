@@ -3,21 +3,22 @@
 
 defmodule AWS.NetworkManager do
   @moduledoc """
-  Transit Gateway Network Manager (Network Manager) enables you to create a
-  global network, in which you can monitor your AWS and on-premises networks
-  that are built around transit gateways.
+  Transit Gateway Network Manager (Network Manager) enables you to create a global
+  network, in which you can monitor your AWS and on-premises networks that are
+  built around transit gateways.
   """
 
   @doc """
-  Associates a customer gateway with a device and optionally, with a link. If
-  you specify a link, it must be associated with the specified device.
+  Associates a customer gateway with a device and optionally, with a link.
 
-  You can only associate customer gateways that are connected to a VPN
-  attachment on a transit gateway. The transit gateway must be registered in
-  your global network. When you register a transit gateway, customer gateways
-  that are connected to the transit gateway are automatically included in the
-  global network. To list customer gateways that are connected to a transit
-  gateway, use the
+  If you specify a link, it must be associated with the specified device.
+
+  You can only associate customer gateways that are connected to a VPN attachment
+  on a transit gateway. The transit gateway must be registered in your global
+  network. When you register a transit gateway, customer gateways that are
+  connected to the transit gateway are automatically included in the global
+  network. To list customer gateways that are connected to a transit gateway, use
+  the
   [DescribeVpnConnections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html)
   EC2 API and filter by `transit-gateway-id`.
 
@@ -31,9 +32,11 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Associates a link to a device. A device can be associated to multiple links
-  and a link can be associated to multiple devices. The device and link must
-  be in the same global network and the same site.
+  Associates a link to a device.
+
+  A device can be associated to multiple links and a link can be associated to
+  multiple devices. The device and link must be in the same global network and the
+  same site.
   """
   def associate_link(client, global_network_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/link-associations"
@@ -43,9 +46,10 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Creates a new device in a global network. If you specify both a site ID and
-  a location, the location of the site is used for visualization in the
-  Network Manager console.
+  Creates a new device in a global network.
+
+  If you specify both a site ID and a location, the location of the site is used
+  for visualization in the Network Manager console.
   """
   def create_device(client, global_network_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/devices"
@@ -85,8 +89,9 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing device. You must first disassociate the device from any
-  links and customer gateways.
+  Deletes an existing device.
+
+  You must first disassociate the device from any links and customer gateways.
   """
   def delete_device(client, device_id, global_network_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/devices/#{URI.encode(device_id)}"
@@ -96,9 +101,10 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing global network. You must first delete all global
-  network objects (devices, links, and sites) and deregister all transit
-  gateways.
+  Deletes an existing global network.
+
+  You must first delete all global network objects (devices, links, and sites) and
+  deregister all transit gateways.
   """
   def delete_global_network(client, global_network_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}"
@@ -108,8 +114,9 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing link. You must first disassociate the link from any
-  devices and customer gateways.
+  Deletes an existing link.
+
+  You must first disassociate the link from any devices and customer gateways.
   """
   def delete_link(client, global_network_id, link_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/links/#{URI.encode(link_id)}"
@@ -119,8 +126,9 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing site. The site cannot be associated with any device or
-  link.
+  Deletes an existing site.
+
+  The site cannot be associated with any device or link.
   """
   def delete_site(client, global_network_id, site_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/sites/#{URI.encode(site_id)}"
@@ -130,9 +138,10 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deregisters a transit gateway from your global network. This action does
-  not delete your transit gateway, or modify any of its attachments. This
-  action removes any customer gateway associations.
+  Deregisters a transit gateway from your global network.
+
+  This action does not delete your transit gateway, or modify any of its
+  attachments. This action removes any customer gateway associations.
   """
   def deregister_transit_gateway(client, global_network_id, transit_gateway_arn, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-registrations/#{URI.encode(transit_gateway_arn)}"
@@ -142,10 +151,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Describes one or more global networks. By default, all global networks are
-  described. To describe the objects in your global network, you must use the
-  appropriate `Get*` action. For example, to list the transit gateways in
-  your global network, use `GetTransitGatewayRegistrations`.
+  Describes one or more global networks.
+
+  By default, all global networks are described. To describe the objects in your
+  global network, you must use the appropriate `Get*` action. For example, to list
+  the transit gateways in your global network, use
+  `GetTransitGatewayRegistrations`.
   """
   def describe_global_networks(client, global_network_ids \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/global-networks"
@@ -180,8 +191,10 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Disassociates an existing device from a link. You must first disassociate
-  any customer gateways that are associated with the link.
+  Disassociates an existing device from a link.
+
+  You must first disassociate any customer gateways that are associated with the
+  link.
   """
   def disassociate_link(client, global_network_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/link-associations"
@@ -196,8 +209,8 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Gets the association information for customer gateways that are associated
-  with devices and links in your global network.
+  Gets the association information for customer gateways that are associated with
+  devices and links in your global network.
   """
   def get_customer_gateway_associations(client, global_network_id, customer_gateway_arns \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/customer-gateway-associations"
@@ -252,8 +265,9 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Gets the link associations for a device or a link. Either the device ID or
-  the link ID must be specified.
+  Gets the link associations for a device or a link.
+
+  Either the device ID or the link ID must be specified.
   """
   def get_link_associations(client, global_network_id, device_id \\ nil, link_id \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/link-associations"
@@ -285,8 +299,8 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about one or more links in a specified global network.
 
-  If you specify the site ID, you cannot specify the type or provider in the
-  same request. You can specify the type and provider in the same request.
+  If you specify the site ID, you cannot specify the type or provider in the same
+  request. You can specify the type and provider in the same request.
   """
   def get_links(client, global_network_id, link_ids \\ nil, max_results \\ nil, next_token \\ nil, provider \\ nil, site_id \\ nil, type \\ nil, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/links"
@@ -351,8 +365,8 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Gets information about the transit gateway registrations in a specified
-  global network.
+  Gets information about the transit gateway registrations in a specified global
+  network.
   """
   def get_transit_gateway_registrations(client, global_network_id, max_results \\ nil, next_token \\ nil, transit_gateway_arns \\ nil, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-registrations"
@@ -387,10 +401,11 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Registers a transit gateway in your global network. The transit gateway can
-  be in any AWS Region, but it must be owned by the same AWS account that
-  owns the global network. You cannot register a transit gateway in more than
-  one global network.
+  Registers a transit gateway in your global network.
+
+  The transit gateway can be in any AWS Region, but it must be owned by the same
+  AWS account that owns the global network. You cannot register a transit gateway
+  in more than one global network.
   """
   def register_transit_gateway(client, global_network_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-registrations"
@@ -424,8 +439,9 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the details for an existing device. To remove information for any
-  of the parameters, specify an empty string.
+  Updates the details for an existing device.
+
+  To remove information for any of the parameters, specify an empty string.
   """
   def update_device(client, device_id, global_network_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/devices/#{URI.encode(device_id)}"
@@ -435,8 +451,9 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates an existing global network. To remove information for any of the
-  parameters, specify an empty string.
+  Updates an existing global network.
+
+  To remove information for any of the parameters, specify an empty string.
   """
   def update_global_network(client, global_network_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}"
@@ -446,8 +463,9 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the details for an existing link. To remove information for any of
-  the parameters, specify an empty string.
+  Updates the details for an existing link.
+
+  To remove information for any of the parameters, specify an empty string.
   """
   def update_link(client, global_network_id, link_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/links/#{URI.encode(link_id)}"
@@ -457,8 +475,9 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the information for an existing site. To remove information for any
-  of the parameters, specify an empty string.
+  Updates the information for an existing site.
+
+  To remove information for any of the parameters, specify an empty string.
   """
   def update_site(client, global_network_id, site_id, input, options \\ []) do
     path_ = "/global-networks/#{URI.encode(global_network_id)}/sites/#{URI.encode(site_id)}"

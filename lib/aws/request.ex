@@ -238,11 +238,27 @@ defmodule AWS.Request.Internal do
 
   @doc """
   Strip the query string from the URL, if one if present, and return the URL
-  and query string as separate values.
+  and the normalized query string as separate values.
   """
   def split_url(url) do
     url = URI.parse(url)
-    {url.path, url.query}
+    {url.path, normalize_query(url.query)}
+  end
+
+  @doc """
+  Sort query params by name first, then by value (if present). Append "=" to
+  params with missing value.
+  Example: "foo=bar&baz" becomes "baz=&foo=bar"
+  """
+  def normalize_query(nil), do: ""
+
+  def normalize_query(""), do: ""
+
+  def normalize_query(query) do
+    query
+    |> String.split("&")
+    |> Enum.sort_by(&String.split(&1, "="))
+    |> Enum.map_join("&", &if(String.contains?(&1, "="), do: &1, else: "#{&1}="))
   end
 
   @doc """

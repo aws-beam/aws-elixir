@@ -131,9 +131,9 @@ defmodule AWS.Request.InternalTest do
                                             "us-east-1", "s3")
   end
 
-  test "split_url/1 splits a URL from its query string, URL encodes the query string, and returns the URL and query string as separate values" do
-    expected = {"/index", "one=1&two=2"}
-    actual = Internal.split_url("https://example.com/index?one=1&two=2")
+  test "split_url/1 transforms a URL into {path, normalized_query_string}" do
+    expected = {"/index", "none=&one=1&two=2"}
+    actual = Internal.split_url("https://example.com/index?two=2&none&one=1")
     assert expected == actual
   end
 

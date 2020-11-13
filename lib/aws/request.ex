@@ -257,8 +257,12 @@ defmodule AWS.Request.Internal do
   def normalize_query(query) do
     query
     |> String.split("&")
-    |> Enum.sort_by(&String.split(&1, "="))
-    |> Enum.map_join("&", &if(String.contains?(&1, "="), do: &1, else: "#{&1}="))
+    |> Enum.map(&String.split(&1, "="))
+    |> Enum.sort()
+    |> Enum.map_join("&", fn
+         [key, value] -> key <> "=" <> value
+         [key] -> key <> "="
+       end)
   end
 
   @doc """

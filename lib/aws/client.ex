@@ -12,8 +12,8 @@ defmodule AWS.Client do
             proto: "https",
             port: "443",
             http_client: {HTTPoison, []},
-            json_module: {Poison, [encode: :encode!, decode: :decode!]},
-            xml_module: {AWS.Util, [encode: :encode!, decode: :decode!]}
+            json_module: {Poison, []},
+            xml_module: {AWS.Util, []}
 
   @type t :: %__MODULE__{}
 
@@ -72,13 +72,11 @@ defmodule AWS.Client do
 
   def encode!(client, payload, format) do
     {mod, opts} = Map.fetch!(client, String.to_existing_atom("#{format}_module"))
-    fun = Keyword.get(opts, :encode, :encode!)
-    apply(mod, fun, [payload, opts])
+    apply(mod, :encode!, [payload, opts])
   end
 
   def decode!(client, payload, format) do
     {mod, opts} = Map.fetch!(client, String.to_existing_atom("#{format}_module"))
-    fun = Keyword.get(opts, :decode, :decode!)
-    apply(mod, fun, [payload, opts])
+    apply(mod, :decode!, [payload, opts])
   end
 end

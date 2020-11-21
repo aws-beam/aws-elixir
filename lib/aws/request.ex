@@ -6,19 +6,13 @@ defmodule AWS.Request do
   alias AWS.ServiceMetadata
   alias AWS.Util
 
-  @valid_protocols ~w(query json)
+  @valid_protocols ~w(query json rest-json rest-xml)
 
   @doc """
   Request an AWS Service using a POST request with a protocol.
   """
   def request_post(%Client{} = client, %ServiceMetadata{} = metadata, action, input, options) do
-    client = %{client | service:  metadata.signing_name}
-    client =
-      if metadata.global? do
-        %{client | region:  metadata.credential_scope}
-      else
-        client
-      end
+    client = prepare_client(client, metadata)
 
     host = build_host(client, metadata)
     url = build_url(client, host)
@@ -53,7 +47,79 @@ defmodule AWS.Request do
       {:ok, response} ->
         {:error, {:unexpected_response, response}}
 
-      error = {:error, _reason} -> error
+      error = {:error, _reason} ->
+        error
+    end
+  end
+
+  def request_rest(
+        %Client{} = client,
+        %ServiceMetadata{} = metadata,
+        method,
+        path,
+        query,
+        headers,
+        input,
+        options,
+        success_status_code
+      ) do
+    client = prepare_client(client, metadata)
+
+    host =
+      if metadata.endpoint_prefix == "s3-control" do
+        account_id = :proplists.get_value("x-amz-account-id", headers)
+        build_host(account_id, client, metadata)
+      else
+        build_host(client, metadata)
+      end
+
+    url =
+      client
+      |> build_url(host, path)
+      |> add_query(query, client)
+
+    additional_headers = [{"Host", host}, {"Content-Type", metadata.content_type}]
+    headers = add_headers(additional_headers, headers)
+
+    payload = encode!(client, metadata.protocol, input)
+    headers = sign_v4(client, method, url, headers, payload)
+
+    {response_header_parameters, options} = Keyword.pop(options, :response_header_parameters)
+
+    case Client.request(client, method, url, payload, headers, options) do
+      {:ok, %{status_code: status_code, body: body} = response}
+      when is_nil(success_status_code) and status_code in [200, 202, 204]
+      when status_code == success_status_code ->
+        body =
+          if body != "" do
+            decoded = decode!(client, metadata.protocol, body)
+
+            case response_header_parameters do
+              [_ | _] ->
+                merge_body_with_response_headers(decoded, response, response_header_parameters)
+
+              _ ->
+                decoded
+            end
+          end
+
+        {:ok, body, response}
+
+      {:ok, response} ->
+        {:error, {:unexpected_response, response}}
+
+      error = {:error, _reason} ->
+        error
+    end
+  end
+
+  defp prepare_client(client, metadata) do
+    client = %{client | service: metadata.signing_name}
+
+    if metadata.global? do
+      %{client | region: metadata.credential_scope}
+    else
+      client
     end
   end
 
@@ -73,28 +139,60 @@ defmodule AWS.Request do
     end
   end
 
-  defp build_url(%Client{} = client, host) do
-    "#{client.proto}://#{host}:#{client.port}/"
+  defp build_host(account_id, %Client{} = client, %ServiceMetadata{} = metadata) do
+    cond do
+      client.region == "local" ->
+        build_host(client, metadata)
+
+      account_id == :undefined ->
+        raise "missing account_id"
+
+      true ->
+        "#{account_id}.#{build_host(client, metadata)}"
+    end
+  end
+
+  defp build_url(%Client{} = client, host, path \\ "/") do
+    "#{client.proto}://#{host}:#{client.port}#{path}"
+  end
+
+  defp add_query(url, [], _client) do
+    url
+  end
+
+  defp add_query(url, query, client) do
+    querystring = Client.encode!(client, query, :query)
+    "#{url}?#{querystring}"
   end
 
   defp encode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols do
     encode_format =
       case protocol do
         "query" -> :query
-        "json" -> :json
+        "rest-xml" -> :xml
+        json_type when json_type in ~w(json rest-json) -> :json
       end
 
-    AWS.Client.encode!(client, payload, encode_format)
+    Client.encode!(client, payload, encode_format)
   end
 
   defp decode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols do
     decode_format =
       case protocol do
-        "query" -> :xml
-        "json" -> :json
+        xml_type when xml_type in ~w(query rest-xml) -> :xml
+        json_type when json_type in ~w(json rest-json) -> :json
       end
 
-    AWS.Client.decode!(client, payload, decode_format)
+    Client.decode!(client, payload, decode_format)
+  end
+
+  defp merge_body_with_response_headers(body, response, response_header_parameters) do
+    Enum.reduce(response_header_parameters, body, fn {header_name, key}, acc ->
+      case List.keyfind(response.headers, header_name, 0) do
+        nil -> acc
+        {_header_name, value} -> Map.put(acc, key, value)
+      end
+    end)
   end
 
   @doc """

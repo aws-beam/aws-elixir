@@ -1,6 +1,101 @@
 defmodule AWS.Request do
+  @moduledoc false
+
+  alias AWS.Client
   alias AWS.Request.Internal
+  alias AWS.ServiceMetadata
   alias AWS.Util
+
+  @valid_protocols ~w(query json)
+
+  @doc """
+  Request an AWS Service using a POST request with a protocol.
+  """
+  def request_post(%Client{} = client, %ServiceMetadata{} = metadata, action, input, options) do
+    client = %{client | service:  metadata.signing_name}
+    client =
+      if metadata.global? do
+        %{client | region:  metadata.credential_scope}
+      else
+        client
+      end
+
+    host = build_host(client, metadata)
+    url = build_url(client, host)
+
+    headers = [
+      {"Host", host},
+      {"Content-Type", metadata.content_type}
+    ]
+
+    headers =
+      if metadata.protocol == "json" do
+        [{"X-Amz-Target", "#{metadata.target_prefix}.#{action}"} | headers]
+      else
+        headers
+      end
+
+    input =
+      if metadata.protocol == "query" do
+        Map.merge(input, %{"Action" => action, "Version" => metadata.api_version})
+      else
+        input
+      end
+
+    payload = encode!(client, metadata.protocol, input)
+    headers = sign_v4(client, "POST", url, headers, payload)
+
+    case AWS.Client.request(client, :post, url, payload, headers, options) do
+      {:ok, %{status_code: 200, body: body} = response} ->
+        body = if body != "", do: decode!(client, metadata.protocol, body)
+        {:ok, body, response}
+
+      {:ok, response} ->
+        {:error, {:unexpected_response, response}}
+
+      error = {:error, _reason} -> error
+    end
+  end
+
+  defp build_host(%Client{region: "local"} = client, _) do
+    if client.endpoint do
+      client.endpoint
+    else
+      "localhost"
+    end
+  end
+
+  defp build_host(%Client{} = client, %ServiceMetadata{} = metadata) do
+    if metadata.global? do
+      "#{metadata.endpoint_prefix}.#{client.endpoint}"
+    else
+      "#{metadata.endpoint_prefix}.#{client.region}.#{client.endpoint}"
+    end
+  end
+
+  defp build_url(%Client{} = client, host) do
+    "#{client.proto}://#{host}:#{client.port}/"
+  end
+
+  defp encode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols do
+    encode_format =
+      case protocol do
+        "query" -> :query
+        "json" -> :json
+      end
+
+    AWS.Client.encode!(client, payload, encode_format)
+  end
+
+  defp decode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols do
+    decode_format =
+      case protocol do
+        "query" -> :xml
+        "json" -> :json
+      end
+
+    AWS.Client.decode!(client, payload, decode_format)
+  end
 
   @doc """
   Generate headers with an AWS signature version 4 for the specified request.

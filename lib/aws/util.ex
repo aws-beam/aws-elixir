@@ -49,6 +49,10 @@ defmodule AWS.Util do
   @doc """
   Encode map into XML.
   """
+  def encode!(map, opts \\ []) do
+    encode_xml(map, opts)
+  end
+
   def encode_xml(map, _opts \\ []) do
     map
     |> Map.to_list
@@ -59,6 +63,10 @@ defmodule AWS.Util do
   @doc """
   Decode XML.
   """
+  def decode!(xml, opts \\ []) do
+    decode_xml(xml, opts)
+  end
+
   def decode_xml(xml, _opts \\ []) do
     xml_str = :unicode.characters_to_list(xml)
     opts = [{:hook_fun, &hook_fun/2}]

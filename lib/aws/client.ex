@@ -13,7 +13,7 @@ defmodule AWS.Client do
             port: "443",
             http_client: {HTTPoison, []},
             json_module: {Poison, [encode: :encode!, decode: :decode!]},
-            xml_module: {AWS.Util, [encode: :encode_xml, decode: :decode_xml]}
+            xml_module: {AWS.Util, [encode: :encode!, decode: :decode!]}
 
   @type t :: %__MODULE__{}
 
@@ -63,9 +63,9 @@ defmodule AWS.Client do
     }
   end
 
-  def request(client, method, url, payload, headers, _opts) do
+  def request(client, method, url, body, headers, _opts) do
     {mod, options} = Map.fetch!(client, :http_client)
-    apply(mod, :request, [method, url, payload, headers, options])
+    apply(mod, :request, [method, url, body, headers, options])
   end
 
   def encode!(_client, payload, :query), do: AWS.Util.encode_query(payload)

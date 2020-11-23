@@ -1,4 +1,4 @@
-defmodule Aws.HTTPClient do
+defmodule AWS.HTTPClient do
   @moduledoc """
   Specifies the behaviour of a HTTP Client.
 

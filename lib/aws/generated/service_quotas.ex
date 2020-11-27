@@ -18,6 +18,25 @@ defmodule AWS.ServiceQuotas do
   them, see the [Tools for Amazon Web Services](https://docs.aws.amazon.com/aws.amazon.com/tools) page.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-06-24",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "servicequotas",
+      global?: false,
+      protocol: "json",
+      service_id: "Service Quotas",
+      signature_version: "v4",
+      signing_name: "servicequotas",
+      target_prefix: "ServiceQuotasV20190624"
+    }
+  end
+
   @doc """
   Associates the Service Quotas template with your organization so that when new
   accounts are created in your organization, the template submits increase
@@ -27,15 +46,25 @@ defmodule AWS.ServiceQuotas do
   value. After you define the Service Quotas template, use this operation to
   associate, or enable, the template.
   """
-  def associate_service_quota_template(client, input, options \\ []) do
-    request(client, "AssociateServiceQuotaTemplate", input, options)
+  def associate_service_quota_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateServiceQuotaTemplate", input, options)
   end
 
   @doc """
   Removes a service quota increase request from the Service Quotas template.
   """
-  def delete_service_quota_increase_request_from_template(client, input, options \\ []) do
-    request(client, "DeleteServiceQuotaIncreaseRequestFromTemplate", input, options)
+  def delete_service_quota_increase_request_from_template(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteServiceQuotaIncreaseRequestFromTemplate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -53,8 +82,8 @@ defmodule AWS.ServiceQuotas do
     * To delete a specific service quota from the template, use
   `DeleteServiceQuotaIncreaseRequestFromTemplate`.
   """
-  def disassociate_service_quota_template(client, input, options \\ []) do
-    request(client, "DisassociateServiceQuotaTemplate", input, options)
+  def disassociate_service_quota_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateServiceQuotaTemplate", input, options)
   end
 
   @doc """
@@ -63,8 +92,8 @@ defmodule AWS.ServiceQuotas do
   The Value returned for each quota is the AWS default value, even if the quotas
   have been increased..
   """
-  def get_a_w_s_default_service_quota(client, input, options \\ []) do
-    request(client, "GetAWSDefaultServiceQuota", input, options)
+  def get_a_w_s_default_service_quota(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAWSDefaultServiceQuota", input, options)
   end
 
   @doc """
@@ -73,15 +102,21 @@ defmodule AWS.ServiceQuotas do
   Use this action to determine if the Service Quota template is associated, or
   enabled.
   """
-  def get_association_for_service_quota_template(client, input, options \\ []) do
-    request(client, "GetAssociationForServiceQuotaTemplate", input, options)
+  def get_association_for_service_quota_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetAssociationForServiceQuotaTemplate",
+      input,
+      options
+    )
   end
 
   @doc """
   Retrieves the details for a particular increase request.
   """
-  def get_requested_service_quota_change(client, input, options \\ []) do
-    request(client, "GetRequestedServiceQuotaChange", input, options)
+  def get_requested_service_quota_change(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRequestedServiceQuotaChange", input, options)
   end
 
   @doc """
@@ -91,15 +126,21 @@ defmodule AWS.ServiceQuotas do
   operation. This operation returns the applied value for each quota.
   `GetAWSDefaultServiceQuota` returns the default AWS value for each quota.
   """
-  def get_service_quota(client, input, options \\ []) do
-    request(client, "GetServiceQuota", input, options)
+  def get_service_quota(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetServiceQuota", input, options)
   end
 
   @doc """
   Returns the details of the service quota increase request in your template.
   """
-  def get_service_quota_increase_request_from_template(client, input, options \\ []) do
-    request(client, "GetServiceQuotaIncreaseRequestFromTemplate", input, options)
+  def get_service_quota_increase_request_from_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetServiceQuotaIncreaseRequestFromTemplate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -118,15 +159,21 @@ defmodule AWS.ServiceQuotas do
   parameter contains a value to pass the next call to the same API to request the
   next part of the list.
   """
-  def list_a_w_s_default_service_quotas(client, input, options \\ []) do
-    request(client, "ListAWSDefaultServiceQuotas", input, options)
+  def list_a_w_s_default_service_quotas(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAWSDefaultServiceQuotas", input, options)
   end
 
   @doc """
   Requests a list of the changes to quotas for a service.
   """
-  def list_requested_service_quota_change_history(client, input, options \\ []) do
-    request(client, "ListRequestedServiceQuotaChangeHistory", input, options)
+  def list_requested_service_quota_change_history(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListRequestedServiceQuotaChangeHistory",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -137,15 +184,31 @@ defmodule AWS.ServiceQuotas do
   has reached `CASE_CLOSED, APPROVED,` or `DENIED`, the history has been kept for
   90 days.
   """
-  def list_requested_service_quota_change_history_by_quota(client, input, options \\ []) do
-    request(client, "ListRequestedServiceQuotaChangeHistoryByQuota", input, options)
+  def list_requested_service_quota_change_history_by_quota(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListRequestedServiceQuotaChangeHistoryByQuota",
+      input,
+      options
+    )
   end
 
   @doc """
   Returns a list of the quota increase requests in the template.
   """
-  def list_service_quota_increase_requests_in_template(client, input, options \\ []) do
-    request(client, "ListServiceQuotaIncreaseRequestsInTemplate", input, options)
+  def list_service_quota_increase_requests_in_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListServiceQuotaIncreaseRequestsInTemplate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -160,8 +223,8 @@ defmodule AWS.ServiceQuotas do
   parameter contains a value to pass the next call to the same API to request the
   next part of the list.
   """
-  def list_service_quotas(client, input, options \\ []) do
-    request(client, "ListServiceQuotas", input, options)
+  def list_service_quotas(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListServiceQuotas", input, options)
   end
 
   @doc """
@@ -170,8 +233,8 @@ defmodule AWS.ServiceQuotas do
   Not all AWS services are available in Service Quotas. To list the see the list
   of the service quotas for a specific service, use `ListServiceQuotas`.
   """
-  def list_services(client, input, options \\ []) do
-    request(client, "ListServices", input, options)
+  def list_services(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListServices", input, options)
   end
 
   @doc """
@@ -182,8 +245,14 @@ defmodule AWS.ServiceQuotas do
   `ListServiceQuotaIncreaseRequestsInTemplate` to see the list of quotas in the
   template.
   """
-  def put_service_quota_increase_request_into_template(client, input, options \\ []) do
-    request(client, "PutServiceQuotaIncreaseRequestIntoTemplate", input, options)
+  def put_service_quota_increase_request_into_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "PutServiceQuotaIncreaseRequestIntoTemplate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -192,61 +261,7 @@ defmodule AWS.ServiceQuotas do
   The response to this command provides the details in the
   `RequestedServiceQuotaChange` object.
   """
-  def request_service_quota_increase(client, input, options \\ []) do
-    request(client, "RequestServiceQuotaIncrease", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "servicequotas"}
-    host = build_host("servicequotas", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "ServiceQuotasV20190624.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def request_service_quota_increase(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RequestServiceQuotaIncrease", input, options)
   end
 end

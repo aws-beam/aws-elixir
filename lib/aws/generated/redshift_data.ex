@@ -10,13 +10,32 @@ defmodule AWS.RedshiftData do
   succeeds.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-12-20",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "redshift-data",
+      global?: false,
+      protocol: "json",
+      service_id: "Redshift Data",
+      signature_version: "v4",
+      signing_name: "redshift-data",
+      target_prefix: "RedshiftData"
+    }
+  end
+
   @doc """
   Cancels a running query.
 
   To be canceled, a query must be running.
   """
-  def cancel_statement(client, input, options \\ []) do
-    request(client, "CancelStatement", input, options)
+  def cancel_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelStatement", input, options)
   end
 
   @doc """
@@ -26,8 +45,8 @@ defmodule AWS.RedshiftData do
   The information includes when the query started, when it finished, the query
   status, the number of rows returned, and the SQL statement.
   """
-  def describe_statement(client, input, options \\ []) do
-    request(client, "DescribeStatement", input, options)
+  def describe_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStatement", input, options)
   end
 
   @doc """
@@ -44,8 +63,8 @@ defmodule AWS.RedshiftData do
   database name, and the database user name. Permission to call the
   `redshift:GetClusterCredentials` operation is required to use this method.
   """
-  def describe_table(client, input, options \\ []) do
-    request(client, "DescribeTable", input, options)
+  def describe_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTable", input, options)
   end
 
   @doc """
@@ -62,8 +81,8 @@ defmodule AWS.RedshiftData do
   database name, and the database user name. Permission to call the
   `redshift:GetClusterCredentials` operation is required to use this method.
   """
-  def execute_statement(client, input, options \\ []) do
-    request(client, "ExecuteStatement", input, options)
+  def execute_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExecuteStatement", input, options)
   end
 
   @doc """
@@ -71,8 +90,8 @@ defmodule AWS.RedshiftData do
 
   A token is returned to page through the statement results.
   """
-  def get_statement_result(client, input, options \\ []) do
-    request(client, "GetStatementResult", input, options)
+  def get_statement_result(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetStatementResult", input, options)
   end
 
   @doc """
@@ -89,8 +108,8 @@ defmodule AWS.RedshiftData do
   database name, and the database user name. Permission to call the
   `redshift:GetClusterCredentials` operation is required to use this method.
   """
-  def list_databases(client, input, options \\ []) do
-    request(client, "ListDatabases", input, options)
+  def list_databases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatabases", input, options)
   end
 
   @doc """
@@ -107,8 +126,8 @@ defmodule AWS.RedshiftData do
   database name, and the database user name. Permission to call the
   `redshift:GetClusterCredentials` operation is required to use this method.
   """
-  def list_schemas(client, input, options \\ []) do
-    request(client, "ListSchemas", input, options)
+  def list_schemas(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSchemas", input, options)
   end
 
   @doc """
@@ -117,8 +136,8 @@ defmodule AWS.RedshiftData do
   By default, only finished statements are shown. A token is returned to page
   through the statement list.
   """
-  def list_statements(client, input, options \\ []) do
-    request(client, "ListStatements", input, options)
+  def list_statements(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStatements", input, options)
   end
 
   @doc """
@@ -136,61 +155,7 @@ defmodule AWS.RedshiftData do
   database name, and the database user name. Permission to call the
   `redshift:GetClusterCredentials` operation is required to use this method.
   """
-  def list_tables(client, input, options \\ []) do
-    request(client, "ListTables", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "redshift-data"}
-    host = build_host("redshift-data", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "RedshiftData.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def list_tables(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTables", input, options)
   end
 end

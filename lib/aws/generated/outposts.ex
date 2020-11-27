@@ -12,167 +12,217 @@ defmodule AWS.Outposts do
   for lower latency and local data processing needs.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-12-03",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "outposts",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Outposts",
+      signature_version: "v4",
+      signing_name: "outposts",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates an Outpost.
   """
-  def create_outpost(client, input, options \\ []) do
-    path_ = "/outposts"
+  def create_outpost(%Client{} = client, input, options \\ []) do
+    url_path = "/outposts"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the Outpost.
   """
-  def delete_outpost(client, outpost_id, input, options \\ []) do
-    path_ = "/outposts/#{URI.encode(outpost_id)}"
+  def delete_outpost(%Client{} = client, outpost_id, input, options \\ []) do
+    url_path = "/outposts/#{URI.encode(outpost_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the site.
   """
-  def delete_site(client, site_id, input, options \\ []) do
-    path_ = "/sites/#{URI.encode(site_id)}"
+  def delete_site(%Client{} = client, site_id, input, options \\ []) do
+    url_path = "/sites/#{URI.encode(site_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about the specified Outpost.
   """
-  def get_outpost(client, outpost_id, options \\ []) do
-    path_ = "/outposts/#{URI.encode(outpost_id)}"
+  def get_outpost(%Client{} = client, outpost_id, options \\ []) do
+    url_path = "/outposts/#{URI.encode(outpost_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the instance types for the specified Outpost.
   """
-  def get_outpost_instance_types(client, outpost_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/outposts/#{URI.encode(outpost_id)}/instanceTypes"
+  def get_outpost_instance_types(
+        %Client{} = client,
+        outpost_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/outposts/#{URI.encode(outpost_id)}/instanceTypes"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List the Outposts for your AWS account.
   """
-  def list_outposts(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/outposts"
+  def list_outposts(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/outposts"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the sites for the specified AWS account.
   """
-  def list_sites(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/sites"
+  def list_sites(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/sites"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "outposts"}
-    host = build_host("outposts", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
 
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 end

@@ -22,6 +22,25 @@ defmodule AWS.Sdb do
   more information.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2009-04-15",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: nil,
+      endpoint_prefix: "sdb",
+      global?: false,
+      protocol: "query",
+      service_id: nil,
+      signature_version: "v2",
+      signing_name: "sdb",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Performs multiple DeleteAttributes operations in a single call, which reduces
   round trips and latencies.
@@ -51,8 +70,8 @@ defmodule AWS.Sdb do
     * 1 MB request size
     * 25 item limit per BatchDeleteAttributes operation
   """
-  def batch_delete_attributes(client, input, options \\ []) do
-    request(client, "BatchDeleteAttributes", input, options)
+  def batch_delete_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteAttributes", input, options)
   end
 
   @doc """
@@ -106,8 +125,8 @@ defmodule AWS.Sdb do
     * 10 GB of total user data storage per domain
     * 25 item limit per `BatchPutAttributes` operation
   """
-  def batch_put_attributes(client, input, options \\ []) do
-    request(client, "BatchPutAttributes", input, options)
+  def batch_put_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchPutAttributes", input, options)
   end
 
   @doc """
@@ -125,8 +144,8 @@ defmodule AWS.Sdb do
   If the client requires additional domains, go to [
   http://aws.amazon.com/contact-us/simpledb-limit-request/](http://aws.amazon.com/contact-us/simpledb-limit-request/).
   """
-  def create_domain(client, input, options \\ []) do
-    request(client, "CreateDomain", input, options)
+  def create_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDomain", input, options)
   end
 
   @doc """
@@ -145,8 +164,8 @@ defmodule AWS.Sdb do
   (read) immediately after a `DeleteAttributes` or `PutAttributes` operation
   (write) might not return updated item data.
   """
-  def delete_attributes(client, input, options \\ []) do
-    request(client, "DeleteAttributes", input, options)
+  def delete_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAttributes", input, options)
   end
 
   @doc """
@@ -158,8 +177,8 @@ defmodule AWS.Sdb do
   Running `DeleteDomain` on a domain that does not exist or running the function
   multiple times using the same domain name will not result in an error response.
   """
-  def delete_domain(client, input, options \\ []) do
-    request(client, "DeleteDomain", input, options)
+  def delete_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDomain", input, options)
   end
 
   @doc """
@@ -167,8 +186,8 @@ defmodule AWS.Sdb do
   number of items and attributes in the domain, and the size of the attribute
   names and values.
   """
-  def domain_metadata(client, input, options \\ []) do
-    request(client, "DomainMetadata", input, options)
+  def domain_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DomainMetadata", input, options)
   end
 
   @doc """
@@ -184,8 +203,8 @@ defmodule AWS.Sdb do
   If GetAttributes is called without being passed any attribute names, all the
   attributes for the item are returned.
   """
-  def get_attributes(client, input, options \\ []) do
-    request(client, "GetAttributes", input, options)
+  def get_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAttributes", input, options)
   end
 
   @doc """
@@ -197,8 +216,8 @@ defmodule AWS.Sdb do
   successive times with the `NextToken` provided by the operation returns up to
   `MaxNumberOfDomains` more domain names with each successive operation call.
   """
-  def list_domains(client, input, options \\ []) do
-    request(client, "ListDomains", input, options)
+  def list_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDomains", input, options)
   end
 
   @doc """
@@ -241,8 +260,8 @@ defmodule AWS.Sdb do
     * One billion attributes per domain
     * 10 GB of total user data storage per domain
   """
-  def put_attributes(client, input, options \\ []) do
-    request(client, "PutAttributes", input, options)
+  def put_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutAttributes", input, options)
   end
 
   @doc """
@@ -260,61 +279,7 @@ defmodule AWS.Sdb do
   For information on how to construct select expressions, see Using Select to
   Create Amazon SimpleDB Queries in the Developer Guide.
   """
-  def select(client, input, options \\ []) do
-    request(client, "Select", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "sdb"}
-    host = build_host("sdb", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2009-04-15"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def select(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Select", input, options)
   end
 end

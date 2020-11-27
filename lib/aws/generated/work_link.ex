@@ -14,14 +14,44 @@ defmodule AWS.WorkLink do
   WorkLink doesn't download or store any internal web content on mobile devices.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-09-25",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "worklink",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "WorkLink",
+      signature_version: "v4",
+      signing_name: "worklink",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Specifies a domain to be associated to Amazon WorkLink.
   """
-  def associate_domain(client, input, options \\ []) do
-    path_ = "/associateDomain"
+  def associate_domain(%Client{} = client, input, options \\ []) do
+    url_path = "/associateDomain"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -30,22 +60,44 @@ defmodule AWS.WorkLink do
   This is used to authorize users against associated websites in the company
   network.
   """
-  def associate_website_authorization_provider(client, input, options \\ []) do
-    path_ = "/associateWebsiteAuthorizationProvider"
+  def associate_website_authorization_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/associateWebsiteAuthorizationProvider"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Imports the root certificate of a certificate authority (CA) used to obtain TLS
   certificates used by associated websites within the company network.
   """
-  def associate_website_certificate_authority(client, input, options \\ []) do
-    path_ = "/associateWebsiteCertificateAuthority"
+  def associate_website_certificate_authority(%Client{} = client, input, options \\ []) do
+    url_path = "/associateWebsiteCertificateAuthority"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -54,11 +106,22 @@ defmodule AWS.WorkLink do
   A fleet consists of resources and the configuration that delivers associated
   websites to authorized users who download and set up the Amazon WorkLink app.
   """
-  def create_fleet(client, input, options \\ []) do
-    path_ = "/createFleet"
+  def create_fleet(%Client{} = client, input, options \\ []) do
+    url_path = "/createFleet"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -66,94 +129,193 @@ defmodule AWS.WorkLink do
 
   Prevents users from accessing previously associated websites.
   """
-  def delete_fleet(client, input, options \\ []) do
-    path_ = "/deleteFleet"
+  def delete_fleet(%Client{} = client, input, options \\ []) do
+    url_path = "/deleteFleet"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the configuration for delivering audit streams to the customer
   account.
   """
-  def describe_audit_stream_configuration(client, input, options \\ []) do
-    path_ = "/describeAuditStreamConfiguration"
+  def describe_audit_stream_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeAuditStreamConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the networking configuration to access the internal websites
   associated with the specified fleet.
   """
-  def describe_company_network_configuration(client, input, options \\ []) do
-    path_ = "/describeCompanyNetworkConfiguration"
+  def describe_company_network_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeCompanyNetworkConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Provides information about a user's device.
   """
-  def describe_device(client, input, options \\ []) do
-    path_ = "/describeDevice"
+  def describe_device(%Client{} = client, input, options \\ []) do
+    url_path = "/describeDevice"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the device policy configuration for the specified fleet.
   """
-  def describe_device_policy_configuration(client, input, options \\ []) do
-    path_ = "/describeDevicePolicyConfiguration"
+  def describe_device_policy_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeDevicePolicyConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Provides information about the domain.
   """
-  def describe_domain(client, input, options \\ []) do
-    path_ = "/describeDomain"
+  def describe_domain(%Client{} = client, input, options \\ []) do
+    url_path = "/describeDomain"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Provides basic information for the specified fleet, excluding identity provider,
   networking, and device configuration details.
   """
-  def describe_fleet_metadata(client, input, options \\ []) do
-    path_ = "/describeFleetMetadata"
+  def describe_fleet_metadata(%Client{} = client, input, options \\ []) do
+    url_path = "/describeFleetMetadata"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the identity provider configuration of the specified fleet.
   """
-  def describe_identity_provider_configuration(client, input, options \\ []) do
-    path_ = "/describeIdentityProviderConfiguration"
+  def describe_identity_provider_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/describeIdentityProviderConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Provides information about the certificate authority.
   """
-  def describe_website_certificate_authority(client, input, options \\ []) do
-    path_ = "/describeWebsiteCertificateAuthority"
+  def describe_website_certificate_authority(%Client{} = client, input, options \\ []) do
+    url_path = "/describeWebsiteCertificateAuthority"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -161,11 +323,22 @@ defmodule AWS.WorkLink do
 
   End users lose the ability to access the domain with Amazon WorkLink.
   """
-  def disassociate_domain(client, input, options \\ []) do
-    path_ = "/disassociateDomain"
+  def disassociate_domain(%Client{} = client, input, options \\ []) do
+    url_path = "/disassociateDomain"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -174,103 +347,213 @@ defmodule AWS.WorkLink do
   After the disassociation, users can't load any associated websites that require
   this authorization provider.
   """
-  def disassociate_website_authorization_provider(client, input, options \\ []) do
-    path_ = "/disassociateWebsiteAuthorizationProvider"
+  def disassociate_website_authorization_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/disassociateWebsiteAuthorizationProvider"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes a certificate authority (CA).
   """
-  def disassociate_website_certificate_authority(client, input, options \\ []) do
-    path_ = "/disassociateWebsiteCertificateAuthority"
+  def disassociate_website_certificate_authority(%Client{} = client, input, options \\ []) do
+    url_path = "/disassociateWebsiteCertificateAuthority"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves a list of devices registered with the specified fleet.
   """
-  def list_devices(client, input, options \\ []) do
-    path_ = "/listDevices"
+  def list_devices(%Client{} = client, input, options \\ []) do
+    url_path = "/listDevices"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves a list of domains associated to a specified fleet.
   """
-  def list_domains(client, input, options \\ []) do
-    path_ = "/listDomains"
+  def list_domains(%Client{} = client, input, options \\ []) do
+    url_path = "/listDomains"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves a list of fleets for the current account and Region.
   """
-  def list_fleets(client, input, options \\ []) do
-    path_ = "/listFleets"
+  def list_fleets(%Client{} = client, input, options \\ []) do
+    url_path = "/listFleets"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves a list of tags for the specified resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves a list of website authorization providers associated with a specified
   fleet.
   """
-  def list_website_authorization_providers(client, input, options \\ []) do
-    path_ = "/listWebsiteAuthorizationProviders"
+  def list_website_authorization_providers(%Client{} = client, input, options \\ []) do
+    url_path = "/listWebsiteAuthorizationProviders"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves a list of certificate authorities added for the current account and
   Region.
   """
-  def list_website_certificate_authorities(client, input, options \\ []) do
-    path_ = "/listWebsiteCertificateAuthorities"
+  def list_website_certificate_authorities(%Client{} = client, input, options \\ []) do
+    url_path = "/listWebsiteCertificateAuthorities"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Moves a domain to ACTIVE status if it was in the INACTIVE status.
   """
-  def restore_domain_access(client, input, options \\ []) do
-    path_ = "/restoreDomainAccess"
+  def restore_domain_access(%Client{} = client, input, options \\ []) do
+    url_path = "/restoreDomainAccess"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Moves a domain to INACTIVE status if it was in the ACTIVE status.
   """
-  def revoke_domain_access(client, input, options \\ []) do
-    path_ = "/revokeDomainAccess"
+  def revoke_domain_access(%Client{} = client, input, options \\ []) do
+    url_path = "/revokeDomainAccess"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -278,11 +561,22 @@ defmodule AWS.WorkLink do
 
   The user can sign in again if they have valid credentials.
   """
-  def sign_out_user(client, input, options \\ []) do
-    path_ = "/signOutUser"
+  def sign_out_user(%Client{} = client, input, options \\ []) do
+    url_path = "/signOutUser"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -291,148 +585,173 @@ defmodule AWS.WorkLink do
   Each tag consists of a key and an optional value. If a resource already has a
   tag with the same key, this operation updates its value.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes one or more tags from the specified resource.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"TagKeys", "tagKeys"},
+        {"TagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the audit stream configuration for the fleet.
   """
-  def update_audit_stream_configuration(client, input, options \\ []) do
-    path_ = "/updateAuditStreamConfiguration"
+  def update_audit_stream_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/updateAuditStreamConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the company network configuration for the fleet.
   """
-  def update_company_network_configuration(client, input, options \\ []) do
-    path_ = "/updateCompanyNetworkConfiguration"
+  def update_company_network_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/updateCompanyNetworkConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the device policy configuration for the fleet.
   """
-  def update_device_policy_configuration(client, input, options \\ []) do
-    path_ = "/updateDevicePolicyConfiguration"
+  def update_device_policy_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/updateDevicePolicyConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates domain metadata, such as DisplayName.
   """
-  def update_domain_metadata(client, input, options \\ []) do
-    path_ = "/updateDomainMetadata"
+  def update_domain_metadata(%Client{} = client, input, options \\ []) do
+    url_path = "/updateDomainMetadata"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates fleet metadata, such as DisplayName.
   """
-  def update_fleet_metadata(client, input, options \\ []) do
-    path_ = "/UpdateFleetMetadata"
+  def update_fleet_metadata(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateFleetMetadata"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the identity provider configuration for the fleet.
   """
-  def update_identity_provider_configuration(client, input, options \\ []) do
-    path_ = "/updateIdentityProviderConfiguration"
+  def update_identity_provider_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/updateIdentityProviderConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "worklink"}
-    host = build_host("worklink", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

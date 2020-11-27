@@ -28,6 +28,25 @@ defmodule AWS.CloudTrail do
   the log files.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "CloudTrail",
+      api_version: "2013-11-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "cloudtrail",
+      global?: false,
+      protocol: "json",
+      service_id: "CloudTrail",
+      signature_version: "v4",
+      signing_name: "cloudtrail",
+      target_prefix: "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"
+    }
+  end
+
   @doc """
   Adds one or more tags to a trail, up to a limit of 50.
 
@@ -38,16 +57,16 @@ defmodule AWS.CloudTrail do
   trail that applies to all AWS Regions only from the Region in which the trail
   was created (also known as its home region).
   """
-  def add_tags(client, input, options \\ []) do
-    request(client, "AddTags", input, options)
+  def add_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddTags", input, options)
   end
 
   @doc """
   Creates a trail that specifies the settings for delivery of log data to an
   Amazon S3 bucket.
   """
-  def create_trail(client, input, options \\ []) do
-    request(client, "CreateTrail", input, options)
+  def create_trail(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTrail", input, options)
   end
 
   @doc """
@@ -57,16 +76,16 @@ defmodule AWS.CloudTrail do
   `DeleteTrail` cannot be called on the shadow trails (replicated trails in other
   regions) of a trail that is enabled in all regions.
   """
-  def delete_trail(client, input, options \\ []) do
-    request(client, "DeleteTrail", input, options)
+  def delete_trail(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTrail", input, options)
   end
 
   @doc """
   Retrieves settings for one or more trails associated with the current region for
   your account.
   """
-  def describe_trails(client, input, options \\ []) do
-    request(client, "DescribeTrails", input, options)
+  def describe_trails(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTrails", input, options)
   end
 
   @doc """
@@ -87,8 +106,8 @@ defmodule AWS.CloudTrail do
   ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html)
   in the *AWS CloudTrail User Guide*.
   """
-  def get_event_selectors(client, input, options \\ []) do
-    request(client, "GetEventSelectors", input, options)
+  def get_event_selectors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetEventSelectors", input, options)
   end
 
   @doc """
@@ -104,15 +123,15 @@ defmodule AWS.CloudTrail do
   ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
   in the *AWS CloudTrail User Guide*.
   """
-  def get_insight_selectors(client, input, options \\ []) do
-    request(client, "GetInsightSelectors", input, options)
+  def get_insight_selectors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInsightSelectors", input, options)
   end
 
   @doc """
   Returns settings information for a specified trail.
   """
-  def get_trail(client, input, options \\ []) do
-    request(client, "GetTrail", input, options)
+  def get_trail(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTrail", input, options)
   end
 
   @doc """
@@ -123,8 +142,8 @@ defmodule AWS.CloudTrail do
   status from a single region. To return trail status from all regions, you must
   call the operation on each region.
   """
-  def get_trail_status(client, input, options \\ []) do
-    request(client, "GetTrailStatus", input, options)
+  def get_trail_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTrailStatus", input, options)
   end
 
   @doc """
@@ -139,22 +158,22 @@ defmodule AWS.CloudTrail do
   a digest file from a particular region, you must look in the same region for its
   corresponding public key.
   """
-  def list_public_keys(client, input, options \\ []) do
-    request(client, "ListPublicKeys", input, options)
+  def list_public_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPublicKeys", input, options)
   end
 
   @doc """
   Lists the tags for the trail in the current region.
   """
-  def list_tags(client, input, options \\ []) do
-    request(client, "ListTags", input, options)
+  def list_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTags", input, options)
   end
 
   @doc """
   Lists trails that are in the current account.
   """
-  def list_trails(client, input, options \\ []) do
-    request(client, "ListTrails", input, options)
+  def list_trails(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTrails", input, options)
   end
 
   @doc """
@@ -193,11 +212,11 @@ defmodule AWS.CloudTrail do
   a maximum of 50 possible. The response includes a token that you can use to get
   the next page of results.
 
-  The rate of lookup requests is limited to two per second per account. If this
-  limit is exceeded, a throttling error occurs.
+  The rate of lookup requests is limited to two per second, per account, per
+  region. If this limit is exceeded, a throttling error occurs.
   """
-  def lookup_events(client, input, options \\ []) do
-    request(client, "LookupEvents", input, options)
+  def lookup_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "LookupEvents", input, options)
   end
 
   @doc """
@@ -238,8 +257,8 @@ defmodule AWS.CloudTrail do
   and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html)
   in the *AWS CloudTrail User Guide*.
   """
-  def put_event_selectors(client, input, options \\ []) do
-    request(client, "PutEventSelectors", input, options)
+  def put_event_selectors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutEventSelectors", input, options)
   end
 
   @doc """
@@ -250,15 +269,15 @@ defmodule AWS.CloudTrail do
   passing an empty list of insight types. In this release, only
   `ApiCallRateInsight` is supported as an Insights selector.
   """
-  def put_insight_selectors(client, input, options \\ []) do
-    request(client, "PutInsightSelectors", input, options)
+  def put_insight_selectors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutInsightSelectors", input, options)
   end
 
   @doc """
   Removes the specified tags from a trail.
   """
-  def remove_tags(client, input, options \\ []) do
-    request(client, "RemoveTags", input, options)
+  def remove_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveTags", input, options)
   end
 
   @doc """
@@ -269,8 +288,8 @@ defmodule AWS.CloudTrail do
   the shadow trails (replicated trails in other regions) of a trail that is
   enabled in all regions.
   """
-  def start_logging(client, input, options \\ []) do
-    request(client, "StartLogging", input, options)
+  def start_logging(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartLogging", input, options)
   end
 
   @doc """
@@ -284,8 +303,8 @@ defmodule AWS.CloudTrail do
   occur. This operation cannot be called on the shadow trails (replicated trails
   in other regions) of a trail enabled in all regions.
   """
-  def stop_logging(client, input, options \\ []) do
-    request(client, "StopLogging", input, options)
+  def stop_logging(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopLogging", input, options)
   end
 
   @doc """
@@ -297,61 +316,7 @@ defmodule AWS.CloudTrail do
   the bucket. `UpdateTrail` must be called from the region in which the trail was
   created; otherwise, an `InvalidHomeRegionException` is thrown.
   """
-  def update_trail(client, input, options \\ []) do
-    request(client, "UpdateTrail", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "cloudtrail"}
-    host = build_host("cloudtrail", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_trail(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTrail", input, options)
   end
 end

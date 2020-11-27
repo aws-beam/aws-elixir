@@ -77,11 +77,30 @@ defmodule AWS.CodeDeploy do
     * [AWS CodeDeploy Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=179)
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "CodeDeploy",
+      api_version: "2014-10-06",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "codedeploy",
+      global?: false,
+      protocol: "json",
+      service_id: "CodeDeploy",
+      signature_version: "v4",
+      signing_name: "codedeploy",
+      target_prefix: "CodeDeploy_20141006"
+    }
+  end
+
   @doc """
   Adds tags to on-premises instances.
   """
-  def add_tags_to_on_premises_instances(client, input, options \\ []) do
-    request(client, "AddTagsToOnPremisesInstances", input, options)
+  def add_tags_to_on_premises_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddTagsToOnPremisesInstances", input, options)
   end
 
   @doc """
@@ -89,8 +108,8 @@ defmodule AWS.CodeDeploy do
 
   The maximum number of application revisions that can be returned is 25.
   """
-  def batch_get_application_revisions(client, input, options \\ []) do
-    request(client, "BatchGetApplicationRevisions", input, options)
+  def batch_get_application_revisions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetApplicationRevisions", input, options)
   end
 
   @doc """
@@ -98,15 +117,15 @@ defmodule AWS.CodeDeploy do
 
   The maximum number of applications that can be returned is 100.
   """
-  def batch_get_applications(client, input, options \\ []) do
-    request(client, "BatchGetApplications", input, options)
+  def batch_get_applications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetApplications", input, options)
   end
 
   @doc """
   Gets information about one or more deployment groups.
   """
-  def batch_get_deployment_groups(client, input, options \\ []) do
-    request(client, "BatchGetDeploymentGroups", input, options)
+  def batch_get_deployment_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetDeploymentGroups", input, options)
   end
 
   @doc """
@@ -119,8 +138,8 @@ defmodule AWS.CodeDeploy do
   `BatchGetDeploymentTargets` works with all compute platforms. The maximum number
   of instances that can be returned is 25.
   """
-  def batch_get_deployment_instances(client, input, options \\ []) do
-    request(client, "BatchGetDeploymentInstances", input, options)
+  def batch_get_deployment_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetDeploymentInstances", input, options)
   end
 
   @doc """
@@ -142,8 +161,8 @@ defmodule AWS.CodeDeploy do
     * **CloudFormation**: Information about targets of blue/green
   deployments initiated by a CloudFormation stack update.
   """
-  def batch_get_deployment_targets(client, input, options \\ []) do
-    request(client, "BatchGetDeploymentTargets", input, options)
+  def batch_get_deployment_targets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetDeploymentTargets", input, options)
   end
 
   @doc """
@@ -151,8 +170,8 @@ defmodule AWS.CodeDeploy do
 
   The maximum number of deployments that can be returned is 25.
   """
-  def batch_get_deployments(client, input, options \\ []) do
-    request(client, "BatchGetDeployments", input, options)
+  def batch_get_deployments(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetDeployments", input, options)
   end
 
   @doc """
@@ -160,8 +179,8 @@ defmodule AWS.CodeDeploy do
 
   The maximum number of on-premises instances that can be returned is 25.
   """
-  def batch_get_on_premises_instances(client, input, options \\ []) do
-    request(client, "BatchGetOnPremisesInstances", input, options)
+  def batch_get_on_premises_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetOnPremisesInstances", input, options)
   end
 
   @doc """
@@ -173,43 +192,43 @@ defmodule AWS.CodeDeploy do
   replacement environment with the load balancer, can start as soon as all
   instances have a status of Ready.)
   """
-  def continue_deployment(client, input, options \\ []) do
-    request(client, "ContinueDeployment", input, options)
+  def continue_deployment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ContinueDeployment", input, options)
   end
 
   @doc """
   Creates an application.
   """
-  def create_application(client, input, options \\ []) do
-    request(client, "CreateApplication", input, options)
+  def create_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateApplication", input, options)
   end
 
   @doc """
   Deploys an application revision through the specified deployment group.
   """
-  def create_deployment(client, input, options \\ []) do
-    request(client, "CreateDeployment", input, options)
+  def create_deployment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDeployment", input, options)
   end
 
   @doc """
   Creates a deployment configuration.
   """
-  def create_deployment_config(client, input, options \\ []) do
-    request(client, "CreateDeploymentConfig", input, options)
+  def create_deployment_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDeploymentConfig", input, options)
   end
 
   @doc """
   Creates a deployment group to which application revisions are deployed.
   """
-  def create_deployment_group(client, input, options \\ []) do
-    request(client, "CreateDeploymentGroup", input, options)
+  def create_deployment_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDeploymentGroup", input, options)
   end
 
   @doc """
   Deletes an application.
   """
-  def delete_application(client, input, options \\ []) do
-    request(client, "DeleteApplication", input, options)
+  def delete_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplication", input, options)
   end
 
   @doc """
@@ -218,50 +237,50 @@ defmodule AWS.CodeDeploy do
   A deployment configuration cannot be deleted if it is currently in use.
   Predefined configurations cannot be deleted.
   """
-  def delete_deployment_config(client, input, options \\ []) do
-    request(client, "DeleteDeploymentConfig", input, options)
+  def delete_deployment_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDeploymentConfig", input, options)
   end
 
   @doc """
   Deletes a deployment group.
   """
-  def delete_deployment_group(client, input, options \\ []) do
-    request(client, "DeleteDeploymentGroup", input, options)
+  def delete_deployment_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDeploymentGroup", input, options)
   end
 
   @doc """
   Deletes a GitHub account connection.
   """
-  def delete_git_hub_account_token(client, input, options \\ []) do
-    request(client, "DeleteGitHubAccountToken", input, options)
+  def delete_git_hub_account_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGitHubAccountToken", input, options)
   end
 
   @doc """
   Deletes resources linked to an external ID.
   """
-  def delete_resources_by_external_id(client, input, options \\ []) do
-    request(client, "DeleteResourcesByExternalId", input, options)
+  def delete_resources_by_external_id(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteResourcesByExternalId", input, options)
   end
 
   @doc """
   Deregisters an on-premises instance.
   """
-  def deregister_on_premises_instance(client, input, options \\ []) do
-    request(client, "DeregisterOnPremisesInstance", input, options)
+  def deregister_on_premises_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeregisterOnPremisesInstance", input, options)
   end
 
   @doc """
   Gets information about an application.
   """
-  def get_application(client, input, options \\ []) do
-    request(client, "GetApplication", input, options)
+  def get_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetApplication", input, options)
   end
 
   @doc """
   Gets information about an application revision.
   """
-  def get_application_revision(client, input, options \\ []) do
-    request(client, "GetApplicationRevision", input, options)
+  def get_application_revision(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetApplicationRevision", input, options)
   end
 
   @doc """
@@ -272,72 +291,72 @@ defmodule AWS.CodeDeploy do
   returned `appSpecContent` object to get the content of the deployment’s AppSpec
   file.
   """
-  def get_deployment(client, input, options \\ []) do
-    request(client, "GetDeployment", input, options)
+  def get_deployment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDeployment", input, options)
   end
 
   @doc """
   Gets information about a deployment configuration.
   """
-  def get_deployment_config(client, input, options \\ []) do
-    request(client, "GetDeploymentConfig", input, options)
+  def get_deployment_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDeploymentConfig", input, options)
   end
 
   @doc """
   Gets information about a deployment group.
   """
-  def get_deployment_group(client, input, options \\ []) do
-    request(client, "GetDeploymentGroup", input, options)
+  def get_deployment_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDeploymentGroup", input, options)
   end
 
   @doc """
   Gets information about an instance as part of a deployment.
   """
-  def get_deployment_instance(client, input, options \\ []) do
-    request(client, "GetDeploymentInstance", input, options)
+  def get_deployment_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDeploymentInstance", input, options)
   end
 
   @doc """
   Returns information about a deployment target.
   """
-  def get_deployment_target(client, input, options \\ []) do
-    request(client, "GetDeploymentTarget", input, options)
+  def get_deployment_target(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDeploymentTarget", input, options)
   end
 
   @doc """
   Gets information about an on-premises instance.
   """
-  def get_on_premises_instance(client, input, options \\ []) do
-    request(client, "GetOnPremisesInstance", input, options)
+  def get_on_premises_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOnPremisesInstance", input, options)
   end
 
   @doc """
   Lists information about revisions for an application.
   """
-  def list_application_revisions(client, input, options \\ []) do
-    request(client, "ListApplicationRevisions", input, options)
+  def list_application_revisions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListApplicationRevisions", input, options)
   end
 
   @doc """
   Lists the applications registered with the IAM user or AWS account.
   """
-  def list_applications(client, input, options \\ []) do
-    request(client, "ListApplications", input, options)
+  def list_applications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListApplications", input, options)
   end
 
   @doc """
   Lists the deployment configurations with the IAM user or AWS account.
   """
-  def list_deployment_configs(client, input, options \\ []) do
-    request(client, "ListDeploymentConfigs", input, options)
+  def list_deployment_configs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDeploymentConfigs", input, options)
   end
 
   @doc """
   Lists the deployment groups for an application registered with the IAM user or
   AWS account.
   """
-  def list_deployment_groups(client, input, options \\ []) do
-    request(client, "ListDeploymentGroups", input, options)
+  def list_deployment_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDeploymentGroups", input, options)
   end
 
   @doc """
@@ -349,30 +368,30 @@ defmodule AWS.CodeDeploy do
 
   Lists the instance for a deployment associated with the IAM user or AWS account.
   """
-  def list_deployment_instances(client, input, options \\ []) do
-    request(client, "ListDeploymentInstances", input, options)
+  def list_deployment_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDeploymentInstances", input, options)
   end
 
   @doc """
   Returns an array of target IDs that are associated a deployment.
   """
-  def list_deployment_targets(client, input, options \\ []) do
-    request(client, "ListDeploymentTargets", input, options)
+  def list_deployment_targets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDeploymentTargets", input, options)
   end
 
   @doc """
   Lists the deployments in a deployment group for an application registered with
   the IAM user or AWS account.
   """
-  def list_deployments(client, input, options \\ []) do
-    request(client, "ListDeployments", input, options)
+  def list_deployments(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDeployments", input, options)
   end
 
   @doc """
   Lists the names of stored connections to GitHub accounts.
   """
-  def list_git_hub_account_token_names(client, input, options \\ []) do
-    request(client, "ListGitHubAccountTokenNames", input, options)
+  def list_git_hub_account_token_names(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGitHubAccountTokenNames", input, options)
   end
 
   @doc """
@@ -382,8 +401,8 @@ defmodule AWS.CodeDeploy do
   instance names are listed. To list only registered or deregistered on-premises
   instance names, use the registration status parameter.
   """
-  def list_on_premises_instances(client, input, options \\ []) do
-    request(client, "ListOnPremisesInstances", input, options)
+  def list_on_premises_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListOnPremisesInstances", input, options)
   end
 
   @doc """
@@ -392,8 +411,8 @@ defmodule AWS.CodeDeploy do
 
   Tags are used to organize and categorize your CodeDeploy resources.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -409,15 +428,21 @@ defmodule AWS.CodeDeploy do
   ](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda)
   and [AppSpec 'hooks' Section for an Amazon ECS Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs).
   """
-  def put_lifecycle_event_hook_execution_status(client, input, options \\ []) do
-    request(client, "PutLifecycleEventHookExecutionStatus", input, options)
+  def put_lifecycle_event_hook_execution_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "PutLifecycleEventHookExecutionStatus",
+      input,
+      options
+    )
   end
 
   @doc """
   Registers with AWS CodeDeploy a revision for the specified application.
   """
-  def register_application_revision(client, input, options \\ []) do
-    request(client, "RegisterApplicationRevision", input, options)
+  def register_application_revision(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterApplicationRevision", input, options)
   end
 
   @doc """
@@ -426,38 +451,38 @@ defmodule AWS.CodeDeploy do
   Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the
   request. You cannot use both.
   """
-  def register_on_premises_instance(client, input, options \\ []) do
-    request(client, "RegisterOnPremisesInstance", input, options)
+  def register_on_premises_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterOnPremisesInstance", input, options)
   end
 
   @doc """
   Removes one or more tags from one or more on-premises instances.
   """
-  def remove_tags_from_on_premises_instances(client, input, options \\ []) do
-    request(client, "RemoveTagsFromOnPremisesInstances", input, options)
+  def remove_tags_from_on_premises_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveTagsFromOnPremisesInstances", input, options)
   end
 
   @doc """
   In a blue/green deployment, overrides any specified wait time and starts
   terminating instances immediately after the traffic routing is complete.
   """
-  def skip_wait_time_for_instance_termination(client, input, options \\ []) do
-    request(client, "SkipWaitTimeForInstanceTermination", input, options)
+  def skip_wait_time_for_instance_termination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SkipWaitTimeForInstanceTermination", input, options)
   end
 
   @doc """
   Attempts to stop an ongoing deployment.
   """
-  def stop_deployment(client, input, options \\ []) do
-    request(client, "StopDeployment", input, options)
+  def stop_deployment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopDeployment", input, options)
   end
 
   @doc """
   Associates the list of tags in the input `Tags` parameter with the resource
   identified by the `ResourceArn` input parameter.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -466,75 +491,21 @@ defmodule AWS.CodeDeploy do
   The resource is identified by the `ResourceArn` input parameter. The tags are
   identified by the list of keys in the `TagKeys` input parameter.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
   Changes the name of an application.
   """
-  def update_application(client, input, options \\ []) do
-    request(client, "UpdateApplication", input, options)
+  def update_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateApplication", input, options)
   end
 
   @doc """
   Changes information about a deployment group.
   """
-  def update_deployment_group(client, input, options \\ []) do
-    request(client, "UpdateDeploymentGroup", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "codedeploy"}
-    host = build_host("codedeploy", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "CodeDeploy_20141006.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_deployment_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDeploymentGroup", input, options)
   end
 end

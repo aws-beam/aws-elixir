@@ -15,11 +15,30 @@ defmodule AWS.CognitoIdentityProvider do
   For more information, see the Amazon Cognito Documentation.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-04-18",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "cognito-idp",
+      global?: false,
+      protocol: "json",
+      service_id: "Cognito Identity Provider",
+      signature_version: "v4",
+      signing_name: "cognito-idp",
+      target_prefix: "AWSCognitoIdentityProviderService"
+    }
+  end
+
   @doc """
   Adds additional user attributes to the user pool schema.
   """
-  def add_custom_attributes(client, input, options \\ []) do
-    request(client, "AddCustomAttributes", input, options)
+  def add_custom_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddCustomAttributes", input, options)
   end
 
   @doc """
@@ -27,8 +46,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_add_user_to_group(client, input, options \\ []) do
-    request(client, "AdminAddUserToGroup", input, options)
+  def admin_add_user_to_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminAddUserToGroup", input, options)
   end
 
   @doc """
@@ -38,8 +57,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_confirm_sign_up(client, input, options \\ []) do
-    request(client, "AdminConfirmSignUp", input, options)
+  def admin_confirm_sign_up(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminConfirmSignUp", input, options)
   end
 
   @doc """
@@ -60,8 +79,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   `AdminCreateUser` requires developer credentials.
   """
-  def admin_create_user(client, input, options \\ []) do
-    request(client, "AdminCreateUser", input, options)
+  def admin_create_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminCreateUser", input, options)
   end
 
   @doc """
@@ -71,8 +90,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_delete_user(client, input, options \\ []) do
-    request(client, "AdminDeleteUser", input, options)
+  def admin_delete_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminDeleteUser", input, options)
   end
 
   @doc """
@@ -82,8 +101,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_delete_user_attributes(client, input, options \\ []) do
-    request(client, "AdminDeleteUserAttributes", input, options)
+  def admin_delete_user_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminDeleteUserAttributes", input, options)
   end
 
   @doc """
@@ -122,8 +141,8 @@ defmodule AWS.CognitoIdentityProvider do
   `Cognito_Subject` and `ProviderAttributeValue` must be the subject of the SAML
   assertion.
   """
-  def admin_disable_provider_for_user(client, input, options \\ []) do
-    request(client, "AdminDisableProviderForUser", input, options)
+  def admin_disable_provider_for_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminDisableProviderForUser", input, options)
   end
 
   @doc """
@@ -131,8 +150,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_disable_user(client, input, options \\ []) do
-    request(client, "AdminDisableUser", input, options)
+  def admin_disable_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminDisableUser", input, options)
   end
 
   @doc """
@@ -142,8 +161,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_enable_user(client, input, options \\ []) do
-    request(client, "AdminEnableUser", input, options)
+  def admin_enable_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminEnableUser", input, options)
   end
 
   @doc """
@@ -151,8 +170,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_forget_device(client, input, options \\ []) do
-    request(client, "AdminForgetDevice", input, options)
+  def admin_forget_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminForgetDevice", input, options)
   end
 
   @doc """
@@ -160,8 +179,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_get_device(client, input, options \\ []) do
-    request(client, "AdminGetDevice", input, options)
+  def admin_get_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminGetDevice", input, options)
   end
 
   @doc """
@@ -171,8 +190,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_get_user(client, input, options \\ []) do
-    request(client, "AdminGetUser", input, options)
+  def admin_get_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminGetUser", input, options)
   end
 
   @doc """
@@ -180,8 +199,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_initiate_auth(client, input, options \\ []) do
-    request(client, "AdminInitiateAuth", input, options)
+  def admin_initiate_auth(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminInitiateAuth", input, options)
   end
 
   @doc """
@@ -206,8 +225,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   This action is enabled only for admin access and requires developer credentials.
   """
-  def admin_link_provider_for_user(client, input, options \\ []) do
-    request(client, "AdminLinkProviderForUser", input, options)
+  def admin_link_provider_for_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminLinkProviderForUser", input, options)
   end
 
   @doc """
@@ -215,8 +234,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_list_devices(client, input, options \\ []) do
-    request(client, "AdminListDevices", input, options)
+  def admin_list_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminListDevices", input, options)
   end
 
   @doc """
@@ -224,16 +243,16 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_list_groups_for_user(client, input, options \\ []) do
-    request(client, "AdminListGroupsForUser", input, options)
+  def admin_list_groups_for_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminListGroupsForUser", input, options)
   end
 
   @doc """
   Lists a history of user activity and any risks detected as part of Amazon
   Cognito advanced security.
   """
-  def admin_list_user_auth_events(client, input, options \\ []) do
-    request(client, "AdminListUserAuthEvents", input, options)
+  def admin_list_user_auth_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminListUserAuthEvents", input, options)
   end
 
   @doc """
@@ -241,8 +260,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_remove_user_from_group(client, input, options \\ []) do
-    request(client, "AdminRemoveUserFromGroup", input, options)
+  def admin_remove_user_from_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminRemoveUserFromGroup", input, options)
   end
 
   @doc """
@@ -261,8 +280,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_reset_user_password(client, input, options \\ []) do
-    request(client, "AdminResetUserPassword", input, options)
+  def admin_reset_user_password(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminResetUserPassword", input, options)
   end
 
   @doc """
@@ -270,8 +289,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_respond_to_auth_challenge(client, input, options \\ []) do
-    request(client, "AdminRespondToAuthChallenge", input, options)
+  def admin_respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminRespondToAuthChallenge", input, options)
   end
 
   @doc """
@@ -283,8 +302,8 @@ defmodule AWS.CognitoIdentityProvider do
   enabled and no preference is set, a challenge to choose an MFA option will be
   returned during sign in.
   """
-  def admin_set_user_m_f_a_preference(client, input, options \\ []) do
-    request(client, "AdminSetUserMFAPreference", input, options)
+  def admin_set_user_m_f_a_preference(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminSetUserMFAPreference", input, options)
   end
 
   @doc """
@@ -302,8 +321,8 @@ defmodule AWS.CognitoIdentityProvider do
   Once the user has set a new password, or the password is permanent, the user
   status will be set to `Confirmed`.
   """
-  def admin_set_user_password(client, input, options \\ []) do
-    request(client, "AdminSetUserPassword", input, options)
+  def admin_set_user_password(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminSetUserPassword", input, options)
   end
 
   @doc """
@@ -314,8 +333,8 @@ defmodule AWS.CognitoIdentityProvider do
   [AdminSetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html)
   instead.
   """
-  def admin_set_user_settings(client, input, options \\ []) do
-    request(client, "AdminSetUserSettings", input, options)
+  def admin_set_user_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminSetUserSettings", input, options)
   end
 
   @doc """
@@ -325,8 +344,8 @@ defmodule AWS.CognitoIdentityProvider do
   This feedback is used for improving the risk evaluation decision for the user
   pool as part of Amazon Cognito advanced security.
   """
-  def admin_update_auth_event_feedback(client, input, options \\ []) do
-    request(client, "AdminUpdateAuthEventFeedback", input, options)
+  def admin_update_auth_event_feedback(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminUpdateAuthEventFeedback", input, options)
   end
 
   @doc """
@@ -334,8 +353,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_update_device_status(client, input, options \\ []) do
-    request(client, "AdminUpdateDeviceStatus", input, options)
+  def admin_update_device_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminUpdateDeviceStatus", input, options)
   end
 
   @doc """
@@ -352,8 +371,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_update_user_attributes(client, input, options \\ []) do
-    request(client, "AdminUpdateUserAttributes", input, options)
+  def admin_update_user_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminUpdateUserAttributes", input, options)
   end
 
   @doc """
@@ -365,8 +384,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def admin_user_global_sign_out(client, input, options \\ []) do
-    request(client, "AdminUserGlobalSignOut", input, options)
+  def admin_user_global_sign_out(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdminUserGlobalSignOut", input, options)
   end
 
   @doc """
@@ -374,15 +393,15 @@ defmodule AWS.CognitoIdentityProvider do
 
   The request takes an access token or a session string, but not both.
   """
-  def associate_software_token(client, input, options \\ []) do
-    request(client, "AssociateSoftwareToken", input, options)
+  def associate_software_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateSoftwareToken", input, options)
   end
 
   @doc """
   Changes the password for a specified user in a user pool.
   """
-  def change_password(client, input, options \\ []) do
-    request(client, "ChangePassword", input, options)
+  def change_password(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ChangePassword", input, options)
   end
 
   @doc """
@@ -390,23 +409,23 @@ defmodule AWS.CognitoIdentityProvider do
 
   This API call is the call that begins device tracking.
   """
-  def confirm_device(client, input, options \\ []) do
-    request(client, "ConfirmDevice", input, options)
+  def confirm_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmDevice", input, options)
   end
 
   @doc """
   Allows a user to enter a confirmation code to reset a forgotten password.
   """
-  def confirm_forgot_password(client, input, options \\ []) do
-    request(client, "ConfirmForgotPassword", input, options)
+  def confirm_forgot_password(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmForgotPassword", input, options)
   end
 
   @doc """
   Confirms registration of a user and handles the existing alias from a previous
   user.
   """
-  def confirm_sign_up(client, input, options \\ []) do
-    request(client, "ConfirmSignUp", input, options)
+  def confirm_sign_up(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmSignUp", input, options)
   end
 
   @doc """
@@ -414,51 +433,51 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def create_group(client, input, options \\ []) do
-    request(client, "CreateGroup", input, options)
+  def create_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGroup", input, options)
   end
 
   @doc """
   Creates an identity provider for a user pool.
   """
-  def create_identity_provider(client, input, options \\ []) do
-    request(client, "CreateIdentityProvider", input, options)
+  def create_identity_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateIdentityProvider", input, options)
   end
 
   @doc """
   Creates a new OAuth2.0 resource server and defines custom scopes in it.
   """
-  def create_resource_server(client, input, options \\ []) do
-    request(client, "CreateResourceServer", input, options)
+  def create_resource_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateResourceServer", input, options)
   end
 
   @doc """
   Creates the user import job.
   """
-  def create_user_import_job(client, input, options \\ []) do
-    request(client, "CreateUserImportJob", input, options)
+  def create_user_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUserImportJob", input, options)
   end
 
   @doc """
   Creates a new Amazon Cognito user pool and sets the password policy for the
   pool.
   """
-  def create_user_pool(client, input, options \\ []) do
-    request(client, "CreateUserPool", input, options)
+  def create_user_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUserPool", input, options)
   end
 
   @doc """
   Creates the user pool client.
   """
-  def create_user_pool_client(client, input, options \\ []) do
-    request(client, "CreateUserPoolClient", input, options)
+  def create_user_pool_client(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUserPoolClient", input, options)
   end
 
   @doc """
   Creates a new domain for a user pool.
   """
-  def create_user_pool_domain(client, input, options \\ []) do
-    request(client, "CreateUserPoolDomain", input, options)
+  def create_user_pool_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUserPoolDomain", input, options)
   end
 
   @doc """
@@ -468,114 +487,114 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def delete_group(client, input, options \\ []) do
-    request(client, "DeleteGroup", input, options)
+  def delete_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGroup", input, options)
   end
 
   @doc """
   Deletes an identity provider for a user pool.
   """
-  def delete_identity_provider(client, input, options \\ []) do
-    request(client, "DeleteIdentityProvider", input, options)
+  def delete_identity_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIdentityProvider", input, options)
   end
 
   @doc """
   Deletes a resource server.
   """
-  def delete_resource_server(client, input, options \\ []) do
-    request(client, "DeleteResourceServer", input, options)
+  def delete_resource_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteResourceServer", input, options)
   end
 
   @doc """
   Allows a user to delete himself or herself.
   """
-  def delete_user(client, input, options \\ []) do
-    request(client, "DeleteUser", input, options)
+  def delete_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUser", input, options)
   end
 
   @doc """
   Deletes the attributes for a user.
   """
-  def delete_user_attributes(client, input, options \\ []) do
-    request(client, "DeleteUserAttributes", input, options)
+  def delete_user_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUserAttributes", input, options)
   end
 
   @doc """
   Deletes the specified Amazon Cognito user pool.
   """
-  def delete_user_pool(client, input, options \\ []) do
-    request(client, "DeleteUserPool", input, options)
+  def delete_user_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUserPool", input, options)
   end
 
   @doc """
   Allows the developer to delete the user pool client.
   """
-  def delete_user_pool_client(client, input, options \\ []) do
-    request(client, "DeleteUserPoolClient", input, options)
+  def delete_user_pool_client(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUserPoolClient", input, options)
   end
 
   @doc """
   Deletes a domain for a user pool.
   """
-  def delete_user_pool_domain(client, input, options \\ []) do
-    request(client, "DeleteUserPoolDomain", input, options)
+  def delete_user_pool_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUserPoolDomain", input, options)
   end
 
   @doc """
   Gets information about a specific identity provider.
   """
-  def describe_identity_provider(client, input, options \\ []) do
-    request(client, "DescribeIdentityProvider", input, options)
+  def describe_identity_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeIdentityProvider", input, options)
   end
 
   @doc """
   Describes a resource server.
   """
-  def describe_resource_server(client, input, options \\ []) do
-    request(client, "DescribeResourceServer", input, options)
+  def describe_resource_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeResourceServer", input, options)
   end
 
   @doc """
   Describes the risk configuration.
   """
-  def describe_risk_configuration(client, input, options \\ []) do
-    request(client, "DescribeRiskConfiguration", input, options)
+  def describe_risk_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRiskConfiguration", input, options)
   end
 
   @doc """
   Describes the user import job.
   """
-  def describe_user_import_job(client, input, options \\ []) do
-    request(client, "DescribeUserImportJob", input, options)
+  def describe_user_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeUserImportJob", input, options)
   end
 
   @doc """
   Returns the configuration information and metadata of the specified user pool.
   """
-  def describe_user_pool(client, input, options \\ []) do
-    request(client, "DescribeUserPool", input, options)
+  def describe_user_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeUserPool", input, options)
   end
 
   @doc """
   Client method for returning the configuration information and metadata of the
   specified user pool app client.
   """
-  def describe_user_pool_client(client, input, options \\ []) do
-    request(client, "DescribeUserPoolClient", input, options)
+  def describe_user_pool_client(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeUserPoolClient", input, options)
   end
 
   @doc """
   Gets information about a domain.
   """
-  def describe_user_pool_domain(client, input, options \\ []) do
-    request(client, "DescribeUserPoolDomain", input, options)
+  def describe_user_pool_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeUserPoolDomain", input, options)
   end
 
   @doc """
   Forgets the specified device.
   """
-  def forget_device(client, input, options \\ []) do
-    request(client, "ForgetDevice", input, options)
+  def forget_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ForgetDevice", input, options)
   end
 
   @doc """
@@ -590,23 +609,23 @@ defmodule AWS.CognitoIdentityProvider do
   confirmation code for resetting the password, call
   [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html).
   """
-  def forgot_password(client, input, options \\ []) do
-    request(client, "ForgotPassword", input, options)
+  def forgot_password(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ForgotPassword", input, options)
   end
 
   @doc """
   Gets the header information for the .csv file to be used as input for the user
   import job.
   """
-  def get_csv_header(client, input, options \\ []) do
-    request(client, "GetCSVHeader", input, options)
+  def get_csv_header(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCSVHeader", input, options)
   end
 
   @doc """
   Gets the device.
   """
-  def get_device(client, input, options \\ []) do
-    request(client, "GetDevice", input, options)
+  def get_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDevice", input, options)
   end
 
   @doc """
@@ -614,22 +633,22 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def get_group(client, input, options \\ []) do
-    request(client, "GetGroup", input, options)
+  def get_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGroup", input, options)
   end
 
   @doc """
   Gets the specified identity provider.
   """
-  def get_identity_provider_by_identifier(client, input, options \\ []) do
-    request(client, "GetIdentityProviderByIdentifier", input, options)
+  def get_identity_provider_by_identifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetIdentityProviderByIdentifier", input, options)
   end
 
   @doc """
   This method takes a user pool ID, and returns the signing certificate.
   """
-  def get_signing_certificate(client, input, options \\ []) do
-    request(client, "GetSigningCertificate", input, options)
+  def get_signing_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSigningCertificate", input, options)
   end
 
   @doc """
@@ -640,29 +659,29 @@ defmodule AWS.CognitoIdentityProvider do
   customization (app `clientId` will be `ALL`), then that is returned. If nothing
   is present, then an empty shape is returned.
   """
-  def get_u_i_customization(client, input, options \\ []) do
-    request(client, "GetUICustomization", input, options)
+  def get_u_i_customization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUICustomization", input, options)
   end
 
   @doc """
   Gets the user attributes and metadata for a user.
   """
-  def get_user(client, input, options \\ []) do
-    request(client, "GetUser", input, options)
+  def get_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUser", input, options)
   end
 
   @doc """
   Gets the user attribute verification code for the specified attribute name.
   """
-  def get_user_attribute_verification_code(client, input, options \\ []) do
-    request(client, "GetUserAttributeVerificationCode", input, options)
+  def get_user_attribute_verification_code(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUserAttributeVerificationCode", input, options)
   end
 
   @doc """
   Gets the user pool multi-factor authentication (MFA) configuration.
   """
-  def get_user_pool_mfa_config(client, input, options \\ []) do
-    request(client, "GetUserPoolMfaConfig", input, options)
+  def get_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUserPoolMfaConfig", input, options)
   end
 
   @doc """
@@ -672,22 +691,22 @@ defmodule AWS.CognitoIdentityProvider do
   access and Id tokens remain valid until their expiry. Access and Id tokens
   expire one hour after they are issued.
   """
-  def global_sign_out(client, input, options \\ []) do
-    request(client, "GlobalSignOut", input, options)
+  def global_sign_out(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GlobalSignOut", input, options)
   end
 
   @doc """
   Initiates the authentication flow.
   """
-  def initiate_auth(client, input, options \\ []) do
-    request(client, "InitiateAuth", input, options)
+  def initiate_auth(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "InitiateAuth", input, options)
   end
 
   @doc """
   Lists the devices.
   """
-  def list_devices(client, input, options \\ []) do
-    request(client, "ListDevices", input, options)
+  def list_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDevices", input, options)
   end
 
   @doc """
@@ -695,22 +714,22 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def list_groups(client, input, options \\ []) do
-    request(client, "ListGroups", input, options)
+  def list_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGroups", input, options)
   end
 
   @doc """
   Lists information about all identity providers for a user pool.
   """
-  def list_identity_providers(client, input, options \\ []) do
-    request(client, "ListIdentityProviders", input, options)
+  def list_identity_providers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListIdentityProviders", input, options)
   end
 
   @doc """
   Lists the resource servers for a user pool.
   """
-  def list_resource_servers(client, input, options \\ []) do
-    request(client, "ListResourceServers", input, options)
+  def list_resource_servers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListResourceServers", input, options)
   end
 
   @doc """
@@ -721,36 +740,36 @@ defmodule AWS.CognitoIdentityProvider do
 
   You can use this action up to 10 times per second, per account.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
   Lists the user import jobs.
   """
-  def list_user_import_jobs(client, input, options \\ []) do
-    request(client, "ListUserImportJobs", input, options)
+  def list_user_import_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUserImportJobs", input, options)
   end
 
   @doc """
   Lists the clients that have been created for the specified user pool.
   """
-  def list_user_pool_clients(client, input, options \\ []) do
-    request(client, "ListUserPoolClients", input, options)
+  def list_user_pool_clients(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUserPoolClients", input, options)
   end
 
   @doc """
   Lists the user pools associated with an AWS account.
   """
-  def list_user_pools(client, input, options \\ []) do
-    request(client, "ListUserPools", input, options)
+  def list_user_pools(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUserPools", input, options)
   end
 
   @doc """
   Lists the users in the Amazon Cognito user pool.
   """
-  def list_users(client, input, options \\ []) do
-    request(client, "ListUsers", input, options)
+  def list_users(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUsers", input, options)
   end
 
   @doc """
@@ -758,23 +777,23 @@ defmodule AWS.CognitoIdentityProvider do
 
   Calling this action requires developer credentials.
   """
-  def list_users_in_group(client, input, options \\ []) do
-    request(client, "ListUsersInGroup", input, options)
+  def list_users_in_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUsersInGroup", input, options)
   end
 
   @doc """
   Resends the confirmation (for confirmation of registration) to a specific user
   in the user pool.
   """
-  def resend_confirmation_code(client, input, options \\ []) do
-    request(client, "ResendConfirmationCode", input, options)
+  def resend_confirmation_code(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResendConfirmationCode", input, options)
   end
 
   @doc """
   Responds to the authentication challenge.
   """
-  def respond_to_auth_challenge(client, input, options \\ []) do
-    request(client, "RespondToAuthChallenge", input, options)
+  def respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RespondToAuthChallenge", input, options)
   end
 
   @doc """
@@ -786,8 +805,8 @@ defmodule AWS.CognitoIdentityProvider do
   To enable Amazon Cognito advanced security features, update the user pool to
   include the `UserPoolAddOns` key`AdvancedSecurityMode`.
   """
-  def set_risk_configuration(client, input, options \\ []) do
-    request(client, "SetRiskConfiguration", input, options)
+  def set_risk_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetRiskConfiguration", input, options)
   end
 
   @doc """
@@ -803,8 +822,8 @@ defmodule AWS.CognitoIdentityProvider do
   Otherwise, there is no place to host the app's pages, and the service will throw
   an error.
   """
-  def set_u_i_customization(client, input, options \\ []) do
-    request(client, "SetUICustomization", input, options)
+  def set_u_i_customization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetUICustomization", input, options)
   end
 
   @doc """
@@ -814,17 +833,21 @@ defmodule AWS.CognitoIdentityProvider do
   Only one factor can be set as preferred. The preferred MFA factor will be used
   to authenticate a user if multiple factors are enabled. If multiple options are
   enabled and no preference is set, a challenge to choose an MFA option will be
-  returned during sign in.
+  returned during sign in. If an MFA type is enabled for a user, the user will be
+  prompted for MFA during all sign in attempts, unless device tracking is turned
+  on and the device has been trusted. If you would like MFA to be applied
+  selectively based on the assessed risk level of sign in attempts, disable MFA
+  for users and turn on Adaptive Authentication for the user pool.
   """
-  def set_user_m_f_a_preference(client, input, options \\ []) do
-    request(client, "SetUserMFAPreference", input, options)
+  def set_user_m_f_a_preference(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetUserMFAPreference", input, options)
   end
 
   @doc """
   Set the user pool multi-factor authentication (MFA) configuration.
   """
-  def set_user_pool_mfa_config(client, input, options \\ []) do
-    request(client, "SetUserPoolMfaConfig", input, options)
+  def set_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetUserPoolMfaConfig", input, options)
   end
 
   @doc """
@@ -835,30 +858,30 @@ defmodule AWS.CognitoIdentityProvider do
   [SetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html)
   instead.
   """
-  def set_user_settings(client, input, options \\ []) do
-    request(client, "SetUserSettings", input, options)
+  def set_user_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetUserSettings", input, options)
   end
 
   @doc """
   Registers the user in the specified user pool and creates a user name, password,
   and user attributes.
   """
-  def sign_up(client, input, options \\ []) do
-    request(client, "SignUp", input, options)
+  def sign_up(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SignUp", input, options)
   end
 
   @doc """
   Starts the user import.
   """
-  def start_user_import_job(client, input, options \\ []) do
-    request(client, "StartUserImportJob", input, options)
+  def start_user_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartUserImportJob", input, options)
   end
 
   @doc """
   Stops the user import job.
   """
-  def stop_user_import_job(client, input, options \\ []) do
-    request(client, "StopUserImportJob", input, options)
+  def stop_user_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopUserImportJob", input, options)
   end
 
   @doc """
@@ -881,8 +904,8 @@ defmodule AWS.CognitoIdentityProvider do
   You can use this action up to 5 times per second, per account. A user pool can
   have as many as 50 tags.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -890,8 +913,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   You can use this action up to 5 times per second, per account
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -901,15 +924,15 @@ defmodule AWS.CognitoIdentityProvider do
   This feedback is used for improving the risk evaluation decision for the user
   pool as part of Amazon Cognito advanced security.
   """
-  def update_auth_event_feedback(client, input, options \\ []) do
-    request(client, "UpdateAuthEventFeedback", input, options)
+  def update_auth_event_feedback(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAuthEventFeedback", input, options)
   end
 
   @doc """
   Updates the device status.
   """
-  def update_device_status(client, input, options \\ []) do
-    request(client, "UpdateDeviceStatus", input, options)
+  def update_device_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDeviceStatus", input, options)
   end
 
   @doc """
@@ -920,15 +943,15 @@ defmodule AWS.CognitoIdentityProvider do
   If you don't provide a value for an attribute, it will be set to the default
   value.
   """
-  def update_group(client, input, options \\ []) do
-    request(client, "UpdateGroup", input, options)
+  def update_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGroup", input, options)
   end
 
   @doc """
   Updates identity provider information for a user pool.
   """
-  def update_identity_provider(client, input, options \\ []) do
-    request(client, "UpdateIdentityProvider", input, options)
+  def update_identity_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateIdentityProvider", input, options)
   end
 
   @doc """
@@ -939,15 +962,15 @@ defmodule AWS.CognitoIdentityProvider do
   If you don't provide a value for an attribute, it will be set to the default
   value.
   """
-  def update_resource_server(client, input, options \\ []) do
-    request(client, "UpdateResourceServer", input, options)
+  def update_resource_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateResourceServer", input, options)
   end
 
   @doc """
   Allows a user to update a specific attribute (one at a time).
   """
-  def update_user_attributes(client, input, options \\ []) do
-    request(client, "UpdateUserAttributes", input, options)
+  def update_user_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateUserAttributes", input, options)
   end
 
   @doc """
@@ -959,8 +982,8 @@ defmodule AWS.CognitoIdentityProvider do
   If you don't provide a value for an attribute, it will be set to the default
   value.
   """
-  def update_user_pool(client, input, options \\ []) do
-    request(client, "UpdateUserPool", input, options)
+  def update_user_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateUserPool", input, options)
   end
 
   @doc """
@@ -972,8 +995,8 @@ defmodule AWS.CognitoIdentityProvider do
   If you don't provide a value for an attribute, it will be set to the default
   value.
   """
-  def update_user_pool_client(client, input, options \\ []) do
-    request(client, "UpdateUserPoolClient", input, options)
+  def update_user_pool_client(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateUserPoolClient", input, options)
   end
 
   @doc """
@@ -1007,8 +1030,8 @@ defmodule AWS.CognitoIdentityProvider do
   For more information about adding a custom domain to your user pool, see [Using Your Own Domain for the Hosted
   UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html).
   """
-  def update_user_pool_domain(client, input, options \\ []) do
-    request(client, "UpdateUserPoolDomain", input, options)
+  def update_user_pool_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateUserPoolDomain", input, options)
   end
 
   @doc """
@@ -1017,68 +1040,14 @@ defmodule AWS.CognitoIdentityProvider do
 
   The request takes an access token or a session string, but not both.
   """
-  def verify_software_token(client, input, options \\ []) do
-    request(client, "VerifySoftwareToken", input, options)
+  def verify_software_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "VerifySoftwareToken", input, options)
   end
 
   @doc """
   Verifies the specified user attributes in the user pool.
   """
-  def verify_user_attribute(client, input, options \\ []) do
-    request(client, "VerifyUserAttribute", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "cognito-idp"}
-    host = build_host("cognito-idp", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSCognitoIdentityProviderService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def verify_user_attribute(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "VerifyUserAttribute", input, options)
   end
 end

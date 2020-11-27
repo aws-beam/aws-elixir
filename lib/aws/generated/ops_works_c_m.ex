@@ -73,6 +73,25 @@ defmodule AWS.OpsWorksCM do
   requests per second.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "OpsWorksCM",
+      api_version: "2016-11-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "opsworks-cm",
+      global?: false,
+      protocol: "json",
+      service_id: "OpsWorksCM",
+      signature_version: "v4",
+      signing_name: "opsworks-cm",
+      target_prefix: "OpsWorksCM_V2016_11_01"
+    }
+  end
+
   @doc """
   Associates a new node with the server.
 
@@ -99,8 +118,8 @@ defmodule AWS.OpsWorksCM do
   integrated into Auto Scaling configurations, AWS Cloudformation templates, or
   the user data of a server's instance.
   """
-  def associate_node(client, input, options \\ []) do
-    request(client, "AssociateNode", input, options)
+  def associate_node(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateNode", input, options)
   end
 
   @doc """
@@ -120,8 +139,8 @@ defmodule AWS.OpsWorksCM do
   `ResourceNotFoundException` is thrown when the server is not found. A
   `ValidationException` is thrown when parameters of the request are not valid.
   """
-  def create_backup(client, input, options \\ []) do
-    request(client, "CreateBackup", input, options)
+  def create_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBackup", input, options)
   end
 
   @doc """
@@ -159,8 +178,8 @@ defmodule AWS.OpsWorksCM do
   CA-signed certificate and private key, specify values for `CustomDomain`,
   `CustomCertificate`, and `CustomPrivateKey`.
   """
-  def create_server(client, input, options \\ []) do
-    request(client, "CreateServer", input, options)
+  def create_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateServer", input, options)
   end
 
   @doc """
@@ -174,8 +193,8 @@ defmodule AWS.OpsWorksCM do
   exist. A `ValidationException` is thrown when parameters of the request are not
   valid.
   """
-  def delete_backup(client, input, options \\ []) do
-    request(client, "DeleteBackup", input, options)
+  def delete_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBackup", input, options)
   end
 
   @doc """
@@ -193,8 +212,8 @@ defmodule AWS.OpsWorksCM do
   exist. A `ValidationException` is raised when parameters of the request are not
   valid.
   """
-  def delete_server(client, input, options \\ []) do
-    request(client, "DeleteServer", input, options)
+  def delete_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteServer", input, options)
   end
 
   @doc """
@@ -202,8 +221,8 @@ defmodule AWS.OpsWorksCM do
 
   This operation is synchronous.
   """
-  def describe_account_attributes(client, input, options \\ []) do
-    request(client, "DescribeAccountAttributes", input, options)
+  def describe_account_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAccountAttributes", input, options)
   end
 
   @doc """
@@ -217,8 +236,8 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the backup does not exist. A
   `ValidationException` is raised when parameters of the request are not valid.
   """
-  def describe_backups(client, input, options \\ []) do
-    request(client, "DescribeBackups", input, options)
+  def describe_backups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeBackups", input, options)
   end
 
   @doc """
@@ -231,8 +250,8 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist. A
   `ValidationException` is raised when parameters of the request are not valid.
   """
-  def describe_events(client, input, options \\ []) do
-    request(client, "DescribeEvents", input, options)
+  def describe_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEvents", input, options)
   end
 
   @doc """
@@ -243,8 +262,8 @@ defmodule AWS.OpsWorksCM do
   does not exist. A `ValidationException` is raised when parameters of the request
   are not valid.
   """
-  def describe_node_association_status(client, input, options \\ []) do
-    request(client, "DescribeNodeAssociationStatus", input, options)
+  def describe_node_association_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeNodeAssociationStatus", input, options)
   end
 
   @doc """
@@ -259,8 +278,8 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist. A
   `ValidationException` is raised when parameters of the request are not valid.
   """
-  def describe_servers(client, input, options \\ []) do
-    request(client, "DescribeServers", input, options)
+  def describe_servers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeServers", input, options)
   end
 
   @doc """
@@ -276,8 +295,8 @@ defmodule AWS.OpsWorksCM do
   is thrown when the server does not exist. A `ValidationException` is raised when
   parameters of the request are not valid.
   """
-  def disassociate_node(client, input, options \\ []) do
-    request(client, "DisassociateNode", input, options)
+  def disassociate_node(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateNode", input, options)
   end
 
   @doc """
@@ -293,16 +312,16 @@ defmodule AWS.OpsWorksCM do
   `InvalidStateException` is thrown when the server is in any of the following
   states: CREATING, TERMINATED, FAILED or DELETING.
   """
-  def export_server_engine_attribute(client, input, options \\ []) do
-    request(client, "ExportServerEngineAttribute", input, options)
+  def export_server_engine_attribute(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExportServerEngineAttribute", input, options)
   end
 
   @doc """
   Returns a list of tags that are applied to the specified AWS OpsWorks for Chef
   Automate or AWS OpsWorks for Puppet Enterprise servers or backups.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -326,8 +345,8 @@ defmodule AWS.OpsWorksCM do
   `ResourceNotFoundException` is thrown when the server does not exist. A
   `ValidationException` is raised when parameters of the request are not valid.
   """
-  def restore_server(client, input, options \\ []) do
-    request(client, "RestoreServer", input, options)
+  def restore_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RestoreServer", input, options)
   end
 
   @doc """
@@ -342,23 +361,23 @@ defmodule AWS.OpsWorksCM do
   is thrown when the server does not exist. A `ValidationException` is raised when
   parameters of the request are not valid.
   """
-  def start_maintenance(client, input, options \\ []) do
-    request(client, "StartMaintenance", input, options)
+  def start_maintenance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartMaintenance", input, options)
   end
 
   @doc """
   Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet
   Enterprise server, or to server backups.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes specified tags from an AWS OpsWorks-CM server or backup.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -366,8 +385,8 @@ defmodule AWS.OpsWorksCM do
 
   This operation is synchronous.
   """
-  def update_server(client, input, options \\ []) do
-    request(client, "UpdateServer", input, options)
+  def update_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateServer", input, options)
   end
 
   @doc """
@@ -385,61 +404,7 @@ defmodule AWS.OpsWorksCM do
   `ResourceNotFoundException` is thrown when the server does not exist. A
   `ValidationException` is raised when parameters of the request are not valid.
   """
-  def update_server_engine_attributes(client, input, options \\ []) do
-    request(client, "UpdateServerEngineAttributes", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "opsworks-cm"}
-    host = build_host("opsworks-cm", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "OpsWorksCM_V2016_11_01.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_server_engine_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateServerEngineAttributes", input, options)
   end
 end

@@ -217,14 +217,33 @@ defmodule AWS.ResourceGroupsTaggingAPI do
     * [Amazon WorkLink](https://docs.aws.amazon.com/worklink)     * [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces)
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-01-26",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "tagging",
+      global?: false,
+      protocol: "json",
+      service_id: "Resource Groups Tagging API",
+      signature_version: "v4",
+      signing_name: "tagging",
+      target_prefix: "ResourceGroupsTaggingAPI_20170126"
+    }
+  end
+
   @doc """
   Describes the status of the `StartReportCreation` operation.
 
   You can call this operation only from the organization's master account and from
   the us-east-1 Region.
   """
-  def describe_report_creation(client, input, options \\ []) do
-    request(client, "DescribeReportCreation", input, options)
+  def describe_report_creation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeReportCreation", input, options)
   end
 
   @doc """
@@ -237,8 +256,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   You can call this operation only from the organization's master account and from
   the us-east-1 Region.
   """
-  def get_compliance_summary(client, input, options \\ []) do
-    request(client, "GetComplianceSummary", input, options)
+  def get_compliance_summary(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetComplianceSummary", input, options)
   end
 
   @doc """
@@ -261,23 +280,23 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   The `PaginationToken` response parameter value is `null` *only* when there are
   no more results to display.
   """
-  def get_resources(client, input, options \\ []) do
-    request(client, "GetResources", input, options)
+  def get_resources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResources", input, options)
   end
 
   @doc """
   Returns all tag keys in the specified Region for the AWS account.
   """
-  def get_tag_keys(client, input, options \\ []) do
-    request(client, "GetTagKeys", input, options)
+  def get_tag_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTagKeys", input, options)
   end
 
   @doc """
   Returns all tag values for the specified key in the specified Region for the AWS
   account.
   """
-  def get_tag_values(client, input, options \\ []) do
-    request(client, "GetTagValues", input, options)
+  def get_tag_values(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTagValues", input, options)
   end
 
   @doc """
@@ -294,8 +313,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   You can call this operation only from the organization's master account and from
   the us-east-1 Region.
   """
-  def start_report_creation(client, input, options \\ []) do
-    request(client, "StartReportCreation", input, options)
+  def start_report_creation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartReportCreation", input, options)
   end
 
   @doc """
@@ -322,8 +341,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   administration services. Tags are not intended to be used for private or
   sensitive data.
   """
-  def tag_resources(client, input, options \\ []) do
-    request(client, "TagResources", input, options)
+  def tag_resources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResources", input, options)
   end
 
   @doc """
@@ -340,61 +359,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
     * You can only tag resources that are located in the specified
   Region for the AWS account.
   """
-  def untag_resources(client, input, options \\ []) do
-    request(client, "UntagResources", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "tagging"}
-    host = build_host("tagging", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "ResourceGroupsTaggingAPI_20170126.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def untag_resources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResources", input, options)
   end
 end

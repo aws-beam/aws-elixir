@@ -17,6 +17,25 @@ defmodule AWS.KinesisAnalytics do
   Analytics Developer Guide provides additional information.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Kinesis Analytics",
+      api_version: "2015-08-14",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "kinesisanalytics",
+      global?: false,
+      protocol: "json",
+      service_id: "Kinesis Analytics",
+      signature_version: "v4",
+      signing_name: "kinesisanalytics",
+      target_prefix: "KinesisAnalytics_20150814"
+    }
+  end
+
   @doc """
   This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
   which only supports SQL applications.
@@ -28,8 +47,14 @@ defmodule AWS.KinesisAnalytics do
   more information about using CloudWatch log streams with Amazon Kinesis
   Analytics applications, see [Working with Amazon CloudWatch Logs](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html).
   """
-  def add_application_cloud_watch_logging_option(client, input, options \\ []) do
-    request(client, "AddApplicationCloudWatchLoggingOption", input, options)
+  def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AddApplicationCloudWatchLoggingOption",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -53,8 +78,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:AddApplicationInput` action.
   """
-  def add_application_input(client, input, options \\ []) do
-    request(client, "AddApplicationInput", input, options)
+  def add_application_input(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddApplicationInput", input, options)
   end
 
   @doc """
@@ -69,8 +94,14 @@ defmodule AWS.KinesisAnalytics do
   before the application's SQL code executes. Currently, the only input processor
   available is [AWS Lambda](https://docs.aws.amazon.com/lambda/).
   """
-  def add_application_input_processing_configuration(client, input, options \\ []) do
-    request(client, "AddApplicationInputProcessingConfiguration", input, options)
+  def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AddApplicationInputProcessingConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -104,8 +135,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:AddApplicationOutput` action.
   """
-  def add_application_output(client, input, options \\ []) do
-    request(client, "AddApplicationOutput", input, options)
+  def add_application_output(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddApplicationOutput", input, options)
   end
 
   @doc """
@@ -131,8 +162,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:AddApplicationOutput` action.
   """
-  def add_application_reference_data_source(client, input, options \\ []) do
-    request(client, "AddApplicationReferenceDataSource", input, options)
+  def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddApplicationReferenceDataSource", input, options)
   end
 
   @doc """
@@ -168,8 +199,8 @@ defmodule AWS.KinesisAnalytics do
   For introductory exercises to create an Amazon Kinesis Analytics application,
   see [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html).
   """
-  def create_application(client, input, options \\ []) do
-    request(client, "CreateApplication", input, options)
+  def create_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateApplication", input, options)
   end
 
   @doc """
@@ -186,8 +217,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:DeleteApplication` action.
   """
-  def delete_application(client, input, options \\ []) do
-    request(client, "DeleteApplication", input, options)
+  def delete_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplication", input, options)
   end
 
   @doc """
@@ -201,8 +232,14 @@ defmodule AWS.KinesisAnalytics do
   using CloudWatch log streams with Amazon Kinesis Analytics applications, see
   [Working with Amazon CloudWatch Logs](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html).
   """
-  def delete_application_cloud_watch_logging_option(client, input, options \\ []) do
-    request(client, "DeleteApplicationCloudWatchLoggingOption", input, options)
+  def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteApplicationCloudWatchLoggingOption",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -216,8 +253,14 @@ defmodule AWS.KinesisAnalytics do
   [InputProcessingConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html)
   from an input.
   """
-  def delete_application_input_processing_configuration(client, input, options \\ []) do
-    request(client, "DeleteApplicationInputProcessingConfiguration", input, options)
+  def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteApplicationInputProcessingConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -234,8 +277,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:DeleteApplicationOutput` action.
   """
-  def delete_application_output(client, input, options \\ []) do
-    request(client, "DeleteApplicationOutput", input, options)
+  def delete_application_output(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplicationOutput", input, options)
   end
 
   @doc """
@@ -256,8 +299,14 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics.DeleteApplicationReferenceDataSource` action.
   """
-  def delete_application_reference_data_source(client, input, options \\ []) do
-    request(client, "DeleteApplicationReferenceDataSource", input, options)
+  def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteApplicationReferenceDataSource",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -278,8 +327,8 @@ defmodule AWS.KinesisAnalytics do
   to get the current application versionId, which you need to call other
   operations such as `Update`.
   """
-  def describe_application(client, input, options \\ []) do
-    request(client, "DescribeApplication", input, options)
+  def describe_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeApplication", input, options)
   end
 
   @doc """
@@ -303,8 +352,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:DiscoverInputSchema` action.
   """
-  def discover_input_schema(client, input, options \\ []) do
-    request(client, "DiscoverInputSchema", input, options)
+  def discover_input_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DiscoverInputSchema", input, options)
   end
 
   @doc """
@@ -327,8 +376,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:ListApplications` action.
   """
-  def list_applications(client, input, options \\ []) do
-    request(client, "ListApplications", input, options)
+  def list_applications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListApplications", input, options)
   end
 
   @doc """
@@ -336,8 +385,8 @@ defmodule AWS.KinesisAnalytics do
 
   For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -365,8 +414,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:StartApplication` action.
   """
-  def start_application(client, input, options \\ []) do
-    request(client, "StartApplication", input, options)
+  def start_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartApplication", input, options)
   end
 
   @doc """
@@ -386,8 +435,8 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permissions to perform the
   `kinesisanalytics:StopApplication` action.
   """
-  def stop_application(client, input, options \\ []) do
-    request(client, "StopApplication", input, options)
+  def stop_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopApplication", input, options)
   end
 
   @doc """
@@ -397,8 +446,8 @@ defmodule AWS.KinesisAnalytics do
   maximum number of user-defined application tags is 50. For more information, see
   [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -406,8 +455,8 @@ defmodule AWS.KinesisAnalytics do
 
   For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -426,61 +475,7 @@ defmodule AWS.KinesisAnalytics do
   This operation requires permission for the `kinesisanalytics:UpdateApplication`
   action.
   """
-  def update_application(client, input, options \\ []) do
-    request(client, "UpdateApplication", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "kinesisanalytics"}
-    host = build_host("kinesisanalytics", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "KinesisAnalytics_20150814.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateApplication", input, options)
   end
 end

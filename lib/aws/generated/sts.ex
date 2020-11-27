@@ -13,6 +13,25 @@ defmodule AWS.STS do
   using this service, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "AWS STS",
+      api_version: "2011-06-15",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: nil,
+      endpoint_prefix: "sts",
+      global?: false,
+      protocol: "query",
+      service_id: "STS",
+      signature_version: "v4",
+      signing_name: "sts",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Returns a set of temporary security credentials that you can use to access AWS
   resources that you might not normally have access to.
@@ -129,8 +148,8 @@ defmodule AWS.STS do
   or virtual MFA device. The `TokenCode` is the time-based one-time password
   (TOTP) that the MFA device produces.
   """
-  def assume_role(client, input, options \\ []) do
-    request(client, "AssumeRole", input, options)
+  def assume_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssumeRole", input, options)
   end
 
   @doc """
@@ -251,8 +270,8 @@ defmodule AWS.STS do
     * [Creating a Role for SAML 2.0 Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html)
   in the *IAM User Guide*.
   """
-  def assume_role_with_s_a_m_l(client, input, options \\ []) do
-    request(client, "AssumeRoleWithSAML", input, options)
+  def assume_role_with_s_a_m_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssumeRoleWithSAML", input, options)
   end
 
   @doc """
@@ -388,8 +407,8 @@ defmodule AWS.STS do
   This article discusses web identity federation and shows an example of how to
   use web identity federation to get access to content in Amazon S3.
   """
-  def assume_role_with_web_identity(client, input, options \\ []) do
-    request(client, "AssumeRoleWithWebIdentity", input, options)
+  def assume_role_with_web_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssumeRoleWithWebIdentity", input, options)
   end
 
   @doc """
@@ -426,8 +445,8 @@ defmodule AWS.STS do
 
     * The values of condition keys in the context of the user's request.
   """
-  def decode_authorization_message(client, input, options \\ []) do
-    request(client, "DecodeAuthorizationMessage", input, options)
+  def decode_authorization_message(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DecodeAuthorizationMessage", input, options)
   end
 
   @doc """
@@ -455,8 +474,8 @@ defmodule AWS.STS do
   an operation. Providing a deleted access key might return an error that the key
   doesn't exist.
   """
-  def get_access_key_info(client, input, options \\ []) do
-    request(client, "GetAccessKeyInfo", input, options)
+  def get_access_key_info(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccessKeyInfo", input, options)
   end
 
   @doc """
@@ -471,8 +490,8 @@ defmodule AWS.STS do
   iam:DeleteVirtualMFADevice](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa)
   in the *IAM User Guide*.
   """
-  def get_caller_identity(client, input, options \\ []) do
-    request(client, "GetCallerIdentity", input, options)
+  def get_caller_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCallerIdentity", input, options)
   end
 
   @doc """
@@ -564,8 +583,8 @@ defmodule AWS.STS do
   `department` are not saved as separate tags, and the session tag passed in the
   request takes precedence over the user tag.
   """
-  def get_federation_token(client, input, options \\ []) do
-    request(client, "GetFederationToken", input, options)
+  def get_federation_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFederationToken", input, options)
   end
 
   @doc """
@@ -621,61 +640,7 @@ defmodule AWS.STS do
   credentials, go to [Temporary Credentials for Users in Untrusted Environments](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken)
   in the *IAM User Guide*.
   """
-  def get_session_token(client, input, options \\ []) do
-    request(client, "GetSessionToken", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "sts"}
-    host = build_host("sts", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2011-06-15"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def get_session_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSessionToken", input, options)
   end
 end

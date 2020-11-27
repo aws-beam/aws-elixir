@@ -34,10 +34,10 @@ defmodule AWS.Chime do
   Chime commands, see the [Amazon Chime commands](https://docs.aws.amazon.com/cli/latest/reference/chime/index.html) in
   the *AWS CLI Command Reference*.
 
-  ### Using REST API
+  ### Using REST
 
   If you use REST to make API calls, you must authenticate your request by
-  providing a signature. Amazon Chime supports signature version 4. For more
+  providing a signature. Amazon Chime supports Signature Version 4. For more
   information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
   in the *Amazon Web Services General Reference*.
 
@@ -49,45 +49,135 @@ defmodule AWS.Chime do
   the *Amazon Chime Administration Guide*.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-05-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: "us-east-1",
+      endpoint_prefix: "chime",
+      global?: true,
+      protocol: "rest-json",
+      service_id: "Chime",
+      signature_version: "v4",
+      signing_name: "chime",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Associates a phone number with the specified Amazon Chime user.
   """
-  def associate_phone_number_with_user(client, account_id, user_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=associate-phone-number"
+  def associate_phone_number_with_user(
+        %Client{} = client,
+        account_id,
+        user_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=associate-phone-number"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Associates phone numbers with the specified Amazon Chime Voice Connector.
   """
-  def associate_phone_numbers_with_voice_connector(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}?operation=associate-phone-numbers"
+  def associate_phone_numbers_with_voice_connector(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}?operation=associate-phone-numbers"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Associates phone numbers with the specified Amazon Chime Voice Connector group.
   """
-  def associate_phone_numbers_with_voice_connector_group(client, voice_connector_group_id, input, options \\ []) do
-    path_ = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}?operation=associate-phone-numbers"
+  def associate_phone_numbers_with_voice_connector_group(
+        %Client{} = client,
+        voice_connector_group_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}?operation=associate-phone-numbers"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Associates the specified sign-in delegate groups with the specified Amazon Chime
   account.
   """
-  def associate_signin_delegate_groups_with_account(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}?operation=associate-signin-delegate-groups"
+  def associate_signin_delegate_groups_with_account(
+        %Client{} = client,
+        account_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{URI.encode(account_id)}?operation=associate-signin-delegate-groups"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -96,11 +186,22 @@ defmodule AWS.Chime do
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def batch_create_attendee(client, meeting_id, input, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/attendees?operation=batch-create"
+  def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees?operation=batch-create"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -109,11 +210,24 @@ defmodule AWS.Chime do
   Members can be either users or bots. The member role designates whether the
   member is a chat room administrator or a general chat room member.
   """
-  def batch_create_room_membership(client, account_id, room_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships?operation=batch-create"
+  def batch_create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships?operation=batch-create"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -125,11 +239,22 @@ defmodule AWS.Chime do
   Phone numbers remain in the **Deletion queue** for 7 days before they are
   deleted permanently.
   """
-  def batch_delete_phone_number(client, input, options \\ []) do
-    path_ = "/phone-numbers?operation=batch-delete"
+  def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
+    url_path = "/phone-numbers?operation=batch-delete"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -150,11 +275,22 @@ defmodule AWS.Chime do
 
   To sign out users without suspending them, use the `LogoutUser` action.
   """
-  def batch_suspend_user(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users?operation=suspend"
+  def batch_suspend_user(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users?operation=suspend"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -168,11 +304,22 @@ defmodule AWS.Chime do
   Previously suspended users who are unsuspended using this action are returned to
   `Registered` status. Users who are not previously suspended are ignored.
   """
-  def batch_unsuspend_user(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users?operation=unsuspend"
+  def batch_unsuspend_user(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users?operation=unsuspend"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -189,11 +336,22 @@ defmodule AWS.Chime do
   updates to outbound calling names must be complete before you can request
   another update.
   """
-  def batch_update_phone_number(client, input, options \\ []) do
-    path_ = "/phone-numbers?operation=batch-update"
+  def batch_update_phone_number(%Client{} = client, input, options \\ []) do
+    url_path = "/phone-numbers?operation=batch-update"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -202,11 +360,22 @@ defmodule AWS.Chime do
 
   Currently, only `LicenseType` updates are supported for this action.
   """
-  def batch_update_user(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users"
+  def batch_update_user(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -216,11 +385,99 @@ defmodule AWS.Chime do
   information about different account types, see [Managing Your Amazon Chime Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html)
   in the *Amazon Chime Administration Guide*.
   """
-  def create_account(client, input, options \\ []) do
-    path_ = "/accounts"
+  def create_account(%Client{} = client, input, options \\ []) do
+    url_path = "/accounts"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an Amazon Chime Messaging SDK `AppInstance` under an AWS Account.
+
+  Only Messaging SDK customers use this API. `CreateAppInstance` supports
+  `idempotency` behavior as described in the AWS API Standard.
+  """
+  def create_app_instance(%Client{} = client, input, options \\ []) do
+    url_path = "/app-instances"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Promotes an `AppInstanceUser` to an `AppInstanceAdmin`.
+
+  The promoted user can perform the following actions.
+
+    * `ChannelModerator` actions across all channels in the app
+  instance.
+
+    * `DeleteChannelMessage` actions.
+
+  Only an `AppInstanceUser` can be promoted to an `AppInstanceAdmin` role.
+  """
+  def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/admins"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a user under an Amazon Chime `AppInstance`.
+
+  The request consists of a unique `appInstanceUserId` and `Name` for that user.
+  """
+  def create_app_instance_user(%Client{} = client, input, options \\ []) do
+    url_path = "/app-instance-users"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -229,21 +486,168 @@ defmodule AWS.Chime do
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def create_attendee(client, meeting_id, input, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/attendees"
+  def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a bot for an Amazon Chime Enterprise account.
   """
-  def create_bot(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/bots"
+  def create_bot(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/bots"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a channel to which you can add users and send messages.
+
+  **Restriction**: You can't change a channel's privacy.
+  """
+  def create_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/channels"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Permanently bans a member from a channel.
+
+  Moderators can't add banned members to a channel. To undo a ban, you first have
+  to `DeleteChannelBan`, and then `CreateChannelMembership`. Bans are cleaned up
+  when you delete users or channels.
+
+  If you ban a user who is already part of a channel, that user is automatically
+  kicked from the channel.
+  """
+  def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/bans"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Adds a user to a channel.
+
+  The `InvitedBy` response field is derived from the request header. A channel
+  member can:
+
+    * List messages
+
+    * Send messages
+
+    * Receive messages
+
+    * Edit their own messages
+
+    * Leave the channel
+
+  Privacy settings impact this action as follows:
+
+    * Public Channels: You do not need to be a member to list messages,
+  but you must be a member to send messages.
+
+    * Private Channels: You must be a member to list or send messages.
+  """
+  def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/memberships"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new `ChannelModerator`.
+
+  A channel moderator can:
+
+    * Add and remove other members of the channel.
+
+    * Add and remove other moderators of the channel.
+
+    * Add and remove user bans for the channel.
+
+    * Redact messages in the channel.
+
+    * List messages in the channel.
+  """
+  def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/moderators"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -255,11 +659,51 @@ defmodule AWS.Chime do
   Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def create_meeting(client, input, options \\ []) do
-    path_ = "/meetings"
+  def create_meeting(%Client{} = client, input, options \\ []) do
+    url_path = "/meetings"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Uses the join token and call metadata in a meeting request (From number, To
+  number, and so forth) to initiate an outbound call to a public switched
+  telephone network (PSTN) and joins them into Chime meeting.
+
+  Also ensures that the From number belongs to the customer.
+
+  To play welcome audio or implement an interactive voice response (IVR), use the
+  `CreateSipMediaApplicationCall` API with the corresponding SIP media application
+  ID.
+  """
+  def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/dial-outs"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -271,11 +715,22 @@ defmodule AWS.Chime do
   Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def create_meeting_with_attendees(client, input, options \\ []) do
-    path_ = "/meetings?operation=create-attendees"
+  def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
+    url_path = "/meetings?operation=create-attendees"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -285,32 +740,65 @@ defmodule AWS.Chime do
   product types. For toll-free numbers, you must use the Amazon Chime Voice
   Connector product type.
   """
-  def create_phone_number_order(client, input, options \\ []) do
-    path_ = "/phone-number-orders"
+  def create_phone_number_order(%Client{} = client, input, options \\ []) do
+    url_path = "/phone-number-orders"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a proxy session on the specified Amazon Chime Voice Connector for the
   specified participant phone numbers.
   """
-  def create_proxy_session(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions"
+  def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a chat room for the specified Amazon Chime Enterprise account.
   """
-  def create_room(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms"
+  def create_room(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/rooms"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -319,21 +807,114 @@ defmodule AWS.Chime do
   A member can be either a user or a bot. The member role designates whether the
   member is a chat room administrator or a general chat room member.
   """
-  def create_room_membership(client, account_id, room_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships"
+  def create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a SIP media application.
+  """
+  def create_sip_media_application(%Client{} = client, input, options \\ []) do
+    url_path = "/sip-media-applications"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an outbound call to a phone number from the phone number specified in
+  the request, and it invokes the endpoint of the specified
+  `sipMediaApplicationId`.
+  """
+  def create_sip_media_application_call(
+        %Client{} = client,
+        sip_media_application_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/sip-media-applications/#{URI.encode(sip_media_application_id)}/calls"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a SIP rule which can be used to run a SIP media application as a target
+  for a specific trigger type.
+  """
+  def create_sip_rule(%Client{} = client, input, options \\ []) do
+    url_path = "/sip-rules"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a user under the specified Amazon Chime account.
   """
-  def create_user(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users?operation=create"
+  def create_user(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users?operation=create"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -347,11 +928,22 @@ defmodule AWS.Chime do
   (SRTP) for media. Inbound calls use TLS transport, and unencrypted outbound
   calls are blocked.
   """
-  def create_voice_connector(client, input, options \\ []) do
-    path_ = "/voice-connectors"
+  def create_voice_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/voice-connectors"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -365,11 +957,22 @@ defmodule AWS.Chime do
   group. This creates a fault tolerant mechanism for fallback in case of
   availability events.
   """
-  def create_voice_connector_group(client, input, options \\ []) do
-    path_ = "/voice-connector-groups"
+  def create_voice_connector_group(%Client{} = client, input, options \\ []) do
+    url_path = "/voice-connector-groups"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -389,11 +992,121 @@ defmodule AWS.Chime do
   After 90 days, deleted accounts are permanently removed from your `Disabled`
   accounts list.
   """
-  def delete_account(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}"
+  def delete_account(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an `AppInstance` and all associated data asynchronously.
+  """
+  def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Demotes an `AppInstanceAdmin` to an `AppInstanceUser`.
+
+  This action does not delete the user.
+  """
+  def delete_app_instance_admin(
+        %Client{} = client,
+        app_instance_admin_arn,
+        app_instance_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/app-instances/#{URI.encode(app_instance_arn)}/admins/#{URI.encode(app_instance_admin_arn)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes the streaming configurations of an app instance.
+  """
+  def delete_app_instance_streaming_configurations(
+        %Client{} = client,
+        app_instance_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/streaming-configurations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an `AppInstanceUser`.
+  """
+  def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
+    url_path = "/app-instance-users/#{URI.encode(app_instance_user_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -404,21 +1117,165 @@ defmodule AWS.Chime do
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def delete_attendee(client, attendee_id, meeting_id, input, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
+  def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Immediately makes a channel and its memberships inaccessible and marks them for
+  deletion.
+
+  This is an irreversible process.
+  """
+  def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Removes a user from a channel's ban list.
+  """
+  def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/bans/#{URI.encode(member_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Removes a member from a channel.
+  """
+  def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/memberships/#{URI.encode(member_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a channel message.
+
+  Only admins can perform this action. Deletion makes messages inaccessible
+  immediately. A background process deletes any revisions created by
+  `UpdateChannelMessage`.
+  """
+  def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a channel moderator.
+  """
+  def delete_channel_moderator(
+        %Client{} = client,
+        channel_arn,
+        channel_moderator_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/channels/#{URI.encode(channel_arn)}/moderators/#{URI.encode(channel_moderator_arn)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the events configuration that allows a bot to receive outgoing events.
   """
-  def delete_events_configuration(client, account_id, bot_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+  def delete_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -428,11 +1285,22 @@ defmodule AWS.Chime do
   longer join it. For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
   """
-  def delete_meeting(client, meeting_id, input, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}"
+  def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -444,42 +1312,156 @@ defmodule AWS.Chime do
   Deleted phone numbers remain in the **Deletion queue** for 7 days before they
   are deleted permanently.
   """
-  def delete_phone_number(client, phone_number_id, input, options \\ []) do
-    path_ = "/phone-numbers/#{URI.encode(phone_number_id)}"
+  def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+    url_path = "/phone-numbers/#{URI.encode(phone_number_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the specified proxy session from the specified Amazon Chime Voice
   Connector.
   """
-  def delete_proxy_session(client, proxy_session_id, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
+  def delete_proxy_session(
+        %Client{} = client,
+        proxy_session_id,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{
+        URI.encode(proxy_session_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a chat room in an Amazon Chime Enterprise account.
   """
-  def delete_room(client, account_id, room_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
+  def delete_room(%Client{} = client, account_id, room_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Removes a member from a chat room in an Amazon Chime Enterprise account.
   """
-  def delete_room_membership(client, account_id, member_id, room_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{URI.encode(member_id)}"
+  def delete_room_membership(
+        %Client{} = client,
+        account_id,
+        member_id,
+        room_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{
+        URI.encode(member_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a SIP media application.
+  """
+  def delete_sip_media_application(
+        %Client{} = client,
+        sip_media_application_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/sip-media-applications/#{URI.encode(sip_media_application_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a SIP rule.
+
+  You must disable a SIP rule before you can delete it.
+  """
+  def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
+    url_path = "/sip-rules/#{URI.encode(sip_rule_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -488,22 +1470,51 @@ defmodule AWS.Chime do
   Any phone numbers associated with the Amazon Chime Voice Connector must be
   disassociated from it before it can be deleted.
   """
-  def delete_voice_connector(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}"
+  def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the emergency calling configuration details from the specified Amazon
   Chime Voice Connector.
   """
-  def delete_voice_connector_emergency_calling_configuration(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+  def delete_voice_connector_emergency_calling_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -512,11 +1523,27 @@ defmodule AWS.Chime do
   Any `VoiceConnectorItems` and phone numbers associated with the group must be
   removed before it can be deleted.
   """
-  def delete_voice_connector_group(client, voice_connector_group_id, input, options \\ []) do
-    path_ = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
+  def delete_voice_connector_group(
+        %Client{} = client,
+        voice_connector_group_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -525,32 +1552,75 @@ defmodule AWS.Chime do
   If emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to deleting the origination settings.
   """
-  def delete_voice_connector_origination(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
+  def delete_voice_connector_origination(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the proxy configuration from the specified Amazon Chime Voice Connector.
   """
-  def delete_voice_connector_proxy(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
+  def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the streaming configuration for the specified Amazon Chime Voice
   Connector.
   """
-  def delete_voice_connector_streaming_configuration(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
+  def delete_voice_connector_streaming_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -559,77 +1629,422 @@ defmodule AWS.Chime do
   If emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to deleting the termination settings.
   """
-  def delete_voice_connector_termination(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
+  def delete_voice_connector_termination(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the specified SIP credentials used by your equipment to authenticate
   during call termination.
   """
-  def delete_voice_connector_termination_credentials(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials?operation=delete"
+  def delete_voice_connector_termination_credentials(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials?operation=delete"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Returns the full details of an `AppInstance`.
+  """
+  def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the full details of an `AppInstanceAdmin`.
+  """
+  def describe_app_instance_admin(
+        %Client{} = client,
+        app_instance_admin_arn,
+        app_instance_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/app-instances/#{URI.encode(app_instance_arn)}/admins/#{URI.encode(app_instance_admin_arn)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the full details of an `AppInstanceUser`.
+  """
+  def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
+    url_path = "/app-instance-users/#{URI.encode(app_instance_user_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the full details of a channel in an Amazon Chime app instance.
+  """
+  def describe_channel(%Client{} = client, channel_arn, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the full details of a channel ban.
+  """
+  def describe_channel_ban(%Client{} = client, channel_arn, member_arn, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/bans/#{URI.encode(member_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the full details of a user's channel membership.
+  """
+  def describe_channel_membership(%Client{} = client, channel_arn, member_arn, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/memberships/#{URI.encode(member_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the details of a channel based on the membership of the
+  `AppInstanceUser` specified.
+  """
+  def describe_channel_membership_for_app_instance_user(
+        %Client{} = client,
+        channel_arn,
+        app_instance_user_arn,
+        options \\ []
+      ) do
+    url_path = "/channels/#{URI.encode(channel_arn)}?scope=app-instance-user-membership"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(app_instance_user_arn) do
+        [{"app-instance-user-arn", app_instance_user_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the full details of a channel moderated by the specified
+  `AppInstanceUser`.
+  """
+  def describe_channel_moderated_by_app_instance_user(
+        %Client{} = client,
+        channel_arn,
+        app_instance_user_arn,
+        options \\ []
+      ) do
+    url_path = "/channels/#{URI.encode(channel_arn)}?scope=app-instance-user-moderated-channel"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(app_instance_user_arn) do
+        [{"app-instance-user-arn", app_instance_user_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the full details of a single ChannelModerator.
+  """
+  def describe_channel_moderator(
+        %Client{} = client,
+        channel_arn,
+        channel_moderator_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/channels/#{URI.encode(channel_arn)}/moderators/#{URI.encode(channel_moderator_arn)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Disassociates the primary provisioned phone number from the specified Amazon
   Chime user.
   """
-  def disassociate_phone_number_from_user(client, account_id, user_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=disassociate-phone-number"
+  def disassociate_phone_number_from_user(
+        %Client{} = client,
+        account_id,
+        user_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=disassociate-phone-number"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Disassociates the specified phone numbers from the specified Amazon Chime Voice
   Connector.
   """
-  def disassociate_phone_numbers_from_voice_connector(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}?operation=disassociate-phone-numbers"
+  def disassociate_phone_numbers_from_voice_connector(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}?operation=disassociate-phone-numbers"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Disassociates the specified phone numbers from the specified Amazon Chime Voice
   Connector group.
   """
-  def disassociate_phone_numbers_from_voice_connector_group(client, voice_connector_group_id, input, options \\ []) do
-    path_ = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}?operation=disassociate-phone-numbers"
+  def disassociate_phone_numbers_from_voice_connector_group(
+        %Client{} = client,
+        voice_connector_group_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}?operation=disassociate-phone-numbers"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Disassociates the specified sign-in delegate groups from the specified Amazon
   Chime account.
   """
-  def disassociate_signin_delegate_groups_from_account(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}?operation=disassociate-signin-delegate-groups"
+  def disassociate_signin_delegate_groups_from_account(
+        %Client{} = client,
+        account_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{URI.encode(account_id)}?operation=disassociate-signin-delegate-groups"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves details for the specified Amazon Chime account, such as account type
   and supported licenses.
   """
-  def get_account(client, account_id, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}"
+  def get_account(%Client{} = client, account_id, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -639,11 +2054,68 @@ defmodule AWS.Chime do
   For more information about these settings, see [Use the Policies Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the *Amazon
   Chime Administration Guide*.
   """
-  def get_account_settings(client, account_id, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/settings"
+  def get_account_settings(%Client{} = client, account_id, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/settings"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the retention settings for an app instance.
+  """
+  def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/retention-settings"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the streaming settings for an app instance.
+  """
+  def get_app_instance_streaming_configurations(
+        %Client{} = client,
+        app_instance_arn,
+        options \\ []
+      ) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/streaming-configurations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -653,44 +2125,111 @@ defmodule AWS.Chime do
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def get_attendee(client, attendee_id, meeting_id, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
+  def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves details for the specified bot, such as bot email address, bot type,
   status, and display name.
   """
-  def get_bot(client, account_id, bot_id, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}"
+  def get_bot(%Client{} = client, account_id, bot_id, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the full details of a channel message.
+  """
+  def get_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets details for an events configuration that allows a bot to receive outgoing
   events, such as an HTTPS endpoint or Lambda function ARN.
   """
-  def get_events_configuration(client, account_id, bot_id, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+  def get_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves global settings for the administrator's AWS account, such as Amazon
   Chime Business Calling and Amazon Chime Voice Connector settings.
   """
-  def get_global_settings(client, options \\ []) do
-    path_ = "/settings"
+  def get_global_settings(%Client{} = client, options \\ []) do
+    url_path = "/settings"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -699,55 +2238,135 @@ defmodule AWS.Chime do
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def get_meeting(client, meeting_id, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}"
+  def get_meeting(%Client{} = client, meeting_id, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The endpoint for the messaging session.
+  """
+  def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
+    url_path = "/endpoints/messaging-session"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves details for the specified phone number ID, such as associations,
   capabilities, and product type.
   """
-  def get_phone_number(client, phone_number_id, options \\ []) do
-    path_ = "/phone-numbers/#{URI.encode(phone_number_id)}"
+  def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
+    url_path = "/phone-numbers/#{URI.encode(phone_number_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves details for the specified phone number order, such as order creation
   timestamp, phone numbers in E.164 format, product type, and order status.
   """
-  def get_phone_number_order(client, phone_number_order_id, options \\ []) do
-    path_ = "/phone-number-orders/#{URI.encode(phone_number_order_id)}"
+  def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
+    url_path = "/phone-number-orders/#{URI.encode(phone_number_order_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves the phone number settings for the administrator's AWS account, such as
   the default outbound calling name.
   """
-  def get_phone_number_settings(client, options \\ []) do
-    path_ = "/settings/phone-number"
+  def get_phone_number_settings(%Client{} = client, options \\ []) do
+    url_path = "/settings/phone-number"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the specified proxy session details for the specified Amazon Chime Voice
   Connector.
   """
-  def get_proxy_session(client, proxy_session_id, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
+  def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{
+        URI.encode(proxy_session_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -756,22 +2375,115 @@ defmodule AWS.Chime do
   For more information about retention settings, see [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
   the *Amazon Chime Administration Guide*.
   """
-  def get_retention_settings(client, account_id, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/retention-settings"
+  def get_retention_settings(%Client{} = client, account_id, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/retention-settings"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves room details, such as the room name, for a room in an Amazon Chime
   Enterprise account.
   """
-  def get_room(client, account_id, room_id, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
+  def get_room(%Client{} = client, account_id, room_id, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the information for a SIP media application, including name, AWS
+  Region, and endpoints.
+  """
+  def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
+    url_path = "/sip-media-applications/#{URI.encode(sip_media_application_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the logging configuration for the specified SIP media application.
+  """
+  def get_sip_media_application_logging_configuration(
+        %Client{} = client,
+        sip_media_application_id,
+        options \\ []
+      ) do
+    url_path =
+      "/sip-media-applications/#{URI.encode(sip_media_application_id)}/logging-configuration"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
+  target endpoints.
+  """
+  def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
+    url_path = "/sip-rules/#{URI.encode(sip_rule_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -781,91 +2493,188 @@ defmodule AWS.Chime do
   To retrieve user details with an email address instead of a user ID, use the
   `ListUsers` action, and then filter by email address.
   """
-  def get_user(client, account_id, user_id, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}"
+  def get_user(%Client{} = client, account_id, user_id, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves settings for the specified user ID, such as any associated phone
   number settings.
   """
-  def get_user_settings(client, account_id, user_id, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}/settings"
+  def get_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}/settings"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves details for the specified Amazon Chime Voice Connector, such as
   timestamps, name, outbound host, and encryption requirements.
   """
-  def get_voice_connector(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}"
+  def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the emergency calling configuration details for the specified Amazon Chime
   Voice Connector.
   """
-  def get_voice_connector_emergency_calling_configuration(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+  def get_voice_connector_emergency_calling_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves details for the specified Amazon Chime Voice Connector group, such as
   timestamps, name, and associated `VoiceConnectorItems`.
   """
-  def get_voice_connector_group(client, voice_connector_group_id, options \\ []) do
-    path_ = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
+  def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
+    url_path = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves the logging configuration details for the specified Amazon Chime Voice
   Connector.
 
-  Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
-  Logs.
+  Shows whether SIP message logs are enabled for sending to Amazon CloudWatch.
   """
-  def get_voice_connector_logging_configuration(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/logging-configuration"
+  def get_voice_connector_logging_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/logging-configuration"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves origination setting details for the specified Amazon Chime Voice
   Connector.
   """
-  def get_voice_connector_origination(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
+  def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the proxy configuration details for the specified Amazon Chime Voice
   Connector.
   """
-  def get_voice_connector_proxy(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
+  def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -875,33 +2684,74 @@ defmodule AWS.Chime do
   Shows whether media streaming is enabled for sending to Amazon Kinesis. It also
   shows the retention period, in hours, for the Amazon Kinesis data.
   """
-  def get_voice_connector_streaming_configuration(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
+  def get_voice_connector_streaming_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves termination setting details for the specified Amazon Chime Voice
   Connector.
   """
-  def get_voice_connector_termination(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
+  def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves information about the last time a SIP `OPTIONS` ping was received from
   your SIP infrastructure for the specified Amazon Chime Voice Connector.
   """
-  def get_voice_connector_termination_health(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/health"
+  def get_voice_connector_termination_health(
+        %Client{} = client,
+        voice_connector_id,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/health"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -910,11 +2760,22 @@ defmodule AWS.Chime do
 
   Only `Team` account types are currently supported for this action.
   """
-  def invite_users(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users?operation=add"
+  def invite_users(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users?operation=add"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -924,41 +2785,202 @@ defmodule AWS.Chime do
   account a user belongs to, you can filter by the user's email address, which
   returns one account result.
   """
-  def list_accounts(client, max_results \\ nil, name \\ nil, next_token \\ nil, user_email \\ nil, options \\ []) do
-    path_ = "/accounts"
+  def list_accounts(
+        %Client{} = client,
+        max_results \\ nil,
+        name \\ nil,
+        next_token \\ nil,
+        user_email \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts"
     headers = []
-    query_ = []
-    query_ = if !is_nil(user_email) do
-      [{"user-email", user_email} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name) do
-      [{"name", name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(user_email) do
+        [{"user-email", user_email} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of the administrators in the app instance.
+  """
+  def list_app_instance_admins(
+        %Client{} = client,
+        app_instance_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/admins"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List all `AppInstanceUsers` created under a single app instance.
+  """
+  def list_app_instance_users(
+        %Client{} = client,
+        app_instance_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/app-instance-users"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(app_instance_arn) do
+        [{"app-instance-arn", app_instance_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all Amazon Chime app instances created under a single AWS account.
+  """
+  def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/app-instances"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the tags applied to an Amazon Chime SDK attendee resource.
   """
-  def list_attendee_tags(client, attendee_id, meeting_id, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags"
+  def list_attendee_tags(%Client{} = client, attendee_id, meeting_id, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -967,52 +2989,473 @@ defmodule AWS.Chime do
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def list_attendees(client, meeting_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/attendees"
+  def list_attendees(
+        %Client{} = client,
+        meeting_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/attendees"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the bots associated with the administrator's Amazon Chime Enterprise
   account ID.
   """
-  def list_bots(client, account_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/bots"
+  def list_bots(
+        %Client{} = client,
+        account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{URI.encode(account_id)}/bots"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all the users banned from a particular channel.
+  """
+  def list_channel_bans(
+        %Client{} = client,
+        channel_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/bans"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all channel memberships in a channel.
+  """
+  def list_channel_memberships(
+        %Client{} = client,
+        channel_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/memberships"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all channels that a particular `AppInstanceUser` is a part of.
+
+  Only an `AppInstanceAdmin` can call the API with a user ARN that is not their
+  own.
+  """
+  def list_channel_memberships_for_app_instance_user(
+        %Client{} = client,
+        app_instance_user_arn \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channels?scope=app-instance-user-memberships"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(app_instance_user_arn) do
+        [{"app-instance-user-arn", app_instance_user_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List all the messages in a channel.
+
+  Returns a paginated list of `ChannelMessages`. Sorted in descending order by
+  default, based on the creation timestamp.
+
+  Redacted messages appear in the results as empty, since they are only redacted,
+  not deleted. Deleted messages do not appear in the results. This action always
+  returns the latest version of an edited message.
+  """
+  def list_channel_messages(
+        %Client{} = client,
+        channel_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        not_after \\ nil,
+        not_before \\ nil,
+        sort_order \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/messages"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sort-order", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(not_before) do
+        [{"not-before", not_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(not_after) do
+        [{"not-after", not_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all the moderators for a channel.
+  """
+  def list_channel_moderators(
+        %Client{} = client,
+        channel_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/moderators"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all Channels created under a single Chime App as a paginated list.
+
+  You can specify filters to narrow results.
+
+  ## Functionality & restrictions
+
+    * Use privacy = `PUBLIC` to retrieve all public channels in the
+  account
+
+    * Only an `AppInstanceAdmin` can set privacy = `PRIVATE` to list the
+  private channels in an account.
+  """
+  def list_channels(
+        %Client{} = client,
+        app_instance_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        privacy \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channels"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(privacy) do
+        [{"privacy", privacy} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(app_instance_arn) do
+        [{"app-instance-arn", app_instance_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  A list of the channels moderated by an app instance user.
+  """
+  def list_channels_moderated_by_app_instance_user(
+        %Client{} = client,
+        app_instance_user_arn \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channels?scope=app-instance-user-moderated-channels"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(app_instance_user_arn) do
+        [{"app-instance-user-arn", app_instance_user_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the tags applied to an Amazon Chime SDK meeting resource.
   """
-  def list_meeting_tags(client, meeting_id, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/tags"
+  def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/tags"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1021,128 +3464,241 @@ defmodule AWS.Chime do
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
-  def list_meetings(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/meetings"
+  def list_meetings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/meetings"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the phone number orders for the administrator's Amazon Chime account.
   """
-  def list_phone_number_orders(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/phone-number-orders"
+  def list_phone_number_orders(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/phone-number-orders"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the phone numbers for the specified Amazon Chime account, Amazon Chime
   user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.
   """
-  def list_phone_numbers(client, filter_name \\ nil, filter_value \\ nil, max_results \\ nil, next_token \\ nil, product_type \\ nil, status \\ nil, options \\ []) do
-    path_ = "/phone-numbers"
+  def list_phone_numbers(
+        %Client{} = client,
+        filter_name \\ nil,
+        filter_value \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        product_type \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/phone-numbers"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status) do
-      [{"status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(product_type) do
-      [{"product-type", product_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(filter_value) do
-      [{"filter-value", filter_value} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(filter_name) do
-      [{"filter-name", filter_name} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(product_type) do
+        [{"product-type", product_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter_value) do
+        [{"filter-value", filter_value} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(filter_name) do
+        [{"filter-name", filter_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the proxy sessions for the specified Amazon Chime Voice Connector.
   """
-  def list_proxy_sessions(client, voice_connector_id, max_results \\ nil, next_token \\ nil, status \\ nil, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions"
+  def list_proxy_sessions(
+        %Client{} = client,
+        voice_connector_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status) do
-      [{"status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the membership details for the specified room in an Amazon Chime
   Enterprise account, such as the members' IDs, email addresses, and names.
   """
-  def list_room_memberships(client, account_id, room_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships"
+  def list_room_memberships(
+        %Client{} = client,
+        account_id,
+        room_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1151,41 +3707,166 @@ defmodule AWS.Chime do
   Optionally, filter the results by a member ID (user ID or bot ID) to see a list
   of rooms that the member belongs to.
   """
-  def list_rooms(client, account_id, max_results \\ nil, member_id \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms"
+  def list_rooms(
+        %Client{} = client,
+        account_id,
+        max_results \\ nil,
+        member_id \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{URI.encode(account_id)}/rooms"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(member_id) do
-      [{"member-id", member_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(member_id) do
+        [{"member-id", member_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the SIP media applications under the administrator's AWS account.
+  """
+  def list_sip_media_applications(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/sip-media-applications"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the SIP rules under the administrator's AWS account.
+  """
+  def list_sip_rules(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        sip_media_application_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/sip-rules"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(sip_media_application_id) do
+        [{"sip-media-application", sip_media_application_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the tags applied to an Amazon Chime SDK meeting resource.
   """
-  def list_tags_for_resource(client, resource_a_r_n, options \\ []) do
-    path_ = "/tags"
+  def list_tags_for_resource(%Client{} = client, resource_a_r_n, options \\ []) do
+    url_path = "/tags"
     headers = []
-    query_ = []
-    query_ = if !is_nil(resource_a_r_n) do
-      [{"arn", resource_a_r_n} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_a_r_n) do
+        [{"arn", resource_a_r_n} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1194,93 +3875,238 @@ defmodule AWS.Chime do
   You can specify an email address to list only the user that the email address
   belongs to.
   """
-  def list_users(client, account_id, max_results \\ nil, next_token \\ nil, user_email \\ nil, user_type \\ nil, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users"
+  def list_users(
+        %Client{} = client,
+        account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        user_email \\ nil,
+        user_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users"
     headers = []
-    query_ = []
-    query_ = if !is_nil(user_type) do
-      [{"user-type", user_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(user_email) do
-      [{"user-email", user_email} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(user_type) do
+        [{"user-type", user_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(user_email) do
+        [{"user-email", user_email} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the Amazon Chime Voice Connector groups for the administrator's AWS
   account.
   """
-  def list_voice_connector_groups(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/voice-connector-groups"
+  def list_voice_connector_groups(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/voice-connector-groups"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the SIP credentials for the specified Amazon Chime Voice Connector.
   """
-  def list_voice_connector_termination_credentials(client, voice_connector_id, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials"
+  def list_voice_connector_termination_credentials(
+        %Client{} = client,
+        voice_connector_id,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the Amazon Chime Voice Connectors for the administrator's AWS account.
   """
-  def list_voice_connectors(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/voice-connectors"
+  def list_voice_connectors(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Logs out the specified user from all of the devices they are currently logged
   into.
   """
-  def logout_user(client, account_id, user_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=logout"
+  def logout_user(%Client{} = client, account_id, user_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=logout"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Sets the amount of time in days that a given app instance retains data.
+  """
+  def put_app_instance_retention_settings(
+        %Client{} = client,
+        app_instance_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/retention-settings"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The data streaming configurations of an app instance.
+  """
+  def put_app_instance_streaming_configurations(
+        %Client{} = client,
+        app_instance_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}/streaming-configurations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1290,11 +4116,24 @@ defmodule AWS.Chime do
   Choose either an HTTPS endpoint or a Lambda function ARN. For more information,
   see `Bot`.
   """
-  def put_events_configuration(client, account_id, bot_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+  def put_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}/events-configuration"
+
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1309,11 +4148,50 @@ defmodule AWS.Chime do
   more information about retention settings, see [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
   the *Amazon Chime Administration Guide*.
   """
-  def put_retention_settings(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/retention-settings"
+  def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/retention-settings"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Updates the logging configuration for the specified SIP media application.
+  """
+  def put_sip_media_application_logging_configuration(
+        %Client{} = client,
+        sip_media_application_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sip-media-applications/#{URI.encode(sip_media_application_id)}/logging-configuration"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1323,11 +4201,29 @@ defmodule AWS.Chime do
   Origination and termination settings must be enabled for the Amazon Chime Voice
   Connector before emergency calling can be configured.
   """
-  def put_voice_connector_emergency_calling_configuration(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+  def put_voice_connector_emergency_calling_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/emergency-calling-configuration"
+
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1336,11 +4232,27 @@ defmodule AWS.Chime do
   The logging configuration specifies whether SIP message logs are enabled for
   sending to Amazon CloudWatch Logs.
   """
-  def put_voice_connector_logging_configuration(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/logging-configuration"
+  def put_voice_connector_logging_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/logging-configuration"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1349,22 +4261,49 @@ defmodule AWS.Chime do
   If emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to turning off origination settings.
   """
-  def put_voice_connector_origination(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
+  def put_voice_connector_origination(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/origination"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Puts the specified proxy configuration to the specified Amazon Chime Voice
   Connector.
   """
-  def put_voice_connector_proxy(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
+  def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/programmable-numbers/proxy"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1374,11 +4313,27 @@ defmodule AWS.Chime do
   sending to Amazon Kinesis. It also sets the retention period, in hours, for the
   Amazon Kinesis data.
   """
-  def put_voice_connector_streaming_configuration(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
+  def put_voice_connector_streaming_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/streaming-configuration"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1387,51 +4342,168 @@ defmodule AWS.Chime do
   If emergency calling is configured for the Amazon Chime Voice Connector, it must
   be deleted prior to turning off termination settings.
   """
-  def put_voice_connector_termination(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
+  def put_voice_connector_termination(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
   """
-  def put_voice_connector_termination_credentials(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials?operation=put"
+  def put_voice_connector_termination_credentials(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/termination/credentials?operation=put"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Redacts message content, but not metadata.
+
+  The message exists in the back end, but the action returns null content, and the
+  state shows as redacted.
+  """
+  def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
+    url_path =
+      "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}?operation=redact"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Redacts the specified message from the specified Amazon Chime conversation.
   """
-  def redact_conversation_message(client, account_id, conversation_id, message_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/conversations/#{URI.encode(conversation_id)}/messages/#{URI.encode(message_id)}?operation=redact"
+  def redact_conversation_message(
+        %Client{} = client,
+        account_id,
+        conversation_id,
+        message_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/conversations/#{URI.encode(conversation_id)}/messages/#{
+        URI.encode(message_id)
+      }?operation=redact"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
-  Redacts the specified message from the specified Amazon Chime chat room.
+  Redacts the specified message from the specified Amazon Chime channel.
   """
-  def redact_room_message(client, account_id, message_id, room_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/messages/#{URI.encode(message_id)}?operation=redact"
+  def redact_room_message(
+        %Client{} = client,
+        account_id,
+        message_id,
+        room_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/messages/#{
+        URI.encode(message_id)
+      }?operation=redact"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Regenerates the security token for a bot.
   """
-  def regenerate_security_token(client, account_id, bot_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}?operation=regenerate-security-token"
+  def regenerate_security_token(%Client{} = client, account_id, bot_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}?operation=regenerate-security-token"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1440,127 +4512,280 @@ defmodule AWS.Chime do
 
   Returns the `User` object with the updated personal meeting PIN.
   """
-  def reset_personal_p_i_n(client, account_id, user_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=reset-personal-pin"
+  def reset_personal_p_i_n(%Client{} = client, account_id, user_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=reset-personal-pin"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Moves a phone number from the **Deletion queue** back into the phone number
   **Inventory**.
   """
-  def restore_phone_number(client, phone_number_id, input, options \\ []) do
-    path_ = "/phone-numbers/#{URI.encode(phone_number_id)}?operation=restore"
+  def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+    url_path = "/phone-numbers/#{URI.encode(phone_number_id)}?operation=restore"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Searches phone numbers that can be ordered.
   """
-  def search_available_phone_numbers(client, area_code \\ nil, city \\ nil, country \\ nil, max_results \\ nil, next_token \\ nil, state \\ nil, toll_free_prefix \\ nil, options \\ []) do
-    path_ = "/search?type=phone-numbers"
+  def search_available_phone_numbers(
+        %Client{} = client,
+        area_code \\ nil,
+        city \\ nil,
+        country \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        state \\ nil,
+        toll_free_prefix \\ nil,
+        options \\ []
+      ) do
+    url_path = "/search?type=phone-numbers"
     headers = []
-    query_ = []
-    query_ = if !is_nil(toll_free_prefix) do
-      [{"toll-free-prefix", toll_free_prefix} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(state) do
-      [{"state", state} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"next-token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max-results", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(country) do
-      [{"country", country} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(city) do
-      [{"city", city} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(area_code) do
-      [{"area-code", area_code} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(toll_free_prefix) do
+        [{"toll-free-prefix", toll_free_prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(country) do
+        [{"country", country} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(city) do
+        [{"city", city} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(area_code) do
+        [{"area-code", area_code} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Sends a message to a particular channel that the member is a part of.
+
+  `STANDARD` messages can contain 4KB of data and the 1KB of metadata. `CONTROL`
+  messages can contain 30 bytes of data and no metadata.
+  """
+  def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/messages"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK attendee.
   """
-  def tag_attendee(client, attendee_id, meeting_id, input, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags?operation=add"
+  def tag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
+    url_path =
+      "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags?operation=add"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK meeting.
   """
-  def tag_meeting(client, meeting_id, input, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/tags?operation=add"
+  def tag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/tags?operation=add"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK meeting resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    path_ = "/tags?operation=tag-resource"
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags?operation=tag-resource"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK attendee.
   """
-  def untag_attendee(client, attendee_id, meeting_id, input, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags?operation=delete"
+  def untag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
+    url_path =
+      "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}/tags?operation=delete"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK meeting.
   """
-  def untag_meeting(client, meeting_id, input, options \\ []) do
-    path_ = "/meetings/#{URI.encode(meeting_id)}/tags?operation=delete"
+  def untag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
+    url_path = "/meetings/#{URI.encode(meeting_id)}/tags?operation=delete"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Untags the specified tags from the specified Amazon Chime SDK meeting resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    path_ = "/tags?operation=untag-resource"
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags?operation=untag-resource"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1568,11 +4793,22 @@ defmodule AWS.Chime do
 
   Currently, only account name updates are supported for this action.
   """
-  def update_account(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}"
+  def update_account(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1582,33 +4818,175 @@ defmodule AWS.Chime do
   dial-out option. For more information about these settings, see [Use the Policies Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the
   *Amazon Chime Administration Guide*.
   """
-  def update_account_settings(client, account_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/settings"
+  def update_account_settings(%Client{} = client, account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/settings"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Updates `AppInstance` metadata.
+  """
+  def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
+    url_path = "/app-instances/#{URI.encode(app_instance_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the details for an `AppInstanceUser`.
+
+  You can update names and metadata.
+  """
+  def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
+    url_path = "/app-instance-users/#{URI.encode(app_instance_user_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates the status of the specified bot, such as starting or stopping the bot
   from running in your Amazon Chime Enterprise account.
   """
-  def update_bot(client, account_id, bot_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}"
+  def update_bot(%Client{} = client, account_id, bot_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/bots/#{URI.encode(bot_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update a channel's attributes.
+
+  **Restriction**: You can't change a channel's privacy.
+  """
+  def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the content of a message.
+  """
+  def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sets the timestamp to the point when a user last read messages in a channel.
+  """
+  def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/readMarker"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates global settings for the administrator's AWS account, such as Amazon
   Chime Business Calling and Amazon Chime Voice Connector settings.
   """
-  def update_global_settings(client, input, options \\ []) do
-    path_ = "/settings"
+  def update_global_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/settings"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1625,11 +5003,22 @@ defmodule AWS.Chime do
   updates to outbound calling names must be complete before you can request
   another update.
   """
-  def update_phone_number(client, phone_number_id, input, options \\ []) do
-    path_ = "/phone-numbers/#{URI.encode(phone_number_id)}"
+  def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+    url_path = "/phone-numbers/#{URI.encode(phone_number_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1639,32 +5028,75 @@ defmodule AWS.Chime do
   You can update the default outbound calling name once every seven days. Outbound
   calling names can take up to 72 hours to update.
   """
-  def update_phone_number_settings(client, input, options \\ []) do
-    path_ = "/settings/phone-number"
+  def update_phone_number_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/settings/phone-number"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Updates the specified proxy session details, such as voice or SMS capabilities.
   """
-  def update_proxy_session(client, proxy_session_id, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
+  def update_proxy_session(
+        %Client{} = client,
+        proxy_session_id,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{
+        URI.encode(proxy_session_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Updates room details, such as the room name, for a room in an Amazon Chime
   Enterprise account.
   """
-  def update_room(client, account_id, room_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
+  def update_room(%Client{} = client, account_id, room_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1674,11 +5106,80 @@ defmodule AWS.Chime do
   The member role designates whether the member is a chat room administrator or a
   general chat room member. The member role can be updated only for user IDs.
   """
-  def update_room_membership(client, account_id, member_id, room_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{URI.encode(member_id)}"
+  def update_room_membership(
+        %Client{} = client,
+        account_id,
+        member_id,
+        room_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{
+        URI.encode(member_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the details for the specified SIP media application.
+  """
+  def update_sip_media_application(
+        %Client{} = client,
+        sip_media_application_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/sip-media-applications/#{URI.encode(sip_media_application_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the details for the specified SIP rule.
+  """
+  def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
+    url_path = "/sip-rules/#{URI.encode(sip_rule_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1686,106 +5187,90 @@ defmodule AWS.Chime do
 
   Currently, only `LicenseType` updates are supported for this action.
   """
-  def update_user(client, account_id, user_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}"
+  def update_user(%Client{} = client, account_id, user_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates the settings for the specified user, such as phone number settings.
   """
-  def update_user_settings(client, account_id, user_id, input, options \\ []) do
-    path_ = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}/settings"
+  def update_user_settings(%Client{} = client, account_id, user_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}/settings"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Updates details for the specified Amazon Chime Voice Connector.
   """
-  def update_voice_connector(client, voice_connector_id, input, options \\ []) do
-    path_ = "/voice-connectors/#{URI.encode(voice_connector_id)}"
+  def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
+    url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates details for the specified Amazon Chime Voice Connector group, such as
   the name and Amazon Chime Voice Connector priority ranking.
   """
-  def update_voice_connector_group(client, voice_connector_group_id, input, options \\ []) do
-    path_ = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
+  def update_voice_connector_group(
+        %Client{} = client,
+        voice_connector_group_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 202)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "chime",
-                        region:  "us-east-1"}
-    host = build_host("chime", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 end

@@ -14,14 +14,33 @@ defmodule AWS.Importexport do
   cost effective than upgrading your connectivity.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2010-06-01",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: "us-east-1",
+      endpoint_prefix: "importexport",
+      global?: true,
+      protocol: "query",
+      service_id: nil,
+      signature_version: "v2",
+      signing_name: "importexport",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   This operation cancels a specified job.
 
   Only the job owner can cancel it. The operation fails if the job has already
   started or is complete.
   """
-  def cancel_job(client, input, options \\ []) do
-    request(client, "CancelJob", input, options)
+  def cancel_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelJob", input, options)
   end
 
   @doc """
@@ -33,16 +52,16 @@ defmodule AWS.Importexport do
   other operations, a signature that you use to identify your storage device, and
   the address where you should ship your storage device.
   """
-  def create_job(client, input, options \\ []) do
-    request(client, "CreateJob", input, options)
+  def create_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateJob", input, options)
   end
 
   @doc """
   This operation generates a pre-paid UPS shipping label that you will use to ship
   your device to AWS for processing.
   """
-  def get_shipping_label(client, input, options \\ []) do
-    request(client, "GetShippingLabel", input, options)
+  def get_shipping_label(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetShippingLabel", input, options)
   end
 
   @doc """
@@ -52,8 +71,8 @@ defmodule AWS.Importexport do
 
   You can only return information about jobs you own.
   """
-  def get_status(client, input, options \\ []) do
-    request(client, "GetStatus", input, options)
+  def get_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetStatus", input, options)
   end
 
   @doc """
@@ -63,8 +82,8 @@ defmodule AWS.Importexport do
   date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was
   created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.
   """
-  def list_jobs(client, input, options \\ []) do
-    request(client, "ListJobs", input, options)
+  def list_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListJobs", input, options)
   end
 
   @doc """
@@ -75,62 +94,7 @@ defmodule AWS.Importexport do
   You can only use the operation after a CreateJob request but before the data
   transfer starts and you can only use it on jobs you own.
   """
-  def update_job(client, input, options \\ []) do
-    request(client, "UpdateJob", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "importexport",
-                        region:  "us-east-1"}
-    host = build_host("importexport", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2010-06-01"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def update_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateJob", input, options)
   end
 end

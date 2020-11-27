@@ -33,6 +33,25 @@ defmodule AWS.ElasticLoadBalancing do
   response code.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2012-06-01",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: nil,
+      endpoint_prefix: "elasticloadbalancing",
+      global?: false,
+      protocol: "query",
+      service_id: "Elastic Load Balancing",
+      signature_version: "v4",
+      signing_name: "elasticloadbalancing",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Adds the specified tags to the specified load balancer.
 
@@ -44,8 +63,8 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Tag Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html)
   in the *Classic Load Balancers Guide*.
   """
-  def add_tags(client, input, options \\ []) do
-    request(client, "AddTags", input, options)
+  def add_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddTags", input, options)
   end
 
   @doc """
@@ -58,8 +77,8 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Security Groups for Load Balancers in a VPC](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups)
   in the *Classic Load Balancers Guide*.
   """
-  def apply_security_groups_to_load_balancer(client, input, options \\ []) do
-    request(client, "ApplySecurityGroupsToLoadBalancer", input, options)
+  def apply_security_groups_to_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ApplySecurityGroupsToLoadBalancer", input, options)
   end
 
   @doc """
@@ -70,8 +89,8 @@ defmodule AWS.ElasticLoadBalancing do
   more information, see [Add or Remove Subnets for Your Load Balancer in a VPC](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html)
   in the *Classic Load Balancers Guide*.
   """
-  def attach_load_balancer_to_subnets(client, input, options \\ []) do
-    request(client, "AttachLoadBalancerToSubnets", input, options)
+  def attach_load_balancer_to_subnets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachLoadBalancerToSubnets", input, options)
   end
 
   @doc """
@@ -81,8 +100,8 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Configure Health Checks for Your Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html)
   in the *Classic Load Balancers Guide*.
   """
-  def configure_health_check(client, input, options \\ []) do
-    request(client, "ConfigureHealthCheck", input, options)
+  def configure_health_check(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfigureHealthCheck", input, options)
   end
 
   @doc """
@@ -104,8 +123,8 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Application-Controlled Session Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application)
   in the *Classic Load Balancers Guide*.
   """
-  def create_app_cookie_stickiness_policy(client, input, options \\ []) do
-    request(client, "CreateAppCookieStickinessPolicy", input, options)
+  def create_app_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAppCookieStickinessPolicy", input, options)
   end
 
   @doc """
@@ -128,8 +147,8 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Duration-Based Session Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration)
   in the *Classic Load Balancers Guide*.
   """
-  def create_l_b_cookie_stickiness_policy(client, input, options \\ []) do
-    request(client, "CreateLBCookieStickinessPolicy", input, options)
+  def create_l_b_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLBCookieStickinessPolicy", input, options)
   end
 
   @doc """
@@ -148,8 +167,8 @@ defmodule AWS.ElasticLoadBalancing do
   information, see [Limits for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html)
   in the *Classic Load Balancers Guide*.
   """
-  def create_load_balancer(client, input, options \\ []) do
-    request(client, "CreateLoadBalancer", input, options)
+  def create_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLoadBalancer", input, options)
   end
 
   @doc """
@@ -162,8 +181,8 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Listeners for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html)
   in the *Classic Load Balancers Guide*.
   """
-  def create_load_balancer_listeners(client, input, options \\ []) do
-    request(client, "CreateLoadBalancerListeners", input, options)
+  def create_load_balancer_listeners(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLoadBalancerListeners", input, options)
   end
 
   @doc """
@@ -172,8 +191,8 @@ defmodule AWS.ElasticLoadBalancing do
   Policies are settings that are saved for your load balancer and that can be
   applied to the listener or the application server, depending on the policy type.
   """
-  def create_load_balancer_policy(client, input, options \\ []) do
-    request(client, "CreateLoadBalancerPolicy", input, options)
+  def create_load_balancer_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLoadBalancerPolicy", input, options)
   end
 
   @doc """
@@ -188,15 +207,15 @@ defmodule AWS.ElasticLoadBalancing do
   If the load balancer does not exist or has already been deleted, the call to
   `DeleteLoadBalancer` still succeeds.
   """
-  def delete_load_balancer(client, input, options \\ []) do
-    request(client, "DeleteLoadBalancer", input, options)
+  def delete_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLoadBalancer", input, options)
   end
 
   @doc """
   Deletes the specified listeners from the specified load balancer.
   """
-  def delete_load_balancer_listeners(client, input, options \\ []) do
-    request(client, "DeleteLoadBalancerListeners", input, options)
+  def delete_load_balancer_listeners(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLoadBalancerListeners", input, options)
   end
 
   @doc """
@@ -204,8 +223,8 @@ defmodule AWS.ElasticLoadBalancing do
 
   This policy must not be enabled for any listeners.
   """
-  def delete_load_balancer_policy(client, input, options \\ []) do
-    request(client, "DeleteLoadBalancerPolicy", input, options)
+  def delete_load_balancer_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLoadBalancerPolicy", input, options)
   end
 
   @doc """
@@ -220,8 +239,14 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Register or De-Register EC2 Instances](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html)
   in the *Classic Load Balancers Guide*.
   """
-  def deregister_instances_from_load_balancer(client, input, options \\ []) do
-    request(client, "DeregisterInstancesFromLoadBalancer", input, options)
+  def deregister_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeregisterInstancesFromLoadBalancer",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -231,8 +256,8 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Limits for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html)
   in the *Classic Load Balancers Guide*.
   """
-  def describe_account_limits(client, input, options \\ []) do
-    request(client, "DescribeAccountLimits", input, options)
+  def describe_account_limits(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAccountLimits", input, options)
   end
 
   @doc """
@@ -244,15 +269,15 @@ defmodule AWS.ElasticLoadBalancing do
   specified, their state is returned even if they are no longer registered with
   the load balancer. The state of terminated instances is not returned.
   """
-  def describe_instance_health(client, input, options \\ []) do
-    request(client, "DescribeInstanceHealth", input, options)
+  def describe_instance_health(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeInstanceHealth", input, options)
   end
 
   @doc """
   Describes the attributes for the specified load balancer.
   """
-  def describe_load_balancer_attributes(client, input, options \\ []) do
-    request(client, "DescribeLoadBalancerAttributes", input, options)
+  def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLoadBalancerAttributes", input, options)
   end
 
   @doc """
@@ -265,8 +290,8 @@ defmodule AWS.ElasticLoadBalancing do
   specified sample policies, or descriptions of all sample policies. The names of
   the sample policies have the `ELBSample-` prefix.
   """
-  def describe_load_balancer_policies(client, input, options \\ []) do
-    request(client, "DescribeLoadBalancerPolicies", input, options)
+  def describe_load_balancer_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLoadBalancerPolicies", input, options)
   end
 
   @doc """
@@ -283,8 +308,8 @@ defmodule AWS.ElasticLoadBalancing do
   `SetLoadBalancerPoliciesOfListener` or `SetLoadBalancerPoliciesForBackendServer`
   to set the policy.
   """
-  def describe_load_balancer_policy_types(client, input, options \\ []) do
-    request(client, "DescribeLoadBalancerPolicyTypes", input, options)
+  def describe_load_balancer_policy_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLoadBalancerPolicyTypes", input, options)
   end
 
   @doc """
@@ -293,15 +318,15 @@ defmodule AWS.ElasticLoadBalancing do
   If no load balancers are specified, the call describes all of your load
   balancers.
   """
-  def describe_load_balancers(client, input, options \\ []) do
-    request(client, "DescribeLoadBalancers", input, options)
+  def describe_load_balancers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLoadBalancers", input, options)
   end
 
   @doc """
   Describes the tags associated with the specified load balancers.
   """
-  def describe_tags(client, input, options \\ []) do
-    request(client, "DescribeTags", input, options)
+  def describe_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTags", input, options)
   end
 
   @doc """
@@ -312,8 +337,8 @@ defmodule AWS.ElasticLoadBalancing do
   in the removed subnet go into the `OutOfService` state. Then, the load balancer
   balances the traffic among the remaining routable subnets.
   """
-  def detach_load_balancer_from_subnets(client, input, options \\ []) do
-    request(client, "DetachLoadBalancerFromSubnets", input, options)
+  def detach_load_balancer_from_subnets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachLoadBalancerFromSubnets", input, options)
   end
 
   @doc """
@@ -331,8 +356,14 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Add or Remove Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html)
   in the *Classic Load Balancers Guide*.
   """
-  def disable_availability_zones_for_load_balancer(client, input, options \\ []) do
-    request(client, "DisableAvailabilityZonesForLoadBalancer", input, options)
+  def disable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DisableAvailabilityZonesForLoadBalancer",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -346,8 +377,14 @@ defmodule AWS.ElasticLoadBalancing do
   Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html)
   in the *Classic Load Balancers Guide*.
   """
-  def enable_availability_zones_for_load_balancer(client, input, options \\ []) do
-    request(client, "EnableAvailabilityZonesForLoadBalancer", input, options)
+  def enable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "EnableAvailabilityZonesForLoadBalancer",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -369,8 +406,8 @@ defmodule AWS.ElasticLoadBalancing do
 
     * [Idle Connection Timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html)
   """
-  def modify_load_balancer_attributes(client, input, options \\ []) do
-    request(client, "ModifyLoadBalancerAttributes", input, options)
+  def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyLoadBalancerAttributes", input, options)
   end
 
   @doc """
@@ -399,15 +436,15 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Register or De-Register EC2 Instances](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html)
   in the *Classic Load Balancers Guide*.
   """
-  def register_instances_with_load_balancer(client, input, options \\ []) do
-    request(client, "RegisterInstancesWithLoadBalancer", input, options)
+  def register_instances_with_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterInstancesWithLoadBalancer", input, options)
   end
 
   @doc """
   Removes one or more tags from the specified load balancer.
   """
-  def remove_tags(client, input, options \\ []) do
-    request(client, "RemoveTags", input, options)
+  def remove_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveTags", input, options)
   end
 
   @doc """
@@ -420,8 +457,14 @@ defmodule AWS.ElasticLoadBalancing do
   Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html)
   in the *Classic Load Balancers Guide*.
   """
-  def set_load_balancer_listener_s_s_l_certificate(client, input, options \\ []) do
-    request(client, "SetLoadBalancerListenerSSLCertificate", input, options)
+  def set_load_balancer_listener_s_s_l_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "SetLoadBalancerListenerSSLCertificate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -445,8 +488,14 @@ defmodule AWS.ElasticLoadBalancing do
   Protocol, see [Configure Proxy Protocol Support](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html)
   in the *Classic Load Balancers Guide*.
   """
-  def set_load_balancer_policies_for_backend_server(client, input, options \\ []) do
-    request(client, "SetLoadBalancerPoliciesForBackendServer", input, options)
+  def set_load_balancer_policies_for_backend_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "SetLoadBalancerPoliciesForBackendServer",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -461,61 +510,7 @@ defmodule AWS.ElasticLoadBalancing do
   and [Application-Controlled Session Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application)
   in the *Classic Load Balancers Guide*.
   """
-  def set_load_balancer_policies_of_listener(client, input, options \\ []) do
-    request(client, "SetLoadBalancerPoliciesOfListener", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "elasticloadbalancing"}
-    host = build_host("elasticloadbalancing", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2012-06-01"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def set_load_balancer_policies_of_listener(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetLoadBalancerPoliciesOfListener", input, options)
   end
 end

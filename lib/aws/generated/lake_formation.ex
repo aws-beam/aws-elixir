@@ -8,18 +8,37 @@ defmodule AWS.LakeFormation do
   Defines the public endpoint for the AWS Lake Formation service.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-03-31",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "lakeformation",
+      global?: false,
+      protocol: "json",
+      service_id: "LakeFormation",
+      signature_version: "v4",
+      signing_name: "lakeformation",
+      target_prefix: "AWSLakeFormation"
+    }
+  end
+
   @doc """
   Batch operation to grant permissions to the principal.
   """
-  def batch_grant_permissions(client, input, options \\ []) do
-    request(client, "BatchGrantPermissions", input, options)
+  def batch_grant_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGrantPermissions", input, options)
   end
 
   @doc """
   Batch operation to revoke permissions from the principal.
   """
-  def batch_revoke_permissions(client, input, options \\ []) do
-    request(client, "BatchRevokePermissions", input, options)
+  def batch_revoke_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchRevokePermissions", input, options)
   end
 
   @doc """
@@ -28,24 +47,24 @@ defmodule AWS.LakeFormation do
   When you deregister a path, Lake Formation removes the path from the inline
   policy attached to your service-linked role.
   """
-  def deregister_resource(client, input, options \\ []) do
-    request(client, "DeregisterResource", input, options)
+  def deregister_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeregisterResource", input, options)
   end
 
   @doc """
   Retrieves the current data access role for the given resource registered in AWS
   Lake Formation.
   """
-  def describe_resource(client, input, options \\ []) do
-    request(client, "DescribeResource", input, options)
+  def describe_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeResource", input, options)
   end
 
   @doc """
   Retrieves the list of the data lake administrators of a Lake Formation-managed
   data lake.
   """
-  def get_data_lake_settings(client, input, options \\ []) do
-    request(client, "GetDataLakeSettings", input, options)
+  def get_data_lake_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDataLakeSettings", input, options)
   end
 
   @doc """
@@ -55,8 +74,8 @@ defmodule AWS.LakeFormation do
   `GetEffectivePermissionsForPath` will not return databases and tables if the
   catalog is encrypted.
   """
-  def get_effective_permissions_for_path(client, input, options \\ []) do
-    request(client, "GetEffectivePermissionsForPath", input, options)
+  def get_effective_permissions_for_path(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetEffectivePermissionsForPath", input, options)
   end
 
   @doc """
@@ -66,8 +85,8 @@ defmodule AWS.LakeFormation do
   For information about permissions, see [Security and Access Control to Metadata and
   Data](https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
   """
-  def grant_permissions(client, input, options \\ []) do
-    request(client, "GrantPermissions", input, options)
+  def grant_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GrantPermissions", input, options)
   end
 
   @doc """
@@ -82,15 +101,15 @@ defmodule AWS.LakeFormation do
   For information about permissions, see [Security and Access Control to Metadata and
   Data](https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
   """
-  def list_permissions(client, input, options \\ []) do
-    request(client, "ListPermissions", input, options)
+  def list_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPermissions", input, options)
   end
 
   @doc """
   Lists the resources registered to be managed by the Data Catalog.
   """
-  def list_resources(client, input, options \\ []) do
-    request(client, "ListResources", input, options)
+  def list_resources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListResources", input, options)
   end
 
   @doc """
@@ -103,8 +122,8 @@ defmodule AWS.LakeFormation do
   passed. To add an admin, fetch the current list and add the new admin to that
   list and pass that list in this API.
   """
-  def put_data_lake_settings(client, input, options \\ []) do
-    request(client, "PutDataLakeSettings", input, options)
+  def put_data_lake_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutDataLakeSettings", input, options)
   end
 
   @doc """
@@ -128,77 +147,23 @@ defmodule AWS.LakeFormation do
 
   `arn:aws:iam::12345:role/my-data-access-role`
   """
-  def register_resource(client, input, options \\ []) do
-    request(client, "RegisterResource", input, options)
+  def register_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterResource", input, options)
   end
 
   @doc """
   Revokes permissions to the principal to access metadata in the Data Catalog and
   data organized in underlying data storage such as Amazon S3.
   """
-  def revoke_permissions(client, input, options \\ []) do
-    request(client, "RevokePermissions", input, options)
+  def revoke_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RevokePermissions", input, options)
   end
 
   @doc """
   Updates the data access role used for vending access to the given (registered)
   resource in AWS Lake Formation.
   """
-  def update_resource(client, input, options \\ []) do
-    request(client, "UpdateResource", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "lakeformation"}
-    host = build_host("lakeformation", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSLakeFormation.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateResource", input, options)
   end
 end

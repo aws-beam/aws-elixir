@@ -47,155 +47,332 @@ defmodule AWS.ServerlessApplicationRepository do
   developers, and publish new versions of applications.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-09-08",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "serverlessrepo",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "ServerlessApplicationRepository",
+      signature_version: "v4",
+      signing_name: "serverlessrepo",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates an application, optionally including an AWS SAM file to create the first
   application version in the same call.
   """
-  def create_application(client, input, options \\ []) do
-    path_ = "/applications"
+  def create_application(%Client{} = client, input, options \\ []) do
+    url_path = "/applications"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates an application version.
   """
-  def create_application_version(client, application_id, semantic_version, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/versions/#{URI.encode(semantic_version)}"
+  def create_application_version(
+        %Client{} = client,
+        application_id,
+        semantic_version,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/versions/#{URI.encode(semantic_version)}"
+
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates an AWS CloudFormation change set for the given application.
   """
-  def create_cloud_formation_change_set(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/changesets"
+  def create_cloud_formation_change_set(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}/changesets"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates an AWS CloudFormation template.
   """
-  def create_cloud_formation_template(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/templates"
+  def create_cloud_formation_template(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}/templates"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Deletes the specified application.
   """
-  def delete_application(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}"
+  def delete_application(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Gets the specified application.
   """
-  def get_application(client, application_id, semantic_version \\ nil, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}"
+  def get_application(%Client{} = client, application_id, semantic_version \\ nil, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(semantic_version) do
-      [{"semanticVersion", semantic_version} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(semantic_version) do
+        [{"semanticVersion", semantic_version} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves the policy for the application.
   """
-  def get_application_policy(client, application_id, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/policy"
+  def get_application_policy(%Client{} = client, application_id, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}/policy"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the specified AWS CloudFormation template.
   """
-  def get_cloud_formation_template(client, application_id, template_id, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/templates/#{URI.encode(template_id)}"
+  def get_cloud_formation_template(%Client{} = client, application_id, template_id, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}/templates/#{URI.encode(template_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves the list of applications nested in the containing application.
   """
-  def list_application_dependencies(client, application_id, max_items \\ nil, next_token \\ nil, semantic_version \\ nil, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/dependencies"
+  def list_application_dependencies(
+        %Client{} = client,
+        application_id,
+        max_items \\ nil,
+        next_token \\ nil,
+        semantic_version \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{URI.encode(application_id)}/dependencies"
     headers = []
-    query_ = []
-    query_ = if !is_nil(semantic_version) do
-      [{"semanticVersion", semantic_version} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxItems", max_items} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(semantic_version) do
+        [{"semanticVersion", semantic_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists versions for the specified application.
   """
-  def list_application_versions(client, application_id, max_items \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/versions"
+  def list_application_versions(
+        %Client{} = client,
+        application_id,
+        max_items \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{URI.encode(application_id)}/versions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxItems", max_items} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists applications owned by the requester.
   """
-  def list_applications(client, max_items \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/applications"
+  def list_applications(%Client{} = client, max_items \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/applications"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxItems", max_items} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -206,11 +383,22 @@ defmodule AWS.ServerlessApplicationRepository do
 
   .
   """
-  def put_application_policy(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/policy"
+  def put_application_policy(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}/policy"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -218,84 +406,42 @@ defmodule AWS.ServerlessApplicationRepository do
 
   This operation can be called only from the organization's master account.
   """
-  def unshare_application(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/unshare"
+  def unshare_application(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}/unshare"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Updates the specified application.
   """
-  def update_application(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}"
+  def update_application(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "serverlessrepo"}
-    host = build_host("serverlessrepo", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

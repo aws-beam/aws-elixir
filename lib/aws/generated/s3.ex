@@ -6,6 +6,25 @@ defmodule AWS.S3 do
 
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2006-03-01",
+      content_type: "text/xml",
+      credential_scope: nil,
+      endpoint_prefix: "s3",
+      global?: false,
+      protocol: "rest-xml",
+      service_id: "S3",
+      signature_version: "s3",
+      signing_name: "s3",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   This operation aborts a multipart upload.
 
@@ -37,37 +56,40 @@ defmodule AWS.S3 do
     *
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
-  def abort_multipart_upload(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def abort_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+
     {headers, input} =
       [
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"RequestPayer", "x-amz-request-payer"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"UploadId", "uploadId"},
+        {"UploadId", "uploadId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -147,41 +169,46 @@ defmodule AWS.S3 do
     *
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
-  def complete_multipart_upload(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def complete_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+
     {headers, input} =
       [
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"RequestPayer", "x-amz-request-payer"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"UploadId", "uploadId"},
+        {"UploadId", "uploadId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-expiration", "Expiration"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-            {"x-amz-server-side-encryption", "ServerSideEncryption"},
-            {"x-amz-version-id", "VersionId"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-expiration", "Expiration"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-version-id", "VersionId"}
+        ]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -332,14 +359,16 @@ defmodule AWS.S3 do
   For more information, see [Copying
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html).
   """
-  def copy_object(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def copy_object(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+
     {headers, input} =
       [
         {"CopySourceIfModifiedSince", "x-amz-copy-source-if-modified-since"},
         {"ContentLanguage", "Content-Language"},
         {"Expires", "Expires"},
-        {"CopySourceSSECustomerKeyMD5", "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
+        {"CopySourceSSECustomerKeyMD5",
+         "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
         {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
         {"CopySourceSSECustomerKey", "x-amz-copy-source-server-side-encryption-customer-key"},
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
@@ -366,41 +395,46 @@ defmodule AWS.S3 do
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
         {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
         {"GrantRead", "x-amz-grant-read"},
-        {"CopySourceSSECustomerAlgorithm", "x-amz-copy-source-server-side-encryption-customer-algorithm"},
+        {"CopySourceSSECustomerAlgorithm",
+         "x-amz-copy-source-server-side-encryption-customer-algorithm"},
         {"CopySourceIfMatch", "x-amz-copy-source-if-match"},
         {"MetadataDirective", "x-amz-metadata-directive"},
         {"CopySourceIfNoneMatch", "x-amz-copy-source-if-none-match"},
         {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
-        {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"},
+        {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-copy-source-version-id", "CopySourceVersionId"},
-            {"x-amz-expiration", "Expiration"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-            {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-            {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
-            {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-            {"x-amz-server-side-encryption", "ServerSideEncryption"},
-            {"x-amz-version-id", "VersionId"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-copy-source-version-id", "CopySourceVersionId"},
+          {"x-amz-expiration", "Expiration"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-version-id", "VersionId"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -495,8 +529,9 @@ defmodule AWS.S3 do
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)     *
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
   """
-  def create_bucket(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}"
+  def create_bucket(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}"
+
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -505,28 +540,30 @@ defmodule AWS.S3 do
         {"GrantReadACP", "x-amz-grant-read-acp"},
         {"GrantWrite", "x-amz-grant-write"},
         {"GrantWriteACP", "x-amz-grant-write-acp"},
-        {"ObjectLockEnabledForBucket", "x-amz-bucket-object-lock-enabled"},
+        {"ObjectLockEnabledForBucket", "x-amz-bucket-object-lock-enabled"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -734,8 +771,9 @@ defmodule AWS.S3 do
     *
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
-  def create_multipart_upload(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?uploads"
+  def create_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?uploads"
+
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -762,35 +800,39 @@ defmodule AWS.S3 do
         {"ServerSideEncryption", "x-amz-server-side-encryption"},
         {"StorageClass", "x-amz-storage-class"},
         {"Tagging", "x-amz-tagging"},
-        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
+        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-abort-date", "AbortDate"},
-            {"x-amz-abort-rule-id", "AbortRuleId"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-            {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-            {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
-            {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-            {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-abort-date", "AbortDate"},
+          {"x-amz-abort-rule-id", "AbortRuleId"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -805,15 +847,28 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)     *
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  def delete_bucket(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}"
+  def delete_bucket(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -838,19 +893,32 @@ defmodule AWS.S3 do
     *
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
   """
-  def delete_bucket_analytics_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?analytics"
+  def delete_bucket_analytics_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?analytics"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"Id", "id"},
+        {"Id", "id"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -869,15 +937,28 @@ defmodule AWS.S3 do
   [PutBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)     *
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
   """
-  def delete_bucket_cors(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?cors"
+  def delete_bucket_cors(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?cors"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -901,15 +982,84 @@ defmodule AWS.S3 do
   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)     *
   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
   """
-  def delete_bucket_encryption(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?encryption"
+  def delete_bucket_encryption(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?encryption"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes the S3 Intelligent-Tiering configuration from the specified bucket.
+
+  The S3 Intelligent-Tiering storage class is designed to optimize storage costs
+  by automatically moving data to the most cost-effective storage access tier,
+  without additional operational overhead. S3 Intelligent-Tiering delivers
+  automatic cost savings by moving data between access tiers, when access patterns
+  change.
+
+  The S3 Intelligent-Tiering storage class is suitable for objects larger than 128
+  KB that you plan to store for at least 30 days. If the size of an object is less
+  than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored,
+  but they are always charged at the frequent access tier rates in the S3
+  Intelligent-Tiering storage class.
+
+  If you delete an object before the end of the 30-day minimum storage duration
+  period, you are charged for 30 days. For more information, see [Storage class for automatically optimizing frequently and infrequently accessed
+  objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
+
+  Operations related to `DeleteBucketIntelligentTieringConfiguration` include:
+
+    *
+  [GetBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html)     *
+  [PutBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketIntelligentTieringConfiguration.html)
+
+    *
+  [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
+  """
+  def delete_bucket_intelligent_tiering_configuration(
+        %Client{} = client,
+        bucket,
+        input,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?intelligent-tiering"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Id", "id"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -933,19 +1083,32 @@ defmodule AWS.S3 do
     *
   [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
   """
-  def delete_bucket_inventory_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?inventory"
+  def delete_bucket_inventory_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?inventory"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"Id", "id"},
+        {"Id", "id"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -972,15 +1135,28 @@ defmodule AWS.S3 do
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)     *
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
   """
-  def delete_bucket_lifecycle(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?lifecycle"
+  def delete_bucket_lifecycle(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?lifecycle"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1008,19 +1184,32 @@ defmodule AWS.S3 do
   [ListBucketMetricsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html)     * [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
   """
-  def delete_bucket_metrics_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?metrics"
+  def delete_bucket_metrics_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?metrics"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"Id", "id"},
+        {"Id", "id"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1038,15 +1227,28 @@ defmodule AWS.S3 do
 
     * `PutBucketOwnershipControls`
   """
-  def delete_bucket_ownership_controls(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?ownershipControls"
+  def delete_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?ownershipControls"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1076,15 +1278,28 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)     *
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  def delete_bucket_policy(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?policy"
+  def delete_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?policy"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1110,15 +1325,28 @@ defmodule AWS.S3 do
     *
   [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html)
   """
-  def delete_bucket_replication(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?replication"
+  def delete_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?replication"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1134,15 +1362,28 @@ defmodule AWS.S3 do
   [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html)     *
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
   """
-  def delete_bucket_tagging(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?tagging"
+  def delete_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?tagging"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1168,15 +1409,28 @@ defmodule AWS.S3 do
   [GetBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketWebsite.html)     *
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
   """
-  def delete_bucket_website(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?website"
+  def delete_bucket_website(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?website"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1210,41 +1464,46 @@ defmodule AWS.S3 do
     *
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
   """
-  def delete_object(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def delete_object(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"MFA", "x-amz-mfa"},
-        {"RequestPayer", "x-amz-request-payer"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-delete-marker", "DeleteMarker"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-version-id", "VersionId"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-delete-marker", "DeleteMarker"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-version-id", "VersionId"}
+        ]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1265,36 +1524,39 @@ defmodule AWS.S3 do
   [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)     *
   [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
   """
-  def delete_object_tagging(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+  def delete_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :delete, path_, query_, headers, input, options, 204) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-version-id", "VersionId"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-version-id", "VersionId"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1343,35 +1605,38 @@ defmodule AWS.S3 do
     *
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
   """
-  def delete_objects(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?delete"
+  def delete_objects(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?delete"
+
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"MFA", "x-amz-mfa"},
-        {"RequestPayer", "x-amz-request-payer"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1393,15 +1658,28 @@ defmodule AWS.S3 do
     *
   [GetBucketPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
   """
-  def delete_public_access_block(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?publicAccessBlock"
+  def delete_public_access_block(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?publicAccessBlock"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1436,16 +1714,35 @@ defmodule AWS.S3 do
     *
   [PutBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html)
   """
-  def get_bucket_accelerate_configuration(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?accelerate"
+  def get_bucket_accelerate_configuration(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?accelerate"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1461,16 +1758,30 @@ defmodule AWS.S3 do
     *
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
   """
-  def get_bucket_acl(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?acl"
+  def get_bucket_acl(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?acl"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1497,21 +1808,43 @@ defmodule AWS.S3 do
     *
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
   """
-  def get_bucket_analytics_configuration(client, bucket, id, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?analytics"
+  def get_bucket_analytics_configuration(
+        %Client{} = client,
+        bucket,
+        id,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?analytics"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(id) do
-      [{"id", id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1529,16 +1862,30 @@ defmodule AWS.S3 do
   [PutBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)     *
   [DeleteBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
   """
-  def get_bucket_cors(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?cors"
+  def get_bucket_cors(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?cors"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1559,16 +1906,88 @@ defmodule AWS.S3 do
   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)     *
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
   """
-  def get_bucket_encryption(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?encryption"
+  def get_bucket_encryption(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?encryption"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the S3 Intelligent-Tiering configuration from the specified bucket.
+
+  The S3 Intelligent-Tiering storage class is designed to optimize storage costs
+  by automatically moving data to the most cost-effective storage access tier,
+  without additional operational overhead. S3 Intelligent-Tiering delivers
+  automatic cost savings by moving data between access tiers, when access patterns
+  change.
+
+  The S3 Intelligent-Tiering storage class is suitable for objects larger than 128
+  KB that you plan to store for at least 30 days. If the size of an object is less
+  than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored,
+  but they are always charged at the frequent access tier rates in the S3
+  Intelligent-Tiering storage class.
+
+  If you delete an object before the end of the 30-day minimum storage duration
+  period, you are charged for 30 days. For more information, see [Storage class for automatically optimizing frequently and infrequently accessed
+  objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
+
+  Operations related to `GetBucketIntelligentTieringConfiguration` include:
+
+    *
+  [DeleteBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketIntelligentTieringConfiguration.html)     *
+  [PutBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketIntelligentTieringConfiguration.html)
+
+    *
+  [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
+  """
+  def get_bucket_intelligent_tiering_configuration(%Client{} = client, bucket, id, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?intelligent-tiering"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1592,21 +2011,43 @@ defmodule AWS.S3 do
     *
   [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
   """
-  def get_bucket_inventory_configuration(client, bucket, id, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?inventory"
+  def get_bucket_inventory_configuration(
+        %Client{} = client,
+        bucket,
+        id,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?inventory"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(id) do
-      [{"id", id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1645,16 +2086,35 @@ defmodule AWS.S3 do
     *
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
   """
-  def get_bucket_lifecycle(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?lifecycle"
+  def get_bucket_lifecycle(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?lifecycle"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1696,16 +2156,35 @@ defmodule AWS.S3 do
     *
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
   """
-  def get_bucket_lifecycle_configuration(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?lifecycle"
+  def get_bucket_lifecycle_configuration(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?lifecycle"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1723,16 +2202,30 @@ defmodule AWS.S3 do
     *
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
-  def get_bucket_location(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?location"
+  def get_bucket_location(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?location"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1747,16 +2240,30 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)     *
   [PutBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html)
   """
-  def get_bucket_logging(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?logging"
+  def get_bucket_logging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?logging"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1784,37 +2291,78 @@ defmodule AWS.S3 do
   [ListBucketMetricsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html)     * [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
   """
-  def get_bucket_metrics_configuration(client, bucket, id, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?metrics"
+  def get_bucket_metrics_configuration(
+        %Client{} = client,
+        bucket,
+        id,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?metrics"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(id) do
-      [{"id", id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   No longer used, see
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html).
   """
-  def get_bucket_notification(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?notification"
+  def get_bucket_notification(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?notification"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1837,16 +2385,35 @@ defmodule AWS.S3 do
     *
   [PutBucketNotification](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html)
   """
-  def get_bucket_notification_configuration(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?notification"
+  def get_bucket_notification_configuration(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?notification"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1864,16 +2431,35 @@ defmodule AWS.S3 do
 
     * `DeleteBucketOwnershipControls`
   """
-  def get_bucket_ownership_controls(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?ownershipControls"
+  def get_bucket_ownership_controls(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?ownershipControls"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1900,16 +2486,30 @@ defmodule AWS.S3 do
     *
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
-  def get_bucket_policy(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?policy"
+  def get_bucket_policy(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?policy"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1934,16 +2534,35 @@ defmodule AWS.S3 do
     *
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
   """
-  def get_bucket_policy_status(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?policyStatus"
+  def get_bucket_policy_status(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?policyStatus"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1974,16 +2593,35 @@ defmodule AWS.S3 do
   [PutBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html)     *
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
   """
-  def get_bucket_replication(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?replication"
+  def get_bucket_replication(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?replication"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1997,16 +2635,35 @@ defmodule AWS.S3 do
     *
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
   """
-  def get_bucket_request_payment(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?requestPayment"
+  def get_bucket_request_payment(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?requestPayment"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2029,16 +2686,30 @@ defmodule AWS.S3 do
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)     *
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
   """
-  def get_bucket_tagging(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?tagging"
+  def get_bucket_tagging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?tagging"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2059,16 +2730,35 @@ defmodule AWS.S3 do
     *
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  def get_bucket_versioning(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?versioning"
+  def get_bucket_versioning(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?versioning"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2089,16 +2779,30 @@ defmodule AWS.S3 do
   [DeleteBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketWebsite.html)     *
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
   """
-  def get_bucket_website(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?website"
+  def get_bucket_website(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?website"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2126,9 +2830,10 @@ defmodule AWS.S3 do
   To distribute large files to many people, you can save bandwidth costs by using
   BitTorrent. For more information, see [Amazon S3 Torrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html). For
   more information about returning the ACL of an object, see
-  [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html).  If the object you are retrieving is stored in the GLACIER or DEEP_ARCHIVE
-  storage classes, before you can retrieve the object you must first restore a
-  copy using
+  [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html).  If the object you are retrieving is stored in the S3 Glacier or S3 Glacier Deep
+  Archive storage class, or S3 Intelligent-Tiering Archive or S3
+  Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you
+  must first restore a copy using
   [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html).
   Otherwise, this operation returns an `InvalidObjectStateError` error. For
   information about restoring archived objects, see [Restoring Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html).
@@ -2234,146 +2939,209 @@ defmodule AWS.S3 do
   [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)     *
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
   """
-  def get_object(client, bucket, key, part_number \\ nil, response_cache_control \\ nil, response_content_disposition \\ nil, response_content_encoding \\ nil, response_content_language \\ nil, response_content_type \\ nil, response_expires \\ nil, version_id \\ nil, expected_bucket_owner \\ nil, if_match \\ nil, if_modified_since \\ nil, if_none_match \\ nil, if_unmodified_since \\ nil, range \\ nil, request_payer \\ nil, s_s_e_customer_algorithm \\ nil, s_s_e_customer_key \\ nil, s_s_e_customer_key_m_d5 \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def get_object(
+        %Client{} = client,
+        bucket,
+        key,
+        part_number \\ nil,
+        response_cache_control \\ nil,
+        response_content_disposition \\ nil,
+        response_content_encoding \\ nil,
+        response_content_language \\ nil,
+        response_content_type \\ nil,
+        response_expires \\ nil,
+        version_id \\ nil,
+        expected_bucket_owner \\ nil,
+        if_match \\ nil,
+        if_modified_since \\ nil,
+        if_none_match \\ nil,
+        if_unmodified_since \\ nil,
+        range \\ nil,
+        request_payer \\ nil,
+        s_s_e_customer_algorithm \\ nil,
+        s_s_e_customer_key \\ nil,
+        s_s_e_customer_key_m_d5 \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(if_match) do
-      [{"If-Match", if_match} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(if_modified_since) do
-      [{"If-Modified-Since", if_modified_since} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(if_none_match) do
-      [{"If-None-Match", if_none_match} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(if_unmodified_since) do
-      [{"If-Unmodified-Since", if_unmodified_since} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(range) do
-      [{"Range", range} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(request_payer) do
-      [{"x-amz-request-payer", request_payer} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(s_s_e_customer_algorithm) do
-      [{"x-amz-server-side-encryption-customer-algorithm", s_s_e_customer_algorithm} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(s_s_e_customer_key) do
-      [{"x-amz-server-side-encryption-customer-key", s_s_e_customer_key} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(s_s_e_customer_key_m_d5) do
-      [{"x-amz-server-side-encryption-customer-key-MD5", s_s_e_customer_key_m_d5} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(version_id) do
-      [{"versionId", version_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(response_expires) do
-      [{"response-expires", response_expires} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(response_content_type) do
-      [{"response-content-type", response_content_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(response_content_language) do
-      [{"response-content-language", response_content_language} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(response_content_encoding) do
-      [{"response-content-encoding", response_content_encoding} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(response_content_disposition) do
-      [{"response-content-disposition", response_content_disposition} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(response_cache_control) do
-      [{"response-cache-control", response_cache_control} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(part_number) do
-      [{"partNumber", part_number} | query_]
-    else
-      query_
-    end
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"accept-ranges", "AcceptRanges"},
-            {"Cache-Control", "CacheControl"},
-            {"Content-Disposition", "ContentDisposition"},
-            {"Content-Encoding", "ContentEncoding"},
-            {"Content-Language", "ContentLanguage"},
-            {"Content-Length", "ContentLength"},
-            {"Content-Range", "ContentRange"},
-            {"Content-Type", "ContentType"},
-            {"x-amz-delete-marker", "DeleteMarker"},
-            {"ETag", "ETag"},
-            {"x-amz-expiration", "Expiration"},
-            {"Expires", "Expires"},
-            {"Last-Modified", "LastModified"},
-            {"x-amz-missing-meta", "MissingMeta"},
-            {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
-            {"x-amz-object-lock-mode", "ObjectLockMode"},
-            {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
-            {"x-amz-mp-parts-count", "PartsCount"},
-            {"x-amz-replication-status", "ReplicationStatus"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-restore", "Restore"},
-            {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-            {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-            {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-            {"x-amz-server-side-encryption", "ServerSideEncryption"},
-            {"x-amz-storage-class", "StorageClass"},
-            {"x-amz-tagging-count", "TagCount"},
-            {"x-amz-version-id", "VersionId"},
-            {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
 
-        {:ok, body, response}
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
 
-      result ->
-        result
-    end
+    headers =
+      if !is_nil(if_match) do
+        [{"If-Match", if_match} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(if_modified_since) do
+        [{"If-Modified-Since", if_modified_since} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(if_none_match) do
+        [{"If-None-Match", if_none_match} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(if_unmodified_since) do
+        [{"If-Unmodified-Since", if_unmodified_since} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(range) do
+        [{"Range", range} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(s_s_e_customer_algorithm) do
+        [{"x-amz-server-side-encryption-customer-algorithm", s_s_e_customer_algorithm} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(s_s_e_customer_key) do
+        [{"x-amz-server-side-encryption-customer-key", s_s_e_customer_key} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(s_s_e_customer_key_m_d5) do
+        [{"x-amz-server-side-encryption-customer-key-MD5", s_s_e_customer_key_m_d5} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_expires) do
+        [{"response-expires", response_expires} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_content_type) do
+        [{"response-content-type", response_content_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_content_language) do
+        [{"response-content-language", response_content_language} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_content_encoding) do
+        [{"response-content-encoding", response_content_encoding} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_content_disposition) do
+        [{"response-content-disposition", response_content_disposition} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(response_cache_control) do
+        [{"response-cache-control", response_cache_control} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(part_number) do
+        [{"partNumber", part_number} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"accept-ranges", "AcceptRanges"},
+          {"Cache-Control", "CacheControl"},
+          {"Content-Disposition", "ContentDisposition"},
+          {"Content-Encoding", "ContentEncoding"},
+          {"Content-Language", "ContentLanguage"},
+          {"Content-Length", "ContentLength"},
+          {"Content-Range", "ContentRange"},
+          {"Content-Type", "ContentType"},
+          {"x-amz-delete-marker", "DeleteMarker"},
+          {"ETag", "ETag"},
+          {"x-amz-expiration", "Expiration"},
+          {"Expires", "Expires"},
+          {"Last-Modified", "LastModified"},
+          {"x-amz-missing-meta", "MissingMeta"},
+          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
+          {"x-amz-object-lock-mode", "ObjectLockMode"},
+          {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
+          {"x-amz-mp-parts-count", "PartsCount"},
+          {"x-amz-replication-status", "ReplicationStatus"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-restore", "Restore"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-tagging-count", "TagCount"},
+          {"x-amz-version-id", "VersionId"},
+          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2398,43 +3166,59 @@ defmodule AWS.S3 do
     *
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
   """
-  def get_object_acl(client, bucket, key, version_id \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
+  def get_object_acl(
+        %Client{} = client,
+        bucket,
+        key,
+        version_id \\ nil,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(request_payer) do
-      [{"x-amz-request-payer", request_payer} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(version_id) do
-      [{"versionId", version_id} | query_]
-    else
-      query_
-    end
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
 
-        {:ok, body, response}
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
 
-      result ->
-        result
-    end
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2444,26 +3228,52 @@ defmodule AWS.S3 do
 
   This action is not supported by Amazon S3 on Outposts.
   """
-  def get_object_legal_hold(client, bucket, key, version_id \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
+  def get_object_legal_hold(
+        %Client{} = client,
+        bucket,
+        key,
+        version_id \\ nil,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(request_payer) do
-      [{"x-amz-request-payer", request_payer} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(version_id) do
-      [{"versionId", version_id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2473,16 +3283,35 @@ defmodule AWS.S3 do
   to every new object placed in the specified bucket. For more information, see
   [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
   """
-  def get_object_lock_configuration(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?object-lock"
+  def get_object_lock_configuration(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?object-lock"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2492,26 +3321,52 @@ defmodule AWS.S3 do
 
   This action is not supported by Amazon S3 on Outposts.
   """
-  def get_object_retention(client, bucket, key, version_id \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
+  def get_object_retention(
+        %Client{} = client,
+        bucket,
+        key,
+        version_id \\ nil,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(request_payer) do
-      [{"x-amz-request-payer", request_payer} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(version_id) do
-      [{"versionId", version_id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2537,38 +3392,51 @@ defmodule AWS.S3 do
     *
   [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
   """
-  def get_object_tagging(client, bucket, key, version_id \\ nil, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+  def get_object_tagging(
+        %Client{} = client,
+        bucket,
+        key,
+        version_id \\ nil,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(version_id) do
-      [{"versionId", version_id} | query_]
-    else
-      query_
-    end
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-version-id", "VersionId"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
 
-        {:ok, body, response}
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
 
-      result ->
-        result
-    end
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-version-id", "VersionId"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2590,38 +3458,51 @@ defmodule AWS.S3 do
     *
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
-  def get_object_torrent(client, bucket, key, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?torrent"
+  def get_object_torrent(
+        %Client{} = client,
+        bucket,
+        key,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?torrent"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(request_payer) do
-      [{"x-amz-request-payer", request_payer} | headers]
-    else
-      headers
-    end
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
 
-        {:ok, body, response}
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
 
-      result ->
-        result
-    end
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2652,16 +3533,35 @@ defmodule AWS.S3 do
     *
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html)
   """
-  def get_public_access_block(client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?publicAccessBlock"
+  def get_public_access_block(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?publicAccessBlock"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2678,15 +3578,28 @@ defmodule AWS.S3 do
   Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
   """
-  def head_bucket(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}"
+  def head_bucket(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :head, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :head,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2762,8 +3675,9 @@ defmodule AWS.S3 do
     *
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
-  def head_object(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def head_object(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+
     {headers, input} =
       [
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
@@ -2775,59 +3689,64 @@ defmodule AWS.S3 do
         {"RequestPayer", "x-amz-request-payer"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
-        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
+        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
         {"PartNumber", "partNumber"},
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :head, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"accept-ranges", "AcceptRanges"},
-            {"Cache-Control", "CacheControl"},
-            {"Content-Disposition", "ContentDisposition"},
-            {"Content-Encoding", "ContentEncoding"},
-            {"Content-Language", "ContentLanguage"},
-            {"Content-Length", "ContentLength"},
-            {"Content-Type", "ContentType"},
-            {"x-amz-delete-marker", "DeleteMarker"},
-            {"ETag", "ETag"},
-            {"x-amz-expiration", "Expiration"},
-            {"Expires", "Expires"},
-            {"Last-Modified", "LastModified"},
-            {"x-amz-missing-meta", "MissingMeta"},
-            {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
-            {"x-amz-object-lock-mode", "ObjectLockMode"},
-            {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
-            {"x-amz-mp-parts-count", "PartsCount"},
-            {"x-amz-replication-status", "ReplicationStatus"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-restore", "Restore"},
-            {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-            {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-            {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-            {"x-amz-server-side-encryption", "ServerSideEncryption"},
-            {"x-amz-storage-class", "StorageClass"},
-            {"x-amz-version-id", "VersionId"},
-            {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"accept-ranges", "AcceptRanges"},
+          {"x-amz-archive-status", "ArchiveStatus"},
+          {"Cache-Control", "CacheControl"},
+          {"Content-Disposition", "ContentDisposition"},
+          {"Content-Encoding", "ContentEncoding"},
+          {"Content-Language", "ContentLanguage"},
+          {"Content-Length", "ContentLength"},
+          {"Content-Type", "ContentType"},
+          {"x-amz-delete-marker", "DeleteMarker"},
+          {"ETag", "ETag"},
+          {"x-amz-expiration", "Expiration"},
+          {"Expires", "Expires"},
+          {"Last-Modified", "LastModified"},
+          {"x-amz-missing-meta", "MissingMeta"},
+          {"x-amz-object-lock-legal-hold", "ObjectLockLegalHoldStatus"},
+          {"x-amz-object-lock-mode", "ObjectLockMode"},
+          {"x-amz-object-lock-retain-until-date", "ObjectLockRetainUntilDate"},
+          {"x-amz-mp-parts-count", "PartsCount"},
+          {"x-amz-replication-status", "ReplicationStatus"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-restore", "Restore"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-version-id", "VersionId"},
+          {"x-amz-website-redirect-location", "WebsiteRedirectLocation"}
+        ]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :head,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2861,21 +3780,101 @@ defmodule AWS.S3 do
     *
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
   """
-  def list_bucket_analytics_configurations(client, bucket, continuation_token \\ nil, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?analytics"
+  def list_bucket_analytics_configurations(
+        %Client{} = client,
+        bucket,
+        continuation_token \\ nil,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?analytics"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(continuation_token) do
-      [{"continuation-token", continuation_token} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the S3 Intelligent-Tiering configuration from the specified bucket.
+
+  The S3 Intelligent-Tiering storage class is designed to optimize storage costs
+  by automatically moving data to the most cost-effective storage access tier,
+  without additional operational overhead. S3 Intelligent-Tiering delivers
+  automatic cost savings by moving data between access tiers, when access patterns
+  change.
+
+  The S3 Intelligent-Tiering storage class is suitable for objects larger than 128
+  KB that you plan to store for at least 30 days. If the size of an object is less
+  than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored,
+  but they are always charged at the frequent access tier rates in the S3
+  Intelligent-Tiering storage class.
+
+  If you delete an object before the end of the 30-day minimum storage duration
+  period, you are charged for 30 days. For more information, see [Storage class for automatically optimizing frequently and infrequently accessed
+  objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
+
+  Operations related to `ListBucketIntelligentTieringConfigurations` include:
+
+    *
+  [DeleteBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketIntelligentTieringConfiguration.html)     *
+  [PutBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketIntelligentTieringConfiguration.html)
+
+    *
+  [GetBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html)
+  """
+  def list_bucket_intelligent_tiering_configurations(
+        %Client{} = client,
+        bucket,
+        continuation_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?intelligent-tiering"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2908,21 +3907,43 @@ defmodule AWS.S3 do
     *
   [PutBucketInventoryConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html)
   """
-  def list_bucket_inventory_configurations(client, bucket, continuation_token \\ nil, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?inventory"
+  def list_bucket_inventory_configurations(
+        %Client{} = client,
+        bucket,
+        continuation_token \\ nil,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?inventory"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(continuation_token) do
-      [{"continuation-token", continuation_token} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2958,31 +3979,64 @@ defmodule AWS.S3 do
     *
   [DeleteBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html)
   """
-  def list_bucket_metrics_configurations(client, bucket, continuation_token \\ nil, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?metrics"
+  def list_bucket_metrics_configurations(
+        %Client{} = client,
+        bucket,
+        continuation_token \\ nil,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?metrics"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(continuation_token) do
-      [{"continuation-token", continuation_token} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a list of all buckets owned by the authenticated sender of the request.
   """
-  def list_buckets(client, options \\ []) do
-    path_ = "/"
+  def list_buckets(%Client{} = client, options \\ []) do
+    url_path = "/"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3025,46 +4079,83 @@ defmodule AWS.S3 do
     *
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
   """
-  def list_multipart_uploads(client, bucket, delimiter \\ nil, encoding_type \\ nil, key_marker \\ nil, max_uploads \\ nil, prefix \\ nil, upload_id_marker \\ nil, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?uploads"
+  def list_multipart_uploads(
+        %Client{} = client,
+        bucket,
+        delimiter \\ nil,
+        encoding_type \\ nil,
+        key_marker \\ nil,
+        max_uploads \\ nil,
+        prefix \\ nil,
+        upload_id_marker \\ nil,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?uploads"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(upload_id_marker) do
-      [{"upload-id-marker", upload_id_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(prefix) do
-      [{"prefix", prefix} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_uploads) do
-      [{"max-uploads", max_uploads} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(key_marker) do
-      [{"key-marker", key_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(encoding_type) do
-      [{"encoding-type", encoding_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(delimiter) do
-      [{"delimiter", delimiter} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(upload_id_marker) do
+        [{"upload-id-marker", upload_id_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_uploads) do
+        [{"max-uploads", max_uploads} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(key_marker) do
+        [{"key-marker", key_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(encoding_type) do
+        [{"encoding-type", encoding_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(delimiter) do
+        [{"delimiter", delimiter} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3090,46 +4181,83 @@ defmodule AWS.S3 do
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)     *
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  def list_object_versions(client, bucket, delimiter \\ nil, encoding_type \\ nil, key_marker \\ nil, max_keys \\ nil, prefix \\ nil, version_id_marker \\ nil, expected_bucket_owner \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?versions"
+  def list_object_versions(
+        %Client{} = client,
+        bucket,
+        delimiter \\ nil,
+        encoding_type \\ nil,
+        key_marker \\ nil,
+        max_keys \\ nil,
+        prefix \\ nil,
+        version_id_marker \\ nil,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?versions"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(version_id_marker) do
-      [{"version-id-marker", version_id_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(prefix) do
-      [{"prefix", prefix} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_keys) do
-      [{"max-keys", max_keys} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(key_marker) do
-      [{"key-marker", key_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(encoding_type) do
-      [{"encoding-type", encoding_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(delimiter) do
-      [{"delimiter", delimiter} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id_marker) do
+        [{"version-id-marker", version_id_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_keys) do
+        [{"max-keys", max_keys} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(key_marker) do
+        [{"key-marker", key_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(encoding_type) do
+        [{"encoding-type", encoding_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(delimiter) do
+        [{"delimiter", delimiter} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3157,46 +4285,83 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)     *
   [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
   """
-  def list_objects(client, bucket, delimiter \\ nil, encoding_type \\ nil, marker \\ nil, max_keys \\ nil, prefix \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}"
+  def list_objects(
+        %Client{} = client,
+        bucket,
+        delimiter \\ nil,
+        encoding_type \\ nil,
+        marker \\ nil,
+        max_keys \\ nil,
+        prefix \\ nil,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(request_payer) do
-      [{"x-amz-request-payer", request_payer} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(prefix) do
-      [{"prefix", prefix} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_keys) do
-      [{"max-keys", max_keys} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(encoding_type) do
-      [{"encoding-type", encoding_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(delimiter) do
-      [{"delimiter", delimiter} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_keys) do
+        [{"max-keys", max_keys} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(encoding_type) do
+        [{"encoding-type", encoding_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(delimiter) do
+        [{"delimiter", delimiter} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3231,56 +4396,99 @@ defmodule AWS.S3 do
     *
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
-  def list_objects_v2(client, bucket, continuation_token \\ nil, delimiter \\ nil, encoding_type \\ nil, fetch_owner \\ nil, max_keys \\ nil, prefix \\ nil, start_after \\ nil, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?list-type=2"
+  def list_objects_v2(
+        %Client{} = client,
+        bucket,
+        continuation_token \\ nil,
+        delimiter \\ nil,
+        encoding_type \\ nil,
+        fetch_owner \\ nil,
+        max_keys \\ nil,
+        prefix \\ nil,
+        start_after \\ nil,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?list-type=2"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(request_payer) do
-      [{"x-amz-request-payer", request_payer} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(start_after) do
-      [{"start-after", start_after} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(prefix) do
-      [{"prefix", prefix} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_keys) do
-      [{"max-keys", max_keys} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(fetch_owner) do
-      [{"fetch-owner", fetch_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(encoding_type) do
-      [{"encoding-type", encoding_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(delimiter) do
-      [{"delimiter", delimiter} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(continuation_token) do
-      [{"continuation-token", continuation_token} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(start_after) do
+        [{"start-after", start_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_keys) do
+        [{"max-keys", max_keys} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(fetch_owner) do
+        [{"fetch-owner", fetch_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(encoding_type) do
+        [{"encoding-type", encoding_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(delimiter) do
+        [{"delimiter", delimiter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3316,55 +4524,79 @@ defmodule AWS.S3 do
     *
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
-  def list_parts(client, bucket, key, max_parts \\ nil, part_number_marker \\ nil, upload_id, expected_bucket_owner \\ nil, request_payer \\ nil, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def list_parts(
+        %Client{} = client,
+        bucket,
+        key,
+        max_parts \\ nil,
+        part_number_marker \\ nil,
+        upload_id,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
     headers = []
-    headers = if !is_nil(expected_bucket_owner) do
-      [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(request_payer) do
-      [{"x-amz-request-payer", request_payer} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(upload_id) do
-      [{"uploadId", upload_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(part_number_marker) do
-      [{"part-number-marker", part_number_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_parts) do
-      [{"max-parts", max_parts} | query_]
-    else
-      query_
-    end
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-abort-date", "AbortDate"},
-            {"x-amz-abort-rule-id", "AbortRuleId"},
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
 
-        {:ok, body, response}
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
 
-      result ->
-        result
-    end
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(upload_id) do
+        [{"uploadId", upload_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(part_number_marker) do
+        [{"part-number-marker", part_number_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_parts) do
+        [{"max-parts", max_parts} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-abort-date", "AbortDate"},
+          {"x-amz-abort-rule-id", "AbortRuleId"},
+          {"x-amz-request-charged", "RequestCharged"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3404,15 +4636,28 @@ defmodule AWS.S3 do
   [GetBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html)     *
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
-  def put_bucket_accelerate_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?accelerate"
+  def put_bucket_accelerate_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?accelerate"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3556,8 +4801,9 @@ defmodule AWS.S3 do
     *
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
   """
-  def put_bucket_acl(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?acl"
+  def put_bucket_acl(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?acl"
+
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -3567,11 +4813,23 @@ defmodule AWS.S3 do
         {"GrantRead", "x-amz-grant-read"},
         {"GrantReadACP", "x-amz-grant-read-acp"},
         {"GrantWrite", "x-amz-grant-write"},
-        {"GrantWriteACP", "x-amz-grant-write-acp"},
+        {"GrantWriteACP", "x-amz-grant-write-acp"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3632,19 +4890,32 @@ defmodule AWS.S3 do
     *
   [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html)
   """
-  def put_bucket_analytics_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?analytics"
+  def put_bucket_analytics_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?analytics"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"Id", "id"},
+        {"Id", "id"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3692,16 +4963,29 @@ defmodule AWS.S3 do
     *
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
   """
-  def put_bucket_cors(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?cors"
+  def put_bucket_cors(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?cors"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3730,16 +5014,85 @@ defmodule AWS.S3 do
   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)     *
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
   """
-  def put_bucket_encryption(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?encryption"
+  def put_bucket_encryption(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?encryption"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Puts a S3 Intelligent-Tiering configuration to the specified bucket.
+
+  The S3 Intelligent-Tiering storage class is designed to optimize storage costs
+  by automatically moving data to the most cost-effective storage access tier,
+  without additional operational overhead. S3 Intelligent-Tiering delivers
+  automatic cost savings by moving data between access tiers, when access patterns
+  change.
+
+  The S3 Intelligent-Tiering storage class is suitable for objects larger than 128
+  KB that you plan to store for at least 30 days. If the size of an object is less
+  than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored,
+  but they are always charged at the frequent access tier rates in the S3
+  Intelligent-Tiering storage class.
+
+  If you delete an object before the end of the 30-day minimum storage duration
+  period, you are charged for 30 days. For more information, see [Storage class for automatically optimizing frequently and infrequently accessed
+  objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
+
+  Operations related to `PutBucketIntelligentTieringConfiguration` include:
+
+    *
+  [DeleteBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketIntelligentTieringConfiguration.html)     *
+  [GetBucketIntelligentTieringConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html)
+
+    *
+  [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
+  """
+  def put_bucket_intelligent_tiering_configuration(
+        %Client{} = client,
+        bucket,
+        input,
+        options \\ []
+      ) do
+    url_path = "/#{URI.encode(bucket)}?intelligent-tiering"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Id", "id"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3805,19 +5158,32 @@ defmodule AWS.S3 do
     *
   [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
   """
-  def put_bucket_inventory_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?inventory"
+  def put_bucket_inventory_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?inventory"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"Id", "id"},
+        {"Id", "id"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3874,16 +5240,29 @@ defmodule AWS.S3 do
 
       * [Managing Access Permissions to your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
   """
-  def put_bucket_lifecycle(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?lifecycle"
+  def put_bucket_lifecycle(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?lifecycle"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3953,15 +5332,28 @@ defmodule AWS.S3 do
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)     *
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
   """
-  def put_bucket_lifecycle_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?lifecycle"
+  def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?lifecycle"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4022,16 +5414,29 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)     *
   [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html)
   """
-  def put_bucket_logging(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?logging"
+  def put_bucket_logging(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?logging"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4070,19 +5475,32 @@ defmodule AWS.S3 do
 
       * HTTP Status Code: HTTP 400 Bad Request
   """
-  def put_bucket_metrics_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?metrics"
+  def put_bucket_metrics_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?metrics"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"Id", "id"},
+        {"Id", "id"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4090,16 +5508,29 @@ defmodule AWS.S3 do
   [PutBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html)
   operation.
   """
-  def put_bucket_notification(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?notification"
+  def put_bucket_notification(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?notification"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4156,42 +5587,68 @@ defmodule AWS.S3 do
     *
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
   """
-  def put_bucket_notification_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?notification"
+  def put_bucket_notification_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?notification"
+
     {headers, input} =
       [
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates or modifies `OwnershipControls` for an Amazon S3 bucket.
 
-  To use this operation, you must have the `s3:GetBucketOwnershipControls`
+  To use this operation, you must have the `s3:PutBucketOwnershipControls`
   permission. For more information about Amazon S3 permissions, see [Specifying Permissions in a
   Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
   For information about Amazon S3 Object Ownership, see [Using Object Ownership](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
 
-  The following operations are related to `GetBucketOwnershipControls`:
+  The following operations are related to `PutBucketOwnershipControls`:
 
     * `GetBucketOwnershipControls`
 
     * `DeleteBucketOwnershipControls`
   """
-  def put_bucket_ownership_controls(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?ownershipControls"
+  def put_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?ownershipControls"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4219,17 +5676,30 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)     *
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
   """
-  def put_bucket_policy(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?policy"
+  def put_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?policy"
+
     {headers, input} =
       [
         {"ConfirmRemoveSelfBucketAccess", "x-amz-confirm-remove-self-bucket-access"},
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4260,13 +5730,9 @@ defmodule AWS.S3 do
   you add the Filter element in the configuration, you must also add the following
   elements: `DeleteMarkerReplication`, `Status`, and `Priority`.
 
-  The latest version of the replication configuration XML is V2. XML V2
-  replication configurations are those that contain the `Filter` element for
-  rules, and rules that specify S3 Replication Time Control (S3 RTC). In XML V2
-  replication configurations, Amazon S3 doesn't replicate delete markers.
-  Therefore, you must set the `DeleteMarkerReplication` element to `Disabled`. For
-  backward compatibility, Amazon S3 continues to support the XML V1 replication
-  configuration.
+  If you are using an earlier version of the replication configuration, Amazon S3
+  handles replication of delete markers differently. For more information, see
+  [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
 
   For information about enabling versioning on a bucket, see [Using Versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html).
 
@@ -4294,17 +5760,30 @@ defmodule AWS.S3 do
   [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html)     *
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
   """
-  def put_bucket_replication(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?replication"
+  def put_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?replication"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"Token", "x-amz-bucket-object-lock-token"},
+        {"Token", "x-amz-bucket-object-lock-token"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4321,16 +5800,29 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)     *
   [GetBucketRequestPayment](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html)
   """
-  def put_bucket_request_payment(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?requestPayment"
+  def put_bucket_request_payment(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?requestPayment"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4384,16 +5876,29 @@ defmodule AWS.S3 do
   [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html)     *
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
   """
-  def put_bucket_tagging(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?tagging"
+  def put_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?tagging"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4436,17 +5941,30 @@ defmodule AWS.S3 do
     *
   [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html)
   """
-  def put_bucket_versioning(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?versioning"
+  def put_bucket_versioning(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?versioning"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"MFA", "x-amz-mfa"},
+        {"MFA", "x-amz-mfa"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4518,16 +6036,29 @@ defmodule AWS.S3 do
   information, see [Configuring an Object Redirect](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html)
   in the *Amazon Simple Storage Service Developer Guide*.
   """
-  def put_bucket_website(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?website"
+  def put_bucket_website(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?website"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4598,8 +6129,9 @@ defmodule AWS.S3 do
     *
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  def put_object(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def put_object(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -4628,36 +6160,40 @@ defmodule AWS.S3 do
         {"ServerSideEncryption", "x-amz-server-side-encryption"},
         {"StorageClass", "x-amz-storage-class"},
         {"Tagging", "x-amz-tagging"},
-        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
+        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"x-amz-expiration", "Expiration"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-            {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-            {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
-            {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-            {"x-amz-server-side-encryption", "ServerSideEncryption"},
-            {"x-amz-version-id", "VersionId"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"ETag", "ETag"},
+          {"x-amz-expiration", "Expiration"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-context", "SSEKMSEncryptionContext"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"},
+          {"x-amz-version-id", "VersionId"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4800,8 +6336,9 @@ defmodule AWS.S3 do
   [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html)     *
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
-  def put_object_acl(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
+  def put_object_acl(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
+
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -4812,32 +6349,34 @@ defmodule AWS.S3 do
         {"GrantReadACP", "x-amz-grant-read-acp"},
         {"GrantWrite", "x-amz-grant-write"},
         {"GrantWriteACP", "x-amz-grant-write-acp"},
-        {"RequestPayer", "x-amz-request-payer"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4849,38 +6388,41 @@ defmodule AWS.S3 do
 
     * [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html)
   """
-  def put_object_legal_hold(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
+  def put_object_legal_hold(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"RequestPayer", "x-amz-request-payer"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4896,35 +6438,38 @@ defmodule AWS.S3 do
 
     * [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html)
   """
-  def put_object_lock_configuration(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?object-lock"
+  def put_object_lock_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?object-lock"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
-        {"Token", "x-amz-bucket-object-lock-token"},
+        {"Token", "x-amz-bucket-object-lock-token"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -4936,39 +6481,42 @@ defmodule AWS.S3 do
 
     * [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html)
   """
-  def put_object_retention(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
+  def put_object_retention(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
+
     {headers, input} =
       [
         {"BypassGovernanceRetention", "x-amz-bypass-governance-retention"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"RequestPayer", "x-amz-request-payer"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-request-charged", "RequestCharged"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5017,37 +6565,40 @@ defmodule AWS.S3 do
     *
   [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
   """
-  def put_object_tagging(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+  def put_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-version-id", "VersionId"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-version-id", "VersionId"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5078,16 +6629,29 @@ defmodule AWS.S3 do
   [GetBucketPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)     * [Using Amazon S3 Block Public
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
   """
-  def put_public_access_block(client, bucket, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}?publicAccessBlock"
+  def put_public_access_block(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}?publicAccessBlock"
+
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5187,58 +6751,59 @@ defmodule AWS.S3 do
     * Amazon S3 accepts a select request even if the object has already
   been restored. A select request doesn’t return error response `409`.
 
-  ## Restoring Archives
+  ## Restoring objects
 
-  Objects in the GLACIER and DEEP_ARCHIVE storage classes are archived. To access
-  an archived object, you must first initiate a restore request. This restores a
-  temporary copy of the archived object. In a restore request, you specify the
-  number of days that you want the restored copy to exist. After the specified
-  period, Amazon S3 deletes the temporary copy but the object remains archived in
-  the GLACIER or DEEP_ARCHIVE storage class that object was restored from.
+  Objects that you archive to the S3 Glacier or S3 Glacier Deep Archive storage
+  class, and S3 Intelligent-Tiering Archive or S3 Intelligent-Tiering Deep Archive
+  tiers are not accessible in real time. For objects in Archive Access or Deep
+  Archive Access tiers you must first initiate a restore request, and then wait
+  until the object is moved into the Frequent Access tier. For objects in S3
+  Glacier or S3 Glacier Deep Archive storage classes you must first initiate a
+  restore request, and then wait until a temporary copy of the object is
+  available. To access an archived object, you must restore the object for the
+  duration (number of days) that you specify.
 
   To restore a specific object version, you can provide a version ID. If you don't
   provide a version ID, Amazon S3 restores the current version.
-
-  The time it takes restore jobs to finish depends on which storage class the
-  object is being restored from and which data access tier you specify.
 
   When restoring an archived object (or using a select request), you can specify
   one of the following data access tier options in the `Tier` element of the
   request body:
 
     * ** `Expedited` ** - Expedited retrievals allow you to quickly
-  access your data stored in the GLACIER storage class when occasional urgent
-  requests for a subset of archives are required. For all but the largest archived
-  objects (250 MB+), data accessed using Expedited retrievals are typically made
-  available within 1–5 minutes. Provisioned capacity ensures that retrieval
-  capacity for Expedited retrievals is available when you need it. Expedited
-  retrievals and provisioned capacity are not available for the DEEP_ARCHIVE
-  storage class.
+  access your data stored in the S3 Glacier storage class or S3
+  Intelligent-Tiering Archive tier when occasional urgent requests for a subset of
+  archives are required. For all but the largest archived objects (250 MB+), data
+  accessed using Expedited retrievals is typically made available within 1–5
+  minutes. Provisioned capacity ensures that retrieval capacity for Expedited
+  retrievals is available when you need it. Expedited retrievals and provisioned
+  capacity are not available for objects stored in the S3 Glacier Deep Archive
+  storage class or S3 Intelligent-Tiering Deep Archive tier.
 
-    * ** `Standard` ** - S3 Standard retrievals allow you to access any
-  of your archived objects within several hours. This is the default option for
-  the GLACIER and DEEP_ARCHIVE retrieval requests that do not specify the
-  retrieval option. S3 Standard retrievals typically complete within 3-5 hours
-  from the GLACIER storage class and typically complete within 12 hours from the
-  DEEP_ARCHIVE storage class.
+    * ** `Standard` ** - Standard retrievals allow you to access any of
+  your archived objects within several hours. This is the default option for
+  retrieval requests that do not specify the retrieval option. Standard retrievals
+  typically finish within 3–5 hours for objects stored in the S3 Glacier storage
+  class or S3 Intelligent-Tiering Archive tier. They typically finish within 12
+  hours for objects stored in the S3 Glacier Deep Archive storage class or S3
+  Intelligent-Tiering Deep Archive tier. Standard retrievals are free for objects
+  stored in S3 Intelligent-Tiering.
 
-    * ** `Bulk` ** - Bulk retrievals are Amazon S3 Glacier’s lowest-cost
-  retrieval option, enabling you to retrieve large amounts, even petabytes, of
-  data inexpensively in a day. Bulk retrievals typically complete within 5-12
-  hours from the GLACIER storage class and typically complete within 48 hours from
-  the DEEP_ARCHIVE storage class.
+    * ** `Bulk` ** - Bulk retrievals are the lowest-cost retrieval
+  option in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of
+  data inexpensively. Bulk retrievals typically finish within 5–12 hours for
+  objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
+  tier. They typically finish within 48 hours for objects stored in the S3 Glacier
+  Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Bulk
+  retrievals are free for objects stored in S3 Intelligent-Tiering.
 
   For more information about archive retrieval options and provisioned capacity
   for `Expedited` data access, see [Restoring Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html)
   in the *Amazon Simple Storage Service Developer Guide*.
 
   You can use Amazon S3 restore speed upgrade to change the restore speed to a
-  faster speed while it is in progress. You upgrade the speed of an in-progress
-  restoration by issuing another restore request to the same object, setting a new
-  `Tier` request element. When issuing a request to upgrade the restore tier, you
-  must choose a tier that is faster than the tier that the in-progress restore is
-  using. You must not change any other parameters, such as the `Days` request
-  element. For more information, see [ Upgrading the Speed of an In-Progress Restore](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html#restoring-objects-upgrade-tier.title.html)
+  faster speed while it is in progress. For more information, see [ Upgrading the speed of an in-progress
+  restore](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html#restoring-objects-upgrade-tier.title.html)
   in the *Amazon Simple Storage Service Developer Guide*.
 
   To get the status of object restoration, you can send a `HEAD` request.
@@ -5268,11 +6833,11 @@ defmodule AWS.S3 do
   A successful operation returns either the `200 OK` or `202 Accepted` status
   code.
 
-    * If the object copy is not previously restored, then Amazon S3
-  returns `202 Accepted` in the response.
+    * If the object is not previously restored, then Amazon S3 returns
+  `202 Accepted` in the response.
 
-    * If the object copy is previously restored, Amazon S3 returns `200
-  OK` in the response.
+    * If the object is previously restored, Amazon S3 returns `200 OK`
+  in the response.
 
   ## Special Errors
 
@@ -5288,8 +6853,8 @@ defmodule AWS.S3 do
     *     * *Code:
   GlacierExpeditedRetrievalNotAvailable*
 
-      * *Cause: S3 Glacier expedited retrievals are currently
-  not available. Try again later. (Returned if there is insufficient capacity to
+      * *Cause: expedited retrievals are currently not
+  available. Try again later. (Returned if there is insufficient capacity to
   process the Expedited request. This error applies only to Expedited retrievals
   and not to S3 Standard or Bulk retrievals.)*
 
@@ -5307,38 +6872,43 @@ defmodule AWS.S3 do
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html)
   in the *Amazon Simple Storage Service Developer Guide*
   """
-  def restore_object(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?restore"
+  def restore_object(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?restore"
+
     {headers, input} =
       [
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"RequestPayer", "x-amz-request-payer"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-restore-output-path", "RestoreOutputPath"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-restore-output-path", "RestoreOutputPath"}
+        ]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5438,18 +7008,31 @@ defmodule AWS.S3 do
     *
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
   """
-  def select_object_content(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?select&select-type=2"
+  def select_object_content(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?select&select-type=2"
+
     {headers, input} =
       [
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
-        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
+        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5546,8 +7129,9 @@ defmodule AWS.S3 do
   [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)     *
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
-  def upload_part(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def upload_part(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+
     {headers, input} =
       [
         {"ContentLength", "Content-Length"},
@@ -5556,38 +7140,42 @@ defmodule AWS.S3 do
         {"RequestPayer", "x-amz-request-payer"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
-        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
+        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
         {"PartNumber", "partNumber"},
-        {"UploadId", "uploadId"},
+        {"UploadId", "uploadId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-            {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-            {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-            {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"ETag", "ETag"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+        ]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -5701,8 +7289,9 @@ defmodule AWS.S3 do
   [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)     *
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
-  def upload_part_copy(client, bucket, key, input, options \\ []) do
-    path_ = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+  def upload_part_copy(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+
     {headers, input} =
       [
         {"CopySource", "x-amz-copy-source"},
@@ -5711,109 +7300,51 @@ defmodule AWS.S3 do
         {"CopySourceIfNoneMatch", "x-amz-copy-source-if-none-match"},
         {"CopySourceIfUnmodifiedSince", "x-amz-copy-source-if-unmodified-since"},
         {"CopySourceRange", "x-amz-copy-source-range"},
-        {"CopySourceSSECustomerAlgorithm", "x-amz-copy-source-server-side-encryption-customer-algorithm"},
+        {"CopySourceSSECustomerAlgorithm",
+         "x-amz-copy-source-server-side-encryption-customer-algorithm"},
         {"CopySourceSSECustomerKey", "x-amz-copy-source-server-side-encryption-customer-key"},
-        {"CopySourceSSECustomerKeyMD5", "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
+        {"CopySourceSSECustomerKeyMD5",
+         "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"},
         {"RequestPayer", "x-amz-request-payer"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
-        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
+        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
         {"PartNumber", "partNumber"},
-        {"UploadId", "uploadId"},
+        {"UploadId", "uploadId"}
       ]
-      |> AWS.Request.build_params(input)
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-copy-source-version-id", "CopySourceVersionId"},
-            {"x-amz-request-charged", "RequestCharged"},
-            {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
-            {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
-            {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
-            {"x-amz-server-side-encryption", "ServerSideEncryption"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-copy-source-version-id", "CopySourceVersionId"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
+          {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
+          {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+        ]
+      )
 
-      result ->
-        result
-    end
-  end
-
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "s3"}
-    host = build_host("s3", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :xml) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

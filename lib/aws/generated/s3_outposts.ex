@@ -6,6 +6,25 @@ defmodule AWS.S3Outposts do
   Amazon S3 on Outposts provides access to S3 on Outposts operations.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-07-25",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "s3-outposts",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "S3Outposts",
+      signature_version: "v4",
+      signing_name: "s3-outposts",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   S3 on Outposts access points simplify managing data access at scale for shared
   datasets in Amazon S3 on Outposts.
@@ -21,11 +40,22 @@ defmodule AWS.S3Outposts do
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)     *
   [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
   """
-  def create_endpoint(client, input, options \\ []) do
-    path_ = "/S3Outposts/CreateEndpoint"
+  def create_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/S3Outposts/CreateEndpoint"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -43,16 +73,28 @@ defmodule AWS.S3Outposts do
   [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)     *
   [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
   """
-  def delete_endpoint(client, input, options \\ []) do
-    path_ = "/S3Outposts/DeleteEndpoint"
+  def delete_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/S3Outposts/DeleteEndpoint"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"EndpointId", "endpointId"},
-        {"OutpostId", "outpostId"},
+        {"OutpostId", "outpostId"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -70,84 +112,35 @@ defmodule AWS.S3Outposts do
   [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html)     *
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
   """
-  def list_endpoints(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/S3Outposts/ListEndpoints"
+  def list_endpoints(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/S3Outposts/ListEndpoints"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "s3-outposts"}
-    host = build_host("s3-outposts", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
 
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 end

@@ -21,6 +21,25 @@ defmodule AWS.ACMPCA do
   in the ACM Private CA user guide.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "ACM-PCA",
+      api_version: "2017-08-22",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "acm-pca",
+      global?: false,
+      protocol: "json",
+      service_id: "ACM PCA",
+      signature_version: "v4",
+      signing_name: "acm-pca",
+      target_prefix: "ACMPrivateCA"
+    }
+  end
+
   @doc """
   Creates a root or subordinate private certificate authority (CA).
 
@@ -42,8 +61,8 @@ defmodule AWS.ACMPCA do
   to write to the bucket, then an exception is thrown. For more information, see
   [Configure Access to ACM Private CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html).
   """
-  def create_certificate_authority(client, input, options \\ []) do
-    request(client, "CreateCertificateAuthority", input, options)
+  def create_certificate_authority(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCertificateAuthority", input, options)
   end
 
   @doc """
@@ -62,8 +81,14 @@ defmodule AWS.ACMPCA do
   ACM Private CAA assets that are stored in Amazon S3 can be protected with
   encryption. For more information, see [Encrypting Your Audit Reports](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption).
   """
-  def create_certificate_authority_audit_report(client, input, options \\ []) do
-    request(client, "CreateCertificateAuthorityAuditReport", input, options)
+  def create_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateCertificateAuthorityAuditReport",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -92,8 +117,8 @@ defmodule AWS.ACMPCA do
   the ACM certificate owner must set up a resource-based policy to enable
   cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
   """
-  def create_permission(client, input, options \\ []) do
-    request(client, "CreatePermission", input, options)
+  def create_permission(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePermission", input, options)
   end
 
   @doc """
@@ -127,8 +152,8 @@ defmodule AWS.ACMPCA do
   [RestoreCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RestoreCertificateAuthority.html)
   action.
   """
-  def delete_certificate_authority(client, input, options \\ []) do
-    request(client, "DeleteCertificateAuthority", input, options)
+  def delete_certificate_authority(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCertificateAuthority", input, options)
   end
 
   @doc """
@@ -158,8 +183,8 @@ defmodule AWS.ACMPCA do
   the ACM certificate owner must set up a resource-based policy to enable
   cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
   """
-  def delete_permission(client, input, options \\ []) do
-    request(client, "DeletePermission", input, options)
+  def delete_permission(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePermission", input, options)
   end
 
   @doc """
@@ -195,8 +220,8 @@ defmodule AWS.ACMPCA do
     * Updates made in AWS Resource Manager (RAM) are reflected in
   policies. For more information, see [Using AWS Resource Access Manager (RAM) with ACM Private CA](acm-pca/latest/userguide/pca-ram.html).
   """
-  def delete_policy(client, input, options \\ []) do
-    request(client, "DeletePolicy", input, options)
+  def delete_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePolicy", input, options)
   end
 
   @doc """
@@ -227,8 +252,8 @@ defmodule AWS.ACMPCA do
   after which it is permanently deleted. The length of time remaining in the CA's
   restoration period is also included in this action's output.
   """
-  def describe_certificate_authority(client, input, options \\ []) do
-    request(client, "DescribeCertificateAuthority", input, options)
+  def describe_certificate_authority(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCertificateAuthority", input, options)
   end
 
   @doc """
@@ -242,8 +267,14 @@ defmodule AWS.ACMPCA do
   [RevokeCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html)
   action.
   """
-  def describe_certificate_authority_audit_report(client, input, options \\ []) do
-    request(client, "DescribeCertificateAuthorityAuditReport", input, options)
+  def describe_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeCertificateAuthorityAuditReport",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -258,8 +289,8 @@ defmodule AWS.ACMPCA do
   action to create a report that contains information about all of the
   certificates issued and revoked by your private CA.
   """
-  def get_certificate(client, input, options \\ []) do
-    request(client, "GetCertificate", input, options)
+  def get_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCertificate", input, options)
   end
 
   @doc """
@@ -270,8 +301,8 @@ defmodule AWS.ACMPCA do
   include the CA certificate. Each certificate in the chain signs the one before
   it.
   """
-  def get_certificate_authority_certificate(client, input, options \\ []) do
-    request(client, "GetCertificateAuthorityCertificate", input, options)
+  def get_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCertificateAuthorityCertificate", input, options)
   end
 
   @doc """
@@ -285,8 +316,8 @@ defmodule AWS.ACMPCA do
   [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
   action. The CSR is returned as a base64 PEM-encoded string.
   """
-  def get_certificate_authority_csr(client, input, options \\ []) do
-    request(client, "GetCertificateAuthorityCsr", input, options)
+  def get_certificate_authority_csr(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCertificateAuthorityCsr", input, options)
   end
 
   @doc """
@@ -316,8 +347,8 @@ defmodule AWS.ACMPCA do
     * Updates made in AWS Resource Manager (RAM) are reflected in
   policies. For more information, see [Using AWS Resource Access Manager (RAM) with ACM Private CA](acm-pca/latest/userguide/pca-ram.html).
   """
-  def get_policy(client, input, options \\ []) do
-    request(client, "GetPolicy", input, options)
+  def get_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPolicy", input, options)
   end
 
   @doc """
@@ -408,8 +439,14 @@ defmodule AWS.ACMPCA do
 
     * Any other extension
   """
-  def import_certificate_authority_certificate(client, input, options \\ []) do
-    request(client, "ImportCertificateAuthorityCertificate", input, options)
+  def import_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ImportCertificateAuthorityCertificate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -424,8 +461,8 @@ defmodule AWS.ACMPCA do
   You cannot use the ACM **ListCertificateAuthorities** action to retrieve the
   ARNs of the certificates that you issue by using ACM Private CA.
   """
-  def issue_certificate(client, input, options \\ []) do
-    request(client, "IssueCertificate", input, options)
+  def issue_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "IssueCertificate", input, options)
   end
 
   @doc """
@@ -433,8 +470,8 @@ defmodule AWS.ACMPCA do
   [CreateCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html)
   action.
   """
-  def list_certificate_authorities(client, input, options \\ []) do
-    request(client, "ListCertificateAuthorities", input, options)
+  def list_certificate_authorities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCertificateAuthorities", input, options)
   end
 
   @doc """
@@ -463,8 +500,8 @@ defmodule AWS.ACMPCA do
   the ACM certificate owner must set up a resource-based policy to enable
   cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
   """
-  def list_permissions(client, input, options \\ []) do
-    request(client, "ListPermissions", input, options)
+  def list_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPermissions", input, options)
   end
 
   @doc """
@@ -477,8 +514,8 @@ defmodule AWS.ACMPCA do
   [UntagCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html)
   action to remove tags.
   """
-  def list_tags(client, input, options \\ []) do
-    request(client, "ListTags", input, options)
+  def list_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTags", input, options)
   end
 
   @doc """
@@ -508,8 +545,8 @@ defmodule AWS.ACMPCA do
     * Updates made in AWS Resource Manager (RAM) are reflected in
   policies. For more information, see [Using AWS Resource Access Manager (RAM) with ACM Private CA](acm-pca/latest/userguide/pca-ram.html).
   """
-  def put_policy(client, input, options \\ []) do
-    request(client, "PutPolicy", input, options)
+  def put_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutPolicy", input, options)
   end
 
   @doc """
@@ -533,8 +570,8 @@ defmodule AWS.ACMPCA do
   action to import a certificate authority into the private CA before it can be
   activated. You cannot restore a CA after the restoration period has ended.
   """
-  def restore_certificate_authority(client, input, options \\ []) do
-    request(client, "RestoreCertificateAuthority", input, options)
+  def restore_certificate_authority(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RestoreCertificateAuthority", input, options)
   end
 
   @doc """
@@ -560,8 +597,8 @@ defmodule AWS.ACMPCA do
 
   You cannot revoke a root CA self-signed certificate.
   """
-  def revoke_certificate(client, input, options \\ []) do
-    request(client, "RevokeCertificate", input, options)
+  def revoke_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RevokeCertificate", input, options)
   end
 
   @doc """
@@ -578,8 +615,8 @@ defmodule AWS.ACMPCA do
   [ListTags](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html)
   action to see what tags are associated with your CA.
   """
-  def tag_certificate_authority(client, input, options \\ []) do
-    request(client, "TagCertificateAuthority", input, options)
+  def tag_certificate_authority(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagCertificateAuthority", input, options)
   end
 
   @doc """
@@ -593,8 +630,8 @@ defmodule AWS.ACMPCA do
   [ListTags](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html)
   action to see what tags are associated with your CA.
   """
-  def untag_certificate_authority(client, input, options \\ []) do
-    request(client, "UntagCertificateAuthority", input, options)
+  def untag_certificate_authority(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagCertificateAuthority", input, options)
   end
 
   @doc """
@@ -609,61 +646,7 @@ defmodule AWS.ACMPCA do
   to write to the bucket, then an exception is thrown. For more information, see
   [Configure Access to ACM Private CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html).
   """
-  def update_certificate_authority(client, input, options \\ []) do
-    request(client, "UpdateCertificateAuthority", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "acm-pca"}
-    host = build_host("acm-pca", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "ACMPrivateCA.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_certificate_authority(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCertificateAuthority", input, options)
   end
 end

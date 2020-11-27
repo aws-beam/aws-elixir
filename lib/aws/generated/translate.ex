@@ -7,11 +7,49 @@ defmodule AWS.Translate do
   languages.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-07-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "translate",
+      global?: false,
+      protocol: "json",
+      service_id: "Translate",
+      signature_version: "v4",
+      signing_name: "translate",
+      target_prefix: "AWSShineFrontendService_20170701"
+    }
+  end
+
+  @doc """
+  Creates a parallel data resource in Amazon Translate by importing an input file
+  from Amazon S3.
+
+  Parallel data files contain examples of source phrases and their translations
+  from your translation memory. By adding parallel data, you can influence the
+  style, tone, and word choice in your translation output.
+  """
+  def create_parallel_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateParallelData", input, options)
+  end
+
+  @doc """
+  Deletes a parallel data resource in Amazon Translate.
+  """
+  def delete_parallel_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteParallelData", input, options)
+  end
+
   @doc """
   A synchronous action that deletes a custom terminology.
   """
-  def delete_terminology(client, input, options \\ []) do
-    request(client, "DeleteTerminology", input, options)
+  def delete_terminology(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTerminology", input, options)
   end
 
   @doc """
@@ -19,15 +57,22 @@ defmodule AWS.Translate do
   including name, ID, status, source and target languages, input/output S3
   buckets, and so on.
   """
-  def describe_text_translation_job(client, input, options \\ []) do
-    request(client, "DescribeTextTranslationJob", input, options)
+  def describe_text_translation_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTextTranslationJob", input, options)
+  end
+
+  @doc """
+  Provides information about a parallel data resource.
+  """
+  def get_parallel_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetParallelData", input, options)
   end
 
   @doc """
   Retrieves a custom terminology.
   """
-  def get_terminology(client, input, options \\ []) do
-    request(client, "GetTerminology", input, options)
+  def get_terminology(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTerminology", input, options)
   end
 
   @doc """
@@ -44,22 +89,29 @@ defmodule AWS.Translate do
   translation due to cache policies with the DataPlane service that performs the
   translations.
   """
-  def import_terminology(client, input, options \\ []) do
-    request(client, "ImportTerminology", input, options)
+  def import_terminology(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportTerminology", input, options)
+  end
+
+  @doc """
+  Provides a list of your parallel data resources in Amazon Translate.
+  """
+  def list_parallel_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListParallelData", input, options)
   end
 
   @doc """
   Provides a list of custom terminologies associated with your account.
   """
-  def list_terminologies(client, input, options \\ []) do
-    request(client, "ListTerminologies", input, options)
+  def list_terminologies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTerminologies", input, options)
   end
 
   @doc """
   Gets a list of the batch translation jobs that you have submitted.
   """
-  def list_text_translation_jobs(client, input, options \\ []) do
-    request(client, "ListTextTranslationJobs", input, options)
+  def list_text_translation_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTextTranslationJobs", input, options)
   end
 
   @doc """
@@ -75,8 +127,8 @@ defmodule AWS.Translate do
   Amazon Translate does not support batch translation of multiple source languages
   at once.
   """
-  def start_text_translation_job(client, input, options \\ []) do
-    request(client, "StartTextTranslationJob", input, options)
+  def start_text_translation_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartTextTranslationJob", input, options)
   end
 
   @doc """
@@ -92,8 +144,8 @@ defmodule AWS.Translate do
   `DescribeTextTranslationJob` or `ListTextTranslationJobs` operations to get a
   batch translation job's `JobId`.
   """
-  def stop_text_translation_job(client, input, options \\ []) do
-    request(client, "StopTextTranslationJob", input, options)
+  def stop_text_translation_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopTextTranslationJob", input, options)
   end
 
   @doc """
@@ -101,61 +153,15 @@ defmodule AWS.Translate do
 
   For a list of available languages and language codes, see `what-is-languages`.
   """
-  def translate_text(client, input, options \\ []) do
-    request(client, "TranslateText", input, options)
+  def translate_text(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TranslateText", input, options)
   end
 
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "translate"}
-    host = build_host("translate", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSShineFrontendService_20170701.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  @doc """
+  Updates a previously created parallel data resource by importing a new input
+  file from Amazon S3.
+  """
+  def update_parallel_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateParallelData", input, options)
   end
 end

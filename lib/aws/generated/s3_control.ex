@@ -6,6 +6,25 @@ defmodule AWS.S3Control do
   AWS S3 Control provides access to Amazon S3 control plane operations.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-08-20",
+      content_type: "text/xml",
+      credential_scope: nil,
+      endpoint_prefix: "s3-control",
+      global?: false,
+      protocol: "rest-xml",
+      service_id: "S3 Control",
+      signature_version: "s3v4",
+      signing_name: "s3",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates an access point and associates it with the specified bucket.
 
@@ -29,31 +48,44 @@ defmodule AWS.S3Control do
   Service Developer Guide *.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples) section.
 
   The following actions are related to `CreateAccessPoint`:
 
     *
-  [GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html)     *
-  [DeleteAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteAccessPoint.html)
+  [GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html)
 
     *
-  [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_ListAccessPoints.html)
+  [DeleteAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html)     *
+  [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
   """
-  def create_access_point(client, name, input, options \\ []) do
-    path_ = "/v20180820/accesspoint/#{URI.encode(name)}"
+  def create_access_point(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/accesspoint/#{URI.encode(name)}"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -82,26 +114,26 @@ defmodule AWS.S3Control do
     * Bucket Location constraint
 
   For an example of the request syntax for Amazon S3 on Outposts that uses the S3
-  on Outposts endpoint hostname prefix and outpost-id in your API request, see the
-  [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateBucket.html#API_control_CreateBucket_Examples)
-  section below.
+  on Outposts endpoint hostname prefix and `x-amz-outpost-id` in your API request,
+  see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples) section.
 
   The following actions are related to `CreateBucket` for Amazon S3 on Outposts:
 
     *
-  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)     *
-  [GetBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucket.html)
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
 
     *
-  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucket.html)     *
-  [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateAccessPoint.html)
+  [GetBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucket.html)     *
+  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html)
 
     *
-  [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutAccessPointPolicy.html)
+  [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)     *
+  [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html)
   """
-  def create_bucket(client, bucket, input, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}"
+  def create_bucket(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}"
+
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
@@ -111,28 +143,30 @@ defmodule AWS.S3Control do
         {"GrantWrite", "x-amz-grant-write"},
         {"GrantWriteACP", "x-amz-grant-write-acp"},
         {"ObjectLockEnabledForBucket", "x-amz-bucket-object-lock-enabled"},
-        {"OutpostId", "x-amz-outpost-id"},
+        {"OutpostId", "x-amz-outpost-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -142,7 +176,7 @@ defmodule AWS.S3Control do
   objects that you specify. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
   in the *Amazon Simple Storage Service Developer Guide*.
 
-  This operation creates a S3 Batch Operations job.
+  This operation creates an S3 Batch Operations job.
 
   Related actions include:
 
@@ -154,75 +188,115 @@ defmodule AWS.S3Control do
   [UpdateJobPriority](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html)     *
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
-  def create_job(client, input, options \\ []) do
-    path_ = "/v20180820/jobs"
+  def create_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/jobs"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the
-  ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteAccessPoint.html#API_control_DeleteAccessPoint_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html#API_control_DeleteAccessPoint_Examples) section.
 
   The following actions are related to `DeleteAccessPoint`:
 
     *
-  [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)     *
-  [GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html)
+  [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)
 
     *
+  [GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html)     *
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
   """
-  def delete_access_point(client, name, input, options \\ []) do
-    path_ = "/v20180820/accesspoint/#{URI.encode(name)}"
+  def delete_access_point(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/accesspoint/#{URI.encode(name)}"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the access point policy for the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples) section.
 
   The following actions are related to `DeleteAccessPointPolicy`:
 
     *
-  [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html)     *
+  [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html)
+
+    *
   [GetAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html)
   """
-  def delete_access_point_policy(client, name, input, options \\ []) do
-    path_ = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+  def delete_access_point_policy(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -238,31 +312,44 @@ defmodule AWS.S3Control do
   *Amazon Simple Storage Service Developer Guide*.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucket.html#API_control_DeleteBucket_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html#API_control_DeleteBucket_Examples) section.
 
   ## Related Resources
 
     *
-  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html)     *
-  [GetBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucket.html)
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html)
 
     *
+  [GetBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucket.html)     *
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  def delete_bucket(client, bucket, input, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}"
+  def delete_bucket(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -282,19 +369,20 @@ defmodule AWS.S3Control do
   *Amazon Simple Storage Service Developer Guide*.
 
   To use this operation, you must have permission to perform the
-  `s3outposts:DeleteLifecycleConfiguration` action. By default, the bucket owner
+  `s3-outposts:DeleteLifecycleConfiguration` action. By default, the bucket owner
   has this permission and the Outposts bucket owner can grant this permission to
   others.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucketLifecycleConfiguration.html#API_control_DeleteBucketLifecycleConfiguration_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html#API_control_DeleteBucketLifecycleConfiguration_Examples) section.
 
-  For more information about object expiration, see [ Elements to Describe Lifecycle
+  For more information about object expiration, see [ Elements to Describe
+  Lifecycle
   Actions](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions).
 
   Related actions include:
@@ -303,15 +391,28 @@ defmodule AWS.S3Control do
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html)     *
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
   """
-  def delete_bucket_lifecycle_configuration(client, bucket, input, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
+  def delete_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -323,7 +424,7 @@ defmodule AWS.S3Control do
   This implementation of the DELETE operation uses the policy subresource to
   delete the policy of a specified Amazon S3 on Outposts bucket. If you are using
   an identity other than the root user of the AWS account that owns the bucket,
-  the calling identity must have the `s3outposts:DeleteBucketPolicy` permissions
+  the calling identity must have the `s3-outposts:DeleteBucketPolicy` permissions
   on the specified Outposts bucket and belong to the bucket owner's account to use
   this operation. For more information, see [Using Amazon S3 on
   Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
@@ -342,32 +443,47 @@ defmodule AWS.S3Control do
   https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucketPolicy.html#API_control_DeleteBucketPolicy_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html#API_control_DeleteBucketPolicy_Examples) section.
 
   The following actions are related to `DeleteBucketPolicy`:
 
     *
-  [GetBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html)     *
-  [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketPolicy.html)
+  [GetBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html)
+
+    *
+  [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html)
   """
-  def delete_bucket_policy(client, bucket, input, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
+  def delete_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  This API operation deletes an Amazon S3 on Outposts bucket's tags.
+  This operation deletes an Amazon S3 on Outposts bucket's tags.
 
   To delete an S3 bucket tags, see
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html) in the *Amazon Simple Storage Service API*.
@@ -382,28 +498,43 @@ defmodule AWS.S3Control do
   can grant this permission to others.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucketTagging.html#API_control_DeleteBucketTagging_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html#API_control_DeleteBucketTagging_Examples) section.
 
   The following actions are related to `DeleteBucketTagging`:
 
     *
-  [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html)     *
+  [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html)
+
+    *
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html)
   """
-  def delete_bucket_tagging(client, bucket, input, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
+  def delete_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -423,15 +554,28 @@ defmodule AWS.S3Control do
     *
   [PutJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html)
   """
-  def delete_job_tagging(client, job_id, input, options \\ []) do
-    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+  def delete_job_tagging(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -445,15 +589,103 @@ defmodule AWS.S3Control do
   [GetPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetPublicAccessBlock.html)     *
   [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html)
   """
-  def delete_public_access_block(client, input, options \\ []) do
-    path_ = "/v20180820/configuration/publicAccessBlock"
+  def delete_public_access_block(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/configuration/publicAccessBlock"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the Amazon S3 Storage Lens configuration.
+
+  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
+  in the *Amazon Simple Storage Service Developer Guide*.
+
+  To use this action, you must have permission to perform the
+  `s3:DeleteStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
+  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  in the *Amazon Simple Storage Service Developer Guide*.
+  """
+  def delete_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
+    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the Amazon S3 Storage Lens configuration tags.
+
+  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
+  in the *Amazon Simple Storage Service Developer Guide*.
+
+  To use this action, you must have permission to perform the
+  `s3:DeleteStorageLensConfigurationTagging` action. For more information, see
+  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  in the *Amazon Simple Storage Service Developer Guide*.
+  """
+  def delete_storage_lens_configuration_tagging(
+        %Client{} = client,
+        config_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}/tagging"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -472,48 +704,76 @@ defmodule AWS.S3Control do
   [UpdateJobPriority](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html)     *
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
-  def describe_job(client, job_id, account_id, options \\ []) do
-    path_ = "/v20180820/jobs/#{URI.encode(job_id)}"
+  def describe_job(%Client{} = client, job_id, account_id, options \\ []) do
+    url_path = "/v20180820/jobs/#{URI.encode(job_id)}"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns configuration information about the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetAccessPoint.html#API_control_GetAccessPoint_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples) section.
 
   The following actions are related to `GetAccessPoint`:
 
     *
-  [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)     *
-  [DeleteAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html)
+  [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)
 
     *
+  [DeleteAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html)     *
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
   """
-  def get_access_point(client, name, account_id, options \\ []) do
-    path_ = "/v20180820/accesspoint/#{URI.encode(name)}"
+  def get_access_point(%Client{} = client, name, account_id, options \\ []) do
+    url_path = "/v20180820/accesspoint/#{URI.encode(name)}"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -525,16 +785,30 @@ defmodule AWS.S3Control do
   [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html)     *
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
   """
-  def get_access_point_policy(client, name, account_id, options \\ []) do
-    path_ = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+  def get_access_point_policy(%Client{} = client, name, account_id, options \\ []) do
+    url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -545,16 +819,30 @@ defmodule AWS.S3Control do
   Points](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html) in
   the *Amazon Simple Storage Service Developer Guide*.
   """
-  def get_access_point_policy_status(client, name, account_id, options \\ []) do
-    path_ = "/v20180820/accesspoint/#{URI.encode(name)}/policyStatus"
+  def get_access_point_policy_status(%Client{} = client, name, account_id, options \\ []) do
+    url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policyStatus"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -563,30 +851,61 @@ defmodule AWS.S3Control do
   For more information, see [ Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
   the *Amazon Simple Storage Service Developer Guide*.
 
+  If you are using an identity other than the root user of the AWS account that
+  owns the bucket, the calling identity must have the `s3-outposts:GetBucket`
+  permissions on the specified bucket and belong to the bucket owner's account in
+  order to use this operation. Only users from Outposts bucket owner account with
+  the right permissions can perform actions on an Outposts bucket.
+
+  If you don't have `s3-outposts:GetBucket` permissions or you're not using an
+  identity that belongs to the bucket owner's account, Amazon S3 returns a `403
+  Access Denied` error.
+
   The following actions are related to `GetBucket` for Amazon S3 on Outposts:
 
-    *
-  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)     *
-  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateBucket.html)
+  All Amazon S3 on Outposts REST API requests for this action require an
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucket.html#API_control_GetBucket_Examples) section.
 
     *
-  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucket.html)
+  [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+
+    *
+  [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html)     *
+  [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html)
   """
-  def get_bucket(client, bucket, account_id, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}"
+  def get_bucket(%Client{} = client, bucket, account_id, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
-  This API operation gets an Amazon S3 on Outposts bucket's lifecycle
-  configuration.
+  This operation gets an Amazon S3 on Outposts bucket's lifecycle configuration.
 
   To get an S3 bucket's lifecycle configuration, see
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html) in the *Amazon Simple Storage Service API*.
@@ -598,19 +917,19 @@ defmodule AWS.S3Control do
   in *Amazon Simple Storage Service Developer Guide*.
 
   To use this operation, you must have permission to perform the
-  `s3outposts:GetLifecycleConfiguration` action. The Outposts bucket owner has
+  `s3-outposts:GetLifecycleConfiguration` action. The Outposts bucket owner has
   this permission, by default. The bucket owner can grant this permission to
   others. For more information about permissions, see [Permissions Related to Bucket Subresource
   Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples) section.
 
   `GetBucketLifecycleConfiguration` has the following special error:
 
@@ -626,23 +945,39 @@ defmodule AWS.S3Control do
   The following actions are related to `GetBucketLifecycleConfiguration`:
 
     *
-  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html)     *
+  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html)
+
+    *
   [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
   """
-  def get_bucket_lifecycle_configuration(client, bucket, account_id, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
+  def get_bucket_lifecycle_configuration(%Client{} = client, bucket, account_id, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
-  This API action gets a bucket policy for an Amazon S3 on Outposts bucket.
+  This action gets a bucket policy for an Amazon S3 on Outposts bucket.
 
   To get a policy for an S3 bucket, see
   [GetBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html) in the *Amazon Simple Storage Service API*.
@@ -657,10 +992,11 @@ defmodule AWS.S3Control do
   permissions on the specified bucket and belong to the bucket owner's account in
   order to use this operation.
 
-  If you don't have `s3outposts:GetBucketPolicy` permissions, Amazon S3 returns a
-  `403 Access Denied` error. If you have the correct permissions, but you're not
-  using an identity that belongs to the bucket owner's account, Amazon S3 returns
-  a `405 Method Not Allowed` error.
+  Only users from Outposts bucket owner account with the right permissions can
+  perform actions on an Outposts bucket. If you don't have
+  `s3-outposts:GetBucketPolicy` permissions or you're not using an identity that
+  belongs to the bucket owner's account, Amazon S3 returns a `403 Access Denied`
+  error.
 
   As a security precaution, the root user of the AWS account that owns a bucket
   can always use this operation, even if the policy explicitly denies the root
@@ -669,36 +1005,50 @@ defmodule AWS.S3Control do
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples) section.
 
   The following actions are related to `GetBucketPolicy`:
 
     *
-  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)     *
-  [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html)
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
     *
+  [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html)     *
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
   """
-  def get_bucket_policy(client, bucket, account_id, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
+  def get_bucket_policy(%Client{} = client, bucket, account_id, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
-  This API operation gets an Amazon S3 on Outposts bucket's tags.
+  This operation gets an Amazon S3 on Outposts bucket's tags.
 
   To get an S3 bucket tags, see
   [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html) in the *Amazon Simple Storage Service API*.
@@ -720,29 +1070,45 @@ defmodule AWS.S3Control do
   bucket.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucketTagging.html#API_control_GetBucketTagging_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html#API_control_GetBucketTagging_Examples) section.
 
   The following actions are related to `GetBucketTagging`:
 
     *
-  [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html)     *
+  [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html)
+
+    *
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html)
   """
-  def get_bucket_tagging(client, bucket, account_id, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
+  def get_bucket_tagging(%Client{} = client, bucket, account_id, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -762,16 +1128,30 @@ defmodule AWS.S3Control do
     *
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
   """
-  def get_job_tagging(client, job_id, account_id, options \\ []) do
-    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+  def get_job_tagging(%Client{} = client, job_id, account_id, options \\ []) do
+    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -785,16 +1165,109 @@ defmodule AWS.S3Control do
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html)     *
   [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html)
   """
-  def get_public_access_block(client, account_id, options \\ []) do
-    path_ = "/v20180820/configuration/publicAccessBlock"
+  def get_public_access_block(%Client{} = client, account_id, options \\ []) do
+    url_path = "/v20180820/configuration/publicAccessBlock"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the Amazon S3 Storage Lens configuration.
+
+  For more information, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
+  in the *Amazon Simple Storage Service Developer Guide*.
+
+  To use this action, you must have permission to perform the
+  `s3:GetStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
+  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  in the *Amazon Simple Storage Service Developer Guide*.
+  """
+  def get_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ []) do
+    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the tags of Amazon S3 Storage Lens configuration.
+
+  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
+  in the *Amazon Simple Storage Service Developer Guide*.
+
+  To use this action, you must have permission to perform the
+  `s3:GetStorageLensConfigurationTagging` action. For more information, see
+  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  in the *Amazon Simple Storage Service Developer Guide*.
+  """
+  def get_storage_lens_configuration_tagging(
+        %Client{} = client,
+        config_id,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}/tagging"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -807,47 +1280,74 @@ defmodule AWS.S3Control do
   use to list the additional access points.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetAccessPoint.html#API_control_GetAccessPoint_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples) section.
 
   The following actions are related to `ListAccessPoints`:
 
     *
-  [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)     *
-  [DeleteAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html)
+  [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)
 
     *
+  [DeleteAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html)     *
   [GetAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html)
   """
-  def list_access_points(client, bucket \\ nil, max_results \\ nil, next_token \\ nil, account_id, options \\ []) do
-    path_ = "/v20180820/accesspoint"
+  def list_access_points(
+        %Client{} = client,
+        bucket \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accesspoint"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(bucket) do
-      [{"bucket", bucket} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(bucket) do
+        [{"bucket", bucket} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -867,71 +1367,174 @@ defmodule AWS.S3Control do
   [UpdateJobPriority](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html)     *
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
-  def list_jobs(client, job_statuses \\ nil, max_results \\ nil, next_token \\ nil, account_id, options \\ []) do
-    path_ = "/v20180820/jobs"
+  def list_jobs(
+        %Client{} = client,
+        job_statuses \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/jobs"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(job_statuses) do
-      [{"jobStatuses", job_statuses} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(job_statuses) do
+        [{"jobStatuses", job_statuses} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Returns a list of all Outposts buckets in an Outposts that are owned by the
+  Returns a list of all Outposts buckets in an Outpost that are owned by the
   authenticated sender of the request.
 
   For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
   the *Amazon Simple Storage Service Developer Guide*.
 
   For an example of the request syntax for Amazon S3 on Outposts that uses the S3
-  on Outposts endpoint hostname prefix and outpost-id in your API request, see the
-  [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples)
-  section below.
+  on Outposts endpoint hostname prefix and `x-amz-outpost-id` in your request, see
+  the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples)
+  section.
   """
-  def list_regional_buckets(client, max_results \\ nil, next_token \\ nil, account_id, outpost_id \\ nil, options \\ []) do
-    path_ = "/v20180820/bucket"
+  def list_regional_buckets(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        account_id,
+        outpost_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v20180820/bucket"
     headers = []
-    headers = if !is_nil(account_id) do
-      [{"x-amz-account-id", account_id} | headers]
-    else
-      headers
-    end
-    headers = if !is_nil(outpost_id) do
-      [{"x-amz-outpost-id", outpost_id} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(outpost_id) do
+        [{"x-amz-outpost-id", outpost_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a list of Amazon S3 Storage Lens configurations.
+
+  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
+  in the *Amazon Simple Storage Service Developer Guide*.
+
+  To use this action, you must have permission to perform the
+  `s3:ListStorageLensConfigurations` action. For more information, see [Setting permissions to use Amazon S3 Storage
+  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  in the *Amazon Simple Storage Service Developer Guide*.
+  """
+  def list_storage_lens_configurations(
+        %Client{} = client,
+        next_token \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/storagelens"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -941,70 +1544,100 @@ defmodule AWS.S3Control do
   replaces any existing policy associated with the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutAccessPointPolicy.html#API_control_PutAccessPointPolicy_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html#API_control_PutAccessPointPolicy_Examples) section.
 
   The following actions are related to `PutAccessPointPolicy`:
 
     *
-  [GetAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html)     *
+  [GetAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html)
+
+    *
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
   """
-  def put_access_point_policy(client, name, input, options \\ []) do
-    path_ = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+  def put_access_point_policy(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  This API action puts a lifecycle configuration to an Amazon S3 on Outposts
-  bucket.
+  This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket.
 
   To put a lifecycle configuration to an S3 bucket, see
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html) in the *Amazon Simple Storage Service API*.
 
   Creates a new lifecycle configuration for the Outposts bucket or replaces an
-  existing lifecycle configuration. Outposts buckets can only support a lifecycle
-  that deletes objects after a certain period of time. For more information, see
-  [Managing Lifecycle Permissions for Amazon S3 on
+  existing lifecycle configuration. Outposts buckets only support lifecycle
+  configurations that delete/expire objects after a certain period of time and
+  abort incomplete multipart uploads. For more information, see [Managing
+  Lifecycle Permissions for Amazon S3 on
   Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples) section.
 
   The following actions are related to `PutBucketLifecycleConfiguration`:
 
     *
-  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)     *
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
+
+    *
   [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
   """
-  def put_bucket_lifecycle_configuration(client, bucket, input, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
+  def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  This API action puts a bucket policy to an Amazon S3 on Outposts bucket.
+  This action puts a bucket policy to an Amazon S3 on Outposts bucket.
 
   To put a policy on an S3 bucket, see
   [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html) in the *Amazon Simple Storage Service API*.
@@ -1031,33 +1664,48 @@ defmodule AWS.S3Control do
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketPolicy.html#API_control_PutBucketPolicy_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html#API_control_PutBucketPolicy_Examples) section.
 
   The following actions are related to `PutBucketPolicy`:
 
     *
-  [GetBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html)     *
+  [GetBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html)
+
+    *
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
   """
-  def put_bucket_policy(client, bucket, input, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
+  def put_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
+
     {headers, input} =
       [
         {"AccountId", "x-amz-account-id"},
-        {"ConfirmRemoveSelfBucketAccess", "x-amz-confirm-remove-self-bucket-access"},
+        {"ConfirmRemoveSelfBucketAccess", "x-amz-confirm-remove-self-bucket-access"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  This API action puts tags on an Amazon S3 on Outposts bucket.
+  This action puts tags on an Amazon S3 on Outposts bucket.
 
   To put tags on an S3 bucket, see
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html) in the *Amazon Simple Storage Service API*.
@@ -1079,7 +1727,7 @@ defmodule AWS.S3Control do
   Tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html).
 
   To use this operation, you must have permissions to perform the
-  `s3outposts:PutBucketTagging` action. The Outposts bucket owner has this
+  `s3-outposts:PutBucketTagging` action. The Outposts bucket owner has this
   permission by default and can grant this permission to others. For more
   information about permissions, see [ Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
@@ -1109,28 +1757,43 @@ defmodule AWS.S3Control do
   provided tag to the bucket.
 
   All Amazon S3 on Outposts REST API requests for this action require an
-  additional parameter of outpost-id to be passed with the request and an S3 on
-  Outposts endpoint hostname prefix instead of s3-control. For an example of the
-  request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint
-  hostname prefix and the outpost-id derived using the access point ARN, see the [
-  Example](https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketTagging.html#API_control_PutBucketTagging_Examples)
-  section below.
+  additional parameter of `x-amz-outpost-id` to be passed with the request and an
+  S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example
+  of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
+  endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
+  point ARN, see the
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html#API_control_PutBucketTagging_Examples) section.
 
   The following actions are related to `PutBucketTagging`:
 
     *
-  [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html)     *
+  [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html)
+
+    *
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html)
   """
-  def put_bucket_tagging(client, bucket, input, options \\ []) do
-    path_ = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
+  def put_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1141,9 +1804,8 @@ defmodule AWS.S3Control do
   with the job. To modify the existing tag set, you can either replace the
   existing tag set entirely, or make changes within the existing tag set by
   retrieving the existing tag set using
-  [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html), modify that tag set, and use this API action to replace the tag set with the one
-  you modified. For more information, see [Controlling access and labeling jobs
-  using
+  [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html), modify that tag set, and use this action to replace the tag set with the one you
+  modified. For more information, see [Controlling access and labeling jobs using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
   in the *Amazon Simple Storage Service Developer Guide*.
 
@@ -1185,15 +1847,28 @@ defmodule AWS.S3Control do
     *
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
   """
-  def put_job_tagging(client, job_id, input, options \\ []) do
-    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+  def put_job_tagging(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1207,15 +1882,98 @@ defmodule AWS.S3Control do
   [GetPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetPublicAccessBlock.html)     *
   [DeletePublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html)
   """
-  def put_public_access_block(client, input, options \\ []) do
-    path_ = "/v20180820/configuration/publicAccessBlock"
+  def put_public_access_block(%Client{} = client, input, options \\ []) do
+    url_path = "/v20180820/configuration/publicAccessBlock"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Puts an Amazon S3 Storage Lens configuration.
+
+  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
+  in the *Amazon Simple Storage Service Developer Guide*.
+
+  To use this action, you must have permission to perform the
+  `s3:PutStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
+  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  in the *Amazon Simple Storage Service Developer Guide*.
+  """
+  def put_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
+    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Put or replace tags on an existing Amazon S3 Storage Lens configuration.
+
+  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
+  in the *Amazon Simple Storage Service Developer Guide*.
+
+  To use this action, you must have permission to perform the
+  `s3:PutStorageLensConfigurationTagging` action. For more information, see
+  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  in the *Amazon Simple Storage Service Developer Guide*.
+  """
+  def put_storage_lens_configuration_tagging(%Client{} = client, config_id, input, options \\ []) do
+    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}/tagging"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1234,19 +1992,32 @@ defmodule AWS.S3Control do
   [DescribeJob](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html)     *
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
-  def update_job_priority(client, job_id, input, options \\ []) do
-    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/priority"
+  def update_job_priority(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/priority"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"Priority", "priority"},
+        {"Priority", "priority"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1266,87 +2037,32 @@ defmodule AWS.S3Control do
   [DescribeJob](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html)     *
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
-  def update_job_status(client, job_id, input, options \\ []) do
-    path_ = "/v20180820/jobs/#{URI.encode(job_id)}/status"
+  def update_job_status(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/status"
+
     {headers, input} =
       [
-        {"AccountId", "x-amz-account-id"},
+        {"AccountId", "x-amz-account-id"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
         {"RequestedJobStatus", "requestedJobStatus"},
-        {"StatusUpdateReason", "statusUpdateReason"},
+        {"StatusUpdateReason", "statusUpdateReason"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "s3"}
-    account_id = :proplists.get_value("x-amz-account-id", headers)
-    host = build_host(account_id, "s3-control", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_account_id, _endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_account_id, _endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(:undefined, _endpoint_prefix, _client) do
-    raise "missing account_id"
-  end
-  defp build_host(account_id, endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{account_id}.#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :xml) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

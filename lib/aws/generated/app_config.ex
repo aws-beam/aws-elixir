@@ -46,6 +46,25 @@ defmodule AWS.AppConfig do
   This reference is intended to be used with the [AWS AppConfig User Guide](http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-10-09",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "appconfig",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "AppConfig",
+      signature_version: "v4",
+      signing_name: "appconfig",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   An application in AppConfig is a logical unit of code that provides capabilities
   for your customers.
@@ -55,11 +74,22 @@ defmodule AWS.AppConfig do
   application using Amazon API Gateway and AWS Lambda, or any system you run on
   behalf of others.
   """
-  def create_application(client, input, options \\ []) do
-    path_ = "/applications"
+  def create_application(%Client{} = client, input, options \\ []) do
+    url_path = "/applications"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -80,11 +110,22 @@ defmodule AWS.AppConfig do
   For more information, see [Create a Configuration and a Configuration Profile](http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html)
   in the *AWS AppConfig User Guide*.
   """
-  def create_configuration_profile(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles"
+  def create_configuration_profile(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}/configurationprofiles"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -95,11 +136,22 @@ defmodule AWS.AppConfig do
   targets to receive the deployment during each interval, an algorithm that
   defines how percentage grows, and bake time.
   """
-  def create_deployment_strategy(client, input, options \\ []) do
-    path_ = "/deploymentstrategies"
+  def create_deployment_strategy(%Client{} = client, input, options \\ []) do
+    url_path = "/deploymentstrategies"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -112,48 +164,73 @@ defmodule AWS.AppConfig do
   alarms for each environment. The system monitors alarms during a configuration
   deployment. If an alarm is triggered, the system rolls back the configuration.
   """
-  def create_environment(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments"
+  def create_environment(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}/environments"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Create a new configuration in the AppConfig configuration store.
   """
-  def create_hosted_configuration_version(client, application_id, configuration_profile_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions"
+  def create_hosted_configuration_version(
+        %Client{} = client,
+        application_id,
+        configuration_profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
+        URI.encode(configuration_profile_id)
+      }/hostedconfigurationversions"
+
     {headers, input} =
       [
         {"ContentType", "Content-Type"},
         {"Description", "Description"},
-        {"LatestVersionNumber", "Latest-Version-Number"},
+        {"LatestVersionNumber", "Latest-Version-Number"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Application-Id", "ApplicationId"},
-            {"Configuration-Profile-Id", "ConfigurationProfileId"},
-            {"Content-Type", "ContentType"},
-            {"Description", "Description"},
-            {"Version-Number", "VersionNumber"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Application-Id", "ApplicationId"},
+          {"Configuration-Profile-Id", "ConfigurationProfileId"},
+          {"Content-Type", "ContentType"},
+          {"Description", "Description"},
+          {"Version-Number", "VersionNumber"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -161,11 +238,22 @@ defmodule AWS.AppConfig do
 
   Deleting an application does not delete a configuration from a host.
   """
-  def delete_application(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}"
+  def delete_application(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -173,11 +261,32 @@ defmodule AWS.AppConfig do
 
   Deleting a configuration profile does not delete a configuration from a host.
   """
-  def delete_configuration_profile(client, application_id, configuration_profile_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
+  def delete_configuration_profile(
+        %Client{} = client,
+        application_id,
+        configuration_profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
+        URI.encode(configuration_profile_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -185,11 +294,22 @@ defmodule AWS.AppConfig do
 
   Deleting a deployment strategy does not delete a configuration from a host.
   """
-  def delete_deployment_strategy(client, deployment_strategy_id, input, options \\ []) do
-    path_ = "/deployementstrategies/#{URI.encode(deployment_strategy_id)}"
+  def delete_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
+    url_path = "/deployementstrategies/#{URI.encode(deployment_strategy_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -197,31 +317,77 @@ defmodule AWS.AppConfig do
 
   Deleting an environment does not delete a configuration from a host.
   """
-  def delete_environment(client, application_id, environment_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+  def delete_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Delete a version of a configuration from the AppConfig configuration store.
   """
-  def delete_hosted_configuration_version(client, application_id, configuration_profile_id, version_number, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions/#{URI.encode(version_number)}"
+  def delete_hosted_configuration_version(
+        %Client{} = client,
+        application_id,
+        configuration_profile_id,
+        version_number,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
+        URI.encode(configuration_profile_id)
+      }/hostedconfigurationversions/#{URI.encode(version_number)}"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Retrieve information about an application.
   """
-  def get_application(client, application_id, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}"
+  def get_application(%Client{} = client, application_id, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -238,59 +404,119 @@ defmodule AWS.AppConfig do
   value must be saved on your client. Subsequent calls to `GetConfiguration` must
   pass this value by using the `ClientConfigurationVersion` parameter.
   """
-  def get_configuration(client, application, configuration, environment, client_configuration_version \\ nil, client_id, options \\ []) do
-    path_ = "/applications/#{URI.encode(application)}/environments/#{URI.encode(environment)}/configurations/#{URI.encode(configuration)}"
+  def get_configuration(
+        %Client{} = client,
+        application,
+        configuration,
+        environment,
+        client_configuration_version \\ nil,
+        client_id,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application)}/environments/#{URI.encode(environment)}/configurations/#{
+        URI.encode(configuration)
+      }"
+
     headers = []
-    query_ = []
-    query_ = if !is_nil(client_id) do
-      [{"client_id", client_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(client_configuration_version) do
-      [{"client_configuration_version", client_configuration_version} | query_]
-    else
-      query_
-    end
-    case request(client, :get, path_, query_, headers, nil, options, 200) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Configuration-Version", "ConfigurationVersion"},
-            {"Content-Type", "ContentType"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    query_params =
+      if !is_nil(client_id) do
+        [{"client_id", client_id} | query_params]
+      else
+        query_params
+      end
 
-      result ->
-        result
-    end
+    query_params =
+      if !is_nil(client_configuration_version) do
+        [{"client_configuration_version", client_configuration_version} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Configuration-Version", "ConfigurationVersion"},
+          {"Content-Type", "ContentType"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieve information about a configuration profile.
   """
-  def get_configuration_profile(client, application_id, configuration_profile_id, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
+  def get_configuration_profile(
+        %Client{} = client,
+        application_id,
+        configuration_profile_id,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
+        URI.encode(configuration_profile_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieve information about a configuration deployment.
   """
-  def get_deployment(client, application_id, deployment_number, environment_id, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{URI.encode(deployment_number)}"
+  def get_deployment(
+        %Client{} = client,
+        application_id,
+        deployment_number,
+        environment_id,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{
+        URI.encode(deployment_number)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -302,11 +528,22 @@ defmodule AWS.AppConfig do
   during each interval, an algorithm that defines how percentage grows, and bake
   time.
   """
-  def get_deployment_strategy(client, deployment_strategy_id, options \\ []) do
-    path_ = "/deploymentstrategies/#{URI.encode(deployment_strategy_id)}"
+  def get_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
+    url_path = "/deploymentstrategies/#{URI.encode(deployment_strategy_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -318,183 +555,360 @@ defmodule AWS.AppConfig do
   Amazon CloudWatch alarms for an environment. If an alarm is triggered during a
   deployment, AppConfig roles back the configuration.
   """
-  def get_environment(client, application_id, environment_id, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+  def get_environment(%Client{} = client, application_id, environment_id, options \\ []) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Get information about a specific configuration version.
   """
-  def get_hosted_configuration_version(client, application_id, configuration_profile_id, version_number, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions/#{URI.encode(version_number)}"
+  def get_hosted_configuration_version(
+        %Client{} = client,
+        application_id,
+        configuration_profile_id,
+        version_number,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
+        URI.encode(configuration_profile_id)
+      }/hostedconfigurationversions/#{URI.encode(version_number)}"
+
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, 200) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Application-Id", "ApplicationId"},
-            {"Configuration-Profile-Id", "ConfigurationProfileId"},
-            {"Content-Type", "ContentType"},
-            {"Description", "Description"},
-            {"Version-Number", "VersionNumber"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Application-Id", "ApplicationId"},
+          {"Configuration-Profile-Id", "ConfigurationProfileId"},
+          {"Content-Type", "ContentType"},
+          {"Description", "Description"},
+          {"Version-Number", "VersionNumber"}
+        ]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   List all applications in your AWS account.
   """
-  def list_applications(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/applications"
+  def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/applications"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the configuration profiles for an application.
   """
-  def list_configuration_profiles(client, application_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles"
+  def list_configuration_profiles(
+        %Client{} = client,
+        application_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{URI.encode(application_id)}/configurationprofiles"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   List deployment strategies.
   """
-  def list_deployment_strategies(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/deploymentstrategies"
+  def list_deployment_strategies(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/deploymentstrategies"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the deployments for an environment.
   """
-  def list_deployments(client, application_id, environment_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments"
+  def list_deployments(
+        %Client{} = client,
+        application_id,
+        environment_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments"
+
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   List the environments for an application.
   """
-  def list_environments(client, application_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments"
+  def list_environments(
+        %Client{} = client,
+        application_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{URI.encode(application_id)}/environments"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   View a list of configurations stored in the AppConfig configuration store by
   version.
   """
-  def list_hosted_configuration_versions(client, application_id, configuration_profile_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions"
+  def list_hosted_configuration_versions(
+        %Client{} = client,
+        application_id,
+        configuration_profile_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
+        URI.encode(configuration_profile_id)
+      }/hostedconfigurationversions"
+
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves the list of key-value tags assigned to the resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Starts a deployment.
   """
-  def start_deployment(client, application_id, environment_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments"
+  def start_deployment(%Client{} = client, application_id, environment_id, input, options \\ []) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -503,11 +917,33 @@ defmodule AWS.AppConfig do
   This API action works only on deployments that have a status of `DEPLOYING`.
   This action moves the deployment to a status of `ROLLED_BACK`.
   """
-  def stop_deployment(client, application_id, deployment_number, environment_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{URI.encode(deployment_number)}"
+  def stop_deployment(
+        %Client{} = client,
+        application_id,
+        deployment_number,
+        environment_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{
+        URI.encode(deployment_number)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 202)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -517,142 +953,179 @@ defmodule AWS.AppConfig do
   a key and an optional value, both of which you define. You can specify a maximum
   of 50 tags for a resource.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a tag key and value from an AppConfig resource.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"TagKeys", "tagKeys"},
+        {"TagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Updates an application.
   """
-  def update_application(client, application_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}"
+  def update_application(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{URI.encode(application_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a configuration profile.
   """
-  def update_configuration_profile(client, application_id, configuration_profile_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
+  def update_configuration_profile(
+        %Client{} = client,
+        application_id,
+        configuration_profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
+        URI.encode(configuration_profile_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a deployment strategy.
   """
-  def update_deployment_strategy(client, deployment_strategy_id, input, options \\ []) do
-    path_ = "/deploymentstrategies/#{URI.encode(deployment_strategy_id)}"
+  def update_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
+    url_path = "/deploymentstrategies/#{URI.encode(deployment_strategy_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates an environment.
   """
-  def update_environment(client, application_id, environment_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+  def update_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}"
+
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Uses the validators in a configuration profile to validate a configuration.
   """
-  def validate_configuration(client, application_id, configuration_profile_id, input, options \\ []) do
-    path_ = "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/validators"
+  def validate_configuration(
+        %Client{} = client,
+        application_id,
+        configuration_profile_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
+        URI.encode(configuration_profile_id)
+      }/validators"
+
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"ConfigurationVersion", "configuration_version"},
+        {"ConfigurationVersion", "configuration_version"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, 204)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "appconfig"}
-    host = build_host("appconfig", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 end

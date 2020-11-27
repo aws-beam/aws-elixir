@@ -20,6 +20,25 @@ defmodule AWS.TimestreamWrite do
   reducing costs.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Timestream Write",
+      api_version: "2018-11-01",
+      content_type: "application/x-amz-json-1.0",
+      credential_scope: nil,
+      endpoint_prefix: "ingest.timestream",
+      global?: false,
+      protocol: "json",
+      service_id: "Timestream Write",
+      signature_version: "v4",
+      signing_name: "timestream",
+      target_prefix: "Timestream_20181101"
+    }
+  end
+
   @doc """
   Creates a new Timestream database.
 
@@ -28,8 +47,8 @@ defmodule AWS.TimestreamWrite do
   for more info. Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
   in the Timestream Developer Guide.
   """
-  def create_database(client, input, options \\ []) do
-    request(client, "CreateDatabase", input, options)
+  def create_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDatabase", input, options)
   end
 
   @doc """
@@ -43,8 +62,8 @@ defmodule AWS.TimestreamWrite do
   Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
   in the Timestream Developer Guide.
   """
-  def create_table(client, input, options \\ []) do
-    request(client, "CreateTable", input, options)
+  def create_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTable", input, options)
   end
 
   @doc """
@@ -55,9 +74,12 @@ defmodule AWS.TimestreamWrite do
 
   All tables in the database must be deleted first, or a ValidationException error
   will be thrown.
+
+  Due to the nature of distributed retries, the operation can return either
+  success or a ResourceNotFoundException. Clients should consider them equivalent.
   """
-  def delete_database(client, input, options \\ []) do
-    request(client, "DeleteDatabase", input, options)
+  def delete_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDatabase", input, options)
   end
 
   @doc """
@@ -65,9 +87,12 @@ defmodule AWS.TimestreamWrite do
 
   This is an irreversible operation. After a Timestream database table is deleted,
   the time series data stored in the table cannot be recovered.
+
+  Due to the nature of distributed retries, the operation can return either
+  success or a ResourceNotFoundException. Clients should consider them equivalent.
   """
-  def delete_table(client, input, options \\ []) do
-    request(client, "DeleteTable", input, options)
+  def delete_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTable", input, options)
   end
 
   @doc """
@@ -78,8 +103,8 @@ defmodule AWS.TimestreamWrite do
   Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
   in the Timestream Developer Guide.
   """
-  def describe_database(client, input, options \\ []) do
-    request(client, "DescribeDatabase", input, options)
+  def describe_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDatabase", input, options)
   end
 
   @doc """
@@ -100,8 +125,8 @@ defmodule AWS.TimestreamWrite do
   For detailed information on how to use DescribeEndpoints, see [The Endpoint Discovery Pattern and REST
   APIs](https://docs.aws.amazon.com/timestream/latest/developerguide/Using-API.endpoint-discovery.html).
   """
-  def describe_endpoints(client, input, options \\ []) do
-    request(client, "DescribeEndpoints", input, options)
+  def describe_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
   end
 
   @doc """
@@ -111,8 +136,8 @@ defmodule AWS.TimestreamWrite do
   Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
   in the Timestream Developer Guide.
   """
-  def describe_table(client, input, options \\ []) do
-    request(client, "DescribeTable", input, options)
+  def describe_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTable", input, options)
   end
 
   @doc """
@@ -121,23 +146,23 @@ defmodule AWS.TimestreamWrite do
   Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
   in the Timestream Developer Guide.
   """
-  def list_databases(client, input, options \\ []) do
-    request(client, "ListDatabases", input, options)
+  def list_databases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatabases", input, options)
   end
 
   @doc """
   A list of tables, along with the name, status and retention properties of each
   table.
   """
-  def list_tables(client, input, options \\ []) do
-    request(client, "ListTables", input, options)
+  def list_tables(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTables", input, options)
   end
 
   @doc """
   List all tags on a Timestream resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -146,15 +171,15 @@ defmodule AWS.TimestreamWrite do
   You can then activate these user-defined tags so that they appear on the Billing
   and Cost Management console for cost allocation tracking.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes the association of tags from a Timestream resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -164,8 +189,8 @@ defmodule AWS.TimestreamWrite do
   identifier of the new KMS key to be used (`KmsKeyId`). If there are any
   concurrent `UpdateDatabase` requests, first writer wins.
   """
-  def update_database(client, input, options \\ []) do
-    request(client, "UpdateDatabase", input, options)
+  def update_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDatabase", input, options)
   end
 
   @doc """
@@ -182,8 +207,8 @@ defmodule AWS.TimestreamWrite do
   Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
   in the Timestream Developer Guide.
   """
-  def update_table(client, input, options \\ []) do
-    request(client, "UpdateTable", input, options)
+  def update_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTable", input, options)
   end
 
   @doc """
@@ -202,61 +227,7 @@ defmodule AWS.TimestreamWrite do
   return the latest data. Service quotas apply. For more information, see [Access Management](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html)
   in the Timestream Developer Guide.
   """
-  def write_records(client, input, options \\ []) do
-    request(client, "WriteRecords", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "timestream"}
-    host = build_host("ingest.timestream", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.0"},
-      {"X-Amz-Target", "Timestream_20181101.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def write_records(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "WriteRecords", input, options)
   end
 end

@@ -36,6 +36,25 @@ defmodule AWS.CloudWatchLogs do
   data when you need it.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2014-03-28",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "logs",
+      global?: false,
+      protocol: "json",
+      service_id: "CloudWatch Logs",
+      signature_version: "v4",
+      signing_name: "logs",
+      target_prefix: "Logs_20140328"
+    }
+  end
+
   @doc """
   Associates the specified AWS Key Management Service (AWS KMS) customer master
   key (CMK) with the specified log group.
@@ -56,8 +75,8 @@ defmodule AWS.CloudWatchLogs do
   If you attempt to associate a CMK with a log group but the CMK does not exist or
   the CMK is disabled, you receive an `InvalidParameterException` error.
   """
-  def associate_kms_key(client, input, options \\ []) do
-    request(client, "AssociateKmsKey", input, options)
+  def associate_kms_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateKmsKey", input, options)
   end
 
   @doc """
@@ -65,8 +84,8 @@ defmodule AWS.CloudWatchLogs do
 
   The task must be in the `PENDING` or `RUNNING` state.
   """
-  def cancel_export_task(client, input, options \\ []) do
-    request(client, "CancelExportTask", input, options)
+  def cancel_export_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelExportTask", input, options)
   end
 
   @doc """
@@ -90,8 +109,8 @@ defmodule AWS.CloudWatchLogs do
   Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting
   to S3 buckets encrypted with SSE-KMS is not supported.
   """
-  def create_export_task(client, input, options \\ []) do
-    request(client, "CreateExportTask", input, options)
+  def create_export_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateExportTask", input, options)
   end
 
   @doc """
@@ -125,8 +144,8 @@ defmodule AWS.CloudWatchLogs do
   with your log group. For more information, see [Using Symmetric and Asymmetric
   Keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html).
   """
-  def create_log_group(client, input, options \\ []) do
-    request(client, "CreateLogGroup", input, options)
+  def create_log_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLogGroup", input, options)
   end
 
   @doc """
@@ -147,8 +166,8 @@ defmodule AWS.CloudWatchLogs do
 
     * The ':' (colon) and '*' (asterisk) characters are not allowed.
   """
-  def create_log_stream(client, input, options \\ []) do
-    request(client, "CreateLogStream", input, options)
+  def create_log_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLogStream", input, options)
   end
 
   @doc """
@@ -158,31 +177,31 @@ defmodule AWS.CloudWatchLogs do
   This operation does not delete the physical resource encapsulated by the
   destination.
   """
-  def delete_destination(client, input, options \\ []) do
-    request(client, "DeleteDestination", input, options)
+  def delete_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDestination", input, options)
   end
 
   @doc """
   Deletes the specified log group and permanently deletes all the archived log
   events associated with the log group.
   """
-  def delete_log_group(client, input, options \\ []) do
-    request(client, "DeleteLogGroup", input, options)
+  def delete_log_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLogGroup", input, options)
   end
 
   @doc """
   Deletes the specified log stream and permanently deletes all the archived log
   events associated with the log stream.
   """
-  def delete_log_stream(client, input, options \\ []) do
-    request(client, "DeleteLogStream", input, options)
+  def delete_log_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLogStream", input, options)
   end
 
   @doc """
   Deletes the specified metric filter.
   """
-  def delete_metric_filter(client, input, options \\ []) do
-    request(client, "DeleteMetricFilter", input, options)
+  def delete_metric_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMetricFilter", input, options)
   end
 
   @doc """
@@ -196,8 +215,8 @@ defmodule AWS.CloudWatchLogs do
   You must have the `logs:DeleteQueryDefinition` permission to be able to perform
   this operation.
   """
-  def delete_query_definition(client, input, options \\ []) do
-    request(client, "DeleteQueryDefinition", input, options)
+  def delete_query_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteQueryDefinition", input, options)
   end
 
   @doc """
@@ -206,8 +225,8 @@ defmodule AWS.CloudWatchLogs do
   This revokes the access of the identities in that policy to put log events to
   this account.
   """
-  def delete_resource_policy(client, input, options \\ []) do
-    request(client, "DeleteResourcePolicy", input, options)
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteResourcePolicy", input, options)
   end
 
   @doc """
@@ -216,15 +235,15 @@ defmodule AWS.CloudWatchLogs do
   Log events do not expire if they belong to log groups without a retention
   policy.
   """
-  def delete_retention_policy(client, input, options \\ []) do
-    request(client, "DeleteRetentionPolicy", input, options)
+  def delete_retention_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRetentionPolicy", input, options)
   end
 
   @doc """
   Deletes the specified subscription filter.
   """
-  def delete_subscription_filter(client, input, options \\ []) do
-    request(client, "DeleteSubscriptionFilter", input, options)
+  def delete_subscription_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSubscriptionFilter", input, options)
   end
 
   @doc """
@@ -232,8 +251,8 @@ defmodule AWS.CloudWatchLogs do
 
   The results are ASCII-sorted by destination name.
   """
-  def describe_destinations(client, input, options \\ []) do
-    request(client, "DescribeDestinations", input, options)
+  def describe_destinations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDestinations", input, options)
   end
 
   @doc """
@@ -242,8 +261,8 @@ defmodule AWS.CloudWatchLogs do
   You can list all your export tasks or filter the results based on task ID or
   task status.
   """
-  def describe_export_tasks(client, input, options \\ []) do
-    request(client, "DescribeExportTasks", input, options)
+  def describe_export_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExportTasks", input, options)
   end
 
   @doc """
@@ -252,8 +271,8 @@ defmodule AWS.CloudWatchLogs do
   You can list all your log groups or filter the results by prefix. The results
   are ASCII-sorted by log group name.
   """
-  def describe_log_groups(client, input, options \\ []) do
-    request(client, "DescribeLogGroups", input, options)
+  def describe_log_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLogGroups", input, options)
   end
 
   @doc """
@@ -265,8 +284,8 @@ defmodule AWS.CloudWatchLogs do
   This operation has a limit of five transactions per second, after which
   transactions are throttled.
   """
-  def describe_log_streams(client, input, options \\ []) do
-    request(client, "DescribeLogStreams", input, options)
+  def describe_log_streams(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLogStreams", input, options)
   end
 
   @doc """
@@ -276,8 +295,8 @@ defmodule AWS.CloudWatchLogs do
   prefix, metric name, or metric namespace. The results are ASCII-sorted by filter
   name.
   """
-  def describe_metric_filters(client, input, options \\ []) do
-    request(client, "DescribeMetricFilters", input, options)
+  def describe_metric_filters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeMetricFilters", input, options)
   end
 
   @doc """
@@ -287,8 +306,8 @@ defmodule AWS.CloudWatchLogs do
   You can request all queries or limit it to queries of a specific log group or
   queries with a certain status.
   """
-  def describe_queries(client, input, options \\ []) do
-    request(client, "DescribeQueries", input, options)
+  def describe_queries(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeQueries", input, options)
   end
 
   @doc """
@@ -298,15 +317,15 @@ defmodule AWS.CloudWatchLogs do
   You can use the `queryDefinitionNamePrefix` parameter to limit the results to
   only the query definitions that have names that start with a certain string.
   """
-  def describe_query_definitions(client, input, options \\ []) do
-    request(client, "DescribeQueryDefinitions", input, options)
+  def describe_query_definitions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeQueryDefinitions", input, options)
   end
 
   @doc """
   Lists the resource policies in this account.
   """
-  def describe_resource_policies(client, input, options \\ []) do
-    request(client, "DescribeResourcePolicies", input, options)
+  def describe_resource_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeResourcePolicies", input, options)
   end
 
   @doc """
@@ -315,8 +334,8 @@ defmodule AWS.CloudWatchLogs do
   You can list all the subscription filters or filter the results by prefix. The
   results are ASCII-sorted by filter name.
   """
-  def describe_subscription_filters(client, input, options \\ []) do
-    request(client, "DescribeSubscriptionFilters", input, options)
+  def describe_subscription_filters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSubscriptionFilters", input, options)
   end
 
   @doc """
@@ -330,8 +349,8 @@ defmodule AWS.CloudWatchLogs do
 
   Note that it can take up to 5 minutes for this operation to take effect.
   """
-  def disassociate_kms_key(client, input, options \\ []) do
-    request(client, "DisassociateKmsKey", input, options)
+  def disassociate_kms_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateKmsKey", input, options)
   end
 
   @doc """
@@ -350,8 +369,8 @@ defmodule AWS.CloudWatchLogs do
   The returned log events are sorted by event timestamp, the timestamp when the
   event was ingested by CloudWatch Logs, and the ID of the `PutLogEvents` request.
   """
-  def filter_log_events(client, input, options \\ []) do
-    request(client, "FilterLogEvents", input, options)
+  def filter_log_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "FilterLogEvents", input, options)
   end
 
   @doc """
@@ -364,8 +383,8 @@ defmodule AWS.CloudWatchLogs do
   specifying one of the tokens in a subsequent call. This operation can return
   empty results while there are more log events available through the token.
   """
-  def get_log_events(client, input, options \\ []) do
-    request(client, "GetLogEvents", input, options)
+  def get_log_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLogEvents", input, options)
   end
 
   @doc """
@@ -382,8 +401,8 @@ defmodule AWS.CloudWatchLogs do
   The response results are sorted by the frequency percentage, starting with the
   highest percentage.
   """
-  def get_log_group_fields(client, input, options \\ []) do
-    request(client, "GetLogGroupFields", input, options)
+  def get_log_group_fields(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLogGroupFields", input, options)
   end
 
   @doc """
@@ -395,8 +414,8 @@ defmodule AWS.CloudWatchLogs do
 
   The full unparsed log event is returned within `@message`.
   """
-  def get_log_record(client, input, options \\ []) do
-    request(client, "GetLogRecord", input, options)
+  def get_log_record(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLogRecord", input, options)
   end
 
   @doc """
@@ -413,15 +432,15 @@ defmodule AWS.CloudWatchLogs do
   returns only partial results. If you see a value of `Scheduled` or `Running` for
   the status, you can retry the operation later to see the final results.
   """
-  def get_query_results(client, input, options \\ []) do
-    request(client, "GetQueryResults", input, options)
+  def get_query_results(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetQueryResults", input, options)
   end
 
   @doc """
   Lists the tags for the specified log group.
   """
-  def list_tags_log_group(client, input, options \\ []) do
-    request(client, "ListTagsLogGroup", input, options)
+  def list_tags_log_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsLogGroup", input, options)
   end
 
   @doc """
@@ -444,8 +463,8 @@ defmodule AWS.CloudWatchLogs do
   To perform a `PutDestination` operation, you must also have the `iam:PassRole`
   permission.
   """
-  def put_destination(client, input, options \\ []) do
-    request(client, "PutDestination", input, options)
+  def put_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutDestination", input, options)
   end
 
   @doc """
@@ -455,8 +474,8 @@ defmodule AWS.CloudWatchLogs do
   that is used to authorize claims to register a subscription filter against a
   given destination.
   """
-  def put_destination_policy(client, input, options \\ []) do
-    request(client, "PutDestinationPolicy", input, options)
+  def put_destination_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutDestinationPolicy", input, options)
   end
 
   @doc """
@@ -497,8 +516,8 @@ defmodule AWS.CloudWatchLogs do
   If a call to `PutLogEvents` returns "UnrecognizedClientException" the most
   likely cause is an invalid AWS access key ID or secret key.
   """
-  def put_log_events(client, input, options \\ []) do
-    request(client, "PutLogEvents", input, options)
+  def put_log_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutLogEvents", input, options)
   end
 
   @doc """
@@ -512,8 +531,8 @@ defmodule AWS.CloudWatchLogs do
   The maximum number of metric filters that can be associated with a log group is
   100.
   """
-  def put_metric_filter(client, input, options \\ []) do
-    request(client, "PutMetricFilter", input, options)
+  def put_metric_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutMetricFilter", input, options)
   end
 
   @doc """
@@ -532,8 +551,8 @@ defmodule AWS.CloudWatchLogs do
   You must have the `logs:PutQueryDefinition` permission to be able to perform
   this operation.
   """
-  def put_query_definition(client, input, options \\ []) do
-    request(client, "PutQueryDefinition", input, options)
+  def put_query_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutQueryDefinition", input, options)
   end
 
   @doc """
@@ -542,8 +561,8 @@ defmodule AWS.CloudWatchLogs do
 
   An account can have up to 10 resource policies per AWS Region.
   """
-  def put_resource_policy(client, input, options \\ []) do
-    request(client, "PutResourcePolicy", input, options)
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
   end
 
   @doc """
@@ -552,8 +571,8 @@ defmodule AWS.CloudWatchLogs do
   A retention policy allows you to configure the number of days for which to
   retain log events in the specified log group.
   """
-  def put_retention_policy(client, input, options \\ []) do
-    request(client, "PutRetentionPolicy", input, options)
+  def put_retention_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRetentionPolicy", input, options)
   end
 
   @doc """
@@ -589,8 +608,8 @@ defmodule AWS.CloudWatchLogs do
   To perform a `PutSubscriptionFilter` operation, you must also have the
   `iam:PassRole` permission.
   """
-  def put_subscription_filter(client, input, options \\ []) do
-    request(client, "PutSubscriptionFilter", input, options)
+  def put_subscription_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutSubscriptionFilter", input, options)
   end
 
   @doc """
@@ -604,8 +623,8 @@ defmodule AWS.CloudWatchLogs do
   reduce the time range being searched or partition your query into a number of
   queries.
   """
-  def start_query(client, input, options \\ []) do
-    request(client, "StartQuery", input, options)
+  def start_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartQuery", input, options)
   end
 
   @doc """
@@ -614,8 +633,8 @@ defmodule AWS.CloudWatchLogs do
   If the query has already ended, the operation returns an error indicating that
   the specified query is not running.
   """
-  def stop_query(client, input, options \\ []) do
-    request(client, "StopQuery", input, options)
+  def stop_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopQuery", input, options)
   end
 
   @doc """
@@ -628,8 +647,8 @@ defmodule AWS.CloudWatchLogs do
   For more information about tags, see [Tag Log Groups in Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging)
   in the *Amazon CloudWatch Logs User Guide*.
   """
-  def tag_log_group(client, input, options \\ []) do
-    request(client, "TagLogGroup", input, options)
+  def tag_log_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagLogGroup", input, options)
   end
 
   @doc """
@@ -639,8 +658,8 @@ defmodule AWS.CloudWatchLogs do
   You can use this operation to validate the correctness of a metric filter
   pattern.
   """
-  def test_metric_filter(client, input, options \\ []) do
-    request(client, "TestMetricFilter", input, options)
+  def test_metric_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TestMetricFilter", input, options)
   end
 
   @doc """
@@ -650,61 +669,7 @@ defmodule AWS.CloudWatchLogs do
   [ListTagsLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html). To add tags, use
   [TagLogGroup](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html).
   """
-  def untag_log_group(client, input, options \\ []) do
-    request(client, "UntagLogGroup", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "logs"}
-    host = build_host("logs", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "Logs_20140328.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def untag_log_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagLogGroup", input, options)
   end
 end

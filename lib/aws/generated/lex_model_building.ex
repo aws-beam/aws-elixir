@@ -12,6 +12,25 @@ defmodule AWS.LexModelBuilding do
   existing client applications.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-04-19",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "models.lex",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Lex Model Building Service",
+      signature_version: "v4",
+      signing_name: "lex",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates a new version of the bot based on the `$LATEST` version.
 
@@ -28,11 +47,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the `lex:CreateBotVersion` action.
   """
-  def create_bot_version(client, name, input, options \\ []) do
-    path_ = "/bots/#{URI.encode(name)}/versions"
+  def create_bot_version(%Client{} = client, name, input, options \\ []) do
+    url_path = "/bots/#{URI.encode(name)}/versions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -52,11 +82,22 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions to perform the `lex:CreateIntentVersion`
   action.
   """
-  def create_intent_version(client, name, input, options \\ []) do
-    path_ = "/intents/#{URI.encode(name)}/versions"
+  def create_intent_version(%Client{} = client, name, input, options \\ []) do
+    url_path = "/intents/#{URI.encode(name)}/versions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -76,11 +117,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:CreateSlotTypeVersion` action.
   """
-  def create_slot_type_version(client, name, input, options \\ []) do
-    path_ = "/slottypes/#{URI.encode(name)}/versions"
+  def create_slot_type_version(%Client{} = client, name, input, options \\ []) do
+    url_path = "/slottypes/#{URI.encode(name)}/versions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -102,11 +154,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:DeleteBot` action.
   """
-  def delete_bot(client, name, input, options \\ []) do
-    path_ = "/bots/#{URI.encode(name)}"
+  def delete_bot(%Client{} = client, name, input, options \\ []) do
+    url_path = "/bots/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -120,11 +183,22 @@ defmodule AWS.LexModelBuilding do
   again, delete the referring association until the `DeleteBotAlias` operation is
   successful.
   """
-  def delete_bot_alias(client, bot_name, name, input, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
+  def delete_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
+    url_path = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -133,11 +207,31 @@ defmodule AWS.LexModelBuilding do
   This operation requires permission for the `lex:DeleteBotChannelAssociation`
   action.
   """
-  def delete_bot_channel_association(client, bot_alias, bot_name, name, input, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/#{URI.encode(name)}"
+  def delete_bot_channel_association(
+        %Client{} = client,
+        bot_alias,
+        bot_name,
+        name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/#{URI.encode(name)}"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -147,11 +241,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:DeleteBotVersion` action.
   """
-  def delete_bot_version(client, name, version, input, options \\ []) do
-    path_ = "/bots/#{URI.encode(name)}/versions/#{URI.encode(version)}"
+  def delete_bot_version(%Client{} = client, name, version, input, options \\ []) do
+    url_path = "/bots/#{URI.encode(name)}/versions/#{URI.encode(version)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -172,11 +277,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the `lex:DeleteIntent` action.
   """
-  def delete_intent(client, name, input, options \\ []) do
-    path_ = "/intents/#{URI.encode(name)}"
+  def delete_intent(%Client{} = client, name, input, options \\ []) do
+    url_path = "/intents/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -186,11 +302,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:DeleteIntentVersion` action.
   """
-  def delete_intent_version(client, name, version, input, options \\ []) do
-    path_ = "/intents/#{URI.encode(name)}/versions/#{URI.encode(version)}"
+  def delete_intent_version(%Client{} = client, name, version, input, options \\ []) do
+    url_path = "/intents/#{URI.encode(name)}/versions/#{URI.encode(version)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -212,11 +339,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the `lex:DeleteSlotType` action.
   """
-  def delete_slot_type(client, name, input, options \\ []) do
-    path_ = "/slottypes/#{URI.encode(name)}"
+  def delete_slot_type(%Client{} = client, name, input, options \\ []) do
+    url_path = "/slottypes/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -226,11 +364,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:DeleteSlotTypeVersion` action.
   """
-  def delete_slot_type_version(client, name, version, input, options \\ []) do
-    path_ = "/slottypes/#{URI.encode(name)}/version/#{URI.encode(version)}"
+  def delete_slot_type_version(%Client{} = client, name, version, input, options \\ []) do
+    url_path = "/slottypes/#{URI.encode(name)}/version/#{URI.encode(version)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -249,11 +398,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:DeleteUtterances` action.
   """
-  def delete_utterances(client, bot_name, user_id, input, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/utterances/#{URI.encode(user_id)}"
+  def delete_utterances(%Client{} = client, bot_name, user_id, input, options \\ []) do
+    url_path = "/bots/#{URI.encode(bot_name)}/utterances/#{URI.encode(user_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -263,11 +423,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:GetBot` action.
   """
-  def get_bot(client, name, version_or_alias, options \\ []) do
-    path_ = "/bots/#{URI.encode(name)}/versions/#{URI.encode(version_or_alias)}"
+  def get_bot(%Client{} = client, name, version_or_alias, options \\ []) do
+    url_path = "/bots/#{URI.encode(name)}/versions/#{URI.encode(version_or_alias)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -277,11 +448,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:GetBotAlias` action.
   """
-  def get_bot_alias(client, bot_name, name, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
+  def get_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
+    url_path = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -289,26 +471,50 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:GetBotAliases` action.
   """
-  def get_bot_aliases(client, bot_name, max_results \\ nil, name_contains \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/aliases/"
+  def get_bot_aliases(
+        %Client{} = client,
+        bot_name,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/bots/#{URI.encode(bot_name)}/aliases/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name_contains) do
-      [{"nameContains", name_contains} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -318,11 +524,24 @@ defmodule AWS.LexModelBuilding do
   This operation requires permissions for the `lex:GetBotChannelAssociation`
   action.
   """
-  def get_bot_channel_association(client, bot_alias, bot_name, name, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/#{URI.encode(name)}"
+  def get_bot_channel_association(%Client{} = client, bot_alias, bot_name, name, options \\ []) do
+    url_path =
+      "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/#{URI.encode(name)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -331,26 +550,51 @@ defmodule AWS.LexModelBuilding do
   The `GetBotChannelAssociations` operation requires permissions for the
   `lex:GetBotChannelAssociations` action.
   """
-  def get_bot_channel_associations(client, bot_alias, bot_name, max_results \\ nil, name_contains \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/"
+  def get_bot_channel_associations(
+        %Client{} = client,
+        bot_alias,
+        bot_name,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(bot_alias)}/channels/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name_contains) do
-      [{"nameContains", name_contains} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -366,21 +610,42 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:GetBotVersions` action.
   """
-  def get_bot_versions(client, name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/bots/#{URI.encode(name)}/versions/"
+  def get_bot_versions(
+        %Client{} = client,
+        name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/bots/#{URI.encode(name)}/versions/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -395,26 +660,49 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the `lex:GetBots` action.
   """
-  def get_bots(client, max_results \\ nil, name_contains \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/bots/"
+  def get_bots(
+        %Client{} = client,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/bots/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name_contains) do
-      [{"nameContains", name_contains} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -422,11 +710,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the `lex:GetBuiltinIntent` action.
   """
-  def get_builtin_intent(client, signature, options \\ []) do
-    path_ = "/builtins/intents/#{URI.encode(signature)}"
+  def get_builtin_intent(%Client{} = client, signature, options \\ []) do
+    url_path = "/builtins/intents/#{URI.encode(signature)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -434,31 +733,57 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the `lex:GetBuiltinIntents` action.
   """
-  def get_builtin_intents(client, locale \\ nil, max_results \\ nil, next_token \\ nil, signature_contains \\ nil, options \\ []) do
-    path_ = "/builtins/intents/"
+  def get_builtin_intents(
+        %Client{} = client,
+        locale \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        signature_contains \\ nil,
+        options \\ []
+      ) do
+    url_path = "/builtins/intents/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(signature_contains) do
-      [{"signatureContains", signature_contains} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(locale) do
-      [{"locale", locale} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(signature_contains) do
+        [{"signatureContains", signature_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(locale) do
+        [{"locale", locale} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -469,71 +794,127 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the `lex:GetBuiltInSlotTypes` action.
   """
-  def get_builtin_slot_types(client, locale \\ nil, max_results \\ nil, next_token \\ nil, signature_contains \\ nil, options \\ []) do
-    path_ = "/builtins/slottypes/"
+  def get_builtin_slot_types(
+        %Client{} = client,
+        locale \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        signature_contains \\ nil,
+        options \\ []
+      ) do
+    url_path = "/builtins/slottypes/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(signature_contains) do
-      [{"signatureContains", signature_contains} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(locale) do
-      [{"locale", locale} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(signature_contains) do
+        [{"signatureContains", signature_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(locale) do
+        [{"locale", locale} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Exports the contents of a Amazon Lex resource in a specified format.
   """
-  def get_export(client, export_type, name, resource_type, version, options \\ []) do
-    path_ = "/exports/"
+  def get_export(%Client{} = client, export_type, name, resource_type, version, options \\ []) do
+    url_path = "/exports/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(version) do
-      [{"version", version} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(resource_type) do
-      [{"resourceType", resource_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name) do
-      [{"name", name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(export_type) do
-      [{"exportType", export_type} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(version) do
+        [{"version", version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(export_type) do
+        [{"exportType", export_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets information about an import job started with the `StartImport` operation.
   """
-  def get_import(client, import_id, options \\ []) do
-    path_ = "/imports/#{URI.encode(import_id)}"
+  def get_import(%Client{} = client, import_id, options \\ []) do
+    url_path = "/imports/#{URI.encode(import_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -543,11 +924,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions to perform the `lex:GetIntent` action.
   """
-  def get_intent(client, name, version, options \\ []) do
-    path_ = "/intents/#{URI.encode(name)}/versions/#{URI.encode(version)}"
+  def get_intent(%Client{} = client, name, version, options \\ []) do
+    url_path = "/intents/#{URI.encode(name)}/versions/#{URI.encode(version)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -563,21 +955,42 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:GetIntentVersions` action.
   """
-  def get_intent_versions(client, name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/intents/#{URI.encode(name)}/versions/"
+  def get_intent_versions(
+        %Client{} = client,
+        name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/intents/#{URI.encode(name)}/versions/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -591,26 +1004,49 @@ defmodule AWS.LexModelBuilding do
 
   The operation requires permission for the `lex:GetIntents` action.
   """
-  def get_intents(client, max_results \\ nil, name_contains \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/intents/"
+  def get_intents(
+        %Client{} = client,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/intents/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name_contains) do
-      [{"nameContains", name_contains} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -621,11 +1057,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:GetSlotType` action.
   """
-  def get_slot_type(client, name, version, options \\ []) do
-    path_ = "/slottypes/#{URI.encode(name)}/versions/#{URI.encode(version)}"
+  def get_slot_type(%Client{} = client, name, version, options \\ []) do
+    url_path = "/slottypes/#{URI.encode(name)}/versions/#{URI.encode(version)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -641,21 +1088,42 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:GetSlotTypeVersions` action.
   """
-  def get_slot_type_versions(client, name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/slottypes/#{URI.encode(name)}/versions/"
+  def get_slot_type_versions(
+        %Client{} = client,
+        name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/slottypes/#{URI.encode(name)}/versions/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -669,26 +1137,49 @@ defmodule AWS.LexModelBuilding do
 
   The operation requires permission for the `lex:GetSlotTypes` action.
   """
-  def get_slot_types(client, max_results \\ nil, name_contains \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/slottypes/"
+  def get_slot_types(
+        %Client{} = client,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/slottypes/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name_contains) do
-      [{"nameContains", name_contains} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -720,21 +1211,36 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:GetUtterancesView` action.
   """
-  def get_utterances_view(client, bot_name, bot_versions, status_type, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/utterances?view=aggregation"
+  def get_utterances_view(%Client{} = client, bot_name, bot_versions, status_type, options \\ []) do
+    url_path = "/bots/#{URI.encode(bot_name)}/utterances?view=aggregation"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status_type) do
-      [{"status_type", status_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(bot_versions) do
-      [{"bot_versions", bot_versions} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(status_type) do
+        [{"status_type", status_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(bot_versions) do
+        [{"bot_versions", bot_versions} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -742,11 +1248,22 @@ defmodule AWS.LexModelBuilding do
 
   Only bots, bot aliases, and bot channels can have tags associated with them.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -773,11 +1290,22 @@ defmodule AWS.LexModelBuilding do
 
   ```
   """
-  def put_bot(client, name, input, options \\ []) do
-    path_ = "/bots/#{URI.encode(name)}/versions/$LATEST"
+  def put_bot(%Client{} = client, name, input, options \\ []) do
+    url_path = "/bots/#{URI.encode(name)}/versions/$LATEST"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -789,11 +1317,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:PutBotAlias` action.
   """
-  def put_bot_alias(client, bot_name, name, input, options \\ []) do
-    path_ = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
+  def put_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
+    url_path = "/bots/#{URI.encode(bot_name)}/aliases/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -844,11 +1383,22 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:PutIntent` action.
   """
-  def put_intent(client, name, input, options \\ []) do
-    path_ = "/intents/#{URI.encode(name)}/versions/$LATEST"
+  def put_intent(%Client{} = client, name, input, options \\ []) do
+    url_path = "/intents/#{URI.encode(name)}/versions/$LATEST"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -868,21 +1418,43 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:PutSlotType` action.
   """
-  def put_slot_type(client, name, input, options \\ []) do
-    path_ = "/slottypes/#{URI.encode(name)}/versions/$LATEST"
+  def put_slot_type(%Client{} = client, name, input, options \\ []) do
+    url_path = "/slottypes/#{URI.encode(name)}/versions/$LATEST"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Starts a job to import a resource to Amazon Lex.
   """
-  def start_import(client, input, options \\ []) do
-    path_ = "/imports/"
+  def start_import(%Client{} = client, input, options \\ []) do
+    url_path = "/imports/"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -890,88 +1462,47 @@ defmodule AWS.LexModelBuilding do
 
   If a tag key already exists, the existing value is replaced with the new value.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Removes tags from a bot, bot alias or bot channel.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "lex"}
-    host = build_host("models.lex", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 end

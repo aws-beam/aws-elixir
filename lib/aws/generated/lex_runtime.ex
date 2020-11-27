@@ -17,29 +17,83 @@ defmodule AWS.LexRuntime do
   operations, see the build-time API, .
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-11-28",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "runtime.lex",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Lex Runtime Service",
+      signature_version: "v4",
+      signing_name: "lex",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Removes session information for a specified bot, alias, and user ID.
   """
-  def delete_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+  def delete_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
+    url_path =
+      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns session information for a specified bot, alias, and user ID.
   """
-  def get_session(client, bot_alias, bot_name, user_id, checkpoint_label_filter \\ nil, options \\ []) do
-    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session/"
+  def get_session(
+        %Client{} = client,
+        bot_alias,
+        bot_name,
+        user_id,
+        checkpoint_label_filter \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session/"
+
     headers = []
-    query_ = []
-    query_ = if !is_nil(checkpoint_label_filter) do
-      [{"checkpointLabelFilter", checkpoint_label_filter} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(checkpoint_label_filter) do
+        [{"checkpointLabelFilter", checkpoint_label_filter} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -101,48 +155,56 @@ defmodule AWS.LexRuntime do
   In addition, Amazon Lex also returns your application-specific
   `sessionAttributes`. For more information, see [Managing Conversation Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
-  def post_content(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
+  def post_content(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
+    url_path =
+      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/content"
+
     {headers, input} =
       [
         {"accept", "Accept"},
+        {"activeContexts", "x-amz-lex-active-contexts"},
         {"contentType", "Content-Type"},
         {"requestAttributes", "x-amz-lex-request-attributes"},
-        {"sessionAttributes", "x-amz-lex-session-attributes"},
+        {"sessionAttributes", "x-amz-lex-session-attributes"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-lex-alternative-intents", "alternativeIntents"},
-            {"x-amz-lex-bot-version", "botVersion"},
-            {"Content-Type", "contentType"},
-            {"x-amz-lex-dialog-state", "dialogState"},
-            {"x-amz-lex-input-transcript", "inputTranscript"},
-            {"x-amz-lex-intent-name", "intentName"},
-            {"x-amz-lex-message", "message"},
-            {"x-amz-lex-message-format", "messageFormat"},
-            {"x-amz-lex-nlu-intent-confidence", "nluIntentConfidence"},
-            {"x-amz-lex-sentiment", "sentimentResponse"},
-            {"x-amz-lex-session-attributes", "sessionAttributes"},
-            {"x-amz-lex-session-id", "sessionId"},
-            {"x-amz-lex-slot-to-elicit", "slotToElicit"},
-            {"x-amz-lex-slots", "slots"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-lex-active-contexts", "activeContexts"},
+          {"x-amz-lex-alternative-intents", "alternativeIntents"},
+          {"x-amz-lex-bot-version", "botVersion"},
+          {"Content-Type", "contentType"},
+          {"x-amz-lex-dialog-state", "dialogState"},
+          {"x-amz-lex-input-transcript", "inputTranscript"},
+          {"x-amz-lex-intent-name", "intentName"},
+          {"x-amz-lex-message", "message"},
+          {"x-amz-lex-message-format", "messageFormat"},
+          {"x-amz-lex-nlu-intent-confidence", "nluIntentConfidence"},
+          {"x-amz-lex-sentiment", "sentimentResponse"},
+          {"x-amz-lex-session-attributes", "sessionAttributes"},
+          {"x-amz-lex-session-id", "sessionId"},
+          {"x-amz-lex-slot-to-elicit", "slotToElicit"},
+          {"x-amz-lex-slots", "slots"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -199,11 +261,24 @@ defmodule AWS.LexRuntime do
   In addition, Amazon Lex also returns your application-specific
   `sessionAttributes`. For more information, see [Managing Conversation Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
   """
-  def post_text(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
+  def post_text(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
+    url_path =
+      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/text"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -213,103 +288,46 @@ defmodule AWS.LexRuntime do
 
   For more information, see [Managing Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
   """
-  def put_session(client, bot_alias, bot_name, user_id, input, options \\ []) do
-    path_ = "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+  def put_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
+    url_path =
+      "/bot/#{URI.encode(bot_name)}/alias/#{URI.encode(bot_alias)}/user/#{URI.encode(user_id)}/session"
+
     {headers, input} =
       [
-        {"accept", "Accept"},
+        {"accept", "Accept"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Content-Type", "contentType"},
-            {"x-amz-lex-dialog-state", "dialogState"},
-            {"x-amz-lex-intent-name", "intentName"},
-            {"x-amz-lex-message", "message"},
-            {"x-amz-lex-message-format", "messageFormat"},
-            {"x-amz-lex-session-attributes", "sessionAttributes"},
-            {"x-amz-lex-session-id", "sessionId"},
-            {"x-amz-lex-slot-to-elicit", "slotToElicit"},
-            {"x-amz-lex-slots", "slots"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
-  end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-lex-active-contexts", "activeContexts"},
+          {"Content-Type", "contentType"},
+          {"x-amz-lex-dialog-state", "dialogState"},
+          {"x-amz-lex-intent-name", "intentName"},
+          {"x-amz-lex-message", "message"},
+          {"x-amz-lex-message-format", "messageFormat"},
+          {"x-amz-lex-session-attributes", "sessionAttributes"},
+          {"x-amz-lex-session-id", "sessionId"},
+          {"x-amz-lex-slot-to-elicit", "slotToElicit"},
+          {"x-amz-lex-slots", "slots"}
+        ]
+      )
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "lex"}
-    host = build_host("runtime.lex", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

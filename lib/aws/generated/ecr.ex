@@ -15,6 +15,25 @@ defmodule AWS.ECR do
   specific users or Amazon EC2 instances can access repositories and images.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Amazon ECR",
+      api_version: "2015-09-21",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "api.ecr",
+      global?: false,
+      protocol: "json",
+      service_id: "ECR",
+      signature_version: "v4",
+      signing_name: "ecr",
+      target_prefix: "AmazonEC2ContainerRegistry_V20150921"
+    }
+  end
+
   @doc """
   Checks the availability of one or more image layers in a repository.
 
@@ -26,8 +45,8 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
-  def batch_check_layer_availability(client, input, options \\ []) do
-    request(client, "BatchCheckLayerAvailability", input, options)
+  def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchCheckLayerAvailability", input, options)
   end
 
   @doc """
@@ -42,8 +61,8 @@ defmodule AWS.ECR do
   You can completely delete an image (and all of its tags) by specifying the
   image's digest in your request.
   """
-  def batch_delete_image(client, input, options \\ []) do
-    request(client, "BatchDeleteImage", input, options)
+  def batch_delete_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteImage", input, options)
   end
 
   @doc """
@@ -54,8 +73,8 @@ defmodule AWS.ECR do
   When an image is pulled, the BatchGetImage API is called once to retrieve the
   image manifest.
   """
-  def batch_get_image(client, input, options \\ []) do
-    request(client, "BatchGetImage", input, options)
+  def batch_get_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetImage", input, options)
   end
 
   @doc """
@@ -72,8 +91,8 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
-  def complete_layer_upload(client, input, options \\ []) do
-    request(client, "CompleteLayerUpload", input, options)
+  def complete_layer_upload(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CompleteLayerUpload", input, options)
   end
 
   @doc """
@@ -82,15 +101,15 @@ defmodule AWS.ECR do
   For more information, see [Amazon ECR Repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
-  def create_repository(client, input, options \\ []) do
-    request(client, "CreateRepository", input, options)
+  def create_repository(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRepository", input, options)
   end
 
   @doc """
   Deletes the lifecycle policy associated with the specified repository.
   """
-  def delete_lifecycle_policy(client, input, options \\ []) do
-    request(client, "DeleteLifecyclePolicy", input, options)
+  def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -99,22 +118,22 @@ defmodule AWS.ECR do
   If the repository contains images, you must either delete all images in the
   repository or use the `force` option to delete the repository.
   """
-  def delete_repository(client, input, options \\ []) do
-    request(client, "DeleteRepository", input, options)
+  def delete_repository(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRepository", input, options)
   end
 
   @doc """
   Deletes the repository policy associated with the specified repository.
   """
-  def delete_repository_policy(client, input, options \\ []) do
-    request(client, "DeleteRepositoryPolicy", input, options)
+  def delete_repository_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRepositoryPolicy", input, options)
   end
 
   @doc """
   Returns the scan findings for the specified image.
   """
-  def describe_image_scan_findings(client, input, options \\ []) do
-    request(client, "DescribeImageScanFindings", input, options)
+  def describe_image_scan_findings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeImageScanFindings", input, options)
   end
 
   @doc """
@@ -125,15 +144,15 @@ defmodule AWS.ECR do
   command shows the uncompressed image size, so it may return a larger image size
   than the image sizes returned by `DescribeImages`.
   """
-  def describe_images(client, input, options \\ []) do
-    request(client, "DescribeImages", input, options)
+  def describe_images(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeImages", input, options)
   end
 
   @doc """
   Describes image repositories in a registry.
   """
-  def describe_repositories(client, input, options \\ []) do
-    request(client, "DescribeRepositories", input, options)
+  def describe_repositories(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRepositories", input, options)
   end
 
   @doc """
@@ -149,8 +168,8 @@ defmodule AWS.ECR do
   more information, see [Registry Authentication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth)
   in the *Amazon Elastic Container Registry User Guide*.
   """
-  def get_authorization_token(client, input, options \\ []) do
-    request(client, "GetAuthorizationToken", input, options)
+  def get_authorization_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAuthorizationToken", input, options)
   end
 
   @doc """
@@ -165,30 +184,30 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
-  def get_download_url_for_layer(client, input, options \\ []) do
-    request(client, "GetDownloadUrlForLayer", input, options)
+  def get_download_url_for_layer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDownloadUrlForLayer", input, options)
   end
 
   @doc """
   Retrieves the lifecycle policy for the specified repository.
   """
-  def get_lifecycle_policy(client, input, options \\ []) do
-    request(client, "GetLifecyclePolicy", input, options)
+  def get_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLifecyclePolicy", input, options)
   end
 
   @doc """
   Retrieves the results of the lifecycle policy preview request for the specified
   repository.
   """
-  def get_lifecycle_policy_preview(client, input, options \\ []) do
-    request(client, "GetLifecyclePolicyPreview", input, options)
+  def get_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLifecyclePolicyPreview", input, options)
   end
 
   @doc """
   Retrieves the repository policy for the specified repository.
   """
-  def get_repository_policy(client, input, options \\ []) do
-    request(client, "GetRepositoryPolicy", input, options)
+  def get_repository_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRepositoryPolicy", input, options)
   end
 
   @doc """
@@ -202,8 +221,8 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
-  def initiate_layer_upload(client, input, options \\ []) do
-    request(client, "InitiateLayerUpload", input, options)
+  def initiate_layer_upload(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "InitiateLayerUpload", input, options)
   end
 
   @doc """
@@ -216,15 +235,15 @@ defmodule AWS.ECR do
   filter your results to return only `TAGGED` images to list all of the tags in
   your repository.
   """
-  def list_images(client, input, options \\ []) do
-    request(client, "ListImages", input, options)
+  def list_images(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListImages", input, options)
   end
 
   @doc """
   List the tags for an Amazon ECR resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -238,15 +257,15 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
-  def put_image(client, input, options \\ []) do
-    request(client, "PutImage", input, options)
+  def put_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutImage", input, options)
   end
 
   @doc """
   Updates the image scanning configuration for the specified repository.
   """
-  def put_image_scanning_configuration(client, input, options \\ []) do
-    request(client, "PutImageScanningConfiguration", input, options)
+  def put_image_scanning_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutImageScanningConfiguration", input, options)
   end
 
   @doc """
@@ -255,8 +274,8 @@ defmodule AWS.ECR do
   For more information, see [Image Tag Mutability](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
-  def put_image_tag_mutability(client, input, options \\ []) do
-    request(client, "PutImageTagMutability", input, options)
+  def put_image_tag_mutability(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutImageTagMutability", input, options)
   end
 
   @doc """
@@ -264,8 +283,8 @@ defmodule AWS.ECR do
 
   For more information, see [Lifecycle Policy Template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
   """
-  def put_lifecycle_policy(client, input, options \\ []) do
-    request(client, "PutLifecyclePolicy", input, options)
+  def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -275,8 +294,8 @@ defmodule AWS.ECR do
   For more information, see [Amazon ECR Repository Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
-  def set_repository_policy(client, input, options \\ []) do
-    request(client, "SetRepositoryPolicy", input, options)
+  def set_repository_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetRepositoryPolicy", input, options)
   end
 
   @doc """
@@ -287,8 +306,8 @@ defmodule AWS.ECR do
   see [Image Scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
-  def start_image_scan(client, input, options \\ []) do
-    request(client, "StartImageScan", input, options)
+  def start_image_scan(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartImageScan", input, options)
   end
 
   @doc """
@@ -297,8 +316,8 @@ defmodule AWS.ECR do
   This allows you to see the results before associating the lifecycle policy with
   the repository.
   """
-  def start_lifecycle_policy_preview(client, input, options \\ []) do
-    request(client, "StartLifecyclePolicyPreview", input, options)
+  def start_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartLifecyclePolicyPreview", input, options)
   end
 
   @doc """
@@ -307,15 +326,15 @@ defmodule AWS.ECR do
   Existing tags on a resource are not changed if they are not specified in the
   request parameters.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Deletes specified tags from a resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -329,61 +348,7 @@ defmodule AWS.ECR do
   customers for pulling and pushing images. In most cases, you should use the
   `docker` CLI to pull, tag, and push images.
   """
-  def upload_layer_part(client, input, options \\ []) do
-    request(client, "UploadLayerPart", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "ecr"}
-    host = build_host("api.ecr", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AmazonEC2ContainerRegistry_V20150921.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def upload_layer_part(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UploadLayerPart", input, options)
   end
 end

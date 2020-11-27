@@ -13,6 +13,25 @@ defmodule AWS.ConnectParticipant do
   customers.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-09-07",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "participant.connect",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "ConnectParticipant",
+      signature_version: "v4",
+      signing_name: "execute-api",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates the participant's connection.
 
@@ -35,15 +54,28 @@ defmodule AWS.ConnectParticipant do
   parameter, clients need to call this API again to obtain a new websocket URL and
   perform the same steps as before.
   """
-  def create_participant_connection(client, input, options \\ []) do
-    path_ = "/participant/connection"
+  def create_participant_connection(%Client{} = client, input, options \\ []) do
+    url_path = "/participant/connection"
+
     {headers, input} =
       [
-        {"ParticipantToken", "X-Amz-Bearer"},
+        {"ParticipantToken", "X-Amz-Bearer"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -52,15 +84,28 @@ defmodule AWS.ConnectParticipant do
   Note that ConnectionToken is used for invoking this API instead of
   ParticipantToken.
   """
-  def disconnect_participant(client, input, options \\ []) do
-    path_ = "/participant/disconnect"
+  def disconnect_participant(%Client{} = client, input, options \\ []) do
+    url_path = "/participant/disconnect"
+
     {headers, input} =
       [
-        {"ConnectionToken", "X-Amz-Bearer"},
+        {"ConnectionToken", "X-Amz-Bearer"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -69,15 +114,28 @@ defmodule AWS.ConnectParticipant do
   Note that ConnectionToken is used for invoking this API instead of
   ParticipantToken.
   """
-  def get_transcript(client, input, options \\ []) do
-    path_ = "/participant/transcript"
+  def get_transcript(%Client{} = client, input, options \\ []) do
+    url_path = "/participant/transcript"
+
     {headers, input} =
       [
-        {"ConnectionToken", "X-Amz-Bearer"},
+        {"ConnectionToken", "X-Amz-Bearer"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -86,15 +144,28 @@ defmodule AWS.ConnectParticipant do
   Note that ConnectionToken is used for invoking this API instead of
   ParticipantToken.
   """
-  def send_event(client, input, options \\ []) do
-    path_ = "/participant/event"
+  def send_event(%Client{} = client, input, options \\ []) do
+    url_path = "/participant/event"
+
     {headers, input} =
       [
-        {"ConnectionToken", "X-Amz-Bearer"},
+        {"ConnectionToken", "X-Amz-Bearer"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -103,78 +174,27 @@ defmodule AWS.ConnectParticipant do
   Note that ConnectionToken is used for invoking this API instead of
   ParticipantToken.
   """
-  def send_message(client, input, options \\ []) do
-    path_ = "/participant/message"
+  def send_message(%Client{} = client, input, options \\ []) do
+    url_path = "/participant/message"
+
     {headers, input} =
       [
-        {"ConnectionToken", "X-Amz-Bearer"},
+        {"ConnectionToken", "X-Amz-Bearer"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "execute-api"}
-    host = build_host("participant.connect", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
+    query_params = []
 
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

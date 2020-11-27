@@ -11,158 +11,211 @@ defmodule AWS.Savingsplans do
   [AWS Savings Plans User Guide](https://docs.aws.amazon.com/savingsplans/latest/userguide/).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-06-28",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: "us-east-1",
+      endpoint_prefix: "savingsplans",
+      global?: true,
+      protocol: "rest-json",
+      service_id: "savingsplans",
+      signature_version: "v4",
+      signing_name: "savingsplans",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates a Savings Plan.
   """
-  def create_savings_plan(client, input, options \\ []) do
-    path_ = "/CreateSavingsPlan"
+  def create_savings_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateSavingsPlan"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the queued purchase for the specified Savings Plan.
   """
-  def delete_queued_savings_plan(client, input, options \\ []) do
-    path_ = "/DeleteQueuedSavingsPlan"
+  def delete_queued_savings_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteQueuedSavingsPlan"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the specified Savings Plans rates.
   """
-  def describe_savings_plan_rates(client, input, options \\ []) do
-    path_ = "/DescribeSavingsPlanRates"
+  def describe_savings_plan_rates(%Client{} = client, input, options \\ []) do
+    url_path = "/DescribeSavingsPlanRates"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the specified Savings Plans.
   """
-  def describe_savings_plans(client, input, options \\ []) do
-    path_ = "/DescribeSavingsPlans"
+  def describe_savings_plans(%Client{} = client, input, options \\ []) do
+    url_path = "/DescribeSavingsPlans"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the specified Savings Plans offering rates.
   """
-  def describe_savings_plans_offering_rates(client, input, options \\ []) do
-    path_ = "/DescribeSavingsPlansOfferingRates"
+  def describe_savings_plans_offering_rates(%Client{} = client, input, options \\ []) do
+    url_path = "/DescribeSavingsPlansOfferingRates"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the specified Savings Plans offerings.
   """
-  def describe_savings_plans_offerings(client, input, options \\ []) do
-    path_ = "/DescribeSavingsPlansOfferings"
+  def describe_savings_plans_offerings(%Client{} = client, input, options \\ []) do
+    url_path = "/DescribeSavingsPlansOfferings"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the tags for the specified resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    path_ = "/ListTagsForResource"
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/ListTagsForResource"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Adds the specified tags to the specified resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    path_ = "/TagResource"
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/TagResource"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes the specified tags from the specified resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    path_ = "/UntagResource"
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/UntagResource"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "savingsplans",
-                        region:  "us-east-1"}
-    host = build_host("savingsplans", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

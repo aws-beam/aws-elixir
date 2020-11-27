@@ -5,10 +5,9 @@ defmodule AWS.CodeStarConnections do
   @moduledoc """
   AWS CodeStar Connections
 
-  The CodeStar Connections feature is in preview release and is subject to change.
-
   This AWS CodeStar Connections API Reference provides descriptions and usage
   examples of the operations and data types for the AWS CodeStar Connections API.
+
   You can use the connections API to work with connections and installations.
 
   *Connections* are configurations that you use to connect AWS resources to
@@ -22,8 +21,8 @@ defmodule AWS.CodeStarConnections do
   When you create a connection, the console initiates a third-party connection
   handshake. *Installations* are the apps that are used to conduct this handshake.
   For example, the installation for the Bitbucket provider type is the Bitbucket
-  Cloud app. When you create a connection, you can choose an existing installation
-  or create one.
+  app. When you create a connection, you can choose an existing installation or
+  create one.
 
   When you want to create a connection to an installed provider type such as
   GitHub Enterprise Server, you create a *host* for your connections.
@@ -68,6 +67,25 @@ defmodule AWS.CodeStarConnections do
   Guide](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-12-01",
+      content_type: "application/x-amz-json-1.0",
+      credential_scope: nil,
+      endpoint_prefix: "codestar-connections",
+      global?: false,
+      protocol: "json",
+      service_id: "CodeStar connections",
+      signature_version: "v4",
+      signing_name: "codestar-connections",
+      target_prefix: "com.amazonaws.codestar.connections.CodeStar_connections_20191201"
+    }
+  end
+
   @doc """
   Creates a connection that can then be given to other AWS services like
   CodePipeline so that it can access third-party code repositories.
@@ -75,8 +93,8 @@ defmodule AWS.CodeStarConnections do
   The connection is in pending status until the third-party connection handshake
   is completed from the console.
   """
-  def create_connection(client, input, options \\ []) do
-    request(client, "CreateConnection", input, options)
+  def create_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateConnection", input, options)
   end
 
   @doc """
@@ -90,15 +108,15 @@ defmodule AWS.CodeStarConnections do
   A host created through the CLI or the SDK is in `PENDING` status by default. You
   can make its status `AVAILABLE` by setting up the host in the console.
   """
-  def create_host(client, input, options \\ []) do
-    request(client, "CreateHost", input, options)
+  def create_host(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateHost", input, options)
   end
 
   @doc """
   The connection to be deleted.
   """
-  def delete_connection(client, input, options \\ []) do
-    request(client, "DeleteConnection", input, options)
+  def delete_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteConnection", input, options)
   end
 
   @doc """
@@ -110,44 +128,44 @@ defmodule AWS.CodeStarConnections do
   A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or
   VPC_CONFIG_DELETING state.
   """
-  def delete_host(client, input, options \\ []) do
-    request(client, "DeleteHost", input, options)
+  def delete_host(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteHost", input, options)
   end
 
   @doc """
   Returns the connection ARN and details such as status, owner, and provider type.
   """
-  def get_connection(client, input, options \\ []) do
-    request(client, "GetConnection", input, options)
+  def get_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetConnection", input, options)
   end
 
   @doc """
   Returns the host ARN and details such as status, provider type, endpoint, and,
   if applicable, the VPC configuration.
   """
-  def get_host(client, input, options \\ []) do
-    request(client, "GetHost", input, options)
+  def get_host(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetHost", input, options)
   end
 
   @doc """
   Lists the connections associated with your account.
   """
-  def list_connections(client, input, options \\ []) do
-    request(client, "ListConnections", input, options)
+  def list_connections(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListConnections", input, options)
   end
 
   @doc """
   Lists the hosts associated with your account.
   """
-  def list_hosts(client, input, options \\ []) do
-    request(client, "ListHosts", input, options)
+  def list_hosts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListHosts", input, options)
   end
 
   @doc """
   Gets the set of key-value pairs (metadata) that are used to manage the resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -155,68 +173,21 @@ defmodule AWS.CodeStarConnections do
 
   Tags are metadata that can be used to manage a resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes tags from an AWS resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "codestar-connections"}
-    host = build_host("codestar-connections", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.0"},
-      {"X-Amz-Target", "com.amazonaws.codestar.connections.CodeStar_connections_20191201.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  @doc """
+  Updates a specified host with the provided configurations.
+  """
+  def update_host(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateHost", input, options)
   end
 end

@@ -6,6 +6,25 @@ defmodule AWS.TimestreamQuery do
 
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Timestream Query",
+      api_version: "2018-11-01",
+      content_type: "application/x-amz-json-1.0",
+      credential_scope: nil,
+      endpoint_prefix: "query.timestream",
+      global?: false,
+      protocol: "json",
+      service_id: "Timestream Query",
+      signature_version: "v4",
+      signing_name: "timestream",
+      target_prefix: "Timestream_20181101"
+    }
+  end
+
   @doc """
   Cancels a query that has been issued.
 
@@ -14,8 +33,8 @@ defmodule AWS.TimestreamQuery do
   operation, subsequent cancellation requests will return a `CancellationMessage`,
   indicating that the query has already been canceled.
   """
-  def cancel_query(client, input, options \\ []) do
-    request(client, "CancelQuery", input, options)
+  def cancel_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelQuery", input, options)
   end
 
   @doc """
@@ -36,8 +55,8 @@ defmodule AWS.TimestreamQuery do
   For detailed information on how to use DescribeEndpoints, see [The Endpoint Discovery Pattern and REST
   APIs](https://docs.aws.amazon.com/timestream/latest/developerguide/Using-API.endpoint-discovery.html).
   """
-  def describe_endpoints(client, input, options \\ []) do
-    request(client, "DescribeEndpoints", input, options)
+  def describe_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
   end
 
   @doc """
@@ -48,61 +67,7 @@ defmodule AWS.TimestreamQuery do
   Service quotas apply. For more information, see Quotas in the Timestream
   Developer Guide.
   """
-  def query(client, input, options \\ []) do
-    request(client, "Query", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "timestream"}
-    host = build_host("query.timestream", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.0"},
-      {"X-Amz-Target", "Timestream_20181101.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Query", input, options)
   end
 end

@@ -9,13 +9,32 @@ defmodule AWS.MediaStore do
   You use a container endpoint to create, read, and delete objects.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "MediaStore",
+      api_version: "2017-09-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "mediastore",
+      global?: false,
+      protocol: "json",
+      service_id: "MediaStore",
+      signature_version: "v4",
+      signing_name: "mediastore",
+      target_prefix: "MediaStore_20170901"
+    }
+  end
+
   @doc """
   Creates a storage container to hold objects.
 
   A container is similar to a bucket in the Amazon S3 service.
   """
-  def create_container(client, input, options \\ []) do
-    request(client, "CreateContainer", input, options)
+  def create_container(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateContainer", input, options)
   end
 
   @doc """
@@ -24,15 +43,15 @@ defmodule AWS.MediaStore do
   Before you make a `DeleteContainer` request, delete any objects in the container
   or in any folders in the container. You can delete only empty containers.
   """
-  def delete_container(client, input, options \\ []) do
-    request(client, "DeleteContainer", input, options)
+  def delete_container(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteContainer", input, options)
   end
 
   @doc """
   Deletes the access policy that is associated with the specified container.
   """
-  def delete_container_policy(client, input, options \\ []) do
-    request(client, "DeleteContainerPolicy", input, options)
+  def delete_container_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteContainerPolicy", input, options)
   end
 
   @doc """
@@ -43,8 +62,8 @@ defmodule AWS.MediaStore do
   `MediaStore:DeleteCorsPolicy` action. The container owner has this permission by
   default and can grant this permission to others.
   """
-  def delete_cors_policy(client, input, options \\ []) do
-    request(client, "DeleteCorsPolicy", input, options)
+  def delete_cors_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCorsPolicy", input, options)
   end
 
   @doc """
@@ -52,8 +71,8 @@ defmodule AWS.MediaStore do
 
   It takes up to 20 minutes for the change to take effect.
   """
-  def delete_lifecycle_policy(client, input, options \\ []) do
-    request(client, "DeleteLifecyclePolicy", input, options)
+  def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -62,8 +81,8 @@ defmodule AWS.MediaStore do
   If there is no metric policy associated with the container, MediaStore doesn't
   send metrics to CloudWatch.
   """
-  def delete_metric_policy(client, input, options \\ []) do
-    request(client, "DeleteMetricPolicy", input, options)
+  def delete_metric_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMetricPolicy", input, options)
   end
 
   @doc """
@@ -76,8 +95,8 @@ defmodule AWS.MediaStore do
   `ContainerName`. To return all `Container` objects that are associated with a
   specified AWS account, use `ListContainers`.
   """
-  def describe_container(client, input, options \\ []) do
-    request(client, "DescribeContainer", input, options)
+  def describe_container(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeContainer", input, options)
   end
 
   @doc """
@@ -86,8 +105,8 @@ defmodule AWS.MediaStore do
   For information about the data that is included in an access policy, see the
   [AWS Identity and Access Management User Guide](https://aws.amazon.com/documentation/iam/).
   """
-  def get_container_policy(client, input, options \\ []) do
-    request(client, "GetContainerPolicy", input, options)
+  def get_container_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContainerPolicy", input, options)
   end
 
   @doc """
@@ -98,22 +117,22 @@ defmodule AWS.MediaStore do
   `MediaStore:GetCorsPolicy` action. By default, the container owner has this
   permission and can grant it to others.
   """
-  def get_cors_policy(client, input, options \\ []) do
-    request(client, "GetCorsPolicy", input, options)
+  def get_cors_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCorsPolicy", input, options)
   end
 
   @doc """
   Retrieves the object lifecycle policy that is assigned to a container.
   """
-  def get_lifecycle_policy(client, input, options \\ []) do
-    request(client, "GetLifecyclePolicy", input, options)
+  def get_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLifecyclePolicy", input, options)
   end
 
   @doc """
   Returns the metric policy for the specified container.
   """
-  def get_metric_policy(client, input, options \\ []) do
-    request(client, "GetMetricPolicy", input, options)
+  def get_metric_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMetricPolicy", input, options)
   end
 
   @doc """
@@ -128,15 +147,15 @@ defmodule AWS.MediaStore do
 
   See also `DescribeContainer`, which gets the properties of one container.
   """
-  def list_containers(client, input, options \\ []) do
-    request(client, "ListContainers", input, options)
+  def list_containers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListContainers", input, options)
   end
 
   @doc """
   Returns a list of the tags assigned to the specified container.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -150,8 +169,8 @@ defmodule AWS.MediaStore do
   container. If you enter `PutContainerPolicy` twice, the second command modifies
   the existing policy.
   """
-  def put_container_policy(client, input, options \\ []) do
-    request(client, "PutContainerPolicy", input, options)
+  def put_container_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutContainerPolicy", input, options)
   end
 
   @doc """
@@ -171,8 +190,8 @@ defmodule AWS.MediaStore do
   To learn more about CORS, see [Cross-Origin Resource Sharing (CORS) in AWS Elemental
   MediaStore](https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html).
   """
-  def put_cors_policy(client, input, options \\ []) do
-    request(client, "PutCorsPolicy", input, options)
+  def put_cors_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutCorsPolicy", input, options)
   end
 
   @doc """
@@ -185,8 +204,8 @@ defmodule AWS.MediaStore do
   For information about how to construct an object lifecycle policy, see
   [Components of an Object Lifecycle Policy](https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html).
   """
-  def put_lifecycle_policy(client, input, options \\ []) do
-    request(client, "PutLifecyclePolicy", input, options)
+  def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutLifecyclePolicy", input, options)
   end
 
   @doc """
@@ -195,8 +214,8 @@ defmodule AWS.MediaStore do
   A metric policy allows AWS Elemental MediaStore to send metrics to Amazon
   CloudWatch. It takes up to 20 minutes for the new policy to take effect.
   """
-  def put_metric_policy(client, input, options \\ []) do
-    request(client, "PutMetricPolicy", input, options)
+  def put_metric_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutMetricPolicy", input, options)
   end
 
   @doc """
@@ -205,8 +224,8 @@ defmodule AWS.MediaStore do
   When you enable access logging on a container, MediaStore delivers access logs
   for objects stored in that container to Amazon CloudWatch Logs.
   """
-  def start_access_logging(client, input, options \\ []) do
-    request(client, "StartAccessLogging", input, options)
+  def start_access_logging(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartAccessLogging", input, options)
   end
 
   @doc """
@@ -216,8 +235,8 @@ defmodule AWS.MediaStore do
   logs to Amazon CloudWatch Logs. These access logs are not saved and are not
   retrievable.
   """
-  def stop_access_logging(client, input, options \\ []) do
-    request(client, "StopAccessLogging", input, options)
+  def stop_access_logging(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopAccessLogging", input, options)
   end
 
   @doc """
@@ -229,8 +248,8 @@ defmodule AWS.MediaStore do
   each container. For more information about tagging, including naming and usage
   conventions, see [Tagging Resources in MediaStore](https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html).
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -238,61 +257,7 @@ defmodule AWS.MediaStore do
 
   You can specify one or more tags to remove.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "mediastore"}
-    host = build_host("mediastore", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "MediaStore_20170901.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 end

@@ -10,24 +10,65 @@ defmodule AWS.IoTEvents do
   inputs and detector models, and to list their versions.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-07-27",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "iotevents",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "IoT Events",
+      signature_version: "v4",
+      signing_name: "iotevents",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates a detector model.
   """
-  def create_detector_model(client, input, options \\ []) do
-    path_ = "/detector-models"
+  def create_detector_model(%Client{} = client, input, options \\ []) do
+    url_path = "/detector-models"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates an input.
   """
-  def create_input(client, input, options \\ []) do
-    path_ = "/inputs"
+  def create_input(%Client{} = client, input, options \\ []) do
+    url_path = "/inputs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -35,21 +76,43 @@ defmodule AWS.IoTEvents do
 
   Any active instances of the detector model are also deleted.
   """
-  def delete_detector_model(client, detector_model_name, input, options \\ []) do
-    path_ = "/detector-models/#{URI.encode(detector_model_name)}"
+  def delete_detector_model(%Client{} = client, detector_model_name, input, options \\ []) do
+    url_path = "/detector-models/#{URI.encode(detector_model_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes an input.
   """
-  def delete_input(client, input_name, input, options \\ []) do
-    path_ = "/inputs/#{URI.encode(input_name)}"
+  def delete_input(%Client{} = client, input_name, input, options \\ []) do
+    url_path = "/inputs/#{URI.encode(input_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -58,36 +121,76 @@ defmodule AWS.IoTEvents do
   If the `version` parameter is not specified, information about the latest
   version is returned.
   """
-  def describe_detector_model(client, detector_model_name, detector_model_version \\ nil, options \\ []) do
-    path_ = "/detector-models/#{URI.encode(detector_model_name)}"
+  def describe_detector_model(
+        %Client{} = client,
+        detector_model_name,
+        detector_model_version \\ nil,
+        options \\ []
+      ) do
+    url_path = "/detector-models/#{URI.encode(detector_model_name)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(detector_model_version) do
-      [{"version", detector_model_version} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(detector_model_version) do
+        [{"version", detector_model_version} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes an input.
   """
-  def describe_input(client, input_name, options \\ []) do
-    path_ = "/inputs/#{URI.encode(input_name)}"
+  def describe_input(%Client{} = client, input_name, options \\ []) do
+    url_path = "/inputs/#{URI.encode(input_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves the current settings of the AWS IoT Events logging options.
   """
-  def describe_logging_options(client, options \\ []) do
-    path_ = "/logging"
+  def describe_logging_options(%Client{} = client, options \\ []) do
+    url_path = "/logging"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -95,21 +198,42 @@ defmodule AWS.IoTEvents do
 
   Only the metadata associated with each detector model version is returned.
   """
-  def list_detector_model_versions(client, detector_model_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/detector-models/#{URI.encode(detector_model_name)}/versions"
+  def list_detector_model_versions(
+        %Client{} = client,
+        detector_model_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/detector-models/#{URI.encode(detector_model_name)}/versions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -117,56 +241,104 @@ defmodule AWS.IoTEvents do
 
   Only the metadata associated with each detector model is returned.
   """
-  def list_detector_models(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/detector-models"
+  def list_detector_models(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/detector-models"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the inputs you have created.
   """
-  def list_inputs(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/inputs"
+  def list_inputs(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/inputs"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags"
     headers = []
-    query_ = []
-    query_ = if !is_nil(resource_arn) do
-      [{"resourceArn", resource_arn} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -177,11 +349,22 @@ defmodule AWS.IoTEvents do
   specified in the `roleArn` field (for example, to correct an invalid policy), it
   takes up to five minutes for that change to take effect.
   """
-  def put_logging_options(client, input, options \\ []) do
-    path_ = "/logging"
+  def put_logging_options(%Client{} = client, input, options \\ []) do
+    url_path = "/logging"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -189,30 +372,54 @@ defmodule AWS.IoTEvents do
 
   Tags are metadata that can be used to manage a resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    path_ = "/tags"
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"resourceArn", "resourceArn"},
+        {"resourceArn", "resourceArn"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes the given tags (metadata) from the resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    path_ = "/tags"
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"resourceArn", "resourceArn"},
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -221,84 +428,42 @@ defmodule AWS.IoTEvents do
   Detectors (instances) spawned by the previous version are deleted and then
   re-created as new inputs arrive.
   """
-  def update_detector_model(client, detector_model_name, input, options \\ []) do
-    path_ = "/detector-models/#{URI.encode(detector_model_name)}"
+  def update_detector_model(%Client{} = client, detector_model_name, input, options \\ []) do
+    url_path = "/detector-models/#{URI.encode(detector_model_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates an input.
   """
-  def update_input(client, input_name, input, options \\ []) do
-    path_ = "/inputs/#{URI.encode(input_name)}"
+  def update_input(%Client{} = client, input_name, input, options \\ []) do
+    url_path = "/inputs/#{URI.encode(input_name)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "iotevents"}
-    host = build_host("iotevents", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

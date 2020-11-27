@@ -6,6 +6,25 @@ defmodule AWS.Rekognition do
   This is the Amazon Rekognition API reference.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-06-27",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "rekognition",
+      global?: false,
+      protocol: "json",
+      service_id: "Rekognition",
+      signature_version: "v4",
+      signing_name: "rekognition",
+      target_prefix: "RekognitionService"
+    }
+  end
+
   @doc """
   Compares a face in the *source* input image with each of the 100 largest faces
   detected in the *target* input image.
@@ -56,8 +75,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:CompareFaces`
   action.
   """
-  def compare_faces(client, input, options \\ []) do
-    request(client, "CompareFaces", input, options)
+  def compare_faces(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CompareFaces", input, options)
   end
 
   @doc """
@@ -78,8 +97,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:CreateCollection` action.
   """
-  def create_collection(client, input, options \\ []) do
-    request(client, "CreateCollection", input, options)
+  def create_collection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCollection", input, options)
   end
 
   @doc """
@@ -91,8 +110,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:CreateProject`
   action.
   """
-  def create_project(client, input, options \\ []) do
-    request(client, "CreateProject", input, options)
+  def create_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateProject", input, options)
   end
 
   @doc """
@@ -115,8 +134,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:CreateProjectVersion` action.
   """
-  def create_project_version(client, input, options \\ []) do
-    request(client, "CreateProjectVersion", input, options)
+  def create_project_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateProjectVersion", input, options)
   end
 
   @doc """
@@ -138,8 +157,8 @@ defmodule AWS.Rekognition do
   to stop processing. You can delete the stream processor by calling
   `DeleteStreamProcessor`.
   """
-  def create_stream_processor(client, input, options \\ []) do
-    request(client, "CreateStreamProcessor", input, options)
+  def create_stream_processor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateStreamProcessor", input, options)
   end
 
   @doc """
@@ -151,8 +170,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:DeleteCollection` action.
   """
-  def delete_collection(client, input, options \\ []) do
-    request(client, "DeleteCollection", input, options)
+  def delete_collection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCollection", input, options)
   end
 
   @doc """
@@ -164,8 +183,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:DeleteFaces`
   action.
   """
-  def delete_faces(client, input, options \\ []) do
-    request(client, "DeleteFaces", input, options)
+  def delete_faces(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFaces", input, options)
   end
 
   @doc """
@@ -177,8 +196,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:DeleteProject`
   action.
   """
-  def delete_project(client, input, options \\ []) do
-    request(client, "DeleteProject", input, options)
+  def delete_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProject", input, options)
   end
 
   @doc """
@@ -192,8 +211,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:DeleteProjectVersion` action.
   """
-  def delete_project_version(client, input, options \\ []) do
-    request(client, "DeleteProjectVersion", input, options)
+  def delete_project_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProjectVersion", input, options)
   end
 
   @doc """
@@ -203,8 +222,8 @@ defmodule AWS.Rekognition do
   `CreateStreamProcessor`. You might not be able to use the same name for a stream
   processor for a few seconds after calling `DeleteStreamProcessor`.
   """
-  def delete_stream_processor(client, input, options \\ []) do
-    request(client, "DeleteStreamProcessor", input, options)
+  def delete_stream_processor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteStreamProcessor", input, options)
   end
 
   @doc """
@@ -217,8 +236,8 @@ defmodule AWS.Rekognition do
   For more information, see Describing a Collection in the Amazon Rekognition
   Developer Guide.
   """
-  def describe_collection(client, input, options \\ []) do
-    request(client, "DescribeCollection", input, options)
+  def describe_collection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCollection", input, options)
   end
 
   @doc """
@@ -230,8 +249,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:DescribeProjectVersions` action.
   """
-  def describe_project_versions(client, input, options \\ []) do
-    request(client, "DescribeProjectVersions", input, options)
+  def describe_project_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeProjectVersions", input, options)
   end
 
   @doc """
@@ -240,8 +259,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:DescribeProjects` action.
   """
-  def describe_projects(client, input, options \\ []) do
-    request(client, "DescribeProjects", input, options)
+  def describe_projects(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeProjects", input, options)
   end
 
   @doc """
@@ -252,8 +271,8 @@ defmodule AWS.Rekognition do
   for the face recognition being performed, and the current status of the stream
   processor.
   """
-  def describe_stream_processor(client, input, options \\ []) do
-    request(client, "DescribeStreamProcessor", input, options)
+  def describe_stream_processor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStreamProcessor", input, options)
   end
 
   @doc """
@@ -292,8 +311,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:DetectCustomLabels` action.
   """
-  def detect_custom_labels(client, input, options \\ []) do
-    request(client, "DetectCustomLabels", input, options)
+  def detect_custom_labels(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectCustomLabels", input, options)
   end
 
   @doc """
@@ -320,8 +339,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:DetectFaces`
   action.
   """
-  def detect_faces(client, input, options \\ []) do
-    request(client, "DetectFaces", input, options)
+  def detect_faces(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectFaces", input, options)
   end
 
   @doc """
@@ -396,8 +415,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:DetectLabels`
   action.
   """
-  def detect_labels(client, input, options \\ []) do
-    request(client, "DetectLabels", input, options)
+  def detect_labels(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectLabels", input, options)
   end
 
   @doc """
@@ -418,8 +437,55 @@ defmodule AWS.Rekognition do
   Rekognition operations, passing image bytes is not supported. The image must be
   either a PNG or JPEG formatted file.
   """
-  def detect_moderation_labels(client, input, options \\ []) do
-    request(client, "DetectModerationLabels", input, options)
+  def detect_moderation_labels(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectModerationLabels", input, options)
+  end
+
+  @doc """
+  Detects Personal Protective Equipment (PPE) worn by people detected in an image.
+
+  Amazon Rekognition can detect the following types of PPE.
+
+    * Face cover
+
+    * Hand cover
+
+    * Head cover
+
+  You pass the input image as base64-encoded image bytes or as a reference to an
+  image in an Amazon S3 bucket. The image must be either a PNG or JPG formatted
+  file.
+
+  `DetectProtectiveEquipment` detects PPE worn by up to 15 persons detected in an
+  image.
+
+  For each person detected in the image the API returns an array of body parts
+  (face, head, left-hand, right-hand). For each body part, an array of detected
+  items of PPE is returned, including an indicator of whether or not the PPE
+  covers the body part. The API returns the confidence it has in each detection
+  (person, PPE, body part and body part coverage). It also returns a bounding box
+  (`BoundingBox`) for each detected person and each detected item of PPE.
+
+  You can optionally request a summary of detected PPE items with the
+  `SummarizationAttributes` input parameter. The summary provides the following
+  information.
+
+    * The persons detected as wearing all of the types of PPE that you
+  specify.
+
+    * The persons detected as not wearing all of the types PPE that you
+  specify.
+
+    * The persons detected where PPE adornment could not be determined.
+
+  This is a stateless API operation. That is, the operation does not persist any
+  data.
+
+  This operation requires permissions to perform the
+  `rekognition:DetectProtectiveEquipment` action.
+  """
+  def detect_protective_equipment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectProtectiveEquipment", input, options)
   end
 
   @doc """
@@ -455,8 +521,8 @@ defmodule AWS.Rekognition do
 
   For more information, see DetectText in the Amazon Rekognition Developer Guide.
   """
-  def detect_text(client, input, options \\ []) do
-    request(client, "DetectText", input, options)
+  def detect_text(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectText", input, options)
   end
 
   @doc """
@@ -472,8 +538,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:GetCelebrityInfo` action.
   """
-  def get_celebrity_info(client, input, options \\ []) do
-    request(client, "GetCelebrityInfo", input, options)
+  def get_celebrity_info(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCelebrityInfo", input, options)
   end
 
   @doc """
@@ -521,8 +587,8 @@ defmodule AWS.Rekognition do
   populate the `NextToken` request parameter with the token value returned from
   the previous call to `GetCelebrityRecognition`.
   """
-  def get_celebrity_recognition(client, input, options \\ []) do
-    request(client, "GetCelebrityRecognition", input, options)
+  def get_celebrity_recognition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCelebrityRecognition", input, options)
   end
 
   @doc """
@@ -561,8 +627,8 @@ defmodule AWS.Rekognition do
   For more information, see Detecting Unsafe Content in the Amazon Rekognition
   Developer Guide.
   """
-  def get_content_moderation(client, input, options \\ []) do
-    request(client, "GetContentModeration", input, options)
+  def get_content_moderation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContentModeration", input, options)
   end
 
   @doc """
@@ -589,8 +655,8 @@ defmodule AWS.Rekognition do
   the `NextToken` request parameter with the token value returned from the
   previous call to `GetFaceDetection`.
   """
-  def get_face_detection(client, input, options \\ []) do
-    request(client, "GetFaceDetection", input, options)
+  def get_face_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFaceDetection", input, options)
   end
 
   @doc """
@@ -628,8 +694,8 @@ defmodule AWS.Rekognition do
   start of the video, persons are matched. You can also sort by persons by
   specifying `INDEX` for the `SORTBY` input parameter.
   """
-  def get_face_search(client, input, options \\ []) do
-    request(client, "GetFaceSearch", input, options)
+  def get_face_search(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFaceSearch", input, options)
   end
 
   @doc """
@@ -664,8 +730,8 @@ defmodule AWS.Rekognition do
   the `NextToken` request parameter with the token value returned from the
   previous call to `GetLabelDetection`.
   """
-  def get_label_detection(client, input, options \\ []) do
-    request(client, "GetLabelDetection", input, options)
+  def get_label_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLabelDetection", input, options)
   end
 
   @doc """
@@ -703,8 +769,8 @@ defmodule AWS.Rekognition do
   the `NextToken` request parameter with the token value returned from the
   previous call to `GetPersonTracking`.
   """
-  def get_person_tracking(client, input, options \\ []) do
-    request(client, "GetPersonTracking", input, options)
+  def get_person_tracking(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPersonTracking", input, options)
   end
 
   @doc """
@@ -741,8 +807,8 @@ defmodule AWS.Rekognition do
   For more information, see Detecting Video Segments in Stored Video in the Amazon
   Rekognition Developer Guide.
   """
-  def get_segment_detection(client, input, options \\ []) do
-    request(client, "GetSegmentDetection", input, options)
+  def get_segment_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSegmentDetection", input, options)
   end
 
   @doc """
@@ -774,8 +840,8 @@ defmodule AWS.Rekognition do
   populate the `NextToken` request parameter with the token value returned from
   the previous call to `GetTextDetection`.
   """
-  def get_text_detection(client, input, options \\ []) do
-    request(client, "GetTextDetection", input, options)
+  def get_text_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTextDetection", input, options)
   end
 
   @doc """
@@ -876,8 +942,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:IndexFaces`
   action.
   """
-  def index_faces(client, input, options \\ []) do
-    request(client, "IndexFaces", input, options)
+  def index_faces(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "IndexFaces", input, options)
   end
 
   @doc """
@@ -892,8 +958,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:ListCollections`
   action.
   """
-  def list_collections(client, input, options \\ []) do
-    request(client, "ListCollections", input, options)
+  def list_collections(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCollections", input, options)
   end
 
   @doc """
@@ -906,16 +972,16 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:ListFaces`
   action.
   """
-  def list_faces(client, input, options \\ []) do
-    request(client, "ListFaces", input, options)
+  def list_faces(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFaces", input, options)
   end
 
   @doc """
   Gets a list of stream processors that you have created with
   `CreateStreamProcessor`.
   """
-  def list_stream_processors(client, input, options \\ []) do
-    request(client, "ListStreamProcessors", input, options)
+  def list_stream_processors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStreamProcessors", input, options)
   end
 
   @doc """
@@ -952,8 +1018,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:RecognizeCelebrities` operation.
   """
-  def recognize_celebrities(client, input, options \\ []) do
-    request(client, "RecognizeCelebrities", input, options)
+  def recognize_celebrities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RecognizeCelebrities", input, options)
   end
 
   @doc """
@@ -979,8 +1045,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the `rekognition:SearchFaces`
   action.
   """
-  def search_faces(client, input, options \\ []) do
-    request(client, "SearchFaces", input, options)
+  def search_faces(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchFaces", input, options)
   end
 
   @doc """
@@ -1027,8 +1093,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:SearchFacesByImage` action.
   """
-  def search_faces_by_image(client, input, options \\ []) do
-    request(client, "SearchFacesByImage", input, options)
+  def search_faces_by_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchFacesByImage", input, options)
   end
 
   @doc """
@@ -1048,8 +1114,8 @@ defmodule AWS.Rekognition do
   For more information, see Recognizing Celebrities in the Amazon Rekognition
   Developer Guide.
   """
-  def start_celebrity_recognition(client, input, options \\ []) do
-    request(client, "StartCelebrityRecognition", input, options)
+  def start_celebrity_recognition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartCelebrityRecognition", input, options)
   end
 
   @doc """
@@ -1070,8 +1136,8 @@ defmodule AWS.Rekognition do
   For more information, see Detecting Unsafe Content in the Amazon Rekognition
   Developer Guide.
   """
-  def start_content_moderation(client, input, options \\ []) do
-    request(client, "StartContentModeration", input, options)
+  def start_content_moderation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartContentModeration", input, options)
   end
 
   @doc """
@@ -1090,8 +1156,8 @@ defmodule AWS.Rekognition do
   For more information, see Detecting Faces in a Stored Video in the Amazon
   Rekognition Developer Guide.
   """
-  def start_face_detection(client, input, options \\ []) do
-    request(client, "StartFaceDetection", input, options)
+  def start_face_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartFaceDetection", input, options)
   end
 
   @doc """
@@ -1108,8 +1174,8 @@ defmodule AWS.Rekognition do
   `GetFaceSearch` and pass the job identifier (`JobId`) from the initial call to
   `StartFaceSearch`. For more information, see `procedure-person-search-videos`.
   """
-  def start_face_search(client, input, options \\ []) do
-    request(client, "StartFaceSearch", input, options)
+  def start_face_search(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartFaceSearch", input, options)
   end
 
   @doc """
@@ -1133,8 +1199,8 @@ defmodule AWS.Rekognition do
   `GetLabelDetection` and pass the job identifier (`JobId`) from the initial call
   to `StartLabelDetection`.
   """
-  def start_label_detection(client, input, options \\ []) do
-    request(client, "StartLabelDetection", input, options)
+  def start_label_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartLabelDetection", input, options)
   end
 
   @doc """
@@ -1152,8 +1218,8 @@ defmodule AWS.Rekognition do
   `GetPersonTracking` and pass the job identifier (`JobId`) from the initial call
   to `StartPersonTracking`.
   """
-  def start_person_tracking(client, input, options \\ []) do
-    request(client, "StartPersonTracking", input, options)
+  def start_person_tracking(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartPersonTracking", input, options)
   end
 
   @doc """
@@ -1171,8 +1237,8 @@ defmodule AWS.Rekognition do
   This operation requires permissions to perform the
   `rekognition:StartProjectVersion` action.
   """
-  def start_project_version(client, input, options \\ []) do
-    request(client, "StartProjectVersion", input, options)
+  def start_project_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartProjectVersion", input, options)
   end
 
   @doc """
@@ -1199,8 +1265,8 @@ defmodule AWS.Rekognition do
   For more information, see Detecting Video Segments in Stored Video in the Amazon
   Rekognition Developer Guide.
   """
-  def start_segment_detection(client, input, options \\ []) do
-    request(client, "StartSegmentDetection", input, options)
+  def start_segment_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartSegmentDetection", input, options)
   end
 
   @doc """
@@ -1210,8 +1276,8 @@ defmodule AWS.Rekognition do
   `StartStreamProcessor` which stream processor to start, use the value of the
   `Name` field specified in the call to `CreateStreamProcessor`.
   """
-  def start_stream_processor(client, input, options \\ []) do
-    request(client, "StartStreamProcessor", input, options)
+  def start_stream_processor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartStreamProcessor", input, options)
   end
 
   @doc """
@@ -1229,8 +1295,8 @@ defmodule AWS.Rekognition do
   `GetTextDetection` and pass the job identifier (`JobId`) from the initial call
   to `StartTextDetection`.
   """
-  def start_text_detection(client, input, options \\ []) do
-    request(client, "StartTextDetection", input, options)
+  def start_text_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartTextDetection", input, options)
   end
 
   @doc """
@@ -1239,68 +1305,14 @@ defmodule AWS.Rekognition do
   The operation might take a while to complete. To check the current status, call
   `DescribeProjectVersions`.
   """
-  def stop_project_version(client, input, options \\ []) do
-    request(client, "StopProjectVersion", input, options)
+  def stop_project_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopProjectVersion", input, options)
   end
 
   @doc """
   Stops a running stream processor that was created by `CreateStreamProcessor`.
   """
-  def stop_stream_processor(client, input, options \\ []) do
-    request(client, "StopStreamProcessor", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "rekognition"}
-    host = build_host("rekognition", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "RekognitionService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def stop_stream_processor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopStreamProcessor", input, options)
   end
 end

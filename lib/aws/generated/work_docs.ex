@@ -36,6 +36,25 @@ defmodule AWS.WorkDocs do
   give users the ability to grant access on a selective basis using the IAM model.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-05-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "workdocs",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "WorkDocs",
+      signature_version: "v4",
+      signing_name: "workdocs",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Aborts the upload of the specified document version that was previously
   initiated by `InitiateDocumentVersionUpload`.
@@ -43,15 +62,34 @@ defmodule AWS.WorkDocs do
   The client should make this call only when it no longer intends to upload the
   document version, or fails to do so.
   """
-  def abort_document_version_upload(client, document_id, version_id, input, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
+  def abort_document_version_upload(
+        %Client{} = client,
+        document_id,
+        version_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -59,15 +97,28 @@ defmodule AWS.WorkDocs do
 
   Only active users can access Amazon WorkDocs.
   """
-  def activate_user(client, user_id, input, options \\ []) do
-    path_ = "/api/v1/users/#{URI.encode(user_id)}/activation"
+  def activate_user(%Client{} = client, user_id, input, options \\ []) do
+    url_path = "/api/v1/users/#{URI.encode(user_id)}/activation"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -76,76 +127,142 @@ defmodule AWS.WorkDocs do
   The resource permissions are overwritten if the principals already have
   different permissions.
   """
-  def add_resource_permissions(client, resource_id, input, options \\ []) do
-    path_ = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
+  def add_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
+    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Adds a new comment to the specified document version.
   """
-  def create_comment(client, document_id, version_id, input, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comment"
+  def create_comment(%Client{} = client, document_id, version_id, input, options \\ []) do
+    url_path =
+      "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comment"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Adds one or more custom properties to the specified resource (a folder,
   document, or version).
   """
-  def create_custom_metadata(client, resource_id, input, options \\ []) do
-    path_ = "/api/v1/resources/#{URI.encode(resource_id)}/customMetadata"
+  def create_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
+    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/customMetadata"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"VersionId", "versionid"},
+        {"VersionId", "versionid"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Creates a folder with the specified name and parent folder.
   """
-  def create_folder(client, input, options \\ []) do
-    path_ = "/api/v1/folders"
+  def create_folder(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v1/folders"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Adds the specified list of labels to the given resource (a document or folder)
   """
-  def create_labels(client, resource_id, input, options \\ []) do
-    path_ = "/api/v1/resources/#{URI.encode(resource_id)}/labels"
+  def create_labels(%Client{} = client, resource_id, input, options \\ []) do
+    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/labels"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -156,11 +273,22 @@ defmodule AWS.WorkDocs do
   For more information, see [Subscribe to Notifications](https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html)
   in the *Amazon WorkDocs Developer Guide*.
   """
-  def create_notification_subscription(client, organization_id, input, options \\ []) do
-    path_ = "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions"
+  def create_notification_subscription(%Client{} = client, organization_id, input, options \\ []) do
+    url_path = "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -169,234 +297,455 @@ defmodule AWS.WorkDocs do
   The status of a newly created user is "ACTIVE". New users can access Amazon
   WorkDocs.
   """
-  def create_user(client, input, options \\ []) do
-    path_ = "/api/v1/users"
+  def create_user(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v1/users"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Deactivates the specified user, which revokes the user's access to Amazon
   WorkDocs.
   """
-  def deactivate_user(client, user_id, input, options \\ []) do
-    path_ = "/api/v1/users/#{URI.encode(user_id)}/activation"
+  def deactivate_user(%Client{} = client, user_id, input, options \\ []) do
+    url_path = "/api/v1/users/#{URI.encode(user_id)}/activation"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the specified comment from the document version.
   """
-  def delete_comment(client, comment_id, document_id, version_id, input, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comment/#{URI.encode(comment_id)}"
+  def delete_comment(
+        %Client{} = client,
+        comment_id,
+        document_id,
+        version_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comment/#{
+        URI.encode(comment_id)
+      }"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes custom metadata from the specified resource.
   """
-  def delete_custom_metadata(client, resource_id, input, options \\ []) do
-    path_ = "/api/v1/resources/#{URI.encode(resource_id)}/customMetadata"
+  def delete_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
+    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/customMetadata"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
         {"DeleteAll", "deleteAll"},
         {"Keys", "keys"},
-        {"VersionId", "versionId"},
+        {"VersionId", "versionId"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Permanently deletes the specified document and its associated metadata.
   """
-  def delete_document(client, document_id, input, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}"
+  def delete_document(%Client{} = client, document_id, input, options \\ []) do
+    url_path = "/api/v1/documents/#{URI.encode(document_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Permanently deletes the specified folder and its contents.
   """
-  def delete_folder(client, folder_id, input, options \\ []) do
-    path_ = "/api/v1/folders/#{URI.encode(folder_id)}"
+  def delete_folder(%Client{} = client, folder_id, input, options \\ []) do
+    url_path = "/api/v1/folders/#{URI.encode(folder_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the contents of the specified folder.
   """
-  def delete_folder_contents(client, folder_id, input, options \\ []) do
-    path_ = "/api/v1/folders/#{URI.encode(folder_id)}/contents"
+  def delete_folder_contents(%Client{} = client, folder_id, input, options \\ []) do
+    url_path = "/api/v1/folders/#{URI.encode(folder_id)}/contents"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the specified list of labels from a resource.
   """
-  def delete_labels(client, resource_id, input, options \\ []) do
-    path_ = "/api/v1/resources/#{URI.encode(resource_id)}/labels"
+  def delete_labels(%Client{} = client, resource_id, input, options \\ []) do
+    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/labels"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
         {"DeleteAll", "deleteAll"},
-        {"Labels", "labels"},
+        {"Labels", "labels"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Deletes the specified subscription from the specified organization.
   """
-  def delete_notification_subscription(client, organization_id, subscription_id, input, options \\ []) do
-    path_ = "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions/#{URI.encode(subscription_id)}"
+  def delete_notification_subscription(
+        %Client{} = client,
+        organization_id,
+        subscription_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions/#{
+        URI.encode(subscription_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Deletes the specified user from a Simple AD or Microsoft AD directory.
   """
-  def delete_user(client, user_id, input, options \\ []) do
-    path_ = "/api/v1/users/#{URI.encode(user_id)}"
+  def delete_user(%Client{} = client, user_id, input, options \\ []) do
+    url_path = "/api/v1/users/#{URI.encode(user_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Describes the user activities in a specified time period.
   """
-  def describe_activities(client, activity_types \\ nil, end_time \\ nil, include_indirect_activities \\ nil, limit \\ nil, marker \\ nil, organization_id \\ nil, resource_id \\ nil, start_time \\ nil, user_id \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/activities"
+  def describe_activities(
+        %Client{} = client,
+        activity_types \\ nil,
+        end_time \\ nil,
+        include_indirect_activities \\ nil,
+        limit \\ nil,
+        marker \\ nil,
+        organization_id \\ nil,
+        resource_id \\ nil,
+        start_time \\ nil,
+        user_id \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/activities"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(user_id) do
-      [{"userId", user_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(start_time) do
-      [{"startTime", start_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(resource_id) do
-      [{"resourceId", resource_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(organization_id) do
-      [{"organizationId", organization_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(include_indirect_activities) do
-      [{"includeIndirectActivities", include_indirect_activities} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(end_time) do
-      [{"endTime", end_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(activity_types) do
-      [{"activityTypes", activity_types} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(user_id) do
+        [{"userId", user_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_id) do
+        [{"resourceId", resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organization_id) do
+        [{"organizationId", organization_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_indirect_activities) do
+        [{"includeIndirectActivities", include_indirect_activities} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(activity_types) do
+        [{"activityTypes", activity_types} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   List all the comments for the specified document version.
   """
-  def describe_comments(client, document_id, version_id, limit \\ nil, marker \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comments"
+  def describe_comments(
+        %Client{} = client,
+        document_id,
+        version_id,
+        limit \\ nil,
+        marker \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comments"
+
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -404,36 +753,67 @@ defmodule AWS.WorkDocs do
 
   By default, only active versions are returned.
   """
-  def describe_document_versions(client, document_id, fields \\ nil, include \\ nil, limit \\ nil, marker \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}/versions"
+  def describe_document_versions(
+        %Client{} = client,
+        document_id,
+        fields \\ nil,
+        include \\ nil,
+        limit \\ nil,
+        marker \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/documents/#{URI.encode(document_id)}/versions"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(include) do
-      [{"include", include} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(fields) do
-      [{"fields", fields} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include) do
+        [{"include", include} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(fields) do
+        [{"fields", fields} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -445,46 +825,83 @@ defmodule AWS.WorkDocs do
   you can use to request the next set of results. You can also request initialized
   documents.
   """
-  def describe_folder_contents(client, folder_id, include \\ nil, limit \\ nil, marker \\ nil, order \\ nil, sort \\ nil, type \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/folders/#{URI.encode(folder_id)}/contents"
+  def describe_folder_contents(
+        %Client{} = client,
+        folder_id,
+        include \\ nil,
+        limit \\ nil,
+        marker \\ nil,
+        order \\ nil,
+        sort \\ nil,
+        type \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/folders/#{URI.encode(folder_id)}/contents"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(type) do
-      [{"type", type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(sort) do
-      [{"sort", sort} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(order) do
-      [{"order", order} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(include) do
-      [{"include", include} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort) do
+        [{"sort", sort} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order) do
+        [{"order", order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include) do
+        [{"include", include} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -492,86 +909,165 @@ defmodule AWS.WorkDocs do
 
   Groups are defined by the underlying Active Directory.
   """
-  def describe_groups(client, limit \\ nil, marker \\ nil, organization_id \\ nil, search_query, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/groups"
+  def describe_groups(
+        %Client{} = client,
+        limit \\ nil,
+        marker \\ nil,
+        organization_id \\ nil,
+        search_query,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/groups"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(search_query) do
-      [{"searchQuery", search_query} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(organization_id) do
-      [{"organizationId", organization_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(search_query) do
+        [{"searchQuery", search_query} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organization_id) do
+        [{"organizationId", organization_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the specified notification subscriptions.
   """
-  def describe_notification_subscriptions(client, organization_id, limit \\ nil, marker \\ nil, options \\ []) do
-    path_ = "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions"
+  def describe_notification_subscriptions(
+        %Client{} = client,
+        organization_id,
+        limit \\ nil,
+        marker \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Describes the permissions of a specified resource.
   """
-  def describe_resource_permissions(client, resource_id, limit \\ nil, marker \\ nil, principal_id \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
+  def describe_resource_permissions(
+        %Client{} = client,
+        resource_id,
+        limit \\ nil,
+        marker \\ nil,
+        principal_id \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(principal_id) do
-      [{"principalId", principal_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(principal_id) do
+        [{"principalId", principal_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -587,26 +1083,50 @@ defmodule AWS.WorkDocs do
   [Authentication and Access Control for User Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
   in the *Amazon WorkDocs Developer Guide*.
   """
-  def describe_root_folders(client, limit \\ nil, marker \\ nil, authentication_token, options \\ []) do
-    path_ = "/api/v1/me/root"
+  def describe_root_folders(
+        %Client{} = client,
+        limit \\ nil,
+        marker \\ nil,
+        authentication_token,
+        options \\ []
+      ) do
+    url_path = "/api/v1/me/root"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -619,61 +1139,106 @@ defmodule AWS.WorkDocs do
   there are more results, the response includes a marker that you can use to
   request the next set of results.
   """
-  def describe_users(client, fields \\ nil, include \\ nil, limit \\ nil, marker \\ nil, order \\ nil, organization_id \\ nil, query \\ nil, sort \\ nil, user_ids \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/users"
+  def describe_users(
+        %Client{} = client,
+        fields \\ nil,
+        include \\ nil,
+        limit \\ nil,
+        marker \\ nil,
+        order \\ nil,
+        organization_id \\ nil,
+        query \\ nil,
+        sort \\ nil,
+        user_ids \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/users"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(user_ids) do
-      [{"userIds", user_ids} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(sort) do
-      [{"sort", sort} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(query) do
-      [{"query", query} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(organization_id) do
-      [{"organizationId", organization_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(order) do
-      [{"order", order} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(include) do
-      [{"include", include} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(fields) do
-      [{"fields", fields} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(user_ids) do
+        [{"userIds", user_ids} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort) do
+        [{"sort", sort} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(query) do
+        [{"query", query} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organization_id) do
+        [{"organizationId", organization_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order) do
+        [{"order", order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include) do
+        [{"include", include} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(fields) do
+        [{"fields", fields} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -687,36 +1252,72 @@ defmodule AWS.WorkDocs do
   [Authentication and Access Control for User Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
   in the *Amazon WorkDocs Developer Guide*.
   """
-  def get_current_user(client, authentication_token, options \\ []) do
-    path_ = "/api/v1/me"
+  def get_current_user(%Client{} = client, authentication_token, options \\ []) do
+    url_path = "/api/v1/me"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves details of a document.
   """
-  def get_document(client, document_id, include_custom_metadata \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}"
+  def get_document(
+        %Client{} = client,
+        document_id,
+        include_custom_metadata \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/documents/#{URI.encode(document_id)}"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(include_custom_metadata) do
-      [{"includeCustomMetadata", include_custom_metadata} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(include_custom_metadata) do
+        [{"includeCustomMetadata", include_custom_metadata} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -728,76 +1329,152 @@ defmodule AWS.WorkDocs do
   You can limit the maximum number of levels. You can also request the names of
   the parent folders.
   """
-  def get_document_path(client, document_id, fields \\ nil, limit \\ nil, marker \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}/path"
+  def get_document_path(
+        %Client{} = client,
+        document_id,
+        fields \\ nil,
+        limit \\ nil,
+        marker \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/documents/#{URI.encode(document_id)}/path"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(fields) do
-      [{"fields", fields} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(fields) do
+        [{"fields", fields} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves version metadata for the specified document.
   """
-  def get_document_version(client, document_id, version_id, fields \\ nil, include_custom_metadata \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
+  def get_document_version(
+        %Client{} = client,
+        document_id,
+        version_id,
+        fields \\ nil,
+        include_custom_metadata \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(include_custom_metadata) do
-      [{"includeCustomMetadata", include_custom_metadata} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(fields) do
-      [{"fields", fields} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(include_custom_metadata) do
+        [{"includeCustomMetadata", include_custom_metadata} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(fields) do
+        [{"fields", fields} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Retrieves the metadata of the specified folder.
   """
-  def get_folder(client, folder_id, include_custom_metadata \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/folders/#{URI.encode(folder_id)}"
+  def get_folder(
+        %Client{} = client,
+        folder_id,
+        include_custom_metadata \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/folders/#{URI.encode(folder_id)}"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(include_custom_metadata) do
-      [{"includeCustomMetadata", include_custom_metadata} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(include_custom_metadata) do
+        [{"includeCustomMetadata", include_custom_metadata} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -809,31 +1486,59 @@ defmodule AWS.WorkDocs do
   You can limit the maximum number of levels. You can also request the parent
   folder names.
   """
-  def get_folder_path(client, folder_id, fields \\ nil, limit \\ nil, marker \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/folders/#{URI.encode(folder_id)}/path"
+  def get_folder_path(
+        %Client{} = client,
+        folder_id,
+        fields \\ nil,
+        limit \\ nil,
+        marker \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/folders/#{URI.encode(folder_id)}/path"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(fields) do
-      [{"fields", fields} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(fields) do
+        [{"fields", fields} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -841,36 +1546,66 @@ defmodule AWS.WorkDocs do
 
   The only `CollectionType` supported is `SHARED_WITH_ME`.
   """
-  def get_resources(client, collection_type \\ nil, limit \\ nil, marker \\ nil, user_id \\ nil, authentication_token \\ nil, options \\ []) do
-    path_ = "/api/v1/resources"
+  def get_resources(
+        %Client{} = client,
+        collection_type \\ nil,
+        limit \\ nil,
+        marker \\ nil,
+        user_id \\ nil,
+        authentication_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/resources"
     headers = []
-    headers = if !is_nil(authentication_token) do
-      [{"Authentication", authentication_token} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(user_id) do
-      [{"userId", user_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(limit) do
-      [{"limit", limit} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(collection_type) do
-      [{"collectionType", collection_type} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+
+    headers =
+      if !is_nil(authentication_token) do
+        [{"Authentication", authentication_token} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(user_id) do
+        [{"userId", user_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(collection_type) do
+        [{"collectionType", collection_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -883,47 +1618,93 @@ defmodule AWS.WorkDocs do
 
   To cancel the document upload, call `AbortDocumentVersionUpload`.
   """
-  def initiate_document_version_upload(client, input, options \\ []) do
-    path_ = "/api/v1/documents"
+  def initiate_document_version_upload(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v1/documents"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Removes all the permissions from the specified resource.
   """
-  def remove_all_resource_permissions(client, resource_id, input, options \\ []) do
-    path_ = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
+  def remove_all_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
+    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Removes the permission for the specified principal from the specified resource.
   """
-  def remove_resource_permission(client, principal_id, resource_id, input, options \\ []) do
-    path_ = "/api/v1/resources/#{URI.encode(resource_id)}/permissions/#{URI.encode(principal_id)}"
+  def remove_resource_permission(
+        %Client{} = client,
+        principal_id,
+        resource_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/api/v1/resources/#{URI.encode(resource_id)}/permissions/#{URI.encode(principal_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"PrincipalType", "type"},
+        {"PrincipalType", "type"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -932,15 +1713,28 @@ defmodule AWS.WorkDocs do
   The user must have access to both the document and its parent folder, if
   applicable.
   """
-  def update_document(client, document_id, input, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}"
+  def update_document(%Client{} = client, document_id, input, options \\ []) do
+    url_path = "/api/v1/documents/#{URI.encode(document_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -950,15 +1744,28 @@ defmodule AWS.WorkDocs do
   step in a document upload, after the client uploads the document to an
   S3-presigned URL returned by `InitiateDocumentVersionUpload`.
   """
-  def update_document_version(client, document_id, version_id, input, options \\ []) do
-    path_ = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
+  def update_document_version(%Client{} = client, document_id, version_id, input, options \\ []) do
+    url_path = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -967,93 +1774,55 @@ defmodule AWS.WorkDocs do
   The user must have access to both the folder and its parent folder, if
   applicable.
   """
-  def update_folder(client, folder_id, input, options \\ []) do
-    path_ = "/api/v1/folders/#{URI.encode(folder_id)}"
+  def update_folder(%Client{} = client, folder_id, input, options \\ []) do
+    url_path = "/api/v1/folders/#{URI.encode(folder_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates the specified attributes of the specified user, and grants or revokes
   administrative privileges to the Amazon WorkDocs site.
   """
-  def update_user(client, user_id, input, options \\ []) do
-    path_ = "/api/v1/users/#{URI.encode(user_id)}"
+  def update_user(%Client{} = client, user_id, input, options \\ []) do
+    url_path = "/api/v1/users/#{URI.encode(user_id)}"
+
     {headers, input} =
       [
-        {"AuthenticationToken", "Authentication"},
+        {"AuthenticationToken", "Authentication"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "workdocs"}
-    host = build_host("workdocs", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
+    query_params = []
 
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

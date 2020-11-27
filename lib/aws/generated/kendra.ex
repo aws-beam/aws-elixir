@@ -6,6 +6,25 @@ defmodule AWS.Kendra do
   Amazon Kendra is a service for indexing large document sets.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "kendra",
+      api_version: "2019-02-03",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "kendra",
+      global?: false,
+      protocol: "json",
+      service_id: "kendra",
+      signature_version: "v4",
+      signing_name: "kendra",
+      target_prefix: "AWSKendraFrontendService"
+    }
+  end
+
   @doc """
   Removes one or more documents from an index.
 
@@ -15,8 +34,8 @@ defmodule AWS.Kendra do
   deletion by using AWS CloudWatch. Any error messages releated to the processing
   of the batch are sent to you CloudWatch log.
   """
-  def batch_delete_document(client, input, options \\ []) do
-    request(client, "BatchDeleteDocument", input, options)
+  def batch_delete_document(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteDocument", input, options)
   end
 
   @doc """
@@ -32,8 +51,8 @@ defmodule AWS.Kendra do
   using AWS CloudWatch. Any error messages related to processing the batch are
   sent to your AWS CloudWatch log.
   """
-  def batch_put_document(client, input, options \\ []) do
-    request(client, "BatchPutDocument", input, options)
+  def batch_put_document(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchPutDocument", input, options)
   end
 
   @doc """
@@ -46,15 +65,15 @@ defmodule AWS.Kendra do
   `CreateDataSource` is a synchronous operation. The operation returns 200 if the
   data source was successfully created. Otherwise, an exception is raised.
   """
-  def create_data_source(client, input, options \\ []) do
-    request(client, "CreateDataSource", input, options)
+  def create_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDataSource", input, options)
   end
 
   @doc """
   Creates an new set of frequently asked question (FAQ) questions and answers.
   """
-  def create_faq(client, input, options \\ []) do
-    request(client, "CreateFaq", input, options)
+  def create_faq(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFaq", input, options)
   end
 
   @doc """
@@ -67,8 +86,8 @@ defmodule AWS.Kendra do
   Once the index is active you can index your documents using the operation or
   using one of the supported data sources.
   """
-  def create_index(client, input, options \\ []) do
-    request(client, "CreateIndex", input, options)
+  def create_index(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateIndex", input, options)
   end
 
   @doc """
@@ -78,15 +97,15 @@ defmodule AWS.Kendra do
   the data source is being deleted, the `Status` field returned by a call to the
   operation is set to `DELETING`. For more information, see [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
   """
-  def delete_data_source(client, input, options \\ []) do
-    request(client, "DeleteDataSource", input, options)
+  def delete_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDataSource", input, options)
   end
 
   @doc """
   Removes an FAQ from an index.
   """
-  def delete_faq(client, input, options \\ []) do
-    request(client, "DeleteFaq", input, options)
+  def delete_faq(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFaq", input, options)
   end
 
   @doc """
@@ -96,57 +115,57 @@ defmodule AWS.Kendra do
   index is being deleted, the `Status` field returned by a call to the
   `DescribeIndex` operation is set to `DELETING`.
   """
-  def delete_index(client, input, options \\ []) do
-    request(client, "DeleteIndex", input, options)
+  def delete_index(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIndex", input, options)
   end
 
   @doc """
   Gets information about a Amazon Kendra data source.
   """
-  def describe_data_source(client, input, options \\ []) do
-    request(client, "DescribeDataSource", input, options)
+  def describe_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataSource", input, options)
   end
 
   @doc """
   Gets information about an FAQ list.
   """
-  def describe_faq(client, input, options \\ []) do
-    request(client, "DescribeFaq", input, options)
+  def describe_faq(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFaq", input, options)
   end
 
   @doc """
   Describes an existing Amazon Kendra index
   """
-  def describe_index(client, input, options \\ []) do
-    request(client, "DescribeIndex", input, options)
+  def describe_index(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeIndex", input, options)
   end
 
   @doc """
   Gets statistics about synchronizing Amazon Kendra with a data source.
   """
-  def list_data_source_sync_jobs(client, input, options \\ []) do
-    request(client, "ListDataSourceSyncJobs", input, options)
+  def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDataSourceSyncJobs", input, options)
   end
 
   @doc """
   Lists the data sources that you have created.
   """
-  def list_data_sources(client, input, options \\ []) do
-    request(client, "ListDataSources", input, options)
+  def list_data_sources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDataSources", input, options)
   end
 
   @doc """
   Gets a list of FAQ lists associated with an index.
   """
-  def list_faqs(client, input, options \\ []) do
-    request(client, "ListFaqs", input, options)
+  def list_faqs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFaqs", input, options)
   end
 
   @doc """
   Lists the Amazon Kendra indexes that you have created.
   """
-  def list_indices(client, input, options \\ []) do
-    request(client, "ListIndices", input, options)
+  def list_indices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListIndices", input, options)
   end
 
   @doc """
@@ -154,8 +173,8 @@ defmodule AWS.Kendra do
 
   Indexes, FAQs, and data sources can have tags associated with them.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -181,8 +200,8 @@ defmodule AWS.Kendra do
 
   Each query returns the 100 most relevant results.
   """
-  def query(client, input, options \\ []) do
-    request(client, "Query", input, options)
+  def query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Query", input, options)
   end
 
   @doc """
@@ -191,8 +210,8 @@ defmodule AWS.Kendra do
   If a synchronization job is already in progress, Amazon Kendra returns a
   `ResourceInUseException` exception.
   """
-  def start_data_source_sync_job(client, input, options \\ []) do
-    request(client, "StartDataSourceSyncJob", input, options)
+  def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartDataSourceSyncJob", input, options)
   end
 
   @doc """
@@ -200,16 +219,16 @@ defmodule AWS.Kendra do
 
   You can't stop a scheduled synchronization job.
   """
-  def stop_data_source_sync_job(client, input, options \\ []) do
-    request(client, "StopDataSourceSyncJob", input, options)
+  def stop_data_source_sync_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopDataSourceSyncJob", input, options)
   end
 
   @doc """
   Enables you to provide feedback to Amazon Kendra to improve the performance of
   the service.
   """
-  def submit_feedback(client, input, options \\ []) do
-    request(client, "SubmitFeedback", input, options)
+  def submit_feedback(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SubmitFeedback", input, options)
   end
 
   @doc """
@@ -217,82 +236,28 @@ defmodule AWS.Kendra do
 
   If the tag already exists, the existing value is replaced with the new value.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes a tag from an index, FAQ, or a data source.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
   Updates an existing Amazon Kendra data source.
   """
-  def update_data_source(client, input, options \\ []) do
-    request(client, "UpdateDataSource", input, options)
+  def update_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDataSource", input, options)
   end
 
   @doc """
   Updates an existing Amazon Kendra index.
   """
-  def update_index(client, input, options \\ []) do
-    request(client, "UpdateIndex", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "kendra"}
-    host = build_host("kendra", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSKendraFrontendService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_index(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateIndex", input, options)
   end
 end

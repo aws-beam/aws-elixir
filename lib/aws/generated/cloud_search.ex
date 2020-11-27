@@ -18,14 +18,33 @@ defmodule AWS.CloudSearch do
   endpoints, see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2013-01-01",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: nil,
+      endpoint_prefix: "cloudsearch",
+      global?: false,
+      protocol: "query",
+      service_id: "CloudSearch",
+      signature_version: "v4",
+      signing_name: "cloudsearch",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Indexes the search suggestions.
 
   For more information, see [Configuring Suggesters](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def build_suggesters(client, input, options \\ []) do
-    request(client, "BuildSuggesters", input, options)
+  def build_suggesters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BuildSuggesters", input, options)
   end
 
   @doc """
@@ -34,8 +53,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Creating a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def create_domain(client, input, options \\ []) do
-    request(client, "CreateDomain", input, options)
+  def create_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDomain", input, options)
   end
 
   @doc """
@@ -45,8 +64,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Analysis Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def define_analysis_scheme(client, input, options \\ []) do
-    request(client, "DefineAnalysisScheme", input, options)
+  def define_analysis_scheme(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DefineAnalysisScheme", input, options)
   end
 
   @doc """
@@ -57,8 +76,8 @@ defmodule AWS.CloudSearch do
   [Configuring Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def define_expression(client, input, options \\ []) do
-    request(client, "DefineExpression", input, options)
+  def define_expression(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DefineExpression", input, options)
   end
 
   @doc """
@@ -72,8 +91,8 @@ defmodule AWS.CloudSearch do
   one. For more information, see [Configuring Index Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def define_index_field(client, input, options \\ []) do
-    request(client, "DefineIndexField", input, options)
+  def define_index_field(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DefineIndexField", input, options)
   end
 
   @doc """
@@ -85,8 +104,8 @@ defmodule AWS.CloudSearch do
   suggester. For more information, see [Getting Search Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def define_suggester(client, input, options \\ []) do
-    request(client, "DefineSuggester", input, options)
+  def define_suggester(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DefineSuggester", input, options)
   end
 
   @doc """
@@ -95,8 +114,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Analysis Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def delete_analysis_scheme(client, input, options \\ []) do
-    request(client, "DeleteAnalysisScheme", input, options)
+  def delete_analysis_scheme(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAnalysisScheme", input, options)
   end
 
   @doc """
@@ -106,8 +125,8 @@ defmodule AWS.CloudSearch do
   see [Deleting a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def delete_domain(client, input, options \\ []) do
-    request(client, "DeleteDomain", input, options)
+  def delete_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDomain", input, options)
   end
 
   @doc """
@@ -116,8 +135,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def delete_expression(client, input, options \\ []) do
-    request(client, "DeleteExpression", input, options)
+  def delete_expression(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteExpression", input, options)
   end
 
   @doc """
@@ -126,8 +145,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Index Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def delete_index_field(client, input, options \\ []) do
-    request(client, "DeleteIndexField", input, options)
+  def delete_index_field(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIndexField", input, options)
   end
 
   @doc """
@@ -136,8 +155,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Getting Search Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def delete_suggester(client, input, options \\ []) do
-    request(client, "DeleteSuggester", input, options)
+  def delete_suggester(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSuggester", input, options)
   end
 
   @doc """
@@ -151,8 +170,8 @@ defmodule AWS.CloudSearch do
   [Configuring Analysis Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_analysis_schemes(client, input, options \\ []) do
-    request(client, "DescribeAnalysisSchemes", input, options)
+  def describe_analysis_schemes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAnalysisSchemes", input, options)
   end
 
   @doc """
@@ -163,8 +182,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Availability Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_availability_options(client, input, options \\ []) do
-    request(client, "DescribeAvailabilityOptions", input, options)
+  def describe_availability_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAvailabilityOptions", input, options)
   end
 
   @doc """
@@ -174,8 +193,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Domain Endpoint Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_domain_endpoint_options(client, input, options \\ []) do
-    request(client, "DescribeDomainEndpointOptions", input, options)
+  def describe_domain_endpoint_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDomainEndpointOptions", input, options)
   end
 
   @doc """
@@ -188,8 +207,8 @@ defmodule AWS.CloudSearch do
   [Getting Information about a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_domains(client, input, options \\ []) do
-    request(client, "DescribeDomains", input, options)
+  def describe_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDomains", input, options)
   end
 
   @doc """
@@ -201,8 +220,8 @@ defmodule AWS.CloudSearch do
   changes. For more information, see [Configuring Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_expressions(client, input, options \\ []) do
-    request(client, "DescribeExpressions", input, options)
+  def describe_expressions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExpressions", input, options)
   end
 
   @doc """
@@ -214,8 +233,8 @@ defmodule AWS.CloudSearch do
   information, see [Getting Domain Information](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_index_fields(client, input, options \\ []) do
-    request(client, "DescribeIndexFields", input, options)
+  def describe_index_fields(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeIndexFields", input, options)
   end
 
   @doc """
@@ -225,8 +244,8 @@ defmodule AWS.CloudSearch do
   replication count. For more information, see [Configuring Scaling Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_scaling_parameters(client, input, options \\ []) do
-    request(client, "DescribeScalingParameters", input, options)
+  def describe_scaling_parameters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeScalingParameters", input, options)
   end
 
   @doc """
@@ -238,8 +257,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Access for a Search Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_service_access_policies(client, input, options \\ []) do
-    request(client, "DescribeServiceAccessPolicies", input, options)
+  def describe_service_access_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeServiceAccessPolicies", input, options)
   end
 
   @doc """
@@ -252,8 +271,8 @@ defmodule AWS.CloudSearch do
   changes. For more information, see [Getting Search Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def describe_suggesters(client, input, options \\ []) do
-    request(client, "DescribeSuggesters", input, options)
+  def describe_suggesters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSuggesters", input, options)
   end
 
   @doc """
@@ -263,15 +282,15 @@ defmodule AWS.CloudSearch do
   This operation must be invoked to activate options whose `OptionStatus` is
   `RequiresIndexDocuments`.
   """
-  def index_documents(client, input, options \\ []) do
-    request(client, "IndexDocuments", input, options)
+  def index_documents(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "IndexDocuments", input, options)
   end
 
   @doc """
   Lists all search domains owned by an account.
   """
-  def list_domain_names(client, input, options \\ []) do
-    request(client, "ListDomainNames", input, options)
+  def list_domain_names(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDomainNames", input, options)
   end
 
   @doc """
@@ -284,8 +303,8 @@ defmodule AWS.CloudSearch do
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def update_availability_options(client, input, options \\ []) do
-    request(client, "UpdateAvailabilityOptions", input, options)
+  def update_availability_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAvailabilityOptions", input, options)
   end
 
   @doc """
@@ -295,8 +314,8 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Domain Endpoint Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def update_domain_endpoint_options(client, input, options \\ []) do
-    request(client, "UpdateDomainEndpointOptions", input, options)
+  def update_domain_endpoint_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDomainEndpointOptions", input, options)
   end
 
   @doc """
@@ -310,8 +329,8 @@ defmodule AWS.CloudSearch do
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html)
   in the *Amazon CloudSearch Developer Guide*.
   """
-  def update_scaling_parameters(client, input, options \\ []) do
-    request(client, "UpdateScalingParameters", input, options)
+  def update_scaling_parameters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateScalingParameters", input, options)
   end
 
   @doc """
@@ -320,61 +339,7 @@ defmodule AWS.CloudSearch do
 
   For more information, see [ Configuring Access for an Amazon CloudSearch Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html).
   """
-  def update_service_access_policies(client, input, options \\ []) do
-    request(client, "UpdateServiceAccessPolicies", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "cloudsearch"}
-    host = build_host("cloudsearch", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2013-01-01"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def update_service_access_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateServiceAccessPolicies", input, options)
   end
 end

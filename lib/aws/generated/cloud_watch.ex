@@ -22,6 +22,25 @@ defmodule AWS.CloudWatch do
   health.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "CloudWatch",
+      api_version: "2010-08-01",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: nil,
+      endpoint_prefix: "monitoring",
+      global?: false,
+      protocol: "query",
+      service_id: "CloudWatch",
+      signature_version: "v4",
+      signing_name: "monitoring",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Deletes the specified alarms.
 
@@ -46,15 +65,15 @@ defmodule AWS.CloudWatch do
   Additionally, the evaluation of composite alarms stops if CloudWatch detects a
   cycle in the evaluation path.
   """
-  def delete_alarms(client, input, options \\ []) do
-    request(client, "DeleteAlarms", input, options)
+  def delete_alarms(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAlarms", input, options)
   end
 
   @doc """
   Deletes the specified anomaly detection model from your account.
   """
-  def delete_anomaly_detector(client, input, options \\ []) do
-    request(client, "DeleteAnomalyDetector", input, options)
+  def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAnomalyDetector", input, options)
   end
 
   @doc """
@@ -63,8 +82,8 @@ defmodule AWS.CloudWatch do
   You can specify up to 100 dashboards to delete. If there is an error during this
   call, no dashboards are deleted.
   """
-  def delete_dashboards(client, input, options \\ []) do
-    request(client, "DeleteDashboards", input, options)
+  def delete_dashboards(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDashboards", input, options)
   end
 
   @doc """
@@ -73,8 +92,8 @@ defmodule AWS.CloudWatch do
   If you create a rule, delete it, and then re-create it with the same name,
   historical data from the first time the rule was created might not be available.
   """
-  def delete_insight_rules(client, input, options \\ []) do
-    request(client, "DeleteInsightRules", input, options)
+  def delete_insight_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteInsightRules", input, options)
   end
 
   @doc """
@@ -86,8 +105,8 @@ defmodule AWS.CloudWatch do
 
   CloudWatch retains the history of an alarm even if you delete the alarm.
   """
-  def describe_alarm_history(client, input, options \\ []) do
-    request(client, "DescribeAlarmHistory", input, options)
+  def describe_alarm_history(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAlarmHistory", input, options)
   end
 
   @doc """
@@ -96,17 +115,21 @@ defmodule AWS.CloudWatch do
   You can filter the results by specifying a a prefix for the alarm name, the
   alarm state, or a prefix for any action.
   """
-  def describe_alarms(client, input, options \\ []) do
-    request(client, "DescribeAlarms", input, options)
+  def describe_alarms(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAlarms", input, options)
   end
 
   @doc """
   Retrieves the alarms for the specified metric.
 
   To filter the results, specify a statistic, period, or unit.
+
+  This operation retrieves only standard alarms that are based on the specified
+  metric. It does not return alarms based on math expressions that use the
+  specified metric, or composite alarms that use the specified metric.
   """
-  def describe_alarms_for_metric(client, input, options \\ []) do
-    request(client, "DescribeAlarmsForMetric", input, options)
+  def describe_alarms_for_metric(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAlarmsForMetric", input, options)
   end
 
   @doc """
@@ -115,20 +138,18 @@ defmodule AWS.CloudWatch do
   You can list all models in your account or filter the results to only the models
   that are related to a certain namespace, metric name, or metric dimension.
   """
-  def describe_anomaly_detectors(client, input, options \\ []) do
-    request(client, "DescribeAnomalyDetectors", input, options)
+  def describe_anomaly_detectors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAnomalyDetectors", input, options)
   end
 
   @doc """
   Returns a list of all the Contributor Insights rules in your account.
 
-  All rules in your account are returned with a single operation.
-
   For more information about Contributor Insights, see [Using Contributor Insights to Analyze High-Cardinality
   Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
   """
-  def describe_insight_rules(client, input, options \\ []) do
-    request(client, "DescribeInsightRules", input, options)
+  def describe_insight_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeInsightRules", input, options)
   end
 
   @doc """
@@ -137,8 +158,8 @@ defmodule AWS.CloudWatch do
   When an alarm's actions are disabled, the alarm actions do not execute when the
   alarm state changes.
   """
-  def disable_alarm_actions(client, input, options \\ []) do
-    request(client, "DisableAlarmActions", input, options)
+  def disable_alarm_actions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableAlarmActions", input, options)
   end
 
   @doc """
@@ -146,15 +167,15 @@ defmodule AWS.CloudWatch do
 
   When rules are disabled, they do not analyze log groups and do not incur costs.
   """
-  def disable_insight_rules(client, input, options \\ []) do
-    request(client, "DisableInsightRules", input, options)
+  def disable_insight_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableInsightRules", input, options)
   end
 
   @doc """
   Enables the actions for the specified alarms.
   """
-  def enable_alarm_actions(client, input, options \\ []) do
-    request(client, "EnableAlarmActions", input, options)
+  def enable_alarm_actions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableAlarmActions", input, options)
   end
 
   @doc """
@@ -162,8 +183,8 @@ defmodule AWS.CloudWatch do
 
   When rules are enabled, they immediately begin analyzing log data.
   """
-  def enable_insight_rules(client, input, options \\ []) do
-    request(client, "EnableInsightRules", input, options)
+  def enable_insight_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableInsightRules", input, options)
   end
 
   @doc """
@@ -173,8 +194,8 @@ defmodule AWS.CloudWatch do
   returned within `DashboardBody` as the template for the new dashboard when you
   call `PutDashboard` to create the copy.
   """
-  def get_dashboard(client, input, options \\ []) do
-    request(client, "GetDashboard", input, options)
+  def get_dashboard(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDashboard", input, options)
   end
 
   @doc """
@@ -212,8 +233,8 @@ defmodule AWS.CloudWatch do
     * `Average` -- the average value from all contributors during the
   time period represented by that data point.
   """
-  def get_insight_rule_report(client, input, options \\ []) do
-    request(client, "GetInsightRuleReport", input, options)
+  def get_insight_rule_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInsightRuleReport", input, options)
   end
 
   @doc """
@@ -259,8 +280,8 @@ defmodule AWS.CloudWatch do
   does not match the data collected, the results of the operation are null.
   CloudWatch does not perform unit conversions.
   """
-  def get_metric_data(client, input, options \\ []) do
-    request(client, "GetMetricData", input, options)
+  def get_metric_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMetricData", input, options)
   end
 
   @doc """
@@ -317,8 +338,8 @@ defmodule AWS.CloudWatch do
   [Amazon CloudWatch Metrics and Dimensions Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html)
   in the *Amazon CloudWatch User Guide*.
   """
-  def get_metric_statistics(client, input, options \\ []) do
-    request(client, "GetMetricStatistics", input, options)
+  def get_metric_statistics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMetricStatistics", input, options)
   end
 
   @doc """
@@ -339,8 +360,8 @@ defmodule AWS.CloudWatch do
 
     * Up to 100 KB uncompressed payload.
   """
-  def get_metric_widget_image(client, input, options \\ []) do
-    request(client, "GetMetricWidgetImage", input, options)
+  def get_metric_widget_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMetricWidgetImage", input, options)
   end
 
   @doc """
@@ -354,8 +375,8 @@ defmodule AWS.CloudWatch do
   1000 dashboards, you can call `ListDashboards` again and include the value you
   received for `NextToken` in the first call, to receive the next 1000 results.
   """
-  def list_dashboards(client, input, options \\ []) do
-    request(client, "ListDashboards", input, options)
+  def list_dashboards(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDashboards", input, options)
   end
 
   @doc """
@@ -379,8 +400,8 @@ defmodule AWS.CloudWatch do
   [GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) or
   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html).
   """
-  def list_metrics(client, input, options \\ []) do
-    request(client, "ListMetrics", input, options)
+  def list_metrics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMetrics", input, options)
   end
 
   @doc """
@@ -388,8 +409,8 @@ defmodule AWS.CloudWatch do
 
   Currently, alarms and Contributor Insights rules support tagging.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -400,8 +421,8 @@ defmodule AWS.CloudWatch do
 
   For more information, see [CloudWatch Anomaly Detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html).
   """
-  def put_anomaly_detector(client, input, options \\ []) do
-    request(client, "PutAnomalyDetector", input, options)
+  def put_anomaly_detector(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutAnomalyDetector", input, options)
   end
 
   @doc """
@@ -447,8 +468,8 @@ defmodule AWS.CloudWatch do
   When you update an existing alarm, its state is left unchanged, but the update
   completely overwrites the previous configuration of the alarm.
   """
-  def put_composite_alarm(client, input, options \\ []) do
-    request(client, "PutCompositeAlarm", input, options)
+  def put_composite_alarm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutCompositeAlarm", input, options)
   end
 
   @doc """
@@ -473,8 +494,8 @@ defmodule AWS.CloudWatch do
   also point console users to the location of the `DashboardBody` script or the
   CloudFormation template used to create the dashboard.
   """
-  def put_dashboard(client, input, options \\ []) do
-    request(client, "PutDashboard", input, options)
+  def put_dashboard(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutDashboard", input, options)
   end
 
   @doc """
@@ -487,8 +508,8 @@ defmodule AWS.CloudWatch do
   If you create a rule, delete it, and then re-create it with the same name,
   historical data from the first time the rule was created might not be available.
   """
-  def put_insight_rule(client, input, options \\ []) do
-    request(client, "PutInsightRule", input, options)
+  def put_insight_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutInsightRule", input, options)
   end
 
   @doc """
@@ -537,8 +558,8 @@ defmodule AWS.CloudWatch do
   `AWSServiceRoleForCloudWatchEvents`. For more information, see [AWS service-linked
   role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role).
   """
-  def put_metric_alarm(client, input, options \\ []) do
-    request(client, "PutMetricAlarm", input, options)
+  def put_metric_alarm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutMetricAlarm", input, options)
   end
 
   @doc """
@@ -570,6 +591,10 @@ defmodule AWS.CloudWatch do
   Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html)
   in the *Amazon CloudWatch User Guide*.
 
+  You specify the time stamp to be associated with each data point. You can
+  specify time stamps that are as much as two weeks before the current date, and
+  as much as 2 hours after the current day and time.
+
   Data points with time stamps from 24 hours ago or longer can take at least 48
   hours to become available for
   [GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) or
@@ -589,8 +614,8 @@ defmodule AWS.CloudWatch do
     * The `Min` and `Max` are equal, and `Sum` is equal to `Min`
   multiplied by `SampleCount`.
   """
-  def put_metric_data(client, input, options \\ []) do
-    request(client, "PutMetricData", input, options)
+  def put_metric_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutMetricData", input, options)
   end
 
   @doc """
@@ -616,8 +641,8 @@ defmodule AWS.CloudWatch do
   policies, you must include information in the `StateReasonData` parameter to
   enable the policy to take the correct action.
   """
-  def set_alarm_state(client, input, options \\ []) do
-    request(client, "SetAlarmState", input, options)
+  def set_alarm_state(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetAlarmState", input, options)
   end
 
   @doc """
@@ -641,68 +666,14 @@ defmodule AWS.CloudWatch do
 
   You can associate as many as 50 tags with a CloudWatch resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from the specified resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "monitoring"}
-    host = build_host("monitoring", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2010-08-01"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 end

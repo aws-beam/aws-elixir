@@ -7,6 +7,25 @@ defmodule AWS.Route53 do
   service.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2013-04-01",
+      content_type: "text/xml",
+      credential_scope: "us-east-1",
+      endpoint_prefix: "route53",
+      global?: true,
+      protocol: "rest-xml",
+      service_id: "Route 53",
+      signature_version: "v4",
+      signing_name: "route53",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Associates an Amazon VPC with a private hosted zone.
 
@@ -19,11 +38,22 @@ defmodule AWS.Route53 do
   `CreateVPCAssociationAuthorization` request. Then the account that created the
   VPC must submit an `AssociateVPCWithHostedZone` request.
   """
-  def associate_v_p_c_with_hosted_zone(client, hosted_zone_id, input, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/associatevpc"
+  def associate_v_p_c_with_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/associatevpc"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -111,11 +141,22 @@ defmodule AWS.Route53 do
   [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html)
   in the *Amazon Route 53 Developer Guide*.
   """
-  def change_resource_record_sets(client, hosted_zone_id, input, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset/"
+  def change_resource_record_sets(%Client{} = client, hosted_zone_id, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset/"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -124,11 +165,28 @@ defmodule AWS.Route53 do
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *AWS Billing and Cost Management User Guide*.
   """
-  def change_tags_for_resource(client, resource_id, resource_type, input, options \\ []) do
-    path_ = "/2013-04-01/tags/#{URI.encode(resource_type)}/#{URI.encode(resource_id)}"
+  def change_tags_for_resource(
+        %Client{} = client,
+        resource_id,
+        resource_type,
+        input,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/tags/#{URI.encode(resource_type)}/#{URI.encode(resource_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -166,28 +224,29 @@ defmodule AWS.Route53 do
   about creating CloudWatch metrics and alarms by using the CloudWatch console,
   see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html).
   """
-  def create_health_check(client, input, options \\ []) do
-    path_ = "/2013-04-01/healthcheck"
+  def create_health_check(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/healthcheck"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -230,28 +289,29 @@ defmodule AWS.Route53 do
   records are not yet available on all Route 53 DNS servers. When the NS and SOA
   records are available, the status of the zone changes to `INSYNC`.
   """
-  def create_hosted_zone(client, input, options \\ []) do
-    path_ = "/2013-04-01/hostedzone"
+  def create_hosted_zone(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -364,28 +424,29 @@ defmodule AWS.Route53 do
   query logging configuration. For more information, see
   [DeleteQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html).
   """
-  def create_query_logging_config(client, input, options \\ []) do
-    path_ = "/2013-04-01/queryloggingconfig"
+  def create_query_logging_config(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/queryloggingconfig"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -437,28 +498,29 @@ defmodule AWS.Route53 do
   overlapping name servers, then migrate the hosted zones again to use the
   reusable delegation set.
   """
-  def create_reusable_delegation_set(client, input, options \\ []) do
-    path_ = "/2013-04-01/delegationset"
+  def create_reusable_delegation_set(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/delegationset"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -466,28 +528,29 @@ defmodule AWS.Route53 do
   sets for one domain name (such as example.com) or one subdomain name (such as
   www.example.com).
   """
-  def create_traffic_policy(client, input, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicy"
+  def create_traffic_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicy"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -500,28 +563,29 @@ defmodule AWS.Route53 do
   subdomain name by using the resource record sets that
   `CreateTrafficPolicyInstance` created.
   """
-  def create_traffic_policy_instance(client, input, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicyinstance"
+  def create_traffic_policy_instance(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicyinstance"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -535,28 +599,29 @@ defmodule AWS.Route53 do
   traffic policy. If you reach the limit and need to create another version,
   you'll need to start a new traffic policy.
   """
-  def create_traffic_policy_version(client, id, input, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicy/#{URI.encode(id)}"
+  def create_traffic_policy_version(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicy/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -573,11 +638,27 @@ defmodule AWS.Route53 do
   with a hosted zone that you created by using a different account, you must
   submit one authorization request for each VPC.
   """
-  def create_v_p_c_association_authorization(client, hosted_zone_id, input, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/authorizevpcassociation"
+  def create_v_p_c_association_authorization(
+        %Client{} = client,
+        hosted_zone_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/authorizevpcassociation"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -597,11 +678,22 @@ defmodule AWS.Route53 do
   deleted automatically when you deregister the instance; there can be a delay of
   several hours before the health check is deleted from Route 53.
   """
-  def delete_health_check(client, health_check_id, input, options \\ []) do
-    path_ = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
+  def delete_health_check(%Client{} = client, health_check_id, input, options \\ []) do
+    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -652,11 +744,22 @@ defmodule AWS.Route53 do
     * Use the `ListHostedZones` action to get a list of the hosted zones
   associated with the current AWS account.
   """
-  def delete_hosted_zone(client, id, input, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(id)}"
+  def delete_hosted_zone(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -669,11 +772,22 @@ defmodule AWS.Route53 do
   For more information about DNS query logs, see
   [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html).
   """
-  def delete_query_logging_config(client, id, input, options \\ []) do
-    path_ = "/2013-04-01/queryloggingconfig/#{URI.encode(id)}"
+  def delete_query_logging_config(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/queryloggingconfig/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -688,11 +802,22 @@ defmodule AWS.Route53 do
   request and specify the ID of the reusable delegation set that you want to
   delete.
   """
-  def delete_reusable_delegation_set(client, id, input, options \\ []) do
-    path_ = "/2013-04-01/delegationset/#{URI.encode(id)}"
+  def delete_reusable_delegation_set(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/delegationset/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -709,11 +834,22 @@ defmodule AWS.Route53 do
   the policy, including the traffic policy document, by running
   [GetTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html).
   """
-  def delete_traffic_policy(client, id, version, input, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
+  def delete_traffic_policy(%Client{} = client, id, version, input, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -722,11 +858,22 @@ defmodule AWS.Route53 do
 
   In the Route 53 console, traffic policy instances are known as policy records.
   """
-  def delete_traffic_policy_instance(client, id, input, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
+  def delete_traffic_policy_instance(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -744,11 +891,27 @@ defmodule AWS.Route53 do
   zone. If you want to delete an existing association, use
   `DisassociateVPCFromHostedZone`.
   """
-  def delete_v_p_c_association_authorization(client, hosted_zone_id, input, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/deauthorizevpcassociation"
+  def delete_v_p_c_association_authorization(
+        %Client{} = client,
+        hosted_zone_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/deauthorizevpcassociation"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -778,11 +941,27 @@ defmodule AWS.Route53 do
   `DisassociateVPCFromHostedZone`. If the hosted zone has a value for
   `OwningService`, you can't use `DisassociateVPCFromHostedZone`.
   """
-  def disassociate_v_p_c_from_hosted_zone(client, hosted_zone_id, input, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/disassociatevpc"
+  def disassociate_v_p_c_from_hosted_zone(
+        %Client{} = client,
+        hosted_zone_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/disassociatevpc"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -798,11 +977,22 @@ defmodule AWS.Route53 do
   [https://console.aws.amazon.com/trustedadvisor/](https://console.aws.amazon.com/trustedadvisor).
   Then choose **Service limits** in the navigation pane.
   """
-  def get_account_limit(client, type, options \\ []) do
-    path_ = "/2013-04-01/accountlimit/#{URI.encode(type)}"
+  def get_account_limit(%Client{} = client, type, options \\ []) do
+    url_path = "/2013-04-01/accountlimit/#{URI.encode(type)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -817,11 +1007,22 @@ defmodule AWS.Route53 do
     * `INSYNC` indicates that the changes have propagated to all Route
   53 DNS servers.
   """
-  def get_change(client, id, options \\ []) do
-    path_ = "/2013-04-01/change/#{URI.encode(id)}"
+  def get_change(%Client{} = client, id, options \\ []) do
+    url_path = "/2013-04-01/change/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -831,11 +1032,22 @@ defmodule AWS.Route53 do
   For more information, see [IP Address Ranges of Amazon Route 53 Servers](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html)
   in the *Amazon Route 53 Developer Guide*.
   """
-  def get_checker_ip_ranges(client, options \\ []) do
-    path_ = "/2013-04-01/checkeripranges"
+  def get_checker_ip_ranges(%Client{} = client, options \\ []) do
+    url_path = "/2013-04-01/checkeripranges"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -859,89 +1071,178 @@ defmodule AWS.Route53 do
   `GET /2013-04-01/geolocation?countrycode=*two-character country
   code*&subdivisioncode=*subdivision code* `
   """
-  def get_geo_location(client, continent_code \\ nil, country_code \\ nil, subdivision_code \\ nil, options \\ []) do
-    path_ = "/2013-04-01/geolocation"
+  def get_geo_location(
+        %Client{} = client,
+        continent_code \\ nil,
+        country_code \\ nil,
+        subdivision_code \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/geolocation"
     headers = []
-    query_ = []
-    query_ = if !is_nil(subdivision_code) do
-      [{"subdivisioncode", subdivision_code} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(country_code) do
-      [{"countrycode", country_code} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(continent_code) do
-      [{"continentcode", continent_code} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(subdivision_code) do
+        [{"subdivisioncode", subdivision_code} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(country_code) do
+        [{"countrycode", country_code} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(continent_code) do
+        [{"continentcode", continent_code} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a specified health check.
   """
-  def get_health_check(client, health_check_id, options \\ []) do
-    path_ = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
+  def get_health_check(%Client{} = client, health_check_id, options \\ []) do
+    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves the number of health checks that are associated with the current AWS
   account.
   """
-  def get_health_check_count(client, options \\ []) do
-    path_ = "/2013-04-01/healthcheckcount"
+  def get_health_check_count(%Client{} = client, options \\ []) do
+    url_path = "/2013-04-01/healthcheckcount"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets the reason that a specified health check failed most recently.
   """
-  def get_health_check_last_failure_reason(client, health_check_id, options \\ []) do
-    path_ = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}/lastfailurereason"
+  def get_health_check_last_failure_reason(%Client{} = client, health_check_id, options \\ []) do
+    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}/lastfailurereason"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets status of a specified health check.
   """
-  def get_health_check_status(client, health_check_id, options \\ []) do
-    path_ = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}/status"
+  def get_health_check_status(%Client{} = client, health_check_id, options \\ []) do
+    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}/status"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a specified hosted zone including the four name servers
   assigned to the hosted zone.
   """
-  def get_hosted_zone(client, id, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(id)}"
+  def get_hosted_zone(%Client{} = client, id, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves the number of hosted zones that are associated with the current AWS
   account.
   """
-  def get_hosted_zone_count(client, options \\ []) do
-    path_ = "/2013-04-01/hostedzonecount"
+  def get_hosted_zone_count(%Client{} = client, options \\ []) do
+    url_path = "/2013-04-01/hostedzonecount"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -952,11 +1253,22 @@ defmodule AWS.Route53 do
   [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*. To request a higher limit, [open a
   case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
   """
-  def get_hosted_zone_limit(client, hosted_zone_id, type, options \\ []) do
-    path_ = "/2013-04-01/hostedzonelimit/#{URI.encode(hosted_zone_id)}/#{URI.encode(type)}"
+  def get_hosted_zone_limit(%Client{} = client, hosted_zone_id, type, options \\ []) do
+    url_path = "/2013-04-01/hostedzonelimit/#{URI.encode(hosted_zone_id)}/#{URI.encode(type)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -966,22 +1278,44 @@ defmodule AWS.Route53 do
   [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html) and [Logging DNS
   Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html).
   """
-  def get_query_logging_config(client, id, options \\ []) do
-    path_ = "/2013-04-01/queryloggingconfig/#{URI.encode(id)}"
+  def get_query_logging_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2013-04-01/queryloggingconfig/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves information about a specified reusable delegation set, including the
   four name servers that are assigned to the delegation set.
   """
-  def get_reusable_delegation_set(client, id, options \\ []) do
-    path_ = "/2013-04-01/delegationset/#{URI.encode(id)}"
+  def get_reusable_delegation_set(%Client{} = client, id, options \\ []) do
+    url_path = "/2013-04-01/delegationset/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -992,11 +1326,29 @@ defmodule AWS.Route53 do
   [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*. To request a higher limit, [open a
   case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
   """
-  def get_reusable_delegation_set_limit(client, delegation_set_id, type, options \\ []) do
-    path_ = "/2013-04-01/reusabledelegationsetlimit/#{URI.encode(delegation_set_id)}/#{URI.encode(type)}"
+  def get_reusable_delegation_set_limit(
+        %Client{} = client,
+        delegation_set_id,
+        type,
+        options \\ []
+      ) do
+    url_path =
+      "/2013-04-01/reusabledelegationsetlimit/#{URI.encode(delegation_set_id)}/#{URI.encode(type)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1006,11 +1358,22 @@ defmodule AWS.Route53 do
   `GetTrafficPolicy`, see
   [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
   """
-  def get_traffic_policy(client, id, version, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
+  def get_traffic_policy(%Client{} = client, id, version, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1023,22 +1386,44 @@ defmodule AWS.Route53 do
 
   In the Route 53 console, traffic policy instances are known as policy records.
   """
-  def get_traffic_policy_instance(client, id, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
+  def get_traffic_policy_instance(%Client{} = client, id, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets the number of traffic policy instances that are associated with the current
   AWS account.
   """
-  def get_traffic_policy_instance_count(client, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicyinstancecount"
+  def get_traffic_policy_instance_count(%Client{} = client, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicyinstancecount"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1053,52 +1438,93 @@ defmodule AWS.Route53 do
   [GeoLocation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html)
   data type.
   """
-  def list_geo_locations(client, max_items \\ nil, start_continent_code \\ nil, start_country_code \\ nil, start_subdivision_code \\ nil, options \\ []) do
-    path_ = "/2013-04-01/geolocations"
+  def list_geo_locations(
+        %Client{} = client,
+        max_items \\ nil,
+        start_continent_code \\ nil,
+        start_country_code \\ nil,
+        start_subdivision_code \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/geolocations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(start_subdivision_code) do
-      [{"startsubdivisioncode", start_subdivision_code} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(start_country_code) do
-      [{"startcountrycode", start_country_code} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(start_continent_code) do
-      [{"startcontinentcode", start_continent_code} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(start_subdivision_code) do
+        [{"startsubdivisioncode", start_subdivision_code} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_country_code) do
+        [{"startcountrycode", start_country_code} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_continent_code) do
+        [{"startcontinentcode", start_continent_code} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieve a list of the health checks that are associated with the current AWS
   account.
   """
-  def list_health_checks(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2013-04-01/healthcheck"
+  def list_health_checks(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
+    url_path = "/2013-04-01/healthcheck"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1111,26 +1537,49 @@ defmodule AWS.Route53 do
   lot of hosted zones, you can use the `maxitems` parameter to list them in groups
   of up to 100.
   """
-  def list_hosted_zones(client, delegation_set_id \\ nil, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2013-04-01/hostedzone"
+  def list_hosted_zones(
+        %Client{} = client,
+        delegation_set_id \\ nil,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(delegation_set_id) do
-      [{"delegationsetid", delegation_set_id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(delegation_set_id) do
+        [{"delegationsetid", delegation_set_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1186,26 +1635,49 @@ defmodule AWS.Route53 do
   `NextDNSName` and `NextHostedZoneId` in the `dnsname` and `hostedzoneid`
   parameters, respectively.
   """
-  def list_hosted_zones_by_name(client, d_n_s_name \\ nil, hosted_zone_id \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2013-04-01/hostedzonesbyname"
+  def list_hosted_zones_by_name(
+        %Client{} = client,
+        d_n_s_name \\ nil,
+        hosted_zone_id \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzonesbyname"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(hosted_zone_id) do
-      [{"hostedzoneid", hosted_zone_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(d_n_s_name) do
-      [{"dnsname", d_n_s_name} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(hosted_zone_id) do
+        [{"hostedzoneid", hosted_zone_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(d_n_s_name) do
+        [{"dnsname", d_n_s_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1224,31 +1696,57 @@ defmodule AWS.Route53 do
   Amazon Elastic File System (Amazon EFS), the value of `Owner` is
   `efs.amazonaws.com`.
   """
-  def list_hosted_zones_by_v_p_c(client, max_items \\ nil, next_token \\ nil, v_p_c_id, v_p_c_region, options \\ []) do
-    path_ = "/2013-04-01/hostedzonesbyvpc"
+  def list_hosted_zones_by_v_p_c(
+        %Client{} = client,
+        max_items \\ nil,
+        next_token \\ nil,
+        v_p_c_id,
+        v_p_c_region,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzonesbyvpc"
     headers = []
-    query_ = []
-    query_ = if !is_nil(v_p_c_region) do
-      [{"vpcregion", v_p_c_region} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(v_p_c_id) do
-      [{"vpcid", v_p_c_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nexttoken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(v_p_c_region) do
+        [{"vpcregion", v_p_c_region} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(v_p_c_id) do
+        [{"vpcid", v_p_c_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1262,26 +1760,49 @@ defmodule AWS.Route53 do
   Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html)
   in the *Amazon Route 53 Developer Guide*.
   """
-  def list_query_logging_configs(client, hosted_zone_id \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/2013-04-01/queryloggingconfig"
+  def list_query_logging_configs(
+        %Client{} = client,
+        hosted_zone_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/queryloggingconfig"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nexttoken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxresults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(hosted_zone_id) do
-      [{"hostedzoneid", hosted_zone_id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(hosted_zone_id) do
+        [{"hostedzoneid", hosted_zone_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1355,52 +1876,99 @@ defmodule AWS.Route53 do
   and specify those values for `StartRecordName`, `StartRecordType`, and
   `StartRecordIdentifier`.
   """
-  def list_resource_record_sets(client, hosted_zone_id, max_items \\ nil, start_record_identifier \\ nil, start_record_name \\ nil, start_record_type \\ nil, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset"
+  def list_resource_record_sets(
+        %Client{} = client,
+        hosted_zone_id,
+        max_items \\ nil,
+        start_record_identifier \\ nil,
+        start_record_name \\ nil,
+        start_record_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/rrset"
     headers = []
-    query_ = []
-    query_ = if !is_nil(start_record_type) do
-      [{"type", start_record_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(start_record_name) do
-      [{"name", start_record_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(start_record_identifier) do
-      [{"identifier", start_record_identifier} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(start_record_type) do
+        [{"type", start_record_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_record_name) do
+        [{"name", start_record_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_record_identifier) do
+        [{"identifier", start_record_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves a list of the reusable delegation sets that are associated with the
   current AWS account.
   """
-  def list_reusable_delegation_sets(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2013-04-01/delegationset"
+  def list_reusable_delegation_sets(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/delegationset"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1409,11 +1977,22 @@ defmodule AWS.Route53 do
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *AWS Billing and Cost Management User Guide*.
   """
-  def list_tags_for_resource(client, resource_id, resource_type, options \\ []) do
-    path_ = "/2013-04-01/tags/#{URI.encode(resource_type)}/#{URI.encode(resource_id)}"
+  def list_tags_for_resource(%Client{} = client, resource_id, resource_type, options \\ []) do
+    url_path = "/2013-04-01/tags/#{URI.encode(resource_type)}/#{URI.encode(resource_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1422,11 +2001,22 @@ defmodule AWS.Route53 do
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *AWS Billing and Cost Management User Guide*.
   """
-  def list_tags_for_resources(client, resource_type, input, options \\ []) do
-    path_ = "/2013-04-01/tags/#{URI.encode(resource_type)}"
+  def list_tags_for_resources(%Client{} = client, resource_type, input, options \\ []) do
+    url_path = "/2013-04-01/tags/#{URI.encode(resource_type)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1439,21 +2029,41 @@ defmodule AWS.Route53 do
   `ListTrafficPolicies`, see
   [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
   """
-  def list_traffic_policies(client, max_items \\ nil, traffic_policy_id_marker \\ nil, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicies"
+  def list_traffic_policies(
+        %Client{} = client,
+        max_items \\ nil,
+        traffic_policy_id_marker \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/trafficpolicies"
     headers = []
-    query_ = []
-    query_ = if !is_nil(traffic_policy_id_marker) do
-      [{"trafficpolicyid", traffic_policy_id_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(traffic_policy_id_marker) do
+        [{"trafficpolicyid", traffic_policy_id_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1469,31 +2079,57 @@ defmodule AWS.Route53 do
   traffic policy instances, you can use the `MaxItems` parameter to list them in
   groups of up to 100.
   """
-  def list_traffic_policy_instances(client, hosted_zone_id_marker \\ nil, max_items \\ nil, traffic_policy_instance_name_marker \\ nil, traffic_policy_instance_type_marker \\ nil, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicyinstances"
+  def list_traffic_policy_instances(
+        %Client{} = client,
+        hosted_zone_id_marker \\ nil,
+        max_items \\ nil,
+        traffic_policy_instance_name_marker \\ nil,
+        traffic_policy_instance_type_marker \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/trafficpolicyinstances"
     headers = []
-    query_ = []
-    query_ = if !is_nil(traffic_policy_instance_type_marker) do
-      [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(traffic_policy_instance_name_marker) do
-      [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(hosted_zone_id_marker) do
-      [{"hostedzoneid", hosted_zone_id_marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(traffic_policy_instance_type_marker) do
+        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_instance_name_marker) do
+        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(hosted_zone_id_marker) do
+        [{"hostedzoneid", hosted_zone_id_marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1509,31 +2145,57 @@ defmodule AWS.Route53 do
   traffic policy instances, you can use the `MaxItems` parameter to list them in
   groups of up to 100.
   """
-  def list_traffic_policy_instances_by_hosted_zone(client, hosted_zone_id, max_items \\ nil, traffic_policy_instance_name_marker \\ nil, traffic_policy_instance_type_marker \\ nil, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicyinstances/hostedzone"
+  def list_traffic_policy_instances_by_hosted_zone(
+        %Client{} = client,
+        hosted_zone_id,
+        max_items \\ nil,
+        traffic_policy_instance_name_marker \\ nil,
+        traffic_policy_instance_type_marker \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/trafficpolicyinstances/hostedzone"
     headers = []
-    query_ = []
-    query_ = if !is_nil(traffic_policy_instance_type_marker) do
-      [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(traffic_policy_instance_name_marker) do
-      [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(hosted_zone_id) do
-      [{"id", hosted_zone_id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(traffic_policy_instance_type_marker) do
+        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_instance_name_marker) do
+        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(hosted_zone_id) do
+        [{"id", hosted_zone_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1549,41 +2211,73 @@ defmodule AWS.Route53 do
   traffic policy instances, you can use the `MaxItems` parameter to list them in
   groups of up to 100.
   """
-  def list_traffic_policy_instances_by_policy(client, hosted_zone_id_marker \\ nil, max_items \\ nil, traffic_policy_id, traffic_policy_instance_name_marker \\ nil, traffic_policy_instance_type_marker \\ nil, traffic_policy_version, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicyinstances/trafficpolicy"
+  def list_traffic_policy_instances_by_policy(
+        %Client{} = client,
+        hosted_zone_id_marker \\ nil,
+        max_items \\ nil,
+        traffic_policy_id,
+        traffic_policy_instance_name_marker \\ nil,
+        traffic_policy_instance_type_marker \\ nil,
+        traffic_policy_version,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/trafficpolicyinstances/trafficpolicy"
     headers = []
-    query_ = []
-    query_ = if !is_nil(traffic_policy_version) do
-      [{"version", traffic_policy_version} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(traffic_policy_instance_type_marker) do
-      [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(traffic_policy_instance_name_marker) do
-      [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(traffic_policy_id) do
-      [{"id", traffic_policy_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(hosted_zone_id_marker) do
-      [{"hostedzoneid", hosted_zone_id_marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(traffic_policy_version) do
+        [{"version", traffic_policy_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_instance_type_marker) do
+        [{"trafficpolicyinstancetype", traffic_policy_instance_type_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_instance_name_marker) do
+        [{"trafficpolicyinstancename", traffic_policy_instance_name_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(traffic_policy_id) do
+        [{"id", traffic_policy_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(hosted_zone_id_marker) do
+        [{"hostedzoneid", hosted_zone_id_marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1591,21 +2285,42 @@ defmodule AWS.Route53 do
 
   Traffic policy versions are listed in numerical order by `VersionNumber`.
   """
-  def list_traffic_policy_versions(client, id, max_items \\ nil, traffic_policy_version_marker \\ nil, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicies/#{URI.encode(id)}/versions"
+  def list_traffic_policy_versions(
+        %Client{} = client,
+        id,
+        max_items \\ nil,
+        traffic_policy_version_marker \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/trafficpolicies/#{URI.encode(id)}/versions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(traffic_policy_version_marker) do
-      [{"trafficpolicyversion", traffic_policy_version_marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"maxitems", max_items} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(traffic_policy_version_marker) do
+        [{"trafficpolicyversion", traffic_policy_version_marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1616,21 +2331,42 @@ defmodule AWS.Route53 do
   The response includes a `VPCs` element with a `VPC` child element for each VPC
   that can be associated with the hosted zone.
   """
-  def list_v_p_c_association_authorizations(client, hosted_zone_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/authorizevpcassociation"
+  def list_v_p_c_association_authorizations(
+        %Client{} = client,
+        hosted_zone_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/authorizevpcassociation"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nexttoken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxresults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1640,41 +2376,73 @@ defmodule AWS.Route53 do
   You can optionally specify the IP address of a DNS resolver, an EDNS0 client
   subnet IP address, and a subnet mask.
   """
-  def test_d_n_s_answer(client, e_d_n_s0_client_subnet_i_p \\ nil, e_d_n_s0_client_subnet_mask \\ nil, hosted_zone_id, record_name, record_type, resolver_i_p \\ nil, options \\ []) do
-    path_ = "/2013-04-01/testdnsanswer"
+  def test_d_n_s_answer(
+        %Client{} = client,
+        e_d_n_s0_client_subnet_i_p \\ nil,
+        e_d_n_s0_client_subnet_mask \\ nil,
+        hosted_zone_id,
+        record_name,
+        record_type,
+        resolver_i_p \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/testdnsanswer"
     headers = []
-    query_ = []
-    query_ = if !is_nil(resolver_i_p) do
-      [{"resolverip", resolver_i_p} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(record_type) do
-      [{"recordtype", record_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(record_name) do
-      [{"recordname", record_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(hosted_zone_id) do
-      [{"hostedzoneid", hosted_zone_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(e_d_n_s0_client_subnet_mask) do
-      [{"edns0clientsubnetmask", e_d_n_s0_client_subnet_mask} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(e_d_n_s0_client_subnet_i_p) do
-      [{"edns0clientsubnetip", e_d_n_s0_client_subnet_i_p} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(resolver_i_p) do
+        [{"resolverip", resolver_i_p} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(record_type) do
+        [{"recordtype", record_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(record_name) do
+        [{"recordname", record_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(hosted_zone_id) do
+        [{"hostedzoneid", hosted_zone_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(e_d_n_s0_client_subnet_mask) do
+        [{"edns0clientsubnetmask", e_d_n_s0_client_subnet_mask} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(e_d_n_s0_client_subnet_i_p) do
+        [{"edns0clientsubnetip", e_d_n_s0_client_subnet_i_p} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1686,31 +2454,64 @@ defmodule AWS.Route53 do
   Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html)
   in the *Amazon Route 53 Developer Guide*.
   """
-  def update_health_check(client, health_check_id, input, options \\ []) do
-    path_ = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
+  def update_health_check(%Client{} = client, health_check_id, input, options \\ []) do
+    url_path = "/2013-04-01/healthcheck/#{URI.encode(health_check_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the comment for a specified hosted zone.
   """
-  def update_hosted_zone_comment(client, id, input, options \\ []) do
-    path_ = "/2013-04-01/hostedzone/#{URI.encode(id)}"
+  def update_hosted_zone_comment(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the comment for a specified traffic policy version.
   """
-  def update_traffic_policy_comment(client, id, version, input, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
+  def update_traffic_policy_comment(%Client{} = client, id, version, input, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicy/#{URI.encode(id)}/#{URI.encode(version)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1734,75 +2535,21 @@ defmodule AWS.Route53 do
     3. Route 53 deletes the old group of resource record sets that are
   associated with the root resource record set name.
   """
-  def update_traffic_policy_instance(client, id, input, options \\ []) do
-    path_ = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
+  def update_traffic_policy_instance(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2013-04-01/trafficpolicyinstance/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "route53",
-                        region:  "us-east-1"}
-    host = build_host("route53", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :xml) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

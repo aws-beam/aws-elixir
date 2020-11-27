@@ -24,6 +24,25 @@ defmodule AWS.CognitoIdentity do
   For more information see [Amazon Cognito Federated Identities](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2014-06-30",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "cognito-identity",
+      global?: false,
+      protocol: "json",
+      service_id: "Cognito Identity",
+      signature_version: "v4",
+      signing_name: "cognito-identity",
+      target_prefix: "AWSCognitoIdentityService"
+    }
+  end
+
   @doc """
   Creates a new identity pool.
 
@@ -42,8 +61,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def create_identity_pool(client, input, options \\ []) do
-    request(client, "CreateIdentityPool", input, options)
+  def create_identity_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateIdentityPool", input, options)
   end
 
   @doc """
@@ -53,8 +72,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def delete_identities(client, input, options \\ []) do
-    request(client, "DeleteIdentities", input, options)
+  def delete_identities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIdentities", input, options)
   end
 
   @doc """
@@ -64,8 +83,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def delete_identity_pool(client, input, options \\ []) do
-    request(client, "DeleteIdentityPool", input, options)
+  def delete_identity_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIdentityPool", input, options)
   end
 
   @doc """
@@ -74,8 +93,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def describe_identity(client, input, options \\ []) do
-    request(client, "DescribeIdentity", input, options)
+  def describe_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeIdentity", input, options)
   end
 
   @doc """
@@ -84,8 +103,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def describe_identity_pool(client, input, options \\ []) do
-    request(client, "DescribeIdentityPool", input, options)
+  def describe_identity_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeIdentityPool", input, options)
   end
 
   @doc """
@@ -97,8 +116,8 @@ defmodule AWS.CognitoIdentity do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def get_credentials_for_identity(client, input, options \\ []) do
-    request(client, "GetCredentialsForIdentity", input, options)
+  def get_credentials_for_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCredentialsForIdentity", input, options)
   end
 
   @doc """
@@ -108,8 +127,8 @@ defmodule AWS.CognitoIdentity do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def get_id(client, input, options \\ []) do
-    request(client, "GetId", input, options)
+  def get_id(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetId", input, options)
   end
 
   @doc """
@@ -117,8 +136,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def get_identity_pool_roles(client, input, options \\ []) do
-    request(client, "GetIdentityPoolRoles", input, options)
+  def get_identity_pool_roles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetIdentityPoolRoles", input, options)
   end
 
   @doc """
@@ -131,8 +150,8 @@ defmodule AWS.CognitoIdentity do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def get_open_id_token(client, input, options \\ []) do
-    request(client, "GetOpenIdToken", input, options)
+  def get_open_id_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOpenIdToken", input, options)
   end
 
   @doc """
@@ -154,8 +173,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def get_open_id_token_for_developer_identity(client, input, options \\ []) do
-    request(client, "GetOpenIdTokenForDeveloperIdentity", input, options)
+  def get_open_id_token_for_developer_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOpenIdTokenForDeveloperIdentity", input, options)
   end
 
   @doc """
@@ -163,8 +182,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def list_identities(client, input, options \\ []) do
-    request(client, "ListIdentities", input, options)
+  def list_identities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListIdentities", input, options)
   end
 
   @doc """
@@ -172,8 +191,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def list_identity_pools(client, input, options \\ []) do
-    request(client, "ListIdentityPools", input, options)
+  def list_identity_pools(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListIdentityPools", input, options)
   end
 
   @doc """
@@ -185,8 +204,8 @@ defmodule AWS.CognitoIdentity do
 
   You can use this action up to 10 times per second, per account.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -210,8 +229,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def lookup_developer_identity(client, input, options \\ []) do
-    request(client, "LookupDeveloperIdentity", input, options)
+  def lookup_developer_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "LookupDeveloperIdentity", input, options)
   end
 
   @doc """
@@ -232,8 +251,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def merge_developer_identities(client, input, options \\ []) do
-    request(client, "MergeDeveloperIdentities", input, options)
+  def merge_developer_identities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "MergeDeveloperIdentities", input, options)
   end
 
   @doc """
@@ -243,8 +262,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def set_identity_pool_roles(client, input, options \\ []) do
-    request(client, "SetIdentityPoolRoles", input, options)
+  def set_identity_pool_roles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetIdentityPoolRoles", input, options)
   end
 
   @doc """
@@ -267,8 +286,8 @@ defmodule AWS.CognitoIdentity do
   You can use this action up to 5 times per second, per account. An identity pool
   can have as many as 50 tags.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -281,8 +300,8 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def unlink_developer_identity(client, input, options \\ []) do
-    request(client, "UnlinkDeveloperIdentity", input, options)
+  def unlink_developer_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UnlinkDeveloperIdentity", input, options)
   end
 
   @doc """
@@ -293,8 +312,8 @@ defmodule AWS.CognitoIdentity do
 
   This is a public API. You do not need any credentials to call this API.
   """
-  def unlink_identity(client, input, options \\ []) do
-    request(client, "UnlinkIdentity", input, options)
+  def unlink_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UnlinkIdentity", input, options)
   end
 
   @doc """
@@ -302,8 +321,8 @@ defmodule AWS.CognitoIdentity do
 
   You can use this action up to 5 times per second, per account
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -311,61 +330,7 @@ defmodule AWS.CognitoIdentity do
 
   You must use AWS Developer credentials to call this API.
   """
-  def update_identity_pool(client, input, options \\ []) do
-    request(client, "UpdateIdentityPool", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "cognito-identity"}
-    host = build_host("cognito-identity", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSCognitoIdentityService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_identity_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateIdentityPool", input, options)
   end
 end

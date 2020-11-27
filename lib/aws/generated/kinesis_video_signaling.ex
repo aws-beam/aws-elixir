@@ -8,6 +8,25 @@ defmodule AWS.KinesisVideoSignaling do
   and answers in order to establish peer-to-peer connection in webRTC technology.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-12-04",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "kinesisvideo",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Kinesis Video Signaling",
+      signature_version: "v4",
+      signing_name: "kinesisvideo",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Gets the Interactive Connectivity Establishment (ICE) server configuration
   information, including URIs, username, and password which can be used to
@@ -27,11 +46,22 @@ defmodule AWS.KinesisVideoSignaling do
   channel. You must specify either a signaling channel ARN or the client ID in
   order to invoke this API.
   """
-  def get_ice_server_config(client, input, options \\ []) do
-    path_ = "/v1/get-ice-server-config"
+  def get_ice_server_config(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/get-ice-server-config"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -44,74 +74,21 @@ defmodule AWS.KinesisVideoSignaling do
   master. If the master is not connected to the signaling channel, redelivery
   requests are made until the message expires.
   """
-  def send_alexa_offer_to_master(client, input, options \\ []) do
-    path_ = "/v1/send-alexa-offer-to-master"
+  def send_alexa_offer_to_master(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/send-alexa-offer-to-master"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "kinesisvideo"}
-    host = build_host("kinesisvideo", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

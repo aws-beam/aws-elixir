@@ -21,6 +21,25 @@ defmodule AWS.Synthetics do
   For more information, see [Security Considerations for Synthetics Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-10-11",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "synthetics",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "synthetics",
+      signature_version: "v4",
+      signing_name: "synthetics",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates a canary.
 
@@ -43,11 +62,22 @@ defmodule AWS.Synthetics do
   the ARN is included in outbound calls over the internet. For more information,
   see [Security Considerations for Synthetics Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html).
   """
-  def create_canary(client, input, options \\ []) do
-    path_ = "/canary"
+  def create_canary(%Client{} = client, input, options \\ []) do
+    url_path = "/canary"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -77,11 +107,22 @@ defmodule AWS.Synthetics do
   information about this canary. Make note of the information returned by this
   operation so that you can delete these resources after you delete the canary.
   """
-  def delete_canary(client, name, input, options \\ []) do
-    path_ = "/canary/#{URI.encode(name)}"
+  def delete_canary(%Client{} = client, name, input, options \\ []) do
+    url_path = "/canary/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -93,22 +134,44 @@ defmodule AWS.Synthetics do
   A deny policy can only be used to restrict access to all canaries. It cannot be
   used on specific resources.
   """
-  def describe_canaries(client, input, options \\ []) do
-    path_ = "/canaries"
+  def describe_canaries(%Client{} = client, input, options \\ []) do
+    url_path = "/canaries"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Use this operation to see information from the most recent run of each canary
   that you have created.
   """
-  def describe_canaries_last_run(client, input, options \\ []) do
-    path_ = "/canaries/last-run"
+  def describe_canaries_last_run(%Client{} = client, input, options \\ []) do
+    url_path = "/canaries/last-run"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -116,11 +179,22 @@ defmodule AWS.Synthetics do
 
   For more information, see [ Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
   """
-  def describe_runtime_versions(client, input, options \\ []) do
-    path_ = "/runtime-versions"
+  def describe_runtime_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/runtime-versions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -130,31 +204,64 @@ defmodule AWS.Synthetics do
   and their names, use
   [DescribeCanaries](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html).
   """
-  def get_canary(client, name, options \\ []) do
-    path_ = "/canary/#{URI.encode(name)}"
+  def get_canary(%Client{} = client, name, options \\ []) do
+    url_path = "/canary/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves a list of runs for a specified canary.
   """
-  def get_canary_runs(client, name, input, options \\ []) do
-    path_ = "/canary/#{URI.encode(name)}/runs"
+  def get_canary_runs(%Client{} = client, name, input, options \\ []) do
+    url_path = "/canary/#{URI.encode(name)}/runs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Displays the tags associated with a canary.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -164,11 +271,22 @@ defmodule AWS.Synthetics do
   `Schedule`. To see a canary's schedule, use
   [GetCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html).
   """
-  def start_canary(client, name, input, options \\ []) do
-    path_ = "/canary/#{URI.encode(name)}/start"
+  def start_canary(%Client{} = client, name, input, options \\ []) do
+    url_path = "/canary/#{URI.encode(name)}/start"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -182,11 +300,22 @@ defmodule AWS.Synthetics do
   You can use `StartCanary` to start it running again with the canary’s current
   schedule at any point in the future.
   """
-  def stop_canary(client, name, input, options \\ []) do
-    path_ = "/canary/#{URI.encode(name)}/stop"
+  def stop_canary(%Client{} = client, name, input, options \\ []) do
+    url_path = "/canary/#{URI.encode(name)}/stop"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -207,25 +336,48 @@ defmodule AWS.Synthetics do
 
   You can associate as many as 50 tags with a canary.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes one or more tags from the specified canary.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"TagKeys", "tagKeys"},
+        {"TagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -236,74 +388,21 @@ defmodule AWS.Synthetics do
   the tags of an existing canary, use
   [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html).
   """
-  def update_canary(client, name, input, options \\ []) do
-    path_ = "/canary/#{URI.encode(name)}"
+  def update_canary(%Client{} = client, name, input, options \\ []) do
+    url_path = "/canary/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "synthetics"}
-    host = build_host("synthetics", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

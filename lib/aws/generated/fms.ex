@@ -10,7 +10,29 @@ defmodule AWS.FMS do
   This guide is for developers who need detailed information about the AWS
   Firewall Manager API actions, data types, and errors. For detailed information
   about AWS Firewall Manager features, see the [AWS Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html).
+
+  Some API actions require explicit resource permissions. For information, see the
+  developer guide topic [Firewall Manager required permissions for API actions](https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html).
   """
+
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "FMS",
+      api_version: "2018-01-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "fms",
+      global?: false,
+      protocol: "json",
+      service_id: "FMS",
+      signature_version: "v4",
+      signing_name: "fms",
+      target_prefix: "AWSFMS_20180101"
+    }
+  end
 
   @doc """
   Sets the AWS Firewall Manager administrator account.
@@ -24,15 +46,15 @@ defmodule AWS.FMS do
   The account that you associate with AWS Firewall Manager is called the AWS
   Firewall Manager administrator account.
   """
-  def associate_admin_account(client, input, options \\ []) do
-    request(client, "AssociateAdminAccount", input, options)
+  def associate_admin_account(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateAdminAccount", input, options)
   end
 
   @doc """
   Permanently deletes an AWS Firewall Manager applications list.
   """
-  def delete_apps_list(client, input, options \\ []) do
-    request(client, "DeleteAppsList", input, options)
+  def delete_apps_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAppsList", input, options)
   end
 
   @doc """
@@ -40,22 +62,22 @@ defmodule AWS.FMS do
   Simple Notification Service (SNS) topic that is used to record AWS Firewall
   Manager SNS logs.
   """
-  def delete_notification_channel(client, input, options \\ []) do
-    request(client, "DeleteNotificationChannel", input, options)
+  def delete_notification_channel(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteNotificationChannel", input, options)
   end
 
   @doc """
   Permanently deletes an AWS Firewall Manager policy.
   """
-  def delete_policy(client, input, options \\ []) do
-    request(client, "DeletePolicy", input, options)
+  def delete_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePolicy", input, options)
   end
 
   @doc """
   Permanently deletes an AWS Firewall Manager protocols list.
   """
-  def delete_protocols_list(client, input, options \\ []) do
-    request(client, "DeleteProtocolsList", input, options)
+  def delete_protocols_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProtocolsList", input, options)
   end
 
   @doc """
@@ -65,23 +87,23 @@ defmodule AWS.FMS do
   To set a different account as the administrator account, you must submit an
   `AssociateAdminAccount` request.
   """
-  def disassociate_admin_account(client, input, options \\ []) do
-    request(client, "DisassociateAdminAccount", input, options)
+  def disassociate_admin_account(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateAdminAccount", input, options)
   end
 
   @doc """
   Returns the AWS Organizations master account that is associated with AWS
   Firewall Manager as the AWS Firewall Manager administrator.
   """
-  def get_admin_account(client, input, options \\ []) do
-    request(client, "GetAdminAccount", input, options)
+  def get_admin_account(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAdminAccount", input, options)
   end
 
   @doc """
   Returns information about the specified AWS Firewall Manager applications list.
   """
-  def get_apps_list(client, input, options \\ []) do
-    request(client, "GetAppsList", input, options)
+  def get_apps_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAppsList", input, options)
   end
 
   @doc """
@@ -92,25 +114,30 @@ defmodule AWS.FMS do
   policies if the specified policy has not been applied to them. Resources are
   considered noncompliant for security group policies if they are in scope of the
   policy, they violate one or more of the policy rules, and remediation is
-  disabled or not possible.
+  disabled or not possible. Resources are considered noncompliant for Network
+  Firewall policies if a firewall is missing in the VPC, if the firewall endpoint
+  isn't set up in an expected Availability Zone and subnet, if a subnet created by
+  the Firewall Manager doesn't have the expected route table, and for
+  modifications to a firewall policy that violate the Firewall Manager policy's
+  rules.
   """
-  def get_compliance_detail(client, input, options \\ []) do
-    request(client, "GetComplianceDetail", input, options)
+  def get_compliance_detail(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetComplianceDetail", input, options)
   end
 
   @doc """
   Information about the Amazon Simple Notification Service (SNS) topic that is
   used to record AWS Firewall Manager SNS logs.
   """
-  def get_notification_channel(client, input, options \\ []) do
-    request(client, "GetNotificationChannel", input, options)
+  def get_notification_channel(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetNotificationChannel", input, options)
   end
 
   @doc """
   Returns information about the specified AWS Firewall Manager policy.
   """
-  def get_policy(client, input, options \\ []) do
-    request(client, "GetPolicy", input, options)
+  def get_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPolicy", input, options)
   end
 
   @doc """
@@ -119,30 +146,30 @@ defmodule AWS.FMS do
 
   Other policy types are currently unsupported.
   """
-  def get_protection_status(client, input, options \\ []) do
-    request(client, "GetProtectionStatus", input, options)
+  def get_protection_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetProtectionStatus", input, options)
   end
 
   @doc """
   Returns information about the specified AWS Firewall Manager protocols list.
   """
-  def get_protocols_list(client, input, options \\ []) do
-    request(client, "GetProtocolsList", input, options)
+  def get_protocols_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetProtocolsList", input, options)
   end
 
   @doc """
   Retrieves violations for a resource based on the specified AWS Firewall Manager
   policy and AWS account.
   """
-  def get_violation_details(client, input, options \\ []) do
-    request(client, "GetViolationDetails", input, options)
+  def get_violation_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetViolationDetails", input, options)
   end
 
   @doc """
   Returns an array of `AppsListDataSummary` objects.
   """
-  def list_apps_lists(client, input, options \\ []) do
-    request(client, "ListAppsLists", input, options)
+  def list_apps_lists(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAppsLists", input, options)
   end
 
   @doc """
@@ -151,8 +178,8 @@ defmodule AWS.FMS do
   Use `PolicyComplianceStatus` to get a summary of which member accounts are
   protected by the specified policy.
   """
-  def list_compliance_status(client, input, options \\ []) do
-    request(client, "ListComplianceStatus", input, options)
+  def list_compliance_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListComplianceStatus", input, options)
   end
 
   @doc """
@@ -162,44 +189,49 @@ defmodule AWS.FMS do
   The `ListMemberAccounts` must be submitted by the account that is set as the AWS
   Firewall Manager administrator.
   """
-  def list_member_accounts(client, input, options \\ []) do
-    request(client, "ListMemberAccounts", input, options)
+  def list_member_accounts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMemberAccounts", input, options)
   end
 
   @doc """
   Returns an array of `PolicySummary` objects.
   """
-  def list_policies(client, input, options \\ []) do
-    request(client, "ListPolicies", input, options)
+  def list_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPolicies", input, options)
   end
 
   @doc """
   Returns an array of `ProtocolsListDataSummary` objects.
   """
-  def list_protocols_lists(client, input, options \\ []) do
-    request(client, "ListProtocolsLists", input, options)
+  def list_protocols_lists(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListProtocolsLists", input, options)
   end
 
   @doc """
   Retrieves the list of tags for the specified AWS resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
   Creates an AWS Firewall Manager applications list.
   """
-  def put_apps_list(client, input, options \\ []) do
-    request(client, "PutAppsList", input, options)
+  def put_apps_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutAppsList", input, options)
   end
 
   @doc """
   Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
   AWS Firewall Manager uses to record SNS logs.
+
+  To perform this action outside of the console, you must configure the SNS topic
+  to allow the Firewall Manager role `AWSServiceRoleForFMS` to publish SNS logs.
+  For more information, see [Firewall Manager required permissions for API actions](https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html)
+  in the *AWS Firewall Manager Developer Guide*.
   """
-  def put_notification_channel(client, input, options \\ []) do
-    request(client, "PutNotificationChannel", input, options)
+  def put_notification_channel(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutNotificationChannel", input, options)
   end
 
   @doc """
@@ -207,17 +239,20 @@ defmodule AWS.FMS do
 
   Firewall Manager provides the following types of policies:
 
-    * A Shield Advanced policy, which applies Shield Advanced protection
-  to specified accounts and resources
-
     * An AWS WAF policy (type WAFV2), which defines rule groups to run
   first in the corresponding AWS WAF web ACL and rule groups to run last in the
   web ACL.
 
     * An AWS WAF Classic policy (type WAF), which defines a rule group.
 
+    * A Shield Advanced policy, which applies Shield Advanced protection
+  to specified accounts and resources.
+
     * A security group policy, which manages VPC security groups across
   your AWS organization.
+
+    * An AWS Network Firewall policy, which provides firewall rules to
+  filter network traffic in specified Amazon VPCs.
 
   Each policy is specific to one of the types. If you want to enforce more than
   one policy type across accounts, create multiple policies. You can create
@@ -227,82 +262,28 @@ defmodule AWS.FMS do
   For more information about subscribing to Shield Advanced, see
   [CreateSubscription](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html).
   """
-  def put_policy(client, input, options \\ []) do
-    request(client, "PutPolicy", input, options)
+  def put_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutPolicy", input, options)
   end
 
   @doc """
   Creates an AWS Firewall Manager protocols list.
   """
-  def put_protocols_list(client, input, options \\ []) do
-    request(client, "PutProtocolsList", input, options)
+  def put_protocols_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutProtocolsList", input, options)
   end
 
   @doc """
   Adds one or more tags to an AWS resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from an AWS resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "fms"}
-    host = build_host("fms", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSFMS_20180101.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 end

@@ -7,6 +7,25 @@ defmodule AWS.Route53Domains do
   operations.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2014-05-15",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "route53domains",
+      global?: false,
+      protocol: "json",
+      service_id: "Route 53 Domains",
+      signature_version: "v4",
+      signing_name: "route53domains",
+      target_prefix: "Route53Domains_v20140515"
+    }
+  end
+
   @doc """
   Accepts the transfer of a domain from another AWS account to the current AWS
   account.
@@ -20,8 +39,14 @@ defmodule AWS.Route53Domains do
   provides additional information, for example, `Domain Transfer from Aws Account
   111122223333 has been cancelled`.
   """
-  def accept_domain_transfer_from_another_aws_account(client, input, options \\ []) do
-    request(client, "AcceptDomainTransferFromAnotherAwsAccount", input, options)
+  def accept_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AcceptDomainTransferFromAnotherAwsAccount",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -41,8 +66,14 @@ defmodule AWS.Route53Domains do
   provides additional information, for example, `Domain Transfer from Aws Account
   111122223333 has been cancelled`.
   """
-  def cancel_domain_transfer_to_another_aws_account(client, input, options \\ []) do
-    request(client, "CancelDomainTransferToAnotherAwsAccount", input, options)
+  def cancel_domain_transfer_to_another_aws_account(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CancelDomainTransferToAnotherAwsAccount",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -51,15 +82,15 @@ defmodule AWS.Route53Domains do
   Note that if the availability status of a domain is pending, you must submit
   another request to determine the availability of the domain name.
   """
-  def check_domain_availability(client, input, options \\ []) do
-    request(client, "CheckDomainAvailability", input, options)
+  def check_domain_availability(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CheckDomainAvailability", input, options)
   end
 
   @doc """
   Checks whether a domain name can be transferred to Amazon Route 53.
   """
-  def check_domain_transferability(client, input, options \\ []) do
-    request(client, "CheckDomainTransferability", input, options)
+  def check_domain_transferability(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CheckDomainTransferability", input, options)
   end
 
   @doc """
@@ -68,16 +99,16 @@ defmodule AWS.Route53Domains do
   All tag operations are eventually consistent; subsequent operations might not
   immediately represent all issued operations.
   """
-  def delete_tags_for_domain(client, input, options \\ []) do
-    request(client, "DeleteTagsForDomain", input, options)
+  def delete_tags_for_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTagsForDomain", input, options)
   end
 
   @doc """
   This operation disables automatic renewal of domain registration for the
   specified domain.
   """
-  def disable_domain_auto_renew(client, input, options \\ []) do
-    request(client, "DisableDomainAutoRenew", input, options)
+  def disable_domain_auto_renew(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableDomainAutoRenew", input, options)
   end
 
   @doc """
@@ -90,8 +121,8 @@ defmodule AWS.Route53Domains do
   action. If the request is not completed successfully, the domain registrant will
   be notified by email.
   """
-  def disable_domain_transfer_lock(client, input, options \\ []) do
-    request(client, "DisableDomainTransferLock", input, options)
+  def disable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableDomainTransferLock", input, options)
   end
 
   @doc """
@@ -107,8 +138,8 @@ defmodule AWS.Route53Domains do
   before the end of the renewal period so we can complete processing before the
   deadline.
   """
-  def enable_domain_auto_renew(client, input, options \\ []) do
-    request(client, "EnableDomainAutoRenew", input, options)
+  def enable_domain_auto_renew(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableDomainAutoRenew", input, options)
   end
 
   @doc """
@@ -119,8 +150,8 @@ defmodule AWS.Route53Domains do
   progress and completion of the action. If the request is not completed
   successfully, the domain registrant will be notified by email.
   """
-  def enable_domain_transfer_lock(client, input, options \\ []) do
-    request(client, "EnableDomainTransferLock", input, options)
+  def enable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableDomainTransferLock", input, options)
   end
 
   @doc """
@@ -131,8 +162,8 @@ defmodule AWS.Route53Domains do
   If you want us to resend the email, use the `ResendContactReachabilityEmail`
   operation.
   """
-  def get_contact_reachability_status(client, input, options \\ []) do
-    request(client, "GetContactReachabilityStatus", input, options)
+  def get_contact_reachability_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContactReachabilityStatus", input, options)
   end
 
   @doc """
@@ -141,30 +172,30 @@ defmodule AWS.Route53Domains do
 
   Contact information for the domain is also returned as part of the output.
   """
-  def get_domain_detail(client, input, options \\ []) do
-    request(client, "GetDomainDetail", input, options)
+  def get_domain_detail(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDomainDetail", input, options)
   end
 
   @doc """
   The GetDomainSuggestions operation returns a list of suggested domain names.
   """
-  def get_domain_suggestions(client, input, options \\ []) do
-    request(client, "GetDomainSuggestions", input, options)
+  def get_domain_suggestions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDomainSuggestions", input, options)
   end
 
   @doc """
   This operation returns the current status of an operation that is not completed.
   """
-  def get_operation_detail(client, input, options \\ []) do
-    request(client, "GetOperationDetail", input, options)
+  def get_operation_detail(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOperationDetail", input, options)
   end
 
   @doc """
   This operation returns all the domain names registered with Amazon Route 53 for
   the current AWS account.
   """
-  def list_domains(client, input, options \\ []) do
-    request(client, "ListDomains", input, options)
+  def list_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDomains", input, options)
   end
 
   @doc """
@@ -172,8 +203,8 @@ defmodule AWS.Route53Domains do
   that have ever been performed on domains that were registered by the current
   account.
   """
-  def list_operations(client, input, options \\ []) do
-    request(client, "ListOperations", input, options)
+  def list_operations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListOperations", input, options)
   end
 
   @doc """
@@ -183,8 +214,8 @@ defmodule AWS.Route53Domains do
   All tag operations are eventually consistent; subsequent operations might not
   immediately represent all issued operations.
   """
-  def list_tags_for_domain(client, input, options \\ []) do
-    request(client, "ListTagsForDomain", input, options)
+  def list_tags_for_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForDomain", input, options)
   end
 
   @doc """
@@ -217,8 +248,8 @@ defmodule AWS.Route53Domains do
     * Charges your AWS account an amount based on the top-level domain.
   For more information, see [Amazon Route 53 Pricing](http://aws.amazon.com/route53/pricing/).
   """
-  def register_domain(client, input, options \\ []) do
-    request(client, "RegisterDomain", input, options)
+  def register_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterDomain", input, options)
   end
 
   @doc """
@@ -234,8 +265,14 @@ defmodule AWS.Route53Domains do
   provides additional information, for example, `Domain Transfer from Aws Account
   111122223333 has been cancelled`.
   """
-  def reject_domain_transfer_from_another_aws_account(client, input, options \\ []) do
-    request(client, "RejectDomainTransferFromAnotherAwsAccount", input, options)
+  def reject_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "RejectDomainTransferFromAnotherAwsAccount",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -249,8 +286,8 @@ defmodule AWS.Route53Domains do
   domain registration, see [Renewing Registration for a Domain](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html)
   in the *Amazon Route 53 Developer Guide*.
   """
-  def renew_domain(client, input, options \\ []) do
-    request(client, "RenewDomain", input, options)
+  def renew_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RenewDomain", input, options)
   end
 
   @doc """
@@ -259,8 +296,8 @@ defmodule AWS.Route53Domains do
   resends the confirmation email to the current email address for the registrant
   contact.
   """
-  def resend_contact_reachability_email(client, input, options \\ []) do
-    request(client, "ResendContactReachabilityEmail", input, options)
+  def resend_contact_reachability_email(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResendContactReachabilityEmail", input, options)
   end
 
   @doc """
@@ -269,8 +306,8 @@ defmodule AWS.Route53Domains do
   To transfer a domain to another registrar, you provide this value to the new
   registrar.
   """
-  def retrieve_domain_auth_code(client, input, options \\ []) do
-    request(client, "RetrieveDomainAuthCode", input, options)
+  def retrieve_domain_auth_code(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RetrieveDomainAuthCode", input, options)
   end
 
   @doc """
@@ -309,8 +346,8 @@ defmodule AWS.Route53Domains do
   use to track the progress and completion of the action. If the transfer doesn't
   complete successfully, the domain registrant will be notified by email.
   """
-  def transfer_domain(client, input, options \\ []) do
-    request(client, "TransferDomain", input, options)
+  def transfer_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TransferDomain", input, options)
   end
 
   @doc """
@@ -345,8 +382,8 @@ defmodule AWS.Route53Domains do
   provides additional information, for example, `Domain Transfer from Aws Account
   111122223333 has been cancelled`.
   """
-  def transfer_domain_to_another_aws_account(client, input, options \\ []) do
-    request(client, "TransferDomainToAnotherAwsAccount", input, options)
+  def transfer_domain_to_another_aws_account(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TransferDomainToAnotherAwsAccount", input, options)
   end
 
   @doc """
@@ -359,8 +396,8 @@ defmodule AWS.Route53Domains do
   use to track the progress and completion of the action. If the request is not
   completed successfully, the domain registrant will be notified by email.
   """
-  def update_domain_contact(client, input, options \\ []) do
-    request(client, "UpdateDomainContact", input, options)
+  def update_domain_contact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDomainContact", input, options)
   end
 
   @doc """
@@ -387,8 +424,8 @@ defmodule AWS.Route53Domains do
   practices, see
   [https://aws.amazon.com/privacy/](https://aws.amazon.com/privacy/).
   """
-  def update_domain_contact_privacy(client, input, options \\ []) do
-    request(client, "UpdateDomainContactPrivacy", input, options)
+  def update_domain_contact_privacy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDomainContactPrivacy", input, options)
   end
 
   @doc """
@@ -402,8 +439,8 @@ defmodule AWS.Route53Domains do
   the progress and completion of the action. If the request is not completed
   successfully, the domain registrant will be notified by email.
   """
-  def update_domain_nameservers(client, input, options \\ []) do
-    request(client, "UpdateDomainNameservers", input, options)
+  def update_domain_nameservers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDomainNameservers", input, options)
   end
 
   @doc """
@@ -412,69 +449,15 @@ defmodule AWS.Route53Domains do
   All tag operations are eventually consistent; subsequent operations might not
   immediately represent all issued operations.
   """
-  def update_tags_for_domain(client, input, options \\ []) do
-    request(client, "UpdateTagsForDomain", input, options)
+  def update_tags_for_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTagsForDomain", input, options)
   end
 
   @doc """
   Returns all the domain-related billing records for the current AWS account for a
   specified period
   """
-  def view_billing(client, input, options \\ []) do
-    request(client, "ViewBilling", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "route53domains"}
-    host = build_host("route53domains", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "Route53Domains_v20140515.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def view_billing(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ViewBilling", input, options)
   end
 end

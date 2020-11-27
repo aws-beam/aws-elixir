@@ -8,25 +8,44 @@ defmodule AWS.Glue do
   Defines the public endpoint for the AWS Glue service.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-03-31",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "glue",
+      global?: false,
+      protocol: "json",
+      service_id: "Glue",
+      signature_version: "v4",
+      signing_name: "glue",
+      target_prefix: "AWSGlue"
+    }
+  end
+
   @doc """
   Creates one or more partitions in a batch operation.
   """
-  def batch_create_partition(client, input, options \\ []) do
-    request(client, "BatchCreatePartition", input, options)
+  def batch_create_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchCreatePartition", input, options)
   end
 
   @doc """
   Deletes a list of connection definitions from the Data Catalog.
   """
-  def batch_delete_connection(client, input, options \\ []) do
-    request(client, "BatchDeleteConnection", input, options)
+  def batch_delete_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteConnection", input, options)
   end
 
   @doc """
   Deletes one or more partitions in a batch operation.
   """
-  def batch_delete_partition(client, input, options \\ []) do
-    request(client, "BatchDeletePartition", input, options)
+  def batch_delete_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeletePartition", input, options)
   end
 
   @doc """
@@ -42,15 +61,15 @@ defmodule AWS.Glue do
   `DeletePartition` or `BatchDeletePartition`, to delete any resources that belong
   to the table.
   """
-  def batch_delete_table(client, input, options \\ []) do
-    request(client, "BatchDeleteTable", input, options)
+  def batch_delete_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteTable", input, options)
   end
 
   @doc """
   Deletes a specified batch of versions of a table.
   """
-  def batch_delete_table_version(client, input, options \\ []) do
-    request(client, "BatchDeleteTableVersion", input, options)
+  def batch_delete_table_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteTableVersion", input, options)
   end
 
   @doc """
@@ -60,8 +79,8 @@ defmodule AWS.Glue do
   access the data to which you have been granted permissions. This operation
   supports all IAM permissions, including permission conditions that uses tags.
   """
-  def batch_get_crawlers(client, input, options \\ []) do
-    request(client, "BatchGetCrawlers", input, options)
+  def batch_get_crawlers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetCrawlers", input, options)
   end
 
   @doc """
@@ -72,8 +91,8 @@ defmodule AWS.Glue do
   access the data to which you have been granted permissions. This operation
   supports all IAM permissions, including permission conditions that uses tags.
   """
-  def batch_get_dev_endpoints(client, input, options \\ []) do
-    request(client, "BatchGetDevEndpoints", input, options)
+  def batch_get_dev_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetDevEndpoints", input, options)
   end
 
   @doc """
@@ -83,15 +102,15 @@ defmodule AWS.Glue do
   the data to which you have been granted permissions. This operation supports all
   IAM permissions, including permission conditions that uses tags.
   """
-  def batch_get_jobs(client, input, options \\ []) do
-    request(client, "BatchGetJobs", input, options)
+  def batch_get_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetJobs", input, options)
   end
 
   @doc """
   Retrieves partitions in a batch request.
   """
-  def batch_get_partition(client, input, options \\ []) do
-    request(client, "BatchGetPartition", input, options)
+  def batch_get_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetPartition", input, options)
   end
 
   @doc """
@@ -101,8 +120,8 @@ defmodule AWS.Glue do
   access the data to which you have been granted permissions. This operation
   supports all IAM permissions, including permission conditions that uses tags.
   """
-  def batch_get_triggers(client, input, options \\ []) do
-    request(client, "BatchGetTriggers", input, options)
+  def batch_get_triggers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetTriggers", input, options)
   end
 
   @doc """
@@ -112,22 +131,22 @@ defmodule AWS.Glue do
   access the data to which you have been granted permissions. This operation
   supports all IAM permissions, including permission conditions that uses tags.
   """
-  def batch_get_workflows(client, input, options \\ []) do
-    request(client, "BatchGetWorkflows", input, options)
+  def batch_get_workflows(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetWorkflows", input, options)
   end
 
   @doc """
   Stops one or more job runs for a specified job definition.
   """
-  def batch_stop_job_run(client, input, options \\ []) do
-    request(client, "BatchStopJobRun", input, options)
+  def batch_stop_job_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchStopJobRun", input, options)
   end
 
   @doc """
   Updates one or more partitions in a batch operation.
   """
-  def batch_update_partition(client, input, options \\ []) do
-    request(client, "BatchUpdatePartition", input, options)
+  def batch_update_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchUpdatePartition", input, options)
   end
 
   @doc """
@@ -138,8 +157,19 @@ defmodule AWS.Glue do
   learning task run at any time by calling `CancelMLTaskRun` with a task run's
   parent transform's `TransformID` and the task run's `TaskRunId`.
   """
-  def cancel_m_l_task_run(client, input, options \\ []) do
-    request(client, "CancelMLTaskRun", input, options)
+  def cancel_m_l_task_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelMLTaskRun", input, options)
+  end
+
+  @doc """
+  Validates the supplied schema.
+
+  This call has no side effects, it simply validates using the supplied schema
+  using `DataFormat` as the format. Since it does not take a schema set name, no
+  compatibility checks are performed.
+  """
+  def check_schema_version_validity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CheckSchemaVersionValidity", input, options)
   end
 
   @doc """
@@ -148,15 +178,15 @@ defmodule AWS.Glue do
   This can be a `GrokClassifier`, an `XMLClassifier`, a `JsonClassifier`, or a
   `CsvClassifier`, depending on which field of the request is present.
   """
-  def create_classifier(client, input, options \\ []) do
-    request(client, "CreateClassifier", input, options)
+  def create_classifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateClassifier", input, options)
   end
 
   @doc """
   Creates a connection definition in the Data Catalog.
   """
-  def create_connection(client, input, options \\ []) do
-    request(client, "CreateConnection", input, options)
+  def create_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateConnection", input, options)
   end
 
   @doc """
@@ -166,29 +196,29 @@ defmodule AWS.Glue do
   At least one crawl target must be specified, in the `s3Targets` field, the
   `jdbcTargets` field, or the `DynamoDBTargets` field.
   """
-  def create_crawler(client, input, options \\ []) do
-    request(client, "CreateCrawler", input, options)
+  def create_crawler(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCrawler", input, options)
   end
 
   @doc """
   Creates a new database in a Data Catalog.
   """
-  def create_database(client, input, options \\ []) do
-    request(client, "CreateDatabase", input, options)
+  def create_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDatabase", input, options)
   end
 
   @doc """
   Creates a new development endpoint.
   """
-  def create_dev_endpoint(client, input, options \\ []) do
-    request(client, "CreateDevEndpoint", input, options)
+  def create_dev_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDevEndpoint", input, options)
   end
 
   @doc """
   Creates a new job definition.
   """
-  def create_job(client, input, options \\ []) do
-    request(client, "CreateJob", input, options)
+  def create_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateJob", input, options)
   end
 
   @doc """
@@ -208,22 +238,56 @@ defmodule AWS.Glue do
   `AllocatedCapacity`, `Timeout`, and `MaxRetries`. For more information, see
   [Jobs](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html).
   """
-  def create_m_l_transform(client, input, options \\ []) do
-    request(client, "CreateMLTransform", input, options)
+  def create_m_l_transform(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateMLTransform", input, options)
   end
 
   @doc """
   Creates a new partition.
   """
-  def create_partition(client, input, options \\ []) do
-    request(client, "CreatePartition", input, options)
+  def create_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePartition", input, options)
+  end
+
+  @doc """
+  Creates a specified partition index in an existing table.
+  """
+  def create_partition_index(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePartitionIndex", input, options)
+  end
+
+  @doc """
+  Creates a new registry which may be used to hold a collection of schemas.
+  """
+  def create_registry(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRegistry", input, options)
+  end
+
+  @doc """
+  Creates a new schema set and registers the schema definition.
+
+  Returns an error if the schema set already exists without actually registering
+  the version.
+
+  When the schema set is created, a version checkpoint will be set to the first
+  version. Compatibility mode "DISABLED" restricts any additional schema versions
+  from being added after the first schema version. For all other compatibility
+  modes, validation of compatibility settings will be applied only from the second
+  version onwards when the `RegisterSchemaVersion` API is used.
+
+  When this API is called without a `RegistryId`, this will create an entry for a
+  "default-registry" in the registry database tables, if it is not already
+  present.
+  """
+  def create_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSchema", input, options)
   end
 
   @doc """
   Transforms a directed acyclic graph (DAG) into code.
   """
-  def create_script(client, input, options \\ []) do
-    request(client, "CreateScript", input, options)
+  def create_script(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateScript", input, options)
   end
 
   @doc """
@@ -234,72 +298,78 @@ defmodule AWS.Glue do
   information about using security configurations in AWS Glue, see [Encrypting Data Written by Crawlers, Jobs, and Development
   Endpoints](https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html).
   """
-  def create_security_configuration(client, input, options \\ []) do
-    request(client, "CreateSecurityConfiguration", input, options)
+  def create_security_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSecurityConfiguration", input, options)
   end
 
   @doc """
   Creates a new table definition in the Data Catalog.
   """
-  def create_table(client, input, options \\ []) do
-    request(client, "CreateTable", input, options)
+  def create_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTable", input, options)
   end
 
   @doc """
   Creates a new trigger.
   """
-  def create_trigger(client, input, options \\ []) do
-    request(client, "CreateTrigger", input, options)
+  def create_trigger(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTrigger", input, options)
   end
 
   @doc """
   Creates a new function definition in the Data Catalog.
   """
-  def create_user_defined_function(client, input, options \\ []) do
-    request(client, "CreateUserDefinedFunction", input, options)
+  def create_user_defined_function(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUserDefinedFunction", input, options)
   end
 
   @doc """
   Creates a new workflow.
   """
-  def create_workflow(client, input, options \\ []) do
-    request(client, "CreateWorkflow", input, options)
+  def create_workflow(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWorkflow", input, options)
   end
 
   @doc """
   Removes a classifier from the Data Catalog.
   """
-  def delete_classifier(client, input, options \\ []) do
-    request(client, "DeleteClassifier", input, options)
+  def delete_classifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteClassifier", input, options)
   end
 
   @doc """
   Delete the partition column statistics of a column.
+
+  The Identity and Access Management (IAM) permission required for this operation
+  is `DeletePartition`.
   """
-  def delete_column_statistics_for_partition(client, input, options \\ []) do
-    request(client, "DeleteColumnStatisticsForPartition", input, options)
+  def delete_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteColumnStatisticsForPartition", input, options)
   end
 
   @doc """
   Retrieves table statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this operation
+  is `DeleteTable`.
   """
-  def delete_column_statistics_for_table(client, input, options \\ []) do
-    request(client, "DeleteColumnStatisticsForTable", input, options)
+  def delete_column_statistics_for_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteColumnStatisticsForTable", input, options)
   end
 
   @doc """
   Deletes a connection from the Data Catalog.
   """
-  def delete_connection(client, input, options \\ []) do
-    request(client, "DeleteConnection", input, options)
+  def delete_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteConnection", input, options)
   end
 
   @doc """
   Removes a specified crawler from the AWS Glue Data Catalog, unless the crawler
   state is `RUNNING`.
   """
-  def delete_crawler(client, input, options \\ []) do
-    request(client, "DeleteCrawler", input, options)
+  def delete_crawler(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCrawler", input, options)
   end
 
   @doc """
@@ -317,15 +387,15 @@ defmodule AWS.Glue do
   `DeleteTable` or `BatchDeleteTable`, to delete any resources that belong to the
   database.
   """
-  def delete_database(client, input, options \\ []) do
-    request(client, "DeleteDatabase", input, options)
+  def delete_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDatabase", input, options)
   end
 
   @doc """
   Deletes a specified development endpoint.
   """
-  def delete_dev_endpoint(client, input, options \\ []) do
-    request(client, "DeleteDevEndpoint", input, options)
+  def delete_dev_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDevEndpoint", input, options)
   end
 
   @doc """
@@ -333,8 +403,8 @@ defmodule AWS.Glue do
 
   If the job definition is not found, no exception is thrown.
   """
-  def delete_job(client, input, options \\ []) do
-    request(client, "DeleteJob", input, options)
+  def delete_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteJob", input, options)
   end
 
   @doc """
@@ -347,29 +417,86 @@ defmodule AWS.Glue do
   `DeleteMLTransforms`. However, any AWS Glue jobs that still reference the
   deleted transform will no longer succeed.
   """
-  def delete_m_l_transform(client, input, options \\ []) do
-    request(client, "DeleteMLTransform", input, options)
+  def delete_m_l_transform(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMLTransform", input, options)
   end
 
   @doc """
   Deletes a specified partition.
   """
-  def delete_partition(client, input, options \\ []) do
-    request(client, "DeletePartition", input, options)
+  def delete_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePartition", input, options)
+  end
+
+  @doc """
+  Deletes a specified partition index from an existing table.
+  """
+  def delete_partition_index(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePartitionIndex", input, options)
+  end
+
+  @doc """
+  Delete the entire registry including schema and all of its versions.
+
+  To get the status of the delete operation, you can call the `GetRegistry` API
+  after the asynchronous call. Deleting a registry will disable all online
+  operations for the registry such as the `UpdateRegistry`, `CreateSchema`,
+  `UpdateSchema`, and `RegisterSchemaVersion` APIs.
+  """
+  def delete_registry(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRegistry", input, options)
   end
 
   @doc """
   Deletes a specified policy.
   """
-  def delete_resource_policy(client, input, options \\ []) do
-    request(client, "DeleteResourcePolicy", input, options)
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
+  Deletes the entire schema set, including the schema set and all of its versions.
+
+  To get the status of the delete operation, you can call `GetSchema` API after
+  the asynchronous call. Deleting a registry will disable all online operations
+  for the schema, such as the `GetSchemaByDefinition`, and `RegisterSchemaVersion`
+  APIs.
+  """
+  def delete_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSchema", input, options)
+  end
+
+  @doc """
+  Remove versions from the specified schema.
+
+  A version number or range may be supplied. If the compatibility mode forbids
+  deleting of a version that is necessary, such as BACKWARDS_FULL, an error is
+  returned. Calling the `GetSchemaVersions` API after this call will list the
+  status of the deleted versions.
+
+  When the range of version numbers contain check pointed version, the API will
+  return a 409 conflict and will not proceed with the deletion. You have to remove
+  the checkpoint first using the `DeleteSchemaCheckpoint` API before using this
+  API.
+
+  You cannot use the `DeleteSchemaVersions` API to delete the first schema version
+  in the schema set. The first schema version can only be deleted by the
+  `DeleteSchema` API. This operation will also delete the attached
+  `SchemaVersionMetadata` under the schema versions. Hard deletes will be enforced
+  on the database.
+
+  If the compatibility mode forbids deleting of a version that is necessary, such
+  as BACKWARDS_FULL, an error is returned.
+  """
+  def delete_schema_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSchemaVersions", input, options)
   end
 
   @doc """
   Deletes a specified security configuration.
   """
-  def delete_security_configuration(client, input, options \\ []) do
-    request(client, "DeleteSecurityConfiguration", input, options)
+  def delete_security_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSecurityConfiguration", input, options)
   end
 
   @doc """
@@ -385,15 +512,15 @@ defmodule AWS.Glue do
   `DeletePartition` or `BatchDeletePartition`, to delete any resources that belong
   to the table.
   """
-  def delete_table(client, input, options \\ []) do
-    request(client, "DeleteTable", input, options)
+  def delete_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTable", input, options)
   end
 
   @doc """
   Deletes a specified version of a table.
   """
-  def delete_table_version(client, input, options \\ []) do
-    request(client, "DeleteTableVersion", input, options)
+  def delete_table_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTableVersion", input, options)
   end
 
   @doc """
@@ -401,120 +528,126 @@ defmodule AWS.Glue do
 
   If the trigger is not found, no exception is thrown.
   """
-  def delete_trigger(client, input, options \\ []) do
-    request(client, "DeleteTrigger", input, options)
+  def delete_trigger(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTrigger", input, options)
   end
 
   @doc """
   Deletes an existing function definition from the Data Catalog.
   """
-  def delete_user_defined_function(client, input, options \\ []) do
-    request(client, "DeleteUserDefinedFunction", input, options)
+  def delete_user_defined_function(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUserDefinedFunction", input, options)
   end
 
   @doc """
   Deletes a workflow.
   """
-  def delete_workflow(client, input, options \\ []) do
-    request(client, "DeleteWorkflow", input, options)
+  def delete_workflow(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWorkflow", input, options)
   end
 
   @doc """
   Retrieves the status of a migration operation.
   """
-  def get_catalog_import_status(client, input, options \\ []) do
-    request(client, "GetCatalogImportStatus", input, options)
+  def get_catalog_import_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCatalogImportStatus", input, options)
   end
 
   @doc """
   Retrieve a classifier by name.
   """
-  def get_classifier(client, input, options \\ []) do
-    request(client, "GetClassifier", input, options)
+  def get_classifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetClassifier", input, options)
   end
 
   @doc """
   Lists all classifier objects in the Data Catalog.
   """
-  def get_classifiers(client, input, options \\ []) do
-    request(client, "GetClassifiers", input, options)
+  def get_classifiers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetClassifiers", input, options)
   end
 
   @doc """
   Retrieves partition statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this operation
+  is `GetPartition`.
   """
-  def get_column_statistics_for_partition(client, input, options \\ []) do
-    request(client, "GetColumnStatisticsForPartition", input, options)
+  def get_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetColumnStatisticsForPartition", input, options)
   end
 
   @doc """
   Retrieves table statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this operation
+  is `GetTable`.
   """
-  def get_column_statistics_for_table(client, input, options \\ []) do
-    request(client, "GetColumnStatisticsForTable", input, options)
+  def get_column_statistics_for_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetColumnStatisticsForTable", input, options)
   end
 
   @doc """
   Retrieves a connection definition from the Data Catalog.
   """
-  def get_connection(client, input, options \\ []) do
-    request(client, "GetConnection", input, options)
+  def get_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetConnection", input, options)
   end
 
   @doc """
   Retrieves a list of connection definitions from the Data Catalog.
   """
-  def get_connections(client, input, options \\ []) do
-    request(client, "GetConnections", input, options)
+  def get_connections(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetConnections", input, options)
   end
 
   @doc """
   Retrieves metadata for a specified crawler.
   """
-  def get_crawler(client, input, options \\ []) do
-    request(client, "GetCrawler", input, options)
+  def get_crawler(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCrawler", input, options)
   end
 
   @doc """
   Retrieves metrics about specified crawlers.
   """
-  def get_crawler_metrics(client, input, options \\ []) do
-    request(client, "GetCrawlerMetrics", input, options)
+  def get_crawler_metrics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCrawlerMetrics", input, options)
   end
 
   @doc """
   Retrieves metadata for all crawlers defined in the customer account.
   """
-  def get_crawlers(client, input, options \\ []) do
-    request(client, "GetCrawlers", input, options)
+  def get_crawlers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCrawlers", input, options)
   end
 
   @doc """
   Retrieves the security configuration for a specified catalog.
   """
-  def get_data_catalog_encryption_settings(client, input, options \\ []) do
-    request(client, "GetDataCatalogEncryptionSettings", input, options)
+  def get_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDataCatalogEncryptionSettings", input, options)
   end
 
   @doc """
   Retrieves the definition of a specified database.
   """
-  def get_database(client, input, options \\ []) do
-    request(client, "GetDatabase", input, options)
+  def get_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDatabase", input, options)
   end
 
   @doc """
   Retrieves all databases defined in a given Data Catalog.
   """
-  def get_databases(client, input, options \\ []) do
-    request(client, "GetDatabases", input, options)
+  def get_databases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDatabases", input, options)
   end
 
   @doc """
   Transforms a Python script into a directed acyclic graph (DAG).
   """
-  def get_dataflow_graph(client, input, options \\ []) do
-    request(client, "GetDataflowGraph", input, options)
+  def get_dataflow_graph(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDataflowGraph", input, options)
   end
 
   @doc """
@@ -525,8 +658,8 @@ defmodule AWS.Glue do
   populated. When you create a non-VPC development endpoint, AWS Glue returns only
   a public IP address.
   """
-  def get_dev_endpoint(client, input, options \\ []) do
-    request(client, "GetDevEndpoint", input, options)
+  def get_dev_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDevEndpoint", input, options)
   end
 
   @doc """
@@ -537,43 +670,43 @@ defmodule AWS.Glue do
   populated. When you create a non-VPC development endpoint, AWS Glue returns only
   a public IP address.
   """
-  def get_dev_endpoints(client, input, options \\ []) do
-    request(client, "GetDevEndpoints", input, options)
+  def get_dev_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDevEndpoints", input, options)
   end
 
   @doc """
   Retrieves an existing job definition.
   """
-  def get_job(client, input, options \\ []) do
-    request(client, "GetJob", input, options)
+  def get_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetJob", input, options)
   end
 
   @doc """
   Returns information on a job bookmark entry.
   """
-  def get_job_bookmark(client, input, options \\ []) do
-    request(client, "GetJobBookmark", input, options)
+  def get_job_bookmark(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetJobBookmark", input, options)
   end
 
   @doc """
   Retrieves the metadata for a given job run.
   """
-  def get_job_run(client, input, options \\ []) do
-    request(client, "GetJobRun", input, options)
+  def get_job_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetJobRun", input, options)
   end
 
   @doc """
   Retrieves metadata for all runs of a given job definition.
   """
-  def get_job_runs(client, input, options \\ []) do
-    request(client, "GetJobRuns", input, options)
+  def get_job_runs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetJobRuns", input, options)
   end
 
   @doc """
   Retrieves all current job definitions.
   """
-  def get_jobs(client, input, options \\ []) do
-    request(client, "GetJobs", input, options)
+  def get_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetJobs", input, options)
   end
 
   @doc """
@@ -584,8 +717,8 @@ defmodule AWS.Glue do
   any task run by calling `GetMLTaskRun` with the `TaskRunID` and its parent
   transform's `TransformID`.
   """
-  def get_m_l_task_run(client, input, options \\ []) do
-    request(client, "GetMLTaskRun", input, options)
+  def get_m_l_task_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMLTaskRun", input, options)
   end
 
   @doc """
@@ -599,8 +732,8 @@ defmodule AWS.Glue do
 
   This operation returns a list of historic runs and must be paginated.
   """
-  def get_m_l_task_runs(client, input, options \\ []) do
-    request(client, "GetMLTaskRuns", input, options)
+  def get_m_l_task_runs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMLTaskRuns", input, options)
   end
 
   @doc """
@@ -612,8 +745,8 @@ defmodule AWS.Glue do
   from examples provided by humans. These transformations are then saved by AWS
   Glue. You can retrieve their metadata by calling `GetMLTransform`.
   """
-  def get_m_l_transform(client, input, options \\ []) do
-    request(client, "GetMLTransform", input, options)
+  def get_m_l_transform(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMLTransform", input, options)
   end
 
   @doc """
@@ -625,43 +758,50 @@ defmodule AWS.Glue do
   from examples provided by humans. These transformations are then saved by AWS
   Glue, and you can retrieve their metadata by calling `GetMLTransforms`.
   """
-  def get_m_l_transforms(client, input, options \\ []) do
-    request(client, "GetMLTransforms", input, options)
+  def get_m_l_transforms(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMLTransforms", input, options)
   end
 
   @doc """
   Creates mappings.
   """
-  def get_mapping(client, input, options \\ []) do
-    request(client, "GetMapping", input, options)
+  def get_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMapping", input, options)
   end
 
   @doc """
   Retrieves information about a specified partition.
   """
-  def get_partition(client, input, options \\ []) do
-    request(client, "GetPartition", input, options)
+  def get_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPartition", input, options)
   end
 
   @doc """
   Retrieves the partition indexes associated with a table.
   """
-  def get_partition_indexes(client, input, options \\ []) do
-    request(client, "GetPartitionIndexes", input, options)
+  def get_partition_indexes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPartitionIndexes", input, options)
   end
 
   @doc """
   Retrieves information about the partitions in a table.
   """
-  def get_partitions(client, input, options \\ []) do
-    request(client, "GetPartitions", input, options)
+  def get_partitions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPartitions", input, options)
   end
 
   @doc """
   Gets code to perform a specified mapping.
   """
-  def get_plan(client, input, options \\ []) do
-    request(client, "GetPlan", input, options)
+  def get_plan(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPlan", input, options)
+  end
+
+  @doc """
+  Describes the specified registry in detail.
+  """
+  def get_registry(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRegistry", input, options)
   end
 
   @doc """
@@ -673,128 +813,169 @@ defmodule AWS.Glue do
   permission on the AWS KMS key, the operation can't return the Data Catalog
   resource policy.
   """
-  def get_resource_policies(client, input, options \\ []) do
-    request(client, "GetResourcePolicies", input, options)
+  def get_resource_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResourcePolicies", input, options)
   end
 
   @doc """
   Retrieves a specified resource policy.
   """
-  def get_resource_policy(client, input, options \\ []) do
-    request(client, "GetResourcePolicy", input, options)
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResourcePolicy", input, options)
+  end
+
+  @doc """
+  Describes the specified schema in detail.
+  """
+  def get_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSchema", input, options)
+  end
+
+  @doc """
+  Retrieves a schema by the `SchemaDefinition`.
+
+  The schema definition is sent to the Schema Registry, canonicalized, and hashed.
+  If the hash is matched within the scope of the `SchemaName` or ARN (or the
+  default registry, if none is supplied), that schema’s metadata is returned.
+  Otherwise, a 404 or NotFound error is returned. Schema versions in `Deleted`
+  statuses will not be included in the results.
+  """
+  def get_schema_by_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSchemaByDefinition", input, options)
+  end
+
+  @doc """
+  Get the specified schema by its unique ID assigned when a version of the schema
+  is created or registered.
+
+  Schema versions in Deleted status will not be included in the results.
+  """
+  def get_schema_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSchemaVersion", input, options)
+  end
+
+  @doc """
+  Fetches the schema version difference in the specified difference type between
+  two stored schema versions in the Schema Registry.
+
+  This API allows you to compare two schema versions between two schema
+  definitions under the same schema.
+  """
+  def get_schema_versions_diff(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSchemaVersionsDiff", input, options)
   end
 
   @doc """
   Retrieves a specified security configuration.
   """
-  def get_security_configuration(client, input, options \\ []) do
-    request(client, "GetSecurityConfiguration", input, options)
+  def get_security_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSecurityConfiguration", input, options)
   end
 
   @doc """
   Retrieves a list of all security configurations.
   """
-  def get_security_configurations(client, input, options \\ []) do
-    request(client, "GetSecurityConfigurations", input, options)
+  def get_security_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSecurityConfigurations", input, options)
   end
 
   @doc """
   Retrieves the `Table` definition in a Data Catalog for a specified table.
   """
-  def get_table(client, input, options \\ []) do
-    request(client, "GetTable", input, options)
+  def get_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTable", input, options)
   end
 
   @doc """
   Retrieves a specified version of a table.
   """
-  def get_table_version(client, input, options \\ []) do
-    request(client, "GetTableVersion", input, options)
+  def get_table_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTableVersion", input, options)
   end
 
   @doc """
   Retrieves a list of strings that identify available versions of a specified
   table.
   """
-  def get_table_versions(client, input, options \\ []) do
-    request(client, "GetTableVersions", input, options)
+  def get_table_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTableVersions", input, options)
   end
 
   @doc """
   Retrieves the definitions of some or all of the tables in a given `Database`.
   """
-  def get_tables(client, input, options \\ []) do
-    request(client, "GetTables", input, options)
+  def get_tables(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTables", input, options)
   end
 
   @doc """
   Retrieves a list of tags associated with a resource.
   """
-  def get_tags(client, input, options \\ []) do
-    request(client, "GetTags", input, options)
+  def get_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTags", input, options)
   end
 
   @doc """
   Retrieves the definition of a trigger.
   """
-  def get_trigger(client, input, options \\ []) do
-    request(client, "GetTrigger", input, options)
+  def get_trigger(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTrigger", input, options)
   end
 
   @doc """
   Gets all the triggers associated with a job.
   """
-  def get_triggers(client, input, options \\ []) do
-    request(client, "GetTriggers", input, options)
+  def get_triggers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTriggers", input, options)
   end
 
   @doc """
   Retrieves a specified function definition from the Data Catalog.
   """
-  def get_user_defined_function(client, input, options \\ []) do
-    request(client, "GetUserDefinedFunction", input, options)
+  def get_user_defined_function(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUserDefinedFunction", input, options)
   end
 
   @doc """
   Retrieves multiple function definitions from the Data Catalog.
   """
-  def get_user_defined_functions(client, input, options \\ []) do
-    request(client, "GetUserDefinedFunctions", input, options)
+  def get_user_defined_functions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUserDefinedFunctions", input, options)
   end
 
   @doc """
   Retrieves resource metadata for a workflow.
   """
-  def get_workflow(client, input, options \\ []) do
-    request(client, "GetWorkflow", input, options)
+  def get_workflow(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetWorkflow", input, options)
   end
 
   @doc """
   Retrieves the metadata for a given workflow run.
   """
-  def get_workflow_run(client, input, options \\ []) do
-    request(client, "GetWorkflowRun", input, options)
+  def get_workflow_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetWorkflowRun", input, options)
   end
 
   @doc """
   Retrieves the workflow run properties which were set during the run.
   """
-  def get_workflow_run_properties(client, input, options \\ []) do
-    request(client, "GetWorkflowRunProperties", input, options)
+  def get_workflow_run_properties(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetWorkflowRunProperties", input, options)
   end
 
   @doc """
   Retrieves metadata for all runs of a given workflow.
   """
-  def get_workflow_runs(client, input, options \\ []) do
-    request(client, "GetWorkflowRuns", input, options)
+  def get_workflow_runs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetWorkflowRuns", input, options)
   end
 
   @doc """
   Imports an existing Amazon Athena Data Catalog to AWS Glue
   """
-  def import_catalog_to_glue(client, input, options \\ []) do
-    request(client, "ImportCatalogToGlue", input, options)
+  def import_catalog_to_glue(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportCatalogToGlue", input, options)
   end
 
   @doc """
@@ -808,8 +989,8 @@ defmodule AWS.Glue do
   the response so that tagged resources can be retrieved as a group. If you choose
   to use tags filtering, only resources with the tag are retrieved.
   """
-  def list_crawlers(client, input, options \\ []) do
-    request(client, "ListCrawlers", input, options)
+  def list_crawlers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCrawlers", input, options)
   end
 
   @doc """
@@ -823,8 +1004,8 @@ defmodule AWS.Glue do
   the response so that tagged resources can be retrieved as a group. If you choose
   to use tags filtering, only resources with the tag are retrieved.
   """
-  def list_dev_endpoints(client, input, options \\ []) do
-    request(client, "ListDevEndpoints", input, options)
+  def list_dev_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDevEndpoints", input, options)
   end
 
   @doc """
@@ -838,8 +1019,8 @@ defmodule AWS.Glue do
   the response so that tagged resources can be retrieved as a group. If you choose
   to use tags filtering, only resources with the tag are retrieved.
   """
-  def list_jobs(client, input, options \\ []) do
-    request(client, "ListJobs", input, options)
+  def list_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListJobs", input, options)
   end
 
   @doc """
@@ -850,8 +1031,43 @@ defmodule AWS.Glue do
   the responses so that tagged resources can be retrieved as a group. If you
   choose to use tag filtering, only resources with the tags are retrieved.
   """
-  def list_m_l_transforms(client, input, options \\ []) do
-    request(client, "ListMLTransforms", input, options)
+  def list_m_l_transforms(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMLTransforms", input, options)
+  end
+
+  @doc """
+  Returns a list of registries that you have created, with minimal registry
+  information.
+
+  Registries in the `Deleting` status will not be included in the results. Empty
+  results will be returned if there are no registries available.
+  """
+  def list_registries(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRegistries", input, options)
+  end
+
+  @doc """
+  Returns a list of schema versions that you have created, with minimal
+  information.
+
+  Schema versions in Deleted status will not be included in the results. Empty
+  results will be returned if there are no schema versions available.
+  """
+  def list_schema_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSchemaVersions", input, options)
+  end
+
+  @doc """
+  Returns a list of schemas with minimal details.
+
+  Schemas in Deleting status will not be included in the results. Empty results
+  will be returned if there are no schemas available.
+
+  When the `RegistryId` is not provided, all the schemas across registries will be
+  part of the API response.
+  """
+  def list_schemas(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSchemas", input, options)
   end
 
   @doc """
@@ -865,15 +1081,15 @@ defmodule AWS.Glue do
   the response so that tagged resources can be retrieved as a group. If you choose
   to use tags filtering, only resources with the tag are retrieved.
   """
-  def list_triggers(client, input, options \\ []) do
-    request(client, "ListTriggers", input, options)
+  def list_triggers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTriggers", input, options)
   end
 
   @doc """
   Lists names of workflows created in the account.
   """
-  def list_workflows(client, input, options \\ []) do
-    request(client, "ListWorkflows", input, options)
+  def list_workflows(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListWorkflows", input, options)
   end
 
   @doc """
@@ -882,15 +1098,25 @@ defmodule AWS.Glue do
   After the configuration has been set, the specified encryption is applied to
   every catalog write thereafter.
   """
-  def put_data_catalog_encryption_settings(client, input, options \\ []) do
-    request(client, "PutDataCatalogEncryptionSettings", input, options)
+  def put_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutDataCatalogEncryptionSettings", input, options)
   end
 
   @doc """
   Sets the Data Catalog resource policy for access control.
   """
-  def put_resource_policy(client, input, options \\ []) do
-    request(client, "PutResourcePolicy", input, options)
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
+  end
+
+  @doc """
+  Puts the metadata key value pair for a specified schema version ID.
+
+  A maximum of 10 key value pairs will be allowed per schema version. They can be
+  added over one or more calls.
+  """
+  def put_schema_version_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutSchemaVersionMetadata", input, options)
   end
 
   @doc """
@@ -899,15 +1125,51 @@ defmodule AWS.Glue do
   If a property already exists for the specified run, then it overrides the value
   otherwise adds the property to existing properties.
   """
-  def put_workflow_run_properties(client, input, options \\ []) do
-    request(client, "PutWorkflowRunProperties", input, options)
+  def put_workflow_run_properties(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutWorkflowRunProperties", input, options)
+  end
+
+  @doc """
+  Queries for the schema version metadata information.
+  """
+  def query_schema_version_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "QuerySchemaVersionMetadata", input, options)
+  end
+
+  @doc """
+  Adds a new version to the existing schema.
+
+  Returns an error if new version of schema does not meet the compatibility
+  requirements of the schema set. This API will not create a new schema set and
+  will return a 404 error if the schema set is not already present in the Schema
+  Registry.
+
+  If this is the first schema definition to be registered in the Schema Registry,
+  this API will store the schema version and return immediately. Otherwise, this
+  call has the potential to run longer than other operations due to compatibility
+  modes. You can call the `GetSchemaVersion` API with the `SchemaVersionId` to
+  check compatibility modes.
+
+  If the same schema definition is already stored in Schema Registry as a version,
+  the schema ID of the existing schema is returned to the caller.
+  """
+  def register_schema_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterSchemaVersion", input, options)
+  end
+
+  @doc """
+  Removes a key value pair from the schema version metadata for the specified
+  schema version ID.
+  """
+  def remove_schema_version_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveSchemaVersionMetadata", input, options)
   end
 
   @doc """
   Resets a bookmark entry.
   """
-  def reset_job_bookmark(client, input, options \\ []) do
-    request(client, "ResetJobBookmark", input, options)
+  def reset_job_bookmark(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResetJobBookmark", input, options)
   end
 
   @doc """
@@ -917,8 +1179,8 @@ defmodule AWS.Glue do
   The selected nodes and all nodes that are downstream from the selected nodes are
   run.
   """
-  def resume_workflow_run(client, input, options \\ []) do
-    request(client, "ResumeWorkflowRun", input, options)
+  def resume_workflow_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResumeWorkflowRun", input, options)
   end
 
   @doc """
@@ -935,8 +1197,8 @@ defmodule AWS.Glue do
   those columns and the associated metadata for those columns will be included in
   the search.
   """
-  def search_tables(client, input, options \\ []) do
-    request(client, "SearchTables", input, options)
+  def search_tables(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchTables", input, options)
   end
 
   @doc """
@@ -945,16 +1207,16 @@ defmodule AWS.Glue do
   If the crawler is already running, returns a
   [CrawlerRunningException](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException).
   """
-  def start_crawler(client, input, options \\ []) do
-    request(client, "StartCrawler", input, options)
+  def start_crawler(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartCrawler", input, options)
   end
 
   @doc """
   Changes the schedule state of the specified crawler to `SCHEDULED`, unless the
   crawler is already running or the schedule state is already `SCHEDULED`.
   """
-  def start_crawler_schedule(client, input, options \\ []) do
-    request(client, "StartCrawlerSchedule", input, options)
+  def start_crawler_schedule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartCrawlerSchedule", input, options)
   end
 
   @doc """
@@ -970,8 +1232,8 @@ defmodule AWS.Glue do
   operation returns a `TaskRunId`. You can check on the status of your task run by
   calling the `GetMLTaskRun` API.
   """
-  def start_export_labels_task_run(client, input, options \\ []) do
-    request(client, "StartExportLabelsTaskRun", input, options)
+  def start_export_labels_task_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartExportLabelsTaskRun", input, options)
   end
 
   @doc """
@@ -1004,15 +1266,15 @@ defmodule AWS.Glue do
   You can check on the status of your task run by calling the `GetMLTaskRun`
   operation.
   """
-  def start_import_labels_task_run(client, input, options \\ []) do
-    request(client, "StartImportLabelsTaskRun", input, options)
+  def start_import_labels_task_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartImportLabelsTaskRun", input, options)
   end
 
   @doc """
   Starts a job run using a job definition.
   """
-  def start_job_run(client, input, options \\ []) do
-    request(client, "StartJobRun", input, options)
+  def start_job_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartJobRun", input, options)
   end
 
   @doc """
@@ -1025,8 +1287,8 @@ defmodule AWS.Glue do
   Returns a unique identifier for the run. You can call `GetMLTaskRun` to get more
   information about the stats of the `EvaluationTaskRun`.
   """
-  def start_m_l_evaluation_task_run(client, input, options \\ []) do
-    request(client, "StartMLEvaluationTaskRun", input, options)
+  def start_m_l_evaluation_task_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartMLEvaluationTaskRun", input, options)
   end
 
   @doc """
@@ -1045,8 +1307,14 @@ defmodule AWS.Glue do
   future runs of the machine learning transform will use the new and improved
   labels and perform a higher-quality transformation.
   """
-  def start_m_l_labeling_set_generation_task_run(client, input, options \\ []) do
-    request(client, "StartMLLabelingSetGenerationTaskRun", input, options)
+  def start_m_l_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "StartMLLabelingSetGenerationTaskRun",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1055,44 +1323,44 @@ defmodule AWS.Glue do
   See [Triggering Jobs](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) for
   information about how different types of trigger are started.
   """
-  def start_trigger(client, input, options \\ []) do
-    request(client, "StartTrigger", input, options)
+  def start_trigger(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartTrigger", input, options)
   end
 
   @doc """
   Starts a new run of the specified workflow.
   """
-  def start_workflow_run(client, input, options \\ []) do
-    request(client, "StartWorkflowRun", input, options)
+  def start_workflow_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartWorkflowRun", input, options)
   end
 
   @doc """
   If the specified crawler is running, stops the crawl.
   """
-  def stop_crawler(client, input, options \\ []) do
-    request(client, "StopCrawler", input, options)
+  def stop_crawler(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopCrawler", input, options)
   end
 
   @doc """
   Sets the schedule state of the specified crawler to `NOT_SCHEDULED`, but does
   not stop the crawler if it is already running.
   """
-  def stop_crawler_schedule(client, input, options \\ []) do
-    request(client, "StopCrawlerSchedule", input, options)
+  def stop_crawler_schedule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopCrawlerSchedule", input, options)
   end
 
   @doc """
   Stops a specified trigger.
   """
-  def stop_trigger(client, input, options \\ []) do
-    request(client, "StopTrigger", input, options)
+  def stop_trigger(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopTrigger", input, options)
   end
 
   @doc """
   Stops the execution of the specified workflow run.
   """
-  def stop_workflow_run(client, input, options \\ []) do
-    request(client, "StopWorkflowRun", input, options)
+  def stop_workflow_run(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopWorkflowRun", input, options)
   end
 
   @doc """
@@ -1102,44 +1370,50 @@ defmodule AWS.Glue do
   only certain resources. For information about what resources you can tag, see
   [AWS Tags in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html).
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes tags from a resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
   Modifies an existing classifier (a `GrokClassifier`, an `XMLClassifier`, a
   `JsonClassifier`, or a `CsvClassifier`, depending on which field is present).
   """
-  def update_classifier(client, input, options \\ []) do
-    request(client, "UpdateClassifier", input, options)
+  def update_classifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateClassifier", input, options)
   end
 
   @doc """
   Creates or updates partition statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this operation
+  is `UpdatePartition`.
   """
-  def update_column_statistics_for_partition(client, input, options \\ []) do
-    request(client, "UpdateColumnStatisticsForPartition", input, options)
+  def update_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateColumnStatisticsForPartition", input, options)
   end
 
   @doc """
   Creates or updates table statistics of columns.
+
+  The Identity and Access Management (IAM) permission required for this operation
+  is `UpdateTable`.
   """
-  def update_column_statistics_for_table(client, input, options \\ []) do
-    request(client, "UpdateColumnStatisticsForTable", input, options)
+  def update_column_statistics_for_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateColumnStatisticsForTable", input, options)
   end
 
   @doc """
   Updates a connection definition in the Data Catalog.
   """
-  def update_connection(client, input, options \\ []) do
-    request(client, "UpdateConnection", input, options)
+  def update_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateConnection", input, options)
   end
 
   @doc """
@@ -1148,36 +1422,36 @@ defmodule AWS.Glue do
   If a crawler is running, you must stop it using `StopCrawler` before updating
   it.
   """
-  def update_crawler(client, input, options \\ []) do
-    request(client, "UpdateCrawler", input, options)
+  def update_crawler(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCrawler", input, options)
   end
 
   @doc """
   Updates the schedule of a crawler using a `cron` expression.
   """
-  def update_crawler_schedule(client, input, options \\ []) do
-    request(client, "UpdateCrawlerSchedule", input, options)
+  def update_crawler_schedule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCrawlerSchedule", input, options)
   end
 
   @doc """
   Updates an existing database definition in a Data Catalog.
   """
-  def update_database(client, input, options \\ []) do
-    request(client, "UpdateDatabase", input, options)
+  def update_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDatabase", input, options)
   end
 
   @doc """
   Updates a specified development endpoint.
   """
-  def update_dev_endpoint(client, input, options \\ []) do
-    request(client, "UpdateDevEndpoint", input, options)
+  def update_dev_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDevEndpoint", input, options)
   end
 
   @doc """
   Updates an existing job definition.
   """
-  def update_job(client, input, options \\ []) do
-    request(client, "UpdateJob", input, options)
+  def update_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateJob", input, options)
   end
 
   @doc """
@@ -1190,96 +1464,71 @@ defmodule AWS.Glue do
   improving the quality of your machine learning transform, or making it more
   cost-effective).
   """
-  def update_m_l_transform(client, input, options \\ []) do
-    request(client, "UpdateMLTransform", input, options)
+  def update_m_l_transform(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateMLTransform", input, options)
   end
 
   @doc """
   Updates a partition.
   """
-  def update_partition(client, input, options \\ []) do
-    request(client, "UpdatePartition", input, options)
+  def update_partition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePartition", input, options)
+  end
+
+  @doc """
+  Updates an existing registry which is used to hold a collection of schemas.
+
+  The updated properties relate to the registry, and do not modify any of the
+  schemas within the registry.
+  """
+  def update_registry(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRegistry", input, options)
+  end
+
+  @doc """
+  Updates the description, compatibility setting, or version checkpoint for a
+  schema set.
+
+  For updating the compatibility setting, the call will not validate compatibility
+  for the entire set of schema versions with the new compatibility setting. If the
+  value for `Compatibility` is provided, the `VersionNumber` (a checkpoint) is
+  also required. The API will validate the checkpoint version number for
+  consistency.
+
+  If the value for the `VersionNumber` (checkpoint) is provided, `Compatibility`
+  is optional and this can be used to set/reset a checkpoint for the schema.
+
+  This update will happen only if the schema is in the AVAILABLE state.
+  """
+  def update_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSchema", input, options)
   end
 
   @doc """
   Updates a metadata table in the Data Catalog.
   """
-  def update_table(client, input, options \\ []) do
-    request(client, "UpdateTable", input, options)
+  def update_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTable", input, options)
   end
 
   @doc """
   Updates a trigger definition.
   """
-  def update_trigger(client, input, options \\ []) do
-    request(client, "UpdateTrigger", input, options)
+  def update_trigger(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTrigger", input, options)
   end
 
   @doc """
   Updates an existing function definition in the Data Catalog.
   """
-  def update_user_defined_function(client, input, options \\ []) do
-    request(client, "UpdateUserDefinedFunction", input, options)
+  def update_user_defined_function(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateUserDefinedFunction", input, options)
   end
 
   @doc """
   Updates an existing workflow.
   """
-  def update_workflow(client, input, options \\ []) do
-    request(client, "UpdateWorkflow", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "glue"}
-    host = build_host("glue", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSGlue.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_workflow(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateWorkflow", input, options)
   end
 end

@@ -3,15 +3,64 @@
 
 defmodule AWS.Signer do
   @moduledoc """
-  With code signing for IoT, you can sign code that you create for any IoT device
-  that is supported by Amazon Web Services (AWS).
+  AWS Signer is a fully managed code signing service to help you ensure the trust
+  and integrity of your code.
 
-  Code signing is available through [Amazon FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
-  integrated with [AWS Certificate Manager (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign code,
-  you import a third-party code signing certificate with ACM that is used to sign
-  updates in Amazon FreeRTOS and AWS IoT Device Management. For general
-  information about using code signing, see the [Code Signing for IoT Developer Guide](http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
+  AWS Signer supports the following applications:
+
+  With *code signing for AWS Lambda*, you can sign AWS Lambda deployment packages.
+  Integrated support is provided for Amazon S3, Amazon CloudWatch, and AWS
+  CloudTrail. In order to sign code, you create a signing profile and then use
+  Signer to sign Lambda zip files in S3.
+
+  With *code signing for IoT*, you can sign code for any IoT device that is
+  supported by AWS. IoT code signing is available for [Amazon FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
+  is integrated with [AWS Certificate Manager (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign code,
+  you import a third-party code signing certificate using ACM, and use that to
+  sign updates in Amazon FreeRTOS and AWS IoT Device Management.
+
+  For more information about AWS Signer, see the [AWS Signer Developer Guide](http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
   """
+
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-08-25",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "signer",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "signer",
+      signature_version: "v4",
+      signing_name: "signer",
+      target_prefix: nil
+    }
+  end
+
+  @doc """
+  Adds cross-account permissions to a signing profile.
+  """
+  def add_profile_permission(%Client{} = client, profile_name, input, options \\ []) do
+    url_path = "/signing-profiles/#{URI.encode(profile_name)}/permissions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
 
   @doc """
   Changes the state of an `ACTIVE` signing profile to `CANCELED`.
@@ -20,11 +69,22 @@ defmodule AWS.Signer do
   but it cannot perform new signing jobs, and is deleted two years after
   cancelation.
   """
-  def cancel_signing_profile(client, profile_name, input, options \\ []) do
-    path_ = "/signing-profiles/#{URI.encode(profile_name)}"
+  def cancel_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
+    url_path = "/signing-profiles/#{URI.encode(profile_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -33,31 +93,99 @@ defmodule AWS.Signer do
   You specify the job by using the `jobId` value that is returned by the
   `StartSigningJob` operation.
   """
-  def describe_signing_job(client, job_id, options \\ []) do
-    path_ = "/signing-jobs/#{URI.encode(job_id)}"
+  def describe_signing_job(%Client{} = client, job_id, options \\ []) do
+    url_path = "/signing-jobs/#{URI.encode(job_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information on a specific signing platform.
   """
-  def get_signing_platform(client, platform_id, options \\ []) do
-    path_ = "/signing-platforms/#{URI.encode(platform_id)}"
+  def get_signing_platform(%Client{} = client, platform_id, options \\ []) do
+    url_path = "/signing-platforms/#{URI.encode(platform_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information on a specific signing profile.
   """
-  def get_signing_profile(client, profile_name, options \\ []) do
-    path_ = "/signing-profiles/#{URI.encode(profile_name)}"
+  def get_signing_profile(%Client{} = client, profile_name, profile_owner \\ nil, options \\ []) do
+    url_path = "/signing-profiles/#{URI.encode(profile_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(profile_owner) do
+        [{"profileOwner", profile_owner} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the cross-account permissions associated with a signing profile.
+  """
+  def list_profile_permissions(%Client{} = client, profile_name, next_token \\ nil, options \\ []) do
+    url_path = "/signing-profiles/#{URI.encode(profile_name)}/permissions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -71,36 +199,97 @@ defmodule AWS.Signer do
   signing returns in the `nextToken` parameter until all of your signing jobs have
   been returned.
   """
-  def list_signing_jobs(client, max_results \\ nil, next_token \\ nil, platform_id \\ nil, requested_by \\ nil, status \\ nil, options \\ []) do
-    path_ = "/signing-jobs"
+  def list_signing_jobs(
+        %Client{} = client,
+        is_revoked \\ nil,
+        job_invoker \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        platform_id \\ nil,
+        requested_by \\ nil,
+        signature_expires_after \\ nil,
+        signature_expires_before \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/signing-jobs"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status) do
-      [{"status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(requested_by) do
-      [{"requestedBy", requested_by} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(platform_id) do
-      [{"platformId", platform_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(signature_expires_before) do
+        [{"signatureExpiresBefore", signature_expires_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(signature_expires_after) do
+        [{"signatureExpiresAfter", signature_expires_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(requested_by) do
+        [{"requestedBy", requested_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(platform_id) do
+        [{"platformId", platform_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(job_invoker) do
+        [{"jobInvoker", job_invoker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(is_revoked) do
+        [{"isRevoked", is_revoked} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -113,36 +302,65 @@ defmodule AWS.Signer do
   `maxResults` parameter and with new values that code signing returns in the
   `nextToken` parameter until all of your signing jobs have been returned.
   """
-  def list_signing_platforms(client, category \\ nil, max_results \\ nil, next_token \\ nil, partner \\ nil, target \\ nil, options \\ []) do
-    path_ = "/signing-platforms"
+  def list_signing_platforms(
+        %Client{} = client,
+        category \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        partner \\ nil,
+        target \\ nil,
+        options \\ []
+      ) do
+    url_path = "/signing-platforms"
     headers = []
-    query_ = []
-    query_ = if !is_nil(target) do
-      [{"target", target} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(partner) do
-      [{"partner", partner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(category) do
-      [{"category", category} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(target) do
+        [{"target", target} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(partner) do
+        [{"partner", partner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(category) do
+        [{"category", category} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -156,36 +374,86 @@ defmodule AWS.Signer do
   signing returns in the `nextToken` parameter until all of your signing jobs have
   been returned.
   """
-  def list_signing_profiles(client, include_canceled \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/signing-profiles"
+  def list_signing_profiles(
+        %Client{} = client,
+        include_canceled \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        platform_id \\ nil,
+        statuses \\ nil,
+        options \\ []
+      ) do
+    url_path = "/signing-profiles"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(include_canceled) do
-      [{"includeCanceled", include_canceled} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(statuses) do
+        [{"statuses", statuses} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(platform_id) do
+        [{"platformId", platform_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_canceled) do
+        [{"includeCanceled", include_canceled} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a list of the tags associated with a signing profile resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -195,11 +463,103 @@ defmodule AWS.Signer do
   pre-defined signing job. For more information, see
   [http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html](http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html)
   """
-  def put_signing_profile(client, profile_name, input, options \\ []) do
-    path_ = "/signing-profiles/#{URI.encode(profile_name)}"
+  def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
+    url_path = "/signing-profiles/#{URI.encode(profile_name)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes cross-account permissions from a signing profile.
+  """
+  def remove_profile_permission(
+        %Client{} = client,
+        profile_name,
+        statement_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/signing-profiles/#{URI.encode(profile_name)}/permissions/#{URI.encode(statement_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"revisionId", "revisionId"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Changes the state of a signing job to REVOKED.
+
+  This indicates that the signature is no longer valid.
+  """
+  def revoke_signature(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/signing-jobs/#{URI.encode(job_id)}/revoke"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Changes the state of a signing profile to REVOKED.
+
+  This indicates that signatures generated using the signing profile after an
+  effective start date are no longer valid.
+  """
+  def revoke_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
+    url_path = "/signing-profiles/#{URI.encode(profile_name)}/revoke"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -229,11 +589,22 @@ defmodule AWS.Signer do
   For a Java example that shows how to use this action, see
   [http://docs.aws.amazon.com/acm/latest/userguide/](http://docs.aws.amazon.com/acm/latest/userguide/)
   """
-  def start_signing_job(client, input, options \\ []) do
-    path_ = "/signing-jobs"
+  def start_signing_job(%Client{} = client, input, options \\ []) do
+    url_path = "/signing-jobs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -244,11 +615,22 @@ defmodule AWS.Signer do
   profile, use its Amazon Resource Name (ARN). To specify the tag, use a key-value
   pair.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -256,78 +638,26 @@ defmodule AWS.Signer do
 
   To remove the tags, specify a list of tag keys.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "signer"}
-    host = build_host("signer", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

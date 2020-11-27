@@ -7,6 +7,45 @@ defmodule AWS.FSx do
   application administrators to launch and use shared file storage.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-03-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "fsx",
+      global?: false,
+      protocol: "json",
+      service_id: "FSx",
+      signature_version: "v4",
+      signing_name: "fsx",
+      target_prefix: "AWSSimbaAPIService_v20180301"
+    }
+  end
+
+  @doc """
+  Use this action to associate one or more Domain Name Server (DNS) aliases with
+  an existing Amazon FSx for Windows File Server file system.
+
+  A file systen can have a maximum of 50 DNS aliases associated with it at any one
+  time. If you try to associate a DNS alias that is already associated with the
+  file system, FSx takes no action on that alias in the request. For more
+  information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+  and [Walkthrough 5: Using DNS aliases to access your file system](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html),
+  including additional steps you must take to be able to access your file system
+  using a DNS alias.
+
+  The system response shows the DNS aliases that Amazon FSx is attempting to
+  associate with the file system. Use the API operation to monitor the status of
+  the aliases Amazon FSx is associating with the file system.
+  """
+  def associate_file_system_aliases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateFileSystemAliases", input, options)
+  end
+
   @doc """
   Cancels an existing Amazon FSx for Lustre data repository task if that task is
   in either the `PENDING` or `EXECUTING` state.
@@ -20,8 +59,8 @@ defmodule AWS.FSx do
 
     * FSx does not export any files that have not yet been exported.
   """
-  def cancel_data_repository_task(client, input, options \\ []) do
-    request(client, "CancelDataRepositoryTask", input, options)
+  def cancel_data_repository_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelDataRepositoryTask", input, options)
   end
 
   @doc """
@@ -41,7 +80,7 @@ defmodule AWS.FSx do
   For more information about backing up Amazon FSx for Lustre file systems, see
   [Working with FSx for Lustre backups](https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html).
 
-  For more information about backing up Amazon FSx for Lustre file systems, see
+  For more information about backing up Amazon FSx for Windows file systems, see
   [Working with FSx for Windows backups](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html).
 
   If a backup with the specified client request token exists, and the parameters
@@ -67,8 +106,8 @@ defmodule AWS.FSx do
   `DescribeBackups` operation, which returns the backup state along with other
   information.
   """
-  def create_backup(client, input, options \\ []) do
-    request(client, "CreateBackup", input, options)
+  def create_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBackup", input, options)
   end
 
   @doc """
@@ -80,12 +119,12 @@ defmodule AWS.FSx do
   directories, and symbolic links (symlinks) from your FSx file system to its
   linked data repository. A `CreateDataRepositoryTask` operation will fail if a
   data repository is not linked to the FSx file system. To learn more about data
-  repository tasks, see [Using Data Repository Tasks](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html).
-  To learn more about linking a data repository to your file system, see [Setting the Export
-  Prefix](https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repository.html#export-prefix).
+  repository tasks, see [Data Repository Tasks](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html).
+  To learn more about linking a data repository to your file system, see [Linking your file system to an S3
+  bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-linked-data-repo.html).
   """
-  def create_data_repository_task(client, input, options \\ []) do
-    request(client, "CreateDataRepositoryTask", input, options)
+  def create_data_repository_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDataRepositoryTask", input, options)
   end
 
   @doc """
@@ -119,8 +158,8 @@ defmodule AWS.FSx do
   `DescribeFileSystems` operation, which returns the file system state along with
   other information.
   """
-  def create_file_system(client, input, options \\ []) do
-    request(client, "CreateFileSystem", input, options)
+  def create_file_system(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFileSystem", input, options)
   end
 
   @doc """
@@ -155,8 +194,8 @@ defmodule AWS.FSx do
   calling the `DescribeFileSystems` operation, which returns the file system state
   along with other information.
   """
-  def create_file_system_from_backup(client, input, options \\ []) do
-    request(client, "CreateFileSystemFromBackup", input, options)
+  def create_file_system_from_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFileSystemFromBackup", input, options)
   end
 
   @doc """
@@ -170,8 +209,8 @@ defmodule AWS.FSx do
   The data in a deleted backup is also deleted and can't be recovered by any
   means.
   """
-  def delete_backup(client, input, options \\ []) do
-    request(client, "DeleteBackup", input, options)
+  def delete_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBackup", input, options)
   end
 
   @doc """
@@ -196,8 +235,8 @@ defmodule AWS.FSx do
   The data in a deleted file system is also deleted and can't be recovered by any
   means.
   """
-  def delete_file_system(client, input, options \\ []) do
-    request(client, "DeleteFileSystem", input, options)
+  def delete_file_system(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFileSystem", input, options)
   end
 
   @doc """
@@ -227,8 +266,8 @@ defmodule AWS.FSx do
   `DescribeBackups` call and the order of backups returned across the responses of
   a multi-call iteration is unspecified.
   """
-  def describe_backups(client, input, options \\ []) do
-    request(client, "DescribeBackups", input, options)
+  def describe_backups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeBackups", input, options)
   end
 
   @doc """
@@ -247,8 +286,20 @@ defmodule AWS.FSx do
   this case, send a later request with the `NextToken` request parameter set to
   the value of `NextToken` from the last response.
   """
-  def describe_data_repository_tasks(client, input, options \\ []) do
-    request(client, "DescribeDataRepositoryTasks", input, options)
+  def describe_data_repository_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataRepositoryTasks", input, options)
+  end
+
+  @doc """
+  Returns the DNS aliases that are associated with the specified Amazon FSx for
+  Windows File Server file system.
+
+  A history of all DNS aliases that have been associated with and disassociated
+  from the file system is available in the list of `AdministrativeAction` provided
+  in the `DescribeFileSystems` operation response.
+  """
+  def describe_file_system_aliases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFileSystemAliases", input, options)
   end
 
   @doc """
@@ -279,8 +330,25 @@ defmodule AWS.FSx do
   `DescribeFileSystems` call and the order of file systems returned across the
   responses of a multicall iteration is unspecified.
   """
-  def describe_file_systems(client, input, options \\ []) do
-    request(client, "DescribeFileSystems", input, options)
+  def describe_file_systems(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFileSystems", input, options)
+  end
+
+  @doc """
+  Use this action to disassociate, or remove, one or more Domain Name Service
+  (DNS) aliases from an Amazon FSx for Windows File Server file system.
+
+  If you attempt to disassociate a DNS alias that is not associated with the file
+  system, Amazon FSx responds with a 400 Bad Request. For more information, see
+  [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html).
+
+  The system generated response showing the DNS aliases that Amazon FSx is
+  attempting to disassociate from the file system. Use the API operation to
+  monitor the status of the aliases Amazon FSx is disassociating with the file
+  system.
+  """
+  def disassociate_file_system_aliases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateFileSystemAliases", input, options)
   end
 
   @doc """
@@ -307,22 +375,22 @@ defmodule AWS.FSx do
   `ListTagsForResource` call and the order of tags returned across the responses
   of a multi-call iteration is unspecified.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
   Tags an Amazon FSx resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   This action removes a tag from an Amazon FSx resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -354,63 +422,11 @@ defmodule AWS.FSx do
 
     * DailyAutomaticBackupStartTime
 
+    * StorageCapacity
+
     * WeeklyMaintenanceStartTime
   """
-  def update_file_system(client, input, options \\ []) do
-    request(client, "UpdateFileSystem", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "fsx"}
-    host = build_host("fsx", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSSimbaAPIService_v20180301.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_file_system(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFileSystem", input, options)
   end
 end

@@ -19,6 +19,25 @@ defmodule AWS.EKS do
   required.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-11-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "eks",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "EKS",
+      signature_version: "v4",
+      signing_name: "eks",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates an Amazon EKS control plane.
 
@@ -60,11 +79,22 @@ defmodule AWS.EKS do
   and [Launching Amazon EKS Worker Nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) in
   the *Amazon EKS User Guide*.
   """
-  def create_cluster(client, input, options \\ []) do
-    path_ = "/clusters"
+  def create_cluster(%Client{} = client, input, options \\ []) do
+    url_path = "/clusters"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -102,11 +132,22 @@ defmodule AWS.EKS do
   For more information, see [AWS Fargate Profile](https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html)
   in the *Amazon EKS User Guide*.
   """
-  def create_fargate_profile(client, cluster_name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles"
+  def create_fargate_profile(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -124,11 +165,22 @@ defmodule AWS.EKS do
   2 AMI. For more information, see [Managed Node Groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
   in the *Amazon EKS User Guide*.
   """
-  def create_nodegroup(client, cluster_name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/node-groups"
+  def create_nodegroup(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/node-groups"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -145,11 +197,22 @@ defmodule AWS.EKS do
   must delete them first. For more information, see `DeleteNodegroup` and
   `DeleteFargateProfile`.
   """
-  def delete_cluster(client, name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(name)}"
+  def delete_cluster(%Client{} = client, name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -165,21 +228,51 @@ defmodule AWS.EKS do
   You must wait for a Fargate profile to finish deleting before you can delete any
   other profiles in that cluster.
   """
-  def delete_fargate_profile(client, cluster_name, fargate_profile_name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles/#{URI.encode(fargate_profile_name)}"
+  def delete_fargate_profile(
+        %Client{} = client,
+        cluster_name,
+        fargate_profile_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{URI.encode(cluster_name)}/fargate-profiles/#{URI.encode(fargate_profile_name)}"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes an Amazon EKS node group for a cluster.
   """
-  def delete_nodegroup(client, cluster_name, nodegroup_name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}"
+  def delete_nodegroup(%Client{} = client, cluster_name, nodegroup_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -192,31 +285,71 @@ defmodule AWS.EKS do
   The API server endpoint and certificate authority data aren't available until
   the cluster reaches the `ACTIVE` state.
   """
-  def describe_cluster(client, name, options \\ []) do
-    path_ = "/clusters/#{URI.encode(name)}"
+  def describe_cluster(%Client{} = client, name, options \\ []) do
+    url_path = "/clusters/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns descriptive information about an AWS Fargate profile.
   """
-  def describe_fargate_profile(client, cluster_name, fargate_profile_name, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles/#{URI.encode(fargate_profile_name)}"
+  def describe_fargate_profile(
+        %Client{} = client,
+        cluster_name,
+        fargate_profile_name,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{URI.encode(cluster_name)}/fargate-profiles/#{URI.encode(fargate_profile_name)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns descriptive information about an Amazon EKS node group.
   """
-  def describe_nodegroup(client, cluster_name, nodegroup_name, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}"
+  def describe_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -227,57 +360,106 @@ defmodule AWS.EKS do
   update fails, the status is `Failed`, and an error detail explains the reason
   for the failure.
   """
-  def describe_update(client, name, update_id, nodegroup_name \\ nil, options \\ []) do
-    path_ = "/clusters/#{URI.encode(name)}/updates/#{URI.encode(update_id)}"
+  def describe_update(%Client{} = client, name, update_id, nodegroup_name \\ nil, options \\ []) do
+    url_path = "/clusters/#{URI.encode(name)}/updates/#{URI.encode(update_id)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(nodegroup_name) do
-      [{"nodegroupName", nodegroup_name} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(nodegroup_name) do
+        [{"nodegroupName", nodegroup_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the Amazon EKS clusters in your AWS account in the specified Region.
   """
-  def list_clusters(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/clusters"
+  def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/clusters"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the AWS Fargate profiles associated with the specified cluster in your AWS
   account in the specified Region.
   """
-  def list_fargate_profiles(client, cluster_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles"
+  def list_fargate_profiles(
+        %Client{} = client,
+        cluster_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -286,57 +468,113 @@ defmodule AWS.EKS do
 
   Self-managed node groups are not listed.
   """
-  def list_nodegroups(client, cluster_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/node-groups"
+  def list_nodegroups(
+        %Client{} = client,
+        cluster_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/node-groups"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List the tags for an Amazon EKS resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the updates associated with an Amazon EKS cluster or managed node group in
   your AWS account, in the specified Region.
   """
-  def list_updates(client, name, max_results \\ nil, next_token \\ nil, nodegroup_name \\ nil, options \\ []) do
-    path_ = "/clusters/#{URI.encode(name)}/updates"
+  def list_updates(
+        %Client{} = client,
+        name,
+        max_results \\ nil,
+        next_token \\ nil,
+        nodegroup_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{URI.encode(name)}/updates"
     headers = []
-    query_ = []
-    query_ = if !is_nil(nodegroup_name) do
-      [{"nodegroupName", nodegroup_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(nodegroup_name) do
+        [{"nodegroupName", nodegroup_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -349,25 +587,48 @@ defmodule AWS.EKS do
   if you tag a cluster with this operation, that tag does not automatically
   propagate to the subnets and worker nodes associated with the cluster.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes specified tags from a resource.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -400,11 +661,22 @@ defmodule AWS.EKS do
   is eventually consistent). When the update is complete (either `Failed` or
   `Successful`), the cluster status moves to `Active`.
   """
-  def update_cluster_config(client, name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(name)}/update-config"
+  def update_cluster_config(%Client{} = client, name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(name)}/update-config"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -423,11 +695,22 @@ defmodule AWS.EKS do
   Kubernetes versions must match the cluster’s Kubernetes version in order to
   update the cluster to a new Kubernetes version.
   """
-  def update_cluster_version(client, name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(name)}/updates"
+  def update_cluster_version(%Client{} = client, name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(name)}/updates"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -438,11 +721,30 @@ defmodule AWS.EKS do
   update with the `DescribeUpdate` API operation. Currently you can update the
   Kubernetes labels for a node group or the scaling configuration.
   """
-  def update_nodegroup_config(client, cluster_name, nodegroup_name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}/update-config"
+  def update_nodegroup_config(
+        %Client{} = client,
+        cluster_name,
+        nodegroup_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}/update-config"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -472,74 +774,29 @@ defmodule AWS.EKS do
   update if Amazon EKS is unable to drain the nodes as a result of a pod
   disruption budget issue.
   """
-  def update_nodegroup_version(client, cluster_name, nodegroup_name, input, options \\ []) do
-    path_ = "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}/update-version"
+  def update_nodegroup_version(
+        %Client{} = client,
+        cluster_name,
+        nodegroup_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}/update-version"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "eks"}
-    host = build_host("eks", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

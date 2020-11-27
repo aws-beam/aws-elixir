@@ -49,6 +49,25 @@ defmodule AWS.MarketplaceMetering do
   *.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-01-14",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "metering.marketplace",
+      global?: false,
+      protocol: "json",
+      service_id: "Marketplace Metering",
+      signature_version: "v4",
+      signing_name: "aws-marketplace",
+      target_prefix: "AWSMPMeteringService"
+    }
+  end
+
   @doc """
   BatchMeterUsage is called from a SaaS application listed on the AWS Marketplace
   to post metering records for a set of customers.
@@ -60,9 +79,15 @@ defmodule AWS.MarketplaceMetering do
   for multiple products, you must make multiple calls to BatchMeterUsage.
 
   BatchMeterUsage can process up to 25 UsageRecords at a time.
+
+  A UsageRecord can optionally include multiple usage allocations, to provide
+  customers with usagedata split into buckets by tags that you define (or allow
+  the customer to define).
+
+  BatchMeterUsage requests must be less than 1MB in size.
   """
-  def batch_meter_usage(client, input, options \\ []) do
-    request(client, "BatchMeterUsage", input, options)
+  def batch_meter_usage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchMeterUsage", input, options)
   end
 
   @doc """
@@ -73,9 +98,13 @@ defmodule AWS.MarketplaceMetering do
 
   MeterUsage is authenticated on the buyer's AWS account using credentials from
   the EC2 instance, ECS task, or EKS pod.
+
+  MeterUsage can optionally include multiple usage allocations, to provide
+  customers with usage data split into buckets by tags that you define (or allow
+  the customer to define).
   """
-  def meter_usage(client, input, options \\ []) do
-    request(client, "MeterUsage", input, options)
+  def meter_usage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "MeterUsage", input, options)
   end
 
   @doc """
@@ -114,8 +143,8 @@ defmodule AWS.MarketplaceMetering do
   state, removing the need for your software to perform entitlement checks at
   runtime.
   """
-  def register_usage(client, input, options \\ []) do
-    request(client, "RegisterUsage", input, options)
+  def register_usage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterUsage", input, options)
   end
 
   @doc """
@@ -125,61 +154,7 @@ defmodule AWS.MarketplaceMetering do
   submits a registration token through their browser. The registration token is
   resolved through this API to obtain a CustomerIdentifier and product code.
   """
-  def resolve_customer(client, input, options \\ []) do
-    request(client, "ResolveCustomer", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "aws-marketplace"}
-    host = build_host("metering.marketplace", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSMPMeteringService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def resolve_customer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResolveCustomer", input, options)
   end
 end

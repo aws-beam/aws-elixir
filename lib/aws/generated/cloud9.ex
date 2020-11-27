@@ -48,20 +48,39 @@ defmodule AWS.Cloud9 do
   environment member for an environment.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-09-23",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "cloud9",
+      global?: false,
+      protocol: "json",
+      service_id: "Cloud9",
+      signature_version: "v4",
+      signing_name: "cloud9",
+      target_prefix: "AWSCloud9WorkspaceManagementService"
+    }
+  end
+
   @doc """
   Creates an AWS Cloud9 development environment, launches an Amazon Elastic
   Compute Cloud (Amazon EC2) instance, and then connects from the instance to the
   environment.
   """
-  def create_environment_e_c2(client, input, options \\ []) do
-    request(client, "CreateEnvironmentEC2", input, options)
+  def create_environment_e_c2(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEnvironmentEC2", input, options)
   end
 
   @doc """
   Adds an environment member to an AWS Cloud9 development environment.
   """
-  def create_environment_membership(client, input, options \\ []) do
-    request(client, "CreateEnvironmentMembership", input, options)
+  def create_environment_membership(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEnvironmentMembership", input, options)
   end
 
   @doc """
@@ -70,51 +89,51 @@ defmodule AWS.Cloud9 do
   If an Amazon EC2 instance is connected to the environment, also terminates the
   instance.
   """
-  def delete_environment(client, input, options \\ []) do
-    request(client, "DeleteEnvironment", input, options)
+  def delete_environment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEnvironment", input, options)
   end
 
   @doc """
   Deletes an environment member from an AWS Cloud9 development environment.
   """
-  def delete_environment_membership(client, input, options \\ []) do
-    request(client, "DeleteEnvironmentMembership", input, options)
+  def delete_environment_membership(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEnvironmentMembership", input, options)
   end
 
   @doc """
   Gets information about environment members for an AWS Cloud9 development
   environment.
   """
-  def describe_environment_memberships(client, input, options \\ []) do
-    request(client, "DescribeEnvironmentMemberships", input, options)
+  def describe_environment_memberships(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEnvironmentMemberships", input, options)
   end
 
   @doc """
   Gets status information for an AWS Cloud9 development environment.
   """
-  def describe_environment_status(client, input, options \\ []) do
-    request(client, "DescribeEnvironmentStatus", input, options)
+  def describe_environment_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEnvironmentStatus", input, options)
   end
 
   @doc """
   Gets information about AWS Cloud9 development environments.
   """
-  def describe_environments(client, input, options \\ []) do
-    request(client, "DescribeEnvironments", input, options)
+  def describe_environments(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEnvironments", input, options)
   end
 
   @doc """
   Gets a list of AWS Cloud9 development environment identifiers.
   """
-  def list_environments(client, input, options \\ []) do
-    request(client, "ListEnvironments", input, options)
+  def list_environments(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEnvironments", input, options)
   end
 
   @doc """
   Gets a list of the tags associated with an AWS Cloud9 development environment.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -123,83 +142,29 @@ defmodule AWS.Cloud9 do
   Tags that you add to an AWS Cloud9 environment by using this method will NOT be
   automatically propagated to underlying resources.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes tags from an AWS Cloud9 development environment.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
   Changes the settings of an existing AWS Cloud9 development environment.
   """
-  def update_environment(client, input, options \\ []) do
-    request(client, "UpdateEnvironment", input, options)
+  def update_environment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEnvironment", input, options)
   end
 
   @doc """
   Changes the settings of an existing environment member for an AWS Cloud9
   development environment.
   """
-  def update_environment_membership(client, input, options \\ []) do
-    request(client, "UpdateEnvironmentMembership", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "cloud9"}
-    host = build_host("cloud9", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSCloud9WorkspaceManagementService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_environment_membership(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEnvironmentMembership", input, options)
   end
 end

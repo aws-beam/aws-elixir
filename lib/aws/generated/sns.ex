@@ -14,6 +14,10 @@ defmodule AWS.SNS do
   calls, see the [Amazon SNS Developer
   Guide](https://docs.aws.amazon.com/sns/latest/dg/).
 
+  For information on the permissions you need to use this API, see [Identity and access management in Amazon
+  SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html)
+  in the *Amazon SNS Developer Guide.*
+
   We also provide SDKs that enable you to access Amazon SNS from your preferred
   programming language. The SDKs contain functionality that automatically takes
   care of tasks such as: cryptographically signing your service requests, retrying
@@ -21,12 +25,31 @@ defmodule AWS.SNS do
   [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Amazon SNS",
+      api_version: "2010-03-31",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: nil,
+      endpoint_prefix: "sns",
+      global?: false,
+      protocol: "query",
+      service_id: "SNS",
+      signature_version: "v4",
+      signing_name: "sns",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Adds a statement to a topic's access control policy, granting access for the
   specified AWS accounts to the specified actions.
   """
-  def add_permission(client, input, options \\ []) do
-    request(client, "AddPermission", input, options)
+  def add_permission(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddPermission", input, options)
   end
 
   @doc """
@@ -38,8 +61,8 @@ defmodule AWS.SNS do
   To resume sending messages, you can opt in the number by using the
   `OptInPhoneNumber` action.
   """
-  def check_if_phone_number_is_opted_out(client, input, options \\ []) do
-    request(client, "CheckIfPhoneNumberIsOptedOut", input, options)
+  def check_if_phone_number_is_opted_out(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CheckIfPhoneNumberIsOptedOut", input, options)
   end
 
   @doc """
@@ -50,8 +73,8 @@ defmodule AWS.SNS do
   Amazon Resource Name (ARN). This call requires an AWS signature only when the
   `AuthenticateOnUnsubscribe` flag is set to "true".
   """
-  def confirm_subscription(client, input, options \\ []) do
-    request(client, "ConfirmSubscription", input, options)
+  def confirm_subscription(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmSubscription", input, options)
   end
 
   @doc """
@@ -86,8 +109,8 @@ defmodule AWS.SNS do
   You can use the returned `PlatformApplicationArn` as an attribute for the
   `CreatePlatformEndpoint` action.
   """
-  def create_platform_application(client, input, options \\ []) do
-    request(client, "CreatePlatformApplication", input, options)
+  def create_platform_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePlatformApplication", input, options)
   end
 
   @doc """
@@ -106,20 +129,21 @@ defmodule AWS.SNS do
   ChannelId and UserId. The token field must also contain the ChannelId. For more
   information, see [Creating an Amazon SNS Endpoint for Baidu](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html).
   """
-  def create_platform_endpoint(client, input, options \\ []) do
-    request(client, "CreatePlatformEndpoint", input, options)
+  def create_platform_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePlatformEndpoint", input, options)
   end
 
   @doc """
   Creates a topic to which notifications can be published.
 
-  Users can create at most 100,000 topics. For more information, see
+  Users can create at most 100,000 standard topics (at most 1,000 FIFO topics).
+  For more information, see
   [https://aws.amazon.com/sns](http://aws.amazon.com/sns/). This action is
   idempotent, so if the requester already owns a topic with the specified name,
   that topic's ARN is returned without creating a new topic.
   """
-  def create_topic(client, input, options \\ []) do
-    request(client, "CreateTopic", input, options)
+  def create_topic(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTopic", input, options)
   end
 
   @doc """
@@ -131,8 +155,8 @@ defmodule AWS.SNS do
   When you delete an endpoint that is also subscribed to a topic, then you must
   also unsubscribe the endpoint from the topic.
   """
-  def delete_endpoint(client, input, options \\ []) do
-    request(client, "DeleteEndpoint", input, options)
+  def delete_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEndpoint", input, options)
   end
 
   @doc """
@@ -141,8 +165,8 @@ defmodule AWS.SNS do
 
   For more information, see [Using Amazon SNS Mobile Push Notifications](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html).
   """
-  def delete_platform_application(client, input, options \\ []) do
-    request(client, "DeletePlatformApplication", input, options)
+  def delete_platform_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePlatformApplication", input, options)
   end
 
   @doc """
@@ -152,8 +176,8 @@ defmodule AWS.SNS do
   being delivered to subscribers. This action is idempotent, so deleting a topic
   that does not exist does not result in an error.
   """
-  def delete_topic(client, input, options \\ []) do
-    request(client, "DeleteTopic", input, options)
+  def delete_topic(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTopic", input, options)
   end
 
   @doc """
@@ -162,8 +186,8 @@ defmodule AWS.SNS do
 
   For more information, see [Using Amazon SNS Mobile Push Notifications](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html).
   """
-  def get_endpoint_attributes(client, input, options \\ []) do
-    request(client, "GetEndpointAttributes", input, options)
+  def get_endpoint_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetEndpointAttributes", input, options)
   end
 
   @doc """
@@ -172,8 +196,8 @@ defmodule AWS.SNS do
 
   For more information, see [Using Amazon SNS Mobile Push Notifications](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html).
   """
-  def get_platform_application_attributes(client, input, options \\ []) do
-    request(client, "GetPlatformApplicationAttributes", input, options)
+  def get_platform_application_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPlatformApplicationAttributes", input, options)
   end
 
   @doc """
@@ -181,15 +205,15 @@ defmodule AWS.SNS do
 
   These settings are set with the `SetSMSAttributes` action.
   """
-  def get_s_m_s_attributes(client, input, options \\ []) do
-    request(client, "GetSMSAttributes", input, options)
+  def get_s_m_s_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSMSAttributes", input, options)
   end
 
   @doc """
   Returns all of the properties of a subscription.
   """
-  def get_subscription_attributes(client, input, options \\ []) do
-    request(client, "GetSubscriptionAttributes", input, options)
+  def get_subscription_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSubscriptionAttributes", input, options)
   end
 
   @doc """
@@ -197,8 +221,8 @@ defmodule AWS.SNS do
 
   Topic properties returned might differ based on the authorization of the user.
   """
-  def get_topic_attributes(client, input, options \\ []) do
-    request(client, "GetTopicAttributes", input, options)
+  def get_topic_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTopicAttributes", input, options)
   end
 
   @doc """
@@ -215,8 +239,8 @@ defmodule AWS.SNS do
 
   This action is throttled at 30 transactions per second (TPS).
   """
-  def list_endpoints_by_platform_application(client, input, options \\ []) do
-    request(client, "ListEndpointsByPlatformApplication", input, options)
+  def list_endpoints_by_platform_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEndpointsByPlatformApplication", input, options)
   end
 
   @doc """
@@ -230,8 +254,8 @@ defmodule AWS.SNS do
   string received from the previous call. When there are no more records to
   return, `NextToken` will be null.
   """
-  def list_phone_numbers_opted_out(client, input, options \\ []) do
-    request(client, "ListPhoneNumbersOptedOut", input, options)
+  def list_phone_numbers_opted_out(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPhoneNumbersOptedOut", input, options)
   end
 
   @doc """
@@ -248,8 +272,8 @@ defmodule AWS.SNS do
 
   This action is throttled at 15 transactions per second (TPS).
   """
-  def list_platform_applications(client, input, options \\ []) do
-    request(client, "ListPlatformApplications", input, options)
+  def list_platform_applications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPlatformApplications", input, options)
   end
 
   @doc """
@@ -261,8 +285,8 @@ defmodule AWS.SNS do
 
   This action is throttled at 30 transactions per second (TPS).
   """
-  def list_subscriptions(client, input, options \\ []) do
-    request(client, "ListSubscriptions", input, options)
+  def list_subscriptions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSubscriptions", input, options)
   end
 
   @doc """
@@ -274,8 +298,8 @@ defmodule AWS.SNS do
 
   This action is throttled at 30 transactions per second (TPS).
   """
-  def list_subscriptions_by_topic(client, input, options \\ []) do
-    request(client, "ListSubscriptionsByTopic", input, options)
+  def list_subscriptions_by_topic(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSubscriptionsByTopic", input, options)
   end
 
   @doc """
@@ -284,8 +308,8 @@ defmodule AWS.SNS do
   For an overview, see [Amazon SNS Tags](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html) in the *Amazon
   Simple Notification Service Developer Guide*.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -297,8 +321,8 @@ defmodule AWS.SNS do
 
   This action is throttled at 30 transactions per second (TPS).
   """
-  def list_topics(client, input, options \\ []) do
-    request(client, "ListTopics", input, options)
+  def list_topics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTopics", input, options)
   end
 
   @doc """
@@ -307,8 +331,8 @@ defmodule AWS.SNS do
 
   You can opt in a phone number only once every 30 days.
   """
-  def opt_in_phone_number(client, input, options \\ []) do
-    request(client, "OptInPhoneNumber", input, options)
+  def opt_in_phone_number(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "OptInPhoneNumber", input, options)
   end
 
   @doc """
@@ -333,15 +357,15 @@ defmodule AWS.SNS do
 
   You can publish messages only to topics and endpoints in the same AWS Region.
   """
-  def publish(client, input, options \\ []) do
-    request(client, "Publish", input, options)
+  def publish(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Publish", input, options)
   end
 
   @doc """
   Removes a statement from a topic's access control policy.
   """
-  def remove_permission(client, input, options \\ []) do
-    request(client, "RemovePermission", input, options)
+  def remove_permission(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemovePermission", input, options)
   end
 
   @doc """
@@ -350,8 +374,8 @@ defmodule AWS.SNS do
 
   For more information, see [Using Amazon SNS Mobile Push Notifications](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html).
   """
-  def set_endpoint_attributes(client, input, options \\ []) do
-    request(client, "SetEndpointAttributes", input, options)
+  def set_endpoint_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetEndpointAttributes", input, options)
   end
 
   @doc """
@@ -362,8 +386,8 @@ defmodule AWS.SNS do
   For information on configuring attributes for message delivery status, see
   [Using Amazon SNS Application Attributes for Message Delivery Status](https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html).
   """
-  def set_platform_application_attributes(client, input, options \\ []) do
-    request(client, "SetPlatformApplicationAttributes", input, options)
+  def set_platform_application_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetPlatformApplicationAttributes", input, options)
   end
 
   @doc """
@@ -372,42 +396,42 @@ defmodule AWS.SNS do
 
   You can override some of these settings for a single message when you use the
   `Publish` action with the `MessageAttributes.entry.N` parameter. For more
-  information, see [Sending an SMS Message](https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html) in
+  information, see [Publishing to a mobile phone](https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html) in
   the *Amazon SNS Developer Guide*.
   """
-  def set_s_m_s_attributes(client, input, options \\ []) do
-    request(client, "SetSMSAttributes", input, options)
+  def set_s_m_s_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetSMSAttributes", input, options)
   end
 
   @doc """
   Allows a subscription owner to set an attribute of the subscription to a new
   value.
   """
-  def set_subscription_attributes(client, input, options \\ []) do
-    request(client, "SetSubscriptionAttributes", input, options)
+  def set_subscription_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetSubscriptionAttributes", input, options)
   end
 
   @doc """
   Allows a topic owner to set an attribute of the topic to a new value.
   """
-  def set_topic_attributes(client, input, options \\ []) do
-    request(client, "SetTopicAttributes", input, options)
+  def set_topic_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetTopicAttributes", input, options)
   end
 
   @doc """
   Subscribes an endpoint to an Amazon SNS topic.
 
   If the endpoint type is HTTP/S or email, or if the endpoint and the topic are
-  not in the same AWS account, the endpoint owner must the `ConfirmSubscription`
-  action to confirm the subscription.
+  not in the same AWS account, the endpoint owner must run the
+  `ConfirmSubscription` action to confirm the subscription.
 
   You call the `ConfirmSubscription` action with the token from the subscription
   response. Confirmation tokens are valid for three days.
 
   This action is throttled at 100 transactions per second (TPS).
   """
-  def subscribe(client, input, options \\ []) do
-    request(client, "Subscribe", input, options)
+  def subscribe(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Subscribe", input, options)
   end
 
   @doc """
@@ -432,8 +456,8 @@ defmodule AWS.SNS do
   region. If your application requires a higher throughput, file a [technical support
   request](https://console.aws.amazon.com/support/home#/case/create?issueType=technical).
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -448,8 +472,8 @@ defmodule AWS.SNS do
 
   This action is throttled at 100 transactions per second (TPS).
   """
-  def unsubscribe(client, input, options \\ []) do
-    request(client, "Unsubscribe", input, options)
+  def unsubscribe(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Unsubscribe", input, options)
   end
 
   @doc """
@@ -458,61 +482,7 @@ defmodule AWS.SNS do
   For an overview, see [Amazon SNS Tags](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html) in the *Amazon
   SNS Developer Guide*.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "sns"}
-    host = build_host("sns", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2010-03-31"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 end

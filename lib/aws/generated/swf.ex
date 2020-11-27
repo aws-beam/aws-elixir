@@ -22,6 +22,25 @@ defmodule AWS.SWF do
   Amazon SWF programming model, see the * [Amazon SWF Developer Guide](https://docs.aws.amazon.com/amazonswf/latest/developerguide/) *.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Amazon SWF",
+      api_version: "2012-01-25",
+      content_type: "application/x-amz-json-1.0",
+      credential_scope: nil,
+      endpoint_prefix: "swf",
+      global?: false,
+      protocol: "json",
+      service_id: "SWF",
+      signature_version: "v4",
+      signing_name: "swf",
+      target_prefix: "SimpleWorkflowService"
+    }
+  end
+
   @doc """
   Returns the number of closed workflow executions within the given domain that
   meet the specified filtering criteria.
@@ -59,8 +78,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def count_closed_workflow_executions(client, input, options \\ []) do
-    request(client, "CountClosedWorkflowExecutions", input, options)
+  def count_closed_workflow_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CountClosedWorkflowExecutions", input, options)
   end
 
   @doc """
@@ -100,8 +119,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def count_open_workflow_executions(client, input, options \\ []) do
-    request(client, "CountOpenWorkflowExecutions", input, options)
+  def count_open_workflow_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CountOpenWorkflowExecutions", input, options)
   end
 
   @doc """
@@ -133,8 +152,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def count_pending_activity_tasks(client, input, options \\ []) do
-    request(client, "CountPendingActivityTasks", input, options)
+  def count_pending_activity_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CountPendingActivityTasks", input, options)
   end
 
   @doc """
@@ -166,8 +185,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def count_pending_decision_tasks(client, input, options \\ []) do
-    request(client, "CountPendingDecisionTasks", input, options)
+  def count_pending_decision_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CountPendingDecisionTasks", input, options)
   end
 
   @doc """
@@ -207,8 +226,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def deprecate_activity_type(client, input, options \\ []) do
-    request(client, "DeprecateActivityType", input, options)
+  def deprecate_activity_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeprecateActivityType", input, options)
   end
 
   @doc """
@@ -244,8 +263,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def deprecate_domain(client, input, options \\ []) do
-    request(client, "DeprecateDomain", input, options)
+  def deprecate_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeprecateDomain", input, options)
   end
 
   @doc """
@@ -286,8 +305,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def deprecate_workflow_type(client, input, options \\ []) do
-    request(client, "DeprecateWorkflowType", input, options)
+  def deprecate_workflow_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeprecateWorkflowType", input, options)
   end
 
   @doc """
@@ -323,8 +342,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def describe_activity_type(client, input, options \\ []) do
-    request(client, "DescribeActivityType", input, options)
+  def describe_activity_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeActivityType", input, options)
   end
 
   @doc """
@@ -352,8 +371,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def describe_domain(client, input, options \\ []) do
-    request(client, "DescribeDomain", input, options)
+  def describe_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDomain", input, options)
   end
 
   @doc """
@@ -384,8 +403,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def describe_workflow_execution(client, input, options \\ []) do
-    request(client, "DescribeWorkflowExecution", input, options)
+  def describe_workflow_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeWorkflowExecution", input, options)
   end
 
   @doc """
@@ -421,8 +440,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def describe_workflow_type(client, input, options \\ []) do
-    request(client, "DescribeWorkflowType", input, options)
+  def describe_workflow_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeWorkflowType", input, options)
   end
 
   @doc """
@@ -455,8 +474,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def get_workflow_execution_history(client, input, options \\ []) do
-    request(client, "GetWorkflowExecutionHistory", input, options)
+  def get_workflow_execution_history(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetWorkflowExecutionHistory", input, options)
   end
 
   @doc """
@@ -489,8 +508,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def list_activity_types(client, input, options \\ []) do
-    request(client, "ListActivityTypes", input, options)
+  def list_activity_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListActivityTypes", input, options)
   end
 
   @doc """
@@ -533,8 +552,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def list_closed_workflow_executions(client, input, options \\ []) do
-    request(client, "ListClosedWorkflowExecutions", input, options)
+  def list_closed_workflow_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListClosedWorkflowExecutions", input, options)
   end
 
   @doc """
@@ -569,8 +588,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def list_domains(client, input, options \\ []) do
-    request(client, "ListDomains", input, options)
+  def list_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDomains", input, options)
   end
 
   @doc """
@@ -613,15 +632,15 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def list_open_workflow_executions(client, input, options \\ []) do
-    request(client, "ListOpenWorkflowExecutions", input, options)
+  def list_open_workflow_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListOpenWorkflowExecutions", input, options)
   end
 
   @doc """
   List tags for a given domain.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -651,8 +670,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def list_workflow_types(client, input, options \\ []) do
-    request(client, "ListWorkflowTypes", input, options)
+  def list_workflow_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListWorkflowTypes", input, options)
   end
 
   @doc """
@@ -691,8 +710,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def poll_for_activity_task(client, input, options \\ []) do
-    request(client, "PollForActivityTask", input, options)
+  def poll_for_activity_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PollForActivityTask", input, options)
   end
 
   @doc """
@@ -741,8 +760,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def poll_for_decision_task(client, input, options \\ []) do
-    request(client, "PollForDecisionTask", input, options)
+  def poll_for_decision_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PollForDecisionTask", input, options)
   end
 
   @doc """
@@ -797,8 +816,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def record_activity_task_heartbeat(client, input, options \\ []) do
-    request(client, "RecordActivityTaskHeartbeat", input, options)
+  def record_activity_task_heartbeat(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RecordActivityTaskHeartbeat", input, options)
   end
 
   @doc """
@@ -838,8 +857,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def register_activity_type(client, input, options \\ []) do
-    request(client, "RegisterActivityType", input, options)
+  def register_activity_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterActivityType", input, options)
   end
 
   @doc """
@@ -867,8 +886,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def register_domain(client, input, options \\ []) do
-    request(client, "RegisterDomain", input, options)
+  def register_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterDomain", input, options)
   end
 
   @doc """
@@ -911,8 +930,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def register_workflow_type(client, input, options \\ []) do
-    request(client, "RegisterWorkflowType", input, options)
+  def register_workflow_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterWorkflowType", input, options)
   end
 
   @doc """
@@ -951,8 +970,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def request_cancel_workflow_execution(client, input, options \\ []) do
-    request(client, "RequestCancelWorkflowExecution", input, options)
+  def request_cancel_workflow_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RequestCancelWorkflowExecution", input, options)
   end
 
   @doc """
@@ -994,8 +1013,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def respond_activity_task_canceled(client, input, options \\ []) do
-    request(client, "RespondActivityTaskCanceled", input, options)
+  def respond_activity_task_canceled(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RespondActivityTaskCanceled", input, options)
   end
 
   @doc """
@@ -1037,8 +1056,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def respond_activity_task_completed(client, input, options \\ []) do
-    request(client, "RespondActivityTaskCompleted", input, options)
+  def respond_activity_task_completed(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RespondActivityTaskCompleted", input, options)
   end
 
   @doc """
@@ -1074,8 +1093,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def respond_activity_task_failed(client, input, options \\ []) do
-    request(client, "RespondActivityTaskFailed", input, options)
+  def respond_activity_task_failed(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RespondActivityTaskFailed", input, options)
   end
 
   @doc """
@@ -1100,8 +1119,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def respond_decision_task_completed(client, input, options \\ []) do
-    request(client, "RespondDecisionTaskCompleted", input, options)
+  def respond_decision_task_completed(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RespondDecisionTaskCompleted", input, options)
   end
 
   @doc """
@@ -1140,8 +1159,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def signal_workflow_execution(client, input, options \\ []) do
-    request(client, "SignalWorkflowExecution", input, options)
+  def signal_workflow_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SignalWorkflowExecution", input, options)
   end
 
   @doc """
@@ -1190,8 +1209,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def start_workflow_execution(client, input, options \\ []) do
-    request(client, "StartWorkflowExecution", input, options)
+  def start_workflow_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartWorkflowExecution", input, options)
   end
 
   @doc """
@@ -1199,8 +1218,8 @@ defmodule AWS.SWF do
 
   Amazon SWF supports a maximum of 50 tags per resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -1243,8 +1262,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def terminate_workflow_execution(client, input, options \\ []) do
-    request(client, "TerminateWorkflowExecution", input, options)
+  def terminate_workflow_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TerminateWorkflowExecution", input, options)
   end
 
   @doc """
@@ -1283,8 +1302,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def undeprecate_activity_type(client, input, options \\ []) do
-    request(client, "UndeprecateActivityType", input, options)
+  def undeprecate_activity_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UndeprecateActivityType", input, options)
   end
 
   @doc """
@@ -1317,8 +1336,8 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def undeprecate_domain(client, input, options \\ []) do
-    request(client, "UndeprecateDomain", input, options)
+  def undeprecate_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UndeprecateDomain", input, options)
   end
 
   @doc """
@@ -1357,68 +1376,14 @@ defmodule AWS.SWF do
   Workflows](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html)
   in the *Amazon SWF Developer Guide*.
   """
-  def undeprecate_workflow_type(client, input, options \\ []) do
-    request(client, "UndeprecateWorkflowType", input, options)
+  def undeprecate_workflow_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UndeprecateWorkflowType", input, options)
   end
 
   @doc """
   Remove a tag from a Amazon SWF domain.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "swf"}
-    host = build_host("swf", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.0"},
-      {"X-Amz-Target", "SimpleWorkflowService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 end

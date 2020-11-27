@@ -22,6 +22,25 @@ defmodule AWS.IoTDataPlane do
   sign requests is: *iotdevicegateway*.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2015-05-28",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "data.iot",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "IoT Data Plane",
+      signature_version: "v4",
+      signing_name: "iotdata",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Deletes the shadow for the specified thing.
 
@@ -29,15 +48,27 @@ defmodule AWS.IoTDataPlane do
   [DeleteThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html)
   in the AWS IoT Developer Guide.
   """
-  def delete_thing_shadow(client, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/shadow"
+  def delete_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"shadowName", "name"},
+        {"shadowName", "name"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -47,36 +78,70 @@ defmodule AWS.IoTDataPlane do
   [GetThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html)
   in the AWS IoT Developer Guide.
   """
-  def get_thing_shadow(client, thing_name, shadow_name \\ nil, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/shadow"
+  def get_thing_shadow(%Client{} = client, thing_name, shadow_name \\ nil, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    query_ = []
-    query_ = if !is_nil(shadow_name) do
-      [{"name", shadow_name} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(shadow_name) do
+        [{"name", shadow_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the shadows for the specified thing.
   """
-  def list_named_shadows_for_thing(client, thing_name, next_token \\ nil, page_size \\ nil, options \\ []) do
-    path_ = "/api/things/shadow/ListNamedShadowsForThing/#{URI.encode(thing_name)}"
+  def list_named_shadows_for_thing(
+        %Client{} = client,
+        thing_name,
+        next_token \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/things/shadow/ListNamedShadowsForThing/#{URI.encode(thing_name)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -85,15 +150,27 @@ defmodule AWS.IoTDataPlane do
   For more information, see [HTTP Protocol](http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http)
   in the AWS IoT Developer Guide.
   """
-  def publish(client, topic, input, options \\ []) do
-    path_ = "/topics/#{URI.encode(topic)}"
+  def publish(%Client{} = client, topic, input, options \\ []) do
+    url_path = "/topics/#{URI.encode(topic)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"qos", "qos"},
+        {"qos", "qos"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -103,78 +180,26 @@ defmodule AWS.IoTDataPlane do
   [UpdateThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html)
   in the AWS IoT Developer Guide.
   """
-  def update_thing_shadow(client, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/shadow"
+  def update_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}/shadow"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"shadowName", "name"},
+        {"shadowName", "name"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "iotdata"}
-    host = build_host("data.iot", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

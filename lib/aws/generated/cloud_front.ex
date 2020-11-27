@@ -12,6 +12,25 @@ defmodule AWS.CloudFront do
   features, see the *Amazon CloudFront Developer Guide*.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2020-05-31",
+      content_type: "text/xml",
+      credential_scope: "us-east-1",
+      endpoint_prefix: "cloudfront",
+      global?: true,
+      protocol: "rest-xml",
+      service_id: "CloudFront",
+      signature_version: "v4",
+      signing_name: "cloudfront",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates a cache policy.
 
@@ -35,29 +54,29 @@ defmodule AWS.CloudFront do
   For more information about cache policies, see [Controlling the cache key](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html)
   in the *Amazon CloudFront Developer Guide*.
   """
-  def create_cache_policy(client, input, options \\ []) do
-    path_ = "/2020-05-31/cache-policy"
+  def create_cache_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/cache-policy"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -69,29 +88,29 @@ defmodule AWS.CloudFront do
   see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html)
   in the *Amazon CloudFront Developer Guide*.
   """
-  def create_cloud_front_origin_access_identity(client, input, options \\ []) do
-    path_ = "/2020-05-31/origin-access-identity/cloudfront"
+  def create_cloud_front_origin_access_identity(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/origin-access-identity/cloudfront"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -111,140 +130,179 @@ defmodule AWS.CloudFront do
   Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html)
   in the *Amazon CloudFront Developer Guide*.
   """
-  def create_distribution(client, input, options \\ []) do
-    path_ = "/2020-05-31/distribution"
+  def create_distribution(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/distribution"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Create a new distribution with tags.
   """
-  def create_distribution_with_tags(client, input, options \\ []) do
-    path_ = "/2020-05-31/distribution?WithTags"
+  def create_distribution_with_tags(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/distribution?WithTags"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Create a new field-level encryption configuration.
   """
-  def create_field_level_encryption_config(client, input, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption"
+  def create_field_level_encryption_config(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Create a field-level encryption profile.
   """
-  def create_field_level_encryption_profile(client, input, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption-profile"
+  def create_field_level_encryption_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption-profile"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Create a new invalidation.
   """
-  def create_invalidation(client, distribution_id, input, options \\ []) do
-    path_ = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
+  def create_invalidation(%Client{} = client, distribution_id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a key group that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
+
+  To create a key group, you must specify at least one public key for the key
+  group. After you create a key group, you can reference it from one or more cache
+  behaviors. When you reference a key group in a cache behavior, CloudFront
+  requires signed URLs or signed cookies for all requests that match the cache
+  behavior. The URLs or cookies must be signed with a private key whose
+  corresponding public key is in the key group. The signed URL or cookie contains
+  information about which public key CloudFront should use to verify the
+  signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html)
+  in the *Amazon CloudFront Developer Guide*.
+  """
+  def create_key_group(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/key-group"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -255,11 +313,22 @@ defmodule AWS.CloudFront do
   For more information, see [Viewing additional CloudFront distribution metrics](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional)
   in the *Amazon CloudFront Developer Guide*.
   """
-  def create_monitoring_subscription(client, distribution_id, input, options \\ []) do
-    path_ = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+  def create_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
+    url_path = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -289,60 +358,58 @@ defmodule AWS.CloudFront do
   For more information about origin request policies, see [Controlling origin requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html)
   in the *Amazon CloudFront Developer Guide*.
   """
-  def create_origin_request_policy(client, input, options \\ []) do
-    path_ = "/2020-05-31/origin-request-policy"
+  def create_origin_request_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/origin-request-policy"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
-  Add a new public key to CloudFront to use, for example, for field-level
-  encryption.
-
-  You can add a maximum of 10 public keys with one AWS account.
+  Uploads a public key to CloudFront that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html),
+  or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
   """
-  def create_public_key(client, input, options \\ []) do
-    path_ = "/2020-05-31/public-key"
+  def create_public_key(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/public-key"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -355,11 +422,22 @@ defmodule AWS.CloudFront do
   For more information about real-time log configurations, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html)
   in the *Amazon CloudFront Developer Guide*.
   """
-  def create_realtime_log_config(client, input, options \\ []) do
-    path_ = "/2020-05-31/realtime-log-config"
+  def create_realtime_log_config(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/realtime-log-config"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -393,57 +471,57 @@ defmodule AWS.CloudFront do
   and to notify you when there's a mismatch between the number of values you say
   you're specifying in the `Quantity` element and the number of values specified.
   """
-  def create_streaming_distribution(client, input, options \\ []) do
-    path_ = "/2020-05-31/streaming-distribution"
+  def create_streaming_distribution(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/streaming-distribution"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Create a new streaming distribution with tags.
   """
-  def create_streaming_distribution_with_tags(client, input, options \\ []) do
-    path_ = "/2020-05-31/streaming-distribution?WithTags"
+  def create_streaming_distribution_with_tags(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/streaming-distribution?WithTags"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-            {"Location", "Location"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -456,82 +534,193 @@ defmodule AWS.CloudFront do
   To delete a cache policy, you must provide the policy’s identifier and version.
   To get these values, you can use `ListCachePolicies` or `GetCachePolicy`.
   """
-  def delete_cache_policy(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+  def delete_cache_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Delete an origin access identity.
   """
-  def delete_cloud_front_origin_access_identity(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
+  def delete_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Delete a distribution.
   """
-  def delete_distribution(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/distribution/#{URI.encode(id)}"
+  def delete_distribution(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Remove a field-level encryption configuration.
   """
-  def delete_field_level_encryption_config(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
+  def delete_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Remove a field-level encryption profile.
   """
-  def delete_field_level_encryption_profile(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
+  def delete_field_level_encryption_profile(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a key group.
+
+  You cannot delete a key group that is referenced in a cache behavior. First
+  update your distributions to remove the key group from all cache behaviors, then
+  delete the key group.
+
+  To delete a key group, you must provide the key group’s identifier and version.
+  To get these values, use `ListKeyGroups` followed by `GetKeyGroup` or
+  `GetKeyGroupConfig`.
+  """
+  def delete_key_group(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/key-group/#{URI.encode(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Disables additional CloudWatch metrics for the specified CloudFront
   distribution.
   """
-  def delete_monitoring_subscription(client, distribution_id, input, options \\ []) do
-    path_ = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+  def delete_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
+    url_path = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -545,29 +734,55 @@ defmodule AWS.CloudFront do
   version. To get the identifier, you can use `ListOriginRequestPolicies` or
   `GetOriginRequestPolicy`.
   """
-  def delete_origin_request_policy(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+  def delete_origin_request_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Remove a public key you previously added to CloudFront.
   """
-  def delete_public_key(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/public-key/#{URI.encode(id)}"
+  def delete_public_key(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/public-key/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -583,11 +798,22 @@ defmodule AWS.CloudFront do
   provide both, CloudFront uses the name to identify the real-time log
   configuration to delete.
   """
-  def delete_realtime_log_config(client, input, options \\ []) do
-    path_ = "/2020-05-31/delete-realtime-log-config/"
+  def delete_realtime_log_config(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/delete-realtime-log-config/"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -632,15 +858,28 @@ defmodule AWS.CloudFront do
   [Deleting a Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html)
   in the *Amazon CloudFront Developer Guide*.
   """
-  def delete_streaming_distribution(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
+  def delete_streaming_distribution(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -656,28 +895,29 @@ defmodule AWS.CloudFront do
   is not attached to a cache behavior, you can get the identifier using
   `ListCachePolicies`.
   """
-  def get_cache_policy(client, id, options \\ []) do
-    path_ = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+  def get_cache_policy(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -689,265 +929,367 @@ defmodule AWS.CloudFront do
   cache policy is not attached to a cache behavior, you can get the identifier
   using `ListCachePolicies`.
   """
-  def get_cache_policy_config(client, id, options \\ []) do
-    path_ = "/2020-05-31/cache-policy/#{URI.encode(id)}/config"
+  def get_cache_policy_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/cache-policy/#{URI.encode(id)}/config"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the information about an origin access identity.
   """
-  def get_cloud_front_origin_access_identity(client, id, options \\ []) do
-    path_ = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
+  def get_cloud_front_origin_access_identity(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the configuration information about an origin access identity.
   """
-  def get_cloud_front_origin_access_identity_config(client, id, options \\ []) do
-    path_ = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
+  def get_cloud_front_origin_access_identity_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the information about a distribution.
   """
-  def get_distribution(client, id, options \\ []) do
-    path_ = "/2020-05-31/distribution/#{URI.encode(id)}"
+  def get_distribution(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the configuration information about a distribution.
   """
-  def get_distribution_config(client, id, options \\ []) do
-    path_ = "/2020-05-31/distribution/#{URI.encode(id)}/config"
+  def get_distribution_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{URI.encode(id)}/config"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the field-level encryption configuration information.
   """
-  def get_field_level_encryption(client, id, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
+  def get_field_level_encryption(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the field-level encryption configuration information.
   """
-  def get_field_level_encryption_config(client, id, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
+  def get_field_level_encryption_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the field-level encryption profile information.
   """
-  def get_field_level_encryption_profile(client, id, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
+  def get_field_level_encryption_profile(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the field-level encryption profile configuration information.
   """
-  def get_field_level_encryption_profile_config(client, id, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
+  def get_field_level_encryption_profile_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the information about an invalidation.
   """
-  def get_invalidation(client, distribution_id, id, options \\ []) do
-    path_ = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation/#{URI.encode(id)}"
+  def get_invalidation(%Client{} = client, distribution_id, id, options \\ []) do
+    url_path =
+      "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation/#{URI.encode(id)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a key group, including the date and time when the key group was last
+  modified.
+
+  To get a key group, you must provide the key group’s identifier. If the key
+  group is referenced in a distribution’s cache behavior, you can get the key
+  group’s identifier using `ListDistributions` or `GetDistribution`. If the key
+  group is not referenced in a cache behavior, you can get the identifier using
+  `ListKeyGroups`.
+  """
+  def get_key_group(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/key-group/#{URI.encode(id)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a key group configuration.
+
+  To get a key group configuration, you must provide the key group’s identifier.
+  If the key group is referenced in a distribution’s cache behavior, you can get
+  the key group’s identifier using `ListDistributions` or `GetDistribution`. If
+  the key group is not referenced in a cache behavior, you can get the identifier
+  using `ListKeyGroups`.
+  """
+  def get_key_group_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/key-group/#{URI.encode(id)}/config"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about whether additional CloudWatch metrics are enabled for the
   specified CloudFront distribution.
   """
-  def get_monitoring_subscription(client, distribution_id, options \\ []) do
-    path_ = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
+  def get_monitoring_subscription(%Client{} = client, distribution_id, options \\ []) do
+    url_path = "/2020-05-31/distributions/#{URI.encode(distribution_id)}/monitoring-subscription"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -963,28 +1305,29 @@ defmodule AWS.CloudFront do
   If the origin request policy is not attached to a cache behavior, you can get
   the identifier using `ListOriginRequestPolicies`.
   """
-  def get_origin_request_policy(client, id, options \\ []) do
-    path_ = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+  def get_origin_request_policy(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -996,82 +1339,85 @@ defmodule AWS.CloudFront do
   `GetDistribution`. If the origin request policy is not attached to a cache
   behavior, you can get the identifier using `ListOriginRequestPolicies`.
   """
-  def get_origin_request_policy_config(client, id, options \\ []) do
-    path_ = "/2020-05-31/origin-request-policy/#{URI.encode(id)}/config"
+  def get_origin_request_policy_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}/config"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Get the public key information.
+  Gets a public key.
   """
-  def get_public_key(client, id, options \\ []) do
-    path_ = "/2020-05-31/public-key/#{URI.encode(id)}"
+  def get_public_key(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/public-key/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Return public key configuration informaation
+  Gets a public key configuration.
   """
-  def get_public_key_config(client, id, options \\ []) do
-    path_ = "/2020-05-31/public-key/#{URI.encode(id)}/config"
+  def get_public_key_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/public-key/#{URI.encode(id)}/config"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1082,66 +1428,79 @@ defmodule AWS.CloudFront do
   both, CloudFront uses the name to identify the real-time log configuration to
   get.
   """
-  def get_realtime_log_config(client, input, options \\ []) do
-    path_ = "/2020-05-31/get-realtime-log-config/"
+  def get_realtime_log_config(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/get-realtime-log-config/"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a specified RTMP distribution, including the distribution
   configuration.
   """
-  def get_streaming_distribution(client, id, options \\ []) do
-    path_ = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
+  def get_streaming_distribution(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Get the configuration information about a streaming distribution.
   """
-  def get_streaming_distribution_config(client, id, options \\ []) do
-    path_ = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
+  def get_streaming_distribution_config(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
     headers = []
-    query_ = []
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-      result ->
-        result
-    end
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1156,66 +1515,124 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  def list_cache_policies(client, marker \\ nil, max_items \\ nil, type \\ nil, options \\ []) do
-    path_ = "/2020-05-31/cache-policy"
+  def list_cache_policies(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/cache-policy"
     headers = []
-    query_ = []
-    query_ = if !is_nil(type) do
-      [{"Type", type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"Type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists origin access identities.
   """
-  def list_cloud_front_origin_access_identities(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/origin-access-identity/cloudfront"
+  def list_cloud_front_origin_access_identities(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/origin-access-identity/cloudfront"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List CloudFront distributions.
   """
-  def list_distributions(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/distribution"
+  def list_distributions(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
+    url_path = "/2020-05-31/distribution"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1228,21 +1645,90 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  def list_distributions_by_cache_policy_id(client, cache_policy_id, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/distributionsByCachePolicyId/#{URI.encode(cache_policy_id)}"
+  def list_distributions_by_cache_policy_id(
+        %Client{} = client,
+        cache_policy_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distributionsByCachePolicyId/#{URI.encode(cache_policy_id)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a list of distribution IDs for distributions that have a cache behavior
+  that references the specified key group.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that you
+  specify, or the default maximum, the response is paginated. To get the next page
+  of items, send a subsequent request that specifies the `NextMarker` value from
+  the current response as the `Marker` value in the subsequent request.
+  """
+  def list_distributions_by_key_group(
+        %Client{} = client,
+        key_group_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distributionsByKeyGroupId/#{URI.encode(key_group_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1255,21 +1741,44 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  def list_distributions_by_origin_request_policy_id(client, origin_request_policy_id, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/distributionsByOriginRequestPolicyId/#{URI.encode(origin_request_policy_id)}"
+  def list_distributions_by_origin_request_policy_id(
+        %Client{} = client,
+        origin_request_policy_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2020-05-31/distributionsByOriginRequestPolicyId/#{URI.encode(origin_request_policy_id)}"
+
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1287,93 +1796,227 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  def list_distributions_by_realtime_log_config(client, input, options \\ []) do
-    path_ = "/2020-05-31/distributionsByRealtimeLogConfig/"
+  def list_distributions_by_realtime_log_config(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/distributionsByRealtimeLogConfig/"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   List the distributions that are associated with a specified AWS WAF web ACL.
   """
-  def list_distributions_by_web_a_c_l_id(client, web_a_c_l_id, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/distributionsByWebACLId/#{URI.encode(web_a_c_l_id)}"
+  def list_distributions_by_web_a_c_l_id(
+        %Client{} = client,
+        web_a_c_l_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distributionsByWebACLId/#{URI.encode(web_a_c_l_id)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List all field-level encryption configurations that have been created in
   CloudFront for this account.
   """
-  def list_field_level_encryption_configs(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption"
+  def list_field_level_encryption_configs(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/field-level-encryption"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Request a list of field-level encryption profiles that have been created in
   CloudFront for this account.
   """
-  def list_field_level_encryption_profiles(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption-profile"
+  def list_field_level_encryption_profiles(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/field-level-encryption-profile"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists invalidation batches.
   """
-  def list_invalidations(client, distribution_id, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
+  def list_invalidations(
+        %Client{} = client,
+        distribution_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distribution/#{URI.encode(distribution_id)}/invalidation"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets a list of key groups.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that you
+  specify, or the default maximum, the response is paginated. To get the next page
+  of items, send a subsequent request that specifies the `NextMarker` value from
+  the current response as the `Marker` value in the subsequent request.
+  """
+  def list_key_groups(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
+    url_path = "/2020-05-31/key-group"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1388,46 +2031,84 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  def list_origin_request_policies(client, marker \\ nil, max_items \\ nil, type \\ nil, options \\ []) do
-    path_ = "/2020-05-31/origin-request-policy"
+  def list_origin_request_policies(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/origin-request-policy"
     headers = []
-    query_ = []
-    query_ = if !is_nil(type) do
-      [{"Type", type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"Type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List all public keys that have been added to CloudFront for this account.
   """
-  def list_public_keys(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/public-key"
+  def list_public_keys(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
+    url_path = "/2020-05-31/public-key"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1439,84 +2120,161 @@ defmodule AWS.CloudFront do
   of items, send a subsequent request that specifies the `NextMarker` value from
   the current response as the `Marker` value in the subsequent request.
   """
-  def list_realtime_log_configs(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/realtime-log-config"
+  def list_realtime_log_configs(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/realtime-log-config"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List streaming distributions.
   """
-  def list_streaming_distributions(client, marker \\ nil, max_items \\ nil, options \\ []) do
-    path_ = "/2020-05-31/streaming-distribution"
+  def list_streaming_distributions(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/streaming-distribution"
     headers = []
-    query_ = []
-    query_ = if !is_nil(max_items) do
-      [{"MaxItems", max_items} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"Marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List tags for a CloudFront resource.
   """
-  def list_tags_for_resource(client, resource, options \\ []) do
-    path_ = "/2020-05-31/tagging"
+  def list_tags_for_resource(%Client{} = client, resource, options \\ []) do
+    url_path = "/2020-05-31/tagging"
     headers = []
-    query_ = []
-    query_ = if !is_nil(resource) do
-      [{"Resource", resource} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(resource) do
+        [{"Resource", resource} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Add tags to a CloudFront resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    path_ = "/2020-05-31/tagging?Operation=Tag"
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/tagging?Operation=Tag"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"Resource", "Resource"},
+        {"Resource", "Resource"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Remove tags from a CloudFront resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    path_ = "/2020-05-31/tagging?Operation=Untag"
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/tagging?Operation=Untag"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"Resource", "Resource"},
+        {"Resource", "Resource"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -1534,63 +2292,69 @@ defmodule AWS.CloudFront do
     3. Call `UpdateCachePolicy` by providing the entire cache policy
   configuration, including the fields that you modified and those that you didn’t.
   """
-  def update_cache_policy(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+  def update_cache_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/cache-policy/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Update an origin access identity.
   """
-  def update_cloud_front_origin_access_identity(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
+  def update_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/origin-access-identity/cloudfront/#{URI.encode(id)}/config"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1660,94 +2424,150 @@ defmodule AWS.CloudFront do
   request to confirm that your changes have propagated. When propagation is
   complete, the value of `Status` is `Deployed`.
   """
-  def update_distribution(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/distribution/#{URI.encode(id)}/config"
+  def update_distribution(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{URI.encode(id)}/config"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Update a field-level encryption configuration.
   """
-  def update_field_level_encryption_config(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
+  def update_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption/#{URI.encode(id)}/config"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Update a field-level encryption profile.
   """
-  def update_field_level_encryption_profile(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
+  def update_field_level_encryption_profile(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/field-level-encryption-profile/#{URI.encode(id)}/config"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a key group.
+
+  When you update a key group, all the fields are updated with the values provided
+  in the request. You cannot update some fields independent of others. To update a
+  key group:
+
+    1. Get the current key group with `GetKeyGroup` or
+  `GetKeyGroupConfig`.
+
+    2. Locally modify the fields in the key group that you want to
+  update. For example, add or remove public key IDs.
+
+    3. Call `UpdateKeyGroup` with the entire key group object, including
+  the fields that you modified and those that you didn’t.
+  """
+  def update_key_group(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/key-group/#{URI.encode(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1767,32 +2587,35 @@ defmodule AWS.CloudFront do
   request policy configuration, including the fields that you modified and those
   that you didn’t.
   """
-  def update_origin_request_policy(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+  def update_origin_request_policy(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/origin-request-policy/#{URI.encode(id)}"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1800,32 +2623,35 @@ defmodule AWS.CloudFront do
 
   Note that the only value you can change is the comment.
   """
-  def update_public_key(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/public-key/#{URI.encode(id)}/config"
+  def update_public_key(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/public-key/#{URI.encode(id)}/config"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1847,106 +2673,55 @@ defmodule AWS.CloudFront do
 
   You cannot update a real-time log configuration’s `Name` or `ARN`.
   """
-  def update_realtime_log_config(client, input, options \\ []) do
-    path_ = "/2020-05-31/realtime-log-config/"
+  def update_realtime_log_config(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/realtime-log-config/"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Update a streaming distribution.
   """
-  def update_streaming_distribution(client, id, input, options \\ []) do
-    path_ = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
+  def update_streaming_distribution(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/streaming-distribution/#{URI.encode(id)}/config"
+
     {headers, input} =
       [
-        {"IfMatch", "If-Match"},
+        {"IfMatch", "If-Match"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"ETag", "ETag"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
-  end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "cloudfront",
-                        region:  "us-east-1"}
-    host = build_host("cloudfront", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "text/xml"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :xml) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

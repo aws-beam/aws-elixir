@@ -45,6 +45,25 @@ defmodule AWS.GameLift do
     * [ GameLift tools and resources](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-components.html)
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2015-10-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "gamelift",
+      global?: false,
+      protocol: "json",
+      service_id: "GameLift",
+      signature_version: "v4",
+      signing_name: "gamelift",
+      target_prefix: "GameLift"
+    }
+  end
+
   @doc """
   Registers a player's acceptance or rejection of a proposed FlexMatch match.
 
@@ -72,9 +91,9 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [ Add FlexMatch to a Game Client](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html)
+  [ Add FlexMatch to a Game Client](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html)
 
-  [ FlexMatch Events Reference](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-events.html)
+  [ FlexMatch Events Reference](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html)
 
   ## Related operations
 
@@ -88,8 +107,8 @@ defmodule AWS.GameLift do
 
     * `StartMatchBackfill`
   """
-  def accept_match(client, input, options \\ []) do
-    request(client, "AcceptMatch", input, options)
+  def accept_match(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AcceptMatch", input, options)
   end
 
   @doc """
@@ -147,8 +166,8 @@ defmodule AWS.GameLift do
 
     * `DeregisterGameServer`
   """
-  def claim_game_server(client, input, options \\ []) do
-    request(client, "ClaimGameServer", input, options)
+  def claim_game_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ClaimGameServer", input, options)
   end
 
   @doc """
@@ -182,8 +201,8 @@ defmodule AWS.GameLift do
 
     * `ResolveAlias`
   """
-  def create_alias(client, input, options \\ []) do
-    request(client, "CreateAlias", input, options)
+  def create_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAlias", input, options)
   end
 
   @doc """
@@ -238,8 +257,8 @@ defmodule AWS.GameLift do
 
     * `DeleteBuild`
   """
-  def create_build(client, input, options \\ []) do
-    request(client, "CreateBuild", input, options)
+  def create_build(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBuild", input, options)
   end
 
   @doc """
@@ -298,8 +317,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def create_fleet(client, input, options \\ []) do
-    request(client, "CreateFleet", input, options)
+  def create_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFleet", input, options)
   end
 
   @doc """
@@ -362,8 +381,8 @@ defmodule AWS.GameLift do
 
     * `DescribeGameServerInstances`
   """
-  def create_game_server_group(client, input, options \\ []) do
-    request(client, "CreateGameServerGroup", input, options)
+  def create_game_server_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGameServerGroup", input, options)
   end
 
   @doc """
@@ -419,8 +438,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def create_game_session(client, input, options \\ []) do
-    request(client, "CreateGameSession", input, options)
+  def create_game_session(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGameSession", input, options)
   end
 
   @doc """
@@ -472,35 +491,42 @@ defmodule AWS.GameLift do
 
     * `DeleteGameSessionQueue`
   """
-  def create_game_session_queue(client, input, options \\ []) do
-    request(client, "CreateGameSessionQueue", input, options)
+  def create_game_session_queue(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGameSessionQueue", input, options)
   end
 
   @doc """
   Defines a new matchmaking configuration for use with FlexMatch.
 
-  A matchmaking configuration sets out guidelines for matching players and getting
-  the matches into games. You can set up multiple matchmaking configurations to
-  handle the scenarios needed for your game. Each matchmaking ticket
-  (`StartMatchmaking` or `StartMatchBackfill`) specifies a configuration for the
-  match and provides player attributes to support the configuration being used.
+  Whether your are using FlexMatch with GameLift hosting or as a standalone
+  matchmaking service, the matchmaking configuration sets out rules for matching
+  players and forming teams. If you're also using GameLift hosting, it defines how
+  to start game sessions for each match. Your matchmaking system can use multiple
+  configurations to handle different game scenarios. All matchmaking requests
+  (`StartMatchmaking` or `StartMatchBackfill`) identify the matchmaking
+  configuration to use and provide player attributes consistent with that
+  configuration.
 
-  To create a matchmaking configuration, at a minimum you must specify the
-  following: configuration name; a rule set that governs how to evaluate players
-  and find acceptable matches; a game session queue to use when placing a new game
-  session for the match; and the maximum time allowed for a matchmaking attempt.
+  To create a matchmaking configuration, you must provide the following:
+  configuration name and FlexMatch mode (with or without GameLift hosting); a rule
+  set that specifies how to evaluate players and find acceptable matches; whether
+  player acceptance is required; and the maximum time allowed for a matchmaking
+  attempt. When using FlexMatch with GameLift hosting, you also need to identify
+  the game session queue to use when starting a game session for the match.
 
-  To track the progress of matchmaking tickets, set up an Amazon Simple
-  Notification Service (SNS) to receive notifications, and provide the topic ARN
-  in the matchmaking configuration. An alternative method, continuously poling
-  ticket status with `DescribeMatchmaking`, should only be used for games in
-  development with low matchmaking usage.
+  In addition, you must set up an Amazon Simple Notification Service (SNS) to
+  receive matchmaking notifications, and provide the topic ARN in the matchmaking
+  configuration. An alternative method, continuously polling ticket status with
+  `DescribeMatchmaking`, is only suitable for games in development with low
+  matchmaking usage.
 
   ## Learn more
 
-  [ Design a FlexMatch Matchmaker](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html)
+  [ FlexMatch Developer Guide](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html)
 
-  [ Set Up FlexMatch Event Notification](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html)
+  [ Design a FlexMatch Matchmaker](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html)
+
+  [ Set Up FlexMatch Event Notification](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html)
 
   ## Related operations
 
@@ -520,8 +546,8 @@ defmodule AWS.GameLift do
 
     * `DeleteMatchmakingRuleSet`
   """
-  def create_matchmaking_configuration(client, input, options \\ []) do
-    request(client, "CreateMatchmakingConfiguration", input, options)
+  def create_matchmaking_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateMatchmakingConfiguration", input, options)
   end
 
   @doc """
@@ -542,11 +568,11 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-    * [Build a Rule Set](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html)
+    * [Build a Rule Set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
 
-    * [Design a Matchmaker](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html)
+    * [Design a Matchmaker](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html)
 
-    * [Matchmaking with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html)
+    * [Matchmaking with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html)
 
   ## Related operations
 
@@ -566,8 +592,8 @@ defmodule AWS.GameLift do
 
     * `DeleteMatchmakingRuleSet`
   """
-  def create_matchmaking_rule_set(client, input, options \\ []) do
-    request(client, "CreateMatchmakingRuleSet", input, options)
+  def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateMatchmakingRuleSet", input, options)
   end
 
   @doc """
@@ -601,8 +627,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def create_player_session(client, input, options \\ []) do
-    request(client, "CreatePlayerSession", input, options)
+  def create_player_session(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePlayerSession", input, options)
   end
 
   @doc """
@@ -636,8 +662,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def create_player_sessions(client, input, options \\ []) do
-    request(client, "CreatePlayerSessions", input, options)
+  def create_player_sessions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePlayerSessions", input, options)
   end
 
   @doc """
@@ -684,8 +710,8 @@ defmodule AWS.GameLift do
 
     * `DeleteScript`
   """
-  def create_script(client, input, options \\ []) do
-    request(client, "CreateScript", input, options)
+  def create_script(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateScript", input, options)
   end
 
   @doc """
@@ -732,8 +758,8 @@ defmodule AWS.GameLift do
 
     * `DeleteVpcPeeringConnection`
   """
-  def create_vpc_peering_authorization(client, input, options \\ []) do
-    request(client, "CreateVpcPeeringAuthorization", input, options)
+  def create_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateVpcPeeringAuthorization", input, options)
   end
 
   @doc """
@@ -774,8 +800,8 @@ defmodule AWS.GameLift do
 
     * `DeleteVpcPeeringConnection`
   """
-  def create_vpc_peering_connection(client, input, options \\ []) do
-    request(client, "CreateVpcPeeringConnection", input, options)
+  def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateVpcPeeringConnection", input, options)
   end
 
   @doc """
@@ -797,8 +823,8 @@ defmodule AWS.GameLift do
 
     * `ResolveAlias`
   """
-  def delete_alias(client, input, options \\ []) do
-    request(client, "DeleteAlias", input, options)
+  def delete_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAlias", input, options)
   end
 
   @doc """
@@ -826,8 +852,8 @@ defmodule AWS.GameLift do
 
     * `DeleteBuild`
   """
-  def delete_build(client, input, options \\ []) do
-    request(client, "DeleteBuild", input, options)
+  def delete_build(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBuild", input, options)
   end
 
   @doc """
@@ -862,8 +888,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def delete_fleet(client, input, options \\ []) do
-    request(client, "DeleteFleet", input, options)
+  def delete_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFleet", input, options)
   end
 
   @doc """
@@ -918,8 +944,8 @@ defmodule AWS.GameLift do
 
     * `DescribeGameServerInstances`
   """
-  def delete_game_server_group(client, input, options \\ []) do
-    request(client, "DeleteGameServerGroup", input, options)
+  def delete_game_server_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGameServerGroup", input, options)
   end
 
   @doc """
@@ -943,8 +969,8 @@ defmodule AWS.GameLift do
 
     * `DeleteGameSessionQueue`
   """
-  def delete_game_session_queue(client, input, options \\ []) do
-    request(client, "DeleteGameSessionQueue", input, options)
+  def delete_game_session_queue(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGameSessionQueue", input, options)
   end
 
   @doc """
@@ -971,8 +997,8 @@ defmodule AWS.GameLift do
 
     * `DeleteMatchmakingRuleSet`
   """
-  def delete_matchmaking_configuration(client, input, options \\ []) do
-    request(client, "DeleteMatchmakingConfiguration", input, options)
+  def delete_matchmaking_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMatchmakingConfiguration", input, options)
   end
 
   @doc """
@@ -983,7 +1009,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-    * [Build a Rule Set](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html)
+    * [Build a Rule Set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
 
   ## Related operations
 
@@ -1003,8 +1029,8 @@ defmodule AWS.GameLift do
 
     * `DeleteMatchmakingRuleSet`
   """
-  def delete_matchmaking_rule_set(client, input, options \\ []) do
-    request(client, "DeleteMatchmakingRuleSet", input, options)
+  def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMatchmakingRuleSet", input, options)
   end
 
   @doc """
@@ -1037,8 +1063,8 @@ defmodule AWS.GameLift do
 
       * `StopFleetActions`
   """
-  def delete_scaling_policy(client, input, options \\ []) do
-    request(client, "DeleteScalingPolicy", input, options)
+  def delete_scaling_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteScalingPolicy", input, options)
   end
 
   @doc """
@@ -1069,8 +1095,8 @@ defmodule AWS.GameLift do
 
     * `DeleteScript`
   """
-  def delete_script(client, input, options \\ []) do
-    request(client, "DeleteScript", input, options)
+  def delete_script(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteScript", input, options)
   end
 
   @doc """
@@ -1091,8 +1117,8 @@ defmodule AWS.GameLift do
 
     * `DeleteVpcPeeringConnection`
   """
-  def delete_vpc_peering_authorization(client, input, options \\ []) do
-    request(client, "DeleteVpcPeeringAuthorization", input, options)
+  def delete_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteVpcPeeringAuthorization", input, options)
   end
 
   @doc """
@@ -1119,8 +1145,8 @@ defmodule AWS.GameLift do
 
     * `DeleteVpcPeeringConnection`
   """
-  def delete_vpc_peering_connection(client, input, options \\ []) do
-    request(client, "DeleteVpcPeeringConnection", input, options)
+  def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteVpcPeeringConnection", input, options)
   end
 
   @doc """
@@ -1154,8 +1180,8 @@ defmodule AWS.GameLift do
 
     * `DeregisterGameServer`
   """
-  def deregister_game_server(client, input, options \\ []) do
-    request(client, "DeregisterGameServer", input, options)
+  def deregister_game_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeregisterGameServer", input, options)
   end
 
   @doc """
@@ -1179,8 +1205,8 @@ defmodule AWS.GameLift do
 
     * `ResolveAlias`
   """
-  def describe_alias(client, input, options \\ []) do
-    request(client, "DescribeAlias", input, options)
+  def describe_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAlias", input, options)
   end
 
   @doc """
@@ -1205,8 +1231,8 @@ defmodule AWS.GameLift do
 
     * `DeleteBuild`
   """
-  def describe_build(client, input, options \\ []) do
-    request(client, "DescribeBuild", input, options)
+  def describe_build(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeBuild", input, options)
   end
 
   @doc """
@@ -1238,8 +1264,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def describe_e_c2_instance_limits(client, input, options \\ []) do
-    request(client, "DescribeEC2InstanceLimits", input, options)
+  def describe_e_c2_instance_limits(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEC2InstanceLimits", input, options)
   end
 
   @doc """
@@ -1289,8 +1315,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def describe_fleet_attributes(client, input, options \\ []) do
-    request(client, "DescribeFleetAttributes", input, options)
+  def describe_fleet_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetAttributes", input, options)
   end
 
   @doc """
@@ -1344,8 +1370,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def describe_fleet_capacity(client, input, options \\ []) do
-    request(client, "DescribeFleetCapacity", input, options)
+  def describe_fleet_capacity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetCapacity", input, options)
   end
 
   @doc """
@@ -1387,8 +1413,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def describe_fleet_events(client, input, options \\ []) do
-    request(client, "DescribeFleetEvents", input, options)
+  def describe_fleet_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetEvents", input, options)
   end
 
   @doc """
@@ -1436,8 +1462,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def describe_fleet_port_settings(client, input, options \\ []) do
-    request(client, "DescribeFleetPortSettings", input, options)
+  def describe_fleet_port_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetPortSettings", input, options)
   end
 
   @doc """
@@ -1491,8 +1517,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def describe_fleet_utilization(client, input, options \\ []) do
-    request(client, "DescribeFleetUtilization", input, options)
+  def describe_fleet_utilization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleetUtilization", input, options)
   end
 
   @doc """
@@ -1525,8 +1551,8 @@ defmodule AWS.GameLift do
 
     * `DeregisterGameServer`
   """
-  def describe_game_server(client, input, options \\ []) do
-    request(client, "DescribeGameServer", input, options)
+  def describe_game_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGameServer", input, options)
   end
 
   @doc """
@@ -1565,8 +1591,8 @@ defmodule AWS.GameLift do
 
     * `DescribeGameServerInstances`
   """
-  def describe_game_server_group(client, input, options \\ []) do
-    request(client, "DescribeGameServerGroup", input, options)
+  def describe_game_server_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGameServerGroup", input, options)
   end
 
   @doc """
@@ -1614,8 +1640,8 @@ defmodule AWS.GameLift do
 
     * `DescribeGameServerInstances`
   """
-  def describe_game_server_instances(client, input, options \\ []) do
-    request(client, "DescribeGameServerInstances", input, options)
+  def describe_game_server_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGameServerInstances", input, options)
   end
 
   @doc """
@@ -1653,8 +1679,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def describe_game_session_details(client, input, options \\ []) do
-    request(client, "DescribeGameSessionDetails", input, options)
+  def describe_game_session_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGameSessionDetails", input, options)
   end
 
   @doc """
@@ -1683,8 +1709,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def describe_game_session_placement(client, input, options \\ []) do
-    request(client, "DescribeGameSessionPlacement", input, options)
+  def describe_game_session_placement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGameSessionPlacement", input, options)
   end
 
   @doc """
@@ -1709,8 +1735,8 @@ defmodule AWS.GameLift do
 
     * `DeleteGameSessionQueue`
   """
-  def describe_game_session_queues(client, input, options \\ []) do
-    request(client, "DescribeGameSessionQueues", input, options)
+  def describe_game_session_queues(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGameSessionQueues", input, options)
   end
 
   @doc """
@@ -1749,8 +1775,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def describe_game_sessions(client, input, options \\ []) do
-    request(client, "DescribeGameSessions", input, options)
+  def describe_game_sessions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGameSessions", input, options)
   end
 
   @doc """
@@ -1776,8 +1802,8 @@ defmodule AWS.GameLift do
 
     * `GetInstanceAccess`
   """
-  def describe_instances(client, input, options \\ []) do
-    request(client, "DescribeInstances", input, options)
+  def describe_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeInstances", input, options)
   end
 
   @doc """
@@ -1800,9 +1826,9 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [ Add FlexMatch to a Game Client](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html)
+  [ Add FlexMatch to a Game Client](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html)
 
-  [ Set Up FlexMatch Event Notification](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html)
+  [ Set Up FlexMatch Event Notification](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html)
 
   ## Related operations
 
@@ -1816,8 +1842,8 @@ defmodule AWS.GameLift do
 
     * `StartMatchBackfill`
   """
-  def describe_matchmaking(client, input, options \\ []) do
-    request(client, "DescribeMatchmaking", input, options)
+  def describe_matchmaking(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeMatchmaking", input, options)
   end
 
   @doc """
@@ -1835,7 +1861,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [ Setting Up FlexMatch Matchmakers](https://docs.aws.amazon.com/gamelift/latest/developerguide/matchmaker-build.html)
+  [ Setting Up FlexMatch Matchmakers](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html)
 
   ## Related operations
 
@@ -1855,8 +1881,8 @@ defmodule AWS.GameLift do
 
     * `DeleteMatchmakingRuleSet`
   """
-  def describe_matchmaking_configurations(client, input, options \\ []) do
-    request(client, "DescribeMatchmakingConfigurations", input, options)
+  def describe_matchmaking_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeMatchmakingConfigurations", input, options)
   end
 
   @doc """
@@ -1869,7 +1895,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-    * [Build a Rule Set](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html)
+    * [Build a Rule Set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
 
   ## Related operations
 
@@ -1889,8 +1915,8 @@ defmodule AWS.GameLift do
 
     * `DeleteMatchmakingRuleSet`
   """
-  def describe_matchmaking_rule_sets(client, input, options \\ []) do
-    request(client, "DescribeMatchmakingRuleSets", input, options)
+  def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeMatchmakingRuleSets", input, options)
   end
 
   @doc """
@@ -1924,8 +1950,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def describe_player_sessions(client, input, options \\ []) do
-    request(client, "DescribePlayerSessions", input, options)
+  def describe_player_sessions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePlayerSessions", input, options)
   end
 
   @doc """
@@ -1972,8 +1998,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def describe_runtime_configuration(client, input, options \\ []) do
-    request(client, "DescribeRuntimeConfiguration", input, options)
+  def describe_runtime_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRuntimeConfiguration", input, options)
   end
 
   @doc """
@@ -2009,8 +2035,8 @@ defmodule AWS.GameLift do
 
       * `StopFleetActions`
   """
-  def describe_scaling_policies(client, input, options \\ []) do
-    request(client, "DescribeScalingPolicies", input, options)
+  def describe_scaling_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeScalingPolicies", input, options)
   end
 
   @doc """
@@ -2035,8 +2061,8 @@ defmodule AWS.GameLift do
 
     * `DeleteScript`
   """
-  def describe_script(client, input, options \\ []) do
-    request(client, "DescribeScript", input, options)
+  def describe_script(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeScript", input, options)
   end
 
   @doc """
@@ -2057,8 +2083,8 @@ defmodule AWS.GameLift do
 
     * `DeleteVpcPeeringConnection`
   """
-  def describe_vpc_peering_authorizations(client, input, options \\ []) do
-    request(client, "DescribeVpcPeeringAuthorizations", input, options)
+  def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeVpcPeeringAuthorizations", input, options)
   end
 
   @doc """
@@ -2085,8 +2111,8 @@ defmodule AWS.GameLift do
 
     * `DeleteVpcPeeringConnection`
   """
-  def describe_vpc_peering_connections(client, input, options \\ []) do
-    request(client, "DescribeVpcPeeringConnections", input, options)
+  def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeVpcPeeringConnections", input, options)
   end
 
   @doc """
@@ -2118,8 +2144,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def get_game_session_log_url(client, input, options \\ []) do
-    request(client, "GetGameSessionLogUrl", input, options)
+  def get_game_session_log_url(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGameSessionLogUrl", input, options)
   end
 
   @doc """
@@ -2154,8 +2180,8 @@ defmodule AWS.GameLift do
 
     * `GetInstanceAccess`
   """
-  def get_instance_access(client, input, options \\ []) do
-    request(client, "GetInstanceAccess", input, options)
+  def get_instance_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstanceAccess", input, options)
   end
 
   @doc """
@@ -2178,8 +2204,8 @@ defmodule AWS.GameLift do
 
     * `ResolveAlias`
   """
-  def list_aliases(client, input, options \\ []) do
-    request(client, "ListAliases", input, options)
+  def list_aliases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAliases", input, options)
   end
 
   @doc """
@@ -2207,8 +2233,8 @@ defmodule AWS.GameLift do
 
     * `DeleteBuild`
   """
-  def list_builds(client, input, options \\ []) do
-    request(client, "ListBuilds", input, options)
+  def list_builds(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBuilds", input, options)
   end
 
   @doc """
@@ -2238,8 +2264,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def list_fleets(client, input, options \\ []) do
-    request(client, "ListFleets", input, options)
+  def list_fleets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFleets", input, options)
   end
 
   @doc """
@@ -2274,8 +2300,8 @@ defmodule AWS.GameLift do
 
     * `DescribeGameServerInstances`
   """
-  def list_game_server_groups(client, input, options \\ []) do
-    request(client, "ListGameServerGroups", input, options)
+  def list_game_server_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGameServerGroups", input, options)
   end
 
   @doc """
@@ -2306,8 +2332,8 @@ defmodule AWS.GameLift do
 
     * `DeregisterGameServer`
   """
-  def list_game_servers(client, input, options \\ []) do
-    request(client, "ListGameServers", input, options)
+  def list_game_servers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGameServers", input, options)
   end
 
   @doc """
@@ -2330,8 +2356,8 @@ defmodule AWS.GameLift do
 
     * `DeleteScript`
   """
-  def list_scripts(client, input, options \\ []) do
-    request(client, "ListScripts", input, options)
+  def list_scripts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListScripts", input, options)
   end
 
   @doc """
@@ -2372,8 +2398,8 @@ defmodule AWS.GameLift do
 
     * `ListTagsForResource`
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -2471,8 +2497,8 @@ defmodule AWS.GameLift do
 
       * `StopFleetActions`
   """
-  def put_scaling_policy(client, input, options \\ []) do
-    request(client, "PutScalingPolicy", input, options)
+  def put_scaling_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutScalingPolicy", input, options)
   end
 
   @doc """
@@ -2516,8 +2542,8 @@ defmodule AWS.GameLift do
 
     * `DeregisterGameServer`
   """
-  def register_game_server(client, input, options \\ []) do
-    request(client, "RegisterGameServer", input, options)
+  def register_game_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterGameServer", input, options)
   end
 
   @doc """
@@ -2546,8 +2572,8 @@ defmodule AWS.GameLift do
 
     * `DeleteBuild`
   """
-  def request_upload_credentials(client, input, options \\ []) do
-    request(client, "RequestUploadCredentials", input, options)
+  def request_upload_credentials(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RequestUploadCredentials", input, options)
   end
 
   @doc """
@@ -2565,8 +2591,8 @@ defmodule AWS.GameLift do
 
     * `ResolveAlias`
   """
-  def resolve_alias(client, input, options \\ []) do
-    request(client, "ResolveAlias", input, options)
+  def resolve_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResolveAlias", input, options)
   end
 
   @doc """
@@ -2607,8 +2633,8 @@ defmodule AWS.GameLift do
 
     * `DescribeGameServerInstances`
   """
-  def resume_game_server_group(client, input, options \\ []) do
-    request(client, "ResumeGameServerGroup", input, options)
+  def resume_game_server_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResumeGameServerGroup", input, options)
   end
 
   @doc """
@@ -2685,8 +2711,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def search_game_sessions(client, input, options \\ []) do
-    request(client, "SearchGameSessions", input, options)
+  def search_game_sessions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchGameSessions", input, options)
   end
 
   @doc """
@@ -2718,8 +2744,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def start_fleet_actions(client, input, options \\ []) do
-    request(client, "StartFleetActions", input, options)
+  def start_fleet_actions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartFleetActions", input, options)
   end
 
   @doc """
@@ -2788,8 +2814,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def start_game_session_placement(client, input, options \\ []) do
-    request(client, "StartGameSessionPlacement", input, options)
+  def start_game_session_placement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartGameSessionPlacement", input, options)
   end
 
   @doc """
@@ -2816,13 +2842,13 @@ defmodule AWS.GameLift do
   sessions for the new players. All tickets in the match are updated with the game
   session's connection information, and the `GameSession` object is updated to
   include matchmaker data on the new players. For more detail on how match
-  backfill requests are processed, see [ How Amazon GameLift FlexMatch Works](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html).
+  backfill requests are processed, see [ How Amazon GameLift FlexMatch Works](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html).
 
   ## Learn more
 
-  [ Backfill Existing Games with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html)
+  [ Backfill Existing Games with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html)
 
-  [ How GameLift FlexMatch Works](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html)
+  [ How GameLift FlexMatch Works](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html)
 
   ## Related operations
 
@@ -2836,68 +2862,43 @@ defmodule AWS.GameLift do
 
     * `StartMatchBackfill`
   """
-  def start_match_backfill(client, input, options \\ []) do
-    request(client, "StartMatchBackfill", input, options)
+  def start_match_backfill(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartMatchBackfill", input, options)
   end
 
   @doc """
   Uses FlexMatch to create a game match for a group of players based on custom
-  matchmaking rules, and starts a new game for the matched players.
+  matchmaking rules.
 
-  Each matchmaking request specifies the type of match to build (team
-  configuration, rules for an acceptable match, etc.). The request also specifies
-  the players to find a match for and where to host the new game session for
-  optimal performance. A matchmaking request might start with a single player or a
-  group of players who want to play together. FlexMatch finds additional players
-  as needed to fill the match. Match type, rules, and the queue used to place a
-  new game session are defined in a `MatchmakingConfiguration`.
+  If you're also using GameLift hosting, a new game session is started for the
+  matched players. Each matchmaking request identifies one or more players to find
+  a match for, and specifies the type of match to build, including the team
+  configuration and the rules for an acceptable match. When a matchmaking request
+  identifies a group of players who want to play together, FlexMatch finds
+  additional players to fill the match. Match type, rules, and other features are
+  defined in a `MatchmakingConfiguration`.
 
   To start matchmaking, provide a unique ticket ID, specify a matchmaking
-  configuration, and include the players to be matched. You must also include a
-  set of player attributes relevant for the matchmaking configuration. If
-  successful, a matchmaking ticket is returned with status set to `QUEUED`.
+  configuration, and include the players to be matched. For each player, you must
+  also include the player attribute values that are required by the matchmaking
+  configuration (in the rule set). If successful, a matchmaking ticket is returned
+  with status set to `QUEUED`.
 
-  Track the status of the ticket to respond as needed and acquire game session
-  connection information for successfully completed matches. Ticket status updates
-  are tracked using event notification through Amazon Simple Notification Service
-  (SNS), which is defined in the matchmaking configuration.
-
-  **Processing a matchmaking request** -- FlexMatch handles a matchmaking request
-  as follows:
-
-    1. Your client code submits a `StartMatchmaking` request for one or
-  more players and tracks the status of the request ticket.
-
-    2. FlexMatch uses this ticket and others in process to build an
-  acceptable match. When a potential match is identified, all tickets in the
-  proposed match are advanced to the next status.
-
-    3. If the match requires player acceptance (set in the matchmaking
-  configuration), the tickets move into status `REQUIRES_ACCEPTANCE`. This status
-  triggers your client code to solicit acceptance from all players in every ticket
-  involved in the match, and then call `AcceptMatch` for each player. If any
-  player rejects or fails to accept the match before a specified timeout, the
-  proposed match is dropped (see `AcceptMatch` for more details).
-
-    4. Once a match is proposed and accepted, the matchmaking tickets
-  move into status `PLACING`. FlexMatch locates resources for a new game session
-  using the game session queue (set in the matchmaking configuration) and creates
-  the game session based on the match data.
-
-    5. When the match is successfully placed, the matchmaking tickets
-  move into `COMPLETED` status. Connection information (including game session
-  endpoint and player session) is added to the matchmaking tickets. Matched
-  players can use the connection information to join the game.
+  Track the status of the ticket to respond as needed. If you're also using
+  GameLift hosting, a successfully completed ticket contains game session
+  connection information. Ticket status updates are tracked using event
+  notification through Amazon Simple Notification Service (SNS), which is defined
+  in the matchmaking configuration.
 
   ## Learn more
 
-  [ Add FlexMatch to a Game Client](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html)
+  [ Add FlexMatch to a Game Client](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html)
 
-  [ Set Up FlexMatch Event Notification](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html)
+  [ Set Up FlexMatch Event Notification](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html)
 
-  [ FlexMatch Integration Roadmap](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-tasks.html)
+  [ FlexMatch Integration Roadmap](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-tasks.html)
 
-  [ How GameLift FlexMatch Works](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html)
+  [ How GameLift FlexMatch Works](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html)
 
   ## Related operations
 
@@ -2911,8 +2912,8 @@ defmodule AWS.GameLift do
 
     * `StartMatchBackfill`
   """
-  def start_matchmaking(client, input, options \\ []) do
-    request(client, "StartMatchmaking", input, options)
+  def start_matchmaking(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartMatchmaking", input, options)
   end
 
   @doc """
@@ -2945,8 +2946,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def stop_fleet_actions(client, input, options \\ []) do
-    request(client, "StopFleetActions", input, options)
+  def stop_fleet_actions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopFleetActions", input, options)
   end
 
   @doc """
@@ -2975,8 +2976,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def stop_game_session_placement(client, input, options \\ []) do
-    request(client, "StopGameSessionPlacement", input, options)
+  def stop_game_session_placement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopGameSessionPlacement", input, options)
   end
 
   @doc """
@@ -2997,7 +2998,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [ Add FlexMatch to a Game Client](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html)
+  [ Add FlexMatch to a Game Client](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html)
 
   ## Related operations
 
@@ -3011,8 +3012,8 @@ defmodule AWS.GameLift do
 
     * `StartMatchBackfill`
   """
-  def stop_matchmaking(client, input, options \\ []) do
-    request(client, "StopMatchmaking", input, options)
+  def stop_matchmaking(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopMatchmaking", input, options)
   end
 
   @doc """
@@ -3060,8 +3061,8 @@ defmodule AWS.GameLift do
 
     * `DescribeGameServerInstances`
   """
-  def suspend_game_server_group(client, input, options \\ []) do
-    request(client, "SuspendGameServerGroup", input, options)
+  def suspend_game_server_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SuspendGameServerGroup", input, options)
   end
 
   @doc """
@@ -3105,8 +3106,8 @@ defmodule AWS.GameLift do
 
     * `ListTagsForResource`
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -3150,8 +3151,8 @@ defmodule AWS.GameLift do
 
     * `ListTagsForResource`
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -3173,8 +3174,8 @@ defmodule AWS.GameLift do
 
     * `ResolveAlias`
   """
-  def update_alias(client, input, options \\ []) do
-    request(client, "UpdateAlias", input, options)
+  def update_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAlias", input, options)
   end
 
   @doc """
@@ -3200,8 +3201,8 @@ defmodule AWS.GameLift do
 
     * `DeleteBuild`
   """
-  def update_build(client, input, options \\ []) do
-    request(client, "UpdateBuild", input, options)
+  def update_build(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateBuild", input, options)
   end
 
   @doc """
@@ -3236,8 +3237,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def update_fleet_attributes(client, input, options \\ []) do
-    request(client, "UpdateFleetAttributes", input, options)
+  def update_fleet_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFleetAttributes", input, options)
   end
 
   @doc """
@@ -3286,8 +3287,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def update_fleet_capacity(client, input, options \\ []) do
-    request(client, "UpdateFleetCapacity", input, options)
+  def update_fleet_capacity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFleetCapacity", input, options)
   end
 
   @doc """
@@ -3326,8 +3327,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def update_fleet_port_settings(client, input, options \\ []) do
-    request(client, "UpdateFleetPortSettings", input, options)
+  def update_fleet_port_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFleetPortSettings", input, options)
   end
 
   @doc """
@@ -3378,8 +3379,8 @@ defmodule AWS.GameLift do
 
     * `DeregisterGameServer`
   """
-  def update_game_server(client, input, options \\ []) do
-    request(client, "UpdateGameServer", input, options)
+  def update_game_server(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGameServer", input, options)
   end
 
   @doc """
@@ -3419,8 +3420,8 @@ defmodule AWS.GameLift do
 
     * `DescribeGameServerInstances`
   """
-  def update_game_server_group(client, input, options \\ []) do
-    request(client, "UpdateGameServerGroup", input, options)
+  def update_game_server_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGameServerGroup", input, options)
   end
 
   @doc """
@@ -3453,8 +3454,8 @@ defmodule AWS.GameLift do
 
       * `StopGameSessionPlacement`
   """
-  def update_game_session(client, input, options \\ []) do
-    request(client, "UpdateGameSession", input, options)
+  def update_game_session(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGameSession", input, options)
   end
 
   @doc """
@@ -3478,8 +3479,8 @@ defmodule AWS.GameLift do
 
     * `DeleteGameSessionQueue`
   """
-  def update_game_session_queue(client, input, options \\ []) do
-    request(client, "UpdateGameSessionQueue", input, options)
+  def update_game_session_queue(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGameSessionQueue", input, options)
   end
 
   @doc """
@@ -3491,7 +3492,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [ Design a FlexMatch Matchmaker](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html)
+  [ Design a FlexMatch Matchmaker](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html)
 
   ## Related operations
 
@@ -3511,8 +3512,8 @@ defmodule AWS.GameLift do
 
     * `DeleteMatchmakingRuleSet`
   """
-  def update_matchmaking_configuration(client, input, options \\ []) do
-    request(client, "UpdateMatchmakingConfiguration", input, options)
+  def update_matchmaking_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateMatchmakingConfiguration", input, options)
   end
 
   @doc """
@@ -3559,8 +3560,8 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def update_runtime_configuration(client, input, options \\ []) do
-    request(client, "UpdateRuntimeConfiguration", input, options)
+  def update_runtime_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRuntimeConfiguration", input, options)
   end
 
   @doc """
@@ -3595,8 +3596,8 @@ defmodule AWS.GameLift do
 
     * `DeleteScript`
   """
-  def update_script(client, input, options \\ []) do
-    request(client, "UpdateScript", input, options)
+  def update_script(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateScript", input, options)
   end
 
   @doc """
@@ -3608,7 +3609,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-    * [Build a Rule Set](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html)
+    * [Build a Rule Set](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html)
 
   ## Related operations
 
@@ -3628,61 +3629,7 @@ defmodule AWS.GameLift do
 
     * `DeleteMatchmakingRuleSet`
   """
-  def validate_matchmaking_rule_set(client, input, options \\ []) do
-    request(client, "ValidateMatchmakingRuleSet", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "gamelift"}
-    host = build_host("gamelift", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "GameLift.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def validate_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ValidateMatchmakingRuleSet", input, options)
   end
 end

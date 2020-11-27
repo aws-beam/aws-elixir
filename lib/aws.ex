@@ -1,6 +1,8 @@
 defmodule AWS do
   defmodule ServiceMetadata do
-    # TODO: add docs
+    @moduledoc false
+
+    # It keeps the metadata of a Web Service.
     defstruct abbreviation: nil,
               api_version: nil,
               content_type: nil,

@@ -4,8 +4,8 @@
 defmodule AWS.Codeartifact do
   @moduledoc """
   AWS CodeArtifact is a fully managed artifact repository compatible with
-  language-native package managers and build tools such as npm, Apache Maven, and
-  pip.
+  language-native package managers and build tools such as npm, Apache Maven,
+  NuGet, and pip.
 
   You can use CodeArtifact to share packages with development teams and pull
   packages. Packages can be pulled from both public and CodeArtifact repositories.
@@ -23,8 +23,8 @@ defmodule AWS.Codeartifact do
   each of which maps to a set of assets, or files. Repositories are polyglot, so a
   single repository can contain packages of any supported type. Each repository
   exposes endpoints for fetching and publishing packages using tools like the 
-  `npm` ** CLI, the Maven CLI (** `mvn` **), and ** `pip` **. You can create up to
-  100 repositories per AWS account.
+  `npm` ** CLI, the ** `NuGet` ** CLI, the Maven CLI (** `mvn` **), and ** `pip`
+  **.
 
     * **Domain**: Repositories are aggregated into a higher-level entity
   known as a *domain*. All package assets and metadata are stored in the domain,
@@ -47,7 +47,8 @@ defmodule AWS.Codeartifact do
     * **Package**: A *package* is a bundle of software and the metadata
   required to resolve dependencies and install the software. CodeArtifact supports
   [npm](https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html), [PyPI](https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html),
-  and [Maven](https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven) package formats.
+  [Maven](https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven), and [NuGet](https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget) package
+  formats.
 
   In CodeArtifact, a package consists of:
 
@@ -64,8 +65,7 @@ defmodule AWS.Codeartifact do
 
     * **Package version**: A version of a package, such as `@types/node
   12.6.9`. The version number format and semantics vary for different package
-  formats. For example, npm package versions must conform to the [Semantic
-  Versioning specification](https://semver.org/). In CodeArtifact, a package
+  formats. For example, npm package versions must conform to the [Semantic Versioning specification](https://semver.org/). In CodeArtifact, a package
   version consists of the version identifier, metadata at the package version
   level, and a set of assets.
 
@@ -146,6 +146,8 @@ defmodule AWS.Codeartifact do
 
       * `maven`
 
+      * `nuget`
+
     * `GetRepositoryPermissionsPolicy`: Returns the resource policy that
   is set on a repository.
 
@@ -169,17 +171,43 @@ defmodule AWS.Codeartifact do
     * `ListRepositoriesInDomain`: Returns a list of the repositories in
   a domain.
 
+    * `ListTagsForResource`: Returns a list of the tags associated with
+  a resource.
+
     * `PutDomainPermissionsPolicy`: Attaches a resource policy to a
   domain.
 
     * `PutRepositoryPermissionsPolicy`: Sets the resource policy on a
   repository that specifies permissions to access it.
 
+    * `TagResource`: Adds or updates tags for a resource.
+
+    * `UntagResource`: Removes a tag from a resource.
+
     * `UpdatePackageVersionsStatus`: Updates the status of one or more
   versions of a package.
 
     * `UpdateRepository`: Updates the properties of a repository.
   """
+
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-09-22",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "codeartifact",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "codeartifact",
+      signature_version: "v4",
+      signing_name: "codeartifact",
+      target_prefix: nil
+    }
+  end
 
   @doc """
   Adds an existing external connection to a repository.
@@ -189,18 +217,30 @@ defmodule AWS.Codeartifact do
   A repository can have one or more upstream repositories, or an external
   connection.
   """
-  def associate_external_connection(client, input, options \\ []) do
-    path_ = "/v1/repository/external-connection"
+  def associate_external_connection(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/repository/external-connection"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
         {"externalConnection", "external-connection"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -209,10 +249,11 @@ defmodule AWS.Codeartifact do
 
   You must specify `versions` or `versionRevisions`. You cannot specify both.
   """
-  def copy_package_versions(client, input, options \\ []) do
-    path_ = "/v1/package/versions/copy"
+  def copy_package_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package/versions/copy"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"destinationRepository", "destination-repository"},
         {"domain", "domain"},
@@ -220,10 +261,21 @@ defmodule AWS.Codeartifact do
         {"format", "format"},
         {"namespace", "namespace"},
         {"package", "package"},
-        {"sourceRepository", "source-repository"},
+        {"sourceRepository", "source-repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -239,31 +291,55 @@ defmodule AWS.Codeartifact do
   and share packages. You can use a second pre-production domain to test changes
   to the production domain configuration.
   """
-  def create_domain(client, input, options \\ []) do
-    path_ = "/v1/domain"
+  def create_domain(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/domain"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"domain", "domain"},
+        {"domain", "domain"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a repository.
   """
-  def create_repository(client, input, options \\ []) do
-    path_ = "/v1/repository"
+  def create_repository(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/repository"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -272,32 +348,56 @@ defmodule AWS.Codeartifact do
   You cannot delete a domain that contains repositories. If you want to delete a
   domain with repositories, first delete its repositories.
   """
-  def delete_domain(client, input, options \\ []) do
-    path_ = "/v1/domain"
+  def delete_domain(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/domain"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
+        {"domainOwner", "domain-owner"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the resource policy set on a domain.
   """
-  def delete_domain_permissions_policy(client, input, options \\ []) do
-    path_ = "/v1/domain/permissions/policy"
+  def delete_domain_permissions_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/domain/permissions/policy"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
-        {"policyRevision", "policy-revision"},
+        {"policyRevision", "policy-revision"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -311,36 +411,60 @@ defmodule AWS.Codeartifact do
   [UpdatePackageVersionsStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html)
   `.
   """
-  def delete_package_versions(client, input, options \\ []) do
-    path_ = "/v1/package/versions/delete"
+  def delete_package_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package/versions/delete"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
         {"format", "format"},
         {"namespace", "namespace"},
         {"package", "package"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a repository.
   """
-  def delete_repository(client, input, options \\ []) do
-    path_ = "/v1/repository"
+  def delete_repository(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/repository"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -354,18 +478,30 @@ defmodule AWS.Codeartifact do
   AWS users, roles, and accounts lose permissions to perform the repository
   actions granted by the deleted policy.
   """
-  def delete_repository_permissions_policy(client, input, options \\ []) do
-    path_ = "/v1/repository/permissions/policies"
+  def delete_repository_permissions_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/repository/permissions/policies"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
         {"policyRevision", "policy-revision"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -373,21 +509,36 @@ defmodule AWS.Codeartifact do
   ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html)
   object that contains information about the requested domain.
   """
-  def describe_domain(client, domain, domain_owner \\ nil, options \\ []) do
-    path_ = "/v1/domain"
+  def describe_domain(%Client{} = client, domain, domain_owner \\ nil, options \\ []) do
+    url_path = "/v1/domain"
     headers = []
-    query_ = []
-    query_ = if !is_nil(domain_owner) do
-      [{"domain-owner", domain_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain) do
-      [{"domain", domain} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -395,89 +546,159 @@ defmodule AWS.Codeartifact do
   ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
   object that contains information about the requested package version.
   """
-  def describe_package_version(client, domain, domain_owner \\ nil, format, namespace \\ nil, package, package_version, repository, options \\ []) do
-    path_ = "/v1/package/version"
+  def describe_package_version(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        format,
+        namespace \\ nil,
+        package,
+        package_version,
+        repository,
+        options \\ []
+      ) do
+    url_path = "/v1/package/version"
     headers = []
-    query_ = []
-    query_ = if !is_nil(repository) do
-      [{"repository", repository} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(package_version) do
-      [{"version", package_version} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(package) do
-      [{"package", package} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(namespace) do
-      [{"namespace", namespace} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(format) do
-      [{"format", format} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain_owner) do
-      [{"domain-owner", domain_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain) do
-      [{"domain", domain} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(repository) do
+        [{"repository", repository} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(package_version) do
+        [{"version", package_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(package) do
+        [{"package", package} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a `RepositoryDescription` object that contains detailed information
   about the requested repository.
   """
-  def describe_repository(client, domain, domain_owner \\ nil, repository, options \\ []) do
-    path_ = "/v1/repository"
+  def describe_repository(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        repository,
+        options \\ []
+      ) do
+    url_path = "/v1/repository"
     headers = []
-    query_ = []
-    query_ = if !is_nil(repository) do
-      [{"repository", repository} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain_owner) do
-      [{"domain-owner", domain_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain) do
-      [{"domain", domain} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(repository) do
+        [{"repository", repository} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes an existing external connection from a repository.
   """
-  def disassociate_external_connection(client, input, options \\ []) do
-    path_ = "/v1/repository/external-connection"
+  def disassociate_external_connection(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/repository/external-connection"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
         {"externalConnection", "external-connection"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -487,38 +708,52 @@ defmodule AWS.Codeartifact do
   A disposed package version cannot be restored in your repository because its
   assets are deleted.
 
-  To view all disposed package versions in a repository, use `
-  [ListackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html) ` and set the `
-  [status](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax)
-  ` parameter to `Disposed`.
+  To view all disposed package versions in a repository, use [
+  `ListPackageVersions`
+  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)
+  and set the [ `status`
+  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax)
+  parameter to `Disposed`.
 
-  To view information about a disposed package version, use `
-  [ListPackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html) ` and set the `
-  [status](https://docs.aws.amazon.com/API_ListPackageVersions.html#codeartifact-ListPackageVersions-response-status)
-  ` parameter to `Disposed`.
+  To view information about a disposed package version, use [
+  `DescribePackageVersion`
+  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html)..
   """
-  def dispose_package_versions(client, input, options \\ []) do
-    path_ = "/v1/package/versions/dispose"
+  def dispose_package_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package/versions/dispose"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
         {"format", "format"},
         {"namespace", "namespace"},
         {"package", "package"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
-  Generates a temporary authentication token for accessing repositories in the
+  Generates a temporary authorization token for accessing repositories in the
   domain.
 
   This API requires the `codeartifact:GetAuthorizationToken` and
-  `sts:GetServiceBearerToken` permissions.
+  `sts:GetServiceBearerToken` permissions. For more information about
+  authorization tokens, see [AWS CodeArtifact authentication and tokens](https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html).
 
   CodeArtifact authorization tokens are valid for a period of 12 hours when
   created with the `login` command. You can call `login` periodically to refresh
@@ -537,17 +772,29 @@ defmodule AWS.Codeartifact do
   See [Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for
   more information on controlling session duration.
   """
-  def get_authorization_token(client, input, options \\ []) do
-    path_ = "/v1/authorization-token"
+  def get_authorization_token(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/authorization-token"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
-        {"durationSeconds", "duration"},
+        {"durationSeconds", "duration"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -558,21 +805,41 @@ defmodule AWS.Codeartifact do
   ](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
   in the *AWS Identity and Access Management User Guide*.
   """
-  def get_domain_permissions_policy(client, domain, domain_owner \\ nil, options \\ []) do
-    path_ = "/v1/domain/permissions/policy"
+  def get_domain_permissions_policy(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/domain/permissions/policy"
     headers = []
-    query_ = []
-    query_ = if !is_nil(domain_owner) do
-      [{"domain-owner", domain_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain) do
-      [{"domain", domain} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -581,75 +848,108 @@ defmodule AWS.Codeartifact do
   For example, for a Maven package version, use `GetPackageVersionAsset` to
   download a `JAR` file, a `POM` file, or any other assets in the package version.
   """
-  def get_package_version_asset(client, asset, domain, domain_owner \\ nil, format, namespace \\ nil, package, package_version, package_version_revision \\ nil, repository, options \\ []) do
-    path_ = "/v1/package/version/asset"
+  def get_package_version_asset(
+        %Client{} = client,
+        asset,
+        domain,
+        domain_owner \\ nil,
+        format,
+        namespace \\ nil,
+        package,
+        package_version,
+        package_version_revision \\ nil,
+        repository,
+        options \\ []
+      ) do
+    url_path = "/v1/package/version/asset"
     headers = []
-    query_ = []
-    query_ = if !is_nil(repository) do
-      [{"repository", repository} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(package_version_revision) do
-      [{"revision", package_version_revision} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(package_version) do
-      [{"version", package_version} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(package) do
-      [{"package", package} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(namespace) do
-      [{"namespace", namespace} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(format) do
-      [{"format", format} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain_owner) do
-      [{"domain-owner", domain_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain) do
-      [{"domain", domain} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(asset) do
-      [{"asset", asset} | query_]
-    else
-      query_
-    end
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"X-AssetName", "assetName"},
-            {"X-PackageVersion", "packageVersion"},
-            {"X-PackageVersionRevision", "packageVersionRevision"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    query_params =
+      if !is_nil(repository) do
+        [{"repository", repository} | query_params]
+      else
+        query_params
+      end
 
-      result ->
-        result
-    end
+    query_params =
+      if !is_nil(package_version_revision) do
+        [{"revision", package_version_revision} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(package_version) do
+        [{"version", package_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(package) do
+        [{"package", package} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset) do
+        [{"asset", asset} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"X-AssetName", "assetName"},
+          {"X-PackageVersion", "packageVersion"},
+          {"X-PackageVersionRevision", "packageVersionRevision"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -662,46 +962,81 @@ defmodule AWS.Codeartifact do
   The returned text might contain formatting. For example, it might contain
   formatting for Markdown or reStructuredText.
   """
-  def get_package_version_readme(client, domain, domain_owner \\ nil, format, namespace \\ nil, package, package_version, repository, options \\ []) do
-    path_ = "/v1/package/version/readme"
+  def get_package_version_readme(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        format,
+        namespace \\ nil,
+        package,
+        package_version,
+        repository,
+        options \\ []
+      ) do
+    url_path = "/v1/package/version/readme"
     headers = []
-    query_ = []
-    query_ = if !is_nil(repository) do
-      [{"repository", repository} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(package_version) do
-      [{"version", package_version} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(package) do
-      [{"package", package} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(namespace) do
-      [{"namespace", namespace} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(format) do
-      [{"format", format} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain_owner) do
-      [{"domain-owner", domain_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain) do
-      [{"domain", domain} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(repository) do
+        [{"repository", repository} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(package_version) do
+        [{"version", package_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(package) do
+        [{"package", package} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -714,57 +1049,108 @@ defmodule AWS.Codeartifact do
     * `pypi`
 
     * `maven`
+
+    * `nuget`
   """
-  def get_repository_endpoint(client, domain, domain_owner \\ nil, format, repository, options \\ []) do
-    path_ = "/v1/repository/endpoint"
+  def get_repository_endpoint(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        format,
+        repository,
+        options \\ []
+      ) do
+    url_path = "/v1/repository/endpoint"
     headers = []
-    query_ = []
-    query_ = if !is_nil(repository) do
-      [{"repository", repository} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(format) do
-      [{"format", format} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain_owner) do
-      [{"domain-owner", domain_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain) do
-      [{"domain", domain} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(repository) do
+        [{"repository", repository} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns the resource policy that is set on a repository.
   """
-  def get_repository_permissions_policy(client, domain, domain_owner \\ nil, repository, options \\ []) do
-    path_ = "/v1/repository/permissions/policy"
+  def get_repository_permissions_policy(
+        %Client{} = client,
+        domain,
+        domain_owner \\ nil,
+        repository,
+        options \\ []
+      ) do
+    url_path = "/v1/repository/permissions/policy"
     headers = []
-    query_ = []
-    query_ = if !is_nil(repository) do
-      [{"repository", repository} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain_owner) do
-      [{"domain-owner", domain_owner} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(domain) do
-      [{"domain", domain} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(repository) do
+        [{"repository", repository} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_owner) do
+        [{"domain-owner", domain_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -774,11 +1160,22 @@ defmodule AWS.Codeartifact do
 
   Each returned `DomainSummary` object contains information about a domain.
   """
-  def list_domains(client, input, options \\ []) do
-    path_ = "/v1/domains"
+  def list_domains(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/domains"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -786,10 +1183,11 @@ defmodule AWS.Codeartifact do
   ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html)
   objects for assets in a package version.
   """
-  def list_package_version_assets(client, input, options \\ []) do
-    path_ = "/v1/package/version/assets"
+  def list_package_version_assets(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package/version/assets"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
@@ -799,10 +1197,21 @@ defmodule AWS.Codeartifact do
         {"nextToken", "next-token"},
         {"package", "package"},
         {"packageVersion", "version"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -815,10 +1224,11 @@ defmodule AWS.Codeartifact do
   npm packages and the `pom.xml` file for Maven). Any package version dependencies
   that are not listed in the configuration file are not returned.
   """
-  def list_package_version_dependencies(client, input, options \\ []) do
-    path_ = "/v1/package/version/dependencies"
+  def list_package_version_dependencies(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package/version/dependencies"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
@@ -827,10 +1237,21 @@ defmodule AWS.Codeartifact do
         {"nextToken", "next-token"},
         {"package", "package"},
         {"packageVersion", "version"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -838,10 +1259,11 @@ defmodule AWS.Codeartifact do
   ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html)
   objects for package versions in a repository that match the request parameters.
   """
-  def list_package_versions(client, input, options \\ []) do
-    path_ = "/v1/package/versions"
+  def list_package_versions(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package/versions"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
@@ -852,10 +1274,21 @@ defmodule AWS.Codeartifact do
         {"package", "package"},
         {"repository", "repository"},
         {"sortBy", "sortBy"},
-        {"status", "status"},
+        {"status", "status"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -863,10 +1296,11 @@ defmodule AWS.Codeartifact do
   ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html)
   objects for packages in a repository that match the request parameters.
   """
-  def list_packages(client, input, options \\ []) do
-    path_ = "/v1/packages"
+  def list_packages(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/packages"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
@@ -875,10 +1309,21 @@ defmodule AWS.Codeartifact do
         {"namespace", "namespace"},
         {"nextToken", "next-token"},
         {"packagePrefix", "package-prefix"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -889,17 +1334,29 @@ defmodule AWS.Codeartifact do
   Each `RepositorySummary` contains information about a repository in the
   specified AWS account and that matches the input parameters.
   """
-  def list_repositories(client, input, options \\ []) do
-    path_ = "/v1/repositories"
+  def list_repositories(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/repositories"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"maxResults", "max-results"},
         {"nextToken", "next-token"},
-        {"repositoryPrefix", "repository-prefix"},
+        {"repositoryPrefix", "repository-prefix"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -910,145 +1367,229 @@ defmodule AWS.Codeartifact do
   Each `RepositorySummary` contains information about a repository in the
   specified domain and that matches the input parameters.
   """
-  def list_repositories_in_domain(client, input, options \\ []) do
-    path_ = "/v1/domain/repositories"
+  def list_repositories_in_domain(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/domain/repositories"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"administratorAccount", "administrator-account"},
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
         {"maxResults", "max-results"},
         {"nextToken", "next-token"},
-        {"repositoryPrefix", "repository-prefix"},
+        {"repositoryPrefix", "repository-prefix"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets information about AWS tags for a specified Amazon Resource Name (ARN) in
+  AWS CodeArtifact.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/tags"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"resourceArn", "resourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Sets a resource policy on a domain that specifies permissions to access it.
+
+  When you call `PutDomainPermissionsPolicy`, the resource policy on the domain is
+  ignored when evaluting permissions. This ensures that the owner of a domain
+  cannot lock themselves out of the domain, which would prevent them from being
+  able to update the resource policy.
   """
-  def put_domain_permissions_policy(client, input, options \\ []) do
-    path_ = "/v1/domain/permissions/policy"
+  def put_domain_permissions_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/domain/permissions/policy"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Sets the resource policy on a repository that specifies permissions to access
   it.
+
+  When you call `PutRepositoryPermissionsPolicy`, the resource policy on the
+  repository is ignored when evaluting permissions. This ensures that the owner of
+  a repository cannot lock themselves out of the repository, which would prevent
+  them from being able to update the resource policy.
   """
-  def put_repository_permissions_policy(client, input, options \\ []) do
-    path_ = "/v1/repository/permissions/policy"
+  def put_repository_permissions_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/repository/permissions/policy"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Adds or updates tags for a resource in AWS CodeArtifact.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/tag"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"resourceArn", "resourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes tags from a resource in AWS CodeArtifact.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/untag"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"resourceArn", "resourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the status of one or more versions of a package.
   """
-  def update_package_versions_status(client, input, options \\ []) do
-    path_ = "/v1/package/versions/update_status"
+  def update_package_versions_status(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/package/versions/update_status"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
         {"format", "format"},
         {"namespace", "namespace"},
         {"package", "package"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Update the properties of a repository.
   """
-  def update_repository(client, input, options \\ []) do
-    path_ = "/v1/repository"
+  def update_repository(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/repository"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"domain", "domain"},
         {"domainOwner", "domain-owner"},
-        {"repository", "repository"},
+        {"repository", "repository"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "codeartifact"}
-    host = build_host("codeartifact", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

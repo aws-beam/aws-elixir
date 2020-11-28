@@ -64,6 +64,25 @@ defmodule AWS.SecretsManager do
   including enabling it and find your log files, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-10-17",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "secretsmanager",
+      global?: false,
+      protocol: "json",
+      service_id: "Secrets Manager",
+      signature_version: "v4",
+      signing_name: "secretsmanager",
+      target_prefix: "secretsmanager"
+    }
+  end
+
   @doc """
   Disables automatic scheduled rotation and cancels the rotation of a secret if
   currently in progress.
@@ -109,8 +128,8 @@ defmodule AWS.SecretsManager do
     * To list all of the versions currently associated with a secret,
   use `ListSecretVersionIds`.
   """
-  def cancel_rotate_secret(client, input, options \\ []) do
-    request(client, "CancelRotateSecret", input, options)
+  def cancel_rotate_secret(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelRotateSecret", input, options)
   end
 
   @doc """
@@ -189,8 +208,8 @@ defmodule AWS.SecretsManager do
   current secret, use `DescribeSecret` and examine the `SecretVersionsToStages`
   response value.
   """
-  def create_secret(client, input, options \\ []) do
-    request(client, "CreateSecret", input, options)
+  def create_secret(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSecret", input, options)
   end
 
   @doc """
@@ -211,8 +230,8 @@ defmodule AWS.SecretsManager do
 
     * To list all of the currently available secrets, use `ListSecrets`.
   """
-  def delete_resource_policy(client, input, options \\ []) do
-    request(client, "DeleteResourcePolicy", input, options)
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteResourcePolicy", input, options)
   end
 
   @doc """
@@ -255,8 +274,8 @@ defmodule AWS.SecretsManager do
     * To cancel deletion of a version of a secret before the recovery
   window has expired, use `RestoreSecret`.
   """
-  def delete_secret(client, input, options \\ []) do
-    request(client, "DeleteSecret", input, options)
+  def delete_secret(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSecret", input, options)
   end
 
   @doc """
@@ -282,8 +301,8 @@ defmodule AWS.SecretsManager do
 
     * To list all of the secrets in the AWS account, use `ListSecrets`.
   """
-  def describe_secret(client, input, options \\ []) do
-    request(client, "DescribeSecret", input, options)
+  def describe_secret(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSecret", input, options)
   end
 
   @doc """
@@ -299,8 +318,8 @@ defmodule AWS.SecretsManager do
 
     * secretsmanager:GetRandomPassword
   """
-  def get_random_password(client, input, options \\ []) do
-    request(client, "GetRandomPassword", input, options)
+  def get_random_password(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRandomPassword", input, options)
   end
 
   @doc """
@@ -326,8 +345,8 @@ defmodule AWS.SecretsManager do
 
     * To list all of the currently available secrets, use `ListSecrets`.
   """
-  def get_resource_policy(client, input, options \\ []) do
-    request(client, "GetResourcePolicy", input, options)
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResourcePolicy", input, options)
   end
 
   @doc """
@@ -352,8 +371,8 @@ defmodule AWS.SecretsManager do
     * To retrieve the non-encrypted details for the secret, use
   `DescribeSecret`.
   """
-  def get_secret_value(client, input, options \\ []) do
-    request(client, "GetSecretValue", input, options)
+  def get_secret_value(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSecretValue", input, options)
   end
 
   @doc """
@@ -379,8 +398,8 @@ defmodule AWS.SecretsManager do
 
     * To list the secrets in an account, use `ListSecrets`.
   """
-  def list_secret_version_ids(client, input, options \\ []) do
-    request(client, "ListSecretVersionIds", input, options)
+  def list_secret_version_ids(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSecretVersionIds", input, options)
   end
 
   @doc """
@@ -408,8 +427,8 @@ defmodule AWS.SecretsManager do
     * To list the versions attached to a secret, use
   `ListSecretVersionIds`.
   """
-  def list_secrets(client, input, options \\ []) do
-    request(client, "ListSecrets", input, options)
+  def list_secrets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSecrets", input, options)
   end
 
   @doc """
@@ -442,8 +461,8 @@ defmodule AWS.SecretsManager do
 
     * To list all of the currently available secrets, use `ListSecrets`.
   """
-  def put_resource_policy(client, input, options \\ []) do
-    request(client, "PutResourcePolicy", input, options)
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
   end
 
   @doc """
@@ -520,8 +539,8 @@ defmodule AWS.SecretsManager do
     * To list the versions attached to a secret, use
   `ListSecretVersionIds`.
   """
-  def put_secret_value(client, input, options \\ []) do
-    request(client, "PutSecretValue", input, options)
+  def put_secret_value(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutSecretValue", input, options)
   end
 
   @doc """
@@ -540,8 +559,8 @@ defmodule AWS.SecretsManager do
 
     * To delete a secret, use `DeleteSecret`.
   """
-  def restore_secret(client, input, options \\ []) do
-    request(client, "RestoreSecret", input, options)
+  def restore_secret(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RestoreSecret", input, options)
   end
 
   @doc """
@@ -604,8 +623,8 @@ defmodule AWS.SecretsManager do
     * To attach staging labels to or remove staging labels from a
   version of a secret, use `UpdateSecretVersionStage`.
   """
-  def rotate_secret(client, input, options \\ []) do
-    request(client, "RotateSecret", input, options)
+  def rotate_secret(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RotateSecret", input, options)
   end
 
   @doc """
@@ -655,8 +674,8 @@ defmodule AWS.SecretsManager do
     * To view the list of tags attached to a secret, use
   `DescribeSecret`.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -684,8 +703,8 @@ defmodule AWS.SecretsManager do
     * To view the list of tags attached to a secret, use
   `DescribeSecret`.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -756,8 +775,8 @@ defmodule AWS.SecretsManager do
     * To list the versions contained in a secret, use
   `ListSecretVersionIds`.
   """
-  def update_secret(client, input, options \\ []) do
-    request(client, "UpdateSecret", input, options)
+  def update_secret(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSecret", input, options)
   end
 
   @doc """
@@ -794,8 +813,8 @@ defmodule AWS.SecretsManager do
   with a version of a secret, use ` `DescribeSecret` ` and examine the
   `SecretVersionsToStages` response value.
   """
-  def update_secret_version_stage(client, input, options \\ []) do
-    request(client, "UpdateSecretVersionStage", input, options)
+  def update_secret_version_stage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSecretVersionStage", input, options)
   end
 
   @doc """
@@ -806,61 +825,7 @@ defmodule AWS.SecretsManager do
   white space and line breaks for better readability. Submit your input as a
   single line JSON string. A resource-based policy is optional.
   """
-  def validate_resource_policy(client, input, options \\ []) do
-    request(client, "ValidateResourcePolicy", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "secretsmanager"}
-    host = build_host("secretsmanager", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "secretsmanager.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def validate_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ValidateResourcePolicy", input, options)
   end
 end

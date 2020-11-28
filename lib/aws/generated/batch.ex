@@ -23,6 +23,25 @@ defmodule AWS.Batch do
   scientists, and engineers to run their batch jobs in the AWS Cloud.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-08-10",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "batch",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Batch",
+      signature_version: "v4",
+      signing_name: "batch",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Cancels a job in an AWS Batch job queue.
 
@@ -31,11 +50,22 @@ defmodule AWS.Batch do
   API operation still succeeds, even if no job is cancelled); these jobs must be
   terminated with the `TerminateJob` operation.
   """
-  def cancel_job(client, input, options \\ []) do
-    path_ = "/v1/canceljob"
+  def cancel_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/canceljob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -80,11 +110,22 @@ defmodule AWS.Batch do
 
      Delete the old compute environment.
   """
-  def create_compute_environment(client, input, options \\ []) do
-    path_ = "/v1/createcomputeenvironment"
+  def create_compute_environment(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/createcomputeenvironment"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -99,11 +140,22 @@ defmodule AWS.Batch do
   the job queue with a higher priority is given preference for scheduling jobs to
   that compute environment.
   """
-  def create_job_queue(client, input, options \\ []) do
-    path_ = "/v1/createjobqueue"
+  def create_job_queue(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/createjobqueue"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -113,11 +165,22 @@ defmodule AWS.Batch do
   `DISABLED` with the `UpdateComputeEnvironment` API operation and disassociate it
   from any job queues with the `UpdateJobQueue` API operation.
   """
-  def delete_compute_environment(client, input, options \\ []) do
-    path_ = "/v1/deletecomputeenvironment"
+  def delete_compute_environment(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/deletecomputeenvironment"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -129,11 +192,22 @@ defmodule AWS.Batch do
   It is not necessary to disassociate compute environments from a queue before
   submitting a `DeleteJobQueue` request.
   """
-  def delete_job_queue(client, input, options \\ []) do
-    path_ = "/v1/deletejobqueue"
+  def delete_job_queue(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/deletejobqueue"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -141,11 +215,22 @@ defmodule AWS.Batch do
 
   Job definitions will be permanently deleted after 180 days.
   """
-  def deregister_job_definition(client, input, options \\ []) do
-    path_ = "/v1/deregisterjobdefinition"
+  def deregister_job_definition(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/deregisterjobdefinition"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -155,11 +240,22 @@ defmodule AWS.Batch do
   `DescribeComputeEnvironment` operation to determine the `ecsClusterArn` that you
   should launch your Amazon ECS container instances into.
   """
-  def describe_compute_environments(client, input, options \\ []) do
-    path_ = "/v1/describecomputeenvironments"
+  def describe_compute_environments(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describecomputeenvironments"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -168,31 +264,64 @@ defmodule AWS.Batch do
   You can specify a `status` (such as `ACTIVE`) to only return job definitions
   that match that status.
   """
-  def describe_job_definitions(client, input, options \\ []) do
-    path_ = "/v1/describejobdefinitions"
+  def describe_job_definitions(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describejobdefinitions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes one or more of your job queues.
   """
-  def describe_job_queues(client, input, options \\ []) do
-    path_ = "/v1/describejobqueues"
+  def describe_job_queues(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describejobqueues"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a list of AWS Batch jobs.
   """
-  def describe_jobs(client, input, options \\ []) do
-    path_ = "/v1/describejobs"
+  def describe_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describejobs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -209,11 +338,22 @@ defmodule AWS.Batch do
   You can filter the results by job status with the `jobStatus` parameter. If you
   do not specify a status, only `RUNNING` jobs are returned.
   """
-  def list_jobs(client, input, options \\ []) do
-    path_ = "/v1/listjobs"
+  def list_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/listjobs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -223,21 +363,43 @@ defmodule AWS.Batch do
   definitions, and job queues. ARNs for child jobs of array and multi-node
   parallel (MNP) jobs are not supported.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Registers an AWS Batch job definition.
   """
-  def register_job_definition(client, input, options \\ []) do
-    path_ = "/v1/registerjobdefinition"
+  def register_job_definition(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/registerjobdefinition"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -246,11 +408,22 @@ defmodule AWS.Batch do
   Parameters specified during `SubmitJob` override parameters defined in the job
   definition.
   """
-  def submit_job(client, input, options \\ []) do
-    path_ = "/v1/submitjob"
+  def submit_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/submitjob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -262,11 +435,22 @@ defmodule AWS.Batch do
   environments, jobs, job definitions, and job queues. ARNs for child jobs of
   array and multi-node parallel (MNP) jobs are not supported.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -276,108 +460,89 @@ defmodule AWS.Batch do
   them to transition to `FAILED`. Jobs that have not progressed to the `STARTING`
   state are cancelled.
   """
-  def terminate_job(client, input, options \\ []) do
-    path_ = "/v1/terminatejob"
+  def terminate_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/terminatejob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes specified tags from an AWS Batch resource.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates an AWS Batch compute environment.
   """
-  def update_compute_environment(client, input, options \\ []) do
-    path_ = "/v1/updatecomputeenvironment"
+  def update_compute_environment(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/updatecomputeenvironment"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a job queue.
   """
-  def update_job_queue(client, input, options \\ []) do
-    path_ = "/v1/updatejobqueue"
+  def update_job_queue(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/updatejobqueue"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "batch"}
-    host = build_host("batch", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

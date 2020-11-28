@@ -6,11 +6,11 @@ defmodule AWS.Lightsail do
   Amazon Lightsail is the easiest way to get started with Amazon Web Services
   (AWS) for developers who need to build websites or web applications.
 
-  It includes everything you need to launch your project quickly – instances
-  (virtual private servers), managed databases, SSD-based block storage, static IP
-  addresses, load balancers, content delivery network (CDN) distributions, DNS
-  management of registered domains, and snapshots (backups) – for a low,
-  predictable monthly price.
+  It includes everything you need to launch your project quickly - instances
+  (virtual private servers), container services, managed databases, SSD-based
+  block storage, static IP addresses, load balancers, content delivery network
+  (CDN) distributions, DNS management of registered domains, and resource
+  snapshots (backups) - for a low, predictable monthly price.
 
   You can manage your Lightsail resources using the Lightsail console, Lightsail
   API, AWS Command Line Interface (AWS CLI), or SDKs. For more information about
@@ -18,16 +18,35 @@ defmodule AWS.Lightsail do
 
   This API Reference provides detailed information about the actions, data types,
   parameters, and errors of the Lightsail service. For more information about the
-  supported AWS Regions, endpoints, and service quotas for the Lightsail service,
+  supported AWS Regions, endpoints, and service quotas of the Lightsail service,
   see [Amazon Lightsail Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
   *AWS General Reference*.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-11-28",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "lightsail",
+      global?: false,
+      protocol: "json",
+      service_id: "Lightsail",
+      signature_version: "v4",
+      signing_name: "lightsail",
+      target_prefix: "Lightsail_20161128"
+    }
+  end
+
   @doc """
   Allocates a static IP address.
   """
-  def allocate_static_ip(client, input, options \\ []) do
-    request(client, "AllocateStaticIp", input, options)
+  def allocate_static_ip(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AllocateStaticIp", input, options)
   end
 
   @doc """
@@ -45,8 +64,8 @@ defmodule AWS.Lightsail do
   reference an origin in any AWS Region, and distribute its content globally.
   However, all distributions are located in the `us-east-1` Region.
   """
-  def attach_certificate_to_distribution(client, input, options \\ []) do
-    request(client, "AttachCertificateToDistribution", input, options)
+  def attach_certificate_to_distribution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachCertificateToDistribution", input, options)
   end
 
   @doc """
@@ -57,8 +76,8 @@ defmodule AWS.Lightsail do
   applied to the resource identified by `disk name`. For more information, see the
   [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def attach_disk(client, input, options \\ []) do
-    request(client, "AttachDisk", input, options)
+  def attach_disk(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachDisk", input, options)
   end
 
   @doc """
@@ -71,8 +90,8 @@ defmodule AWS.Lightsail do
   control via resource tags applied to the resource identified by `load balancer
   name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def attach_instances_to_load_balancer(client, input, options \\ []) do
-    request(client, "AttachInstancesToLoadBalancer", input, options)
+  def attach_instances_to_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachInstancesToLoadBalancer", input, options)
   end
 
   @doc """
@@ -90,15 +109,15 @@ defmodule AWS.Lightsail do
   control via resource tags applied to the resource identified by `load balancer
   name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def attach_load_balancer_tls_certificate(client, input, options \\ []) do
-    request(client, "AttachLoadBalancerTlsCertificate", input, options)
+  def attach_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachLoadBalancerTlsCertificate", input, options)
   end
 
   @doc """
   Attaches a static IP address to a specific Amazon Lightsail instance.
   """
-  def attach_static_ip(client, input, options \\ []) do
-    request(client, "AttachStaticIp", input, options)
+  def attach_static_ip(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachStaticIp", input, options)
   end
 
   @doc """
@@ -108,8 +127,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `instanceName`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def close_instance_public_ports(client, input, options \\ []) do
-    request(client, "CloseInstancePublicPorts", input, options)
+  def close_instance_public_ports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CloseInstancePublicPorts", input, options)
   end
 
   @doc """
@@ -126,8 +145,8 @@ defmodule AWS.Lightsail do
   `source resource name`, `target snapshot name`, and either the `restore date` or
   the `use latest restorable auto snapshot` parameters.
   """
-  def copy_snapshot(client, input, options \\ []) do
-    request(client, "CopySnapshot", input, options)
+  def copy_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CopySnapshot", input, options)
   end
 
   @doc """
@@ -142,8 +161,8 @@ defmodule AWS.Lightsail do
   reference an origin in any AWS Region, and distribute its content globally.
   However, all distributions are located in the `us-east-1` Region.
   """
-  def create_certificate(client, input, options \\ []) do
-    request(client, "CreateCertificate", input, options)
+  def create_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCertificate", input, options)
   end
 
   @doc """
@@ -158,8 +177,8 @@ defmodule AWS.Lightsail do
   `create cloud formation stack` operation again with the same export snapshot
   record.
   """
-  def create_cloud_formation_stack(client, input, options \\ []) do
-    request(client, "CreateCloudFormationStack", input, options)
+  def create_cloud_formation_stack(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCloudFormationStack", input, options)
   end
 
   @doc """
@@ -171,8 +190,72 @@ defmodule AWS.Lightsail do
   AWS Regions, and SMS text messages cannot be sent to some countries/regions. For
   more information, see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
-  def create_contact_method(client, input, options \\ []) do
-    request(client, "CreateContactMethod", input, options)
+  def create_contact_method(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateContactMethod", input, options)
+  end
+
+  @doc """
+  Creates an Amazon Lightsail container service.
+
+  A Lightsail container service is a compute resource to which you can deploy
+  containers. For more information, see [Container services in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-containers)
+  in the *Lightsail Dev Guide*.
+  """
+  def create_container_service(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateContainerService", input, options)
+  end
+
+  @doc """
+  Creates a deployment for your Amazon Lightsail container service.
+
+  A deployment specifies the containers that will be launched on the container
+  service and their settings, such as the ports to open, the environment variables
+  to apply, and the launch command to run. It also specifies the container that
+  will serve as the public endpoint of the deployment and its settings, such as
+  the HTTP or HTTPS port to use, and the health check configuration.
+
+  You can deploy containers to your container service using container images from
+  a public registry like Docker Hub, or from your local machine. For more
+  information, see [Creating container images for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images)
+  in the *Lightsail Dev Guide*.
+  """
+  def create_container_service_deployment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateContainerServiceDeployment", input, options)
+  end
+
+  @doc """
+  Creates a temporary set of log in credentials that you can use to log in to the
+  Docker process on your local machine.
+
+  After you're logged in, you can use the native Docker commands to push your
+  local container images to the container image registry of your Amazon Lightsail
+  account so that you can use them with your Lightsail container service. The log
+  in credentials expire 12 hours after they are created, at which point you will
+  need to create a new set of log in credentials.
+
+  You can only push container images to the container service registry of your
+  Lightsail account. You cannot pull container images perform any other container
+  image management actions on the container service registry of your Lightsail
+  account.
+
+  After you push your container images to the container image registry of your
+  Lightsail account, use the `RegisterContainerImage` action to register the
+  pushed images to a specific Lightsail container service.
+
+  This action is not required if you install and use the Lightsail Control
+  (lightsailctl) plugin to push container images to your Lightsail container
+  service. For more information, see [Pushing and managing container images on your Amazon Lightsail container
+  services](amazon-lightsail-pushing-container-images) in the *Lightsail Dev
+  Guide*.
+  """
+  def create_container_service_registry_login(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateContainerServiceRegistryLogin",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -182,8 +265,8 @@ defmodule AWS.Lightsail do
   The `create disk` operation supports tag-based access control via request tags.
   For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_disk(client, input, options \\ []) do
-    request(client, "CreateDisk", input, options)
+  def create_disk(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDisk", input, options)
   end
 
   @doc """
@@ -196,8 +279,8 @@ defmodule AWS.Lightsail do
   request tags and resource tags applied to the resource identified by `disk
   snapshot name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_disk_from_snapshot(client, input, options \\ []) do
-    request(client, "CreateDiskFromSnapshot", input, options)
+  def create_disk_from_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDiskFromSnapshot", input, options)
   end
 
   @doc """
@@ -229,8 +312,8 @@ defmodule AWS.Lightsail do
   The `create disk snapshot` operation supports tag-based access control via
   request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_disk_snapshot(client, input, options \\ []) do
-    request(client, "CreateDiskSnapshot", input, options)
+  def create_disk_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDiskSnapshot", input, options)
   end
 
   @doc """
@@ -238,10 +321,10 @@ defmodule AWS.Lightsail do
 
   A distribution is a globally distributed network of caching servers that improve
   the performance of your website or web application hosted on a Lightsail
-  instance. For more information, see [Content delivery networks in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-networks).
+  instance. For more information, see [Content delivery networks in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions).
   """
-  def create_distribution(client, input, options \\ []) do
-    request(client, "CreateDistribution", input, options)
+  def create_distribution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDistribution", input, options)
   end
 
   @doc """
@@ -250,21 +333,21 @@ defmodule AWS.Lightsail do
   The `create domain` operation supports tag-based access control via request
   tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_domain(client, input, options \\ []) do
-    request(client, "CreateDomain", input, options)
+  def create_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDomain", input, options)
   end
 
   @doc """
-  Creates one of the following entry records associated with the domain: Address
-  (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of
-  authority (SOA), service locator (SRV), or text (TXT).
+  Creates one of the following domain name system (DNS) records in a domain DNS
+  zone: Address (A), canonical name (CNAME), mail exchanger (MX), name server
+  (NS), start of authority (SOA), service locator (SRV), or text (TXT).
 
   The `create domain entry` operation supports tag-based access control via
   resource tags applied to the resource identified by `domain name`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_domain_entry(client, input, options \\ []) do
-    request(client, "CreateDomainEntry", input, options)
+  def create_domain_entry(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDomainEntry", input, options)
   end
 
   @doc """
@@ -275,8 +358,8 @@ defmodule AWS.Lightsail do
   The `create instance snapshot` operation supports tag-based access control via
   request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_instance_snapshot(client, input, options \\ []) do
-    request(client, "CreateInstanceSnapshot", input, options)
+  def create_instance_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateInstanceSnapshot", input, options)
   end
 
   @doc """
@@ -285,8 +368,8 @@ defmodule AWS.Lightsail do
   The `create instances` operation supports tag-based access control via request
   tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_instances(client, input, options \\ []) do
-    request(client, "CreateInstances", input, options)
+  def create_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateInstances", input, options)
   end
 
   @doc """
@@ -297,8 +380,8 @@ defmodule AWS.Lightsail do
   via request tags and resource tags applied to the resource identified by
   `instance snapshot name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_instances_from_snapshot(client, input, options \\ []) do
-    request(client, "CreateInstancesFromSnapshot", input, options)
+  def create_instances_from_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateInstancesFromSnapshot", input, options)
   end
 
   @doc """
@@ -307,8 +390,8 @@ defmodule AWS.Lightsail do
   The `create key pair` operation supports tag-based access control via request
   tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_key_pair(client, input, options \\ []) do
-    request(client, "CreateKeyPair", input, options)
+  def create_key_pair(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateKeyPair", input, options)
   end
 
   @doc """
@@ -325,8 +408,8 @@ defmodule AWS.Lightsail do
   The `create load balancer` operation supports tag-based access control via
   request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_load_balancer(client, input, options \\ []) do
-    request(client, "CreateLoadBalancer", input, options)
+  def create_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLoadBalancer", input, options)
   end
 
   @doc """
@@ -338,8 +421,8 @@ defmodule AWS.Lightsail do
   control via resource tags applied to the resource identified by `load balancer
   name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_load_balancer_tls_certificate(client, input, options \\ []) do
-    request(client, "CreateLoadBalancerTlsCertificate", input, options)
+  def create_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLoadBalancerTlsCertificate", input, options)
   end
 
   @doc """
@@ -348,8 +431,8 @@ defmodule AWS.Lightsail do
   The `create relational database` operation supports tag-based access control via
   request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_relational_database(client, input, options \\ []) do
-    request(client, "CreateRelationalDatabase", input, options)
+  def create_relational_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRelationalDatabase", input, options)
   end
 
   @doc """
@@ -364,8 +447,14 @@ defmodule AWS.Lightsail do
   identified by relationalDatabaseSnapshotName. For more information, see the
   [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_relational_database_from_snapshot(client, input, options \\ []) do
-    request(client, "CreateRelationalDatabaseFromSnapshot", input, options)
+  def create_relational_database_from_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateRelationalDatabaseFromSnapshot",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -377,8 +466,8 @@ defmodule AWS.Lightsail do
   The `create relational database snapshot` operation supports tag-based access
   control via request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def create_relational_database_snapshot(client, input, options \\ []) do
-    request(client, "CreateRelationalDatabaseSnapshot", input, options)
+  def create_relational_database_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRelationalDatabaseSnapshot", input, options)
   end
 
   @doc """
@@ -389,8 +478,8 @@ defmodule AWS.Lightsail do
   and a banner displayed on the Amazon Lightsail console. For more information,
   see [Alarms in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
   """
-  def delete_alarm(client, input, options \\ []) do
-    request(client, "DeleteAlarm", input, options)
+  def delete_alarm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAlarm", input, options)
   end
 
   @doc """
@@ -398,8 +487,8 @@ defmodule AWS.Lightsail do
 
   For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
-  def delete_auto_snapshot(client, input, options \\ []) do
-    request(client, "DeleteAutoSnapshot", input, options)
+  def delete_auto_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAutoSnapshot", input, options)
   end
 
   @doc """
@@ -410,8 +499,8 @@ defmodule AWS.Lightsail do
   Use the `DetachCertificateFromDistribution` action to detach a certificate from
   a distribution.
   """
-  def delete_certificate(client, input, options \\ []) do
-    request(client, "DeleteCertificate", input, options)
+  def delete_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCertificate", input, options)
   end
 
   @doc """
@@ -423,8 +512,23 @@ defmodule AWS.Lightsail do
   AWS Regions, and SMS text messages cannot be sent to some countries/regions. For
   more information, see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
-  def delete_contact_method(client, input, options \\ []) do
-    request(client, "DeleteContactMethod", input, options)
+  def delete_contact_method(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteContactMethod", input, options)
+  end
+
+  @doc """
+  Deletes a container image that is registered to your Amazon Lightsail container
+  service.
+  """
+  def delete_container_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteContainerImage", input, options)
+  end
+
+  @doc """
+  Deletes your Amazon Lightsail container service.
+  """
+  def delete_container_service(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteContainerService", input, options)
   end
 
   @doc """
@@ -439,8 +543,8 @@ defmodule AWS.Lightsail do
   applied to the resource identified by `disk name`. For more information, see the
   [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_disk(client, input, options \\ []) do
-    request(client, "DeleteDisk", input, options)
+  def delete_disk(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDisk", input, options)
   end
 
   @doc """
@@ -457,15 +561,15 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `disk snapshot name`. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_disk_snapshot(client, input, options \\ []) do
-    request(client, "DeleteDiskSnapshot", input, options)
+  def delete_disk_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDiskSnapshot", input, options)
   end
 
   @doc """
   Deletes your Amazon Lightsail content delivery network (CDN) distribution.
   """
-  def delete_distribution(client, input, options \\ []) do
-    request(client, "DeleteDistribution", input, options)
+  def delete_distribution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDistribution", input, options)
   end
 
   @doc """
@@ -475,8 +579,8 @@ defmodule AWS.Lightsail do
   tags applied to the resource identified by `domain name`. For more information,
   see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_domain(client, input, options \\ []) do
-    request(client, "DeleteDomain", input, options)
+  def delete_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDomain", input, options)
   end
 
   @doc """
@@ -486,8 +590,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `domain name`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_domain_entry(client, input, options \\ []) do
-    request(client, "DeleteDomainEntry", input, options)
+  def delete_domain_entry(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDomainEntry", input, options)
   end
 
   @doc """
@@ -497,8 +601,8 @@ defmodule AWS.Lightsail do
   tags applied to the resource identified by `instance name`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_instance(client, input, options \\ []) do
-    request(client, "DeleteInstance", input, options)
+  def delete_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteInstance", input, options)
   end
 
   @doc """
@@ -508,8 +612,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `instance snapshot name`.
   For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_instance_snapshot(client, input, options \\ []) do
-    request(client, "DeleteInstanceSnapshot", input, options)
+  def delete_instance_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteInstanceSnapshot", input, options)
   end
 
   @doc """
@@ -519,8 +623,8 @@ defmodule AWS.Lightsail do
   tags applied to the resource identified by `key pair name`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_key_pair(client, input, options \\ []) do
-    request(client, "DeleteKeyPair", input, options)
+  def delete_key_pair(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteKeyPair", input, options)
   end
 
   @doc """
@@ -535,8 +639,8 @@ defmodule AWS.Lightsail do
   instance. For more information, see [Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
   client](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection).
   """
-  def delete_known_host_keys(client, input, options \\ []) do
-    request(client, "DeleteKnownHostKeys", input, options)
+  def delete_known_host_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteKnownHostKeys", input, options)
   end
 
   @doc """
@@ -549,8 +653,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `load balancer name`. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_load_balancer(client, input, options \\ []) do
-    request(client, "DeleteLoadBalancer", input, options)
+  def delete_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLoadBalancer", input, options)
   end
 
   @doc """
@@ -560,8 +664,8 @@ defmodule AWS.Lightsail do
   control via resource tags applied to the resource identified by `load balancer
   name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_load_balancer_tls_certificate(client, input, options \\ []) do
-    request(client, "DeleteLoadBalancerTlsCertificate", input, options)
+  def delete_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLoadBalancerTlsCertificate", input, options)
   end
 
   @doc """
@@ -571,8 +675,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by relationalDatabaseName. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_relational_database(client, input, options \\ []) do
-    request(client, "DeleteRelationalDatabase", input, options)
+  def delete_relational_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRelationalDatabase", input, options)
   end
 
   @doc """
@@ -582,8 +686,8 @@ defmodule AWS.Lightsail do
   control via resource tags applied to the resource identified by
   relationalDatabaseName. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def delete_relational_database_snapshot(client, input, options \\ []) do
-    request(client, "DeleteRelationalDatabaseSnapshot", input, options)
+  def delete_relational_database_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRelationalDatabaseSnapshot", input, options)
   end
 
   @doc """
@@ -593,8 +697,8 @@ defmodule AWS.Lightsail do
   After the certificate is detached, your distribution stops accepting traffic for
   all of the domains that are associated with the certificate.
   """
-  def detach_certificate_from_distribution(client, input, options \\ []) do
-    request(client, "DetachCertificateFromDistribution", input, options)
+  def detach_certificate_from_distribution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachCertificateFromDistribution", input, options)
   end
 
   @doc """
@@ -607,8 +711,8 @@ defmodule AWS.Lightsail do
   applied to the resource identified by `disk name`. For more information, see the
   [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def detach_disk(client, input, options \\ []) do
-    request(client, "DetachDisk", input, options)
+  def detach_disk(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachDisk", input, options)
   end
 
   @doc """
@@ -621,15 +725,15 @@ defmodule AWS.Lightsail do
   control via resource tags applied to the resource identified by `load balancer
   name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def detach_instances_from_load_balancer(client, input, options \\ []) do
-    request(client, "DetachInstancesFromLoadBalancer", input, options)
+  def detach_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachInstancesFromLoadBalancer", input, options)
   end
 
   @doc """
   Detaches a static IP from the Amazon Lightsail instance to which it is attached.
   """
-  def detach_static_ip(client, input, options \\ []) do
-    request(client, "DetachStaticIp", input, options)
+  def detach_static_ip(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachStaticIp", input, options)
   end
 
   @doc """
@@ -637,15 +741,15 @@ defmodule AWS.Lightsail do
 
   For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
-  def disable_add_on(client, input, options \\ []) do
-    request(client, "DisableAddOn", input, options)
+  def disable_add_on(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableAddOn", input, options)
   end
 
   @doc """
   Downloads the default SSH key pair from the user's account.
   """
-  def download_default_key_pair(client, input, options \\ []) do
-    request(client, "DownloadDefaultKeyPair", input, options)
+  def download_default_key_pair(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DownloadDefaultKeyPair", input, options)
   end
 
   @doc """
@@ -653,8 +757,8 @@ defmodule AWS.Lightsail do
 
   For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
-  def enable_add_on(client, input, options \\ []) do
-    request(client, "EnableAddOn", input, options)
+  def enable_add_on(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableAddOn", input, options)
   end
 
   @doc """
@@ -677,15 +781,15 @@ defmodule AWS.Lightsail do
   Use the `get instance snapshots` or `get disk snapshots` operations to get a
   list of snapshots that you can export to Amazon EC2.
   """
-  def export_snapshot(client, input, options \\ []) do
-    request(client, "ExportSnapshot", input, options)
+  def export_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExportSnapshot", input, options)
   end
 
   @doc """
   Returns the names of all active (not deleted) resources.
   """
-  def get_active_names(client, input, options \\ []) do
-    request(client, "GetActiveNames", input, options)
+  def get_active_names(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetActiveNames", input, options)
   end
 
   @doc """
@@ -700,8 +804,8 @@ defmodule AWS.Lightsail do
   and a banner displayed on the Amazon Lightsail console. For more information,
   see [Alarms in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
   """
-  def get_alarms(client, input, options \\ []) do
-    request(client, "GetAlarms", input, options)
+  def get_alarms(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAlarms", input, options)
   end
 
   @doc """
@@ -709,8 +813,8 @@ defmodule AWS.Lightsail do
 
   For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
-  def get_auto_snapshots(client, input, options \\ []) do
-    request(client, "GetAutoSnapshots", input, options)
+  def get_auto_snapshots(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAutoSnapshots", input, options)
   end
 
   @doc """
@@ -725,8 +829,8 @@ defmodule AWS.Lightsail do
   available to create new instances. Blueprints are marked inactive when they
   become outdated due to operating system updates or new application releases.
   """
-  def get_blueprints(client, input, options \\ []) do
-    request(client, "GetBlueprints", input, options)
+  def get_blueprints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBlueprints", input, options)
   end
 
   @doc """
@@ -734,8 +838,8 @@ defmodule AWS.Lightsail do
 
   A bundle describes the specs for your virtual private server (or *instance*).
   """
-  def get_bundles(client, input, options \\ []) do
-    request(client, "GetBundles", input, options)
+  def get_bundles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBundles", input, options)
   end
 
   @doc """
@@ -745,8 +849,8 @@ defmodule AWS.Lightsail do
   request. The response will include only the certificate Amazon Resource Name
   (ARN), certificate name, domain name, and tags.
   """
-  def get_certificates(client, input, options \\ []) do
-    request(client, "GetCertificates", input, options)
+  def get_certificates(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCertificates", input, options)
   end
 
   @doc """
@@ -756,8 +860,8 @@ defmodule AWS.Lightsail do
   An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an
   exported Lightsail snapshot.
   """
-  def get_cloud_formation_stack_records(client, input, options \\ []) do
-    request(client, "GetCloudFormationStackRecords", input, options)
+  def get_cloud_formation_stack_records(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCloudFormationStackRecords", input, options)
   end
 
   @doc """
@@ -772,38 +876,123 @@ defmodule AWS.Lightsail do
   AWS Regions, and SMS text messages cannot be sent to some countries/regions. For
   more information, see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
-  def get_contact_methods(client, input, options \\ []) do
-    request(client, "GetContactMethods", input, options)
+  def get_contact_methods(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContactMethods", input, options)
+  end
+
+  @doc """
+  Returns information about Amazon Lightsail containers, such as the current
+  version of the Lightsail Control (lightsailctl) plugin.
+  """
+  def get_container_a_p_i_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContainerAPIMetadata", input, options)
+  end
+
+  @doc """
+  Returns the container images that are registered to your Amazon Lightsail
+  container service.
+
+  If you created a deployment on your Lightsail container service that uses
+  container images from a public registry like Docker Hub, those images are not
+  returned as part of this action. Those images are not registered to your
+  Lightsail container service.
+  """
+  def get_container_images(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContainerImages", input, options)
+  end
+
+  @doc """
+  Returns the log events of a container of your Amazon Lightsail container
+  service.
+
+  If your container service has more than one node (i.e., a scale greater than 1),
+  then the log events that are returned for the specified container are merged
+  from all nodes on your container service.
+
+  Container logs are retained for a certain amount of time. For more information,
+  see [Amazon Lightsail endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
+  *AWS General Reference*.
+  """
+  def get_container_log(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContainerLog", input, options)
+  end
+
+  @doc """
+  Returns the deployments for your Amazon Lightsail container service
+
+  A deployment specifies the settings, such as the ports and launch command, of
+  containers that are deployed to your container service.
+
+  The deployments are ordered by version in ascending order. The newest version is
+  listed at the top of the response.
+
+  A set number of deployments are kept before the oldest one is replaced with the
+  newest one. For more information, see [Amazon Lightsail endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
+  *AWS General Reference*.
+  """
+  def get_container_service_deployments(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContainerServiceDeployments", input, options)
+  end
+
+  @doc """
+  Returns the data points of a specific metric of your Amazon Lightsail container
+  service.
+
+  Metrics report the utilization of your resources. Monitor and collect metric
+  data regularly to maintain the reliability, availability, and performance of
+  your resources.
+  """
+  def get_container_service_metric_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContainerServiceMetricData", input, options)
+  end
+
+  @doc """
+  Returns the list of powers that can be specified for your Amazon Lightsail
+  container services.
+
+  The power specifies the amount of memory, the number of vCPUs, and the base
+  price of the container service.
+  """
+  def get_container_service_powers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContainerServicePowers", input, options)
+  end
+
+  @doc """
+  Returns information about one or more of your Amazon Lightsail container
+  services.
+  """
+  def get_container_services(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContainerServices", input, options)
   end
 
   @doc """
   Returns information about a specific block storage disk.
   """
-  def get_disk(client, input, options \\ []) do
-    request(client, "GetDisk", input, options)
+  def get_disk(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDisk", input, options)
   end
 
   @doc """
   Returns information about a specific block storage disk snapshot.
   """
-  def get_disk_snapshot(client, input, options \\ []) do
-    request(client, "GetDiskSnapshot", input, options)
+  def get_disk_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDiskSnapshot", input, options)
   end
 
   @doc """
   Returns information about all block storage disk snapshots in your AWS account
   and region.
   """
-  def get_disk_snapshots(client, input, options \\ []) do
-    request(client, "GetDiskSnapshots", input, options)
+  def get_disk_snapshots(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDiskSnapshots", input, options)
   end
 
   @doc """
   Returns information about all block storage disks in your AWS account and
   region.
   """
-  def get_disks(client, input, options \\ []) do
-    request(client, "GetDisks", input, options)
+  def get_disks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDisks", input, options)
   end
 
   @doc """
@@ -813,16 +1002,16 @@ defmodule AWS.Lightsail do
   A distribution bundle specifies the monthly network transfer quota and monthly
   cost of your dsitribution.
   """
-  def get_distribution_bundles(client, input, options \\ []) do
-    request(client, "GetDistributionBundles", input, options)
+  def get_distribution_bundles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDistributionBundles", input, options)
   end
 
   @doc """
   Returns the timestamp and status of the last cache reset of a specific Amazon
   Lightsail content delivery network (CDN) distribution.
   """
-  def get_distribution_latest_cache_reset(client, input, options \\ []) do
-    request(client, "GetDistributionLatestCacheReset", input, options)
+  def get_distribution_latest_cache_reset(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDistributionLatestCacheReset", input, options)
   end
 
   @doc """
@@ -833,30 +1022,30 @@ defmodule AWS.Lightsail do
   by them. Monitor and collect metric data regularly to maintain the reliability,
   availability, and performance of your resources.
   """
-  def get_distribution_metric_data(client, input, options \\ []) do
-    request(client, "GetDistributionMetricData", input, options)
+  def get_distribution_metric_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDistributionMetricData", input, options)
   end
 
   @doc """
   Returns information about one or more of your Amazon Lightsail content delivery
   network (CDN) distributions.
   """
-  def get_distributions(client, input, options \\ []) do
-    request(client, "GetDistributions", input, options)
+  def get_distributions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDistributions", input, options)
   end
 
   @doc """
   Returns information about a specific domain recordset.
   """
-  def get_domain(client, input, options \\ []) do
-    request(client, "GetDomain", input, options)
+  def get_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDomain", input, options)
   end
 
   @doc """
   Returns a list of all domains in the user's account.
   """
-  def get_domains(client, input, options \\ []) do
-    request(client, "GetDomains", input, options)
+  def get_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDomains", input, options)
   end
 
   @doc """
@@ -866,16 +1055,16 @@ defmodule AWS.Lightsail do
   An export snapshot record can be used to create a new Amazon EC2 instance and
   its related resources with the `create cloud formation stack` operation.
   """
-  def get_export_snapshot_records(client, input, options \\ []) do
-    request(client, "GetExportSnapshotRecords", input, options)
+  def get_export_snapshot_records(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetExportSnapshotRecords", input, options)
   end
 
   @doc """
   Returns information about a specific Amazon Lightsail instance, which is a
   virtual private server.
   """
-  def get_instance(client, input, options \\ []) do
-    request(client, "GetInstance", input, options)
+  def get_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstance", input, options)
   end
 
   @doc """
@@ -886,8 +1075,8 @@ defmodule AWS.Lightsail do
   via resource tags applied to the resource identified by `instance name`. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def get_instance_access_details(client, input, options \\ []) do
-    request(client, "GetInstanceAccessDetails", input, options)
+  def get_instance_access_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstanceAccessDetails", input, options)
   end
 
   @doc """
@@ -898,8 +1087,8 @@ defmodule AWS.Lightsail do
   by them. Monitor and collect metric data regularly to maintain the reliability,
   availability, and performance of your resources.
   """
-  def get_instance_metric_data(client, input, options \\ []) do
-    request(client, "GetInstanceMetricData", input, options)
+  def get_instance_metric_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstanceMetricData", input, options)
   end
 
   @doc """
@@ -907,22 +1096,22 @@ defmodule AWS.Lightsail do
   IP addresses allowed to connect to the instance through the ports, and the
   protocol.
   """
-  def get_instance_port_states(client, input, options \\ []) do
-    request(client, "GetInstancePortStates", input, options)
+  def get_instance_port_states(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstancePortStates", input, options)
   end
 
   @doc """
   Returns information about a specific instance snapshot.
   """
-  def get_instance_snapshot(client, input, options \\ []) do
-    request(client, "GetInstanceSnapshot", input, options)
+  def get_instance_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstanceSnapshot", input, options)
   end
 
   @doc """
   Returns all instance snapshots for the user's account.
   """
-  def get_instance_snapshots(client, input, options \\ []) do
-    request(client, "GetInstanceSnapshots", input, options)
+  def get_instance_snapshots(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstanceSnapshots", input, options)
   end
 
   @doc """
@@ -930,37 +1119,37 @@ defmodule AWS.Lightsail do
 
   Works on one instance at a time.
   """
-  def get_instance_state(client, input, options \\ []) do
-    request(client, "GetInstanceState", input, options)
+  def get_instance_state(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstanceState", input, options)
   end
 
   @doc """
   Returns information about all Amazon Lightsail virtual private servers, or
   *instances*.
   """
-  def get_instances(client, input, options \\ []) do
-    request(client, "GetInstances", input, options)
+  def get_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstances", input, options)
   end
 
   @doc """
   Returns information about a specific key pair.
   """
-  def get_key_pair(client, input, options \\ []) do
-    request(client, "GetKeyPair", input, options)
+  def get_key_pair(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetKeyPair", input, options)
   end
 
   @doc """
   Returns information about all key pairs in the user's account.
   """
-  def get_key_pairs(client, input, options \\ []) do
-    request(client, "GetKeyPairs", input, options)
+  def get_key_pairs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetKeyPairs", input, options)
   end
 
   @doc """
   Returns information about the specified Lightsail load balancer.
   """
-  def get_load_balancer(client, input, options \\ []) do
-    request(client, "GetLoadBalancer", input, options)
+  def get_load_balancer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLoadBalancer", input, options)
   end
 
   @doc """
@@ -970,8 +1159,8 @@ defmodule AWS.Lightsail do
   by them. Monitor and collect metric data regularly to maintain the reliability,
   availability, and performance of your resources.
   """
-  def get_load_balancer_metric_data(client, input, options \\ []) do
-    request(client, "GetLoadBalancerMetricData", input, options)
+  def get_load_balancer_metric_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLoadBalancerMetricData", input, options)
   end
 
   @doc """
@@ -983,15 +1172,15 @@ defmodule AWS.Lightsail do
   You can have a maximum of 2 certificates associated with a Lightsail load
   balancer. One is active and the other is inactive.
   """
-  def get_load_balancer_tls_certificates(client, input, options \\ []) do
-    request(client, "GetLoadBalancerTlsCertificates", input, options)
+  def get_load_balancer_tls_certificates(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLoadBalancerTlsCertificates", input, options)
   end
 
   @doc """
   Returns information about all load balancers in an account.
   """
-  def get_load_balancers(client, input, options \\ []) do
-    request(client, "GetLoadBalancers", input, options)
+  def get_load_balancers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLoadBalancers", input, options)
   end
 
   @doc """
@@ -1000,8 +1189,8 @@ defmodule AWS.Lightsail do
   Operations include events such as when you create an instance, allocate a static
   IP, attach a static IP, and so on.
   """
-  def get_operation(client, input, options \\ []) do
-    request(client, "GetOperation", input, options)
+  def get_operation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOperation", input, options)
   end
 
   @doc """
@@ -1011,15 +1200,15 @@ defmodule AWS.Lightsail do
   be paged by making each subsequent call to `GetOperations` use the maximum
   (last) `statusChangedAt` value from the previous request.
   """
-  def get_operations(client, input, options \\ []) do
-    request(client, "GetOperations", input, options)
+  def get_operations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOperations", input, options)
   end
 
   @doc """
   Gets operations for a specific resource (e.g., an instance or a static IP).
   """
-  def get_operations_for_resource(client, input, options \\ []) do
-    request(client, "GetOperationsForResource", input, options)
+  def get_operations_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOperationsForResource", input, options)
   end
 
   @doc """
@@ -1028,15 +1217,15 @@ defmodule AWS.Lightsail do
   Use the `include availability zones` parameter to also return the Availability
   Zones in a region.
   """
-  def get_regions(client, input, options \\ []) do
-    request(client, "GetRegions", input, options)
+  def get_regions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRegions", input, options)
   end
 
   @doc """
   Returns information about a specific database in Amazon Lightsail.
   """
-  def get_relational_database(client, input, options \\ []) do
-    request(client, "GetRelationalDatabase", input, options)
+  def get_relational_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabase", input, options)
   end
 
   @doc """
@@ -1047,8 +1236,8 @@ defmodule AWS.Lightsail do
   You can use a blueprint ID to create a new database that runs a specific
   database engine.
   """
-  def get_relational_database_blueprints(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseBlueprints", input, options)
+  def get_relational_database_blueprints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseBlueprints", input, options)
   end
 
   @doc """
@@ -1059,30 +1248,30 @@ defmodule AWS.Lightsail do
   You can use a bundle ID to create a new database with explicit performance
   specifications.
   """
-  def get_relational_database_bundles(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseBundles", input, options)
+  def get_relational_database_bundles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseBundles", input, options)
   end
 
   @doc """
   Returns a list of events for a specific database in Amazon Lightsail.
   """
-  def get_relational_database_events(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseEvents", input, options)
+  def get_relational_database_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseEvents", input, options)
   end
 
   @doc """
   Returns a list of log events for a database in Amazon Lightsail.
   """
-  def get_relational_database_log_events(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseLogEvents", input, options)
+  def get_relational_database_log_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseLogEvents", input, options)
   end
 
   @doc """
   Returns a list of available log streams for a specific database in Amazon
   Lightsail.
   """
-  def get_relational_database_log_streams(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseLogStreams", input, options)
+  def get_relational_database_log_streams(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseLogStreams", input, options)
   end
 
   @doc """
@@ -1093,8 +1282,14 @@ defmodule AWS.Lightsail do
   access control via resource tags applied to the resource identified by
   relationalDatabaseName.
   """
-  def get_relational_database_master_user_password(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseMasterUserPassword", input, options)
+  def get_relational_database_master_user_password(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetRelationalDatabaseMasterUserPassword",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1105,8 +1300,8 @@ defmodule AWS.Lightsail do
   by them. Monitor and collect metric data regularly to maintain the reliability,
   availability, and performance of your resources.
   """
-  def get_relational_database_metric_data(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseMetricData", input, options)
+  def get_relational_database_metric_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseMetricData", input, options)
   end
 
   @doc """
@@ -1118,57 +1313,57 @@ defmodule AWS.Lightsail do
   require a reboot, whether the parameter is modifiable, the allowed values, and
   the data types.
   """
-  def get_relational_database_parameters(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseParameters", input, options)
+  def get_relational_database_parameters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseParameters", input, options)
   end
 
   @doc """
   Returns information about a specific database snapshot in Amazon Lightsail.
   """
-  def get_relational_database_snapshot(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseSnapshot", input, options)
+  def get_relational_database_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseSnapshot", input, options)
   end
 
   @doc """
   Returns information about all of your database snapshots in Amazon Lightsail.
   """
-  def get_relational_database_snapshots(client, input, options \\ []) do
-    request(client, "GetRelationalDatabaseSnapshots", input, options)
+  def get_relational_database_snapshots(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabaseSnapshots", input, options)
   end
 
   @doc """
   Returns information about all of your databases in Amazon Lightsail.
   """
-  def get_relational_databases(client, input, options \\ []) do
-    request(client, "GetRelationalDatabases", input, options)
+  def get_relational_databases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRelationalDatabases", input, options)
   end
 
   @doc """
   Returns information about a specific static IP.
   """
-  def get_static_ip(client, input, options \\ []) do
-    request(client, "GetStaticIp", input, options)
+  def get_static_ip(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetStaticIp", input, options)
   end
 
   @doc """
   Returns information about all static IPs in the user's account.
   """
-  def get_static_ips(client, input, options \\ []) do
-    request(client, "GetStaticIps", input, options)
+  def get_static_ips(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetStaticIps", input, options)
   end
 
   @doc """
   Imports a public SSH key from a specific key pair.
   """
-  def import_key_pair(client, input, options \\ []) do
-    request(client, "ImportKeyPair", input, options)
+  def import_key_pair(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportKeyPair", input, options)
   end
 
   @doc """
   Returns a Boolean value indicating whether your Lightsail VPC is peered.
   """
-  def is_vpc_peered(client, input, options \\ []) do
-    request(client, "IsVpcPeered", input, options)
+  def is_vpc_peered(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "IsVpcPeered", input, options)
   end
 
   @doc """
@@ -1180,15 +1375,15 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `instanceName`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def open_instance_public_ports(client, input, options \\ []) do
-    request(client, "OpenInstancePublicPorts", input, options)
+  def open_instance_public_ports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "OpenInstancePublicPorts", input, options)
   end
 
   @doc """
   Tries to peer the Lightsail VPC with the user's default VPC.
   """
-  def peer_vpc(client, input, options \\ []) do
-    request(client, "PeerVpc", input, options)
+  def peer_vpc(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PeerVpc", input, options)
   end
 
   @doc """
@@ -1207,8 +1402,8 @@ defmodule AWS.Lightsail do
   completely overwrites the previous configuration of the alarm. The alarm is then
   evaluated with the updated configuration.
   """
-  def put_alarm(client, input, options \\ []) do
-    request(client, "PutAlarm", input, options)
+  def put_alarm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutAlarm", input, options)
   end
 
   @doc """
@@ -1225,8 +1420,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `instanceName`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def put_instance_public_ports(client, input, options \\ []) do
-    request(client, "PutInstancePublicPorts", input, options)
+  def put_instance_public_ports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutInstancePublicPorts", input, options)
   end
 
   @doc """
@@ -1236,8 +1431,8 @@ defmodule AWS.Lightsail do
   tags applied to the resource identified by `instance name`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def reboot_instance(client, input, options \\ []) do
-    request(client, "RebootInstance", input, options)
+  def reboot_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RebootInstance", input, options)
   end
 
   @doc """
@@ -1247,15 +1442,28 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by relationalDatabaseName. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def reboot_relational_database(client, input, options \\ []) do
-    request(client, "RebootRelationalDatabase", input, options)
+  def reboot_relational_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RebootRelationalDatabase", input, options)
+  end
+
+  @doc """
+  Registers a container image to your Amazon Lightsail container service.
+
+  This action is not required if you install and use the Lightsail Control
+  (lightsailctl) plugin to push container images to your Lightsail container
+  service. For more information, see [Pushing and managing container images on your Amazon Lightsail container
+  services](amazon-lightsail-pushing-container-images) in the *Lightsail Dev
+  Guide*.
+  """
+  def register_container_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterContainerImage", input, options)
   end
 
   @doc """
   Deletes a specific static IP from your account.
   """
-  def release_static_ip(client, input, options \\ []) do
-    request(client, "ReleaseStaticIp", input, options)
+  def release_static_ip(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ReleaseStaticIp", input, options)
   end
 
   @doc """
@@ -1265,8 +1473,8 @@ defmodule AWS.Lightsail do
   After resetting the cache, the next time a content request is made, your
   distribution pulls, serves, and caches it from the origin.
   """
-  def reset_distribution_cache(client, input, options \\ []) do
-    request(client, "ResetDistributionCache", input, options)
+  def reset_distribution_cache(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResetDistributionCache", input, options)
   end
 
   @doc """
@@ -1288,8 +1496,8 @@ defmodule AWS.Lightsail do
   Notifications are not sent to an email contact method until after it is
   verified, and confirmed as valid.
   """
-  def send_contact_method_verification(client, input, options \\ []) do
-    request(client, "SendContactMethodVerification", input, options)
+  def send_contact_method_verification(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendContactMethodVerification", input, options)
   end
 
   @doc """
@@ -1306,8 +1514,8 @@ defmodule AWS.Lightsail do
   tags applied to the resource identified by `instance name`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def start_instance(client, input, options \\ []) do
-    request(client, "StartInstance", input, options)
+  def start_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartInstance", input, options)
   end
 
   @doc """
@@ -1319,8 +1527,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by relationalDatabaseName. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def start_relational_database(client, input, options \\ []) do
-    request(client, "StartRelationalDatabase", input, options)
+  def start_relational_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartRelationalDatabase", input, options)
   end
 
   @doc """
@@ -1335,8 +1543,8 @@ defmodule AWS.Lightsail do
   tags applied to the resource identified by `instance name`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def stop_instance(client, input, options \\ []) do
-    request(client, "StopInstance", input, options)
+  def stop_instance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopInstance", input, options)
   end
 
   @doc """
@@ -1346,8 +1554,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by relationalDatabaseName. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def stop_relational_database(client, input, options \\ []) do
-    request(client, "StopRelationalDatabase", input, options)
+  def stop_relational_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopRelationalDatabase", input, options)
   end
 
   @doc """
@@ -1361,8 +1569,8 @@ defmodule AWS.Lightsail do
   and resource tags applied to the resource identified by `resource name`. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -1377,15 +1585,15 @@ defmodule AWS.Lightsail do
   and a banner displayed on the Amazon Lightsail console. For more information,
   see [Alarms in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
   """
-  def test_alarm(client, input, options \\ []) do
-    request(client, "TestAlarm", input, options)
+  def test_alarm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TestAlarm", input, options)
   end
 
   @doc """
   Attempts to unpeer the Lightsail VPC from the user's default VPC.
   """
-  def unpeer_vpc(client, input, options \\ []) do
-    request(client, "UnpeerVpc", input, options)
+  def unpeer_vpc(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UnpeerVpc", input, options)
   end
 
   @doc """
@@ -1396,8 +1604,16 @@ defmodule AWS.Lightsail do
   tags and resource tags applied to the resource identified by `resource name`.
   For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates the configuration of your Amazon Lightsail container service, such as
+  its power, scale, and public domain names.
+  """
+  def update_container_service(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateContainerService", input, options)
   end
 
   @doc """
@@ -1406,8 +1622,8 @@ defmodule AWS.Lightsail do
 
   Use this action to update the configuration of your existing distribution
   """
-  def update_distribution(client, input, options \\ []) do
-    request(client, "UpdateDistribution", input, options)
+  def update_distribution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDistribution", input, options)
   end
 
   @doc """
@@ -1425,8 +1641,8 @@ defmodule AWS.Lightsail do
   the `GetDistributions` action. The `ableToUpdateBundle` parameter in the result
   will indicate whether you can currently update your distribution's bundle.
   """
-  def update_distribution_bundle(client, input, options \\ []) do
-    request(client, "UpdateDistributionBundle", input, options)
+  def update_distribution_bundle(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDistributionBundle", input, options)
   end
 
   @doc """
@@ -1436,8 +1652,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by `domain name`. For more
   information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def update_domain_entry(client, input, options \\ []) do
-    request(client, "UpdateDomainEntry", input, options)
+  def update_domain_entry(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDomainEntry", input, options)
   end
 
   @doc """
@@ -1449,8 +1665,8 @@ defmodule AWS.Lightsail do
   via resource tags applied to the resource identified by `load balancer name`.
   For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def update_load_balancer_attribute(client, input, options \\ []) do
-    request(client, "UpdateLoadBalancerAttribute", input, options)
+  def update_load_balancer_attribute(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLoadBalancerAttribute", input, options)
   end
 
   @doc """
@@ -1463,8 +1679,8 @@ defmodule AWS.Lightsail do
   resource tags applied to the resource identified by relationalDatabaseName. For
   more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def update_relational_database(client, input, options \\ []) do
-    request(client, "UpdateRelationalDatabase", input, options)
+  def update_relational_database(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRelationalDatabase", input, options)
   end
 
   @doc """
@@ -1481,61 +1697,7 @@ defmodule AWS.Lightsail do
   control via resource tags applied to the resource identified by
   relationalDatabaseName. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
   """
-  def update_relational_database_parameters(client, input, options \\ []) do
-    request(client, "UpdateRelationalDatabaseParameters", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "lightsail"}
-    host = build_host("lightsail", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "Lightsail_20161128.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_relational_database_parameters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRelationalDatabaseParameters", input, options)
   end
 end

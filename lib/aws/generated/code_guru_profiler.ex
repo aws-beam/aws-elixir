@@ -28,32 +28,74 @@ defmodule AWS.CodeGuruProfiler do
   `
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-07-18",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "codeguru-profiler",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "CodeGuruProfiler",
+      signature_version: "v4",
+      signing_name: "codeguru-profiler",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Add up to 2 anomaly notifications channels for a profiling group.
   """
-  def add_notification_channels(client, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration"
+  def add_notification_channels(%Client{} = client, profiling_group_name, input, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns the time series of values for a requested list of frame metrics from a
   time period.
   """
-  def batch_get_frame_metric_data(client, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/frames/-/metrics"
+  def batch_get_frame_metric_data(%Client{} = client, profiling_group_name, input, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/frames/-/metrics"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"endTime", "endTime"},
         {"period", "period"},
         {"startTime", "startTime"},
-        {"targetResolution", "targetResolution"},
+        {"targetResolution", "targetResolution"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -63,35 +105,69 @@ defmodule AWS.CodeGuruProfiler do
   For example, `ConfigureAgent` can be used to tell and agent whether to profile
   or not and for how long to return profiling data.
   """
-  def configure_agent(client, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/configureAgent"
+  def configure_agent(%Client{} = client, profiling_group_name, input, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/configureAgent"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Creates a profiling group.
   """
-  def create_profiling_group(client, input, options \\ []) do
-    path_ = "/profilingGroups"
+  def create_profiling_group(%Client{} = client, input, options \\ []) do
+    url_path = "/profilingGroups"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"clientToken", "clientToken"},
+        {"clientToken", "clientToken"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, 201)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Deletes a profiling group.
   """
-  def delete_profiling_group(client, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}"
+  def delete_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -99,11 +175,22 @@ defmodule AWS.CodeGuruProfiler do
   ](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html)
   object that contains information about the requested profiling group.
   """
-  def describe_profiling_group(client, profiling_group_name, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}"
+  def describe_profiling_group(%Client{} = client, profiling_group_name, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -112,46 +199,91 @@ defmodule AWS.CodeGuruProfiler do
   objects that contain analysis results for all profiling groups in your AWS
   account.
   """
-  def get_findings_report_account_summary(client, daily_reports_only \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/internal/findingsReports"
+  def get_findings_report_account_summary(
+        %Client{} = client,
+        daily_reports_only \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/internal/findingsReports"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(daily_reports_only) do
-      [{"dailyReportsOnly", daily_reports_only} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(daily_reports_only) do
+        [{"dailyReportsOnly", daily_reports_only} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Get the current configuration for anomaly notifications for a profiling group.
   """
-  def get_notification_configuration(client, profiling_group_name, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration"
+  def get_notification_configuration(%Client{} = client, profiling_group_name, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns the JSON-formatted resource-based policy on a profiling group.
   """
-  def get_policy(client, profiling_group_name, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/policy"
+  def get_policy(%Client{} = client, profiling_group_name, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/policy"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -205,54 +337,74 @@ defmodule AWS.CodeGuruProfiler do
 
   `
   """
-  def get_profile(client, profiling_group_name, end_time \\ nil, max_depth \\ nil, period \\ nil, start_time \\ nil, accept \\ nil, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/profile"
+  def get_profile(
+        %Client{} = client,
+        profiling_group_name,
+        end_time \\ nil,
+        max_depth \\ nil,
+        period \\ nil,
+        start_time \\ nil,
+        accept \\ nil,
+        options \\ []
+      ) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/profile"
     headers = []
-    headers = if !is_nil(accept) do
-      [{"Accept", accept} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(start_time) do
-      [{"startTime", start_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(period) do
-      [{"period", period} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_depth) do
-      [{"maxDepth", max_depth} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(end_time) do
-      [{"endTime", end_time} | query_]
-    else
-      query_
-    end
-    case request(client, :get, path_, query_, headers, nil, options, 200) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Content-Encoding", "contentEncoding"},
-            {"Content-Type", "contentType"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
 
-        {:ok, body, response}
+    headers =
+      if !is_nil(accept) do
+        [{"Accept", accept} | headers]
+      else
+        headers
+      end
 
-      result ->
-        result
-    end
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(period) do
+        [{"period", period} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_depth) do
+        [{"maxDepth", max_depth} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Content-Encoding", "contentEncoding"}, {"Content-Type", "contentType"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -266,102 +418,189 @@ defmodule AWS.CodeGuruProfiler do
   objects that contains details about anomalies detected in the profiling group
   for the same time period is also returned.
   """
-  def get_recommendations(client, profiling_group_name, end_time, locale \\ nil, start_time, options \\ []) do
-    path_ = "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/recommendations"
+  def get_recommendations(
+        %Client{} = client,
+        profiling_group_name,
+        end_time,
+        locale \\ nil,
+        start_time,
+        options \\ []
+      ) do
+    url_path = "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/recommendations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(start_time) do
-      [{"startTime", start_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(locale) do
-      [{"locale", locale} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(end_time) do
-      [{"endTime", end_time} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(locale) do
+        [{"locale", locale} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   List the available reports for a given profiling group and time range.
   """
-  def list_findings_reports(client, profiling_group_name, daily_reports_only \\ nil, end_time, max_results \\ nil, next_token \\ nil, start_time, options \\ []) do
-    path_ = "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/findingsReports"
+  def list_findings_reports(
+        %Client{} = client,
+        profiling_group_name,
+        daily_reports_only \\ nil,
+        end_time,
+        max_results \\ nil,
+        next_token \\ nil,
+        start_time,
+        options \\ []
+      ) do
+    url_path = "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/findingsReports"
     headers = []
-    query_ = []
-    query_ = if !is_nil(start_time) do
-      [{"startTime", start_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(end_time) do
-      [{"endTime", end_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(daily_reports_only) do
-      [{"dailyReportsOnly", daily_reports_only} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(daily_reports_only) do
+        [{"dailyReportsOnly", daily_reports_only} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the start times of the available aggregated profiles of a profiling group
   for an aggregation period within the specified time range.
   """
-  def list_profile_times(client, profiling_group_name, end_time, max_results \\ nil, next_token \\ nil, order_by \\ nil, period, start_time, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/profileTimes"
+  def list_profile_times(
+        %Client{} = client,
+        profiling_group_name,
+        end_time,
+        max_results \\ nil,
+        next_token \\ nil,
+        order_by \\ nil,
+        period,
+        start_time,
+        options \\ []
+      ) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/profileTimes"
     headers = []
-    query_ = []
-    query_ = if !is_nil(start_time) do
-      [{"startTime", start_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(period) do
-      [{"period", period} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(order_by) do
-      [{"orderBy", order_by} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(end_time) do
-      [{"endTime", end_time} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(period) do
+        [{"period", period} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order_by) do
+        [{"orderBy", order_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -371,36 +610,70 @@ defmodule AWS.CodeGuruProfiler do
   ](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html)
   objects.
   """
-  def list_profiling_groups(client, include_description \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/profilingGroups"
+  def list_profiling_groups(
+        %Client{} = client,
+        include_description \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/profilingGroups"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(include_description) do
-      [{"includeDescription", include_description} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_description) do
+        [{"includeDescription", include_description} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of the tags that are assigned to a specified resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -410,19 +683,32 @@ defmodule AWS.CodeGuruProfiler do
   `GetProfile`
   ](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html).
   """
-  def post_agent_profile(client, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/agentProfile"
+  def post_agent_profile(%Client{} = client, profiling_group_name, input, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/agentProfile"
+
     {headers, input} =
       [
-        {"contentType", "Content-Type"},
+        {"contentType", "Content-Type"}
       ]
-      |> AWS.Request.build_params(input)
-    {query_, input} =
+      |> Request.build_params(input)
+
+    {query_params, input} =
       [
-        {"profileToken", "profileToken"},
+        {"profileToken", "profileToken"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -450,21 +736,55 @@ defmodule AWS.CodeGuruProfiler do
 
   `
   """
-  def put_permission(client, action_group, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/policy/#{URI.encode(action_group)}"
+  def put_permission(%Client{} = client, action_group, profiling_group_name, input, options \\ []) do
+    url_path =
+      "/profilingGroups/#{URI.encode(profiling_group_name)}/policy/#{URI.encode(action_group)}"
+
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Remove one anomaly notifications channel for a profiling group.
   """
-  def remove_notification_channel(client, channel_id, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration/#{URI.encode(channel_id)}"
+  def remove_notification_channel(
+        %Client{} = client,
+        channel_id,
+        profiling_group_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration/#{
+        URI.encode(channel_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -479,123 +799,134 @@ defmodule AWS.CodeGuruProfiler do
   and [ `PostAgentProfile`
   ](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html).
   """
-  def remove_permission(client, action_group, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}/policy/#{URI.encode(action_group)}"
+  def remove_permission(
+        %Client{} = client,
+        action_group,
+        profiling_group_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/profilingGroups/#{URI.encode(profiling_group_name)}/policy/#{URI.encode(action_group)}"
+
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"revisionId", "revisionId"},
+        {"revisionId", "revisionId"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Sends feedback to CodeGuru Profiler about whether the anomaly detected by the
   analysis is useful or not.
   """
-  def submit_feedback(client, anomaly_instance_id, profiling_group_name, input, options \\ []) do
-    path_ = "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/anomalies/#{URI.encode(anomaly_instance_id)}/feedback"
+  def submit_feedback(
+        %Client{} = client,
+        anomaly_instance_id,
+        profiling_group_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/anomalies/#{
+        URI.encode(anomaly_instance_id)
+      }/feedback"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Use to assign one or more tags to a resource.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Use to remove one or more tags from a resource.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Updates a profiling group.
   """
-  def update_profiling_group(client, profiling_group_name, input, options \\ []) do
-    path_ = "/profilingGroups/#{URI.encode(profiling_group_name)}"
+  def update_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
+    url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "codeguru-profiler"}
-    host = build_host("codeguru-profiler", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

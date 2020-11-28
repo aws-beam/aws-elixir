@@ -11,14 +11,33 @@ defmodule AWS.Comprehend do
   predominant language used, and more.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-11-27",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "comprehend",
+      global?: false,
+      protocol: "json",
+      service_id: "Comprehend",
+      signature_version: "v4",
+      signing_name: "comprehend",
+      target_prefix: "Comprehend_20171127"
+    }
+  end
+
   @doc """
   Determines the dominant language of the input text for a batch of documents.
 
   For a list of languages that Amazon Comprehend can detect, see [Amazon Comprehend Supported
   Languages](https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html).
   """
-  def batch_detect_dominant_language(client, input, options \\ []) do
-    request(client, "BatchDetectDominantLanguage", input, options)
+  def batch_detect_dominant_language(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDetectDominantLanguage", input, options)
   end
 
   @doc """
@@ -27,23 +46,23 @@ defmodule AWS.Comprehend do
 
   For more information about named entities, see `how-entities`
   """
-  def batch_detect_entities(client, input, options \\ []) do
-    request(client, "BatchDetectEntities", input, options)
+  def batch_detect_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDetectEntities", input, options)
   end
 
   @doc """
   Detects the key noun phrases found in a batch of documents.
   """
-  def batch_detect_key_phrases(client, input, options \\ []) do
-    request(client, "BatchDetectKeyPhrases", input, options)
+  def batch_detect_key_phrases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDetectKeyPhrases", input, options)
   end
 
   @doc """
   Inspects a batch of documents and returns an inference of the prevailing
   sentiment, `POSITIVE`, `NEUTRAL`, `MIXED`, or `NEGATIVE`, in each one.
   """
-  def batch_detect_sentiment(client, input, options \\ []) do
-    request(client, "BatchDetectSentiment", input, options)
+  def batch_detect_sentiment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDetectSentiment", input, options)
   end
 
   @doc """
@@ -52,16 +71,16 @@ defmodule AWS.Comprehend do
 
   For more information, see `how-syntax`.
   """
-  def batch_detect_syntax(client, input, options \\ []) do
-    request(client, "BatchDetectSyntax", input, options)
+  def batch_detect_syntax(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDetectSyntax", input, options)
   end
 
   @doc """
   Creates a new document classification request to analyze a single document in
   real-time, using a previously created and trained custom model and an endpoint.
   """
-  def classify_document(client, input, options \\ []) do
-    request(client, "ClassifyDocument", input, options)
+  def classify_document(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ClassifyDocument", input, options)
   end
 
   @doc """
@@ -72,16 +91,16 @@ defmodule AWS.Comprehend do
   can use it to categorize a set of labeled documents into the categories. For
   more information, see `how-document-classification`.
   """
-  def create_document_classifier(client, input, options \\ []) do
-    request(client, "CreateDocumentClassifier", input, options)
+  def create_document_classifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDocumentClassifier", input, options)
   end
 
   @doc """
   Creates a model-specific endpoint for synchronous inference for a previously
   trained custom model
   """
-  def create_endpoint(client, input, options \\ []) do
-    request(client, "CreateEndpoint", input, options)
+  def create_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEndpoint", input, options)
   end
 
   @doc """
@@ -90,8 +109,8 @@ defmodule AWS.Comprehend do
   After your `CreateEntityRecognizer` request is submitted, you can check job
   status using the API.
   """
-  def create_entity_recognizer(client, input, options \\ []) do
-    request(client, "CreateEntityRecognizer", input, options)
+  def create_entity_recognizer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEntityRecognizer", input, options)
   end
 
   @doc """
@@ -107,8 +126,8 @@ defmodule AWS.Comprehend do
   and it is then removed by a background job. Once removed, the classifier
   disappears from your account and is no longer available for use.
   """
-  def delete_document_classifier(client, input, options \\ []) do
-    request(client, "DeleteDocumentClassifier", input, options)
+  def delete_document_classifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDocumentClassifier", input, options)
   end
 
   @doc """
@@ -116,8 +135,8 @@ defmodule AWS.Comprehend do
 
   All endpoints must be deleted in order for the model to be deleted.
   """
-  def delete_endpoint(client, input, options \\ []) do
-    request(client, "DeleteEndpoint", input, options)
+  def delete_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEndpoint", input, options)
   end
 
   @doc """
@@ -131,8 +150,8 @@ defmodule AWS.Comprehend do
   and it is then removed by a background job. Once removed, the recognizer
   disappears from your account and is no longer available for use.
   """
-  def delete_entity_recognizer(client, input, options \\ []) do
-    request(client, "DeleteEntityRecognizer", input, options)
+  def delete_entity_recognizer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEntityRecognizer", input, options)
   end
 
   @doc """
@@ -140,15 +159,15 @@ defmodule AWS.Comprehend do
 
   Use this operation to get the status of a classification job.
   """
-  def describe_document_classification_job(client, input, options \\ []) do
-    request(client, "DescribeDocumentClassificationJob", input, options)
+  def describe_document_classification_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDocumentClassificationJob", input, options)
   end
 
   @doc """
   Gets the properties associated with a document classifier.
   """
-  def describe_document_classifier(client, input, options \\ []) do
-    request(client, "DescribeDocumentClassifier", input, options)
+  def describe_document_classifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDocumentClassifier", input, options)
   end
 
   @doc """
@@ -156,8 +175,14 @@ defmodule AWS.Comprehend do
 
   Use this operation to get the status of a detection job.
   """
-  def describe_dominant_language_detection_job(client, input, options \\ []) do
-    request(client, "DescribeDominantLanguageDetectionJob", input, options)
+  def describe_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeDominantLanguageDetectionJob",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -165,8 +190,8 @@ defmodule AWS.Comprehend do
 
   Use this operation to get the status of an endpoint.
   """
-  def describe_endpoint(client, input, options \\ []) do
-    request(client, "DescribeEndpoint", input, options)
+  def describe_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpoint", input, options)
   end
 
   @doc """
@@ -174,16 +199,23 @@ defmodule AWS.Comprehend do
 
   Use this operation to get the status of a detection job.
   """
-  def describe_entities_detection_job(client, input, options \\ []) do
-    request(client, "DescribeEntitiesDetectionJob", input, options)
+  def describe_entities_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEntitiesDetectionJob", input, options)
   end
 
   @doc """
   Provides details about an entity recognizer including status, S3 buckets
   containing training data, recognizer metadata, metrics, and so on.
   """
-  def describe_entity_recognizer(client, input, options \\ []) do
-    request(client, "DescribeEntityRecognizer", input, options)
+  def describe_entity_recognizer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEntityRecognizer", input, options)
+  end
+
+  @doc """
+  Gets the status and details of an events detection job.
+  """
+  def describe_events_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEventsDetectionJob", input, options)
   end
 
   @doc """
@@ -191,8 +223,8 @@ defmodule AWS.Comprehend do
 
   Use this operation to get the status of a detection job.
   """
-  def describe_key_phrases_detection_job(client, input, options \\ []) do
-    request(client, "DescribeKeyPhrasesDetectionJob", input, options)
+  def describe_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeKeyPhrasesDetectionJob", input, options)
   end
 
   @doc """
@@ -200,8 +232,8 @@ defmodule AWS.Comprehend do
 
   For example, you can use this operation to get the job status.
   """
-  def describe_pii_entities_detection_job(client, input, options \\ []) do
-    request(client, "DescribePiiEntitiesDetectionJob", input, options)
+  def describe_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePiiEntitiesDetectionJob", input, options)
   end
 
   @doc """
@@ -209,8 +241,8 @@ defmodule AWS.Comprehend do
 
   Use this operation to get the status of a detection job.
   """
-  def describe_sentiment_detection_job(client, input, options \\ []) do
-    request(client, "DescribeSentimentDetectionJob", input, options)
+  def describe_sentiment_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSentimentDetectionJob", input, options)
   end
 
   @doc """
@@ -218,8 +250,8 @@ defmodule AWS.Comprehend do
 
   Use this operation to get the status of a detection job.
   """
-  def describe_topics_detection_job(client, input, options \\ []) do
-    request(client, "DescribeTopicsDetectionJob", input, options)
+  def describe_topics_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTopicsDetectionJob", input, options)
   end
 
   @doc """
@@ -228,8 +260,8 @@ defmodule AWS.Comprehend do
   For a list of languages that Amazon Comprehend can detect, see [Amazon Comprehend Supported
   Languages](https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html).
   """
-  def detect_dominant_language(client, input, options \\ []) do
-    request(client, "DetectDominantLanguage", input, options)
+  def detect_dominant_language(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectDominantLanguage", input, options)
   end
 
   @doc """
@@ -237,31 +269,31 @@ defmodule AWS.Comprehend do
 
   For more information, about named entities, see `how-entities`.
   """
-  def detect_entities(client, input, options \\ []) do
-    request(client, "DetectEntities", input, options)
+  def detect_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectEntities", input, options)
   end
 
   @doc """
   Detects the key noun phrases found in the text.
   """
-  def detect_key_phrases(client, input, options \\ []) do
-    request(client, "DetectKeyPhrases", input, options)
+  def detect_key_phrases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectKeyPhrases", input, options)
   end
 
   @doc """
   Inspects the input text for entities that contain personally identifiable
   information (PII) and returns information about them.
   """
-  def detect_pii_entities(client, input, options \\ []) do
-    request(client, "DetectPiiEntities", input, options)
+  def detect_pii_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectPiiEntities", input, options)
   end
 
   @doc """
   Inspects text and returns an inference of the prevailing sentiment (`POSITIVE`,
   `NEUTRAL`, `MIXED`, or `NEGATIVE`).
   """
-  def detect_sentiment(client, input, options \\ []) do
-    request(client, "DetectSentiment", input, options)
+  def detect_sentiment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectSentiment", input, options)
   end
 
   @doc """
@@ -269,43 +301,43 @@ defmodule AWS.Comprehend do
 
   For more information, `how-syntax`.
   """
-  def detect_syntax(client, input, options \\ []) do
-    request(client, "DetectSyntax", input, options)
+  def detect_syntax(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectSyntax", input, options)
   end
 
   @doc """
   Gets a list of the documentation classification jobs that you have submitted.
   """
-  def list_document_classification_jobs(client, input, options \\ []) do
-    request(client, "ListDocumentClassificationJobs", input, options)
+  def list_document_classification_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDocumentClassificationJobs", input, options)
   end
 
   @doc """
   Gets a list of the document classifiers that you have created.
   """
-  def list_document_classifiers(client, input, options \\ []) do
-    request(client, "ListDocumentClassifiers", input, options)
+  def list_document_classifiers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDocumentClassifiers", input, options)
   end
 
   @doc """
   Gets a list of the dominant language detection jobs that you have submitted.
   """
-  def list_dominant_language_detection_jobs(client, input, options \\ []) do
-    request(client, "ListDominantLanguageDetectionJobs", input, options)
+  def list_dominant_language_detection_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDominantLanguageDetectionJobs", input, options)
   end
 
   @doc """
   Gets a list of all existing endpoints that you've created.
   """
-  def list_endpoints(client, input, options \\ []) do
-    request(client, "ListEndpoints", input, options)
+  def list_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEndpoints", input, options)
   end
 
   @doc """
   Gets a list of the entity detection jobs that you have submitted.
   """
-  def list_entities_detection_jobs(client, input, options \\ []) do
-    request(client, "ListEntitiesDetectionJobs", input, options)
+  def list_entities_detection_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEntitiesDetectionJobs", input, options)
   end
 
   @doc """
@@ -319,43 +351,50 @@ defmodule AWS.Comprehend do
   The results of this list are not in any particular order. Please get the list
   and sort locally if needed.
   """
-  def list_entity_recognizers(client, input, options \\ []) do
-    request(client, "ListEntityRecognizers", input, options)
+  def list_entity_recognizers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEntityRecognizers", input, options)
+  end
+
+  @doc """
+  Gets a list of the events detection jobs that you have submitted.
+  """
+  def list_events_detection_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEventsDetectionJobs", input, options)
   end
 
   @doc """
   Get a list of key phrase detection jobs that you have submitted.
   """
-  def list_key_phrases_detection_jobs(client, input, options \\ []) do
-    request(client, "ListKeyPhrasesDetectionJobs", input, options)
+  def list_key_phrases_detection_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListKeyPhrasesDetectionJobs", input, options)
   end
 
   @doc """
   Gets a list of the PII entity detection jobs that you have submitted.
   """
-  def list_pii_entities_detection_jobs(client, input, options \\ []) do
-    request(client, "ListPiiEntitiesDetectionJobs", input, options)
+  def list_pii_entities_detection_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPiiEntitiesDetectionJobs", input, options)
   end
 
   @doc """
   Gets a list of sentiment detection jobs that you have submitted.
   """
-  def list_sentiment_detection_jobs(client, input, options \\ []) do
-    request(client, "ListSentimentDetectionJobs", input, options)
+  def list_sentiment_detection_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSentimentDetectionJobs", input, options)
   end
 
   @doc """
   Lists all tags associated with a given Amazon Comprehend resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
   Gets a list of the topic detection jobs that you have submitted.
   """
-  def list_topics_detection_jobs(client, input, options \\ []) do
-    request(client, "ListTopicsDetectionJobs", input, options)
+  def list_topics_detection_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTopicsDetectionJobs", input, options)
   end
 
   @doc """
@@ -363,8 +402,8 @@ defmodule AWS.Comprehend do
 
   Use the operation to track the progress of the job.
   """
-  def start_document_classification_job(client, input, options \\ []) do
-    request(client, "StartDocumentClassificationJob", input, options)
+  def start_document_classification_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartDocumentClassificationJob", input, options)
   end
 
   @doc """
@@ -373,8 +412,8 @@ defmodule AWS.Comprehend do
 
   Use the operation to track the status of a job.
   """
-  def start_dominant_language_detection_job(client, input, options \\ []) do
-    request(client, "StartDominantLanguageDetectionJob", input, options)
+  def start_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartDominantLanguageDetectionJob", input, options)
   end
 
   @doc """
@@ -387,8 +426,15 @@ defmodule AWS.Comprehend do
   `EntityRecognizerArn` must be used in order to provide access to the recognizer
   being used to detect the custom entity.
   """
-  def start_entities_detection_job(client, input, options \\ []) do
-    request(client, "StartEntitiesDetectionJob", input, options)
+  def start_entities_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartEntitiesDetectionJob", input, options)
+  end
+
+  @doc """
+  Starts an asynchronous event detection job for a collection of documents.
+  """
+  def start_events_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartEventsDetectionJob", input, options)
   end
 
   @doc """
@@ -396,15 +442,15 @@ defmodule AWS.Comprehend do
 
   Use the operation to track the status of a job.
   """
-  def start_key_phrases_detection_job(client, input, options \\ []) do
-    request(client, "StartKeyPhrasesDetectionJob", input, options)
+  def start_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartKeyPhrasesDetectionJob", input, options)
   end
 
   @doc """
   Starts an asynchronous PII entity detection job for a collection of documents.
   """
-  def start_pii_entities_detection_job(client, input, options \\ []) do
-    request(client, "StartPiiEntitiesDetectionJob", input, options)
+  def start_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartPiiEntitiesDetectionJob", input, options)
   end
 
   @doc """
@@ -412,8 +458,8 @@ defmodule AWS.Comprehend do
 
   use the operation to track the status of a job.
   """
-  def start_sentiment_detection_job(client, input, options \\ []) do
-    request(client, "StartSentimentDetectionJob", input, options)
+  def start_sentiment_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartSentimentDetectionJob", input, options)
   end
 
   @doc """
@@ -421,8 +467,8 @@ defmodule AWS.Comprehend do
 
   Use the `DescribeTopicDetectionJob` operation to track the status of a job.
   """
-  def start_topics_detection_job(client, input, options \\ []) do
-    request(client, "StartTopicsDetectionJob", input, options)
+  def start_topics_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartTopicsDetectionJob", input, options)
   end
 
   @doc """
@@ -440,8 +486,8 @@ defmodule AWS.Comprehend do
   When a job is stopped, any documents already processed are written to the output
   location.
   """
-  def stop_dominant_language_detection_job(client, input, options \\ []) do
-    request(client, "StopDominantLanguageDetectionJob", input, options)
+  def stop_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopDominantLanguageDetectionJob", input, options)
   end
 
   @doc """
@@ -459,8 +505,15 @@ defmodule AWS.Comprehend do
   When a job is stopped, any documents already processed are written to the output
   location.
   """
-  def stop_entities_detection_job(client, input, options \\ []) do
-    request(client, "StopEntitiesDetectionJob", input, options)
+  def stop_entities_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopEntitiesDetectionJob", input, options)
+  end
+
+  @doc """
+  Stops an events detection job in progress.
+  """
+  def stop_events_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopEventsDetectionJob", input, options)
   end
 
   @doc """
@@ -478,15 +531,15 @@ defmodule AWS.Comprehend do
   When a job is stopped, any documents already processed are written to the output
   location.
   """
-  def stop_key_phrases_detection_job(client, input, options \\ []) do
-    request(client, "StopKeyPhrasesDetectionJob", input, options)
+  def stop_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopKeyPhrasesDetectionJob", input, options)
   end
 
   @doc """
   Stops a PII entities detection job in progress.
   """
-  def stop_pii_entities_detection_job(client, input, options \\ []) do
-    request(client, "StopPiiEntitiesDetectionJob", input, options)
+  def stop_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopPiiEntitiesDetectionJob", input, options)
   end
 
   @doc """
@@ -504,8 +557,8 @@ defmodule AWS.Comprehend do
   When a job is stopped, any documents already processed are written to the output
   location.
   """
-  def stop_sentiment_detection_job(client, input, options \\ []) do
-    request(client, "StopSentimentDetectionJob", input, options)
+  def stop_sentiment_detection_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopSentimentDetectionJob", input, options)
   end
 
   @doc """
@@ -517,8 +570,8 @@ defmodule AWS.Comprehend do
   and put into the `STOPPED` state and the service sends back an HTTP 200 response
   with an empty HTTP body.
   """
-  def stop_training_document_classifier(client, input, options \\ []) do
-    request(client, "StopTrainingDocumentClassifier", input, options)
+  def stop_training_document_classifier(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopTrainingDocumentClassifier", input, options)
   end
 
   @doc """
@@ -530,8 +583,8 @@ defmodule AWS.Comprehend do
   and putted into the `STOPPED` state and the service sends back an HTTP 200
   response with an empty HTTP body.
   """
-  def stop_training_entity_recognizer(client, input, options \\ []) do
-    request(client, "StopTrainingEntityRecognizer", input, options)
+  def stop_training_entity_recognizer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopTrainingEntityRecognizer", input, options)
   end
 
   @doc """
@@ -541,75 +594,21 @@ defmodule AWS.Comprehend do
   Comprehend. For example, a tag with "Sales" as the key might be added to a
   resource to indicate its use by the sales department.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes a specific tag associated with an Amazon Comprehend resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
   Updates information about the specified endpoint.
   """
-  def update_endpoint(client, input, options \\ []) do
-    request(client, "UpdateEndpoint", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "comprehend"}
-    host = build_host("comprehend", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "Comprehend_20171127.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEndpoint", input, options)
   end
 end

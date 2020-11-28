@@ -43,6 +43,25 @@ defmodule AWS.Health do
   `nextToken` in the next request to return more results.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "AWSHealth",
+      api_version: "2016-08-04",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "health",
+      global?: false,
+      protocol: "json",
+      service_id: "Health",
+      signature_version: "v4",
+      signing_name: "health",
+      target_prefix: "AWSHealth_20160804"
+    }
+  end
+
   @doc """
   Returns a list of accounts in the organization from AWS Organizations that are
   affected by the provided event.
@@ -56,8 +75,14 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
-  def describe_affected_accounts_for_organization(client, input, options \\ []) do
-    request(client, "DescribeAffectedAccountsForOrganization", input, options)
+  def describe_affected_accounts_for_organization(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeAffectedAccountsForOrganization",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -75,8 +100,8 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
-  def describe_affected_entities(client, input, options \\ []) do
-    request(client, "DescribeAffectedEntities", input, options)
+  def describe_affected_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAffectedEntities", input, options)
   end
 
   @doc """
@@ -99,8 +124,14 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
-  def describe_affected_entities_for_organization(client, input, options \\ []) do
-    request(client, "DescribeAffectedEntitiesForOrganization", input, options)
+  def describe_affected_entities_for_organization(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeAffectedEntitiesForOrganization",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -109,8 +140,8 @@ defmodule AWS.Health do
 
   If no events are specified, the counts of all affected entities are returned.
   """
-  def describe_entity_aggregates(client, input, options \\ []) do
-    request(client, "DescribeEntityAggregates", input, options)
+  def describe_entity_aggregates(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEntityAggregates", input, options)
   end
 
   @doc """
@@ -123,8 +154,8 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
-  def describe_event_aggregates(client, input, options \\ []) do
-    request(client, "DescribeEventAggregates", input, options)
+  def describe_event_aggregates(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEventAggregates", input, options)
   end
 
   @doc """
@@ -141,8 +172,8 @@ defmodule AWS.Health do
   If a specified event cannot be retrieved, an error message is returned for that
   event.
   """
-  def describe_event_details(client, input, options \\ []) do
-    request(client, "DescribeEventDetails", input, options)
+  def describe_event_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEventDetails", input, options)
   end
 
   @doc """
@@ -178,8 +209,14 @@ defmodule AWS.Health do
   For more information, see
   [Event](https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html).
   """
-  def describe_event_details_for_organization(client, input, options \\ []) do
-    request(client, "DescribeEventDetailsForOrganization", input, options)
+  def describe_event_details_for_organization(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeEventDetailsForOrganization",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -191,8 +228,8 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
-  def describe_event_types(client, input, options \\ []) do
-    request(client, "DescribeEventTypes", input, options)
+  def describe_event_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEventTypes", input, options)
   end
 
   @doc """
@@ -220,8 +257,8 @@ defmodule AWS.Health do
      This API operation uses pagination. Specify the `nextToken`
   parameter in the next request to return more results.
   """
-  def describe_events(client, input, options \\ []) do
-    request(client, "DescribeEvents", input, options)
+  def describe_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEvents", input, options)
   end
 
   @doc """
@@ -255,8 +292,8 @@ defmodule AWS.Health do
   This API operation uses pagination. Specify the `nextToken` parameter in the
   next request to return more results.
   """
-  def describe_events_for_organization(client, input, options \\ []) do
-    request(client, "DescribeEventsForOrganization", input, options)
+  def describe_events_for_organization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEventsForOrganization", input, options)
   end
 
   @doc """
@@ -266,8 +303,14 @@ defmodule AWS.Health do
   To call this operation, you must sign in as an IAM user, assume an IAM role, or
   sign in as the root user (not recommended) in the organization's master account.
   """
-  def describe_health_service_status_for_organization(client, input, options \\ []) do
-    request(client, "DescribeHealthServiceStatusForOrganization", input, options)
+  def describe_health_service_status_for_organization(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeHealthServiceStatusForOrganization",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -292,8 +335,14 @@ defmodule AWS.Health do
   Health API operations for organizational view, AWS Health returns an error. AWS
   Health continues to aggregate health events for your AWS account.
   """
-  def disable_health_service_access_for_organization(client, input, options \\ []) do
-    request(client, "DisableHealthServiceAccessForOrganization", input, options)
+  def disable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DisableHealthServiceAccessForOrganization",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -307,61 +356,13 @@ defmodule AWS.Health do
   For more information, see [Aggregating AWS Health events](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html) in
   the *AWS Health User Guide*.
   """
-  def enable_health_service_access_for_organization(client, input, options \\ []) do
-    request(client, "EnableHealthServiceAccessForOrganization", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "health"}
-    host = build_host("health", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSHealth_20160804.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def enable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "EnableHealthServiceAccessForOrganization",
+      input,
+      options
+    )
   end
 end

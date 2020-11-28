@@ -6,16 +6,46 @@ defmodule AWS.KinesisVideo do
 
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-09-30",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "kinesisvideo",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Kinesis Video",
+      signature_version: "v4",
+      signing_name: "kinesisvideo",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates a signaling channel.
 
   `CreateSignalingChannel` is an asynchronous operation.
   """
-  def create_signaling_channel(client, input, options \\ []) do
-    path_ = "/createSignalingChannel"
+  def create_signaling_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/createSignalingChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -31,11 +61,22 @@ defmodule AWS.KinesisVideo do
 
   You must have permissions for the `KinesisVideo:CreateStream` action.
   """
-  def create_stream(client, input, options \\ []) do
-    path_ = "/createStream"
+  def create_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/createStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -44,11 +85,22 @@ defmodule AWS.KinesisVideo do
   `DeleteSignalingChannel` is an asynchronous operation. If you don't specify the
   channel's current version, the most recent version is deleted.
   """
-  def delete_signaling_channel(client, input, options \\ []) do
-    path_ = "/deleteSignalingChannel"
+  def delete_signaling_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/deleteSignalingChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -64,11 +116,22 @@ defmodule AWS.KinesisVideo do
 
   This operation requires permission for the `KinesisVideo:DeleteStream` action.
   """
-  def delete_stream(client, input, options \\ []) do
-    path_ = "/deleteStream"
+  def delete_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/deleteStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -77,11 +140,22 @@ defmodule AWS.KinesisVideo do
   You must specify either the name or the Amazon Resource Name (ARN) of the
   channel that you want to describe.
   """
-  def describe_signaling_channel(client, input, options \\ []) do
-    path_ = "/describeSignalingChannel"
+  def describe_signaling_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/describeSignalingChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -89,11 +163,22 @@ defmodule AWS.KinesisVideo do
 
   You must specify either the `StreamName` or the `StreamARN`.
   """
-  def describe_stream(client, input, options \\ []) do
-    path_ = "/describeStream"
+  def describe_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/describeStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -108,11 +193,22 @@ defmodule AWS.KinesisVideo do
 
   In the request, specify the stream either by `StreamName` or `StreamARN`.
   """
-  def get_data_endpoint(client, input, options \\ []) do
-    path_ = "/getDataEndpoint"
+  def get_data_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/getDataEndpoint"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -132,11 +228,22 @@ defmodule AWS.KinesisVideo do
   viewers on the channel. A `VIEWER` role results in this API generating an
   endpoint that a client can use to communicate only with a `MASTER`.
   """
-  def get_signaling_channel_endpoint(client, input, options \\ []) do
-    path_ = "/getSignalingChannelEndpoint"
+  def get_signaling_channel_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/getSignalingChannelEndpoint"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -145,11 +252,22 @@ defmodule AWS.KinesisVideo do
   Each object describes a signaling channel. To retrieve only those channels that
   satisfy a specific condition, you can specify a `ChannelNameCondition`.
   """
-  def list_signaling_channels(client, input, options \\ []) do
-    path_ = "/listSignalingChannels"
+  def list_signaling_channels(%Client{} = client, input, options \\ []) do
+    url_path = "/listSignalingChannels"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -158,21 +276,43 @@ defmodule AWS.KinesisVideo do
   Each object describes a stream. To retrieve only streams that satisfy a specific
   condition, you can specify a `StreamNameCondition`.
   """
-  def list_streams(client, input, options \\ []) do
-    path_ = "/listStreams"
+  def list_streams(%Client{} = client, input, options \\ []) do
+    url_path = "/listStreams"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a list of tags associated with the specified signaling channel.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    path_ = "/ListTagsForResource"
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/ListTagsForResource"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -180,11 +320,22 @@ defmodule AWS.KinesisVideo do
 
   In the request, you must specify either the `StreamName` or the `StreamARN`.
   """
-  def list_tags_for_stream(client, input, options \\ []) do
-    path_ = "/listTagsForStream"
+  def list_tags_for_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/listTagsForStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -196,11 +347,22 @@ defmodule AWS.KinesisVideo do
   information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *AWS Billing and Cost Management User Guide*.
   """
-  def tag_resource(client, input, options \\ []) do
-    path_ = "/TagResource"
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/TagResource"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -218,11 +380,22 @@ defmodule AWS.KinesisVideo do
 
   Kinesis video streams support up to 50 tags.
   """
-  def tag_stream(client, input, options \\ []) do
-    path_ = "/tagStream"
+  def tag_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/tagStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -231,11 +404,22 @@ defmodule AWS.KinesisVideo do
   In the request, specify only a tag key or keys; don't specify the value. If you
   specify a tag key that does not exist, it's ignored.
   """
-  def untag_resource(client, input, options \\ []) do
-    path_ = "/UntagResource"
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/UntagResource"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -246,11 +430,22 @@ defmodule AWS.KinesisVideo do
 
   In the request, you must provide the `StreamName` or `StreamARN`.
   """
-  def untag_stream(client, input, options \\ []) do
-    path_ = "/untagStream"
+  def untag_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/untagStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -278,11 +473,22 @@ defmodule AWS.KinesisVideo do
   is decreased from seven hours to one hour, all existing data is retained for one
   hour, and any data older than one hour is deleted immediately.
   """
-  def update_data_retention(client, input, options \\ []) do
-    path_ = "/updateDataRetention"
+  def update_data_retention(%Client{} = client, input, options \\ []) do
+    url_path = "/updateDataRetention"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -295,11 +501,22 @@ defmodule AWS.KinesisVideo do
   Existing messages are still expired as per the previous `MessageTtlSeconds`
   value.
   """
-  def update_signaling_channel(client, input, options \\ []) do
-    path_ = "/updateSignalingChannel"
+  def update_signaling_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/updateSignalingChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -315,74 +532,21 @@ defmodule AWS.KinesisVideo do
 
   `UpdateStream` is an asynchronous operation, and takes time to complete.
   """
-  def update_stream(client, input, options \\ []) do
-    path_ = "/updateStream"
+  def update_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/updateStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "kinesisvideo"}
-    host = build_host("kinesisvideo", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

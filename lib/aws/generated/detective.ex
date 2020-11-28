@@ -44,6 +44,25 @@ defmodule AWS.Detective do
   CloudTrail](https://docs.aws.amazon.com/detective/latest/adminguide/logging-using-cloudtrail.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-10-26",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "api.detective",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Detective",
+      signature_version: "v4",
+      signing_name: "detective",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Accepts an invitation for the member account to contribute data to a behavior
   graph.
@@ -54,11 +73,22 @@ defmodule AWS.Detective do
 
   The member account status in the graph must be `INVITED`.
   """
-  def accept_invitation(client, input, options \\ []) do
-    path_ = "/invitation"
+  def accept_invitation(%Client{} = client, input, options \\ []) do
+    url_path = "/invitation"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -85,11 +115,22 @@ defmodule AWS.Detective do
   always returns the same behavior graph ARN. It does not create a new behavior
   graph.
   """
-  def create_graph(client, input, options \\ []) do
-    path_ = "/graph"
+  def create_graph(%Client{} = client, input, options \\ []) do
+    url_path = "/graph"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -114,11 +155,22 @@ defmodule AWS.Detective do
   includes accounts that were already invited to be member accounts in the
   behavior graph.
   """
-  def create_members(client, input, options \\ []) do
-    path_ = "/graph/members"
+  def create_members(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/members"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -129,11 +181,22 @@ defmodule AWS.Detective do
 
   `DeleteGraph` can only be called by the master account for a behavior graph.
   """
-  def delete_graph(client, input, options \\ []) do
-    path_ = "/graph/removal"
+  def delete_graph(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/removal"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -144,11 +207,22 @@ defmodule AWS.Detective do
   To disable a behavior graph, the master account uses the `DeleteGraph` API
   method.
   """
-  def delete_members(client, input, options \\ []) do
-    path_ = "/graph/members/removal"
+  def delete_members(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/members/removal"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -157,22 +231,44 @@ defmodule AWS.Detective do
   This operation can only be called by a member account that has the `ENABLED`
   status.
   """
-  def disassociate_membership(client, input, options \\ []) do
-    path_ = "/membership/removal"
+  def disassociate_membership(%Client{} = client, input, options \\ []) do
+    url_path = "/membership/removal"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns the membership details for specified member accounts for a behavior
   graph.
   """
-  def get_members(client, input, options \\ []) do
-    path_ = "/graph/members/get"
+  def get_members(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/members/get"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -183,11 +279,22 @@ defmodule AWS.Detective do
   Because an account can currently only be the master of one behavior graph within
   a Region, the results always contain a single graph.
   """
-  def list_graphs(client, input, options \\ []) do
-    path_ = "/graphs/list"
+  def list_graphs(%Client{} = client, input, options \\ []) do
+    url_path = "/graphs/list"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -202,11 +309,22 @@ defmodule AWS.Detective do
   the invitation. The results also do not include behavior graphs that the member
   account resigned from or was removed from.
   """
-  def list_invitations(client, input, options \\ []) do
-    path_ = "/invitations/list"
+  def list_invitations(%Client{} = client, input, options \\ []) do
+    url_path = "/invitations/list"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -214,11 +332,22 @@ defmodule AWS.Detective do
 
   Does not return member accounts that were removed from the behavior graph.
   """
-  def list_members(client, input, options \\ []) do
-    path_ = "/graph/members/list"
+  def list_members(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/members/list"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -226,11 +355,22 @@ defmodule AWS.Detective do
 
   This operation must be called by a member account that has the `INVITED` status.
   """
-  def reject_invitation(client, input, options \\ []) do
-    path_ = "/invitation/removal"
+  def reject_invitation(%Client{} = client, input, options \\ []) do
+    url_path = "/invitation/removal"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -245,74 +385,21 @@ defmodule AWS.Detective do
     * If Detective cannot enable the member account, the status remains
   `ACCEPTED_BUT_DISABLED`.
   """
-  def start_monitoring_member(client, input, options \\ []) do
-    path_ = "/graph/member/monitoringstate"
+  def start_monitoring_member(%Client{} = client, input, options \\ []) do
+    url_path = "/graph/member/monitoringstate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "detective"}
-    host = build_host("api.detective", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

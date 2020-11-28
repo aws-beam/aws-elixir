@@ -6,124 +6,283 @@ defmodule AWS.ApiGatewayV2 do
   Amazon API Gateway V2
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-11-29",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "apigateway",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "ApiGatewayV2",
+      signature_version: "v4",
+      signing_name: "apigateway",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates an Api resource.
   """
-  def create_api(client, input, options \\ []) do
-    path_ = "/v2/apis"
+  def create_api(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/apis"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates an API mapping.
   """
-  def create_api_mapping(client, domain_name, input, options \\ []) do
-    path_ = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings"
+  def create_api_mapping(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates an Authorizer for an API.
   """
-  def create_authorizer(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/authorizers"
+  def create_authorizer(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a Deployment for an API.
   """
-  def create_deployment(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/deployments"
+  def create_deployment(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a domain name.
   """
-  def create_domain_name(client, input, options \\ []) do
-    path_ = "/v2/domainnames"
+  def create_domain_name(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/domainnames"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates an Integration.
   """
-  def create_integration(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations"
+  def create_integration(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates an IntegrationResponses.
   """
-  def create_integration_response(client, api_id, integration_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses"
+  def create_integration_response(
+        %Client{} = client,
+        api_id,
+        integration_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a Model for an API.
   """
-  def create_model(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/models"
+  def create_model(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/models"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a Route for an API.
   """
-  def create_route(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes"
+  def create_route(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/routes"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a RouteResponse for a Route.
   """
-  def create_route_response(client, api_id, route_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses"
+  def create_route_response(%Client{} = client, api_id, route_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a Stage for an API.
   """
-  def create_stage(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/stages"
+  def create_stage(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/stages"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Creates a VPC link.
   """
-  def create_vpc_link(client, input, options \\ []) do
-    path_ = "/v2/vpclinks"
+  def create_vpc_link(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/vpclinks"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -131,601 +290,1265 @@ defmodule AWS.ApiGatewayV2 do
 
   To disable access logging for a Stage, delete its AccessLogSettings.
   """
-  def delete_access_log_settings(client, api_id, stage_name, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/accesslogsettings"
+  def delete_access_log_settings(%Client{} = client, api_id, stage_name, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/accesslogsettings"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes an Api resource.
   """
-  def delete_api(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}"
+  def delete_api(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes an API mapping.
   """
-  def delete_api_mapping(client, api_mapping_id, domain_name, input, options \\ []) do
-    path_ = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+  def delete_api_mapping(%Client{} = client, api_mapping_id, domain_name, input, options \\ []) do
+    url_path =
+      "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes an Authorizer.
   """
-  def delete_authorizer(client, api_id, authorizer_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+  def delete_authorizer(%Client{} = client, api_id, authorizer_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a CORS configuration.
   """
-  def delete_cors_configuration(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/cors"
+  def delete_cors_configuration(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/cors"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a Deployment.
   """
-  def delete_deployment(client, api_id, deployment_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
+  def delete_deployment(%Client{} = client, api_id, deployment_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a domain name.
   """
-  def delete_domain_name(client, domain_name, input, options \\ []) do
-    path_ = "/v2/domainnames/#{URI.encode(domain_name)}"
+  def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/v2/domainnames/#{URI.encode(domain_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes an Integration.
   """
-  def delete_integration(client, api_id, integration_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
+  def delete_integration(%Client{} = client, api_id, integration_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes an IntegrationResponses.
   """
-  def delete_integration_response(client, api_id, integration_id, integration_response_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
+  def delete_integration_response(
+        %Client{} = client,
+        api_id,
+        integration_id,
+        integration_response_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{
+        URI.encode(integration_response_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a Model.
   """
-  def delete_model(client, api_id, model_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
+  def delete_model(%Client{} = client, api_id, model_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a Route.
   """
-  def delete_route(client, api_id, route_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
+  def delete_route(%Client{} = client, api_id, route_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a route request parameter.
   """
-  def delete_route_request_parameter(client, api_id, request_parameter_key, route_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/requestparameters/#{URI.encode(request_parameter_key)}"
+  def delete_route_request_parameter(
+        %Client{} = client,
+        api_id,
+        request_parameter_key,
+        route_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/requestparameters/#{
+        URI.encode(request_parameter_key)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a RouteResponse.
   """
-  def delete_route_response(client, api_id, route_id, route_response_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
+  def delete_route_response(
+        %Client{} = client,
+        api_id,
+        route_id,
+        route_response_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{
+        URI.encode(route_response_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes the RouteSettings for a stage.
   """
-  def delete_route_settings(client, api_id, route_key, stage_name, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/routesettings/#{URI.encode(route_key)}"
+  def delete_route_settings(
+        %Client{} = client,
+        api_id,
+        route_key,
+        stage_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/routesettings/#{
+        URI.encode(route_key)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a Stage.
   """
-  def delete_stage(client, api_id, stage_name, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
+  def delete_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Deletes a VPC link.
   """
-  def delete_vpc_link(client, vpc_link_id, input, options \\ []) do
-    path_ = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
+  def delete_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
+    url_path = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 202)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
   Exports a definition of an API in a particular output format and specification.
   """
-  def export_api(client, api_id, specification, export_version \\ nil, include_extensions \\ nil, output_type, stage_name \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/exports/#{URI.encode(specification)}"
+  def export_api(
+        %Client{} = client,
+        api_id,
+        specification,
+        export_version \\ nil,
+        include_extensions \\ nil,
+        output_type,
+        stage_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/exports/#{URI.encode(specification)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(stage_name) do
-      [{"stageName", stage_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(output_type) do
-      [{"outputType", output_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(include_extensions) do
-      [{"includeExtensions", include_extensions} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(export_version) do
-      [{"exportVersion", export_version} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(stage_name) do
+        [{"stageName", stage_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(output_type) do
+        [{"outputType", output_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_extensions) do
+        [{"includeExtensions", include_extensions} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(export_version) do
+        [{"exportVersion", export_version} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets an Api resource.
   """
-  def get_api(client, api_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}"
+  def get_api(%Client{} = client, api_id, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets an API mapping.
   """
-  def get_api_mapping(client, api_mapping_id, domain_name, options \\ []) do
-    path_ = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+  def get_api_mapping(%Client{} = client, api_mapping_id, domain_name, options \\ []) do
+    url_path =
+      "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets API mappings.
   """
-  def get_api_mappings(client, domain_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings"
+  def get_api_mappings(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a collection of Api resources.
   """
-  def get_apis(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis"
+  def get_apis(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v2/apis"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets an Authorizer.
   """
-  def get_authorizer(client, api_id, authorizer_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+  def get_authorizer(%Client{} = client, api_id, authorizer_id, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the Authorizers for an API.
   """
-  def get_authorizers(client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/authorizers"
+  def get_authorizers(
+        %Client{} = client,
+        api_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a Deployment.
   """
-  def get_deployment(client, api_id, deployment_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
+  def get_deployment(%Client{} = client, api_id, deployment_id, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the Deployments for an API.
   """
-  def get_deployments(client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/deployments"
+  def get_deployments(
+        %Client{} = client,
+        api_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a domain name.
   """
-  def get_domain_name(client, domain_name, options \\ []) do
-    path_ = "/v2/domainnames/#{URI.encode(domain_name)}"
+  def get_domain_name(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/v2/domainnames/#{URI.encode(domain_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the domain names for an AWS account.
   """
-  def get_domain_names(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/domainnames"
+  def get_domain_names(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v2/domainnames"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets an Integration.
   """
-  def get_integration(client, api_id, integration_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
+  def get_integration(%Client{} = client, api_id, integration_id, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets an IntegrationResponses.
   """
-  def get_integration_response(client, api_id, integration_id, integration_response_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
+  def get_integration_response(
+        %Client{} = client,
+        api_id,
+        integration_id,
+        integration_response_id,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{
+        URI.encode(integration_response_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the IntegrationResponses for an Integration.
   """
-  def get_integration_responses(client, api_id, integration_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses"
+  def get_integration_responses(
+        %Client{} = client,
+        api_id,
+        integration_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses"
+
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the Integrations for an API.
   """
-  def get_integrations(client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations"
+  def get_integrations(
+        %Client{} = client,
+        api_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a Model.
   """
-  def get_model(client, api_id, model_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
+  def get_model(%Client{} = client, api_id, model_id, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a model template.
   """
-  def get_model_template(client, api_id, model_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}/template"
+  def get_model_template(%Client{} = client, api_id, model_id, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}/template"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the Models for an API.
   """
-  def get_models(client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/models"
+  def get_models(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/models"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a Route.
   """
-  def get_route(client, api_id, route_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
+  def get_route(%Client{} = client, api_id, route_id, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a RouteResponse.
   """
-  def get_route_response(client, api_id, route_id, route_response_id, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
+  def get_route_response(%Client{} = client, api_id, route_id, route_response_id, options \\ []) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{
+        URI.encode(route_response_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the RouteResponses for a Route.
   """
-  def get_route_responses(client, api_id, route_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses"
+  def get_route_responses(
+        %Client{} = client,
+        api_id,
+        route_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the Routes for an API.
   """
-  def get_routes(client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes"
+  def get_routes(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/routes"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a Stage.
   """
-  def get_stage(client, api_id, stage_name, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
+  def get_stage(%Client{} = client, api_id, stage_name, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the Stages for an API.
   """
-  def get_stages(client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/stages"
+  def get_stages(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/stages"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a collection of Tag resources.
   """
-  def get_tags(client, resource_arn, options \\ []) do
-    path_ = "/v2/tags/#{URI.encode(resource_arn)}"
+  def get_tags(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/v2/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a VPC link.
   """
-  def get_vpc_link(client, vpc_link_id, options \\ []) do
-    path_ = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
+  def get_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
+    url_path = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets a collection of VPC links.
   """
-  def get_vpc_links(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v2/vpclinks"
+  def get_vpc_links(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v2/vpclinks"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Imports an API.
   """
-  def import_api(client, input, options \\ []) do
-    path_ = "/v2/apis"
+  def import_api(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/apis"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"Basepath", "basepath"},
-        {"FailOnWarnings", "failOnWarnings"},
+        {"FailOnWarnings", "failOnWarnings"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, 201)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Puts an Api resource.
   """
-  def reimport_api(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}"
+  def reimport_api(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"Basepath", "basepath"},
-        {"FailOnWarnings", "failOnWarnings"},
+        {"FailOnWarnings", "failOnWarnings"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, 201)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -733,218 +1556,344 @@ defmodule AWS.ApiGatewayV2 do
 
   Supported only for HTTP API Lambda authorizers.
   """
-  def reset_authorizers_cache(client, api_id, stage_name, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/cache/authorizers"
+  def reset_authorizers_cache(%Client{} = client, api_id, stage_name, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/cache/authorizers"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Creates a new Tag resource to represent a tag.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/v2/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v2/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
   Deletes a Tag.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/v2/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v2/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"TagKeys", "tagKeys"},
+        {"TagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Updates an Api resource.
   """
-  def update_api(client, api_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}"
+  def update_api(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   The API mapping.
   """
-  def update_api_mapping(client, api_mapping_id, domain_name, input, options \\ []) do
-    path_ = "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+  def update_api_mapping(%Client{} = client, api_mapping_id, domain_name, input, options \\ []) do
+    url_path =
+      "/v2/domainnames/#{URI.encode(domain_name)}/apimappings/#{URI.encode(api_mapping_id)}"
+
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates an Authorizer.
   """
-  def update_authorizer(client, api_id, authorizer_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
+  def update_authorizer(%Client{} = client, api_id, authorizer_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/authorizers/#{URI.encode(authorizer_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a Deployment.
   """
-  def update_deployment(client, api_id, deployment_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
+  def update_deployment(%Client{} = client, api_id, deployment_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/deployments/#{URI.encode(deployment_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a domain name.
   """
-  def update_domain_name(client, domain_name, input, options \\ []) do
-    path_ = "/v2/domainnames/#{URI.encode(domain_name)}"
+  def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/v2/domainnames/#{URI.encode(domain_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates an Integration.
   """
-  def update_integration(client, api_id, integration_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
+  def update_integration(%Client{} = client, api_id, integration_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates an IntegrationResponses.
   """
-  def update_integration_response(client, api_id, integration_id, integration_response_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
+  def update_integration_response(
+        %Client{} = client,
+        api_id,
+        integration_id,
+        integration_response_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{
+        URI.encode(integration_response_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a Model.
   """
-  def update_model(client, api_id, model_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
+  def update_model(%Client{} = client, api_id, model_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/models/#{URI.encode(model_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a Route.
   """
-  def update_route(client, api_id, route_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
+  def update_route(%Client{} = client, api_id, route_id, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a RouteResponse.
   """
-  def update_route_response(client, api_id, route_id, route_response_id, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
+  def update_route_response(
+        %Client{} = client,
+        api_id,
+        route_id,
+        route_response_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{
+        URI.encode(route_response_id)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a Stage.
   """
-  def update_stage(client, api_id, stage_name, input, options \\ []) do
-    path_ = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
+  def update_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
+    url_path = "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates a VPC link.
   """
-  def update_vpc_link(client, vpc_link_id, input, options \\ []) do
-    path_ = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
+  def update_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
+    url_path = "/v2/vpclinks/#{URI.encode(vpc_link_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "apigateway"}
-    host = build_host("apigateway", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

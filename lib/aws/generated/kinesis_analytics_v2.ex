@@ -11,12 +11,37 @@ defmodule AWS.KinesisAnalyticsV2 do
   dashboards, and create real-time metrics.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Kinesis Analytics V2",
+      api_version: "2018-05-23",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "kinesisanalytics",
+      global?: false,
+      protocol: "json",
+      service_id: "Kinesis Analytics V2",
+      signature_version: "v4",
+      signing_name: "kinesisanalytics",
+      target_prefix: "KinesisAnalytics_20180523"
+    }
+  end
+
   @doc """
   Adds an Amazon CloudWatch log stream to monitor application configuration
   errors.
   """
-  def add_application_cloud_watch_logging_option(client, input, options \\ []) do
-    request(client, "AddApplicationCloudWatchLoggingOption", input, options)
+  def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AddApplicationCloudWatchLoggingOption",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -30,8 +55,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   operation, results in a new version of the application. You can use the
   `DescribeApplication` operation to find the current application version.
   """
-  def add_application_input(client, input, options \\ []) do
-    request(client, "AddApplicationInput", input, options)
+  def add_application_input(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddApplicationInput", input, options)
   end
 
   @doc """
@@ -42,8 +67,14 @@ defmodule AWS.KinesisAnalyticsV2 do
   application's SQL code executes. Currently, the only input processor available
   is [AWS Lambda](https://docs.aws.amazon.com/lambda/).
   """
-  def add_application_input_processing_configuration(client, input, options \\ []) do
-    request(client, "AddApplicationInputProcessingConfiguration", input, options)
+  def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AddApplicationInputProcessingConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -65,8 +96,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   operation, results in a new version of the application. You can use the
   `DescribeApplication` operation to find the current application version.
   """
-  def add_application_output(client, input, options \\ []) do
-    request(client, "AddApplicationOutput", input, options)
+  def add_application_output(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddApplicationOutput", input, options)
   end
 
   @doc """
@@ -80,8 +111,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   describes how data in an Amazon S3 object maps to columns in the resulting
   in-application table.
   """
-  def add_application_reference_data_source(client, input, options \\ []) do
-    request(client, "AddApplicationReferenceDataSource", input, options)
+  def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddApplicationReferenceDataSource", input, options)
   end
 
   @doc """
@@ -98,8 +129,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   application can no longer be accessed from the Internet directly. To enable
   Internet access to the application, add an Internet gateway to your VPC.
   """
-  def add_application_vpc_configuration(client, input, options \\ []) do
-    request(client, "AddApplicationVpcConfiguration", input, options)
+  def add_application_vpc_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddApplicationVpcConfiguration", input, options)
   end
 
   @doc """
@@ -108,15 +139,34 @@ defmodule AWS.KinesisAnalyticsV2 do
   For information about creating a Kinesis Data Analytics application, see
   [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
   """
-  def create_application(client, input, options \\ []) do
-    request(client, "CreateApplication", input, options)
+  def create_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateApplication", input, options)
+  end
+
+  @doc """
+  Creates and returns a URL that you can use to connect to an application's
+  extension.
+
+  Currently, the only available extension is the Apache Flink dashboard.
+
+  The IAM role or user used to call this API defines the permissions to access the
+  extension. Once the presigned URL is created, no additional permission is
+  required to access this URL. IAM authorization policies for this API are also
+  enforced for every HTTP request that attempts to connect to the extension.
+
+  The URL that you get from a call to CreateApplicationPresignedUrl must be used
+  within 3 minutes to be valid. If you first try to use the URL after the 3-minute
+  limit expires, the service returns an HTTP 403 Forbidden error.
+  """
+  def create_application_presigned_url(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateApplicationPresignedUrl", input, options)
   end
 
   @doc """
   Creates a snapshot of the application's state data.
   """
-  def create_application_snapshot(client, input, options \\ []) do
-    request(client, "CreateApplicationSnapshot", input, options)
+  def create_application_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateApplicationSnapshot", input, options)
   end
 
   @doc """
@@ -124,23 +174,35 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   Kinesis Data Analytics halts application execution and deletes the application.
   """
-  def delete_application(client, input, options \\ []) do
-    request(client, "DeleteApplication", input, options)
+  def delete_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplication", input, options)
   end
 
   @doc """
   Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics
   application.
   """
-  def delete_application_cloud_watch_logging_option(client, input, options \\ []) do
-    request(client, "DeleteApplicationCloudWatchLoggingOption", input, options)
+  def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteApplicationCloudWatchLoggingOption",
+      input,
+      options
+    )
   end
 
   @doc """
   Deletes an `InputProcessingConfiguration` from an input.
   """
-  def delete_application_input_processing_configuration(client, input, options \\ []) do
-    request(client, "DeleteApplicationInputProcessingConfiguration", input, options)
+  def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteApplicationInputProcessingConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -150,8 +212,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   Kinesis Data Analytics will no longer write data from the corresponding
   in-application stream to the external output destination.
   """
-  def delete_application_output(client, input, options \\ []) do
-    request(client, "DeleteApplicationOutput", input, options)
+  def delete_application_output(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplicationOutput", input, options)
   end
 
   @doc """
@@ -162,22 +224,28 @@ defmodule AWS.KinesisAnalyticsV2 do
   in-application table that you created using the
   `AddApplicationReferenceDataSource` operation.
   """
-  def delete_application_reference_data_source(client, input, options \\ []) do
-    request(client, "DeleteApplicationReferenceDataSource", input, options)
+  def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteApplicationReferenceDataSource",
+      input,
+      options
+    )
   end
 
   @doc """
   Deletes a snapshot of application state.
   """
-  def delete_application_snapshot(client, input, options \\ []) do
-    request(client, "DeleteApplicationSnapshot", input, options)
+  def delete_application_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplicationSnapshot", input, options)
   end
 
   @doc """
   Removes a VPC configuration from a Kinesis Data Analytics application.
   """
-  def delete_application_vpc_configuration(client, input, options \\ []) do
-    request(client, "DeleteApplicationVpcConfiguration", input, options)
+  def delete_application_vpc_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplicationVpcConfiguration", input, options)
   end
 
   @doc """
@@ -186,15 +254,15 @@ defmodule AWS.KinesisAnalyticsV2 do
   If you want to retrieve a list of all applications in your account, use the
   `ListApplications` operation.
   """
-  def describe_application(client, input, options \\ []) do
-    request(client, "DescribeApplication", input, options)
+  def describe_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeApplication", input, options)
   end
 
   @doc """
   Returns information about a snapshot of application state data.
   """
-  def describe_application_snapshot(client, input, options \\ []) do
-    request(client, "DescribeApplicationSnapshot", input, options)
+  def describe_application_snapshot(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeApplicationSnapshot", input, options)
   end
 
   @doc """
@@ -210,15 +278,15 @@ defmodule AWS.KinesisAnalyticsV2 do
   console, the console uses this operation to infer a schema and show it in the
   console user interface.
   """
-  def discover_input_schema(client, input, options \\ []) do
-    request(client, "DiscoverInputSchema", input, options)
+  def discover_input_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DiscoverInputSchema", input, options)
   end
 
   @doc """
   Lists information about the current application snapshots.
   """
-  def list_application_snapshots(client, input, options \\ []) do
-    request(client, "ListApplicationSnapshots", input, options)
+  def list_application_snapshots(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListApplicationSnapshots", input, options)
   end
 
   @doc """
@@ -230,8 +298,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   If you want detailed information about a specific application, use
   `DescribeApplication`.
   """
-  def list_applications(client, input, options \\ []) do
-    request(client, "ListApplications", input, options)
+  def list_applications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListApplications", input, options)
   end
 
   @doc """
@@ -239,8 +307,8 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -249,18 +317,23 @@ defmodule AWS.KinesisAnalyticsV2 do
   After creating an application, you must exclusively call this operation to start
   your application.
   """
-  def start_application(client, input, options \\ []) do
-    request(client, "StartApplication", input, options)
+  def start_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartApplication", input, options)
   end
 
   @doc """
   Stops the application from processing data.
 
-  You can stop an application only if it is in the running state. You can use the
-  `DescribeApplication` operation to find the application state.
+  You can stop an application only if it is in the running status, unless you set
+  the `Force` parameter to `true`.
+
+  You can use the `DescribeApplication` operation to find the application status.
+
+  Kinesis Data Analytics takes a snapshot when the application is stopped, unless
+  `Force` is set to `true`.
   """
-  def stop_application(client, input, options \\ []) do
-    request(client, "StopApplication", input, options)
+  def stop_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopApplication", input, options)
   end
 
   @doc """
@@ -270,8 +343,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   maximum number of user-defined application tags is 50. For more information, see
   [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -279,8 +352,8 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   For more information, see [Using Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html).
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -296,61 +369,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   need to update an application's `RuntimeEnvironment`, you must delete the
   application and create it again.
   """
-  def update_application(client, input, options \\ []) do
-    request(client, "UpdateApplication", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "kinesisanalytics"}
-    host = build_host("kinesisanalytics", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "KinesisAnalytics_20180523.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateApplication", input, options)
   end
 end

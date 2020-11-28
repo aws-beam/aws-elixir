@@ -27,6 +27,25 @@ defmodule AWS.CognitoSync do
   and the [Developer Guide for iOS](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2014-06-30",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "cognito-sync",
+      global?: false,
+      protocol: "rest-json",
+      service_id: nil,
+      signature_version: "v4",
+      signing_name: "cognito-sync",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Initiates a bulk publish of all existing datasets for an Identity Pool to the
   configured stream.
@@ -38,11 +57,22 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  def bulk_publish(client, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/bulkpublish"
+  def bulk_publish(%Client{} = client, identity_pool_id, input, options \\ []) do
+    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/bulkpublish"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -55,11 +85,33 @@ defmodule AWS.CognitoSync do
   This API can be called with temporary user credentials provided by Cognito
   Identity or with developer credentials.
   """
-  def delete_dataset(client, dataset_name, identity_id, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
+  def delete_dataset(
+        %Client{} = client,
+        dataset_name,
+        identity_id,
+        identity_pool_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
+        URI.encode(dataset_name)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -73,11 +125,32 @@ defmodule AWS.CognitoSync do
   Identity or with developer credentials. You should use Cognito Identity
   credentials to make this API call.
   """
-  def describe_dataset(client, dataset_name, identity_id, identity_pool_id, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
+  def describe_dataset(
+        %Client{} = client,
+        dataset_name,
+        identity_id,
+        identity_pool_id,
+        options \\ []
+      ) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
+        URI.encode(dataset_name)
+      }"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -86,11 +159,22 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  def describe_identity_pool_usage(client, identity_pool_id, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}"
+  def describe_identity_pool_usage(%Client{} = client, identity_pool_id, options \\ []) do
+    url_path = "/identitypools/#{URI.encode(identity_pool_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -100,11 +184,24 @@ defmodule AWS.CognitoSync do
   This API can be called with temporary user credentials provided by Cognito
   Identity or with developer credentials.
   """
-  def describe_identity_usage(client, identity_id, identity_pool_id, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}"
+  def describe_identity_usage(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -113,11 +210,22 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  def get_bulk_publish_details(client, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/getBulkPublishDetails"
+  def get_bulk_publish_details(%Client{} = client, identity_pool_id, input, options \\ []) do
+    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/getBulkPublishDetails"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -127,11 +235,22 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  def get_cognito_events(client, identity_pool_id, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/events"
+  def get_cognito_events(%Client{} = client, identity_pool_id, options \\ []) do
+    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/events"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -140,11 +259,22 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  def get_identity_pool_configuration(client, identity_pool_id, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
+  def get_identity_pool_configuration(%Client{} = client, identity_pool_id, options \\ []) do
+    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -158,21 +288,45 @@ defmodule AWS.CognitoSync do
   Identity or with developer credentials. You should use the Cognito Identity
   credentials to make this API call.
   """
-  def list_datasets(client, identity_id, identity_pool_id, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets"
+  def list_datasets(
+        %Client{} = client,
+        identity_id,
+        identity_pool_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets"
+
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -182,21 +336,41 @@ defmodule AWS.CognitoSync do
   make this API call with the temporary user credentials provided by Cognito
   Identity.
   """
-  def list_identity_pool_usage(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/identitypools"
+  def list_identity_pool_usage(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/identitypools"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -211,31 +385,64 @@ defmodule AWS.CognitoSync do
   Identity or with developer credentials. You should use Cognito Identity
   credentials to make this API call.
   """
-  def list_records(client, dataset_name, identity_id, identity_pool_id, last_sync_count \\ nil, max_results \\ nil, next_token \\ nil, sync_session_token \\ nil, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/records"
+  def list_records(
+        %Client{} = client,
+        dataset_name,
+        identity_id,
+        identity_pool_id,
+        last_sync_count \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        sync_session_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
+        URI.encode(dataset_name)
+      }/records"
+
     headers = []
-    query_ = []
-    query_ = if !is_nil(sync_session_token) do
-      [{"syncSessionToken", sync_session_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(last_sync_count) do
-      [{"lastSyncCount", last_sync_count} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(sync_session_token) do
+        [{"syncSessionToken", sync_session_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(last_sync_count) do
+        [{"lastSyncCount", last_sync_count} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -244,11 +451,24 @@ defmodule AWS.CognitoSync do
   This API can only be called with temporary credentials provided by Cognito
   Identity. You cannot call this API with developer credentials.
   """
-  def register_device(client, identity_id, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identity/#{URI.encode(identity_id)}/device"
+  def register_device(%Client{} = client, identity_id, identity_pool_id, input, options \\ []) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identity/#{URI.encode(identity_id)}/device"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -261,11 +481,22 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  def set_cognito_events(client, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/events"
+  def set_cognito_events(%Client{} = client, identity_pool_id, input, options \\ []) do
+    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/events"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -274,11 +505,22 @@ defmodule AWS.CognitoSync do
   This API can only be called with developer credentials. You cannot call this API
   with the temporary user credentials provided by Cognito Identity.
   """
-  def set_identity_pool_configuration(client, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
+  def set_identity_pool_configuration(%Client{} = client, identity_pool_id, input, options \\ []) do
+    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -288,11 +530,34 @@ defmodule AWS.CognitoSync do
   This API can only be called with temporary credentials provided by Cognito
   Identity. You cannot call this API with developer credentials.
   """
-  def subscribe_to_dataset(client, dataset_name, device_id, identity_id, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
+  def subscribe_to_dataset(
+        %Client{} = client,
+        dataset_name,
+        device_id,
+        identity_id,
+        identity_pool_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
+        URI.encode(dataset_name)
+      }/subscriptions/#{URI.encode(device_id)}"
+
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -302,11 +567,34 @@ defmodule AWS.CognitoSync do
   This API can only be called with temporary credentials provided by Cognito
   Identity. You cannot call this API with developer credentials.
   """
-  def unsubscribe_from_dataset(client, dataset_name, device_id, identity_id, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
+  def unsubscribe_from_dataset(
+        %Client{} = client,
+        dataset_name,
+        device_id,
+        identity_id,
+        identity_pool_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
+        URI.encode(dataset_name)
+      }/subscriptions/#{URI.encode(device_id)}"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -327,78 +615,37 @@ defmodule AWS.CognitoSync do
   This API can be called with temporary user credentials provided by Cognito
   Identity or with developer credentials.
   """
-  def update_records(client, dataset_name, identity_id, identity_pool_id, input, options \\ []) do
-    path_ = "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
+  def update_records(
+        %Client{} = client,
+        dataset_name,
+        identity_id,
+        identity_pool_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
+        URI.encode(dataset_name)
+      }"
+
     {headers, input} =
       [
-        {"ClientContext", "x-amz-Client-Context"},
+        {"ClientContext", "x-amz-Client-Context"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
-  end
+      |> Request.build_params(input)
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "cognito-sync"}
-    host = build_host("cognito-sync", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
+    query_params = []
 
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

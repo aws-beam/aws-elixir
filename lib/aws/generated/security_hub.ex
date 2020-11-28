@@ -44,18 +44,51 @@ defmodule AWS.SecurityHub do
   `BurstLimit` of 30 requests per second.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-10-26",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "securityhub",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "SecurityHub",
+      signature_version: "v4",
+      signing_name: "securityhub",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Accepts the invitation to be a member account and be monitored by the Security
   Hub master account that the invitation was sent from.
 
+  This operation is only used by member accounts that are not added through
+  Organizations.
+
   When the member account accepts the invitation, permission is granted to the
   master account to view findings generated in the member account.
   """
-  def accept_invitation(client, input, options \\ []) do
-    path_ = "/master"
+  def accept_invitation(%Client{} = client, input, options \\ []) do
+    url_path = "/master"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -64,11 +97,22 @@ defmodule AWS.SecurityHub do
   For more information, see [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
   section of the *AWS Security Hub User Guide*.
   """
-  def batch_disable_standards(client, input, options \\ []) do
-    path_ = "/standards/deregister"
+  def batch_disable_standards(%Client{} = client, input, options \\ []) do
+    url_path = "/standards/deregister"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -79,11 +123,22 @@ defmodule AWS.SecurityHub do
   For more information, see the [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
   section of the *AWS Security Hub User Guide*.
   """
-  def batch_enable_standards(client, input, options \\ []) do
-    path_ = "/standards/register"
+  def batch_enable_standards(%Client{} = client, input, options \\ []) do
+    url_path = "/standards/register"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -118,11 +173,22 @@ defmodule AWS.SecurityHub do
 
     * `Workflow`
   """
-  def batch_import_findings(client, input, options \\ []) do
-    path_ = "/findings/import"
+  def batch_import_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/findings/import"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -162,11 +228,22 @@ defmodule AWS.SecurityHub do
   or change the finding severity. See [Configuring access to BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access)
   in the *AWS Security Hub User Guide*.
   """
-  def batch_update_findings(client, input, options \\ []) do
-    path_ = "/findings/batchupdate"
+  def batch_update_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/findings/batchupdate"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -175,11 +252,22 @@ defmodule AWS.SecurityHub do
   You can use custom actions on findings and insights in Security Hub to trigger
   target actions in Amazon CloudWatch Events.
   """
-  def create_action_target(client, input, options \\ []) do
-    path_ = "/actionTargets"
+  def create_action_target(%Client{} = client, input, options \\ []) do
+    url_path = "/actionTargets"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -190,49 +278,101 @@ defmodule AWS.SecurityHub do
 
   To group the related findings in the insight, use the `GroupByAttribute`.
   """
-  def create_insight(client, input, options \\ []) do
-    path_ = "/insights"
+  def create_insight(%Client{} = client, input, options \\ []) do
+    url_path = "/insights"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a member association in Security Hub between the specified accounts and
   the account used to make the request, which is the master account.
 
-  To successfully create a member, you must use this action from an account that
-  already has Security Hub enabled. To enable Security Hub, you can use the `
-  `EnableSecurityHub` ` operation.
+  If you are integrated with Organizations, then the master account is the
+  Security Hub administrator account that is designated by the organization
+  management account.
 
-  After you use `CreateMembers` to create member account associations in Security
-  Hub, you must use the ` `InviteMembers` ` operation to invite the accounts to
-  enable Security Hub and become member accounts in Security Hub.
+  `CreateMembers` is always used to add accounts that are not organization
+  members.
 
-  If the account owner accepts the invitation, the account becomes a member
-  account in Security Hub. A permissions policy is added that permits the master
-  account to view the findings generated in the member account. When Security Hub
-  is enabled in the invited account, findings start to be sent to both the member
-  and master accounts.
+  For accounts that are part of an organization, `CreateMembers` is only used in
+  the following cases:
+
+    * Security Hub is not configured to automatically add new accounts
+  in an organization.
+
+    * The account was disassociated or deleted in Security Hub.
+
+  This action can only be used by an account that has Security Hub enabled. To
+  enable Security Hub, you can use the ` `EnableSecurityHub` ` operation.
+
+  For accounts that are not organization members, you create the account
+  association and then send an invitation to the member account. To send the
+  invitation, you use the ` `InviteMembers` ` operation. If the account owner
+  accepts the invitation, the account becomes a member account in Security Hub.
+
+  Accounts that are part of an organization do not receive an invitation. They
+  automatically become a member account in Security Hub.
+
+  A permissions policy is added that permits the master account to view the
+  findings generated in the member account. When Security Hub is enabled in a
+  member account, findings are sent to both the member and master accounts.
 
   To remove the association between the master and member accounts, use the `
   `DisassociateFromMasterAccount` ` or ` `DisassociateMembers` ` operation.
   """
-  def create_members(client, input, options \\ []) do
-    path_ = "/members"
+  def create_members(%Client{} = client, input, options \\ []) do
+    url_path = "/members"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Declines invitations to become a member account.
+
+  This operation is only used by accounts that are not part of an organization.
+  Organization accounts do not receive invitations.
   """
-  def decline_invitations(client, input, options \\ []) do
-    path_ = "/invitations/decline"
+  def decline_invitations(%Client{} = client, input, options \\ []) do
+    url_path = "/invitations/decline"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -241,88 +381,200 @@ defmodule AWS.SecurityHub do
   Deleting a custom action target does not affect any findings or insights that
   were already sent to Amazon CloudWatch Events using the custom action.
   """
-  def delete_action_target(client, action_target_arn, input, options \\ []) do
-    path_ = "/actionTargets/#{AWS.Util.encode_uri(action_target_arn, true)}"
+  def delete_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
+    url_path = "/actionTargets/#{AWS.Util.encode_uri(action_target_arn, true)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the insight specified by the `InsightArn`.
   """
-  def delete_insight(client, insight_arn, input, options \\ []) do
-    path_ = "/insights/#{AWS.Util.encode_uri(insight_arn, true)}"
+  def delete_insight(%Client{} = client, insight_arn, input, options \\ []) do
+    url_path = "/insights/#{AWS.Util.encode_uri(insight_arn, true)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes invitations received by the AWS account to become a member account.
+
+  This operation is only used by accounts that are not part of an organization.
+  Organization accounts do not receive invitations.
   """
-  def delete_invitations(client, input, options \\ []) do
-    path_ = "/invitations/delete"
+  def delete_invitations(%Client{} = client, input, options \\ []) do
+    url_path = "/invitations/delete"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the specified member accounts from Security Hub.
+
+  Can be used to delete member accounts that belong to an organization as well as
+  member accounts that were invited manually.
   """
-  def delete_members(client, input, options \\ []) do
-    path_ = "/members/delete"
+  def delete_members(%Client{} = client, input, options \\ []) do
+    url_path = "/members/delete"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a list of the custom action targets in Security Hub in your account.
   """
-  def describe_action_targets(client, input, options \\ []) do
-    path_ = "/actionTargets/get"
+  def describe_action_targets(%Client{} = client, input, options \\ []) do
+    url_path = "/actionTargets/get"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns details about the Hub resource in your account, including the `HubArn`
   and the time when you enabled Security Hub.
   """
-  def describe_hub(client, hub_arn \\ nil, options \\ []) do
-    path_ = "/accounts"
+  def describe_hub(%Client{} = client, hub_arn \\ nil, options \\ []) do
+    url_path = "/accounts"
     headers = []
-    query_ = []
-    query_ = if !is_nil(hub_arn) do
-      [{"HubArn", hub_arn} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(hub_arn) do
+        [{"HubArn", hub_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns information about the Organizations configuration for Security Hub.
+
+  Can only be called from a Security Hub administrator account.
+  """
+  def describe_organization_configuration(%Client{} = client, options \\ []) do
+    url_path = "/organization/configuration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information about the available products that you can subscribe to and
   integrate with Security Hub in order to consolidate findings.
   """
-  def describe_products(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/products"
+  def describe_products(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/products"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -331,21 +583,36 @@ defmodule AWS.SecurityHub do
   For each standard, the results include the standard ARN, the name, and a
   description.
   """
-  def describe_standards(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/standards"
+  def describe_standards(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/standards"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -354,21 +621,42 @@ defmodule AWS.SecurityHub do
   For each control, the results include information about whether it is currently
   enabled, the severity, and a link to remediation information.
   """
-  def describe_standards_controls(client, standards_subscription_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/standards/controls/#{AWS.Util.encode_uri(standards_subscription_arn, true)}"
+  def describe_standards_controls(
+        %Client{} = client,
+        standards_subscription_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/standards/controls/#{AWS.Util.encode_uri(standards_subscription_arn, true)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -377,11 +665,50 @@ defmodule AWS.SecurityHub do
   After the integration is disabled, findings from that product are no longer sent
   to Security Hub.
   """
-  def disable_import_findings_for_product(client, product_subscription_arn, input, options \\ []) do
-    path_ = "/productSubscriptions/#{AWS.Util.encode_uri(product_subscription_arn, true)}"
+  def disable_import_findings_for_product(
+        %Client{} = client,
+        product_subscription_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/productSubscriptions/#{AWS.Util.encode_uri(product_subscription_arn, true)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disables a Security Hub administrator account.
+
+  Can only be called by the organization management account.
+  """
+  def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/admin/disable"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -401,32 +728,72 @@ defmodule AWS.SecurityHub do
   If you want to save your existing findings, you must export them before you
   disable Security Hub.
   """
-  def disable_security_hub(client, input, options \\ []) do
-    path_ = "/accounts"
+  def disable_security_hub(%Client{} = client, input, options \\ []) do
+    url_path = "/accounts"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Disassociates the current Security Hub member account from the associated master
   account.
+
+  This operation is only used by accounts that are not part of an organization.
+  For organization accounts, only the master account (the designated Security Hub
+  administrator) can disassociate a member account.
   """
-  def disassociate_from_master_account(client, input, options \\ []) do
-    path_ = "/master/disassociate"
+  def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
+    url_path = "/master/disassociate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Disassociates the specified member accounts from the associated master account.
+
+  Can be used to disassociate both accounts that are in an organization and
+  accounts that were invited manually.
   """
-  def disassociate_members(client, input, options \\ []) do
-    path_ = "/members/disassociate"
+  def disassociate_members(%Client{} = client, input, options \\ []) do
+    url_path = "/members/disassociate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -437,11 +804,45 @@ defmodule AWS.SecurityHub do
   When you enable a product integration, a permissions policy that grants
   permission for the product to send findings to Security Hub is applied.
   """
-  def enable_import_findings_for_product(client, input, options \\ []) do
-    path_ = "/productSubscriptions"
+  def enable_import_findings_for_product(%Client{} = client, input, options \\ []) do
+    url_path = "/productSubscriptions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Designates the Security Hub administrator account for an organization.
+
+  Can only be called by the organization management account.
+  """
+  def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/admin/enable"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -472,214 +873,476 @@ defmodule AWS.SecurityHub do
   To learn more, see [Setting Up AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html)
   in the *AWS Security Hub User Guide*.
   """
-  def enable_security_hub(client, input, options \\ []) do
-    path_ = "/accounts"
+  def enable_security_hub(%Client{} = client, input, options \\ []) do
+    url_path = "/accounts"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a list of the standards that are currently enabled.
   """
-  def get_enabled_standards(client, input, options \\ []) do
-    path_ = "/standards/get"
+  def get_enabled_standards(%Client{} = client, input, options \\ []) do
+    url_path = "/standards/get"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a list of findings that match the specified criteria.
   """
-  def get_findings(client, input, options \\ []) do
-    path_ = "/findings"
+  def get_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/findings"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the results of the Security Hub insight specified by the insight ARN.
   """
-  def get_insight_results(client, insight_arn, options \\ []) do
-    path_ = "/insights/results/#{AWS.Util.encode_uri(insight_arn, true)}"
+  def get_insight_results(%Client{} = client, insight_arn, options \\ []) do
+    url_path = "/insights/results/#{AWS.Util.encode_uri(insight_arn, true)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists and describes insights for the specified insight ARNs.
   """
-  def get_insights(client, input, options \\ []) do
-    path_ = "/insights/get"
+  def get_insights(%Client{} = client, input, options \\ []) do
+    url_path = "/insights/get"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns the count of all Security Hub membership invitations that were sent to
   the current member account, not including the currently accepted invitation.
   """
-  def get_invitations_count(client, options \\ []) do
-    path_ = "/invitations/count"
+  def get_invitations_count(%Client{} = client, options \\ []) do
+    url_path = "/invitations/count"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Provides the details for the Security Hub master account for the current member
   account.
+
+  Can be used by both member accounts that are in an organization and accounts
+  that were invited manually.
   """
-  def get_master_account(client, options \\ []) do
-    path_ = "/master"
+  def get_master_account(%Client{} = client, options \\ []) do
+    url_path = "/master"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns the details for the Security Hub member accounts for the specified
   account IDs.
+
+  A master account can be either a delegated Security Hub administrator account
+  for an organization or a master account that enabled Security Hub manually.
+
+  The results include both member accounts that are in an organization and
+  accounts that were invited manually.
   """
-  def get_members(client, input, options \\ []) do
-    path_ = "/members/get"
+  def get_members(%Client{} = client, input, options \\ []) do
+    url_path = "/members/get"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Invites other AWS accounts to become member accounts for the Security Hub master
   account that the invitation is sent from.
 
+  This operation is only used to invite accounts that do not belong to an
+  organization. Organization accounts do not receive invitations.
+
   Before you can use this action to invite a member, you must first use the `
   `CreateMembers` ` action to create the member account in Security Hub.
 
-  When the account owner accepts the invitation to become a member account and
-  enables Security Hub, the master account can view the findings generated from
-  the member account.
+  When the account owner enables Security Hub and accepts the invitation to become
+  a member account, the master account can view the findings generated from the
+  member account.
   """
-  def invite_members(client, input, options \\ []) do
-    path_ = "/members/invite"
+  def invite_members(%Client{} = client, input, options \\ []) do
+    url_path = "/members/invite"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists all findings-generating solutions (products) that you are subscribed to
   receive findings from in Security Hub.
   """
-  def list_enabled_products_for_import(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/productSubscriptions"
+  def list_enabled_products_for_import(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/productSubscriptions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists all Security Hub membership invitations that were sent to the current AWS
   account.
+
+  This operation is only used by accounts that do not belong to an organization.
+  Organization accounts do not receive invitations.
   """
-  def list_invitations(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/invitations"
+  def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/invitations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists details about all member accounts for the current Security Hub master
   account.
+
+  The results include both member accounts that belong to an organization and
+  member accounts that were invited manually.
   """
-  def list_members(client, max_results \\ nil, next_token \\ nil, only_associated \\ nil, options \\ []) do
-    path_ = "/members"
+  def list_members(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        only_associated \\ nil,
+        options \\ []
+      ) do
+    url_path = "/members"
     headers = []
-    query_ = []
-    query_ = if !is_nil(only_associated) do
-      [{"OnlyAssociated", only_associated} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(only_associated) do
+        [{"OnlyAssociated", only_associated} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the Security Hub administrator accounts.
+
+  Can only be called by the organization management account.
+  """
+  def list_organization_admin_accounts(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/organization/admin"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a list of tags associated with a resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Adds one or more tags to a resource.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes one or more tags from a resource.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"TagKeys", "tagKeys"},
+        {"TagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the name and description of a custom action target in Security Hub.
   """
-  def update_action_target(client, action_target_arn, input, options \\ []) do
-    path_ = "/actionTargets/#{AWS.Util.encode_uri(action_target_arn, true)}"
+  def update_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
+    url_path = "/actionTargets/#{AWS.Util.encode_uri(action_target_arn, true)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -691,105 +1354,108 @@ defmodule AWS.SecurityHub do
   that the filter attributes specify. Any member account that can view the finding
   also sees the update to the finding.
   """
-  def update_findings(client, input, options \\ []) do
-    path_ = "/findings"
+  def update_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/findings"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the Security Hub insight identified by the specified insight ARN.
   """
-  def update_insight(client, insight_arn, input, options \\ []) do
-    path_ = "/insights/#{AWS.Util.encode_uri(insight_arn, true)}"
+  def update_insight(%Client{} = client, insight_arn, input, options \\ []) do
+    url_path = "/insights/#{AWS.Util.encode_uri(insight_arn, true)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Used to update the configuration related to Organizations.
+
+  Can only be called from a Security Hub administrator account.
+  """
+  def update_organization_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/configuration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates configuration options for Security Hub.
   """
-  def update_security_hub_configuration(client, input, options \\ []) do
-    path_ = "/accounts"
+  def update_security_hub_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/accounts"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Used to control whether an individual security standard control is enabled or
   disabled.
   """
-  def update_standards_control(client, standards_control_arn, input, options \\ []) do
-    path_ = "/standards/control/#{AWS.Util.encode_uri(standards_control_arn, true)}"
+  def update_standards_control(%Client{} = client, standards_control_arn, input, options \\ []) do
+    url_path = "/standards/control/#{AWS.Util.encode_uri(standards_control_arn, true)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "securityhub"}
-    host = build_host("securityhub", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

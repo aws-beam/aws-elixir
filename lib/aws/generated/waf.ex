@@ -24,6 +24,25 @@ defmodule AWS.WAF do
   in the developer guide.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "WAF",
+      api_version: "2015-08-24",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: "us-east-1",
+      endpoint_prefix: "waf",
+      global?: true,
+      protocol: "json",
+      service_id: "WAF",
+      signature_version: "v4",
+      signing_name: "waf",
+      target_prefix: "AWSWAF_20150824"
+    }
+  end
+
   @doc """
   This is **AWS WAF Classic** documentation.
 
@@ -58,8 +77,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_byte_match_set(client, input, options \\ []) do
-    request(client, "CreateByteMatchSet", input, options)
+  def create_byte_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateByteMatchSet", input, options)
   end
 
   @doc """
@@ -95,8 +114,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_geo_match_set(client, input, options \\ []) do
-    request(client, "CreateGeoMatchSet", input, options)
+  def create_geo_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGeoMatchSet", input, options)
   end
 
   @doc """
@@ -133,8 +152,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_i_p_set(client, input, options \\ []) do
-    request(client, "CreateIPSet", input, options)
+  def create_i_p_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateIPSet", input, options)
   end
 
   @doc """
@@ -210,8 +229,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_rate_based_rule(client, input, options \\ []) do
-    request(client, "CreateRateBasedRule", input, options)
+  def create_rate_based_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRateBasedRule", input, options)
   end
 
   @doc """
@@ -249,8 +268,8 @@ defmodule AWS.WAF do
   requests, see the [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_regex_match_set(client, input, options \\ []) do
-    request(client, "CreateRegexMatchSet", input, options)
+  def create_regex_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRegexMatchSet", input, options)
   end
 
   @doc """
@@ -283,8 +302,8 @@ defmodule AWS.WAF do
   requests, see the [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_regex_pattern_set(client, input, options \\ []) do
-    request(client, "CreateRegexPatternSet", input, options)
+  def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRegexPatternSet", input, options)
   end
 
   @doc """
@@ -336,8 +355,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_rule(client, input, options \\ []) do
-    request(client, "CreateRule", input, options)
+  def create_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRule", input, options)
   end
 
   @doc """
@@ -366,8 +385,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_rule_group(client, input, options \\ []) do
-    request(client, "CreateRuleGroup", input, options)
+  def create_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRuleGroup", input, options)
   end
 
   @doc """
@@ -405,8 +424,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_size_constraint_set(client, input, options \\ []) do
-    request(client, "CreateSizeConstraintSet", input, options)
+  def create_size_constraint_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSizeConstraintSet", input, options)
   end
 
   @doc """
@@ -442,8 +461,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_sql_injection_match_set(client, input, options \\ []) do
-    request(client, "CreateSqlInjectionMatchSet", input, options)
+  def create_sql_injection_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSqlInjectionMatchSet", input, options)
   end
 
   @doc """
@@ -489,8 +508,8 @@ defmodule AWS.WAF do
 
   For more information about how to use the AWS WAF API, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_web_a_c_l(client, input, options \\ []) do
-    request(client, "CreateWebACL", input, options)
+  def create_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWebACL", input, options)
   end
 
   @doc """
@@ -507,8 +526,8 @@ defmodule AWS.WAF do
   [Migrating your AWS WAF Classic resources to AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-migrating-from-classic.html)
   in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   """
-  def create_web_a_c_l_migration_stack(client, input, options \\ []) do
-    request(client, "CreateWebACLMigrationStack", input, options)
+  def create_web_a_c_l_migration_stack(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWebACLMigrationStack", input, options)
   end
 
   @doc """
@@ -543,8 +562,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_xss_match_set(client, input, options \\ []) do
-    request(client, "CreateXssMatchSet", input, options)
+  def create_xss_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateXssMatchSet", input, options)
   end
 
   @doc """
@@ -574,8 +593,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteByteMatchSet` request.
   """
-  def delete_byte_match_set(client, input, options \\ []) do
-    request(client, "DeleteByteMatchSet", input, options)
+  def delete_byte_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteByteMatchSet", input, options)
   end
 
   @doc """
@@ -604,8 +623,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteGeoMatchSet` request.
   """
-  def delete_geo_match_set(client, input, options \\ []) do
-    request(client, "DeleteGeoMatchSet", input, options)
+  def delete_geo_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGeoMatchSet", input, options)
   end
 
   @doc """
@@ -634,8 +653,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteIPSet` request.
   """
-  def delete_i_p_set(client, input, options \\ []) do
-    request(client, "DeleteIPSet", input, options)
+  def delete_i_p_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIPSet", input, options)
   end
 
   @doc """
@@ -651,8 +670,8 @@ defmodule AWS.WAF do
 
   Permanently deletes the `LoggingConfiguration` from the specified web ACL.
   """
-  def delete_logging_configuration(client, input, options \\ []) do
-    request(client, "DeleteLoggingConfiguration", input, options)
+  def delete_logging_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLoggingConfiguration", input, options)
   end
 
   @doc """
@@ -670,8 +689,8 @@ defmodule AWS.WAF do
 
   The user making the request must be the owner of the RuleGroup.
   """
-  def delete_permission_policy(client, input, options \\ []) do
-    request(client, "DeletePermissionPolicy", input, options)
+  def delete_permission_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePermissionPolicy", input, options)
   end
 
   @doc """
@@ -702,8 +721,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteRateBasedRule` request.
   """
-  def delete_rate_based_rule(client, input, options \\ []) do
-    request(client, "DeleteRateBasedRule", input, options)
+  def delete_rate_based_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRateBasedRule", input, options)
   end
 
   @doc """
@@ -733,8 +752,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteRegexMatchSet` request.
   """
-  def delete_regex_match_set(client, input, options \\ []) do
-    request(client, "DeleteRegexMatchSet", input, options)
+  def delete_regex_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRegexMatchSet", input, options)
   end
 
   @doc """
@@ -751,8 +770,8 @@ defmodule AWS.WAF do
   Permanently deletes a `RegexPatternSet`. You can't delete a `RegexPatternSet` if
   it's still used in any `RegexMatchSet` or if the `RegexPatternSet` is not empty.
   """
-  def delete_regex_pattern_set(client, input, options \\ []) do
-    request(client, "DeleteRegexPatternSet", input, options)
+  def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRegexPatternSet", input, options)
   end
 
   @doc """
@@ -782,8 +801,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteRule` request.
   """
-  def delete_rule(client, input, options \\ []) do
-    request(client, "DeleteRule", input, options)
+  def delete_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRule", input, options)
   end
 
   @doc """
@@ -812,8 +831,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteRuleGroup` request.
   """
-  def delete_rule_group(client, input, options \\ []) do
-    request(client, "DeleteRuleGroup", input, options)
+  def delete_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRuleGroup", input, options)
   end
 
   @doc """
@@ -844,8 +863,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteSizeConstraintSet` request.
   """
-  def delete_size_constraint_set(client, input, options \\ []) do
-    request(client, "DeleteSizeConstraintSet", input, options)
+  def delete_size_constraint_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSizeConstraintSet", input, options)
   end
 
   @doc """
@@ -877,8 +896,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteSqlInjectionMatchSet` request.
   """
-  def delete_sql_injection_match_set(client, input, options \\ []) do
-    request(client, "DeleteSqlInjectionMatchSet", input, options)
+  def delete_sql_injection_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSqlInjectionMatchSet", input, options)
   end
 
   @doc """
@@ -905,8 +924,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteWebACL` request.
   """
-  def delete_web_a_c_l(client, input, options \\ []) do
-    request(client, "DeleteWebACL", input, options)
+  def delete_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWebACL", input, options)
   end
 
   @doc """
@@ -936,8 +955,8 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteXssMatchSet` request.
   """
-  def delete_xss_match_set(client, input, options \\ []) do
-    request(client, "DeleteXssMatchSet", input, options)
+  def delete_xss_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteXssMatchSet", input, options)
   end
 
   @doc """
@@ -953,8 +972,8 @@ defmodule AWS.WAF do
 
   Returns the `ByteMatchSet` specified by `ByteMatchSetId`.
   """
-  def get_byte_match_set(client, input, options \\ []) do
-    request(client, "GetByteMatchSet", input, options)
+  def get_byte_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetByteMatchSet", input, options)
   end
 
   @doc """
@@ -984,8 +1003,8 @@ defmodule AWS.WAF do
   propagating the change to all AWS WAF servers. Use `GetChangeTokenStatus` to
   determine the status of your change token.
   """
-  def get_change_token(client, input, options \\ []) do
-    request(client, "GetChangeToken", input, options)
+  def get_change_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetChangeToken", input, options)
   end
 
   @doc """
@@ -1011,8 +1030,8 @@ defmodule AWS.WAF do
 
     * `INSYNC`: Propagation is complete.
   """
-  def get_change_token_status(client, input, options \\ []) do
-    request(client, "GetChangeTokenStatus", input, options)
+  def get_change_token_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetChangeTokenStatus", input, options)
   end
 
   @doc """
@@ -1028,8 +1047,8 @@ defmodule AWS.WAF do
 
   Returns the `GeoMatchSet` that is specified by `GeoMatchSetId`.
   """
-  def get_geo_match_set(client, input, options \\ []) do
-    request(client, "GetGeoMatchSet", input, options)
+  def get_geo_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGeoMatchSet", input, options)
   end
 
   @doc """
@@ -1045,8 +1064,8 @@ defmodule AWS.WAF do
 
   Returns the `IPSet` that is specified by `IPSetId`.
   """
-  def get_i_p_set(client, input, options \\ []) do
-    request(client, "GetIPSet", input, options)
+  def get_i_p_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetIPSet", input, options)
   end
 
   @doc """
@@ -1062,8 +1081,8 @@ defmodule AWS.WAF do
 
   Returns the `LoggingConfiguration` for the specified web ACL.
   """
-  def get_logging_configuration(client, input, options \\ []) do
-    request(client, "GetLoggingConfiguration", input, options)
+  def get_logging_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLoggingConfiguration", input, options)
   end
 
   @doc """
@@ -1079,8 +1098,8 @@ defmodule AWS.WAF do
 
   Returns the IAM policy attached to the RuleGroup.
   """
-  def get_permission_policy(client, input, options \\ []) do
-    request(client, "GetPermissionPolicy", input, options)
+  def get_permission_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPermissionPolicy", input, options)
   end
 
   @doc """
@@ -1097,8 +1116,8 @@ defmodule AWS.WAF do
   Returns the `RateBasedRule` that is specified by the `RuleId` that you included
   in the `GetRateBasedRule` request.
   """
-  def get_rate_based_rule(client, input, options \\ []) do
-    request(client, "GetRateBasedRule", input, options)
+  def get_rate_based_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRateBasedRule", input, options)
   end
 
   @doc """
@@ -1117,8 +1136,8 @@ defmodule AWS.WAF do
   be blocked is 10,000. If more than 10,000 addresses exceed the rate limit, the
   10,000 addresses with the highest rates will be blocked.
   """
-  def get_rate_based_rule_managed_keys(client, input, options \\ []) do
-    request(client, "GetRateBasedRuleManagedKeys", input, options)
+  def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRateBasedRuleManagedKeys", input, options)
   end
 
   @doc """
@@ -1134,8 +1153,8 @@ defmodule AWS.WAF do
 
   Returns the `RegexMatchSet` specified by `RegexMatchSetId`.
   """
-  def get_regex_match_set(client, input, options \\ []) do
-    request(client, "GetRegexMatchSet", input, options)
+  def get_regex_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRegexMatchSet", input, options)
   end
 
   @doc """
@@ -1151,8 +1170,8 @@ defmodule AWS.WAF do
 
   Returns the `RegexPatternSet` specified by `RegexPatternSetId`.
   """
-  def get_regex_pattern_set(client, input, options \\ []) do
-    request(client, "GetRegexPatternSet", input, options)
+  def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRegexPatternSet", input, options)
   end
 
   @doc """
@@ -1169,8 +1188,8 @@ defmodule AWS.WAF do
   Returns the `Rule` that is specified by the `RuleId` that you included in the
   `GetRule` request.
   """
-  def get_rule(client, input, options \\ []) do
-    request(client, "GetRule", input, options)
+  def get_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRule", input, options)
   end
 
   @doc """
@@ -1189,8 +1208,8 @@ defmodule AWS.WAF do
 
   To view the rules in a rule group, use `ListActivatedRulesInRuleGroup`.
   """
-  def get_rule_group(client, input, options \\ []) do
-    request(client, "GetRuleGroup", input, options)
+  def get_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRuleGroup", input, options)
   end
 
   @doc """
@@ -1217,8 +1236,8 @@ defmodule AWS.WAF do
   indicates the actual period during which AWS WAF selected the requests in the
   sample.
   """
-  def get_sampled_requests(client, input, options \\ []) do
-    request(client, "GetSampledRequests", input, options)
+  def get_sampled_requests(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSampledRequests", input, options)
   end
 
   @doc """
@@ -1234,8 +1253,8 @@ defmodule AWS.WAF do
 
   Returns the `SizeConstraintSet` specified by `SizeConstraintSetId`.
   """
-  def get_size_constraint_set(client, input, options \\ []) do
-    request(client, "GetSizeConstraintSet", input, options)
+  def get_size_constraint_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSizeConstraintSet", input, options)
   end
 
   @doc """
@@ -1252,8 +1271,8 @@ defmodule AWS.WAF do
   Returns the `SqlInjectionMatchSet` that is specified by
   `SqlInjectionMatchSetId`.
   """
-  def get_sql_injection_match_set(client, input, options \\ []) do
-    request(client, "GetSqlInjectionMatchSet", input, options)
+  def get_sql_injection_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSqlInjectionMatchSet", input, options)
   end
 
   @doc """
@@ -1269,8 +1288,8 @@ defmodule AWS.WAF do
 
   Returns the `WebACL` that is specified by `WebACLId`.
   """
-  def get_web_a_c_l(client, input, options \\ []) do
-    request(client, "GetWebACL", input, options)
+  def get_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetWebACL", input, options)
   end
 
   @doc """
@@ -1286,8 +1305,8 @@ defmodule AWS.WAF do
 
   Returns the `XssMatchSet` that is specified by `XssMatchSetId`.
   """
-  def get_xss_match_set(client, input, options \\ []) do
-    request(client, "GetXssMatchSet", input, options)
+  def get_xss_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetXssMatchSet", input, options)
   end
 
   @doc """
@@ -1303,8 +1322,8 @@ defmodule AWS.WAF do
 
   Returns an array of `ActivatedRule` objects.
   """
-  def list_activated_rules_in_rule_group(client, input, options \\ []) do
-    request(client, "ListActivatedRulesInRuleGroup", input, options)
+  def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListActivatedRulesInRuleGroup", input, options)
   end
 
   @doc """
@@ -1320,8 +1339,8 @@ defmodule AWS.WAF do
 
   Returns an array of `ByteMatchSetSummary` objects.
   """
-  def list_byte_match_sets(client, input, options \\ []) do
-    request(client, "ListByteMatchSets", input, options)
+  def list_byte_match_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListByteMatchSets", input, options)
   end
 
   @doc """
@@ -1337,8 +1356,8 @@ defmodule AWS.WAF do
 
   Returns an array of `GeoMatchSetSummary` objects in the response.
   """
-  def list_geo_match_sets(client, input, options \\ []) do
-    request(client, "ListGeoMatchSets", input, options)
+  def list_geo_match_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGeoMatchSets", input, options)
   end
 
   @doc """
@@ -1354,8 +1373,8 @@ defmodule AWS.WAF do
 
   Returns an array of `IPSetSummary` objects in the response.
   """
-  def list_i_p_sets(client, input, options \\ []) do
-    request(client, "ListIPSets", input, options)
+  def list_i_p_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListIPSets", input, options)
   end
 
   @doc """
@@ -1371,8 +1390,8 @@ defmodule AWS.WAF do
 
   Returns an array of `LoggingConfiguration` objects.
   """
-  def list_logging_configurations(client, input, options \\ []) do
-    request(client, "ListLoggingConfigurations", input, options)
+  def list_logging_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLoggingConfigurations", input, options)
   end
 
   @doc """
@@ -1388,8 +1407,8 @@ defmodule AWS.WAF do
 
   Returns an array of `RuleSummary` objects.
   """
-  def list_rate_based_rules(client, input, options \\ []) do
-    request(client, "ListRateBasedRules", input, options)
+  def list_rate_based_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRateBasedRules", input, options)
   end
 
   @doc """
@@ -1405,8 +1424,8 @@ defmodule AWS.WAF do
 
   Returns an array of `RegexMatchSetSummary` objects.
   """
-  def list_regex_match_sets(client, input, options \\ []) do
-    request(client, "ListRegexMatchSets", input, options)
+  def list_regex_match_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRegexMatchSets", input, options)
   end
 
   @doc """
@@ -1422,8 +1441,8 @@ defmodule AWS.WAF do
 
   Returns an array of `RegexPatternSetSummary` objects.
   """
-  def list_regex_pattern_sets(client, input, options \\ []) do
-    request(client, "ListRegexPatternSets", input, options)
+  def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRegexPatternSets", input, options)
   end
 
   @doc """
@@ -1439,8 +1458,8 @@ defmodule AWS.WAF do
 
   Returns an array of `RuleGroup` objects.
   """
-  def list_rule_groups(client, input, options \\ []) do
-    request(client, "ListRuleGroups", input, options)
+  def list_rule_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRuleGroups", input, options)
   end
 
   @doc """
@@ -1456,8 +1475,8 @@ defmodule AWS.WAF do
 
   Returns an array of `RuleSummary` objects.
   """
-  def list_rules(client, input, options \\ []) do
-    request(client, "ListRules", input, options)
+  def list_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRules", input, options)
   end
 
   @doc """
@@ -1473,8 +1492,8 @@ defmodule AWS.WAF do
 
   Returns an array of `SizeConstraintSetSummary` objects.
   """
-  def list_size_constraint_sets(client, input, options \\ []) do
-    request(client, "ListSizeConstraintSets", input, options)
+  def list_size_constraint_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSizeConstraintSets", input, options)
   end
 
   @doc """
@@ -1490,8 +1509,8 @@ defmodule AWS.WAF do
 
   Returns an array of `SqlInjectionMatchSet` objects.
   """
-  def list_sql_injection_match_sets(client, input, options \\ []) do
-    request(client, "ListSqlInjectionMatchSets", input, options)
+  def list_sql_injection_match_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSqlInjectionMatchSets", input, options)
   end
 
   @doc """
@@ -1507,8 +1526,8 @@ defmodule AWS.WAF do
 
   Returns an array of `RuleGroup` objects that you are subscribed to.
   """
-  def list_subscribed_rule_groups(client, input, options \\ []) do
-    request(client, "ListSubscribedRuleGroups", input, options)
+  def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSubscribedRuleGroups", input, options)
   end
 
   @doc """
@@ -1532,8 +1551,8 @@ defmodule AWS.WAF do
   view tags through the AWS WAF Classic console. You can tag the AWS resources
   that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -1549,8 +1568,8 @@ defmodule AWS.WAF do
 
   Returns an array of `WebACLSummary` objects in the response.
   """
-  def list_web_a_c_ls(client, input, options \\ []) do
-    request(client, "ListWebACLs", input, options)
+  def list_web_a_c_ls(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListWebACLs", input, options)
   end
 
   @doc """
@@ -1566,8 +1585,8 @@ defmodule AWS.WAF do
 
   Returns an array of `XssMatchSet` objects.
   """
-  def list_xss_match_sets(client, input, options \\ []) do
-    request(client, "ListXssMatchSets", input, options)
+  def list_xss_match_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListXssMatchSets", input, options)
   end
 
   @doc """
@@ -1603,8 +1622,8 @@ defmodule AWS.WAF do
   [Logging Web ACL Traffic Information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html)
   in the *AWS WAF Developer Guide*.
   """
-  def put_logging_configuration(client, input, options \\ []) do
-    request(client, "PutLoggingConfiguration", input, options)
+  def put_logging_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutLoggingConfiguration", input, options)
   end
 
   @doc """
@@ -1647,8 +1666,8 @@ defmodule AWS.WAF do
 
   An example of a valid policy parameter is shown in the Examples section below.
   """
-  def put_permission_policy(client, input, options \\ []) do
-    request(client, "PutPermissionPolicy", input, options)
+  def put_permission_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutPermissionPolicy", input, options)
   end
 
   @doc """
@@ -1673,8 +1692,8 @@ defmodule AWS.WAF do
   the AWS resources that you manage through AWS WAF Classic: web ACLs, rule
   groups, and rules.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -1688,8 +1707,8 @@ defmodule AWS.WAF do
   With the latest version, AWS WAF has a single set of endpoints for regional and
   global use.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -1743,8 +1762,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_byte_match_set(client, input, options \\ []) do
-    request(client, "UpdateByteMatchSet", input, options)
+  def update_byte_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateByteMatchSet", input, options)
   end
 
   @doc """
@@ -1788,8 +1807,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_geo_match_set(client, input, options \\ []) do
-    request(client, "UpdateGeoMatchSet", input, options)
+  def update_geo_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGeoMatchSet", input, options)
   end
 
   @doc """
@@ -1856,8 +1875,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_i_p_set(client, input, options \\ []) do
-    request(client, "UpdateIPSet", input, options)
+  def update_i_p_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateIPSet", input, options)
   end
 
   @doc """
@@ -1910,8 +1929,8 @@ defmodule AWS.WAF do
   By adding this `RateBasedRule` to a `WebACL`, you could limit requests to your
   login page without affecting the rest of your site.
   """
-  def update_rate_based_rule(client, input, options \\ []) do
-    request(client, "UpdateRateBasedRule", input, options)
+  def update_rate_based_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRateBasedRule", input, options)
   end
 
   @doc """
@@ -1961,8 +1980,8 @@ defmodule AWS.WAF do
   requests, see the [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_regex_match_set(client, input, options \\ []) do
-    request(client, "UpdateRegexMatchSet", input, options)
+  def update_regex_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRegexMatchSet", input, options)
   end
 
   @doc """
@@ -2009,8 +2028,8 @@ defmodule AWS.WAF do
   requests, see the [AWS WAF Developer
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_regex_pattern_set(client, input, options \\ []) do
-    request(client, "UpdateRegexPatternSet", input, options)
+  def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRegexPatternSet", input, options)
   end
 
   @doc """
@@ -2062,8 +2081,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_rule(client, input, options \\ []) do
-    request(client, "UpdateRule", input, options)
+  def update_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRule", input, options)
   end
 
   @doc """
@@ -2103,8 +2122,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_rule_group(client, input, options \\ []) do
-    request(client, "UpdateRuleGroup", input, options)
+  def update_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRuleGroup", input, options)
   end
 
   @doc """
@@ -2162,8 +2181,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_size_constraint_set(client, input, options \\ []) do
-    request(client, "UpdateSizeConstraintSet", input, options)
+  def update_size_constraint_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSizeConstraintSet", input, options)
   end
 
   @doc """
@@ -2214,8 +2233,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_sql_injection_match_set(client, input, options \\ []) do
-    request(client, "UpdateSqlInjectionMatchSet", input, options)
+  def update_sql_injection_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSqlInjectionMatchSet", input, options)
   end
 
   @doc """
@@ -2287,8 +2306,8 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_web_a_c_l(client, input, options \\ []) do
-    request(client, "UpdateWebACL", input, options)
+  def update_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateWebACL", input, options)
   end
 
   @doc """
@@ -2338,62 +2357,7 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_xss_match_set(client, input, options \\ []) do
-    request(client, "UpdateXssMatchSet", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "waf",
-                        region:  "us-east-1"}
-    host = build_host("waf", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSWAF_20150824.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_xss_match_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateXssMatchSet", input, options)
   end
 end

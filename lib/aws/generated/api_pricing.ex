@@ -31,6 +31,25 @@ defmodule AWS.API.Pricing do
     * https://api.pricing.ap-south-1.amazonaws.com
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "AWS Pricing",
+      api_version: "2017-10-15",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "api.pricing",
+      global?: false,
+      protocol: "json",
+      service_id: nil,
+      signature_version: "v4",
+      signing_name: "pricing",
+      target_prefix: "AWSPriceListService"
+    }
+  end
+
   @doc """
   Returns the metadata for one service or a list of the metadata for all services.
 
@@ -40,8 +59,8 @@ defmodule AWS.API.Pricing do
   some of the attribute names available for EC2 are `volumeType`, `maxIopsVolume`,
   `operation`, `locationType`, and `instanceCapacity10xlarge`.
   """
-  def describe_services(client, input, options \\ []) do
-    request(client, "DescribeServices", input, options)
+  def describe_services(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeServices", input, options)
   end
 
   @doc """
@@ -51,68 +70,14 @@ defmodule AWS.API.Pricing do
   of available attributes, see [Offer File Definitions](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs)
   in the [AWS Billing and Cost Management User Guide](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html).
   """
-  def get_attribute_values(client, input, options \\ []) do
-    request(client, "GetAttributeValues", input, options)
+  def get_attribute_values(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAttributeValues", input, options)
   end
 
   @doc """
   Returns a list of all products that match the filter criteria.
   """
-  def get_products(client, input, options \\ []) do
-    request(client, "GetProducts", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "pricing"}
-    host = build_host("api.pricing", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSPriceListService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def get_products(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetProducts", input, options)
   end
 end

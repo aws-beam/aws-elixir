@@ -6,59 +6,134 @@ defmodule AWS.Kafka do
   The operations for managing an Amazon MSK cluster.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-11-14",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "kafka",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Kafka",
+      signature_version: "v4",
+      signing_name: "kafka",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Associates one or more Scram Secrets with an Amazon MSK cluster.
   """
-  def batch_associate_scram_secret(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+  def batch_associate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Disassociates one or more Scram Secrets from an Amazon MSK cluster.
   """
-  def batch_disassociate_scram_secret(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+  def batch_disassociate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Creates a new MSK cluster.
   """
-  def create_cluster(client, input, options \\ []) do
-    path_ = "/v1/clusters"
+  def create_cluster(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/clusters"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Creates a new MSK configuration.
   """
-  def create_configuration(client, input, options \\ []) do
-    path_ = "/v1/configurations"
+  def create_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/configurations"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the
   request.
   """
-  def delete_cluster(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}"
+  def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"CurrentVersion", "currentVersion"},
+        {"CurrentVersion", "currentVersion"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 200)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -66,267 +141,538 @@ defmodule AWS.Kafka do
 
   The configuration must be in the ACTIVE or DELETE_FAILED state.
   """
-  def delete_configuration(client, arn, input, options \\ []) do
-    path_ = "/v1/configurations/#{URI.encode(arn)}"
+  def delete_configuration(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/configurations/#{URI.encode(arn)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is
   specified in the request.
   """
-  def describe_cluster(client, cluster_arn, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}"
+  def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a description of the cluster operation specified by the ARN.
   """
-  def describe_cluster_operation(client, cluster_operation_arn, options \\ []) do
-    path_ = "/v1/operations/#{URI.encode(cluster_operation_arn)}"
+  def describe_cluster_operation(%Client{} = client, cluster_operation_arn, options \\ []) do
+    url_path = "/v1/operations/#{URI.encode(cluster_operation_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a description of this MSK configuration.
   """
-  def describe_configuration(client, arn, options \\ []) do
-    path_ = "/v1/configurations/#{URI.encode(arn)}"
+  def describe_configuration(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/configurations/#{URI.encode(arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a description of this revision of the configuration.
   """
-  def describe_configuration_revision(client, arn, revision, options \\ []) do
-    path_ = "/v1/configurations/#{URI.encode(arn)}/revisions/#{URI.encode(revision)}"
+  def describe_configuration_revision(%Client{} = client, arn, revision, options \\ []) do
+    url_path = "/v1/configurations/#{URI.encode(arn)}/revisions/#{URI.encode(revision)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   A list of brokers that a client application can use to bootstrap.
   """
-  def get_bootstrap_brokers(client, cluster_arn, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/bootstrap-brokers"
+  def get_bootstrap_brokers(%Client{} = client, cluster_arn, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/bootstrap-brokers"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Gets the Apache Kafka versions to which you can update the MSK cluster.
   """
-  def get_compatible_kafka_versions(client, cluster_arn \\ nil, options \\ []) do
-    path_ = "/v1/compatible-kafka-versions"
+  def get_compatible_kafka_versions(%Client{} = client, cluster_arn \\ nil, options \\ []) do
+    url_path = "/v1/compatible-kafka-versions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(cluster_arn) do
-      [{"clusterArn", cluster_arn} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(cluster_arn) do
+        [{"clusterArn", cluster_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of all the operations that have been performed on the specified
   MSK cluster.
   """
-  def list_cluster_operations(client, cluster_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/operations"
+  def list_cluster_operations(
+        %Client{} = client,
+        cluster_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/operations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of all the MSK clusters in the current Region.
   """
-  def list_clusters(client, cluster_name_filter \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v1/clusters"
+  def list_clusters(
+        %Client{} = client,
+        cluster_name_filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/clusters"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(cluster_name_filter) do
-      [{"clusterNameFilter", cluster_name_filter} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(cluster_name_filter) do
+        [{"clusterNameFilter", cluster_name_filter} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of all the revisions of an MSK configuration.
   """
-  def list_configuration_revisions(client, arn, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v1/configurations/#{URI.encode(arn)}/revisions"
+  def list_configuration_revisions(
+        %Client{} = client,
+        arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/configurations/#{URI.encode(arn)}/revisions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of all the MSK configurations in this Region.
   """
-  def list_configurations(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v1/configurations"
+  def list_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/configurations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of Kafka versions.
   """
-  def list_kafka_versions(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v1/kafka-versions"
+  def list_kafka_versions(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/kafka-versions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of the broker nodes in the cluster.
   """
-  def list_nodes(client, cluster_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes"
+  def list_nodes(
+        %Client{} = client,
+        cluster_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of the Scram Secrets associated with an Amazon MSK cluster.
   """
-  def list_scram_secrets(client, cluster_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
+  def list_scram_secrets(
+        %Client{} = client,
+        cluster_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/scram-secrets"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Returns a list of the tags associated with the specified resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Executes a reboot on a broker.
   """
-  def reboot_broker(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/reboot-broker"
+  def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/reboot-broker"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Adds tags to the specified MSK resource.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Removes the tags associated with the keys that are provided in the query.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/v1/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"TagKeys", "tagKeys"},
+        {"TagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -335,42 +681,86 @@ defmodule AWS.Kafka do
   You can use this operation to increase the number of brokers in an existing
   cluster. You can't decrease the number of brokers.
   """
-  def update_broker_count(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/count"
+  def update_broker_count(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/count"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates the EBS storage associated with MSK brokers.
   """
-  def update_broker_storage(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/storage"
+  def update_broker_storage(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/storage"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates the cluster with the configuration that is specified in the request
   body.
   """
-  def update_cluster_configuration(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/configuration"
+  def update_cluster_configuration(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/configuration"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Updates the Apache Kafka version for the cluster.
   """
-  def update_cluster_kafka_version(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/version"
+  def update_cluster_kafka_version(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/version"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -378,11 +768,22 @@ defmodule AWS.Kafka do
 
   The configuration must be in the Active state.
   """
-  def update_configuration(client, arn, input, options \\ []) do
-    path_ = "/v1/configurations/#{URI.encode(arn)}"
+  def update_configuration(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/configurations/#{URI.encode(arn)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -392,74 +793,21 @@ defmodule AWS.Kafka do
   MSK to send to Amazon CloudWatch. You can also specify settings for open
   monitoring with Prometheus.
   """
-  def update_monitoring(client, cluster_arn, input, options \\ []) do
-    path_ = "/v1/clusters/#{URI.encode(cluster_arn)}/monitoring"
+  def update_monitoring(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/monitoring"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "kafka"}
-    host = build_host("kafka", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

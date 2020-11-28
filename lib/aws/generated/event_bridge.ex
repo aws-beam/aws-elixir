@@ -24,14 +24,53 @@ defmodule AWS.EventBridge do
   Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2015-10-07",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "events",
+      global?: false,
+      protocol: "json",
+      service_id: "EventBridge",
+      signature_version: "v4",
+      signing_name: "events",
+      target_prefix: "AWSEvents"
+    }
+  end
+
   @doc """
   Activates a partner event source that has been deactivated.
 
   Once activated, your matching event bus will start receiving events from the
   event source.
   """
-  def activate_event_source(client, input, options \\ []) do
-    request(client, "ActivateEventSource", input, options)
+  def activate_event_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ActivateEventSource", input, options)
+  end
+
+  @doc """
+  Cancels the specified replay.
+  """
+  def cancel_replay(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelReplay", input, options)
+  end
+
+  @doc """
+  Creates an archive of events with the specified settings.
+
+  When you create an archive, incoming events might not immediately start being
+  sent to the archive. Allow a short period of time for changes to take effect. If
+  you do not specify a pattern to filter events sent to the archive, all events
+  are sent to the archive except replayed events. Replayed events are not sent to
+  an archive.
+  """
+  def create_archive(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateArchive", input, options)
   end
 
   @doc """
@@ -41,8 +80,8 @@ defmodule AWS.EventBridge do
   custom applications and services, or it can be a partner event bus which can be
   matched to a partner event source.
   """
-  def create_event_bus(client, input, options \\ []) do
-    request(client, "CreateEventBus", input, options)
+  def create_event_bus(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEventBus", input, options)
   end
 
   @doc """
@@ -73,8 +112,8 @@ defmodule AWS.EventBridge do
   help AWS customers decide whether to create an event bus to receive these
   events.
   """
-  def create_partner_event_source(client, input, options \\ []) do
-    request(client, "CreatePartnerEventSource", input, options)
+  def create_partner_event_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePartnerEventSource", input, options)
   end
 
   @doc """
@@ -88,8 +127,15 @@ defmodule AWS.EventBridge do
 
   To activate a deactivated partner event source, use `ActivateEventSource`.
   """
-  def deactivate_event_source(client, input, options \\ []) do
-    request(client, "DeactivateEventSource", input, options)
+  def deactivate_event_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeactivateEventSource", input, options)
+  end
+
+  @doc """
+  Deletes the specified archive.
+  """
+  def delete_archive(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteArchive", input, options)
   end
 
   @doc """
@@ -98,8 +144,8 @@ defmodule AWS.EventBridge do
   All rules associated with this event bus need to be deleted. You can't delete
   your account's default event bus.
   """
-  def delete_event_bus(client, input, options \\ []) do
-    request(client, "DeleteEventBus", input, options)
+  def delete_event_bus(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEventBus", input, options)
   end
 
   @doc """
@@ -110,8 +156,8 @@ defmodule AWS.EventBridge do
   When you delete an event source, the status of the corresponding partner event
   bus in the AWS customer account becomes DELETED.
   """
-  def delete_partner_event_source(client, input, options \\ []) do
-    request(client, "DeletePartnerEventSource", input, options)
+  def delete_partner_event_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePartnerEventSource", input, options)
   end
 
   @doc """
@@ -129,8 +175,15 @@ defmodule AWS.EventBridge do
   option, but you should do so only if you are sure the other service is not still
   using that rule.
   """
-  def delete_rule(client, input, options \\ []) do
-    request(client, "DeleteRule", input, options)
+  def delete_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRule", input, options)
+  end
+
+  @doc """
+  Retrieves details about an archive.
+  """
+  def describe_archive(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeArchive", input, options)
   end
 
   @doc """
@@ -146,16 +199,16 @@ defmodule AWS.EventBridge do
 
   For more information about partner event buses, see `CreateEventBus`.
   """
-  def describe_event_bus(client, input, options \\ []) do
-    request(client, "DescribeEventBus", input, options)
+  def describe_event_bus(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEventBus", input, options)
   end
 
   @doc """
   This operation lists details about a partner event source that is shared with
   your account.
   """
-  def describe_event_source(client, input, options \\ []) do
-    request(client, "DescribeEventSource", input, options)
+  def describe_event_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEventSource", input, options)
   end
 
   @doc """
@@ -166,8 +219,25 @@ defmodule AWS.EventBridge do
   `DescribeEventSource` to see details about a partner event source that is shared
   with them.
   """
-  def describe_partner_event_source(client, input, options \\ []) do
-    request(client, "DescribePartnerEventSource", input, options)
+  def describe_partner_event_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePartnerEventSource", input, options)
+  end
+
+  @doc """
+  Retrieves details about a replay.
+
+  Use `DescribeReplay` to determine the progress of a running replay. A replay
+  processes events to replay based on the time in the event, and replays them
+  using 1 minute intervals. If you use `StartReplay` and specify an
+  `EventStartTime` and an `EventEndTime` that covers a 20 minute time range, the
+  events are replayed from the first minute of that 20 minute range first. Then
+  the events from the second minute are replayed. You can use `DescribeReplay` to
+  determine the progress of a replay. The value returned for
+  `EventLastReplayedTime` indicates the time within the specified time range
+  associated with the last event replayed.
+  """
+  def describe_replay(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeReplay", input, options)
   end
 
   @doc """
@@ -176,8 +246,8 @@ defmodule AWS.EventBridge do
   DescribeRule does not list the targets of a rule. To see the targets associated
   with a rule, use `ListTargetsByRule`.
   """
-  def describe_rule(client, input, options \\ []) do
-    request(client, "DescribeRule", input, options)
+  def describe_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRule", input, options)
   end
 
   @doc """
@@ -189,8 +259,8 @@ defmodule AWS.EventBridge do
   When you disable a rule, incoming events might continue to match to the disabled
   rule. Allow a short period of time for changes to take effect.
   """
-  def disable_rule(client, input, options \\ []) do
-    request(client, "DisableRule", input, options)
+  def disable_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableRule", input, options)
   end
 
   @doc """
@@ -201,16 +271,26 @@ defmodule AWS.EventBridge do
   When you enable a rule, incoming events might not immediately start matching to
   a newly enabled rule. Allow a short period of time for changes to take effect.
   """
-  def enable_rule(client, input, options \\ []) do
-    request(client, "EnableRule", input, options)
+  def enable_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableRule", input, options)
+  end
+
+  @doc """
+  Lists your archives.
+
+  You can either list all the archives or you can provide a prefix to match to the
+  archive names. Filter parameters are exclusive.
+  """
+  def list_archives(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListArchives", input, options)
   end
 
   @doc """
   Lists all the event buses in your account, including the default event bus,
   custom event buses, and partner event buses.
   """
-  def list_event_buses(client, input, options \\ []) do
-    request(client, "ListEventBuses", input, options)
+  def list_event_buses(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEventBuses", input, options)
   end
 
   @doc """
@@ -219,8 +299,8 @@ defmodule AWS.EventBridge do
 
   For more information about partner event sources, see `CreateEventBus`.
   """
-  def list_event_sources(client, input, options \\ []) do
-    request(client, "ListEventSources", input, options)
+  def list_event_sources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEventSources", input, options)
   end
 
   @doc """
@@ -229,8 +309,8 @@ defmodule AWS.EventBridge do
 
   This operation is not used by AWS customers.
   """
-  def list_partner_event_source_accounts(client, input, options \\ []) do
-    request(client, "ListPartnerEventSourceAccounts", input, options)
+  def list_partner_event_source_accounts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPartnerEventSourceAccounts", input, options)
   end
 
   @doc """
@@ -239,8 +319,18 @@ defmodule AWS.EventBridge do
 
   This operation is not used by AWS customers.
   """
-  def list_partner_event_sources(client, input, options \\ []) do
-    request(client, "ListPartnerEventSources", input, options)
+  def list_partner_event_sources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPartnerEventSources", input, options)
+  end
+
+  @doc """
+  Lists your replays.
+
+  You can either list all the replays or you can provide a prefix to match to the
+  replay names. Filter parameters are exclusive.
+  """
+  def list_replays(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReplays", input, options)
   end
 
   @doc """
@@ -249,8 +339,8 @@ defmodule AWS.EventBridge do
   You can see which of the rules in Amazon EventBridge can invoke a specific
   target in your account.
   """
-  def list_rule_names_by_target(client, input, options \\ []) do
-    request(client, "ListRuleNamesByTarget", input, options)
+  def list_rule_names_by_target(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRuleNamesByTarget", input, options)
   end
 
   @doc """
@@ -262,8 +352,8 @@ defmodule AWS.EventBridge do
   ListRules does not list the targets of a rule. To see the targets associated
   with a rule, use `ListTargetsByRule`.
   """
-  def list_rules(client, input, options \\ []) do
-    request(client, "ListRules", input, options)
+  def list_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRules", input, options)
   end
 
   @doc """
@@ -271,22 +361,22 @@ defmodule AWS.EventBridge do
 
   In EventBridge, rules and event buses can be tagged.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
   Lists the targets assigned to the specified rule.
   """
-  def list_targets_by_rule(client, input, options \\ []) do
-    request(client, "ListTargetsByRule", input, options)
+  def list_targets_by_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTargetsByRule", input, options)
   end
 
   @doc """
   Sends custom events to Amazon EventBridge so that they can be matched to rules.
   """
-  def put_events(client, input, options \\ []) do
-    request(client, "PutEvents", input, options)
+  def put_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutEvents", input, options)
   end
 
   @doc """
@@ -294,8 +384,8 @@ defmodule AWS.EventBridge do
 
   AWS customers do not use this operation.
   """
-  def put_partner_events(client, input, options \\ []) do
-    request(client, "PutPartnerEvents", input, options)
+  def put_partner_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutPartnerEvents", input, options)
   end
 
   @doc """
@@ -322,8 +412,8 @@ defmodule AWS.EventBridge do
 
   The permission policy on the default event bus cannot exceed 10 KB in size.
   """
-  def put_permission(client, input, options \\ []) do
-    request(client, "PutPermission", input, options)
+  def put_permission(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutPermission", input, options)
   end
 
   @doc """
@@ -383,8 +473,8 @@ defmodule AWS.EventBridge do
   that you use budgeting, which alerts you when charges exceed your specified
   limit. For more information, see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html).
   """
-  def put_rule(client, input, options \\ []) do
-    request(client, "PutRule", input, options)
+  def put_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRule", input, options)
   end
 
   @doc """
@@ -501,8 +591,8 @@ defmodule AWS.EventBridge do
   If that happens, `FailedEntryCount` is non-zero in the response and each entry
   in `FailedEntries` provides the ID of the failed target and the error code.
   """
-  def put_targets(client, input, options \\ []) do
-    request(client, "PutTargets", input, options)
+  def put_targets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutTargets", input, options)
   end
 
   @doc """
@@ -513,8 +603,8 @@ defmodule AWS.EventBridge do
   with the account when you granted it permission with `PutPermission`. You can
   find the `StatementId` by using `DescribeEventBus`.
   """
-  def remove_permission(client, input, options \\ []) do
-    request(client, "RemovePermission", input, options)
+  def remove_permission(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemovePermission", input, options)
   end
 
   @doc """
@@ -530,8 +620,25 @@ defmodule AWS.EventBridge do
   If that happens, `FailedEntryCount` is non-zero in the response and each entry
   in `FailedEntries` provides the ID of the failed target and the error code.
   """
-  def remove_targets(client, input, options \\ []) do
-    request(client, "RemoveTargets", input, options)
+  def remove_targets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveTargets", input, options)
+  end
+
+  @doc """
+  Starts the specified replay.
+
+  Events are not necessarily replayed in the exact same order that they were added
+  to the archive. A replay processes events to replay based on the time in the
+  event, and replays them using 1 minute intervals. If you specify an
+  `EventStartTime` and an `EventEndTime` that covers a 20 minute time range, the
+  events are replayed from the first minute of that 20 minute range first. Then
+  the events from the second minute are replayed. You can use `DescribeReplay` to
+  determine the progress of a replay. The value returned for
+  `EventLastReplayedTime` indicates the time within the specified time range
+  associated with the last event replayed.
+  """
+  def start_replay(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartReplay", input, options)
   end
 
   @doc """
@@ -554,8 +661,8 @@ defmodule AWS.EventBridge do
 
   You can associate as many as 50 tags with a resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -566,8 +673,8 @@ defmodule AWS.EventBridge do
   sure to use the correct ARN characters when creating event patterns so that they
   match the ARN syntax in the event you want to match.
   """
-  def test_event_pattern(client, input, options \\ []) do
-    request(client, "TestEventPattern", input, options)
+  def test_event_pattern(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TestEventPattern", input, options)
   end
 
   @doc """
@@ -575,61 +682,14 @@ defmodule AWS.EventBridge do
 
   In Amazon EventBridge (CloudWatch Events, rules and event buses can be tagged.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "events"}
-    host = build_host("events", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSEvents.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  @doc """
+  Updates the specified archive.
+  """
+  def update_archive(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateArchive", input, options)
   end
 end

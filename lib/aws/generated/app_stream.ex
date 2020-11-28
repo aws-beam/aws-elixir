@@ -26,11 +26,30 @@ defmodule AWS.AppStream do
     * [Amazon AppStream 2.0 documentation](http://aws.amazon.com/documentation/appstream2)
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-12-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "appstream2",
+      global?: false,
+      protocol: "json",
+      service_id: "AppStream",
+      signature_version: "v4",
+      signing_name: "appstream",
+      target_prefix: "PhotonAdminProxyService"
+    }
+  end
+
   @doc """
   Associates the specified fleet with the specified stack.
   """
-  def associate_fleet(client, input, options \\ []) do
-    request(client, "AssociateFleet", input, options)
+  def associate_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateFleet", input, options)
   end
 
   @doc """
@@ -39,15 +58,15 @@ defmodule AWS.AppStream do
   Users in a user pool cannot be assigned to stacks with fleets that are joined to
   an Active Directory domain.
   """
-  def batch_associate_user_stack(client, input, options \\ []) do
-    request(client, "BatchAssociateUserStack", input, options)
+  def batch_associate_user_stack(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchAssociateUserStack", input, options)
   end
 
   @doc """
   Disassociates the specified users from the specified stacks.
   """
-  def batch_disassociate_user_stack(client, input, options \\ []) do
-    request(client, "BatchDisassociateUserStack", input, options)
+  def batch_disassociate_user_stack(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDisassociateUserStack", input, options)
   end
 
   @doc """
@@ -56,8 +75,8 @@ defmodule AWS.AppStream do
 
   Note that any tags you added to the image will not be copied.
   """
-  def copy_image(client, input, options \\ []) do
-    request(client, "CopyImage", input, options)
+  def copy_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CopyImage", input, options)
   end
 
   @doc """
@@ -66,8 +85,8 @@ defmodule AWS.AppStream do
   This object includes the configuration information required to join fleets and
   image builders to Microsoft Active Directory domains.
   """
-  def create_directory_config(client, input, options \\ []) do
-    request(client, "CreateDirectoryConfig", input, options)
+  def create_directory_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDirectoryConfig", input, options)
   end
 
   @doc """
@@ -75,8 +94,8 @@ defmodule AWS.AppStream do
 
   A fleet consists of streaming instances that run a specified image.
   """
-  def create_fleet(client, input, options \\ []) do
-    request(client, "CreateFleet", input, options)
+  def create_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFleet", input, options)
   end
 
   @doc """
@@ -87,15 +106,15 @@ defmodule AWS.AppStream do
   The initial state of the builder is `PENDING`. When it is ready, the state is
   `RUNNING`.
   """
-  def create_image_builder(client, input, options \\ []) do
-    request(client, "CreateImageBuilder", input, options)
+  def create_image_builder(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateImageBuilder", input, options)
   end
 
   @doc """
   Creates a URL to start an image builder streaming session.
   """
-  def create_image_builder_streaming_u_r_l(client, input, options \\ []) do
-    request(client, "CreateImageBuilderStreamingURL", input, options)
+  def create_image_builder_streaming_u_r_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateImageBuilderStreamingURL", input, options)
   end
 
   @doc """
@@ -104,8 +123,8 @@ defmodule AWS.AppStream do
   A stack consists of an associated fleet, user access policies, and storage
   configurations.
   """
-  def create_stack(client, input, options \\ []) do
-    request(client, "CreateStack", input, options)
+  def create_stack(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateStack", input, options)
   end
 
   @doc """
@@ -114,8 +133,8 @@ defmodule AWS.AppStream do
 
   A streaming URL enables application streaming to be tested without user setup.
   """
-  def create_streaming_u_r_l(client, input, options \\ []) do
-    request(client, "CreateStreamingURL", input, options)
+  def create_streaming_u_r_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateStreamingURL", input, options)
   end
 
   @doc """
@@ -123,15 +142,15 @@ defmodule AWS.AppStream do
 
   Usage reports are generated daily.
   """
-  def create_usage_report_subscription(client, input, options \\ []) do
-    request(client, "CreateUsageReportSubscription", input, options)
+  def create_usage_report_subscription(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUsageReportSubscription", input, options)
   end
 
   @doc """
   Creates a new user in the user pool.
   """
-  def create_user(client, input, options \\ []) do
-    request(client, "CreateUser", input, options)
+  def create_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUser", input, options)
   end
 
   @doc """
@@ -140,15 +159,15 @@ defmodule AWS.AppStream do
   This object includes the information required to join streaming instances to an
   Active Directory domain.
   """
-  def delete_directory_config(client, input, options \\ []) do
-    request(client, "DeleteDirectoryConfig", input, options)
+  def delete_directory_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDirectoryConfig", input, options)
   end
 
   @doc """
   Deletes the specified fleet.
   """
-  def delete_fleet(client, input, options \\ []) do
-    request(client, "DeleteFleet", input, options)
+  def delete_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFleet", input, options)
   end
 
   @doc """
@@ -157,15 +176,15 @@ defmodule AWS.AppStream do
   You cannot delete an image when it is in use. After you delete an image, you
   cannot provision new capacity using the image.
   """
-  def delete_image(client, input, options \\ []) do
-    request(client, "DeleteImage", input, options)
+  def delete_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteImage", input, options)
   end
 
   @doc """
   Deletes the specified image builder and releases the capacity.
   """
-  def delete_image_builder(client, input, options \\ []) do
-    request(client, "DeleteImageBuilder", input, options)
+  def delete_image_builder(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteImageBuilder", input, options)
   end
 
   @doc """
@@ -174,8 +193,8 @@ defmodule AWS.AppStream do
   After you delete permissions for an image, AWS accounts to which you previously
   granted these permissions can no longer use the image.
   """
-  def delete_image_permissions(client, input, options \\ []) do
-    request(client, "DeleteImagePermissions", input, options)
+  def delete_image_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteImagePermissions", input, options)
   end
 
   @doc """
@@ -185,22 +204,22 @@ defmodule AWS.AppStream do
   the stack is no longer available to users. Also, any reservations made for
   application streaming sessions for the stack are released.
   """
-  def delete_stack(client, input, options \\ []) do
-    request(client, "DeleteStack", input, options)
+  def delete_stack(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteStack", input, options)
   end
 
   @doc """
   Disables usage report generation.
   """
-  def delete_usage_report_subscription(client, input, options \\ []) do
-    request(client, "DeleteUsageReportSubscription", input, options)
+  def delete_usage_report_subscription(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUsageReportSubscription", input, options)
   end
 
   @doc """
   Deletes a user from the user pool.
   """
-  def delete_user(client, input, options \\ []) do
-    request(client, "DeleteUser", input, options)
+  def delete_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUser", input, options)
   end
 
   @doc """
@@ -214,8 +233,8 @@ defmodule AWS.AppStream do
   Although the response syntax in this topic includes the account password, this
   password is not returned in the actual response.
   """
-  def describe_directory_configs(client, input, options \\ []) do
-    request(client, "DescribeDirectoryConfigs", input, options)
+  def describe_directory_configs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDirectoryConfigs", input, options)
   end
 
   @doc """
@@ -224,8 +243,8 @@ defmodule AWS.AppStream do
 
   Otherwise, all fleets in the account are described.
   """
-  def describe_fleets(client, input, options \\ []) do
-    request(client, "DescribeFleets", input, options)
+  def describe_fleets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFleets", input, options)
   end
 
   @doc """
@@ -234,16 +253,16 @@ defmodule AWS.AppStream do
 
   Otherwise, all image builders in the account are described.
   """
-  def describe_image_builders(client, input, options \\ []) do
-    request(client, "DescribeImageBuilders", input, options)
+  def describe_image_builders(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeImageBuilders", input, options)
   end
 
   @doc """
   Retrieves a list that describes the permissions for shared AWS account IDs on a
   private image that you own.
   """
-  def describe_image_permissions(client, input, options \\ []) do
-    request(client, "DescribeImagePermissions", input, options)
+  def describe_image_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeImagePermissions", input, options)
   end
 
   @doc """
@@ -252,8 +271,8 @@ defmodule AWS.AppStream do
 
   Otherwise, all images in the account are described.
   """
-  def describe_images(client, input, options \\ []) do
-    request(client, "DescribeImages", input, options)
+  def describe_images(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeImages", input, options)
   end
 
   @doc """
@@ -264,8 +283,8 @@ defmodule AWS.AppStream do
   that user are described. If an authentication type is not provided, the default
   is to authenticate users using a streaming URL.
   """
-  def describe_sessions(client, input, options \\ []) do
-    request(client, "DescribeSessions", input, options)
+  def describe_sessions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSessions", input, options)
   end
 
   @doc """
@@ -274,15 +293,15 @@ defmodule AWS.AppStream do
 
   Otherwise, all stacks in the account are described.
   """
-  def describe_stacks(client, input, options \\ []) do
-    request(client, "DescribeStacks", input, options)
+  def describe_stacks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStacks", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more usage report subscriptions.
   """
-  def describe_usage_report_subscriptions(client, input, options \\ []) do
-    request(client, "DescribeUsageReportSubscriptions", input, options)
+  def describe_usage_report_subscriptions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeUsageReportSubscriptions", input, options)
   end
 
   @doc """
@@ -295,15 +314,15 @@ defmodule AWS.AppStream do
     * The user name (email address of the user associated with the
   stack) and the authentication type for the user
   """
-  def describe_user_stack_associations(client, input, options \\ []) do
-    request(client, "DescribeUserStackAssociations", input, options)
+  def describe_user_stack_associations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeUserStackAssociations", input, options)
   end
 
   @doc """
   Retrieves a list that describes one or more specified users in the user pool.
   """
-  def describe_users(client, input, options \\ []) do
-    request(client, "DescribeUsers", input, options)
+  def describe_users(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeUsers", input, options)
   end
 
   @doc """
@@ -312,15 +331,15 @@ defmodule AWS.AppStream do
   Users can't sign in to AppStream 2.0 until they are re-enabled. This action does
   not delete the user.
   """
-  def disable_user(client, input, options \\ []) do
-    request(client, "DisableUser", input, options)
+  def disable_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableUser", input, options)
   end
 
   @doc """
   Disassociates the specified fleet from the specified stack.
   """
-  def disassociate_fleet(client, input, options \\ []) do
-    request(client, "DisassociateFleet", input, options)
+  def disassociate_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateFleet", input, options)
   end
 
   @doc """
@@ -329,29 +348,29 @@ defmodule AWS.AppStream do
   After being enabled, users can sign in to AppStream 2.0 and open applications
   from the stacks to which they are assigned.
   """
-  def enable_user(client, input, options \\ []) do
-    request(client, "EnableUser", input, options)
+  def enable_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableUser", input, options)
   end
 
   @doc """
   Immediately stops the specified streaming session.
   """
-  def expire_session(client, input, options \\ []) do
-    request(client, "ExpireSession", input, options)
+  def expire_session(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExpireSession", input, options)
   end
 
   @doc """
   Retrieves the name of the fleet that is associated with the specified stack.
   """
-  def list_associated_fleets(client, input, options \\ []) do
-    request(client, "ListAssociatedFleets", input, options)
+  def list_associated_fleets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAssociatedFleets", input, options)
   end
 
   @doc """
   Retrieves the name of the stack with which the specified fleet is associated.
   """
-  def list_associated_stacks(client, input, options \\ []) do
-    request(client, "ListAssociatedStacks", input, options)
+  def list_associated_stacks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAssociatedStacks", input, options)
   end
 
   @doc """
@@ -362,36 +381,36 @@ defmodule AWS.AppStream do
   For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
   Starts the specified fleet.
   """
-  def start_fleet(client, input, options \\ []) do
-    request(client, "StartFleet", input, options)
+  def start_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartFleet", input, options)
   end
 
   @doc """
   Starts the specified image builder.
   """
-  def start_image_builder(client, input, options \\ []) do
-    request(client, "StartImageBuilder", input, options)
+  def start_image_builder(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartImageBuilder", input, options)
   end
 
   @doc """
   Stops the specified fleet.
   """
-  def stop_fleet(client, input, options \\ []) do
-    request(client, "StopFleet", input, options)
+  def stop_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopFleet", input, options)
   end
 
   @doc """
   Stops the specified image builder.
   """
-  def stop_image_builder(client, input, options \\ []) do
-    request(client, "StopImageBuilder", input, options)
+  def stop_image_builder(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopImageBuilder", input, options)
   end
 
   @doc """
@@ -408,8 +427,8 @@ defmodule AWS.AppStream do
   For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -421,8 +440,8 @@ defmodule AWS.AppStream do
   For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html)
   in the *Amazon AppStream 2.0 Administration Guide*.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -431,8 +450,8 @@ defmodule AWS.AppStream do
   This object includes the configuration information required to join fleets and
   image builders to Microsoft Active Directory domains.
   """
-  def update_directory_config(client, input, options \\ []) do
-    request(client, "UpdateDirectoryConfig", input, options)
+  def update_directory_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDirectoryConfig", input, options)
   end
 
   @doc """
@@ -444,75 +463,21 @@ defmodule AWS.AppStream do
   `IdleDisconnectTimeoutInSeconds`, and `DisconnectTimeoutInSeconds` attributes.
   If the fleet is in the `STARTING` or `STOPPING` state, you can't update it.
   """
-  def update_fleet(client, input, options \\ []) do
-    request(client, "UpdateFleet", input, options)
+  def update_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFleet", input, options)
   end
 
   @doc """
   Adds or updates permissions for the specified private image.
   """
-  def update_image_permissions(client, input, options \\ []) do
-    request(client, "UpdateImagePermissions", input, options)
+  def update_image_permissions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateImagePermissions", input, options)
   end
 
   @doc """
   Updates the specified fields for the specified stack.
   """
-  def update_stack(client, input, options \\ []) do
-    request(client, "UpdateStack", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "appstream"}
-    host = build_host("appstream2", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "PhotonAdminProxyService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_stack(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateStack", input, options)
   end
 end

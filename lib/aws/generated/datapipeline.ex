@@ -27,6 +27,25 @@ defmodule AWS.Datapipeline do
   task runner reports the final success or failure of the task to the web service.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2012-10-29",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "datapipeline",
+      global?: false,
+      protocol: "json",
+      service_id: nil,
+      signature_version: "v4",
+      signing_name: "datapipeline",
+      target_prefix: "DataPipeline"
+    }
+  end
+
   @doc """
   Validates the specified pipeline and starts processing pipeline tasks.
 
@@ -38,15 +57,15 @@ defmodule AWS.Datapipeline do
   To activate a finished pipeline, modify the end date for the pipeline and then
   activate it.
   """
-  def activate_pipeline(client, input, options \\ []) do
-    request(client, "ActivatePipeline", input, options)
+  def activate_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ActivatePipeline", input, options)
   end
 
   @doc """
   Adds or modifies tags for the specified pipeline.
   """
-  def add_tags(client, input, options \\ []) do
-    request(client, "AddTags", input, options)
+  def add_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddTags", input, options)
   end
 
   @doc """
@@ -54,8 +73,8 @@ defmodule AWS.Datapipeline do
 
   Use `PutPipelineDefinition` to populate the pipeline.
   """
-  def create_pipeline(client, input, options \\ []) do
-    request(client, "CreatePipeline", input, options)
+  def create_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePipeline", input, options)
   end
 
   @doc """
@@ -68,8 +87,8 @@ defmodule AWS.Datapipeline do
   pipeline resumes from the last completed execution. Optionally, you can specify
   the date and time to resume the pipeline.
   """
-  def deactivate_pipeline(client, input, options \\ []) do
-    request(client, "DeactivatePipeline", input, options)
+  def deactivate_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeactivatePipeline", input, options)
   end
 
   @doc """
@@ -83,8 +102,8 @@ defmodule AWS.Datapipeline do
   `SetStatus` with the status set to `PAUSE` on individual components. Components
   that are paused by `SetStatus` can be resumed.
   """
-  def delete_pipeline(client, input, options \\ []) do
-    request(client, "DeletePipeline", input, options)
+  def delete_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePipeline", input, options)
   end
 
   @doc """
@@ -93,8 +112,8 @@ defmodule AWS.Datapipeline do
   Object definitions are composed of a set of fields that define the properties of
   the object.
   """
-  def describe_objects(client, input, options \\ []) do
-    request(client, "DescribeObjects", input, options)
+  def describe_objects(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeObjects", input, options)
   end
 
   @doc """
@@ -110,8 +129,8 @@ defmodule AWS.Datapipeline do
   To retrieve the full pipeline definition instead of metadata about the pipeline,
   call `GetPipelineDefinition`.
   """
-  def describe_pipelines(client, input, options \\ []) do
-    request(client, "DescribePipelines", input, options)
+  def describe_pipelines(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePipelines", input, options)
   end
 
   @doc """
@@ -120,8 +139,8 @@ defmodule AWS.Datapipeline do
 
   For example, a task runner can evaluate SQL queries stored in Amazon S3.
   """
-  def evaluate_expression(client, input, options \\ []) do
-    request(client, "EvaluateExpression", input, options)
+  def evaluate_expression(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EvaluateExpression", input, options)
   end
 
   @doc """
@@ -130,16 +149,16 @@ defmodule AWS.Datapipeline do
   You can call `GetPipelineDefinition` to retrieve the pipeline definition that
   you provided using `PutPipelineDefinition`.
   """
-  def get_pipeline_definition(client, input, options \\ []) do
-    request(client, "GetPipelineDefinition", input, options)
+  def get_pipeline_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPipelineDefinition", input, options)
   end
 
   @doc """
   Lists the pipeline identifiers for all active pipelines that you have permission
   to access.
   """
-  def list_pipelines(client, input, options \\ []) do
-    request(client, "ListPipelines", input, options)
+  def list_pipelines(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPipelines", input, options)
   end
 
   @doc """
@@ -159,8 +178,8 @@ defmodule AWS.Datapipeline do
   task runner should not call `PollForTask` again on the same `workerGroup` until
   it receives a response, and this can take up to 90 seconds.
   """
-  def poll_for_task(client, input, options \\ []) do
-    request(client, "PollForTask", input, options)
+  def poll_for_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PollForTask", input, options)
   end
 
   @doc """
@@ -181,23 +200,23 @@ defmodule AWS.Datapipeline do
   Pipeline object definitions are passed to the `PutPipelineDefinition` action and
   returned by the `GetPipelineDefinition` action.
   """
-  def put_pipeline_definition(client, input, options \\ []) do
-    request(client, "PutPipelineDefinition", input, options)
+  def put_pipeline_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutPipelineDefinition", input, options)
   end
 
   @doc """
   Queries the specified pipeline for the names of objects that match the specified
   set of conditions.
   """
-  def query_objects(client, input, options \\ []) do
-    request(client, "QueryObjects", input, options)
+  def query_objects(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "QueryObjects", input, options)
   end
 
   @doc """
   Removes existing tags from the specified pipeline.
   """
-  def remove_tags(client, input, options \\ []) do
-    request(client, "RemoveTags", input, options)
+  def remove_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveTags", input, options)
   end
 
   @doc """
@@ -215,8 +234,8 @@ defmodule AWS.Datapipeline do
   task in a subsequent response to `PollForTask`. Task runners should call
   `ReportTaskProgress` every 60 seconds.
   """
-  def report_task_progress(client, input, options \\ []) do
-    request(client, "ReportTaskProgress", input, options)
+  def report_task_progress(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ReportTaskProgress", input, options)
   end
 
   @doc """
@@ -227,8 +246,8 @@ defmodule AWS.Datapipeline do
   Data Pipeline, the web service can use this call to detect when the task runner
   application has failed and restart a new instance.
   """
-  def report_task_runner_heartbeat(client, input, options \\ []) do
-    request(client, "ReportTaskRunnerHeartbeat", input, options)
+  def report_task_runner_heartbeat(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ReportTaskRunnerHeartbeat", input, options)
   end
 
   @doc """
@@ -240,8 +259,8 @@ defmodule AWS.Datapipeline do
   Activity). You cannot perform this operation on `FINISHED` pipelines and
   attempting to do so returns `InvalidRequestException`.
   """
-  def set_status(client, input, options \\ []) do
-    request(client, "SetStatus", input, options)
+  def set_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetStatus", input, options)
   end
 
   @doc """
@@ -252,69 +271,15 @@ defmodule AWS.Datapipeline do
   task runner does not need to call `SetTaskStatus` for tasks that are canceled by
   the web service during a call to `ReportTaskProgress`.
   """
-  def set_task_status(client, input, options \\ []) do
-    request(client, "SetTaskStatus", input, options)
+  def set_task_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetTaskStatus", input, options)
   end
 
   @doc """
   Validates the specified pipeline definition to ensure that it is well formed and
   can be run without error.
   """
-  def validate_pipeline_definition(client, input, options \\ []) do
-    request(client, "ValidatePipelineDefinition", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "datapipeline"}
-    host = build_host("datapipeline", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "DataPipeline.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def validate_pipeline_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ValidatePipelineDefinition", input, options)
   end
 end

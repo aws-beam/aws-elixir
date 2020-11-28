@@ -6,6 +6,25 @@ defmodule AWS.MTurk do
   Amazon Mechanical Turk API Reference
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Amazon MTurk",
+      api_version: "2017-01-17",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "mturk-requester",
+      global?: true,
+      protocol: "json",
+      service_id: "MTurk",
+      signature_version: "v4",
+      signing_name: "mturk-requester",
+      target_prefix: "MTurkRequesterServiceV20170117"
+    }
+  end
+
   @doc """
   The `AcceptQualificationRequest` operation approves a Worker's request for a
   Qualification.
@@ -16,8 +35,8 @@ defmodule AWS.MTurk do
   A successful request for the `AcceptQualificationRequest` operation returns with
   no errors and an empty body.
   """
-  def accept_qualification_request(client, input, options \\ []) do
-    request(client, "AcceptQualificationRequest", input, options)
+  def accept_qualification_request(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AcceptQualificationRequest", input, options)
   end
 
   @doc """
@@ -42,8 +61,8 @@ defmodule AWS.MTurk do
   rejected assignments that were submitted within the previous 30 days and only if
   the assignment's related HIT has not been deleted.
   """
-  def approve_assignment(client, input, options \\ []) do
-    request(client, "ApproveAssignment", input, options)
+  def approve_assignment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ApproveAssignment", input, options)
   end
 
   @doc """
@@ -63,8 +82,8 @@ defmodule AWS.MTurk do
   Worker already has, reject the request with the `RejectQualificationRequest`
   operation.
   """
-  def associate_qualification_with_worker(client, input, options \\ []) do
-    request(client, "AssociateQualificationWithWorker", input, options)
+  def associate_qualification_with_worker(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateQualificationWithWorker", input, options)
   end
 
   @doc """
@@ -84,8 +103,8 @@ defmodule AWS.MTurk do
   Attempting to extend HITs that were created before July 22, 2015 will result in
   an `AWS.MechanicalTurk.HITTooOldForExtension` exception.
   """
-  def create_additional_assignments_for_h_i_t(client, input, options \\ []) do
-    request(client, "CreateAdditionalAssignmentsForHIT", input, options)
+  def create_additional_assignments_for_h_i_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAdditionalAssignmentsForHIT", input, options)
   end
 
   @doc """
@@ -113,8 +132,8 @@ defmodule AWS.MTurk do
   If a HIT is created with 10 or more maximum assignments, there is an additional
   fee. For more information, see [Amazon Mechanical Turk Pricing](https://requester.mturk.com/pricing).
   """
-  def create_h_i_t(client, input, options \\ []) do
-    request(client, "CreateHIT", input, options)
+  def create_h_i_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateHIT", input, options)
   end
 
   @doc """
@@ -124,8 +143,8 @@ defmodule AWS.MTurk do
   creating HITs. If you register a HIT type with values that match an existing HIT
   type, the HIT type ID of the existing type will be returned.
   """
-  def create_h_i_t_type(client, input, options \\ []) do
-    request(client, "CreateHITType", input, options)
+  def create_h_i_t_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateHITType", input, options)
   end
 
   @doc """
@@ -144,16 +163,16 @@ defmodule AWS.MTurk do
   If a HIT is created with 10 or more maximum assignments, there is an additional
   fee. For more information, see [Amazon Mechanical Turk Pricing](https://requester.mturk.com/pricing).
   """
-  def create_h_i_t_with_h_i_t_type(client, input, options \\ []) do
-    request(client, "CreateHITWithHITType", input, options)
+  def create_h_i_t_with_h_i_t_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateHITWithHITType", input, options)
   end
 
   @doc """
   The `CreateQualificationType` operation creates a new Qualification type, which
   is represented by a `QualificationType` data structure.
   """
-  def create_qualification_type(client, input, options \\ []) do
-    request(client, "CreateQualificationType", input, options)
+  def create_qualification_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateQualificationType", input, options)
   end
 
   @doc """
@@ -163,8 +182,8 @@ defmodule AWS.MTurk do
   For example, you can block a Worker who is producing poor quality work. You can
   block up to 100,000 Workers.
   """
-  def create_worker_block(client, input, options \\ []) do
-    request(client, "CreateWorkerBlock", input, options)
+  def create_worker_block(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWorkerBlock", input, options)
   end
 
   @doc """
@@ -190,8 +209,8 @@ defmodule AWS.MTurk do
      Disposing HITs can improve the performance of operations such as
   ListReviewableHITs and ListHITs.
   """
-  def delete_h_i_t(client, input, options \\ []) do
-    request(client, "DeleteHIT", input, options)
+  def delete_h_i_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteHIT", input, options)
   end
 
   @doc """
@@ -209,8 +228,8 @@ defmodule AWS.MTurk do
   before DeleteQualificationType completes and the unique name of the
   Qualification type is available for reuse with CreateQualificationType.
   """
-  def delete_qualification_type(client, input, options \\ []) do
-    request(client, "DeleteQualificationType", input, options)
+  def delete_qualification_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteQualificationType", input, options)
   end
 
   @doc """
@@ -222,8 +241,8 @@ defmodule AWS.MTurk do
   this operation fails and returns the message “WorkerId is invalid.” If the
   specified Worker is not blocked, this operation returns successfully.
   """
-  def delete_worker_block(client, input, options \\ []) do
-    request(client, "DeleteWorkerBlock", input, options)
+  def delete_worker_block(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWorkerBlock", input, options)
   end
 
   @doc """
@@ -233,23 +252,29 @@ defmodule AWS.MTurk do
   You can provide a text message explaining why the Qualification was revoked. The
   user who had the Qualification can see this message.
   """
-  def disassociate_qualification_from_worker(client, input, options \\ []) do
-    request(client, "DisassociateQualificationFromWorker", input, options)
+  def disassociate_qualification_from_worker(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DisassociateQualificationFromWorker",
+      input,
+      options
+    )
   end
 
   @doc """
   The `GetAccountBalance` operation retrieves the amount of money in your Amazon
   Mechanical Turk account.
   """
-  def get_account_balance(client, input, options \\ []) do
-    request(client, "GetAccountBalance", input, options)
+  def get_account_balance(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccountBalance", input, options)
   end
 
   @doc """
   The `GetAssignment` operation retrieves the details of the specified Assignment.
   """
-  def get_assignment(client, input, options \\ []) do
-    request(client, "GetAssignment", input, options)
+  def get_assignment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAssignment", input, options)
   end
 
   @doc """
@@ -265,15 +290,15 @@ defmodule AWS.MTurk do
   the QuestionForm data structure. Instead, we recommend that Requesters who want
   to create HITs asking Workers to upload files to use Amazon S3.
   """
-  def get_file_upload_u_r_l(client, input, options \\ []) do
-    request(client, "GetFileUploadURL", input, options)
+  def get_file_upload_u_r_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFileUploadURL", input, options)
   end
 
   @doc """
   The `GetHIT` operation retrieves the details of the specified HIT.
   """
-  def get_h_i_t(client, input, options \\ []) do
-    request(client, "GetHIT", input, options)
+  def get_h_i_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetHIT", input, options)
   end
 
   @doc """
@@ -287,16 +312,16 @@ defmodule AWS.MTurk do
   Only the owner of a Qualification type can query the value of a Worker's
   Qualification of that type.
   """
-  def get_qualification_score(client, input, options \\ []) do
-    request(client, "GetQualificationScore", input, options)
+  def get_qualification_score(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetQualificationScore", input, options)
   end
 
   @doc """
   The `GetQualificationType`operation retrieves information about a Qualification
   type using its ID.
   """
-  def get_qualification_type(client, input, options \\ []) do
-    request(client, "GetQualificationType", input, options)
+  def get_qualification_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetQualificationType", input, options)
   end
 
   @doc """
@@ -323,16 +348,16 @@ defmodule AWS.MTurk do
   single page of results. You can use the parameters of the operation to control
   sorting and pagination.
   """
-  def list_assignments_for_h_i_t(client, input, options \\ []) do
-    request(client, "ListAssignmentsForHIT", input, options)
+  def list_assignments_for_h_i_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAssignmentsForHIT", input, options)
   end
 
   @doc """
   The `ListBonusPayments` operation retrieves the amounts of bonuses you have paid
   to Workers for a given HIT or assignment.
   """
-  def list_bonus_payments(client, input, options \\ []) do
-    request(client, "ListBonusPayments", input, options)
+  def list_bonus_payments(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBonusPayments", input, options)
   end
 
   @doc """
@@ -341,8 +366,8 @@ defmodule AWS.MTurk do
   The operation returns HITs of any status, except for HITs that have been deleted
   of with the DeleteHIT operation or that have been auto-deleted.
   """
-  def list_h_i_ts(client, input, options \\ []) do
-    request(client, "ListHITs", input, options)
+  def list_h_i_ts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListHITs", input, options)
   end
 
   @doc """
@@ -352,8 +377,8 @@ defmodule AWS.MTurk do
   The operation returns HITs of any status, except for HITs that have been deleted
   with the `DeleteHIT` operation or that have been auto-deleted.
   """
-  def list_h_i_ts_for_qualification_type(client, input, options \\ []) do
-    request(client, "ListHITsForQualificationType", input, options)
+  def list_h_i_ts_for_qualification_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListHITsForQualificationType", input, options)
   end
 
   @doc """
@@ -363,16 +388,16 @@ defmodule AWS.MTurk do
   The owner of the Qualification type calls this operation to poll for pending
   requests, and accepts them using the AcceptQualification operation.
   """
-  def list_qualification_requests(client, input, options \\ []) do
-    request(client, "ListQualificationRequests", input, options)
+  def list_qualification_requests(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListQualificationRequests", input, options)
   end
 
   @doc """
   The `ListQualificationTypes` operation returns a list of Qualification types,
   filtered by an optional search term.
   """
-  def list_qualification_types(client, input, options \\ []) do
-    request(client, "ListQualificationTypes", input, options)
+  def list_qualification_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListQualificationTypes", input, options)
   end
 
   @doc """
@@ -384,8 +409,8 @@ defmodule AWS.MTurk do
   see Review Policies. The ListReviewPolicyResultsForHIT operation can return
   results for both Assignment-level and HIT-level review results.
   """
-  def list_review_policy_results_for_h_i_t(client, input, options \\ []) do
-    request(client, "ListReviewPolicyResultsForHIT", input, options)
+  def list_review_policy_results_for_h_i_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReviewPolicyResultsForHIT", input, options)
   end
 
   @doc """
@@ -393,24 +418,24 @@ defmodule AWS.MTurk do
   Reviewable or Status equal to Reviewing that belong to the Requester calling the
   operation.
   """
-  def list_reviewable_h_i_ts(client, input, options \\ []) do
-    request(client, "ListReviewableHITs", input, options)
+  def list_reviewable_h_i_ts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReviewableHITs", input, options)
   end
 
   @doc """
   The `ListWorkersBlocks` operation retrieves a list of Workers who are blocked
   from working on your HITs.
   """
-  def list_worker_blocks(client, input, options \\ []) do
-    request(client, "ListWorkerBlocks", input, options)
+  def list_worker_blocks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListWorkerBlocks", input, options)
   end
 
   @doc """
   The `ListWorkersWithQualificationType` operation returns all of the Workers that
   have been associated with a given Qualification type.
   """
-  def list_workers_with_qualification_type(client, input, options \\ []) do
-    request(client, "ListWorkersWithQualificationType", input, options)
+  def list_workers_with_qualification_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListWorkersWithQualificationType", input, options)
   end
 
   @doc """
@@ -422,8 +447,8 @@ defmodule AWS.MTurk do
   notification email to a Worker only if you have previously approved or rejected
   work from the Worker.
   """
-  def notify_workers(client, input, options \\ []) do
-    request(client, "NotifyWorkers", input, options)
+  def notify_workers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "NotifyWorkers", input, options)
   end
 
   @doc """
@@ -437,8 +462,8 @@ defmodule AWS.MTurk do
 
   Only the Requester who created the HIT can reject an assignment for the HIT.
   """
-  def reject_assignment(client, input, options \\ []) do
-    request(client, "RejectAssignment", input, options)
+  def reject_assignment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RejectAssignment", input, options)
   end
 
   @doc """
@@ -448,8 +473,8 @@ defmodule AWS.MTurk do
   You can provide a text message explaining why the request was rejected. The
   Worker who made the request can see this message.
   """
-  def reject_qualification_request(client, input, options \\ []) do
-    request(client, "RejectQualificationRequest", input, options)
+  def reject_qualification_request(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RejectQualificationRequest", input, options)
   end
 
   @doc """
@@ -464,8 +489,8 @@ defmodule AWS.MTurk do
   for bonus payments, similar to the HIT listing fee. This operation fails if your
   account does not have enough funds to pay for both the bonus and the fees.
   """
-  def send_bonus(client, input, options \\ []) do
-    request(client, "SendBonus", input, options)
+  def send_bonus(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendBonus", input, options)
   end
 
   @doc """
@@ -477,8 +502,8 @@ defmodule AWS.MTurk do
   real HIT type and trying to trigger them using the website. When you call this
   operation, the service attempts to send the test notification immediately.
   """
-  def send_test_event_notification(client, input, options \\ []) do
-    request(client, "SendTestEventNotification", input, options)
+  def send_test_event_notification(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendTestEventNotification", input, options)
   end
 
   @doc """
@@ -487,8 +512,8 @@ defmodule AWS.MTurk do
 
   If you update it to a time in the past, the HIT will be immediately expired.
   """
-  def update_expiration_for_h_i_t(client, input, options \\ []) do
-    request(client, "UpdateExpirationForHIT", input, options)
+  def update_expiration_for_h_i_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateExpirationForHIT", input, options)
   end
 
   @doc """
@@ -497,8 +522,8 @@ defmodule AWS.MTurk do
   If the status is Reviewable, this operation can update the status to Reviewing,
   or it can revert a Reviewing HIT back to the Reviewable status.
   """
-  def update_h_i_t_review_status(client, input, options \\ []) do
-    request(client, "UpdateHITReviewStatus", input, options)
+  def update_h_i_t_review_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateHITReviewStatus", input, options)
   end
 
   @doc """
@@ -509,8 +534,8 @@ defmodule AWS.MTurk do
   associates it with the new HITType properties. The HIT takes on the properties
   of the new HITType in place of the old ones.
   """
-  def update_h_i_t_type_of_h_i_t(client, input, options \\ []) do
-    request(client, "UpdateHITTypeOfHIT", input, options)
+  def update_h_i_t_type_of_h_i_t(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateHITTypeOfHIT", input, options)
   end
 
   @doc """
@@ -527,8 +552,8 @@ defmodule AWS.MTurk do
   specification, or one must be provided in the same call to
   `UpdateNotificationSettings`.
   """
-  def update_notification_settings(client, input, options \\ []) do
-    request(client, "UpdateNotificationSettings", input, options)
+  def update_notification_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateNotificationSettings", input, options)
   end
 
   @doc """
@@ -565,62 +590,7 @@ defmodule AWS.MTurk do
   You can also update the AutoGranted and AutoGrantedValue attributes of the
   Qualification type.
   """
-  def update_qualification_type(client, input, options \\ []) do
-    request(client, "UpdateQualificationType", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "mturk-requester",
-                        region:  ""}
-    host = build_host("mturk-requester", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "MTurkRequesterServiceV20170117.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_qualification_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateQualificationType", input, options)
   end
 end

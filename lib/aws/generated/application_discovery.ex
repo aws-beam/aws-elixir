@@ -87,11 +87,36 @@ defmodule AWS.ApplicationDiscovery do
   Service offline to inspect collected data before it is shared with the service.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2015-11-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "discovery",
+      global?: false,
+      protocol: "json",
+      service_id: "Application Discovery Service",
+      signature_version: "v4",
+      signing_name: "discovery",
+      target_prefix: "AWSPoseidonService_V2015_11_01"
+    }
+  end
+
   @doc """
   Associates one or more configuration items with an application.
   """
-  def associate_configuration_items_to_application(client, input, options \\ []) do
-    request(client, "AssociateConfigurationItemsToApplication", input, options)
+  def associate_configuration_items_to_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AssociateConfigurationItemsToApplication",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -107,15 +132,15 @@ defmodule AWS.ApplicationDiscovery do
   match, the information in those matched records that comes from the deleted
   records will also be deleted.
   """
-  def batch_delete_import_data(client, input, options \\ []) do
-    request(client, "BatchDeleteImportData", input, options)
+  def batch_delete_import_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteImportData", input, options)
   end
 
   @doc """
   Creates an application with the given name and description.
   """
-  def create_application(client, input, options \\ []) do
-    request(client, "CreateApplication", input, options)
+  def create_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateApplication", input, options)
   end
 
   @doc """
@@ -124,15 +149,15 @@ defmodule AWS.ApplicationDiscovery do
   Tags are metadata that help you categorize IT assets. This API accepts a list of
   multiple configuration items.
   """
-  def create_tags(client, input, options \\ []) do
-    request(client, "CreateTags", input, options)
+  def create_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTags", input, options)
   end
 
   @doc """
   Deletes a list of applications and their associations with configuration items.
   """
-  def delete_applications(client, input, options \\ []) do
-    request(client, "DeleteApplications", input, options)
+  def delete_applications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApplications", input, options)
   end
 
   @doc """
@@ -140,8 +165,8 @@ defmodule AWS.ApplicationDiscovery do
 
   This API accepts a list of multiple configuration items.
   """
-  def delete_tags(client, input, options \\ []) do
-    request(client, "DeleteTags", input, options)
+  def delete_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTags", input, options)
   end
 
   @doc """
@@ -150,8 +175,8 @@ defmodule AWS.ApplicationDiscovery do
   All agents/connectors associated with your user account can be listed if you
   call `DescribeAgents` as is without passing any parameters.
   """
-  def describe_agents(client, input, options \\ []) do
-    request(client, "DescribeAgents", input, options)
+  def describe_agents(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAgents", input, options)
   end
 
   @doc """
@@ -176,8 +201,8 @@ defmodule AWS.ApplicationDiscovery do
   Action](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations)
   in the *AWS Application Discovery Service User Guide*.
   """
-  def describe_configurations(client, input, options \\ []) do
-    request(client, "DescribeConfigurations", input, options)
+  def describe_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeConfigurations", input, options)
   end
 
   @doc """
@@ -186,8 +211,8 @@ defmodule AWS.ApplicationDiscovery do
   All continuous exports associated with your user account can be listed if you
   call `DescribeContinuousExports` as is without passing any parameters.
   """
-  def describe_continuous_exports(client, input, options \\ []) do
-    request(client, "DescribeContinuousExports", input, options)
+  def describe_continuous_exports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeContinuousExports", input, options)
   end
 
   @doc """
@@ -197,8 +222,8 @@ defmodule AWS.ApplicationDiscovery do
   [DescribeImportTasks](https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html),
   instead.
   """
-  def describe_export_configurations(client, input, options \\ []) do
-    request(client, "DescribeExportConfigurations", input, options)
+  def describe_export_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExportConfigurations", input, options)
   end
 
   @doc """
@@ -206,16 +231,16 @@ defmodule AWS.ApplicationDiscovery do
 
   You can retrieve the status of up to 100 export tasks.
   """
-  def describe_export_tasks(client, input, options \\ []) do
-    request(client, "DescribeExportTasks", input, options)
+  def describe_export_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExportTasks", input, options)
   end
 
   @doc """
   Returns an array of import tasks for your account, including status information,
   times, IDs, the Amazon S3 Object URL for the import file, and more.
   """
-  def describe_import_tasks(client, input, options \\ []) do
-    request(client, "DescribeImportTasks", input, options)
+  def describe_import_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeImportTasks", input, options)
   end
 
   @doc """
@@ -233,15 +258,21 @@ defmodule AWS.ApplicationDiscovery do
   Also, all configuration items associated with your user account that have tags
   can be listed if you call `DescribeTags` as is without passing any parameters.
   """
-  def describe_tags(client, input, options \\ []) do
-    request(client, "DescribeTags", input, options)
+  def describe_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTags", input, options)
   end
 
   @doc """
   Disassociates one or more configuration items from an application.
   """
-  def disassociate_configuration_items_from_application(client, input, options \\ []) do
-    request(client, "DisassociateConfigurationItemsFromApplication", input, options)
+  def disassociate_configuration_items_from_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DisassociateConfigurationItemsFromApplication",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -256,8 +287,8 @@ defmodule AWS.ApplicationDiscovery do
   *DescribeExportConfigurations* API. The system imposes a limit of two
   configuration exports in six hours.
   """
-  def export_configurations(client, input, options \\ []) do
-    request(client, "ExportConfigurations", input, options)
+  def export_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExportConfigurations", input, options)
   end
 
   @doc """
@@ -266,8 +297,8 @@ defmodule AWS.ApplicationDiscovery do
   This API operation takes no request parameters and is called as is at the
   command prompt as shown in the example.
   """
-  def get_discovery_summary(client, input, options \\ []) do
-    request(client, "GetDiscoverySummary", input, options)
+  def get_discovery_summary(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDiscoverySummary", input, options)
   end
 
   @doc """
@@ -276,30 +307,30 @@ defmodule AWS.ApplicationDiscovery do
 
   Optional filtering may be applied to refine search results.
   """
-  def list_configurations(client, input, options \\ []) do
-    request(client, "ListConfigurations", input, options)
+  def list_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListConfigurations", input, options)
   end
 
   @doc """
   Retrieves a list of servers that are one network hop away from a specified
   server.
   """
-  def list_server_neighbors(client, input, options \\ []) do
-    request(client, "ListServerNeighbors", input, options)
+  def list_server_neighbors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListServerNeighbors", input, options)
   end
 
   @doc """
   Start the continuous flow of agent's discovered data into Amazon Athena.
   """
-  def start_continuous_export(client, input, options \\ []) do
-    request(client, "StartContinuousExport", input, options)
+  def start_continuous_export(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartContinuousExport", input, options)
   end
 
   @doc """
   Instructs the specified agents or connectors to start collecting data.
   """
-  def start_data_collection_by_agent_ids(client, input, options \\ []) do
-    request(client, "StartDataCollectionByAgentIds", input, options)
+  def start_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartDataCollectionByAgentIds", input, options)
   end
 
   @doc """
@@ -315,8 +346,8 @@ defmodule AWS.ApplicationDiscovery do
   includes both AWS Agentless Discovery Connector data and summary data from AWS
   Discovery Agents. Export of summary data is limited to two exports per day.
   """
-  def start_export_task(client, input, options \\ []) do
-    request(client, "StartExportTask", input, options)
+  def start_export_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartExportTask", input, options)
   end
 
   @doc """
@@ -349,82 +380,28 @@ defmodule AWS.ApplicationDiscovery do
   AWS account. For more information, see [AWS Application Discovery Service Limits](https://docs.aws.amazon.com/application-discovery/latest/userguide/ads_service_limits.html)
   in the *AWS Application Discovery Service User Guide*.
   """
-  def start_import_task(client, input, options \\ []) do
-    request(client, "StartImportTask", input, options)
+  def start_import_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartImportTask", input, options)
   end
 
   @doc """
   Stop the continuous flow of agent's discovered data into Amazon Athena.
   """
-  def stop_continuous_export(client, input, options \\ []) do
-    request(client, "StopContinuousExport", input, options)
+  def stop_continuous_export(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopContinuousExport", input, options)
   end
 
   @doc """
   Instructs the specified agents or connectors to stop collecting data.
   """
-  def stop_data_collection_by_agent_ids(client, input, options \\ []) do
-    request(client, "StopDataCollectionByAgentIds", input, options)
+  def stop_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopDataCollectionByAgentIds", input, options)
   end
 
   @doc """
   Updates metadata about an application.
   """
-  def update_application(client, input, options \\ []) do
-    request(client, "UpdateApplication", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "discovery"}
-    host = build_host("discovery", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSPoseidonService_V2015_11_01.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateApplication", input, options)
   end
 end

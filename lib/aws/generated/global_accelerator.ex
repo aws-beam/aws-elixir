@@ -11,10 +11,17 @@ defmodule AWS.GlobalAccelerator do
   Accelerator API actions, data types, and errors. For more information about
   Global Accelerator features, see the [AWS Global Accelerator Developer Guide](https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html).
 
-  AWS Global Accelerator is a service in which you create accelerators to improve
-  availability and performance of your applications for local and global users.
+  AWS Global Accelerator is a service in which you create *accelerators* to
+  improve availability and performance of your applications for local and global
+  users. Global Accelerator directs traffic to optimal endpoints over the AWS
+  global network. This improves the availability and performance of your internet
+  applications that are used by a global audience. Global Accelerator is a global
+  service that supports endpoints in multiple AWS Regions, which are listed in the
+  [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
-  You must specify the US West (Oregon) Region to create or update accelerators.
+  Global Accelerator is a global service that supports endpoints in multiple AWS
+  Regions but you must specify the US West (Oregon) Region to create or update
+  accelerators.
 
   By default, Global Accelerator provides you with static IP addresses that you
   associate with your accelerator. (Instead of using the IP addresses that Global
@@ -112,6 +119,25 @@ defmodule AWS.GlobalAccelerator do
   example, to do performance testing within a Region.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-08-08",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "globalaccelerator",
+      global?: false,
+      protocol: "json",
+      service_id: "Global Accelerator",
+      signature_version: "v4",
+      signing_name: "globalaccelerator",
+      target_prefix: "GlobalAccelerator_V20180706"
+    }
+  end
+
   @doc """
   Advertises an IPv4 address range that is provisioned for use with your AWS
   resources through bring your own IP addresses (BYOIP).
@@ -126,8 +152,8 @@ defmodule AWS.GlobalAccelerator do
   For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html)
   in the *AWS Global Accelerator Developer Guide*.
   """
-  def advertise_byoip_cidr(client, input, options \\ []) do
-    request(client, "AdvertiseByoipCidr", input, options)
+  def advertise_byoip_cidr(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AdvertiseByoipCidr", input, options)
   end
 
   @doc """
@@ -138,25 +164,25 @@ defmodule AWS.GlobalAccelerator do
   endpoints, such as Network Load Balancers. To see an AWS CLI example of creating
   an accelerator, scroll down to **Example**.
 
-  If you bring your own IP address ranges to AWS Global Accelerator (BYOIP), you
-  can assign IP addresses from your own pool to your accelerator as the static IP
-  address entry points. Only one IP address from each of your IP address ranges
-  can be used for each accelerator.
-
-  You must specify the US West (Oregon) Region to create or update accelerators.
+  Global Accelerator is a global service that supports endpoints in multiple AWS
+  Regions but you must specify the US West (Oregon) Region to create or update
+  accelerators.
   """
-  def create_accelerator(client, input, options \\ []) do
-    request(client, "CreateAccelerator", input, options)
+  def create_accelerator(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAccelerator", input, options)
   end
 
   @doc """
   Create an endpoint group for the specified listener.
 
-  An endpoint group is a collection of endpoints in one AWS Region. To see an AWS
-  CLI example of creating an endpoint group, scroll down to **Example**.
+  An endpoint group is a collection of endpoints in one AWS Region. A resource
+  must be valid and active when you add it as an endpoint.
+
+  To see an AWS CLI example of creating an endpoint group, scroll down to
+  **Example**.
   """
-  def create_endpoint_group(client, input, options \\ []) do
-    request(client, "CreateEndpointGroup", input, options)
+  def create_endpoint_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEndpointGroup", input, options)
   end
 
   @doc """
@@ -166,8 +192,8 @@ defmodule AWS.GlobalAccelerator do
   list of port ranges that you specify. To see an AWS CLI example of creating a
   listener, scroll down to **Example**.
   """
-  def create_listener(client, input, options \\ []) do
-    request(client, "CreateListener", input, options)
+  def create_listener(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateListener", input, options)
   end
 
   @doc """
@@ -191,22 +217,22 @@ defmodule AWS.GlobalAccelerator do
   For more information, see [Authentication and Access Control](https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html)
   in the *AWS Global Accelerator Developer Guide*.
   """
-  def delete_accelerator(client, input, options \\ []) do
-    request(client, "DeleteAccelerator", input, options)
+  def delete_accelerator(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAccelerator", input, options)
   end
 
   @doc """
   Delete an endpoint group from a listener.
   """
-  def delete_endpoint_group(client, input, options \\ []) do
-    request(client, "DeleteEndpointGroup", input, options)
+  def delete_endpoint_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEndpointGroup", input, options)
   end
 
   @doc """
   Delete a listener from an accelerator.
   """
-  def delete_listener(client, input, options \\ []) do
-    request(client, "DeleteListener", input, options)
+  def delete_listener(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteListener", input, options)
   end
 
   @doc """
@@ -225,8 +251,8 @@ defmodule AWS.GlobalAccelerator do
   (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html)
   in the *AWS Global Accelerator Developer Guide*.
   """
-  def deprovision_byoip_cidr(client, input, options \\ []) do
-    request(client, "DeprovisionByoipCidr", input, options)
+  def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeprovisionByoipCidr", input, options)
   end
 
   @doc """
@@ -235,8 +261,8 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of describing an accelerator, scroll down to
   **Example**.
   """
-  def describe_accelerator(client, input, options \\ []) do
-    request(client, "DescribeAccelerator", input, options)
+  def describe_accelerator(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAccelerator", input, options)
   end
 
   @doc """
@@ -245,8 +271,8 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of describing the attributes of an accelerator, scroll
   down to **Example**.
   """
-  def describe_accelerator_attributes(client, input, options \\ []) do
-    request(client, "DescribeAcceleratorAttributes", input, options)
+  def describe_accelerator_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAcceleratorAttributes", input, options)
   end
 
   @doc """
@@ -255,8 +281,8 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of describing an endpoint group, scroll down to
   **Example**.
   """
-  def describe_endpoint_group(client, input, options \\ []) do
-    request(client, "DescribeEndpointGroup", input, options)
+  def describe_endpoint_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpointGroup", input, options)
   end
 
   @doc """
@@ -264,8 +290,8 @@ defmodule AWS.GlobalAccelerator do
 
   To see an AWS CLI example of describing a listener, scroll down to **Example**.
   """
-  def describe_listener(client, input, options \\ []) do
-    request(client, "DescribeListener", input, options)
+  def describe_listener(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeListener", input, options)
   end
 
   @doc """
@@ -274,8 +300,8 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of listing the accelerators for an AWS account, scroll
   down to **Example**.
   """
-  def list_accelerators(client, input, options \\ []) do
-    request(client, "ListAccelerators", input, options)
+  def list_accelerators(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAccelerators", input, options)
   end
 
   @doc """
@@ -286,8 +312,8 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of listing BYOIP CIDR addresses, scroll down to
   **Example**.
   """
-  def list_byoip_cidrs(client, input, options \\ []) do
-    request(client, "ListByoipCidrs", input, options)
+  def list_byoip_cidrs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListByoipCidrs", input, options)
   end
 
   @doc """
@@ -296,8 +322,8 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of listing the endpoint groups for listener, scroll
   down to **Example**.
   """
-  def list_endpoint_groups(client, input, options \\ []) do
-    request(client, "ListEndpointGroups", input, options)
+  def list_endpoint_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEndpointGroups", input, options)
   end
 
   @doc """
@@ -306,8 +332,8 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of listing the listeners for an accelerator, scroll
   down to **Example**.
   """
-  def list_listeners(client, input, options \\ []) do
-    request(client, "ListListeners", input, options)
+  def list_listeners(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListListeners", input, options)
   end
 
   @doc """
@@ -319,8 +345,8 @@ defmodule AWS.GlobalAccelerator do
   For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html)
   in the *AWS Global Accelerator Developer Guide*.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -336,8 +362,8 @@ defmodule AWS.GlobalAccelerator do
   For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html)
   in the *AWS Global Accelerator Developer Guide*.
   """
-  def provision_byoip_cidr(client, input, options \\ []) do
-    request(client, "ProvisionByoipCidr", input, options)
+  def provision_byoip_cidr(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ProvisionByoipCidr", input, options)
   end
 
   @doc """
@@ -349,8 +375,8 @@ defmodule AWS.GlobalAccelerator do
   For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html)
   in the *AWS Global Accelerator Developer Guide*.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -364,8 +390,8 @@ defmodule AWS.GlobalAccelerator do
   For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html)
   in the *AWS Global Accelerator Developer Guide*.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -374,10 +400,12 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of updating an accelerator, scroll down to
   **Example**.
 
-  You must specify the US West (Oregon) Region to create or update accelerators.
+  Global Accelerator is a global service that supports endpoints in multiple AWS
+  Regions but you must specify the US West (Oregon) Region to create or update
+  accelerators.
   """
-  def update_accelerator(client, input, options \\ []) do
-    request(client, "UpdateAccelerator", input, options)
+  def update_accelerator(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAccelerator", input, options)
   end
 
   @doc """
@@ -386,18 +414,20 @@ defmodule AWS.GlobalAccelerator do
   To see an AWS CLI example of updating an accelerator to enable flow logs, scroll
   down to **Example**.
   """
-  def update_accelerator_attributes(client, input, options \\ []) do
-    request(client, "UpdateAcceleratorAttributes", input, options)
+  def update_accelerator_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAcceleratorAttributes", input, options)
   end
 
   @doc """
   Update an endpoint group.
 
+  A resource must be valid and active when you add it as an endpoint.
+
   To see an AWS CLI example of updating an endpoint group, scroll down to
   **Example**.
   """
-  def update_endpoint_group(client, input, options \\ []) do
-    request(client, "UpdateEndpointGroup", input, options)
+  def update_endpoint_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEndpointGroup", input, options)
   end
 
   @doc """
@@ -405,8 +435,8 @@ defmodule AWS.GlobalAccelerator do
 
   To see an AWS CLI example of updating listener, scroll down to **Example**.
   """
-  def update_listener(client, input, options \\ []) do
-    request(client, "UpdateListener", input, options)
+  def update_listener(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateListener", input, options)
   end
 
   @doc """
@@ -423,61 +453,7 @@ defmodule AWS.GlobalAccelerator do
   For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html)
   in the *AWS Global Accelerator Developer Guide*.
   """
-  def withdraw_byoip_cidr(client, input, options \\ []) do
-    request(client, "WithdrawByoipCidr", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "globalaccelerator"}
-    host = build_host("globalaccelerator", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "GlobalAccelerator_V20180706.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "WithdrawByoipCidr", input, options)
   end
 end

@@ -27,6 +27,33 @@ defmodule AWS.DynamoDB do
   data durability.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "DynamoDB",
+      api_version: "2012-08-10",
+      content_type: "application/x-amz-json-1.0",
+      credential_scope: nil,
+      endpoint_prefix: "dynamodb",
+      global?: false,
+      protocol: "json",
+      service_id: "DynamoDB",
+      signature_version: "v4",
+      signing_name: "dynamodb",
+      target_prefix: "DynamoDB_20120810"
+    }
+  end
+
+  @doc """
+  This operation allows you to perform batch reads and writes on data stored in
+  DynamoDB, using PartiQL.
+  """
+  def batch_execute_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchExecuteStatement", input, options)
+  end
+
   @doc """
   The `BatchGetItem` operation returns the attributes of one or more items from
   one or more tables.
@@ -83,8 +110,8 @@ defmodule AWS.DynamoDB do
   type of read. For more information, see [Working with Tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations)
   in the *Amazon DynamoDB Developer Guide*.
   """
-  def batch_get_item(client, input, options \\ []) do
-    request(client, "BatchGetItem", input, options)
+  def batch_get_item(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetItem", input, options)
   end
 
   @doc """
@@ -164,8 +191,8 @@ defmodule AWS.DynamoDB do
 
     * The total request size exceeds 16 MB.
   """
-  def batch_write_item(client, input, options \\ []) do
-    request(client, "BatchWriteItem", input, options)
+  def batch_write_item(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchWriteItem", input, options)
   end
 
   @doc """
@@ -200,8 +227,8 @@ defmodule AWS.DynamoDB do
 
     * Provisioned read and write capacity
   """
-  def create_backup(client, input, options \\ []) do
-    request(client, "CreateBackup", input, options)
+  def create_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBackup", input, options)
   end
 
   @doc """
@@ -253,8 +280,8 @@ defmodule AWS.DynamoDB do
   provision equal replicated write capacity units to matching secondary indexes
   across your global table.
   """
-  def create_global_table(client, input, options \\ []) do
-    request(client, "CreateGlobalTable", input, options)
+  def create_global_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGlobalTable", input, options)
   end
 
   @doc """
@@ -276,8 +303,8 @@ defmodule AWS.DynamoDB do
 
   You can use the `DescribeTable` action to check the table status.
   """
-  def create_table(client, input, options \\ []) do
-    request(client, "CreateTable", input, options)
+  def create_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTable", input, options)
   end
 
   @doc """
@@ -285,8 +312,8 @@ defmodule AWS.DynamoDB do
 
   You can call `DeleteBackup` at a maximum rate of 10 times per second.
   """
-  def delete_backup(client, input, options \\ []) do
-    request(client, "DeleteBackup", input, options)
+  def delete_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBackup", input, options)
   end
 
   @doc """
@@ -306,8 +333,8 @@ defmodule AWS.DynamoDB do
   are met. If those conditions are met, DynamoDB performs the delete. Otherwise,
   the item is not deleted.
   """
-  def delete_item(client, input, options \\ []) do
-    request(client, "DeleteItem", input, options)
+  def delete_item(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteItem", input, options)
   end
 
   @doc """
@@ -332,8 +359,8 @@ defmodule AWS.DynamoDB do
 
   Use the `DescribeTable` action to check the status of the table.
   """
-  def delete_table(client, input, options \\ []) do
-    request(client, "DeleteTable", input, options)
+  def delete_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTable", input, options)
   end
 
   @doc """
@@ -341,8 +368,8 @@ defmodule AWS.DynamoDB do
 
   You can call `DescribeBackup` at a maximum rate of 10 times per second.
   """
-  def describe_backup(client, input, options \\ []) do
-    request(client, "DescribeBackup", input, options)
+  def describe_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeBackup", input, options)
   end
 
   @doc """
@@ -362,23 +389,30 @@ defmodule AWS.DynamoDB do
   You can call `DescribeContinuousBackups` at a maximum rate of 10 times per
   second.
   """
-  def describe_continuous_backups(client, input, options \\ []) do
-    request(client, "DescribeContinuousBackups", input, options)
+  def describe_continuous_backups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeContinuousBackups", input, options)
   end
 
   @doc """
   Returns information about contributor insights, for a given table or global
   secondary index.
   """
-  def describe_contributor_insights(client, input, options \\ []) do
-    request(client, "DescribeContributorInsights", input, options)
+  def describe_contributor_insights(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeContributorInsights", input, options)
   end
 
   @doc """
   Returns the regional endpoint information.
   """
-  def describe_endpoints(client, input, options \\ []) do
-    request(client, "DescribeEndpoints", input, options)
+  def describe_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpoints", input, options)
+  end
+
+  @doc """
+  Describes an existing table export.
+  """
+  def describe_export(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExport", input, options)
   end
 
   @doc """
@@ -390,8 +424,8 @@ defmodule AWS.DynamoDB do
   [DescribeTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html)
   instead.
   """
-  def describe_global_table(client, input, options \\ []) do
-    request(client, "DescribeGlobalTable", input, options)
+  def describe_global_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGlobalTable", input, options)
   end
 
   @doc """
@@ -400,8 +434,21 @@ defmodule AWS.DynamoDB do
   This operation only applies to [Version 2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
   of global tables.
   """
-  def describe_global_table_settings(client, input, options \\ []) do
-    request(client, "DescribeGlobalTableSettings", input, options)
+  def describe_global_table_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeGlobalTableSettings", input, options)
+  end
+
+  @doc """
+  Returns information about the status of Kinesis streaming.
+  """
+  def describe_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeKinesisStreamingDestination",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -465,8 +512,8 @@ defmodule AWS.DynamoDB do
 
   The `DescribeLimits` Request element has no content.
   """
-  def describe_limits(client, input, options \\ []) do
-    request(client, "DescribeLimits", input, options)
+  def describe_limits(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLimits", input, options)
   end
 
   @doc """
@@ -479,8 +526,8 @@ defmodule AWS.DynamoDB do
   table might not be available at that moment. Wait for a few seconds, and then
   try the `DescribeTable` request again.
   """
-  def describe_table(client, input, options \\ []) do
-    request(client, "DescribeTable", input, options)
+  def describe_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTable", input, options)
   end
 
   @doc """
@@ -489,15 +536,62 @@ defmodule AWS.DynamoDB do
   This operation only applies to [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
   of global tables.
   """
-  def describe_table_replica_auto_scaling(client, input, options \\ []) do
-    request(client, "DescribeTableReplicaAutoScaling", input, options)
+  def describe_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTableReplicaAutoScaling", input, options)
   end
 
   @doc """
   Gives a description of the Time to Live (TTL) status on the specified table.
   """
-  def describe_time_to_live(client, input, options \\ []) do
-    request(client, "DescribeTimeToLive", input, options)
+  def describe_time_to_live(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTimeToLive", input, options)
+  end
+
+  @doc """
+  Stops replication from the DynamoDB table to the Kinesis data stream.
+
+  This is done without deleting either of the resources.
+  """
+  def disable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableKinesisStreamingDestination", input, options)
+  end
+
+  @doc """
+  Starts table data replication to the specified Kinesis data stream at a
+  timestamp chosen during the enable workflow.
+
+  If this operation doesn't return results immediately, use
+  DescribeKinesisStreamingDestination to check if streaming to the Kinesis data
+  stream is ACTIVE.
+  """
+  def enable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableKinesisStreamingDestination", input, options)
+  end
+
+  @doc """
+  This operation allows you to perform reads and singleton writes on data stored
+  in DynamoDB, using PartiQL.
+  """
+  def execute_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExecuteStatement", input, options)
+  end
+
+  @doc """
+  This operation allows you to perform transactional reads or writes on data
+  stored in DynamoDB, using PartiQL.
+  """
+  def execute_transaction(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExecuteTransaction", input, options)
+  end
+
+  @doc """
+  Exports table data to an S3 bucket.
+
+  The table must have point in time recovery enabled, and you can export data from
+  any time within the point in time recovery window.
+  """
+  def export_table_to_point_in_time(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExportTableToPointInTime", input, options)
   end
 
   @doc """
@@ -512,8 +606,8 @@ defmodule AWS.DynamoDB do
   strongly consistent read might take more time than an eventually consistent
   read, it always returns the last updated value.
   """
-  def get_item(client, input, options \\ []) do
-    request(client, "GetItem", input, options)
+  def get_item(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetItem", input, options)
   end
 
   @doc """
@@ -528,16 +622,23 @@ defmodule AWS.DynamoDB do
 
   You can call `ListBackups` a maximum of five times per second.
   """
-  def list_backups(client, input, options \\ []) do
-    request(client, "ListBackups", input, options)
+  def list_backups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBackups", input, options)
   end
 
   @doc """
   Returns a list of ContributorInsightsSummary for a table and all its global
   secondary indexes.
   """
-  def list_contributor_insights(client, input, options \\ []) do
-    request(client, "ListContributorInsights", input, options)
+  def list_contributor_insights(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListContributorInsights", input, options)
+  end
+
+  @doc """
+  Lists completed exports within the past 90 days.
+  """
+  def list_exports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListExports", input, options)
   end
 
   @doc """
@@ -546,8 +647,8 @@ defmodule AWS.DynamoDB do
   This operation only applies to [Version 2017.11.29](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html)
   of global tables.
   """
-  def list_global_tables(client, input, options \\ []) do
-    request(client, "ListGlobalTables", input, options)
+  def list_global_tables(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGlobalTables", input, options)
   end
 
   @doc """
@@ -557,8 +658,8 @@ defmodule AWS.DynamoDB do
   The output from `ListTables` is paginated, with each page returning a maximum of
   100 table names.
   """
-  def list_tables(client, input, options \\ []) do
-    request(client, "ListTables", input, options)
+  def list_tables(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTables", input, options)
   end
 
   @doc """
@@ -569,8 +670,8 @@ defmodule AWS.DynamoDB do
   For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
-  def list_tags_of_resource(client, input, options \\ []) do
-    request(client, "ListTagsOfResource", input, options)
+  def list_tags_of_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsOfResource", input, options)
   end
 
   @doc """
@@ -625,8 +726,8 @@ defmodule AWS.DynamoDB do
   For more information about `PutItem`, see [Working with Items](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
-  def put_item(client, input, options \\ []) do
-    request(client, "PutItem", input, options)
+  def put_item(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutItem", input, options)
   end
 
   @doc """
@@ -681,8 +782,8 @@ defmodule AWS.DynamoDB do
   Global secondary indexes support eventually consistent reads only, so do not
   specify `ConsistentRead` when querying a global secondary index.
   """
-  def query(client, input, options \\ []) do
-    request(client, "Query", input, options)
+  def query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Query", input, options)
   end
 
   @doc """
@@ -707,8 +808,8 @@ defmodule AWS.DynamoDB do
 
     * Time to Live (TTL) settings
   """
-  def restore_table_from_backup(client, input, options \\ []) do
-    request(client, "RestoreTableFromBackup", input, options)
+  def restore_table_from_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RestoreTableFromBackup", input, options)
   end
 
   @doc """
@@ -753,8 +854,8 @@ defmodule AWS.DynamoDB do
 
     * Point in time recovery settings
   """
-  def restore_table_to_point_in_time(client, input, options \\ []) do
-    request(client, "RestoreTableToPointInTime", input, options)
+  def restore_table_to_point_in_time(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RestoreTableToPointInTime", input, options)
   end
 
   @doc """
@@ -789,8 +890,8 @@ defmodule AWS.DynamoDB do
   data, as of the time that the `Scan` begins, you can set the `ConsistentRead`
   parameter to `true`.
   """
-  def scan(client, input, options \\ []) do
-    request(client, "Scan", input, options)
+  def scan(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Scan", input, options)
   end
 
   @doc """
@@ -803,8 +904,8 @@ defmodule AWS.DynamoDB do
   For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -832,8 +933,8 @@ defmodule AWS.DynamoDB do
     * The aggregate size of the items in the transaction cannot exceed 4
   MB.
   """
-  def transact_get_items(client, input, options \\ []) do
-    request(client, "TransactGetItems", input, options)
+  def transact_get_items(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TransactGetItems", input, options)
   end
 
   @doc """
@@ -894,8 +995,8 @@ defmodule AWS.DynamoDB do
 
     * There is a user error, such as an invalid data format.
   """
-  def transact_write_items(client, input, options \\ []) do
-    request(client, "TransactWriteItems", input, options)
+  def transact_write_items(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TransactWriteItems", input, options)
   end
 
   @doc """
@@ -906,8 +1007,8 @@ defmodule AWS.DynamoDB do
   For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
   in the *Amazon DynamoDB Developer Guide*.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -926,15 +1027,15 @@ defmodule AWS.DynamoDB do
   `LatestRestorableDateTime` is typically 5 minutes before the current time. You
   can restore your table to any point in time during the last 35 days.
   """
-  def update_continuous_backups(client, input, options \\ []) do
-    request(client, "UpdateContinuousBackups", input, options)
+  def update_continuous_backups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateContinuousBackups", input, options)
   end
 
   @doc """
   Updates the status for contributor insights for a specific table or index.
   """
-  def update_contributor_insights(client, input, options \\ []) do
-    request(client, "UpdateContributorInsights", input, options)
+  def update_contributor_insights(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateContributorInsights", input, options)
   end
 
   @doc """
@@ -960,15 +1061,15 @@ defmodule AWS.DynamoDB do
     * The global secondary indexes must have the same provisioned and
   maximum write capacity units.
   """
-  def update_global_table(client, input, options \\ []) do
-    request(client, "UpdateGlobalTable", input, options)
+  def update_global_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGlobalTable", input, options)
   end
 
   @doc """
   Updates settings for a global table.
   """
-  def update_global_table_settings(client, input, options \\ []) do
-    request(client, "UpdateGlobalTableSettings", input, options)
+  def update_global_table_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGlobalTableSettings", input, options)
   end
 
   @doc """
@@ -983,8 +1084,8 @@ defmodule AWS.DynamoDB do
   You can also return the item's attribute values in the same `UpdateItem`
   operation using the `ReturnValues` parameter.
   """
-  def update_item(client, input, options \\ []) do
-    request(client, "UpdateItem", input, options)
+  def update_item(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateItem", input, options)
   end
 
   @doc """
@@ -1007,8 +1108,8 @@ defmodule AWS.DynamoDB do
   issue another `UpdateTable` request. When the table returns to the `ACTIVE`
   state, the `UpdateTable` operation is complete.
   """
-  def update_table(client, input, options \\ []) do
-    request(client, "UpdateTable", input, options)
+  def update_table(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTable", input, options)
   end
 
   @doc """
@@ -1017,8 +1118,8 @@ defmodule AWS.DynamoDB do
   This operation only applies to [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
   of global tables.
   """
-  def update_table_replica_auto_scaling(client, input, options \\ []) do
-    request(client, "UpdateTableReplicaAutoScaling", input, options)
+  def update_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTableReplicaAutoScaling", input, options)
   end
 
   @doc """
@@ -1052,61 +1153,7 @@ defmodule AWS.DynamoDB do
   For more information, see [Time To Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html)
   in the Amazon DynamoDB Developer Guide.
   """
-  def update_time_to_live(client, input, options \\ []) do
-    request(client, "UpdateTimeToLive", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "dynamodb"}
-    host = build_host("dynamodb", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.0"},
-      {"X-Amz-Target", "DynamoDB_20120810.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_time_to_live(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTimeToLive", input, options)
   end
 end

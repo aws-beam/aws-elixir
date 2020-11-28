@@ -143,14 +143,33 @@ defmodule AWS.CodePipeline do
   success.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "CodePipeline",
+      api_version: "2015-07-09",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "codepipeline",
+      global?: false,
+      protocol: "json",
+      service_id: "CodePipeline",
+      signature_version: "v4",
+      signing_name: "codepipeline",
+      target_prefix: "CodePipeline_20150709"
+    }
+  end
+
   @doc """
   Returns information about a specified job and whether that job has been received
   by the job worker.
 
   Used for custom actions only.
   """
-  def acknowledge_job(client, input, options \\ []) do
-    request(client, "AcknowledgeJob", input, options)
+  def acknowledge_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AcknowledgeJob", input, options)
   end
 
   @doc """
@@ -158,8 +177,8 @@ defmodule AWS.CodePipeline do
 
   Used for partner actions only.
   """
-  def acknowledge_third_party_job(client, input, options \\ []) do
-    request(client, "AcknowledgeThirdPartyJob", input, options)
+  def acknowledge_third_party_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AcknowledgeThirdPartyJob", input, options)
   end
 
   @doc """
@@ -168,8 +187,8 @@ defmodule AWS.CodePipeline do
 
   Only used for custom actions.
   """
-  def create_custom_action_type(client, input, options \\ []) do
-    request(client, "CreateCustomActionType", input, options)
+  def create_custom_action_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCustomActionType", input, options)
   end
 
   @doc """
@@ -179,8 +198,8 @@ defmodule AWS.CodePipeline do
   `artifactStores` in your pipeline, but you cannot use both. If you create a
   cross-region action in your pipeline, you must use `artifactStores`.
   """
-  def create_pipeline(client, input, options \\ []) do
-    request(client, "CreatePipeline", input, options)
+  def create_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePipeline", input, options)
   end
 
   @doc """
@@ -195,15 +214,15 @@ defmodule AWS.CodePipeline do
   a JSON file that is identical to the deleted action, including the original
   string in the version field.
   """
-  def delete_custom_action_type(client, input, options \\ []) do
-    request(client, "DeleteCustomActionType", input, options)
+  def delete_custom_action_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCustomActionType", input, options)
   end
 
   @doc """
   Deletes the specified pipeline.
   """
-  def delete_pipeline(client, input, options \\ []) do
-    request(client, "DeletePipeline", input, options)
+  def delete_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePipeline", input, options)
   end
 
   @doc """
@@ -214,8 +233,8 @@ defmodule AWS.CodePipeline do
   webhook that is already deleted. If a deleted webhook is re-created by calling
   PutWebhook with the same name, it will have a different URL.
   """
-  def delete_webhook(client, input, options \\ []) do
-    request(client, "DeleteWebhook", input, options)
+  def delete_webhook(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWebhook", input, options)
   end
 
   @doc """
@@ -224,23 +243,23 @@ defmodule AWS.CodePipeline do
 
   Currently supported only for webhooks that target an action type of GitHub.
   """
-  def deregister_webhook_with_third_party(client, input, options \\ []) do
-    request(client, "DeregisterWebhookWithThirdParty", input, options)
+  def deregister_webhook_with_third_party(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeregisterWebhookWithThirdParty", input, options)
   end
 
   @doc """
   Prevents artifacts in a pipeline from transitioning to the next stage in the
   pipeline.
   """
-  def disable_stage_transition(client, input, options \\ []) do
-    request(client, "DisableStageTransition", input, options)
+  def disable_stage_transition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableStageTransition", input, options)
   end
 
   @doc """
   Enables artifacts in a pipeline to transition to a stage in a pipeline.
   """
-  def enable_stage_transition(client, input, options \\ []) do
-    request(client, "EnableStageTransition", input, options)
+  def enable_stage_transition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableStageTransition", input, options)
   end
 
   @doc """
@@ -253,8 +272,8 @@ defmodule AWS.CodePipeline do
   access to that S3 bucket for input or output artifacts. This API also returns
   any secret values defined for the action.
   """
-  def get_job_details(client, input, options \\ []) do
-    request(client, "GetJobDetails", input, options)
+  def get_job_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetJobDetails", input, options)
   end
 
   @doc """
@@ -264,8 +283,8 @@ defmodule AWS.CodePipeline do
   can then be modified and used to update the pipeline structure with
   `UpdatePipeline`.
   """
-  def get_pipeline(client, input, options \\ []) do
-    request(client, "GetPipeline", input, options)
+  def get_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPipeline", input, options)
   end
 
   @doc """
@@ -273,8 +292,8 @@ defmodule AWS.CodePipeline do
   artifacts, the pipeline execution ID, and the name, version, and status of the
   pipeline.
   """
-  def get_pipeline_execution(client, input, options \\ []) do
-    request(client, "GetPipelineExecution", input, options)
+  def get_pipeline_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPipelineExecution", input, options)
   end
 
   @doc """
@@ -284,8 +303,8 @@ defmodule AWS.CodePipeline do
   Values returned in the `revisionId` and `revisionUrl` fields indicate the source
   revision information, such as the commit ID, for the current state.
   """
-  def get_pipeline_state(client, input, options \\ []) do
-    request(client, "GetPipelineState", input, options)
+  def get_pipeline_state(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPipelineState", input, options)
   end
 
   @doc """
@@ -298,44 +317,44 @@ defmodule AWS.CodePipeline do
   access to that S3 bucket for input or output artifacts. This API also returns
   any secret values defined for the action.
   """
-  def get_third_party_job_details(client, input, options \\ []) do
-    request(client, "GetThirdPartyJobDetails", input, options)
+  def get_third_party_job_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetThirdPartyJobDetails", input, options)
   end
 
   @doc """
   Lists the action executions that have occurred in a pipeline.
   """
-  def list_action_executions(client, input, options \\ []) do
-    request(client, "ListActionExecutions", input, options)
+  def list_action_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListActionExecutions", input, options)
   end
 
   @doc """
   Gets a summary of all AWS CodePipeline action types associated with your
   account.
   """
-  def list_action_types(client, input, options \\ []) do
-    request(client, "ListActionTypes", input, options)
+  def list_action_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListActionTypes", input, options)
   end
 
   @doc """
   Gets a summary of the most recent executions for a pipeline.
   """
-  def list_pipeline_executions(client, input, options \\ []) do
-    request(client, "ListPipelineExecutions", input, options)
+  def list_pipeline_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPipelineExecutions", input, options)
   end
 
   @doc """
   Gets a summary of all of the pipelines associated with your account.
   """
-  def list_pipelines(client, input, options \\ []) do
-    request(client, "ListPipelines", input, options)
+  def list_pipelines(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPipelines", input, options)
   end
 
   @doc """
   Gets the set of key-value pairs (metadata) that are used to manage the resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -344,8 +363,8 @@ defmodule AWS.CodePipeline do
   The output lists all webhooks and includes the webhook URL and ARN and the
   configuration for each webhook.
   """
-  def list_webhooks(client, input, options \\ []) do
-    request(client, "ListWebhooks", input, options)
+  def list_webhooks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListWebhooks", input, options)
   end
 
   @doc """
@@ -360,8 +379,8 @@ defmodule AWS.CodePipeline do
   access to that S3 bucket for input or output artifacts. This API also returns
   any secret values defined for the action.
   """
-  def poll_for_jobs(client, input, options \\ []) do
-    request(client, "PollForJobs", input, options)
+  def poll_for_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PollForJobs", input, options)
   end
 
   @doc """
@@ -373,15 +392,15 @@ defmodule AWS.CodePipeline do
   S3 bucket used to store artifacts for the pipeline, if the action requires
   access to that S3 bucket for input or output artifacts.
   """
-  def poll_for_third_party_jobs(client, input, options \\ []) do
-    request(client, "PollForThirdPartyJobs", input, options)
+  def poll_for_third_party_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PollForThirdPartyJobs", input, options)
   end
 
   @doc """
   Provides information to AWS CodePipeline about new revisions to a source.
   """
-  def put_action_revision(client, input, options \\ []) do
-    request(client, "PutActionRevision", input, options)
+  def put_action_revision(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutActionRevision", input, options)
   end
 
   @doc """
@@ -389,8 +408,8 @@ defmodule AWS.CodePipeline do
 
   Valid responses include Approved and Rejected.
   """
-  def put_approval_result(client, input, options \\ []) do
-    request(client, "PutApprovalResult", input, options)
+  def put_approval_result(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutApprovalResult", input, options)
   end
 
   @doc """
@@ -398,8 +417,8 @@ defmodule AWS.CodePipeline do
 
   Used for custom actions only.
   """
-  def put_job_failure_result(client, input, options \\ []) do
-    request(client, "PutJobFailureResult", input, options)
+  def put_job_failure_result(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutJobFailureResult", input, options)
   end
 
   @doc """
@@ -407,8 +426,8 @@ defmodule AWS.CodePipeline do
 
   Used for custom actions only.
   """
-  def put_job_success_result(client, input, options \\ []) do
-    request(client, "PutJobSuccessResult", input, options)
+  def put_job_success_result(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutJobSuccessResult", input, options)
   end
 
   @doc """
@@ -417,8 +436,8 @@ defmodule AWS.CodePipeline do
 
   Used for partner actions only.
   """
-  def put_third_party_job_failure_result(client, input, options \\ []) do
-    request(client, "PutThirdPartyJobFailureResult", input, options)
+  def put_third_party_job_failure_result(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutThirdPartyJobFailureResult", input, options)
   end
 
   @doc """
@@ -427,8 +446,8 @@ defmodule AWS.CodePipeline do
 
   Used for partner actions only.
   """
-  def put_third_party_job_success_result(client, input, options \\ []) do
-    request(client, "PutThirdPartyJobSuccessResult", input, options)
+  def put_third_party_job_success_result(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutThirdPartyJobSuccessResult", input, options)
   end
 
   @doc """
@@ -442,16 +461,16 @@ defmodule AWS.CodePipeline do
   APIs can be used to automatically configure supported third parties to call the
   generated webhook URL.
   """
-  def put_webhook(client, input, options \\ []) do
-    request(client, "PutWebhook", input, options)
+  def put_webhook(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutWebhook", input, options)
   end
 
   @doc """
   Configures a connection between the webhook that was created and the external
   tool with events to be detected.
   """
-  def register_webhook_with_third_party(client, input, options \\ []) do
-    request(client, "RegisterWebhookWithThirdParty", input, options)
+  def register_webhook_with_third_party(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterWebhookWithThirdParty", input, options)
   end
 
   @doc """
@@ -461,8 +480,8 @@ defmodule AWS.CodePipeline do
   you retry, all actions that are still in progress continue working, and failed
   actions are triggered again.
   """
-  def retry_stage_execution(client, input, options \\ []) do
-    request(client, "RetryStageExecution", input, options)
+  def retry_stage_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RetryStageExecution", input, options)
   end
 
   @doc """
@@ -471,8 +490,8 @@ defmodule AWS.CodePipeline do
   Specifically, it begins processing the latest commit to the source location
   specified as part of the pipeline.
   """
-  def start_pipeline_execution(client, input, options \\ []) do
-    request(client, "StartPipelineExecution", input, options)
+  def start_pipeline_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartPipelineExecution", input, options)
   end
 
   @doc """
@@ -484,8 +503,8 @@ defmodule AWS.CodePipeline do
   execution is in a `Stopping` state. After all in-progress actions are completed
   or abandoned, the pipeline execution is in a `Stopped` state.
   """
-  def stop_pipeline_execution(client, input, options \\ []) do
-    request(client, "StopPipelineExecution", input, options)
+  def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopPipelineExecution", input, options)
   end
 
   @doc """
@@ -493,15 +512,15 @@ defmodule AWS.CodePipeline do
 
   Tags are metadata that can be used to manage a resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes tags from an AWS resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -511,61 +530,7 @@ defmodule AWS.CodePipeline do
   full structure of the pipeline. Updating the pipeline increases the version
   number of the pipeline by 1.
   """
-  def update_pipeline(client, input, options \\ []) do
-    request(client, "UpdatePipeline", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "codepipeline"}
-    host = build_host("codepipeline", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "CodePipeline_20150709.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePipeline", input, options)
   end
 end

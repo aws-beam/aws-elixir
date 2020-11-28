@@ -13,13 +13,32 @@ defmodule AWS.DAX do
   performance.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Amazon DAX",
+      api_version: "2017-04-19",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "dax",
+      global?: false,
+      protocol: "json",
+      service_id: "DAX",
+      signature_version: "v4",
+      signing_name: "dax",
+      target_prefix: "AmazonDAXV3"
+    }
+  end
+
   @doc """
   Creates a DAX cluster.
 
   All nodes in the cluster run the same DAX caching software.
   """
-  def create_cluster(client, input, options \\ []) do
-    request(client, "CreateCluster", input, options)
+  def create_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCluster", input, options)
   end
 
   @doc """
@@ -28,15 +47,15 @@ defmodule AWS.DAX do
   A parameter group is a collection of parameters that you apply to all of the
   nodes in a DAX cluster.
   """
-  def create_parameter_group(client, input, options \\ []) do
-    request(client, "CreateParameterGroup", input, options)
+  def create_parameter_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateParameterGroup", input, options)
   end
 
   @doc """
   Creates a new subnet group.
   """
-  def create_subnet_group(client, input, options \\ []) do
-    request(client, "CreateSubnetGroup", input, options)
+  def create_subnet_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSubnetGroup", input, options)
   end
 
   @doc """
@@ -45,8 +64,8 @@ defmodule AWS.DAX do
   You cannot use `DecreaseReplicationFactor` to remove the last node in a DAX
   cluster. If you need to do this, use `DeleteCluster` instead.
   """
-  def decrease_replication_factor(client, input, options \\ []) do
-    request(client, "DecreaseReplicationFactor", input, options)
+  def decrease_replication_factor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DecreaseReplicationFactor", input, options)
   end
 
   @doc """
@@ -56,8 +75,8 @@ defmodule AWS.DAX do
   itself. When you receive a successful response from this action, DAX immediately
   begins deleting the cluster; you cannot cancel or revert this action.
   """
-  def delete_cluster(client, input, options \\ []) do
-    request(client, "DeleteCluster", input, options)
+  def delete_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCluster", input, options)
   end
 
   @doc """
@@ -65,8 +84,8 @@ defmodule AWS.DAX do
 
   You cannot delete a parameter group if it is associated with any DAX clusters.
   """
-  def delete_parameter_group(client, input, options \\ []) do
-    request(client, "DeleteParameterGroup", input, options)
+  def delete_parameter_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteParameterGroup", input, options)
   end
 
   @doc """
@@ -74,8 +93,8 @@ defmodule AWS.DAX do
 
   You cannot delete a subnet group if it is associated with any DAX clusters.
   """
-  def delete_subnet_group(client, input, options \\ []) do
-    request(client, "DeleteSubnetGroup", input, options)
+  def delete_subnet_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSubnetGroup", input, options)
   end
 
   @doc """
@@ -97,15 +116,15 @@ defmodule AWS.DAX do
   If nodes are currently being removed from the DAX cluster, no endpoint
   information for the removed nodes is displayed.
   """
-  def describe_clusters(client, input, options \\ []) do
-    request(client, "DescribeClusters", input, options)
+  def describe_clusters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeClusters", input, options)
   end
 
   @doc """
   Returns the default system parameter information for the DAX caching software.
   """
-  def describe_default_parameters(client, input, options \\ []) do
-    request(client, "DescribeDefaultParameters", input, options)
+  def describe_default_parameters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDefaultParameters", input, options)
   end
 
   @doc """
@@ -117,8 +136,8 @@ defmodule AWS.DAX do
   By default, only the events occurring within the last 24 hours are returned;
   however, you can retrieve up to 14 days' worth of events if necessary.
   """
-  def describe_events(client, input, options \\ []) do
-    request(client, "DescribeEvents", input, options)
+  def describe_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEvents", input, options)
   end
 
   @doc """
@@ -127,15 +146,15 @@ defmodule AWS.DAX do
   If a parameter group name is specified, the list will contain only the
   descriptions for that group.
   """
-  def describe_parameter_groups(client, input, options \\ []) do
-    request(client, "DescribeParameterGroups", input, options)
+  def describe_parameter_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeParameterGroups", input, options)
   end
 
   @doc """
   Returns the detailed parameter list for a particular parameter group.
   """
-  def describe_parameters(client, input, options \\ []) do
-    request(client, "DescribeParameters", input, options)
+  def describe_parameters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeParameters", input, options)
   end
 
   @doc """
@@ -144,15 +163,15 @@ defmodule AWS.DAX do
   If a subnet group name is specified, the list will contain only the description
   of that group.
   """
-  def describe_subnet_groups(client, input, options \\ []) do
-    request(client, "DescribeSubnetGroups", input, options)
+  def describe_subnet_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSubnetGroups", input, options)
   end
 
   @doc """
   Adds one or more nodes to a DAX cluster.
   """
-  def increase_replication_factor(client, input, options \\ []) do
-    request(client, "IncreaseReplicationFactor", input, options)
+  def increase_replication_factor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "IncreaseReplicationFactor", input, options)
   end
 
   @doc """
@@ -160,8 +179,8 @@ defmodule AWS.DAX do
 
   You can call `ListTags` up to 10 times per second, per account.
   """
-  def list_tags(client, input, options \\ []) do
-    request(client, "ListTags", input, options)
+  def list_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTags", input, options)
   end
 
   @doc """
@@ -173,8 +192,8 @@ defmodule AWS.DAX do
   `RebootNode` restarts the DAX engine process and does not remove the contents of
   the cache.
   """
-  def reboot_node(client, input, options \\ []) do
-    request(client, "RebootNode", input, options)
+  def reboot_node(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RebootNode", input, options)
   end
 
   @doc """
@@ -182,8 +201,8 @@ defmodule AWS.DAX do
 
   You can call `TagResource` up to 5 times per second, per account.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -191,8 +210,8 @@ defmodule AWS.DAX do
 
   You can call `UntagResource` up to 5 times per second, per account.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -201,8 +220,8 @@ defmodule AWS.DAX do
   You can use this action to change one or more cluster configuration parameters
   by specifying the parameters and the new values.
   """
-  def update_cluster(client, input, options \\ []) do
-    request(client, "UpdateCluster", input, options)
+  def update_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCluster", input, options)
   end
 
   @doc """
@@ -211,68 +230,14 @@ defmodule AWS.DAX do
   You can modify up to 20 parameters in a single request by submitting a list
   parameter name and value pairs.
   """
-  def update_parameter_group(client, input, options \\ []) do
-    request(client, "UpdateParameterGroup", input, options)
+  def update_parameter_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateParameterGroup", input, options)
   end
 
   @doc """
   Modifies an existing subnet group.
   """
-  def update_subnet_group(client, input, options \\ []) do
-    request(client, "UpdateSubnetGroup", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "dax"}
-    host = build_host("dax", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AmazonDAXV3.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_subnet_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSubnetGroup", input, options)
   end
 end

@@ -15,12 +15,37 @@ defmodule AWS.DirectConnect do
   through locations associated with those Regions.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2012-10-25",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "directconnect",
+      global?: false,
+      protocol: "json",
+      service_id: "Direct Connect",
+      signature_version: "v4",
+      signing_name: "directconnect",
+      target_prefix: "OvertureService"
+    }
+  end
+
   @doc """
   Accepts a proposal request to attach a virtual private gateway or transit
   gateway to a Direct Connect gateway.
   """
-  def accept_direct_connect_gateway_association_proposal(client, input, options \\ []) do
-    request(client, "AcceptDirectConnectGatewayAssociationProposal", input, options)
+  def accept_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AcceptDirectConnectGatewayAssociationProposal",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -35,8 +60,8 @@ defmodule AWS.DirectConnect do
 
   Intended for use by AWS Direct Connect Partners only.
   """
-  def allocate_connection_on_interconnect(client, input, options \\ []) do
-    request(client, "AllocateConnectionOnInterconnect", input, options)
+  def allocate_connection_on_interconnect(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AllocateConnectionOnInterconnect", input, options)
   end
 
   @doc """
@@ -51,8 +76,8 @@ defmodule AWS.DirectConnect do
 
   Intended for use by AWS Direct Connect Partners only.
   """
-  def allocate_hosted_connection(client, input, options \\ []) do
-    request(client, "AllocateHostedConnection", input, options)
+  def allocate_hosted_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AllocateHostedConnection", input, options)
   end
 
   @doc """
@@ -62,8 +87,8 @@ defmodule AWS.DirectConnect do
   using `ConfirmPrivateVirtualInterface`. Until then, the virtual interface is in
   the `Confirming` state and is not available to handle traffic.
   """
-  def allocate_private_virtual_interface(client, input, options \\ []) do
-    request(client, "AllocatePrivateVirtualInterface", input, options)
+  def allocate_private_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AllocatePrivateVirtualInterface", input, options)
   end
 
   @doc """
@@ -81,8 +106,8 @@ defmodule AWS.DirectConnect do
   customer address. IPv6 addresses are automatically assigned from the Amazon pool
   of IPv6 addresses; you cannot specify custom IPv6 addresses.
   """
-  def allocate_public_virtual_interface(client, input, options \\ []) do
-    request(client, "AllocatePublicVirtualInterface", input, options)
+  def allocate_public_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AllocatePublicVirtualInterface", input, options)
   end
 
   @doc """
@@ -99,8 +124,8 @@ defmodule AWS.DirectConnect do
   transit virtual interface is in the `requested` state and is not available to
   handle traffic.
   """
-  def allocate_transit_virtual_interface(client, input, options \\ []) do
-    request(client, "AllocateTransitVirtualInterface", input, options)
+  def allocate_transit_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AllocateTransitVirtualInterface", input, options)
   end
 
   @doc """
@@ -123,8 +148,8 @@ defmodule AWS.DirectConnect do
   the LAG. If the interconnect was originally associated with a different LAG, the
   hosted connections remain associated with the original LAG.
   """
-  def associate_connection_with_lag(client, input, options \\ []) do
-    request(client, "AssociateConnectionWithLag", input, options)
+  def associate_connection_with_lag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateConnectionWithLag", input, options)
   end
 
   @doc """
@@ -138,8 +163,8 @@ defmodule AWS.DirectConnect do
 
   Intended for use by AWS Direct Connect Partners only.
   """
-  def associate_hosted_connection(client, input, options \\ []) do
-    request(client, "AssociateHostedConnection", input, options)
+  def associate_hosted_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateHostedConnection", input, options)
   end
 
   @doc """
@@ -159,8 +184,8 @@ defmodule AWS.DirectConnect do
   virtual interface is currently associated. Additionally, the requester must own
   the connection or LAG for the association.
   """
-  def associate_virtual_interface(client, input, options \\ []) do
-    request(client, "AssociateVirtualInterface", input, options)
+  def associate_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateVirtualInterface", input, options)
   end
 
   @doc """
@@ -170,8 +195,8 @@ defmodule AWS.DirectConnect do
   remains in this state until the owner confirms creation of the hosted
   connection.
   """
-  def confirm_connection(client, input, options \\ []) do
-    request(client, "ConfirmConnection", input, options)
+  def confirm_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmConnection", input, options)
   end
 
   @doc """
@@ -181,8 +206,8 @@ defmodule AWS.DirectConnect do
   created and attached to the specified virtual private gateway or Direct Connect
   gateway, and is made available to handle traffic.
   """
-  def confirm_private_virtual_interface(client, input, options \\ []) do
-    request(client, "ConfirmPrivateVirtualInterface", input, options)
+  def confirm_private_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmPrivateVirtualInterface", input, options)
   end
 
   @doc """
@@ -191,8 +216,8 @@ defmodule AWS.DirectConnect do
   After the virtual interface owner makes this call, the specified virtual
   interface is created and made available to handle traffic.
   """
-  def confirm_public_virtual_interface(client, input, options \\ []) do
-    request(client, "ConfirmPublicVirtualInterface", input, options)
+  def confirm_public_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmPublicVirtualInterface", input, options)
   end
 
   @doc """
@@ -201,8 +226,8 @@ defmodule AWS.DirectConnect do
   After the owner of the transit virtual interface makes this call, the specified
   transit virtual interface is created and made available to handle traffic.
   """
-  def confirm_transit_virtual_interface(client, input, options \\ []) do
-    request(client, "ConfirmTransitVirtualInterface", input, options)
+  def confirm_transit_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConfirmTransitVirtualInterface", input, options)
   end
 
   @doc """
@@ -222,8 +247,8 @@ defmodule AWS.DirectConnect do
   For a public virtual interface, the Autonomous System Number (ASN) must be
   private or already whitelisted for the virtual interface.
   """
-  def create_bgp_peer(client, input, options \\ []) do
-    request(client, "CreateBGPPeer", input, options)
+  def create_bgp_peer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBGPPeer", input, options)
   end
 
   @doc """
@@ -242,8 +267,8 @@ defmodule AWS.DirectConnect do
   If there are no available ports on the endpoint, the request fails and no
   connection is created.
   """
-  def create_connection(client, input, options \\ []) do
-    request(client, "CreateConnection", input, options)
+  def create_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateConnection", input, options)
   end
 
   @doc """
@@ -256,8 +281,8 @@ defmodule AWS.DirectConnect do
   you to connect to a VPC in any Region, regardless of the Region in which the
   virtual interfaces are located, and pass traffic between them.
   """
-  def create_direct_connect_gateway(client, input, options \\ []) do
-    request(client, "CreateDirectConnectGateway", input, options)
+  def create_direct_connect_gateway(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDirectConnectGateway", input, options)
   end
 
   @doc """
@@ -267,8 +292,14 @@ defmodule AWS.DirectConnect do
   The virtual private gateway must be attached to a VPC and must not be associated
   with another Direct Connect gateway.
   """
-  def create_direct_connect_gateway_association(client, input, options \\ []) do
-    request(client, "CreateDirectConnectGatewayAssociation", input, options)
+  def create_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateDirectConnectGatewayAssociation",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -278,8 +309,14 @@ defmodule AWS.DirectConnect do
   You can associate a Direct Connect gateway and virtual private gateway or
   transit gateway that is owned by any AWS account.
   """
-  def create_direct_connect_gateway_association_proposal(client, input, options \\ []) do
-    request(client, "CreateDirectConnectGatewayAssociationProposal", input, options)
+  def create_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateDirectConnectGatewayAssociationProposal",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -306,8 +343,8 @@ defmodule AWS.DirectConnect do
 
   Intended for use by AWS Direct Connect Partners only.
   """
-  def create_interconnect(client, input, options \\ []) do
-    request(client, "CreateInterconnect", input, options)
+  def create_interconnect(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateInterconnect", input, options)
   end
 
   @doc """
@@ -339,8 +376,8 @@ defmodule AWS.DirectConnect do
   owned by a partner, any associated virtual interfaces cannot be directly
   configured.
   """
-  def create_lag(client, input, options \\ []) do
-    request(client, "CreateLag", input, options)
+  def create_lag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLag", input, options)
   end
 
   @doc """
@@ -361,8 +398,8 @@ defmodule AWS.DirectConnect do
   check whether your virtual interface supports jumbo frames, call
   `DescribeVirtualInterfaces`.
   """
-  def create_private_virtual_interface(client, input, options \\ []) do
-    request(client, "CreatePrivateVirtualInterface", input, options)
+  def create_private_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePrivateVirtualInterface", input, options)
   end
 
   @doc """
@@ -376,8 +413,8 @@ defmodule AWS.DirectConnect do
   leave the `customer` and `amazon` address fields blank to use auto-assigned IPv6
   space. Custom IPv6 addresses are not supported.
   """
-  def create_public_virtual_interface(client, input, options \\ []) do
-    request(client, "CreatePublicVirtualInterface", input, options)
+  def create_public_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePublicVirtualInterface", input, options)
   end
 
   @doc """
@@ -402,8 +439,8 @@ defmodule AWS.DirectConnect do
   check whether your virtual interface supports jumbo frames, call
   `DescribeVirtualInterfaces`.
   """
-  def create_transit_virtual_interface(client, input, options \\ []) do
-    request(client, "CreateTransitVirtualInterface", input, options)
+  def create_transit_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTransitVirtualInterface", input, options)
   end
 
   @doc """
@@ -412,8 +449,8 @@ defmodule AWS.DirectConnect do
 
   You cannot delete the last BGP peer from a virtual interface.
   """
-  def delete_bgp_peer(client, input, options \\ []) do
-    request(client, "DeleteBGPPeer", input, options)
+  def delete_bgp_peer(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBGPPeer", input, options)
   end
 
   @doc """
@@ -424,8 +461,8 @@ defmodule AWS.DirectConnect do
   the AWS Direct Connect location, you must cancel your service with them
   separately.
   """
-  def delete_connection(client, input, options \\ []) do
-    request(client, "DeleteConnection", input, options)
+  def delete_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteConnection", input, options)
   end
 
   @doc """
@@ -435,8 +472,8 @@ defmodule AWS.DirectConnect do
   Connect gateway and disassociate all virtual private gateways associated with
   the Direct Connect gateway.
   """
-  def delete_direct_connect_gateway(client, input, options \\ []) do
-    request(client, "DeleteDirectConnectGateway", input, options)
+  def delete_direct_connect_gateway(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDirectConnectGateway", input, options)
   end
 
   @doc """
@@ -448,16 +485,28 @@ defmodule AWS.DirectConnect do
   association, you can specify the `virtualGatewayId` and `directConnectGatewayId`
   to delete an association.
   """
-  def delete_direct_connect_gateway_association(client, input, options \\ []) do
-    request(client, "DeleteDirectConnectGatewayAssociation", input, options)
+  def delete_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteDirectConnectGatewayAssociation",
+      input,
+      options
+    )
   end
 
   @doc """
   Deletes the association proposal request between the specified Direct Connect
   gateway and virtual private gateway or transit gateway.
   """
-  def delete_direct_connect_gateway_association_proposal(client, input, options \\ []) do
-    request(client, "DeleteDirectConnectGatewayAssociationProposal", input, options)
+  def delete_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteDirectConnectGatewayAssociationProposal",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -465,8 +514,8 @@ defmodule AWS.DirectConnect do
 
   Intended for use by AWS Direct Connect Partners only.
   """
-  def delete_interconnect(client, input, options \\ []) do
-    request(client, "DeleteInterconnect", input, options)
+  def delete_interconnect(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteInterconnect", input, options)
   end
 
   @doc """
@@ -475,15 +524,15 @@ defmodule AWS.DirectConnect do
   You cannot delete a LAG if it has active virtual interfaces or hosted
   connections.
   """
-  def delete_lag(client, input, options \\ []) do
-    request(client, "DeleteLag", input, options)
+  def delete_lag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLag", input, options)
   end
 
   @doc """
   Deletes a virtual interface.
   """
-  def delete_virtual_interface(client, input, options \\ []) do
-    request(client, "DeleteVirtualInterface", input, options)
+  def delete_virtual_interface(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteVirtualInterface", input, options)
   end
 
   @doc """
@@ -499,15 +548,15 @@ defmodule AWS.DirectConnect do
   [Requesting Cross Connects at AWS Direct Connect Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *AWS Direct Connect User Guide*.
   """
-  def describe_connection_loa(client, input, options \\ []) do
-    request(client, "DescribeConnectionLoa", input, options)
+  def describe_connection_loa(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeConnectionLoa", input, options)
   end
 
   @doc """
   Displays the specified connection or all connections in this Region.
   """
-  def describe_connections(client, input, options \\ []) do
-    request(client, "DescribeConnections", input, options)
+  def describe_connections(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeConnections", input, options)
   end
 
   @doc """
@@ -519,16 +568,26 @@ defmodule AWS.DirectConnect do
 
   Intended for use by AWS Direct Connect Partners only.
   """
-  def describe_connections_on_interconnect(client, input, options \\ []) do
-    request(client, "DescribeConnectionsOnInterconnect", input, options)
+  def describe_connections_on_interconnect(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeConnectionsOnInterconnect", input, options)
   end
 
   @doc """
   Describes one or more association proposals for connection between a virtual
   private gateway or transit gateway and a Direct Connect gateway.
   """
-  def describe_direct_connect_gateway_association_proposals(client, input, options \\ []) do
-    request(client, "DescribeDirectConnectGatewayAssociationProposals", input, options)
+  def describe_direct_connect_gateway_association_proposals(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeDirectConnectGatewayAssociationProposals",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -543,8 +602,14 @@ defmodule AWS.DirectConnect do
   contains the association between the Direct Connect gateway and the virtual
   private gateway.
   """
-  def describe_direct_connect_gateway_associations(client, input, options \\ []) do
-    request(client, "DescribeDirectConnectGatewayAssociations", input, options)
+  def describe_direct_connect_gateway_associations(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeDirectConnectGatewayAssociations",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -558,8 +623,14 @@ defmodule AWS.DirectConnect do
   If you specify both, the response contains the attachment between the Direct
   Connect gateway and the virtual interface.
   """
-  def describe_direct_connect_gateway_attachments(client, input, options \\ []) do
-    request(client, "DescribeDirectConnectGatewayAttachments", input, options)
+  def describe_direct_connect_gateway_attachments(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeDirectConnectGatewayAttachments",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -568,8 +639,8 @@ defmodule AWS.DirectConnect do
 
   Deleted Direct Connect gateways are not returned.
   """
-  def describe_direct_connect_gateways(client, input, options \\ []) do
-    request(client, "DescribeDirectConnectGateways", input, options)
+  def describe_direct_connect_gateways(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDirectConnectGateways", input, options)
   end
 
   @doc """
@@ -578,8 +649,8 @@ defmodule AWS.DirectConnect do
 
   Intended for use by AWS Direct Connect Partners only.
   """
-  def describe_hosted_connections(client, input, options \\ []) do
-    request(client, "DescribeHostedConnections", input, options)
+  def describe_hosted_connections(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeHostedConnections", input, options)
   end
 
   @doc """
@@ -595,23 +666,23 @@ defmodule AWS.DirectConnect do
   Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *AWS Direct Connect User Guide*.
   """
-  def describe_interconnect_loa(client, input, options \\ []) do
-    request(client, "DescribeInterconnectLoa", input, options)
+  def describe_interconnect_loa(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeInterconnectLoa", input, options)
   end
 
   @doc """
   Lists the interconnects owned by the AWS account or only the specified
   interconnect.
   """
-  def describe_interconnects(client, input, options \\ []) do
-    request(client, "DescribeInterconnects", input, options)
+  def describe_interconnects(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeInterconnects", input, options)
   end
 
   @doc """
   Describes all your link aggregation groups (LAG) or the specified LAG.
   """
-  def describe_lags(client, input, options \\ []) do
-    request(client, "DescribeLags", input, options)
+  def describe_lags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLags", input, options)
   end
 
   @doc """
@@ -624,8 +695,8 @@ defmodule AWS.DirectConnect do
   Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *AWS Direct Connect User Guide*.
   """
-  def describe_loa(client, input, options \\ []) do
-    request(client, "DescribeLoa", input, options)
+  def describe_loa(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLoa", input, options)
   end
 
   @doc """
@@ -634,15 +705,15 @@ defmodule AWS.DirectConnect do
   These are the locations that can be selected when calling `CreateConnection` or
   `CreateInterconnect`.
   """
-  def describe_locations(client, input, options \\ []) do
-    request(client, "DescribeLocations", input, options)
+  def describe_locations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocations", input, options)
   end
 
   @doc """
   Describes the tags associated with the specified AWS Direct Connect resources.
   """
-  def describe_tags(client, input, options \\ []) do
-    request(client, "DescribeTags", input, options)
+  def describe_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTags", input, options)
   end
 
   @doc """
@@ -651,8 +722,8 @@ defmodule AWS.DirectConnect do
   You can create one or more AWS Direct Connect private virtual interfaces linked
   to a virtual private gateway.
   """
-  def describe_virtual_gateways(client, input, options \\ []) do
-    request(client, "DescribeVirtualGateways", input, options)
+  def describe_virtual_gateways(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeVirtualGateways", input, options)
   end
 
   @doc """
@@ -666,8 +737,8 @@ defmodule AWS.DirectConnect do
   A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect
   location and the customer network.
   """
-  def describe_virtual_interfaces(client, input, options \\ []) do
-    request(client, "DescribeVirtualInterfaces", input, options)
+  def describe_virtual_interfaces(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeVirtualInterfaces", input, options)
   end
 
   @doc """
@@ -684,15 +755,15 @@ defmodule AWS.DirectConnect do
   it's the last member of the LAG. If all connections are disassociated, the LAG
   continues to exist as an empty LAG with no physical connections.
   """
-  def disassociate_connection_from_lag(client, input, options \\ []) do
-    request(client, "DisassociateConnectionFromLag", input, options)
+  def disassociate_connection_from_lag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateConnectionFromLag", input, options)
   end
 
   @doc """
   Lists the virtual interface failover test history.
   """
-  def list_virtual_interface_test_history(client, input, options \\ []) do
-    request(client, "ListVirtualInterfaceTestHistory", input, options)
+  def list_virtual_interface_test_history(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListVirtualInterfaceTestHistory", input, options)
   end
 
   @doc """
@@ -710,15 +781,15 @@ defmodule AWS.DirectConnect do
   If you need to stop the test before the test interval completes, use
   [StopBgpFailoverTest](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StopBgpFailoverTest.html).
   """
-  def start_bgp_failover_test(client, input, options \\ []) do
-    request(client, "StartBgpFailoverTest", input, options)
+  def start_bgp_failover_test(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartBgpFailoverTest", input, options)
   end
 
   @doc """
   Stops the virtual interface failover test.
   """
-  def stop_bgp_failover_test(client, input, options \\ []) do
-    request(client, "StopBgpFailoverTest", input, options)
+  def stop_bgp_failover_test(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopBgpFailoverTest", input, options)
   end
 
   @doc """
@@ -729,15 +800,15 @@ defmodule AWS.DirectConnect do
   Each tag consists of a key and an optional value. If a tag with the same key is
   already associated with the resource, this action updates its value.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes one or more tags from the specified AWS Direct Connect resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -745,8 +816,14 @@ defmodule AWS.DirectConnect do
 
   Add or remove prefixes from the association.
   """
-  def update_direct_connect_gateway_association(client, input, options \\ []) do
-    request(client, "UpdateDirectConnectGatewayAssociation", input, options)
+  def update_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateDirectConnectGatewayAssociation",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -766,8 +843,8 @@ defmodule AWS.DirectConnect do
   care, as it could force the LAG down if it is set higher than the current number
   of operational connections.
   """
-  def update_lag(client, input, options \\ []) do
-    request(client, "UpdateLag", input, options)
+  def update_lag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLag", input, options)
   end
 
   @doc """
@@ -781,61 +858,7 @@ defmodule AWS.DirectConnect do
   check whether your virtual q interface supports jumbo frames, call
   `DescribeVirtualInterfaces`.
   """
-  def update_virtual_interface_attributes(client, input, options \\ []) do
-    request(client, "UpdateVirtualInterfaceAttributes", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "directconnect"}
-    host = build_host("directconnect", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "OvertureService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_virtual_interface_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateVirtualInterfaceAttributes", input, options)
   end
 end

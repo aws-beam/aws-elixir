@@ -9,6 +9,25 @@ defmodule AWS.LicenseManager do
   across multiple AWS accounts and on-premises servers.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-08-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "license-manager",
+      global?: false,
+      protocol: "json",
+      service_id: "License Manager",
+      signature_version: "v4",
+      signing_name: "license-manager",
+      target_prefix: "AWSLicenseManager"
+    }
+  end
+
   @doc """
   Creates a license configuration.
 
@@ -19,8 +38,8 @@ defmodule AWS.LicenseManager do
   all of these), license affinity to host (how long a license must be associated
   with a host), and the number of licenses purchased and used.
   """
-  def create_license_configuration(client, input, options \\ []) do
-    request(client, "CreateLicenseConfiguration", input, options)
+  def create_license_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLicenseConfiguration", input, options)
   end
 
   @doc """
@@ -28,22 +47,22 @@ defmodule AWS.LicenseManager do
 
   You cannot delete a license configuration that is in use.
   """
-  def delete_license_configuration(client, input, options \\ []) do
-    request(client, "DeleteLicenseConfiguration", input, options)
+  def delete_license_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLicenseConfiguration", input, options)
   end
 
   @doc """
   Gets detailed information about the specified license configuration.
   """
-  def get_license_configuration(client, input, options \\ []) do
-    request(client, "GetLicenseConfiguration", input, options)
+  def get_license_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLicenseConfiguration", input, options)
   end
 
   @doc """
   Gets the License Manager settings for the current Region.
   """
-  def get_service_settings(client, input, options \\ []) do
-    request(client, "GetServiceSettings", input, options)
+  def get_service_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetServiceSettings", input, options)
   end
 
   @doc """
@@ -53,43 +72,61 @@ defmodule AWS.LicenseManager do
   For example, an AMI or a stopped instance might not consume a license (depending
   on the license rules).
   """
-  def list_associations_for_license_configuration(client, input, options \\ []) do
-    request(client, "ListAssociationsForLicenseConfiguration", input, options)
+  def list_associations_for_license_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListAssociationsForLicenseConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """
   Lists the license configuration operations that failed.
   """
-  def list_failures_for_license_configuration_operations(client, input, options \\ []) do
-    request(client, "ListFailuresForLicenseConfigurationOperations", input, options)
+  def list_failures_for_license_configuration_operations(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListFailuresForLicenseConfigurationOperations",
+      input,
+      options
+    )
   end
 
   @doc """
   Lists the license configurations for your account.
   """
-  def list_license_configurations(client, input, options \\ []) do
-    request(client, "ListLicenseConfigurations", input, options)
+  def list_license_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLicenseConfigurations", input, options)
   end
 
   @doc """
   Describes the license configurations for the specified resource.
   """
-  def list_license_specifications_for_resource(client, input, options \\ []) do
-    request(client, "ListLicenseSpecificationsForResource", input, options)
+  def list_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListLicenseSpecificationsForResource",
+      input,
+      options
+    )
   end
 
   @doc """
   Lists resources managed using Systems Manager inventory.
   """
-  def list_resource_inventory(client, input, options \\ []) do
-    request(client, "ListResourceInventory", input, options)
+  def list_resource_inventory(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListResourceInventory", input, options)
   end
 
   @doc """
   Lists the tags for the specified license configuration.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -99,29 +136,29 @@ defmodule AWS.LicenseManager do
   Use this action to audit the current license consumption for any license
   inventory and configuration.
   """
-  def list_usage_for_license_configuration(client, input, options \\ []) do
-    request(client, "ListUsageForLicenseConfiguration", input, options)
+  def list_usage_for_license_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUsageForLicenseConfiguration", input, options)
   end
 
   @doc """
   Adds the specified tags to the specified license configuration.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes the specified tags from the specified license configuration.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
   Modifies the attributes of an existing license configuration.
   """
-  def update_license_configuration(client, input, options \\ []) do
-    request(client, "UpdateLicenseConfiguration", input, options)
+  def update_license_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLicenseConfiguration", input, options)
   end
 
   @doc """
@@ -133,68 +170,20 @@ defmodule AWS.LicenseManager do
   CloudFormation templates, as they send license configurations to the operation
   that creates the resource.
   """
-  def update_license_specifications_for_resource(client, input, options \\ []) do
-    request(client, "UpdateLicenseSpecificationsForResource", input, options)
+  def update_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateLicenseSpecificationsForResource",
+      input,
+      options
+    )
   end
 
   @doc """
   Updates License Manager settings for the current Region.
   """
-  def update_service_settings(client, input, options \\ []) do
-    request(client, "UpdateServiceSettings", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "license-manager"}
-    host = build_host("license-manager", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSLicenseManager.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_service_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateServiceSettings", input, options)
   end
 end

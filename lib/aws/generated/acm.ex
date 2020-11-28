@@ -12,6 +12,25 @@ defmodule AWS.ACM do
   ](https://docs.aws.amazon.com/acm/latest/userguide/).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "ACM",
+      api_version: "2015-12-08",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "acm",
+      global?: false,
+      protocol: "json",
+      service_id: "ACM",
+      signature_version: "v4",
+      signing_name: "acm",
+      target_prefix: "CertificateManager"
+    }
+  end
+
   @doc """
   Adds one or more tags to an ACM certificate.
 
@@ -33,8 +52,8 @@ defmodule AWS.ACM do
   all of the tags that have been applied to the certificate, use the
   `ListTagsForCertificate` action.
   """
-  def add_tags_to_certificate(client, input, options \\ []) do
-    request(client, "AddTagsToCertificate", input, options)
+  def add_tags_to_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddTagsToCertificate", input, options)
   end
 
   @doc """
@@ -49,15 +68,15 @@ defmodule AWS.ACM do
   To delete a certificate that is in use, the certificate association must first
   be removed.
   """
-  def delete_certificate(client, input, options \\ []) do
-    request(client, "DeleteCertificate", input, options)
+  def delete_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCertificate", input, options)
   end
 
   @doc """
   Returns detailed metadata about the specified ACM certificate.
   """
-  def describe_certificate(client, input, options \\ []) do
-    request(client, "DescribeCertificate", input, options)
+  def describe_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCertificate", input, options)
   end
 
   @doc """
@@ -72,8 +91,8 @@ defmodule AWS.ACM do
   For information about exporting and formatting a certificate using the ACM
   console or CLI, see [Export a Private Certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html).
   """
-  def export_certificate(client, input, options \\ []) do
-    request(client, "ExportCertificate", input, options)
+  def export_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExportCertificate", input, options)
   end
 
   @doc """
@@ -85,8 +104,8 @@ defmodule AWS.ACM do
   [OpenSSL](https://wiki.openssl.org/index.php/Command_Line_Utilities) to decode
   the certificates and inspect individual fields.
   """
-  def get_certificate(client, input, options \\ []) do
-    request(client, "GetCertificate", input, options)
+  def get_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCertificate", input, options)
   end
 
   @doc """
@@ -150,8 +169,8 @@ defmodule AWS.ACM do
   This operation returns the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
   of the imported certificate.
   """
-  def import_certificate(client, input, options \\ []) do
-    request(client, "ImportCertificate", input, options)
+  def import_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportCertificate", input, options)
   end
 
   @doc """
@@ -161,8 +180,8 @@ defmodule AWS.ACM do
   You can also filter by specific attributes of the certificate. Default filtering
   returns only `RSA_2048` certificates. For more information, see `Filters`.
   """
-  def list_certificates(client, input, options \\ []) do
-    request(client, "ListCertificates", input, options)
+  def list_certificates(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCertificates", input, options)
   end
 
   @doc """
@@ -172,8 +191,8 @@ defmodule AWS.ACM do
   add a tag to an ACM certificate, use the `AddTagsToCertificate` action. To
   delete a tag, use the `RemoveTagsFromCertificate` action.
   """
-  def list_tags_for_certificate(client, input, options \\ []) do
-    request(client, "ListTagsForCertificate", input, options)
+  def list_tags_for_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForCertificate", input, options)
   end
 
   @doc """
@@ -188,8 +207,8 @@ defmodule AWS.ACM do
   of the tags that have been applied to a specific ACM certificate, use the
   `ListTagsForCertificate` action.
   """
-  def remove_tags_from_certificate(client, input, options \\ []) do
-    request(client, "RemoveTagsFromCertificate", input, options)
+  def remove_tags_from_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveTagsFromCertificate", input, options)
   end
 
   @doc """
@@ -201,8 +220,8 @@ defmodule AWS.ACM do
   For more information, see [Testing Managed Renewal](https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html)
   in the ACM User Guide.
   """
-  def renew_certificate(client, input, options \\ []) do
-    request(client, "RenewCertificate", input, options)
+  def renew_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RenewCertificate", input, options)
   end
 
   @doc """
@@ -219,8 +238,8 @@ defmodule AWS.ACM do
   We recommend that you use DNS validation. ACM issues public certificates after
   receiving approval from the domain owner.
   """
-  def request_certificate(client, input, options \\ []) do
-    request(client, "RequestCertificate", input, options)
+  def request_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RequestCertificate", input, options)
   end
 
   @doc """
@@ -237,8 +256,8 @@ defmodule AWS.ACM do
   certificate. For more information about setting up your contact email addresses,
   see [Configure Email for your Domain](https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html).
   """
-  def resend_validation_email(client, input, options \\ []) do
-    request(client, "ResendValidationEmail", input, options)
+  def resend_validation_email(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResendValidationEmail", input, options)
   end
 
   @doc """
@@ -248,61 +267,7 @@ defmodule AWS.ACM do
   recording your certificate in a certificate transparency log. For more
   information, see [ Opting Out of Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency).
   """
-  def update_certificate_options(client, input, options \\ []) do
-    request(client, "UpdateCertificateOptions", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "acm"}
-    host = build_host("acm", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "CertificateManager.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_certificate_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCertificateOptions", input, options)
   end
 end

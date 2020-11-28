@@ -63,6 +63,25 @@ defmodule AWS.WAFV2 do
   settings, so you know the maximum cost of a rule group when you use it.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "WAFV2",
+      api_version: "2019-07-29",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "wafv2",
+      global?: false,
+      protocol: "json",
+      service_id: "WAFV2",
+      signature_version: "v4",
+      signing_name: "wafv2",
+      target_prefix: "AWSWAF_20190729"
+    }
+  end
+
   @doc """
   This is the latest version of **AWS WAF**, named AWS WAFV2, released in
   November, 2019.
@@ -80,8 +99,8 @@ defmodule AWS.WAFV2 do
   the Web ACL. For information, see
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html).
   """
-  def associate_web_a_c_l(client, input, options \\ []) do
-    request(client, "AssociateWebACL", input, options)
+  def associate_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateWebACL", input, options)
   end
 
   @doc """
@@ -103,8 +122,8 @@ defmodule AWS.WAFV2 do
   users plan their web ACL WCU usage when they use a rule group. The WCU limit for
   web ACLs is 1,500.
   """
-  def check_capacity(client, input, options \\ []) do
-    request(client, "CheckCapacity", input, options)
+  def check_capacity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CheckCapacity", input, options)
   end
 
   @doc """
@@ -119,8 +138,8 @@ defmodule AWS.WAFV2 do
   receiving a lot of requests from a ranges of IP addresses, you can configure AWS
   WAF to block them using an IPSet that lists those IP addresses.
   """
-  def create_i_p_set(client, input, options \\ []) do
-    request(client, "CreateIPSet", input, options)
+  def create_i_p_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateIPSet", input, options)
   end
 
   @doc """
@@ -134,8 +153,8 @@ defmodule AWS.WAFV2 do
   `RegexPatternSetReferenceStatement`, to have AWS WAF inspect a web request
   component for the specified patterns.
   """
-  def create_regex_pattern_set(client, input, options \\ []) do
-    request(client, "CreateRegexPatternSet", input, options)
+  def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRegexPatternSet", input, options)
   end
 
   @doc """
@@ -153,8 +172,8 @@ defmodule AWS.WAFV2 do
   capacity. This allows others to reuse the rule group with confidence in its
   capacity requirements.
   """
-  def create_rule_group(client, input, options \\ []) do
-    request(client, "CreateRuleGroup", input, options)
+  def create_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRuleGroup", input, options)
   end
 
   @doc """
@@ -176,8 +195,8 @@ defmodule AWS.WAFV2 do
   API Gateway REST API, an Application Load Balancer, or an AWS AppSync GraphQL
   API.
   """
-  def create_web_a_c_l(client, input, options \\ []) do
-    request(client, "CreateWebACL", input, options)
+  def create_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWebACL", input, options)
   end
 
   @doc """
@@ -187,8 +206,8 @@ defmodule AWS.WAFV2 do
   You can only use this if `ManagedByFirewallManager` is false in the specified
   `WebACL`.
   """
-  def delete_firewall_manager_rule_groups(client, input, options \\ []) do
-    request(client, "DeleteFirewallManagerRuleGroups", input, options)
+  def delete_firewall_manager_rule_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFirewallManagerRuleGroups", input, options)
   end
 
   @doc """
@@ -200,8 +219,8 @@ defmodule AWS.WAFV2 do
 
   Deletes the specified `IPSet`.
   """
-  def delete_i_p_set(client, input, options \\ []) do
-    request(client, "DeleteIPSet", input, options)
+  def delete_i_p_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIPSet", input, options)
   end
 
   @doc """
@@ -213,8 +232,8 @@ defmodule AWS.WAFV2 do
 
   Deletes the `LoggingConfiguration` from the specified web ACL.
   """
-  def delete_logging_configuration(client, input, options \\ []) do
-    request(client, "DeleteLoggingConfiguration", input, options)
+  def delete_logging_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLoggingConfiguration", input, options)
   end
 
   @doc """
@@ -222,8 +241,8 @@ defmodule AWS.WAFV2 do
 
   You must be the owner of the rule group to perform this operation.
   """
-  def delete_permission_policy(client, input, options \\ []) do
-    request(client, "DeletePermissionPolicy", input, options)
+  def delete_permission_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePermissionPolicy", input, options)
   end
 
   @doc """
@@ -235,8 +254,8 @@ defmodule AWS.WAFV2 do
 
   Deletes the specified `RegexPatternSet`.
   """
-  def delete_regex_pattern_set(client, input, options \\ []) do
-    request(client, "DeleteRegexPatternSet", input, options)
+  def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRegexPatternSet", input, options)
   end
 
   @doc """
@@ -248,8 +267,8 @@ defmodule AWS.WAFV2 do
 
   Deletes the specified `RuleGroup`.
   """
-  def delete_rule_group(client, input, options \\ []) do
-    request(client, "DeleteRuleGroup", input, options)
+  def delete_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRuleGroup", input, options)
   end
 
   @doc """
@@ -264,8 +283,8 @@ defmodule AWS.WAFV2 do
   You can only use this if `ManagedByFirewallManager` is false in the specified
   `WebACL`.
   """
-  def delete_web_a_c_l(client, input, options \\ []) do
-    request(client, "DeleteWebACL", input, options)
+  def delete_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWebACL", input, options)
   end
 
   @doc """
@@ -278,8 +297,8 @@ defmodule AWS.WAFV2 do
   Provides high-level information for a managed rule group, including descriptions
   of the rules.
   """
-  def describe_managed_rule_group(client, input, options \\ []) do
-    request(client, "DescribeManagedRuleGroup", input, options)
+  def describe_managed_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeManagedRuleGroup", input, options)
   end
 
   @doc """
@@ -298,8 +317,8 @@ defmodule AWS.WAFV2 do
   ID in the CloudFront call `UpdateDistribution`. For information, see
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html).
   """
-  def disassociate_web_a_c_l(client, input, options \\ []) do
-    request(client, "DisassociateWebACL", input, options)
+  def disassociate_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateWebACL", input, options)
   end
 
   @doc """
@@ -311,8 +330,8 @@ defmodule AWS.WAFV2 do
 
   Retrieves the specified `IPSet`.
   """
-  def get_i_p_set(client, input, options \\ []) do
-    request(client, "GetIPSet", input, options)
+  def get_i_p_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetIPSet", input, options)
   end
 
   @doc """
@@ -324,8 +343,8 @@ defmodule AWS.WAFV2 do
 
   Returns the `LoggingConfiguration` for the specified web ACL.
   """
-  def get_logging_configuration(client, input, options \\ []) do
-    request(client, "GetLoggingConfiguration", input, options)
+  def get_logging_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLoggingConfiguration", input, options)
   end
 
   @doc """
@@ -333,8 +352,8 @@ defmodule AWS.WAFV2 do
 
   You must be the owner of the rule group to perform this operation.
   """
-  def get_permission_policy(client, input, options \\ []) do
-    request(client, "GetPermissionPolicy", input, options)
+  def get_permission_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPermissionPolicy", input, options)
   end
 
   @doc """
@@ -349,8 +368,8 @@ defmodule AWS.WAFV2 do
   10,000. If more than 10,000 addresses exceed the rate limit, those with the
   highest rates are blocked.
   """
-  def get_rate_based_statement_managed_keys(client, input, options \\ []) do
-    request(client, "GetRateBasedStatementManagedKeys", input, options)
+  def get_rate_based_statement_managed_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRateBasedStatementManagedKeys", input, options)
   end
 
   @doc """
@@ -362,8 +381,8 @@ defmodule AWS.WAFV2 do
 
   Retrieves the specified `RegexPatternSet`.
   """
-  def get_regex_pattern_set(client, input, options \\ []) do
-    request(client, "GetRegexPatternSet", input, options)
+  def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRegexPatternSet", input, options)
   end
 
   @doc """
@@ -375,8 +394,8 @@ defmodule AWS.WAFV2 do
 
   Retrieves the specified `RuleGroup`.
   """
-  def get_rule_group(client, input, options \\ []) do
-    request(client, "GetRuleGroup", input, options)
+  def get_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRuleGroup", input, options)
   end
 
   @doc """
@@ -399,8 +418,8 @@ defmodule AWS.WAFV2 do
   indicates the actual period during which AWS WAF selected the requests in the
   sample.
   """
-  def get_sampled_requests(client, input, options \\ []) do
-    request(client, "GetSampledRequests", input, options)
+  def get_sampled_requests(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSampledRequests", input, options)
   end
 
   @doc """
@@ -412,8 +431,8 @@ defmodule AWS.WAFV2 do
 
   Retrieves the specified `WebACL`.
   """
-  def get_web_a_c_l(client, input, options \\ []) do
-    request(client, "GetWebACL", input, options)
+  def get_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetWebACL", input, options)
   end
 
   @doc """
@@ -425,8 +444,8 @@ defmodule AWS.WAFV2 do
 
   Retrieves the `WebACL` for the specified resource.
   """
-  def get_web_a_c_l_for_resource(client, input, options \\ []) do
-    request(client, "GetWebACLForResource", input, options)
+  def get_web_a_c_l_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetWebACLForResource", input, options)
   end
 
   @doc """
@@ -440,8 +459,8 @@ defmodule AWS.WAFV2 do
   This list includes all AWS Managed Rules rule groups and the AWS Marketplace
   managed rule groups that you're subscribed to.
   """
-  def list_available_managed_rule_groups(client, input, options \\ []) do
-    request(client, "ListAvailableManagedRuleGroups", input, options)
+  def list_available_managed_rule_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAvailableManagedRuleGroups", input, options)
   end
 
   @doc """
@@ -453,8 +472,8 @@ defmodule AWS.WAFV2 do
 
   Retrieves an array of `IPSetSummary` objects for the IP sets that you manage.
   """
-  def list_i_p_sets(client, input, options \\ []) do
-    request(client, "ListIPSets", input, options)
+  def list_i_p_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListIPSets", input, options)
   end
 
   @doc """
@@ -466,8 +485,8 @@ defmodule AWS.WAFV2 do
 
   Retrieves an array of your `LoggingConfiguration` objects.
   """
-  def list_logging_configurations(client, input, options \\ []) do
-    request(client, "ListLoggingConfigurations", input, options)
+  def list_logging_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLoggingConfigurations", input, options)
   end
 
   @doc """
@@ -480,8 +499,8 @@ defmodule AWS.WAFV2 do
   Retrieves an array of `RegexPatternSetSummary` objects for the regex pattern
   sets that you manage.
   """
-  def list_regex_pattern_sets(client, input, options \\ []) do
-    request(client, "ListRegexPatternSets", input, options)
+  def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRegexPatternSets", input, options)
   end
 
   @doc """
@@ -496,8 +515,8 @@ defmodule AWS.WAFV2 do
   of AWS CloudFront resources, use the AWS CloudFront call
   `ListDistributionsByWebACLId`.
   """
-  def list_resources_for_web_a_c_l(client, input, options \\ []) do
-    request(client, "ListResourcesForWebACL", input, options)
+  def list_resources_for_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListResourcesForWebACL", input, options)
   end
 
   @doc """
@@ -510,8 +529,8 @@ defmodule AWS.WAFV2 do
   Retrieves an array of `RuleGroupSummary` objects for the rule groups that you
   manage.
   """
-  def list_rule_groups(client, input, options \\ []) do
-    request(client, "ListRuleGroups", input, options)
+  def list_rule_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRuleGroups", input, options)
   end
 
   @doc """
@@ -531,8 +550,8 @@ defmodule AWS.WAFV2 do
   groups, IP sets, and regex pattern sets. You can't manage or view tags through
   the AWS WAF console.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -544,8 +563,8 @@ defmodule AWS.WAFV2 do
 
   Retrieves an array of `WebACLSummary` objects for the web ACLs that you manage.
   """
-  def list_web_a_c_ls(client, input, options \\ []) do
-    request(client, "ListWebACLs", input, options)
+  def list_web_a_c_ls(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListWebACLs", input, options)
   end
 
   @doc """
@@ -581,8 +600,8 @@ defmodule AWS.WAFV2 do
   [Logging Web ACL Traffic Information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html)
   in the *AWS WAF Developer Guide*.
   """
-  def put_logging_configuration(client, input, options \\ []) do
-    request(client, "PutLoggingConfiguration", input, options)
+  def put_logging_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutLoggingConfiguration", input, options)
   end
 
   @doc """
@@ -602,8 +621,8 @@ defmodule AWS.WAFV2 do
 
     * The user making the request must be the owner of the rule group.
   """
-  def put_permission_policy(client, input, options \\ []) do
-    request(client, "PutPermissionPolicy", input, options)
+  def put_permission_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutPermissionPolicy", input, options)
   end
 
   @doc """
@@ -623,8 +642,8 @@ defmodule AWS.WAFV2 do
   groups, IP sets, and regex pattern sets. You can't manage or view tags through
   the AWS WAF console.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -639,8 +658,8 @@ defmodule AWS.WAFV2 do
   the tag value might be "companyA." You can specify one or more tags to add to
   each container. You can add up to 50 tags to each AWS resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -652,8 +671,8 @@ defmodule AWS.WAFV2 do
 
   Updates the specified `IPSet`.
   """
-  def update_i_p_set(client, input, options \\ []) do
-    request(client, "UpdateIPSet", input, options)
+  def update_i_p_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateIPSet", input, options)
   end
 
   @doc """
@@ -665,8 +684,8 @@ defmodule AWS.WAFV2 do
 
   Updates the specified `RegexPatternSet`.
   """
-  def update_regex_pattern_set(client, input, options \\ []) do
-    request(client, "UpdateRegexPatternSet", input, options)
+  def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRegexPatternSet", input, options)
   end
 
   @doc """
@@ -684,8 +703,8 @@ defmodule AWS.WAFV2 do
   capacity. This allows others to reuse the rule group with confidence in its
   capacity requirements.
   """
-  def update_rule_group(client, input, options \\ []) do
-    request(client, "UpdateRuleGroup", input, options)
+  def update_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRuleGroup", input, options)
   end
 
   @doc """
@@ -707,61 +726,7 @@ defmodule AWS.WAFV2 do
   API Gateway REST API, an Application Load Balancer, or an AWS AppSync GraphQL
   API.
   """
-  def update_web_a_c_l(client, input, options \\ []) do
-    request(client, "UpdateWebACL", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "wafv2"}
-    host = build_host("wafv2", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSWAF_20190729.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_web_a_c_l(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateWebACL", input, options)
   end
 end

@@ -13,6 +13,25 @@ defmodule AWS.Shield do
   and AWS Shield Advanced APIs, see the [AWS WAF and AWS Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "AWS Shield",
+      api_version: "2016-06-02",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: "us-east-1",
+      endpoint_prefix: "shield",
+      global?: true,
+      protocol: "json",
+      service_id: "Shield",
+      signature_version: "v4",
+      signing_name: "shield",
+      target_prefix: "AWSShield_20160616"
+    }
+  end
+
   @doc """
   Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3 bucket
   containing your AWS WAF logs.
@@ -23,8 +42,8 @@ defmodule AWS.Shield do
   must be subscribed to the [Business Support plan](https://aws.amazon.com/premiumsupport/business-support/) or the
   [Enterprise Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/).
   """
-  def associate_d_r_t_log_bucket(client, input, options \\ []) do
-    request(client, "AssociateDRTLogBucket", input, options)
+  def associate_d_r_t_log_bucket(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateDRTLogBucket", input, options)
   end
 
   @doc """
@@ -58,8 +77,8 @@ defmodule AWS.Shield do
   be subscribed to the [Business Support plan](https://aws.amazon.com/premiumsupport/business-support/) or the
   [Enterprise Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/).
   """
-  def associate_d_r_t_role(client, input, options \\ []) do
-    request(client, "AssociateDRTRole", input, options)
+  def associate_d_r_t_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateDRTRole", input, options)
   end
 
   @doc """
@@ -72,8 +91,8 @@ defmodule AWS.Shield do
   Advanced protection. For more information, see [Shield Advanced Health-Based Detection](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option)
   in the [AWS WAF and AWS Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def associate_health_check(client, input, options \\ []) do
-    request(client, "AssociateHealthCheck", input, options)
+  def associate_health_check(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateHealthCheck", input, options)
   end
 
   @doc """
@@ -95,8 +114,14 @@ defmodule AWS.Shield do
   retrieve the list using `DescribeEmergencyContactSettings` and then provide it
   to this call.
   """
-  def associate_proactive_engagement_details(client, input, options \\ []) do
-    request(client, "AssociateProactiveEngagementDetails", input, options)
+  def associate_proactive_engagement_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "AssociateProactiveEngagementDetails",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -112,8 +137,19 @@ defmodule AWS.Shield do
   Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html)
   and [Add AWS Shield Advanced Protection to more AWS Resources](https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html).
   """
-  def create_protection(client, input, options \\ []) do
-    request(client, "CreateProtection", input, options)
+  def create_protection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateProtection", input, options)
+  end
+
+  @doc """
+  Creates a grouping of protected resources so they can be handled as a
+  collective.
+
+  This resource grouping improves the accuracy of detection and reduces false
+  positives.
+  """
+  def create_protection_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateProtectionGroup", input, options)
   end
 
   @doc """
@@ -123,15 +159,22 @@ defmodule AWS.Shield do
   automatically renewed at the end of the existing subscription period. You can
   change this by submitting an `UpdateSubscription` request.
   """
-  def create_subscription(client, input, options \\ []) do
-    request(client, "CreateSubscription", input, options)
+  def create_subscription(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSubscription", input, options)
   end
 
   @doc """
   Deletes an AWS Shield Advanced `Protection`.
   """
-  def delete_protection(client, input, options \\ []) do
-    request(client, "DeleteProtection", input, options)
+  def delete_protection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProtection", input, options)
+  end
+
+  @doc """
+  Removes the specified protection group.
+  """
+  def delete_protection_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProtectionGroup", input, options)
   end
 
   @doc """
@@ -140,15 +183,34 @@ defmodule AWS.Shield do
   AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete
   a subscription prior to the completion of that commitment.
   """
-  def delete_subscription(client, input, options \\ []) do
-    request(client, "DeleteSubscription", input, options)
+  def delete_subscription(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSubscription", input, options)
   end
 
   @doc """
   Describes the details of a DDoS attack.
   """
-  def describe_attack(client, input, options \\ []) do
-    request(client, "DescribeAttack", input, options)
+  def describe_attack(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAttack", input, options)
+  end
+
+  @doc """
+  Provides information about the number and type of attacks AWS Shield has
+  detected in the last year for all resources that belong to your account,
+  regardless of whether you've defined Shield protections for them.
+
+  This operation is available to Shield customers as well as to Shield Advanced
+  customers.
+
+  The operation returns data for the time range of midnight UTC, one year ago, to
+  midnight UTC, today. For example, if the current time is `2020-10-26 15:39:32
+  PDT`, equal to `2020-10-26 22:39:32 UTC`, then the time range for the attack
+  data returned is from `2019-10-26 00:00:00 UTC` to `2020-10-26 00:00:00 UTC`.
+
+  The time range indicates the period covered by the attack statistics data items.
+  """
+  def describe_attack_statistics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAttackStatistics", input, options)
   end
 
   @doc """
@@ -156,8 +218,8 @@ defmodule AWS.Shield do
   Response Team (DRT) to access your AWS account while assisting with attack
   mitigation.
   """
-  def describe_d_r_t_access(client, input, options \\ []) do
-    request(client, "DescribeDRTAccess", input, options)
+  def describe_d_r_t_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDRTAccess", input, options)
   end
 
   @doc """
@@ -165,30 +227,37 @@ defmodule AWS.Shield do
   can use to contact you if you have proactive engagement enabled, for escalations
   to the DRT and to initiate proactive customer support.
   """
-  def describe_emergency_contact_settings(client, input, options \\ []) do
-    request(client, "DescribeEmergencyContactSettings", input, options)
+  def describe_emergency_contact_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEmergencyContactSettings", input, options)
   end
 
   @doc """
   Lists the details of a `Protection` object.
   """
-  def describe_protection(client, input, options \\ []) do
-    request(client, "DescribeProtection", input, options)
+  def describe_protection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeProtection", input, options)
+  end
+
+  @doc """
+  Returns the specification for the specified protection group.
+  """
+  def describe_protection_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeProtectionGroup", input, options)
   end
 
   @doc """
   Provides details about the AWS Shield Advanced subscription for an account.
   """
-  def describe_subscription(client, input, options \\ []) do
-    request(client, "DescribeSubscription", input, options)
+  def describe_subscription(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSubscription", input, options)
   end
 
   @doc """
   Removes authorization from the DDoS Response Team (DRT) to notify contacts about
   escalations to the DRT and to initiate proactive customer support.
   """
-  def disable_proactive_engagement(client, input, options \\ []) do
-    request(client, "DisableProactiveEngagement", input, options)
+  def disable_proactive_engagement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableProactiveEngagement", input, options)
   end
 
   @doc """
@@ -202,8 +271,8 @@ defmodule AWS.Shield do
   and had granted the DRT access to your account, you can submit a
   `DisassociateDRTLogBucket` request to remove this access.
   """
-  def disassociate_d_r_t_log_bucket(client, input, options \\ []) do
-    request(client, "DisassociateDRTLogBucket", input, options)
+  def disassociate_d_r_t_log_bucket(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateDRTLogBucket", input, options)
   end
 
   @doc """
@@ -215,8 +284,8 @@ defmodule AWS.Shield do
   and had granted the DRT access to your account, you can submit a
   `DisassociateDRTRole` request to remove this access.
   """
-  def disassociate_d_r_t_role(client, input, options \\ []) do
-    request(client, "DisassociateDRTRole", input, options)
+  def disassociate_d_r_t_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateDRTRole", input, options)
   end
 
   @doc """
@@ -231,8 +300,8 @@ defmodule AWS.Shield do
   Detection](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option)
   in the [AWS WAF and AWS Shield Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def disassociate_health_check(client, input, options \\ []) do
-    request(client, "DisassociateHealthCheck", input, options)
+  def disassociate_health_check(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateHealthCheck", input, options)
   end
 
   @doc """
@@ -240,30 +309,44 @@ defmodule AWS.Shield do
   contacts about escalations to the DRT and to initiate proactive customer
   support.
   """
-  def enable_proactive_engagement(client, input, options \\ []) do
-    request(client, "EnableProactiveEngagement", input, options)
+  def enable_proactive_engagement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableProactiveEngagement", input, options)
   end
 
   @doc """
   Returns the `SubscriptionState`, either `Active` or `Inactive`.
   """
-  def get_subscription_state(client, input, options \\ []) do
-    request(client, "GetSubscriptionState", input, options)
+  def get_subscription_state(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSubscriptionState", input, options)
   end
 
   @doc """
   Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
   period.
   """
-  def list_attacks(client, input, options \\ []) do
-    request(client, "ListAttacks", input, options)
+  def list_attacks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAttacks", input, options)
+  end
+
+  @doc """
+  Retrieves the `ProtectionGroup` objects for the account.
+  """
+  def list_protection_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListProtectionGroups", input, options)
   end
 
   @doc """
   Lists all `Protection` objects for the account.
   """
-  def list_protections(client, input, options \\ []) do
-    request(client, "ListProtections", input, options)
+  def list_protections(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListProtections", input, options)
+  end
+
+  @doc """
+  Retrieves the resources that are included in the protection group.
+  """
+  def list_resources_in_protection_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListResourcesInProtectionGroup", input, options)
   end
 
   @doc """
@@ -271,8 +354,19 @@ defmodule AWS.Shield do
   DDoS Response Team (DRT) can use to contact you if you have proactive engagement
   enabled, for escalations to the DRT and to initiate proactive customer support.
   """
-  def update_emergency_contact_settings(client, input, options \\ []) do
-    request(client, "UpdateEmergencyContactSettings", input, options)
+  def update_emergency_contact_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEmergencyContactSettings", input, options)
+  end
+
+  @doc """
+  Updates an existing protection group.
+
+  A protection group is a grouping of protected resources so they can be handled
+  as a collective. This resource grouping improves the accuracy of detection and
+  reduces false positives.
+  """
+  def update_protection_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateProtectionGroup", input, options)
   end
 
   @doc """
@@ -281,62 +375,7 @@ defmodule AWS.Shield do
   Only enter values for parameters you want to change. Empty parameters are not
   updated.
   """
-  def update_subscription(client, input, options \\ []) do
-    request(client, "UpdateSubscription", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "shield",
-                        region:  "us-east-1"}
-    host = build_host("shield", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSShield_20160616.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_subscription(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSubscription", input, options)
   end
 end

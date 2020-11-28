@@ -6,6 +6,25 @@ defmodule AWS.Forecast do
   Provides APIs for creating and managing Amazon Forecast resources.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-06-26",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "forecast",
+      global?: false,
+      protocol: "json",
+      service_id: "forecast",
+      signature_version: "v4",
+      signing_name: "forecast",
+      target_prefix: "AmazonForecast"
+    }
+  end
+
   @doc """
   Creates an Amazon Forecast dataset.
 
@@ -35,8 +54,8 @@ defmodule AWS.Forecast do
   The `Status` of a dataset must be `ACTIVE` before you can import training data.
   Use the `DescribeDataset` operation to get the status.
   """
-  def create_dataset(client, input, options \\ []) do
-    request(client, "CreateDataset", input, options)
+  def create_dataset(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDataset", input, options)
   end
 
   @doc """
@@ -52,12 +71,12 @@ defmodule AWS.Forecast do
   To get a list of all your datasets groups, use the `ListDatasetGroups`
   operation.
 
-  The `Status` of a dataset group must be `ACTIVE` before you can create use the
-  dataset group to create a predictor. To get the status, use the
-  `DescribeDatasetGroup` operation.
+  The `Status` of a dataset group must be `ACTIVE` before you can use the dataset
+  group to create a predictor. To get the status, use the `DescribeDatasetGroup`
+  operation.
   """
-  def create_dataset_group(client, input, options \\ []) do
-    request(client, "CreateDatasetGroup", input, options)
+  def create_dataset_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDatasetGroup", input, options)
   end
 
   @doc """
@@ -86,8 +105,8 @@ defmodule AWS.Forecast do
   To get a list of all your dataset import jobs, filtered by specified criteria,
   use the `ListDatasetImportJobs` operation.
   """
-  def create_dataset_import_job(client, input, options \\ []) do
-    request(client, "CreateDatasetImportJob", input, options)
+  def create_dataset_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDatasetImportJob", input, options)
   end
 
   @doc """
@@ -113,8 +132,8 @@ defmodule AWS.Forecast do
   The `Status` of the forecast must be `ACTIVE` before you can query or export the
   forecast. Use the `DescribeForecast` operation to get the status.
   """
-  def create_forecast(client, input, options \\ []) do
-    request(client, "CreateForecast", input, options)
+  def create_forecast(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateForecast", input, options)
   end
 
   @doc """
@@ -141,29 +160,26 @@ defmodule AWS.Forecast do
   the forecast in your Amazon S3 bucket. To get the status, use the
   `DescribeForecastExportJob` operation.
   """
-  def create_forecast_export_job(client, input, options \\ []) do
-    request(client, "CreateForecastExportJob", input, options)
+  def create_forecast_export_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateForecastExportJob", input, options)
   end
 
   @doc """
   Creates an Amazon Forecast predictor.
 
-  In the request, you provide a dataset group and either specify an algorithm or
-  let Amazon Forecast choose the algorithm for you using AutoML. If you specify an
+  In the request, provide a dataset group and either specify an algorithm or let
+  Amazon Forecast choose an algorithm for you using AutoML. If you specify an
   algorithm, you also can override algorithm-specific hyperparameters.
 
-  Amazon Forecast uses the chosen algorithm to train a model using the latest
-  version of the datasets in the specified dataset group. The result is called a
-  predictor. You then generate a forecast using the `CreateForecast` operation.
+  Amazon Forecast uses the algorithm to train a predictor using the latest version
+  of the datasets in the specified dataset group. You can then generate a forecast
+  using the `CreateForecast` operation.
 
-  After training a model, the `CreatePredictor` operation also evaluates it. To
-  see the evaluation metrics, use the `GetAccuracyMetrics` operation. Always
-  review the evaluation metrics before deciding to use the predictor to generate a
-  forecast.
+  To see the evaluation metrics, use the `GetAccuracyMetrics` operation.
 
-  Optionally, you can specify a featurization configuration to fill and aggregate
-  the data fields in the `TARGET_TIME_SERIES` dataset to improve model training.
-  For more information, see `FeaturizationConfig`.
+  You can specify a featurization configuration to fill and aggregate the data
+  fields in the `TARGET_TIME_SERIES` dataset to improve model training. For more
+  information, see `FeaturizationConfig`.
 
   For RELATED_TIME_SERIES datasets, `CreatePredictor` verifies that the
   `DataFrequency` specified when the dataset was created matches the
@@ -171,12 +187,17 @@ defmodule AWS.Forecast do
   Amazon Forecast also verifies the delimiter and timestamp format. For more
   information, see `howitworks-datasets-groups`.
 
+  By default, predictors are trained and evaluated at the 0.1 (P10), 0.5 (P50),
+  and 0.9 (P90) quantiles. You can choose custom forecast types to train and
+  evaluate your predictor by setting the `ForecastTypes`.
+
   ## AutoML
 
   If you want Amazon Forecast to evaluate each algorithm and choose the one that
   minimizes the `objective function`, set `PerformAutoML` to `true`. The
-  `objective function` is defined as the mean of the weighted p10, p50, and p90
-  quantile losses. For more information, see `EvaluationResult`.
+  `objective function` is defined as the mean of the weighted losses over the
+  forecast types. By default, these are the p10, p50, and p90 quantile losses. For
+  more information, see `EvaluationResult`.
 
   When AutoML is enabled, the following properties are disallowed:
 
@@ -194,8 +215,22 @@ defmodule AWS.Forecast do
   predictor must be `ACTIVE`, signifying that training has completed. To get the
   status, use the `DescribePredictor` operation.
   """
-  def create_predictor(client, input, options \\ []) do
-    request(client, "CreatePredictor", input, options)
+  def create_predictor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePredictor", input, options)
+  end
+
+  @doc """
+  Exports backtest forecasts and accuracy metrics generated by the
+  `CreatePredictor` operation.
+
+  Two CSV files are exported to a specified S3 bucket.
+
+  You must specify a `DataDestination` object that includes an AWS Identity and
+  Access Management (IAM) role that Amazon Forecast can assume to access the
+  Amazon S3 bucket. For more information, see `aws-forecast-iam-roles`.
+  """
+  def create_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePredictorBacktestExportJob", input, options)
   end
 
   @doc """
@@ -209,8 +244,8 @@ defmodule AWS.Forecast do
   deleted dataset. In order to update the dataset group, use the operation,
   omitting the deleted dataset's ARN.
   """
-  def delete_dataset(client, input, options \\ []) do
-    request(client, "DeleteDataset", input, options)
+  def delete_dataset(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDataset", input, options)
   end
 
   @doc """
@@ -222,8 +257,8 @@ defmodule AWS.Forecast do
 
   This operation deletes only the dataset group, not the datasets in the group.
   """
-  def delete_dataset_group(client, input, options \\ []) do
-    request(client, "DeleteDatasetGroup", input, options)
+  def delete_dataset_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDatasetGroup", input, options)
   end
 
   @doc """
@@ -234,8 +269,8 @@ defmodule AWS.Forecast do
   `CREATE_FAILED`. To get the status, use the `DescribeDatasetImportJob`
   operation.
   """
-  def delete_dataset_import_job(client, input, options \\ []) do
-    request(client, "DeleteDatasetImportJob", input, options)
+  def delete_dataset_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDatasetImportJob", input, options)
   end
 
   @doc """
@@ -247,8 +282,8 @@ defmodule AWS.Forecast do
   You can't delete a forecast while it is being exported. After a forecast is
   deleted, you can no longer query the forecast.
   """
-  def delete_forecast(client, input, options \\ []) do
-    request(client, "DeleteForecast", input, options)
+  def delete_forecast(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteForecast", input, options)
   end
 
   @doc """
@@ -259,8 +294,8 @@ defmodule AWS.Forecast do
   `CREATE_FAILED`. To get the status, use the `DescribeForecastExportJob`
   operation.
   """
-  def delete_forecast_export_job(client, input, options \\ []) do
-    request(client, "DeleteForecastExportJob", input, options)
+  def delete_forecast_export_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteForecastExportJob", input, options)
   end
 
   @doc """
@@ -269,8 +304,15 @@ defmodule AWS.Forecast do
   You can delete only predictor that have a status of `ACTIVE` or `CREATE_FAILED`.
   To get the status, use the `DescribePredictor` operation.
   """
-  def delete_predictor(client, input, options \\ []) do
-    request(client, "DeletePredictor", input, options)
+  def delete_predictor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePredictor", input, options)
+  end
+
+  @doc """
+  Deletes a predictor backtest export job.
+  """
+  def delete_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePredictorBacktestExportJob", input, options)
   end
 
   @doc """
@@ -286,8 +328,8 @@ defmodule AWS.Forecast do
 
     * `Status`
   """
-  def describe_dataset(client, input, options \\ []) do
-    request(client, "DescribeDataset", input, options)
+  def describe_dataset(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataset", input, options)
   end
 
   @doc """
@@ -304,8 +346,8 @@ defmodule AWS.Forecast do
 
     * `Status`
   """
-  def describe_dataset_group(client, input, options \\ []) do
-    request(client, "DescribeDatasetGroup", input, options)
+  def describe_dataset_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDatasetGroup", input, options)
   end
 
   @doc """
@@ -327,8 +369,8 @@ defmodule AWS.Forecast do
 
     * `Message` - If an error occurred, information about the error.
   """
-  def describe_dataset_import_job(client, input, options \\ []) do
-    request(client, "DescribeDatasetImportJob", input, options)
+  def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDatasetImportJob", input, options)
   end
 
   @doc """
@@ -348,8 +390,8 @@ defmodule AWS.Forecast do
 
     * `Message` - If an error occurred, information about the error.
   """
-  def describe_forecast(client, input, options \\ []) do
-    request(client, "DescribeForecast", input, options)
+  def describe_forecast(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeForecast", input, options)
   end
 
   @doc """
@@ -368,8 +410,8 @@ defmodule AWS.Forecast do
 
     * `Message` - If an error occurred, information about the error.
   """
-  def describe_forecast_export_job(client, input, options \\ []) do
-    request(client, "DescribeForecastExportJob", input, options)
+  def describe_forecast_export_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeForecastExportJob", input, options)
   end
 
   @doc """
@@ -392,8 +434,28 @@ defmodule AWS.Forecast do
 
     * `Message` - If an error occurred, information about the error.
   """
-  def describe_predictor(client, input, options \\ []) do
-    request(client, "DescribePredictor", input, options)
+  def describe_predictor(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePredictor", input, options)
+  end
+
+  @doc """
+  Describes a predictor backtest export job created using the
+  `CreatePredictorBacktestExportJob` operation.
+
+  In addition to listing the properties provided by the user in the
+  `CreatePredictorBacktestExportJob` request, this operation lists the following
+  properties:
+
+    * `CreationTime`
+
+    * `LastModificationTime`
+
+    * `Status`
+
+    * `Message` (if an error occurred)
+  """
+  def describe_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePredictorBacktestExportJob", input, options)
   end
 
   @doc """
@@ -401,7 +463,7 @@ defmodule AWS.Forecast do
   `CreatePredictor` operation.
 
   Use metrics to see how well the model performed and to decide whether to use the
-  predictor to generate a forecast. For more information, see `metrics`.
+  predictor to generate a forecast. For more information, see [Predictor Metrics](https://docs.aws.amazon.com/forecast/latest/dg/metrics.html).
 
   This operation generates metrics for each backtest window that was evaluated.
   The number of backtest windows (`NumberOfBacktestWindows`) is specified using
@@ -418,8 +480,8 @@ defmodule AWS.Forecast do
   `ACTIVE`, signifying that training has completed. To get the status, use the
   `DescribePredictor` operation.
   """
-  def get_accuracy_metrics(client, input, options \\ []) do
-    request(client, "GetAccuracyMetrics", input, options)
+  def get_accuracy_metrics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccuracyMetrics", input, options)
   end
 
   @doc """
@@ -431,8 +493,8 @@ defmodule AWS.Forecast do
   properties by using the dataset group ARN with the `DescribeDatasetGroup`
   operation.
   """
-  def list_dataset_groups(client, input, options \\ []) do
-    request(client, "ListDatasetGroups", input, options)
+  def list_dataset_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatasetGroups", input, options)
   end
 
   @doc """
@@ -444,8 +506,8 @@ defmodule AWS.Forecast do
   properties by using the ARN with the `DescribeDatasetImportJob` operation. You
   can filter the list by providing an array of `Filter` objects.
   """
-  def list_dataset_import_jobs(client, input, options \\ []) do
-    request(client, "ListDatasetImportJobs", input, options)
+  def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatasetImportJobs", input, options)
   end
 
   @doc """
@@ -455,8 +517,8 @@ defmodule AWS.Forecast do
   Name (ARN), is returned. To retrieve the complete set of properties, use the ARN
   with the `DescribeDataset` operation.
   """
-  def list_datasets(client, input, options \\ []) do
-    request(client, "ListDatasets", input, options)
+  def list_datasets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatasets", input, options)
   end
 
   @doc """
@@ -468,8 +530,8 @@ defmodule AWS.Forecast do
   set of properties, use the ARN with the `DescribeForecastExportJob` operation.
   You can filter the list using an array of `Filter` objects.
   """
-  def list_forecast_export_jobs(client, input, options \\ []) do
-    request(client, "ListForecastExportJobs", input, options)
+  def list_forecast_export_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListForecastExportJobs", input, options)
   end
 
   @doc """
@@ -480,8 +542,22 @@ defmodule AWS.Forecast do
   specify the ARN with the `DescribeForecast` operation. You can filter the list
   using an array of `Filter` objects.
   """
-  def list_forecasts(client, input, options \\ []) do
-    request(client, "ListForecasts", input, options)
+  def list_forecasts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListForecasts", input, options)
+  end
+
+  @doc """
+  Returns a list of predictor backtest export jobs created using the
+  `CreatePredictorBacktestExportJob` operation.
+
+  This operation returns a summary for each backtest export job. You can filter
+  the list using an array of `Filter` objects.
+
+  To retrieve the complete set of properties for a particular backtest export job,
+  use the ARN with the `DescribePredictorBacktestExportJob` operation.
+  """
+  def list_predictor_backtest_export_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPredictorBacktestExportJobs", input, options)
   end
 
   @doc """
@@ -492,15 +568,15 @@ defmodule AWS.Forecast do
   properties by using the ARN with the `DescribePredictor` operation. You can
   filter the list using an array of `Filter` objects.
   """
-  def list_predictors(client, input, options \\ []) do
-    request(client, "ListPredictors", input, options)
+  def list_predictors(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPredictors", input, options)
   end
 
   @doc """
   Lists the tags for an Amazon Forecast resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -510,15 +586,15 @@ defmodule AWS.Forecast do
   are not changed. When a resource is deleted, the tags associated with that
   resource are also deleted.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Deletes the specified tags from a resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -528,61 +604,7 @@ defmodule AWS.Forecast do
   dataset group to create a predictor. Use the `DescribeDatasetGroup` operation to
   get the status.
   """
-  def update_dataset_group(client, input, options \\ []) do
-    request(client, "UpdateDatasetGroup", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "forecast"}
-    host = build_host("forecast", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AmazonForecast.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_dataset_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDatasetGroup", input, options)
   end
 end

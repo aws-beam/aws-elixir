@@ -169,34 +169,86 @@ defmodule AWS.Ivs do
   specified ARN.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2020-07-14",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "ivs",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "ivs",
+      signature_version: "v4",
+      signing_name: "ivs",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Performs `GetChannel` on multiple ARNs simultaneously.
   """
-  def batch_get_channel(client, input, options \\ []) do
-    path_ = "/BatchGetChannel"
+  def batch_get_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchGetChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Performs `GetStreamKey` on multiple ARNs simultaneously.
   """
-  def batch_get_stream_key(client, input, options \\ []) do
-    path_ = "/BatchGetStreamKey"
+  def batch_get_stream_key(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchGetStreamKey"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a new channel and an associated stream key to start streaming.
   """
-  def create_channel(client, input, options \\ []) do
-    path_ = "/CreateChannel"
+  def create_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -207,21 +259,43 @@ defmodule AWS.Ivs do
   exists and there is a limit of 1 stream key per channel. To reset the stream key
   on a channel, use `DeleteStreamKey` and then CreateStreamKey.
   """
-  def create_stream_key(client, input, options \\ []) do
-    path_ = "/CreateStreamKey"
+  def create_stream_key(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateStreamKey"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the specified channel and its associated stream keys.
   """
-  def delete_channel(client, input, options \\ []) do
-    path_ = "/DeleteChannel"
+  def delete_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -230,22 +304,44 @@ defmodule AWS.Ivs do
   This invalidates future viewer tokens generated using the key pair’s
   `privateKey`.
   """
-  def delete_playback_key_pair(client, input, options \\ []) do
-    path_ = "/DeletePlaybackKeyPair"
+  def delete_playback_key_pair(%Client{} = client, input, options \\ []) do
+    url_path = "/DeletePlaybackKeyPair"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the stream key for the specified ARN, so it can no longer be used to
   stream.
   """
-  def delete_stream_key(client, input, options \\ []) do
-    path_ = "/DeleteStreamKey"
+  def delete_stream_key(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteStreamKey"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -253,11 +349,22 @@ defmodule AWS.Ivs do
 
   See also `BatchGetChannel`.
   """
-  def get_channel(client, input, options \\ []) do
-    path_ = "/GetChannel"
+  def get_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/GetChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -267,31 +374,64 @@ defmodule AWS.Ivs do
   The `privateKey` held by the caller can be used to generate viewer authorization
   tokens, to grant viewers access to authorized channels.
   """
-  def get_playback_key_pair(client, input, options \\ []) do
-    path_ = "/GetPlaybackKeyPair"
+  def get_playback_key_pair(%Client{} = client, input, options \\ []) do
+    url_path = "/GetPlaybackKeyPair"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about the active (live) stream on a specified channel.
   """
-  def get_stream(client, input, options \\ []) do
-    path_ = "/GetStream"
+  def get_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/GetStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets stream-key information for a specified ARN.
   """
-  def get_stream_key(client, input, options \\ []) do
-    path_ = "/GetStreamKey"
+  def get_stream_key(%Client{} = client, input, options \\ []) do
+    url_path = "/GetStreamKey"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -301,11 +441,22 @@ defmodule AWS.Ivs do
   The `privateKey` can then be used to generate viewer authorization tokens, to
   grant viewers access to authorized channels.
   """
-  def import_playback_key_pair(client, input, options \\ []) do
-    path_ = "/ImportPlaybackKeyPair"
+  def import_playback_key_pair(%Client{} = client, input, options \\ []) do
+    url_path = "/ImportPlaybackKeyPair"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -314,52 +465,107 @@ defmodule AWS.Ivs do
 
   This list can be filtered to match a specified string.
   """
-  def list_channels(client, input, options \\ []) do
-    path_ = "/ListChannels"
+  def list_channels(%Client{} = client, input, options \\ []) do
+    url_path = "/ListChannels"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets summary information about playback key pairs.
   """
-  def list_playback_key_pairs(client, input, options \\ []) do
-    path_ = "/ListPlaybackKeyPairs"
+  def list_playback_key_pairs(%Client{} = client, input, options \\ []) do
+    url_path = "/ListPlaybackKeyPairs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets summary information about stream keys for the specified channel.
   """
-  def list_stream_keys(client, input, options \\ []) do
-    path_ = "/ListStreamKeys"
+  def list_stream_keys(%Client{} = client, input, options \\ []) do
+    url_path = "/ListStreamKeys"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets summary information about live streams in your account, in the AWS region
   where the API request is processed.
   """
-  def list_streams(client, input, options \\ []) do
-    path_ = "/ListStreams"
+  def list_streams(%Client{} = client, input, options \\ []) do
+    url_path = "/ListStreams"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about AWS tags for the specified ARN.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -368,11 +574,22 @@ defmodule AWS.Ivs do
   A maximum of 5 requests per second per channel is allowed, each with a maximum
   1KB payload.
   """
-  def put_metadata(client, input, options \\ []) do
-    path_ = "/PutMetadata"
+  def put_metadata(%Client{} = client, input, options \\ []) do
+    url_path = "/PutMetadata"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -385,35 +602,69 @@ defmodule AWS.Ivs do
   session, so to stop the stream permanently, you may want to first revoke the
   `streamKey` attached to the channel.
   """
-  def stop_stream(client, input, options \\ []) do
-    path_ = "/StopStream"
+  def stop_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/StopStream"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Adds or updates tags for the AWS resource with the specified ARN.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes tags from the resource with the specified ARN.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -422,74 +673,21 @@ defmodule AWS.Ivs do
   This does not affect an ongoing stream of this channel. You must stop and
   restart the stream for the changes to take effect.
   """
-  def update_channel(client, input, options \\ []) do
-    path_ = "/UpdateChannel"
+  def update_channel(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateChannel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "ivs"}
-    host = build_host("ivs", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

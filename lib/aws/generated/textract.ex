@@ -9,6 +9,25 @@ defmodule AWS.Textract do
   This is the API reference documentation for Amazon Textract.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-06-27",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "textract",
+      global?: false,
+      protocol: "json",
+      service_id: "Textract",
+      signature_version: "v4",
+      signing_name: "textract",
+      target_prefix: "Textract"
+    }
+  end
+
   @doc """
   Analyzes an input document for relationships between detected items.
 
@@ -42,8 +61,8 @@ defmodule AWS.Textract do
 
   For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
   """
-  def analyze_document(client, input, options \\ []) do
-    request(client, "AnalyzeDocument", input, options)
+  def analyze_document(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AnalyzeDocument", input, options)
   end
 
   @doc """
@@ -63,8 +82,8 @@ defmodule AWS.Textract do
 
   For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
   """
-  def detect_document_text(client, input, options \\ []) do
-    request(client, "DetectDocumentText", input, options)
+  def detect_document_text(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetectDocumentText", input, options)
   end
 
   @doc """
@@ -110,8 +129,8 @@ defmodule AWS.Textract do
 
   For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
   """
-  def get_document_analysis(client, input, options \\ []) do
-    request(client, "GetDocumentAnalysis", input, options)
+  def get_document_analysis(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDocumentAnalysis", input, options)
   end
 
   @doc """
@@ -146,8 +165,8 @@ defmodule AWS.Textract do
 
   For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
   """
-  def get_document_text_detection(client, input, options \\ []) do
-    request(client, "GetDocumentTextDetection", input, options)
+  def get_document_text_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDocumentTextDetection", input, options)
   end
 
   @doc """
@@ -168,8 +187,8 @@ defmodule AWS.Textract do
 
   For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
   """
-  def start_document_analysis(client, input, options \\ []) do
-    request(client, "StartDocumentAnalysis", input, options)
+  def start_document_analysis(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartDocumentAnalysis", input, options)
   end
 
   @doc """
@@ -193,61 +212,7 @@ defmodule AWS.Textract do
 
   For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
   """
-  def start_document_text_detection(client, input, options \\ []) do
-    request(client, "StartDocumentTextDetection", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "textract"}
-    host = build_host("textract", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "Textract.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def start_document_text_detection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartDocumentTextDetection", input, options)
   end
 end

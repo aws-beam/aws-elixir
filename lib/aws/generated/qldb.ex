@@ -6,6 +6,25 @@ defmodule AWS.QLDB do
   The control plane for Amazon QLDB
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-01-02",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "qldb",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "QLDB",
+      signature_version: "v4",
+      signing_name: "qldb",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Ends a given Amazon QLDB journal stream.
 
@@ -15,21 +34,51 @@ defmodule AWS.QLDB do
   are subject to a 7-day retention period, so they are automatically deleted after
   this limit expires.
   """
-  def cancel_journal_kinesis_stream(client, ledger_name, stream_id, input, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams/#{URI.encode(stream_id)}"
+  def cancel_journal_kinesis_stream(
+        %Client{} = client,
+        ledger_name,
+        stream_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams/#{URI.encode(stream_id)}"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a new ledger in your AWS account.
   """
-  def create_ledger(client, input, options \\ []) do
-    path_ = "/ledgers"
+  def create_ledger(%Client{} = client, input, options \\ []) do
+    url_path = "/ledgers"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -43,11 +92,22 @@ defmodule AWS.QLDB do
   to `false`. The QLDB console disables deletion protection for you when you use
   it to delete a ledger.
   """
-  def delete_ledger(client, name, input, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}"
+  def delete_ledger(%Client{} = client, name, input, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -56,11 +116,24 @@ defmodule AWS.QLDB do
   The output includes the Amazon Resource Name (ARN), stream name, current status,
   creation time, and the parameters of your original stream creation request.
   """
-  def describe_journal_kinesis_stream(client, ledger_name, stream_id, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams/#{URI.encode(stream_id)}"
+  def describe_journal_kinesis_stream(%Client{} = client, ledger_name, stream_id, options \\ []) do
+    url_path =
+      "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams/#{URI.encode(stream_id)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -78,21 +151,43 @@ defmodule AWS.QLDB do
   If the ledger with the given `Name` doesn't exist, then throws
   `ResourceNotFoundException`.
   """
-  def describe_journal_s3_export(client, export_id, name, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}/journal-s3-exports/#{URI.encode(export_id)}"
+  def describe_journal_s3_export(%Client{} = client, export_id, name, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}/journal-s3-exports/#{URI.encode(export_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information about a ledger, including its state and when it was created.
   """
-  def describe_ledger(client, name, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}"
+  def describe_ledger(%Client{} = client, name, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -110,11 +205,22 @@ defmodule AWS.QLDB do
   You can initiate up to two concurrent journal export requests for each ledger.
   Beyond this limit, journal export requests throw `LimitExceededException`.
   """
-  def export_journal_to_s3(client, name, input, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}/journal-s3-exports"
+  def export_journal_to_s3(%Client{} = client, name, input, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}/journal-s3-exports"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -135,11 +241,22 @@ defmodule AWS.QLDB do
   If no block exists with the specified address, then throws
   `InvalidParameterException`.
   """
-  def get_block(client, name, input, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}/block"
+  def get_block(%Client{} = client, name, input, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}/block"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -147,11 +264,22 @@ defmodule AWS.QLDB do
 
   The response includes a 256-bit hash value and a block address.
   """
-  def get_digest(client, name, input, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}/digest"
+  def get_digest(%Client{} = client, name, input, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}/digest"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -160,11 +288,22 @@ defmodule AWS.QLDB do
   Also returns a proof of the specified revision for verification if
   `DigestTipAddress` is provided.
   """
-  def get_revision(client, name, input, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}/revision"
+  def get_revision(%Client{} = client, name, input, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}/revision"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -178,21 +317,42 @@ defmodule AWS.QLDB do
   can retrieve all the items by calling `ListJournalKinesisStreamsForLedger`
   multiple times.
   """
-  def list_journal_kinesis_streams_for_ledger(client, ledger_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams"
+  def list_journal_kinesis_streams_for_ledger(
+        %Client{} = client,
+        ledger_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -206,21 +366,41 @@ defmodule AWS.QLDB do
   [Export Job Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
   in the *Amazon QLDB Developer Guide*.
   """
-  def list_journal_s3_exports(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/journal-s3-exports"
+  def list_journal_s3_exports(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/journal-s3-exports"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -234,21 +414,42 @@ defmodule AWS.QLDB do
   [Export Job Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
   in the *Amazon QLDB Developer Guide*.
   """
-  def list_journal_s3_exports_for_ledger(client, name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}/journal-s3-exports"
+  def list_journal_s3_exports_for_ledger(
+        %Client{} = client,
+        name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/ledgers/#{URI.encode(name)}/journal-s3-exports"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -258,31 +459,57 @@ defmodule AWS.QLDB do
   This action returns a maximum of 100 items and is paginated so that you can
   retrieve all the items by calling `ListLedgers` multiple times.
   """
-  def list_ledgers(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/ledgers"
+  def list_ledgers(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/ledgers"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"next_token", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"max_results", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns all tags for a specified Amazon QLDB resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -292,11 +519,22 @@ defmodule AWS.QLDB do
   journal and delivers the data to a specified Amazon Kinesis Data Streams
   resource.
   """
-  def stream_journal_to_kinesis(client, ledger_name, input, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams"
+  def stream_journal_to_kinesis(%Client{} = client, ledger_name, input, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(ledger_name)}/journal-kinesis-streams"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -305,11 +543,22 @@ defmodule AWS.QLDB do
   A resource can have up to 50 tags. If you try to create more than 50 tags for a
   resource, your request fails and returns an error.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -317,88 +566,47 @@ defmodule AWS.QLDB do
 
   You can specify up to 50 tag keys to remove.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"TagKeys", "tagKeys"},
+        {"TagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates properties on a ledger.
   """
-  def update_ledger(client, name, input, options \\ []) do
-    path_ = "/ledgers/#{URI.encode(name)}"
+  def update_ledger(%Client{} = client, name, input, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "qldb"}
-    host = build_host("qldb", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

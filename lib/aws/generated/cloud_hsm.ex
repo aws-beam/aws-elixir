@@ -14,6 +14,25 @@ defmodule AWS.CloudHSM do
   Reference](http://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "CloudHSM",
+      api_version: "2014-05-30",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "cloudhsm",
+      global?: false,
+      protocol: "json",
+      service_id: "CloudHSM",
+      signature_version: "v4",
+      signing_name: "cloudhsm",
+      target_prefix: "CloudHsmFrontendService"
+    }
+  end
+
   @doc """
   This is documentation for **AWS CloudHSM Classic**.
 
@@ -28,8 +47,8 @@ defmodule AWS.CloudHSM do
   Each tag consists of a key and a value. Tag keys must be unique to each
   resource.
   """
-  def add_tags_to_resource(client, input, options \\ []) do
-    request(client, "AddTagsToResource", input, options)
+  def add_tags_to_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddTagsToResource", input, options)
   end
 
   @doc """
@@ -44,8 +63,8 @@ defmodule AWS.CloudHSM do
   Creates a high-availability partition group. A high-availability partition group
   is a group of partitions that spans multiple physical HSMs.
   """
-  def create_hapg(client, input, options \\ []) do
-    request(client, "CreateHapg", input, options)
+  def create_hapg(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateHapg", input, options)
   end
 
   @doc """
@@ -68,8 +87,8 @@ defmodule AWS.CloudHSM do
   status of the HSM with the `DescribeHsm` operation. The HSM is ready to be
   initialized when the status changes to `RUNNING`.
   """
-  def create_hsm(client, input, options \\ []) do
-    request(client, "CreateHsm", input, options)
+  def create_hsm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateHsm", input, options)
   end
 
   @doc """
@@ -83,8 +102,8 @@ defmodule AWS.CloudHSM do
 
   Creates an HSM client.
   """
-  def create_luna_client(client, input, options \\ []) do
-    request(client, "CreateLunaClient", input, options)
+  def create_luna_client(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLunaClient", input, options)
   end
 
   @doc """
@@ -98,8 +117,8 @@ defmodule AWS.CloudHSM do
 
   Deletes a high-availability partition group.
   """
-  def delete_hapg(client, input, options \\ []) do
-    request(client, "DeleteHapg", input, options)
+  def delete_hapg(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteHapg", input, options)
   end
 
   @doc """
@@ -114,8 +133,8 @@ defmodule AWS.CloudHSM do
   Deletes an HSM. After completion, this operation cannot be undone and your key
   material cannot be recovered.
   """
-  def delete_hsm(client, input, options \\ []) do
-    request(client, "DeleteHsm", input, options)
+  def delete_hsm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteHsm", input, options)
   end
 
   @doc """
@@ -129,8 +148,8 @@ defmodule AWS.CloudHSM do
 
   Deletes a client.
   """
-  def delete_luna_client(client, input, options \\ []) do
-    request(client, "DeleteLunaClient", input, options)
+  def delete_luna_client(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLunaClient", input, options)
   end
 
   @doc """
@@ -144,8 +163,8 @@ defmodule AWS.CloudHSM do
 
   Retrieves information about a high-availability partition group.
   """
-  def describe_hapg(client, input, options \\ []) do
-    request(client, "DescribeHapg", input, options)
+  def describe_hapg(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeHapg", input, options)
   end
 
   @doc """
@@ -160,8 +179,8 @@ defmodule AWS.CloudHSM do
   Retrieves information about an HSM. You can identify the HSM by its ARN or its
   serial number.
   """
-  def describe_hsm(client, input, options \\ []) do
-    request(client, "DescribeHsm", input, options)
+  def describe_hsm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeHsm", input, options)
   end
 
   @doc """
@@ -175,8 +194,8 @@ defmodule AWS.CloudHSM do
 
   Retrieves information about an HSM client.
   """
-  def describe_luna_client(client, input, options \\ []) do
-    request(client, "DescribeLunaClient", input, options)
+  def describe_luna_client(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLunaClient", input, options)
   end
 
   @doc """
@@ -191,8 +210,8 @@ defmodule AWS.CloudHSM do
   Gets the configuration files necessary to connect to all high availability
   partition groups the client is associated with.
   """
-  def get_config(client, input, options \\ []) do
-    request(client, "GetConfig", input, options)
+  def get_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetConfig", input, options)
   end
 
   @doc """
@@ -206,8 +225,8 @@ defmodule AWS.CloudHSM do
 
   Lists the Availability Zones that have available AWS CloudHSM capacity.
   """
-  def list_available_zones(client, input, options \\ []) do
-    request(client, "ListAvailableZones", input, options)
+  def list_available_zones(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAvailableZones", input, options)
   end
 
   @doc """
@@ -226,8 +245,8 @@ defmodule AWS.CloudHSM do
   token that you pass in the next call to `ListHapgs` to retrieve the next set of
   items.
   """
-  def list_hapgs(client, input, options \\ []) do
-    request(client, "ListHapgs", input, options)
+  def list_hapgs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListHapgs", input, options)
   end
 
   @doc """
@@ -247,8 +266,8 @@ defmodule AWS.CloudHSM do
   token that you pass in the next call to `ListHsms` to retrieve the next set of
   items.
   """
-  def list_hsms(client, input, options \\ []) do
-    request(client, "ListHsms", input, options)
+  def list_hsms(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListHsms", input, options)
   end
 
   @doc """
@@ -267,8 +286,8 @@ defmodule AWS.CloudHSM do
   token that you pass in the next call to `ListLunaClients` to retrieve the next
   set of items.
   """
-  def list_luna_clients(client, input, options \\ []) do
-    request(client, "ListLunaClients", input, options)
+  def list_luna_clients(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLunaClients", input, options)
   end
 
   @doc """
@@ -282,8 +301,8 @@ defmodule AWS.CloudHSM do
 
   Returns a list of all tags for the specified AWS CloudHSM resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -297,8 +316,8 @@ defmodule AWS.CloudHSM do
 
   Modifies an existing high-availability partition group.
   """
-  def modify_hapg(client, input, options \\ []) do
-    request(client, "ModifyHapg", input, options)
+  def modify_hapg(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyHapg", input, options)
   end
 
   @doc """
@@ -317,8 +336,8 @@ defmodule AWS.CloudHSM do
   you should ensure that your AWS CloudHSM service is configured for high
   availability, and consider executing this operation during a maintenance window.
   """
-  def modify_hsm(client, input, options \\ []) do
-    request(client, "ModifyHsm", input, options)
+  def modify_hsm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyHsm", input, options)
   end
 
   @doc """
@@ -335,8 +354,8 @@ defmodule AWS.CloudHSM do
   This action can potentially start a workflow to install the new certificate on
   the client's HSMs.
   """
-  def modify_luna_client(client, input, options \\ []) do
-    request(client, "ModifyLunaClient", input, options)
+  def modify_luna_client(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyLunaClient", input, options)
   end
 
   @doc """
@@ -353,61 +372,7 @@ defmodule AWS.CloudHSM do
   To remove a tag, specify only the tag key to remove (not the value). To
   overwrite the value for an existing tag, use `AddTagsToResource`.
   """
-  def remove_tags_from_resource(client, input, options \\ []) do
-    request(client, "RemoveTagsFromResource", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "cloudhsm"}
-    host = build_host("cloudhsm", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "CloudHsmFrontendService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)
   end
 end

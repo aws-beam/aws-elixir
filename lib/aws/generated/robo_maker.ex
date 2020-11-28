@@ -6,44 +6,107 @@ defmodule AWS.RoboMaker do
   This section provides documentation for the AWS RoboMaker API operations.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-06-29",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "robomaker",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "RoboMaker",
+      signature_version: "v4",
+      signing_name: "robomaker",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Deletes one or more worlds in a batch operation.
   """
-  def batch_delete_worlds(client, input, options \\ []) do
-    path_ = "/batchDeleteWorlds"
+  def batch_delete_worlds(%Client{} = client, input, options \\ []) do
+    url_path = "/batchDeleteWorlds"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes one or more simulation jobs.
   """
-  def batch_describe_simulation_job(client, input, options \\ []) do
-    path_ = "/batchDescribeSimulationJob"
+  def batch_describe_simulation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/batchDescribeSimulationJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Cancels the specified deployment job.
   """
-  def cancel_deployment_job(client, input, options \\ []) do
-    path_ = "/cancelDeploymentJob"
+  def cancel_deployment_job(%Client{} = client, input, options \\ []) do
+    url_path = "/cancelDeploymentJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Cancels the specified simulation job.
   """
-  def cancel_simulation_job(client, input, options \\ []) do
-    path_ = "/cancelSimulationJob"
+  def cancel_simulation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/cancelSimulationJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -52,31 +115,64 @@ defmodule AWS.RoboMaker do
   When you cancel a simulation job batch, you are also cancelling all of the
   active simulation jobs created as part of the batch.
   """
-  def cancel_simulation_job_batch(client, input, options \\ []) do
-    path_ = "/cancelSimulationJobBatch"
+  def cancel_simulation_job_batch(%Client{} = client, input, options \\ []) do
+    url_path = "/cancelSimulationJobBatch"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Cancels the specified export job.
   """
-  def cancel_world_export_job(client, input, options \\ []) do
-    path_ = "/cancelWorldExportJob"
+  def cancel_world_export_job(%Client{} = client, input, options \\ []) do
+    url_path = "/cancelWorldExportJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Cancels the specified world generator job.
   """
-  def cancel_world_generation_job(client, input, options \\ []) do
-    path_ = "/cancelWorldGenerationJob"
+  def cancel_world_generation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/cancelWorldGenerationJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -89,71 +185,148 @@ defmodule AWS.RoboMaker do
   After 90 days, deployment jobs expire and will be deleted. They will no longer
   be accessible.
   """
-  def create_deployment_job(client, input, options \\ []) do
-    path_ = "/createDeploymentJob"
+  def create_deployment_job(%Client{} = client, input, options \\ []) do
+    url_path = "/createDeploymentJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a fleet, a logical group of robots running the same robot application.
   """
-  def create_fleet(client, input, options \\ []) do
-    path_ = "/createFleet"
+  def create_fleet(%Client{} = client, input, options \\ []) do
+    url_path = "/createFleet"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a robot.
   """
-  def create_robot(client, input, options \\ []) do
-    path_ = "/createRobot"
+  def create_robot(%Client{} = client, input, options \\ []) do
+    url_path = "/createRobot"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a robot application.
   """
-  def create_robot_application(client, input, options \\ []) do
-    path_ = "/createRobotApplication"
+  def create_robot_application(%Client{} = client, input, options \\ []) do
+    url_path = "/createRobotApplication"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a version of a robot application.
   """
-  def create_robot_application_version(client, input, options \\ []) do
-    path_ = "/createRobotApplicationVersion"
+  def create_robot_application_version(%Client{} = client, input, options \\ []) do
+    url_path = "/createRobotApplicationVersion"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a simulation application.
   """
-  def create_simulation_application(client, input, options \\ []) do
-    path_ = "/createSimulationApplication"
+  def create_simulation_application(%Client{} = client, input, options \\ []) do
+    url_path = "/createSimulationApplication"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a simulation application with a specific revision id.
   """
-  def create_simulation_application_version(client, input, options \\ []) do
-    path_ = "/createSimulationApplicationVersion"
+  def create_simulation_application_version(%Client{} = client, input, options \\ []) do
+    url_path = "/createSimulationApplicationVersion"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -162,221 +335,463 @@ defmodule AWS.RoboMaker do
   After 90 days, simulation jobs expire and will be deleted. They will no longer
   be accessible.
   """
-  def create_simulation_job(client, input, options \\ []) do
-    path_ = "/createSimulationJob"
+  def create_simulation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/createSimulationJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a world export job.
   """
-  def create_world_export_job(client, input, options \\ []) do
-    path_ = "/createWorldExportJob"
+  def create_world_export_job(%Client{} = client, input, options \\ []) do
+    url_path = "/createWorldExportJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates worlds using the specified template.
   """
-  def create_world_generation_job(client, input, options \\ []) do
-    path_ = "/createWorldGenerationJob"
+  def create_world_generation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/createWorldGenerationJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a world template.
   """
-  def create_world_template(client, input, options \\ []) do
-    path_ = "/createWorldTemplate"
+  def create_world_template(%Client{} = client, input, options \\ []) do
+    url_path = "/createWorldTemplate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a fleet.
   """
-  def delete_fleet(client, input, options \\ []) do
-    path_ = "/deleteFleet"
+  def delete_fleet(%Client{} = client, input, options \\ []) do
+    url_path = "/deleteFleet"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a robot.
   """
-  def delete_robot(client, input, options \\ []) do
-    path_ = "/deleteRobot"
+  def delete_robot(%Client{} = client, input, options \\ []) do
+    url_path = "/deleteRobot"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a robot application.
   """
-  def delete_robot_application(client, input, options \\ []) do
-    path_ = "/deleteRobotApplication"
+  def delete_robot_application(%Client{} = client, input, options \\ []) do
+    url_path = "/deleteRobotApplication"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a simulation application.
   """
-  def delete_simulation_application(client, input, options \\ []) do
-    path_ = "/deleteSimulationApplication"
+  def delete_simulation_application(%Client{} = client, input, options \\ []) do
+    url_path = "/deleteSimulationApplication"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a world template.
   """
-  def delete_world_template(client, input, options \\ []) do
-    path_ = "/deleteWorldTemplate"
+  def delete_world_template(%Client{} = client, input, options \\ []) do
+    url_path = "/deleteWorldTemplate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deregisters a robot.
   """
-  def deregister_robot(client, input, options \\ []) do
-    path_ = "/deregisterRobot"
+  def deregister_robot(%Client{} = client, input, options \\ []) do
+    url_path = "/deregisterRobot"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a deployment job.
   """
-  def describe_deployment_job(client, input, options \\ []) do
-    path_ = "/describeDeploymentJob"
+  def describe_deployment_job(%Client{} = client, input, options \\ []) do
+    url_path = "/describeDeploymentJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a fleet.
   """
-  def describe_fleet(client, input, options \\ []) do
-    path_ = "/describeFleet"
+  def describe_fleet(%Client{} = client, input, options \\ []) do
+    url_path = "/describeFleet"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a robot.
   """
-  def describe_robot(client, input, options \\ []) do
-    path_ = "/describeRobot"
+  def describe_robot(%Client{} = client, input, options \\ []) do
+    url_path = "/describeRobot"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a robot application.
   """
-  def describe_robot_application(client, input, options \\ []) do
-    path_ = "/describeRobotApplication"
+  def describe_robot_application(%Client{} = client, input, options \\ []) do
+    url_path = "/describeRobotApplication"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a simulation application.
   """
-  def describe_simulation_application(client, input, options \\ []) do
-    path_ = "/describeSimulationApplication"
+  def describe_simulation_application(%Client{} = client, input, options \\ []) do
+    url_path = "/describeSimulationApplication"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a simulation job.
   """
-  def describe_simulation_job(client, input, options \\ []) do
-    path_ = "/describeSimulationJob"
+  def describe_simulation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/describeSimulationJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a simulation job batch.
   """
-  def describe_simulation_job_batch(client, input, options \\ []) do
-    path_ = "/describeSimulationJobBatch"
+  def describe_simulation_job_batch(%Client{} = client, input, options \\ []) do
+    url_path = "/describeSimulationJobBatch"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a world.
   """
-  def describe_world(client, input, options \\ []) do
-    path_ = "/describeWorld"
+  def describe_world(%Client{} = client, input, options \\ []) do
+    url_path = "/describeWorld"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a world export job.
   """
-  def describe_world_export_job(client, input, options \\ []) do
-    path_ = "/describeWorldExportJob"
+  def describe_world_export_job(%Client{} = client, input, options \\ []) do
+    url_path = "/describeWorldExportJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a world generation job.
   """
-  def describe_world_generation_job(client, input, options \\ []) do
-    path_ = "/describeWorldGenerationJob"
+  def describe_world_generation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/describeWorldGenerationJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a world template.
   """
-  def describe_world_template(client, input, options \\ []) do
-    path_ = "/describeWorldTemplate"
+  def describe_world_template(%Client{} = client, input, options \\ []) do
+    url_path = "/describeWorldTemplate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets the world template body.
   """
-  def get_world_template_body(client, input, options \\ []) do
-    path_ = "/getWorldTemplateBody"
+  def get_world_template_body(%Client{} = client, input, options \\ []) do
+    url_path = "/getWorldTemplateBody"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -384,11 +799,22 @@ defmodule AWS.RoboMaker do
 
   You can optionally provide filters to retrieve specific deployment jobs.
   """
-  def list_deployment_jobs(client, input, options \\ []) do
-    path_ = "/listDeploymentJobs"
+  def list_deployment_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/listDeploymentJobs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -396,11 +822,22 @@ defmodule AWS.RoboMaker do
 
   You can optionally provide filters to retrieve specific fleets.
   """
-  def list_fleets(client, input, options \\ []) do
-    path_ = "/listFleets"
+  def list_fleets(%Client{} = client, input, options \\ []) do
+    url_path = "/listFleets"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -408,11 +845,22 @@ defmodule AWS.RoboMaker do
 
   You can optionally provide filters to retrieve specific robot applications.
   """
-  def list_robot_applications(client, input, options \\ []) do
-    path_ = "/listRobotApplications"
+  def list_robot_applications(%Client{} = client, input, options \\ []) do
+    url_path = "/listRobotApplications"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -420,11 +868,22 @@ defmodule AWS.RoboMaker do
 
   You can optionally provide filters to retrieve specific robots.
   """
-  def list_robots(client, input, options \\ []) do
-    path_ = "/listRobots"
+  def list_robots(%Client{} = client, input, options \\ []) do
+    url_path = "/listRobots"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -432,11 +891,22 @@ defmodule AWS.RoboMaker do
 
   You can optionally provide filters to retrieve specific simulation applications.
   """
-  def list_simulation_applications(client, input, options \\ []) do
-    path_ = "/listSimulationApplications"
+  def list_simulation_applications(%Client{} = client, input, options \\ []) do
+    url_path = "/listSimulationApplications"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -444,11 +914,22 @@ defmodule AWS.RoboMaker do
 
   You can optionally provide filters to retrieve specific simulation batch jobs.
   """
-  def list_simulation_job_batches(client, input, options \\ []) do
-    path_ = "/listSimulationJobBatches"
+  def list_simulation_job_batches(%Client{} = client, input, options \\ []) do
+    url_path = "/listSimulationJobBatches"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -456,81 +937,169 @@ defmodule AWS.RoboMaker do
 
   You can optionally provide filters to retrieve specific simulation jobs.
   """
-  def list_simulation_jobs(client, input, options \\ []) do
-    path_ = "/listSimulationJobs"
+  def list_simulation_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/listSimulationJobs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists all tags on a AWS RoboMaker resource.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists world export jobs.
   """
-  def list_world_export_jobs(client, input, options \\ []) do
-    path_ = "/listWorldExportJobs"
+  def list_world_export_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/listWorldExportJobs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists world generator jobs.
   """
-  def list_world_generation_jobs(client, input, options \\ []) do
-    path_ = "/listWorldGenerationJobs"
+  def list_world_generation_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/listWorldGenerationJobs"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists world templates.
   """
-  def list_world_templates(client, input, options \\ []) do
-    path_ = "/listWorldTemplates"
+  def list_world_templates(%Client{} = client, input, options \\ []) do
+    url_path = "/listWorldTemplates"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists worlds.
   """
-  def list_worlds(client, input, options \\ []) do
-    path_ = "/listWorlds"
+  def list_worlds(%Client{} = client, input, options \\ []) do
+    url_path = "/listWorlds"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Registers a robot with a fleet.
   """
-  def register_robot(client, input, options \\ []) do
-    path_ = "/registerRobot"
+  def register_robot(%Client{} = client, input, options \\ []) do
+    url_path = "/registerRobot"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Restarts a running simulation job.
   """
-  def restart_simulation_job(client, input, options \\ []) do
-    path_ = "/restartSimulationJob"
+  def restart_simulation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/restartSimulationJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -538,11 +1107,22 @@ defmodule AWS.RoboMaker do
 
   The batch is defined using one or more `SimulationJobRequest` objects.
   """
-  def start_simulation_job_batch(client, input, options \\ []) do
-    path_ = "/startSimulationJobBatch"
+  def start_simulation_job_batch(%Client{} = client, input, options \\ []) do
+    url_path = "/startSimulationJobBatch"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -550,11 +1130,22 @@ defmodule AWS.RoboMaker do
 
   This is helpful if robots were added after a deployment.
   """
-  def sync_deployment_job(client, input, options \\ []) do
-    path_ = "/syncDeploymentJob"
+  def sync_deployment_job(%Client{} = client, input, options \\ []) do
+    url_path = "/syncDeploymentJob"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -567,11 +1158,22 @@ defmodule AWS.RoboMaker do
   [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
   in the *AWS Billing and Cost Management User Guide*.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -581,108 +1183,89 @@ defmodule AWS.RoboMaker do
   key, use [ `TagResource`
   ](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html).
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a robot application.
   """
-  def update_robot_application(client, input, options \\ []) do
-    path_ = "/updateRobotApplication"
+  def update_robot_application(%Client{} = client, input, options \\ []) do
+    url_path = "/updateRobotApplication"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a simulation application.
   """
-  def update_simulation_application(client, input, options \\ []) do
-    path_ = "/updateSimulationApplication"
+  def update_simulation_application(%Client{} = client, input, options \\ []) do
+    url_path = "/updateSimulationApplication"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a world template.
   """
-  def update_world_template(client, input, options \\ []) do
-    path_ = "/updateWorldTemplate"
+  def update_world_template(%Client{} = client, input, options \\ []) do
+    url_path = "/updateWorldTemplate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "robomaker"}
-    host = build_host("robomaker", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

@@ -11,6 +11,25 @@ defmodule AWS.Polly do
   your application domain.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-06-10",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "polly",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Polly",
+      signature_version: "v4",
+      signing_name: "polly",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Deletes the specified pronunciation lexicon stored in an AWS Region.
 
@@ -19,11 +38,22 @@ defmodule AWS.Polly do
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  def delete_lexicon(client, name, input, options \\ []) do
-    path_ = "/v1/lexicons/#{URI.encode(name)}"
+  def delete_lexicon(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -48,31 +78,57 @@ defmodule AWS.Polly do
   This operation requires permissions to perform the `polly:DescribeVoices`
   action.
   """
-  def describe_voices(client, engine \\ nil, include_additional_language_codes \\ nil, language_code \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/v1/voices"
+  def describe_voices(
+        %Client{} = client,
+        engine \\ nil,
+        include_additional_language_codes \\ nil,
+        language_code \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/voices"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(language_code) do
-      [{"LanguageCode", language_code} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(include_additional_language_codes) do
-      [{"IncludeAdditionalLanguageCodes", include_additional_language_codes} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(engine) do
-      [{"Engine", engine} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(language_code) do
+        [{"LanguageCode", language_code} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_additional_language_codes) do
+        [{"IncludeAdditionalLanguageCodes", include_additional_language_codes} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(engine) do
+        [{"Engine", engine} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -81,11 +137,22 @@ defmodule AWS.Polly do
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  def get_lexicon(client, name, options \\ []) do
-    path_ = "/v1/lexicons/#{URI.encode(name)}"
+  def get_lexicon(%Client{} = client, name, options \\ []) do
+    url_path = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -95,11 +162,22 @@ defmodule AWS.Polly do
   including the status of the task, and a link to the S3 bucket containing the
   output of the task.
   """
-  def get_speech_synthesis_task(client, task_id, options \\ []) do
-    path_ = "/v1/synthesisTasks/#{URI.encode(task_id)}"
+  def get_speech_synthesis_task(%Client{} = client, task_id, options \\ []) do
+    url_path = "/v1/synthesisTasks/#{URI.encode(task_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -107,16 +185,29 @@ defmodule AWS.Polly do
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  def list_lexicons(client, next_token \\ nil, options \\ []) do
-    path_ = "/v1/lexicons"
+  def list_lexicons(%Client{} = client, next_token \\ nil, options \\ []) do
+    url_path = "/v1/lexicons"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -125,26 +216,49 @@ defmodule AWS.Polly do
   This operation can filter the tasks by their status, for example, allowing users
   to list only tasks that are completed.
   """
-  def list_speech_synthesis_tasks(client, max_results \\ nil, next_token \\ nil, status \\ nil, options \\ []) do
-    path_ = "/v1/synthesisTasks"
+  def list_speech_synthesis_tasks(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/synthesisTasks"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status) do
-      [{"Status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"NextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"MaxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"Status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -157,11 +271,22 @@ defmodule AWS.Polly do
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  def put_lexicon(client, name, input, options \\ []) do
-    path_ = "/v1/lexicons/#{URI.encode(name)}"
+  def put_lexicon(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v1/lexicons/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -175,11 +300,22 @@ defmodule AWS.Polly do
   SpeechSynthesisTask object, which will include an identifier of this task as
   well as the current status.
   """
-  def start_speech_synthesis_task(client, input, options \\ []) do
-    path_ = "/v1/synthesisTasks"
+  def start_speech_synthesis_task(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/synthesisTasks"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -190,92 +326,31 @@ defmodule AWS.Polly do
   English voices) unless phoneme mapping is used. For more information, see [How it
   Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
   """
-  def synthesize_speech(client, input, options \\ []) do
-    path_ = "/v1/speech"
+  def synthesize_speech(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/speech"
     headers = []
-    query_ = []
-    case request(client, :post, path_, query_, headers, input, options, 200) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"Content-Type", "ContentType"},
-            {"x-amzn-RequestCharacters", "RequestCharacters"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Content-Type", "ContentType"},
+          {"x-amzn-RequestCharacters", "RequestCharacters"}
+        ]
+      )
 
-      result ->
-        result
-    end
-  end
-
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "polly"}
-    host = build_host("polly", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

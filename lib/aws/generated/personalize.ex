@@ -7,14 +7,33 @@ defmodule AWS.Personalize do
   individualized recommendations to customers.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-05-22",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "personalize",
+      global?: false,
+      protocol: "json",
+      service_id: "Personalize",
+      signature_version: "v4",
+      signing_name: "personalize",
+      target_prefix: "AmazonPersonalize"
+    }
+  end
+
   @doc """
   Creates a batch inference job.
 
   The operation can handle up to 50 million records and the input file must be in
   JSON format. For more information, see `recommendations-batch`.
   """
-  def create_batch_inference_job(client, input, options \\ []) do
-    request(client, "CreateBatchInferenceJob", input, options)
+  def create_batch_inference_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBatchInferenceJob", input, options)
   end
 
   @doc """
@@ -62,8 +81,8 @@ defmodule AWS.Personalize do
 
     * `DeleteCampaign`
   """
-  def create_campaign(client, input, options \\ []) do
-    request(client, "CreateCampaign", input, options)
+  def create_campaign(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCampaign", input, options)
   end
 
   @doc """
@@ -101,8 +120,8 @@ defmodule AWS.Personalize do
 
     * `DeleteDataset`
   """
-  def create_dataset(client, input, options \\ []) do
-    request(client, "CreateDataset", input, options)
+  def create_dataset(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDataset", input, options)
   end
 
   @doc """
@@ -155,8 +174,8 @@ defmodule AWS.Personalize do
 
     * `DeleteDatasetGroup`
   """
-  def create_dataset_group(client, input, options \\ []) do
-    request(client, "CreateDatasetGroup", input, options)
+  def create_dataset_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDatasetGroup", input, options)
   end
 
   @doc """
@@ -190,8 +209,8 @@ defmodule AWS.Personalize do
 
     * `DescribeDatasetImportJob`
   """
-  def create_dataset_import_job(client, input, options \\ []) do
-    request(client, "CreateDatasetImportJob", input, options)
+  def create_dataset_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDatasetImportJob", input, options)
   end
 
   @doc """
@@ -230,8 +249,8 @@ defmodule AWS.Personalize do
 
     * `DeleteEventTracker`
   """
-  def create_event_tracker(client, input, options \\ []) do
-    request(client, "CreateEventTracker", input, options)
+  def create_event_tracker(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEventTracker", input, options)
   end
 
   @doc """
@@ -239,8 +258,8 @@ defmodule AWS.Personalize do
 
   For more information, see [Using Filters with Amazon Personalize](https://docs.aws.amazon.com/personalize/latest/dg/filters.html).
   """
-  def create_filter(client, input, options \\ []) do
-    request(client, "CreateFilter", input, options)
+  def create_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFilter", input, options)
   end
 
   @doc """
@@ -260,8 +279,8 @@ defmodule AWS.Personalize do
 
     * `DeleteSchema`
   """
-  def create_schema(client, input, options \\ []) do
-    request(client, "CreateSchema", input, options)
+  def create_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSchema", input, options)
   end
 
   @doc """
@@ -311,8 +330,8 @@ defmodule AWS.Personalize do
 
     * `DescribeSolutionVersion`
   """
-  def create_solution(client, input, options \\ []) do
-    request(client, "CreateSolution", input, options)
+  def create_solution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSolution", input, options)
   end
 
   @doc """
@@ -348,8 +367,8 @@ defmodule AWS.Personalize do
 
     * `DeleteSolution`
   """
-  def create_solution_version(client, input, options \\ []) do
-    request(client, "CreateSolutionVersion", input, options)
+  def create_solution_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSolutionVersion", input, options)
   end
 
   @doc """
@@ -360,8 +379,8 @@ defmodule AWS.Personalize do
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   request. For more information on campaigns, see `CreateCampaign`.
   """
-  def delete_campaign(client, input, options \\ []) do
-    request(client, "DeleteCampaign", input, options)
+  def delete_campaign(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCampaign", input, options)
   end
 
   @doc """
@@ -371,8 +390,8 @@ defmodule AWS.Personalize do
   `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state. For more
   information on datasets, see `CreateDataset`.
   """
-  def delete_dataset(client, input, options \\ []) do
-    request(client, "DeleteDataset", input, options)
+  def delete_dataset(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDataset", input, options)
   end
 
   @doc """
@@ -386,8 +405,8 @@ defmodule AWS.Personalize do
 
     * All datasets in the dataset group.
   """
-  def delete_dataset_group(client, input, options \\ []) do
-    request(client, "DeleteDatasetGroup", input, options)
+  def delete_dataset_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDatasetGroup", input, options)
   end
 
   @doc """
@@ -396,15 +415,15 @@ defmodule AWS.Personalize do
   Does not delete the event-interactions dataset from the associated dataset
   group. For more information on event trackers, see `CreateEventTracker`.
   """
-  def delete_event_tracker(client, input, options \\ []) do
-    request(client, "DeleteEventTracker", input, options)
+  def delete_event_tracker(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEventTracker", input, options)
   end
 
   @doc """
   Deletes a filter.
   """
-  def delete_filter(client, input, options \\ []) do
-    request(client, "DeleteFilter", input, options)
+  def delete_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFilter", input, options)
   end
 
   @doc """
@@ -413,8 +432,8 @@ defmodule AWS.Personalize do
   Before deleting a schema, you must delete all datasets referencing the schema.
   For more information on schemas, see `CreateSchema`.
   """
-  def delete_schema(client, input, options \\ []) do
-    request(client, "DeleteSchema", input, options)
+  def delete_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSchema", input, options)
   end
 
   @doc """
@@ -426,15 +445,15 @@ defmodule AWS.Personalize do
   solution if an associated `SolutionVersion` is in the CREATE PENDING or IN
   PROGRESS state. For more information on solutions, see `CreateSolution`.
   """
-  def delete_solution(client, input, options \\ []) do
-    request(client, "DeleteSolution", input, options)
+  def delete_solution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSolution", input, options)
   end
 
   @doc """
   Describes the given algorithm.
   """
-  def describe_algorithm(client, input, options \\ []) do
-    request(client, "DescribeAlgorithm", input, options)
+  def describe_algorithm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAlgorithm", input, options)
   end
 
   @doc """
@@ -442,8 +461,8 @@ defmodule AWS.Personalize do
   Name (ARN), status, input and output configurations, and the ARN of the solution
   version used to generate the recommendations.
   """
-  def describe_batch_inference_job(client, input, options \\ []) do
-    request(client, "DescribeBatchInferenceJob", input, options)
+  def describe_batch_inference_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeBatchInferenceJob", input, options)
   end
 
   @doc """
@@ -460,8 +479,8 @@ defmodule AWS.Personalize do
 
   For more information on campaigns, see `CreateCampaign`.
   """
-  def describe_campaign(client, input, options \\ []) do
-    request(client, "DescribeCampaign", input, options)
+  def describe_campaign(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCampaign", input, options)
   end
 
   @doc """
@@ -469,8 +488,8 @@ defmodule AWS.Personalize do
 
   For more information on datasets, see `CreateDataset`.
   """
-  def describe_dataset(client, input, options \\ []) do
-    request(client, "DescribeDataset", input, options)
+  def describe_dataset(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataset", input, options)
   end
 
   @doc """
@@ -478,16 +497,16 @@ defmodule AWS.Personalize do
 
   For more information on dataset groups, see `CreateDatasetGroup`.
   """
-  def describe_dataset_group(client, input, options \\ []) do
-    request(client, "DescribeDatasetGroup", input, options)
+  def describe_dataset_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDatasetGroup", input, options)
   end
 
   @doc """
   Describes the dataset import job created by `CreateDatasetImportJob`, including
   the import job status.
   """
-  def describe_dataset_import_job(client, input, options \\ []) do
-    request(client, "DescribeDatasetImportJob", input, options)
+  def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDatasetImportJob", input, options)
   end
 
   @doc """
@@ -496,22 +515,22 @@ defmodule AWS.Personalize do
   The response includes the `trackingId` and `status` of the event tracker. For
   more information on event trackers, see `CreateEventTracker`.
   """
-  def describe_event_tracker(client, input, options \\ []) do
-    request(client, "DescribeEventTracker", input, options)
+  def describe_event_tracker(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEventTracker", input, options)
   end
 
   @doc """
   Describes the given feature transformation.
   """
-  def describe_feature_transformation(client, input, options \\ []) do
-    request(client, "DescribeFeatureTransformation", input, options)
+  def describe_feature_transformation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFeatureTransformation", input, options)
   end
 
   @doc """
   Describes a filter's properties.
   """
-  def describe_filter(client, input, options \\ []) do
-    request(client, "DescribeFilter", input, options)
+  def describe_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFilter", input, options)
   end
 
   @doc """
@@ -534,8 +553,8 @@ defmodule AWS.Personalize do
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   API.
   """
-  def describe_recipe(client, input, options \\ []) do
-    request(client, "DescribeRecipe", input, options)
+  def describe_recipe(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRecipe", input, options)
   end
 
   @doc """
@@ -543,8 +562,8 @@ defmodule AWS.Personalize do
 
   For more information on schemas, see `CreateSchema`.
   """
-  def describe_schema(client, input, options \\ []) do
-    request(client, "DescribeSchema", input, options)
+  def describe_schema(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSchema", input, options)
   end
 
   @doc """
@@ -552,8 +571,8 @@ defmodule AWS.Personalize do
 
   For more information on solutions, see `CreateSolution`.
   """
-  def describe_solution(client, input, options \\ []) do
-    request(client, "DescribeSolution", input, options)
+  def describe_solution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSolution", input, options)
   end
 
   @doc """
@@ -561,23 +580,23 @@ defmodule AWS.Personalize do
 
   For more information on solutions, see `CreateSolution`.
   """
-  def describe_solution_version(client, input, options \\ []) do
-    request(client, "DescribeSolutionVersion", input, options)
+  def describe_solution_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSolutionVersion", input, options)
   end
 
   @doc """
   Gets the metrics for the specified solution version.
   """
-  def get_solution_metrics(client, input, options \\ []) do
-    request(client, "GetSolutionMetrics", input, options)
+  def get_solution_metrics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSolutionMetrics", input, options)
   end
 
   @doc """
   Gets a list of the batch inference jobs that have been performed off of a
   solution version.
   """
-  def list_batch_inference_jobs(client, input, options \\ []) do
-    request(client, "ListBatchInferenceJobs", input, options)
+  def list_batch_inference_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBatchInferenceJobs", input, options)
   end
 
   @doc """
@@ -588,8 +607,8 @@ defmodule AWS.Personalize do
   the Amazon Resource Name (ARN). For more information on campaigns, see
   `CreateCampaign`.
   """
-  def list_campaigns(client, input, options \\ []) do
-    request(client, "ListCampaigns", input, options)
+  def list_campaigns(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCampaigns", input, options)
   end
 
   @doc """
@@ -599,8 +618,8 @@ defmodule AWS.Personalize do
   Amazon Resource Name (ARN). For more information on dataset groups, see
   `CreateDatasetGroup`.
   """
-  def list_dataset_groups(client, input, options \\ []) do
-    request(client, "ListDatasetGroups", input, options)
+  def list_dataset_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatasetGroups", input, options)
   end
 
   @doc """
@@ -612,8 +631,8 @@ defmodule AWS.Personalize do
   import jobs, see `CreateDatasetImportJob`. For more information on datasets, see
   `CreateDataset`.
   """
-  def list_dataset_import_jobs(client, input, options \\ []) do
-    request(client, "ListDatasetImportJobs", input, options)
+  def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatasetImportJobs", input, options)
   end
 
   @doc """
@@ -622,8 +641,8 @@ defmodule AWS.Personalize do
   The response provides the properties for each dataset, including the Amazon
   Resource Name (ARN). For more information on datasets, see `CreateDataset`.
   """
-  def list_datasets(client, input, options \\ []) do
-    request(client, "ListDatasets", input, options)
+  def list_datasets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatasets", input, options)
   end
 
   @doc """
@@ -633,15 +652,15 @@ defmodule AWS.Personalize do
   Amazon Resource Name (ARN) and tracking ID. For more information on event
   trackers, see `CreateEventTracker`.
   """
-  def list_event_trackers(client, input, options \\ []) do
-    request(client, "ListEventTrackers", input, options)
+  def list_event_trackers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEventTrackers", input, options)
   end
 
   @doc """
   Lists all filters that belong to a given dataset group.
   """
-  def list_filters(client, input, options \\ []) do
-    request(client, "ListFilters", input, options)
+  def list_filters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFilters", input, options)
   end
 
   @doc """
@@ -650,8 +669,8 @@ defmodule AWS.Personalize do
   The response provides the properties for each recipe, including the recipe's
   Amazon Resource Name (ARN).
   """
-  def list_recipes(client, input, options \\ []) do
-    request(client, "ListRecipes", input, options)
+  def list_recipes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRecipes", input, options)
   end
 
   @doc """
@@ -660,8 +679,8 @@ defmodule AWS.Personalize do
   The response provides the properties for each schema, including the Amazon
   Resource Name (ARN). For more information on schemas, see `CreateSchema`.
   """
-  def list_schemas(client, input, options \\ []) do
-    request(client, "ListSchemas", input, options)
+  def list_schemas(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSchemas", input, options)
   end
 
   @doc """
@@ -672,8 +691,8 @@ defmodule AWS.Personalize do
   version, including the Amazon Resource Name (ARN). For more information on
   solutions, see `CreateSolution`.
   """
-  def list_solution_versions(client, input, options \\ []) do
-    request(client, "ListSolutionVersions", input, options)
+  def list_solution_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSolutionVersions", input, options)
   end
 
   @doc """
@@ -684,8 +703,8 @@ defmodule AWS.Personalize do
   including the Amazon Resource Name (ARN). For more information on solutions, see
   `CreateSolution`.
   """
-  def list_solutions(client, input, options \\ []) do
-    request(client, "ListSolutions", input, options)
+  def list_solutions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSolutions", input, options)
   end
 
   @doc """
@@ -700,61 +719,7 @@ defmodule AWS.Personalize do
 
   For more information on campaigns, see `CreateCampaign`.
   """
-  def update_campaign(client, input, options \\ []) do
-    request(client, "UpdateCampaign", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "personalize"}
-    host = build_host("personalize", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AmazonPersonalize.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_campaign(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCampaign", input, options)
   end
 end

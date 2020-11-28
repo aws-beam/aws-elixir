@@ -78,6 +78,25 @@ defmodule AWS.KMS do
     * `GenerateDataKeyWithoutPlaintext`
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "KMS",
+      api_version: "2014-11-01",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "kms",
+      global?: false,
+      protocol: "json",
+      service_id: "KMS",
+      signature_version: "v4",
+      signing_name: "kms",
+      target_prefix: "TrentService"
+    }
+  end
+
   @doc """
   Cancels the deletion of a customer master key (CMK).
 
@@ -93,8 +112,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def cancel_key_deletion(client, input, options \\ []) do
-    request(client, "CancelKeyDeletion", input, options)
+  def cancel_key_deletion(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelKeyDeletion", input, options)
   end
 
   @doc """
@@ -138,8 +157,8 @@ defmodule AWS.KMS do
   [Troubleshooting a Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
   in the *AWS Key Management Service Developer Guide*.
   """
-  def connect_custom_key_store(client, input, options \\ []) do
-    request(client, "ConnectCustomKeyStore", input, options)
+  def connect_custom_key_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ConnectCustomKeyStore", input, options)
   end
 
   @doc """
@@ -209,8 +228,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def create_alias(client, input, options \\ []) do
-    request(client, "CreateAlias", input, options)
+  def create_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAlias", input, options)
   end
 
   @doc """
@@ -237,8 +256,8 @@ defmodule AWS.KMS do
   For help with failures, see [Troubleshooting a Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
   in the *AWS Key Management Service Developer Guide*.
   """
-  def create_custom_key_store(client, input, options \\ []) do
-    request(client, "CreateCustomKeyStore", input, options)
+  def create_custom_key_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCustomKeyStore", input, options)
   end
 
   @doc """
@@ -289,8 +308,8 @@ defmodule AWS.KMS do
   Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def create_grant(client, input, options \\ []) do
-    request(client, "CreateGrant", input, options)
+  def create_grant(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGrant", input, options)
   end
 
   @doc """
@@ -360,8 +379,8 @@ defmodule AWS.KMS do
   custom key stores in AWS KMS see [Using Custom Key Stores](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html)
   in the * *AWS Key Management Service Developer Guide* *.
   """
-  def create_key(client, input, options \\ []) do
-    request(client, "CreateKey", input, options)
+  def create_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateKey", input, options)
   end
 
   @doc """
@@ -411,8 +430,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def decrypt(client, input, options \\ []) do
-    request(client, "Decrypt", input, options)
+  def decrypt(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Decrypt", input, options)
   end
 
   @doc """
@@ -430,8 +449,8 @@ defmodule AWS.KMS do
   alias. To associate an existing alias with a different customer master key
   (CMK), call `UpdateAlias`.
   """
-  def delete_alias(client, input, options \\ []) do
-    request(client, "DeleteAlias", input, options)
+  def delete_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAlias", input, options)
   end
 
   @doc """
@@ -467,8 +486,8 @@ defmodule AWS.KMS do
   feature in AWS KMS, which combines the convenience and extensive integration of
   AWS KMS with the isolation and control of a single-tenant key store.
   """
-  def delete_custom_key_store(client, input, options \\ []) do
-    request(client, "DeleteCustomKeyStore", input, options)
+  def delete_custom_key_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCustomKeyStore", input, options)
   end
 
   @doc """
@@ -490,8 +509,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def delete_imported_key_material(client, input, options \\ []) do
-    request(client, "DeleteImportedKeyMaterial", input, options)
+  def delete_imported_key_material(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteImportedKeyMaterial", input, options)
   end
 
   @doc """
@@ -523,8 +542,8 @@ defmodule AWS.KMS do
   For help repairing your custom key store, see the [Troubleshooting Custom Key Stores](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html)
   topic in the *AWS Key Management Service Developer Guide*.
   """
-  def describe_custom_key_stores(client, input, options \\ []) do
-    request(client, "DescribeCustomKeyStores", input, options)
+  def describe_custom_key_stores(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCustomKeyStores", input, options)
   end
 
   @doc """
@@ -566,8 +585,8 @@ defmodule AWS.KMS do
   To perform this operation on a CMK in a different AWS account, specify the key
   ARN or alias ARN in the value of the KeyId parameter.
   """
-  def describe_key(client, input, options \\ []) do
-    request(client, "DescribeKey", input, options)
+  def describe_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeKey", input, options)
   end
 
   @doc """
@@ -584,8 +603,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def disable_key(client, input, options \\ []) do
-    request(client, "DisableKey", input, options)
+  def disable_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableKey", input, options)
   end
 
   @doc """
@@ -600,8 +619,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def disable_key_rotation(client, input, options \\ []) do
-    request(client, "DisableKeyRotation", input, options)
+  def disable_key_rotation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableKeyRotation", input, options)
   end
 
   @doc """
@@ -627,8 +646,8 @@ defmodule AWS.KMS do
   feature in AWS KMS, which combines the convenience and extensive integration of
   AWS KMS with the isolation and control of a single-tenant key store.
   """
-  def disconnect_custom_key_store(client, input, options \\ []) do
-    request(client, "DisconnectCustomKeyStore", input, options)
+  def disconnect_custom_key_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisconnectCustomKeyStore", input, options)
   end
 
   @doc """
@@ -641,8 +660,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def enable_key(client, input, options \\ []) do
-    request(client, "EnableKey", input, options)
+  def enable_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableKey", input, options)
   end
 
   @doc """
@@ -658,8 +677,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def enable_key_rotation(client, input, options \\ []) do
-    request(client, "EnableKeyRotation", input, options)
+  def enable_key_rotation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableKeyRotation", input, options)
   end
 
   @doc """
@@ -742,8 +761,8 @@ defmodule AWS.KMS do
   To perform this operation on a CMK in a different AWS account, specify the key
   ARN or alias ARN in the value of the KeyId parameter.
   """
-  def encrypt(client, input, options \\ []) do
-    request(client, "Encrypt", input, options)
+  def encrypt(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Encrypt", input, options)
   end
 
   @doc """
@@ -807,8 +826,8 @@ defmodule AWS.KMS do
     2. Use the plaintext data key to decrypt data outside of AWS KMS,
   then erase the plaintext data key from memory.
   """
-  def generate_data_key(client, input, options \\ []) do
-    request(client, "GenerateDataKey", input, options)
+  def generate_data_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GenerateDataKey", input, options)
   end
 
   @doc """
@@ -853,8 +872,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def generate_data_key_pair(client, input, options \\ []) do
-    request(client, "GenerateDataKeyPair", input, options)
+  def generate_data_key_pair(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GenerateDataKeyPair", input, options)
   end
 
   @doc """
@@ -890,8 +909,14 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def generate_data_key_pair_without_plaintext(client, input, options \\ []) do
-    request(client, "GenerateDataKeyPairWithoutPlaintext", input, options)
+  def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GenerateDataKeyPairWithoutPlaintext",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -939,8 +964,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def generate_data_key_without_plaintext(client, input, options \\ []) do
-    request(client, "GenerateDataKeyWithoutPlaintext", input, options)
+  def generate_data_key_without_plaintext(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GenerateDataKeyWithoutPlaintext", input, options)
   end
 
   @doc """
@@ -954,8 +979,8 @@ defmodule AWS.KMS do
   Details](https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf)
   whitepaper.
   """
-  def generate_random(client, input, options \\ []) do
-    request(client, "GenerateRandom", input, options)
+  def generate_random(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GenerateRandom", input, options)
   end
 
   @doc """
@@ -963,8 +988,8 @@ defmodule AWS.KMS do
 
   You cannot perform this operation on a CMK in a different AWS account.
   """
-  def get_key_policy(client, input, options \\ []) do
-    request(client, "GetKeyPolicy", input, options)
+  def get_key_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetKeyPolicy", input, options)
   end
 
   @doc """
@@ -990,8 +1015,8 @@ defmodule AWS.KMS do
   To perform this operation on a CMK in a different AWS account, specify the key
   ARN in the value of the `KeyId` parameter.
   """
-  def get_key_rotation_status(client, input, options \\ []) do
-    request(client, "GetKeyRotationStatus", input, options)
+  def get_key_rotation_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetKeyRotationStatus", input, options)
   end
 
   @doc """
@@ -1022,8 +1047,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def get_parameters_for_import(client, input, options \\ []) do
-    request(client, "GetParametersForImport", input, options)
+  def get_parameters_for_import(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetParametersForImport", input, options)
   end
 
   @doc """
@@ -1071,8 +1096,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def get_public_key(client, input, options \\ []) do
-    request(client, "GetPublicKey", input, options)
+  def get_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPublicKey", input, options)
   end
 
   @doc """
@@ -1127,8 +1152,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def import_key_material(client, input, options \\ []) do
-    request(client, "ImportKeyMaterial", input, options)
+  def import_key_material(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportKeyMaterial", input, options)
   end
 
   @doc """
@@ -1151,8 +1176,8 @@ defmodule AWS.KMS do
   CMK. Aliases that AWS creates in your account, including predefined aliases, do
   not count against your [AWS KMS aliases quota](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit).
   """
-  def list_aliases(client, input, options \\ []) do
-    request(client, "ListAliases", input, options)
+  def list_aliases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAliases", input, options)
   end
 
   @doc """
@@ -1167,8 +1192,8 @@ defmodule AWS.KMS do
   contains the [service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services),
   which might represent several different grantee principals.
   """
-  def list_grants(client, input, options \\ []) do
-    request(client, "ListGrants", input, options)
+  def list_grants(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGrants", input, options)
   end
 
   @doc """
@@ -1179,16 +1204,16 @@ defmodule AWS.KMS do
   `GetKeyPolicy` operation. However, the only valid policy name is `default`. You
   cannot perform this operation on a CMK in a different AWS account.
   """
-  def list_key_policies(client, input, options \\ []) do
-    request(client, "ListKeyPolicies", input, options)
+  def list_key_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListKeyPolicies", input, options)
   end
 
   @doc """
   Gets a list of all customer master keys (CMKs) in the caller's AWS account and
   Region.
   """
-  def list_keys(client, input, options \\ []) do
-    request(client, "ListKeys", input, options)
+  def list_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListKeys", input, options)
   end
 
   @doc """
@@ -1196,8 +1221,8 @@ defmodule AWS.KMS do
 
   You cannot perform this operation on a CMK in a different AWS account.
   """
-  def list_resource_tags(client, input, options \\ []) do
-    request(client, "ListResourceTags", input, options)
+  def list_resource_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListResourceTags", input, options)
   end
 
   @doc """
@@ -1207,8 +1232,8 @@ defmodule AWS.KMS do
   A typical use is to list all grants that you are able to retire. To retire a
   grant, use `RetireGrant`.
   """
-  def list_retirable_grants(client, input, options \\ []) do
-    request(client, "ListRetirableGrants", input, options)
+  def list_retirable_grants(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRetirableGrants", input, options)
   end
 
   @doc """
@@ -1219,8 +1244,8 @@ defmodule AWS.KMS do
   For more information about key policies, see [Key Policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
   in the *AWS Key Management Service Developer Guide*.
   """
-  def put_key_policy(client, input, options \\ []) do
-    request(client, "PutKeyPolicy", input, options)
+  def put_key_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutKeyPolicy", input, options)
   end
 
   @doc """
@@ -1290,8 +1315,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def re_encrypt(client, input, options \\ []) do
-    request(client, "ReEncrypt", input, options)
+  def re_encrypt(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ReEncrypt", input, options)
   end
 
   @doc """
@@ -1314,8 +1339,8 @@ defmodule AWS.KMS do
   ID is a 64 character unique identifier of a grant. The `CreateGrant` operation
   returns both.
   """
-  def retire_grant(client, input, options \\ []) do
-    request(client, "RetireGrant", input, options)
+  def retire_grant(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RetireGrant", input, options)
   end
 
   @doc """
@@ -1326,8 +1351,8 @@ defmodule AWS.KMS do
   To perform this operation on a CMK in a different AWS account, specify the key
   ARN in the value of the `KeyId` parameter.
   """
-  def revoke_grant(client, input, options \\ []) do
-    request(client, "RevokeGrant", input, options)
+  def revoke_grant(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RevokeGrant", input, options)
   end
 
   @doc """
@@ -1362,8 +1387,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def schedule_key_deletion(client, input, options \\ []) do
-    request(client, "ScheduleKeyDeletion", input, options)
+  def schedule_key_deletion(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ScheduleKeyDeletion", input, options)
   end
 
   @doc """
@@ -1407,8 +1432,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def sign(client, input, options \\ []) do
-    request(client, "Sign", input, options)
+  def sign(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Sign", input, options)
   end
 
   @doc """
@@ -1430,8 +1455,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
@@ -1446,8 +1471,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -1477,8 +1502,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def update_alias(client, input, options \\ []) do
-    request(client, "UpdateAlias", input, options)
+  def update_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAlias", input, options)
   end
 
   @doc """
@@ -1519,8 +1544,8 @@ defmodule AWS.KMS do
   feature in AWS KMS, which combines the convenience and extensive integration of
   AWS KMS with the isolation and control of a single-tenant key store.
   """
-  def update_custom_key_store(client, input, options \\ []) do
-    request(client, "UpdateCustomKeyStore", input, options)
+  def update_custom_key_store(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCustomKeyStore", input, options)
   end
 
   @doc """
@@ -1534,8 +1559,8 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def update_key_description(client, input, options \\ []) do
-    request(client, "UpdateKeyDescription", input, options)
+  def update_key_description(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateKeyDescription", input, options)
   end
 
   @doc """
@@ -1570,61 +1595,7 @@ defmodule AWS.KMS do
   details, see [How Key State Affects Use of a Customer Master Key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *AWS Key Management Service Developer Guide*.
   """
-  def verify(client, input, options \\ []) do
-    request(client, "Verify", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "kms"}
-    host = build_host("kms", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "TrentService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def verify(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Verify", input, options)
   end
 end

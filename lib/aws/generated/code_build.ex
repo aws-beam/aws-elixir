@@ -119,53 +119,72 @@ defmodule AWS.CodeBuild do
     * `UpdateWebhook`: Changes the settings of an existing webhook.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2016-10-06",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "codebuild",
+      global?: false,
+      protocol: "json",
+      service_id: "CodeBuild",
+      signature_version: "v4",
+      signing_name: "codebuild",
+      target_prefix: "CodeBuild_20161006"
+    }
+  end
+
   @doc """
   Deletes one or more builds.
   """
-  def batch_delete_builds(client, input, options \\ []) do
-    request(client, "BatchDeleteBuilds", input, options)
+  def batch_delete_builds(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteBuilds", input, options)
   end
 
   @doc """
   Retrieves information about one or more batch builds.
   """
-  def batch_get_build_batches(client, input, options \\ []) do
-    request(client, "BatchGetBuildBatches", input, options)
+  def batch_get_build_batches(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetBuildBatches", input, options)
   end
 
   @doc """
   Gets information about one or more builds.
   """
-  def batch_get_builds(client, input, options \\ []) do
-    request(client, "BatchGetBuilds", input, options)
+  def batch_get_builds(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetBuilds", input, options)
   end
 
   @doc """
   Gets information about one or more build projects.
   """
-  def batch_get_projects(client, input, options \\ []) do
-    request(client, "BatchGetProjects", input, options)
+  def batch_get_projects(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetProjects", input, options)
   end
 
   @doc """
   Returns an array of report groups.
   """
-  def batch_get_report_groups(client, input, options \\ []) do
-    request(client, "BatchGetReportGroups", input, options)
+  def batch_get_report_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetReportGroups", input, options)
   end
 
   @doc """
   Returns an array of reports.
   """
-  def batch_get_reports(client, input, options \\ []) do
-    request(client, "BatchGetReports", input, options)
+  def batch_get_reports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetReports", input, options)
   end
 
   @doc """
   Creates a build project.
   """
-  def create_project(client, input, options \\ []) do
-    request(client, "CreateProject", input, options)
+  def create_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateProject", input, options)
   end
 
   @doc """
@@ -173,8 +192,8 @@ defmodule AWS.CodeBuild do
 
   A report group contains a collection of reports.
   """
-  def create_report_group(client, input, options \\ []) do
-    request(client, "CreateReportGroup", input, options)
+  def create_report_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateReportGroup", input, options)
   end
 
   @doc """
@@ -190,15 +209,15 @@ defmodule AWS.CodeBuild do
   disable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the
   Webhook box. For more information, see step 5 in [Change a Build Project's Settings](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console).
   """
-  def create_webhook(client, input, options \\ []) do
-    request(client, "CreateWebhook", input, options)
+  def create_webhook(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWebhook", input, options)
   end
 
   @doc """
   Deletes a batch build.
   """
-  def delete_build_batch(client, input, options \\ []) do
-    request(client, "DeleteBuildBatch", input, options)
+  def delete_build_batch(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBuildBatch", input, options)
   end
 
   @doc """
@@ -206,15 +225,15 @@ defmodule AWS.CodeBuild do
 
   When you delete a project, its builds are not deleted.
   """
-  def delete_project(client, input, options \\ []) do
-    request(client, "DeleteProject", input, options)
+  def delete_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProject", input, options)
   end
 
   @doc """
   Deletes a report.
   """
-  def delete_report(client, input, options \\ []) do
-    request(client, "DeleteReport", input, options)
+  def delete_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteReport", input, options)
   end
 
   @doc """
@@ -222,22 +241,22 @@ defmodule AWS.CodeBuild do
 
   Before you delete a report group, you must delete its reports.
   """
-  def delete_report_group(client, input, options \\ []) do
-    request(client, "DeleteReportGroup", input, options)
+  def delete_report_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteReportGroup", input, options)
   end
 
   @doc """
   Deletes a resource policy that is identified by its resource ARN.
   """
-  def delete_resource_policy(client, input, options \\ []) do
-    request(client, "DeleteResourcePolicy", input, options)
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteResourcePolicy", input, options)
   end
 
   @doc """
   Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
   """
-  def delete_source_credentials(client, input, options \\ []) do
-    request(client, "DeleteSourceCredentials", input, options)
+  def delete_source_credentials(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSourceCredentials", input, options)
   end
 
   @doc """
@@ -245,193 +264,202 @@ defmodule AWS.CodeBuild do
   GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding the source
   code every time a code change is pushed to the repository.
   """
-  def delete_webhook(client, input, options \\ []) do
-    request(client, "DeleteWebhook", input, options)
+  def delete_webhook(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWebhook", input, options)
   end
 
   @doc """
   Retrieves one or more code coverage reports.
   """
-  def describe_code_coverages(client, input, options \\ []) do
-    request(client, "DescribeCodeCoverages", input, options)
+  def describe_code_coverages(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCodeCoverages", input, options)
   end
 
   @doc """
   Returns a list of details about test cases for a report.
   """
-  def describe_test_cases(client, input, options \\ []) do
-    request(client, "DescribeTestCases", input, options)
+  def describe_test_cases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTestCases", input, options)
+  end
+
+  @doc """
+
+  """
+  def get_report_group_trend(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetReportGroupTrend", input, options)
   end
 
   @doc """
   Gets a resource policy that is identified by its resource ARN.
   """
-  def get_resource_policy(client, input, options \\ []) do
-    request(client, "GetResourcePolicy", input, options)
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResourcePolicy", input, options)
   end
 
   @doc """
   Imports the source repository credentials for an AWS CodeBuild project that has
   its source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
   """
-  def import_source_credentials(client, input, options \\ []) do
-    request(client, "ImportSourceCredentials", input, options)
+  def import_source_credentials(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportSourceCredentials", input, options)
   end
 
   @doc """
   Resets the cache for a project.
   """
-  def invalidate_project_cache(client, input, options \\ []) do
-    request(client, "InvalidateProjectCache", input, options)
+  def invalidate_project_cache(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "InvalidateProjectCache", input, options)
   end
 
   @doc """
   Retrieves the identifiers of your build batches in the current region.
   """
-  def list_build_batches(client, input, options \\ []) do
-    request(client, "ListBuildBatches", input, options)
+  def list_build_batches(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBuildBatches", input, options)
   end
 
   @doc """
   Retrieves the identifiers of the build batches for a specific project.
   """
-  def list_build_batches_for_project(client, input, options \\ []) do
-    request(client, "ListBuildBatchesForProject", input, options)
+  def list_build_batches_for_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBuildBatchesForProject", input, options)
   end
 
   @doc """
   Gets a list of build IDs, with each build ID representing a single build.
   """
-  def list_builds(client, input, options \\ []) do
-    request(client, "ListBuilds", input, options)
+  def list_builds(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBuilds", input, options)
   end
 
   @doc """
   Gets a list of build IDs for the specified build project, with each build ID
   representing a single build.
   """
-  def list_builds_for_project(client, input, options \\ []) do
-    request(client, "ListBuildsForProject", input, options)
+  def list_builds_for_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBuildsForProject", input, options)
   end
 
   @doc """
   Gets information about Docker images that are managed by AWS CodeBuild.
   """
-  def list_curated_environment_images(client, input, options \\ []) do
-    request(client, "ListCuratedEnvironmentImages", input, options)
+  def list_curated_environment_images(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCuratedEnvironmentImages", input, options)
   end
 
   @doc """
   Gets a list of build project names, with each build project name representing a
   single build project.
   """
-  def list_projects(client, input, options \\ []) do
-    request(client, "ListProjects", input, options)
+  def list_projects(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListProjects", input, options)
   end
 
   @doc """
   Gets a list ARNs for the report groups in the current AWS account.
   """
-  def list_report_groups(client, input, options \\ []) do
-    request(client, "ListReportGroups", input, options)
+  def list_report_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReportGroups", input, options)
   end
 
   @doc """
   Returns a list of ARNs for the reports in the current AWS account.
   """
-  def list_reports(client, input, options \\ []) do
-    request(client, "ListReports", input, options)
+  def list_reports(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReports", input, options)
   end
 
   @doc """
   Returns a list of ARNs for the reports that belong to a `ReportGroup`.
   """
-  def list_reports_for_report_group(client, input, options \\ []) do
-    request(client, "ListReportsForReportGroup", input, options)
+  def list_reports_for_report_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReportsForReportGroup", input, options)
   end
 
   @doc """
   Gets a list of projects that are shared with other AWS accounts or users.
   """
-  def list_shared_projects(client, input, options \\ []) do
-    request(client, "ListSharedProjects", input, options)
+  def list_shared_projects(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSharedProjects", input, options)
   end
 
   @doc """
   Gets a list of report groups that are shared with other AWS accounts or users.
   """
-  def list_shared_report_groups(client, input, options \\ []) do
-    request(client, "ListSharedReportGroups", input, options)
+  def list_shared_report_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSharedReportGroups", input, options)
   end
 
   @doc """
   Returns a list of `SourceCredentialsInfo` objects.
   """
-  def list_source_credentials(client, input, options \\ []) do
-    request(client, "ListSourceCredentials", input, options)
+  def list_source_credentials(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSourceCredentials", input, options)
   end
 
   @doc """
   Stores a resource policy for the ARN of a `Project` or `ReportGroup` object.
   """
-  def put_resource_policy(client, input, options \\ []) do
-    request(client, "PutResourcePolicy", input, options)
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutResourcePolicy", input, options)
   end
 
   @doc """
   Restarts a build.
   """
-  def retry_build(client, input, options \\ []) do
-    request(client, "RetryBuild", input, options)
+  def retry_build(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RetryBuild", input, options)
   end
 
   @doc """
-  Restarts a batch build.
+  Restarts a failed batch build.
+
+  Only batch builds that have failed can be retried.
   """
-  def retry_build_batch(client, input, options \\ []) do
-    request(client, "RetryBuildBatch", input, options)
+  def retry_build_batch(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RetryBuildBatch", input, options)
   end
 
   @doc """
   Starts running a build.
   """
-  def start_build(client, input, options \\ []) do
-    request(client, "StartBuild", input, options)
+  def start_build(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartBuild", input, options)
   end
 
   @doc """
   Starts a batch build for a project.
   """
-  def start_build_batch(client, input, options \\ []) do
-    request(client, "StartBuildBatch", input, options)
+  def start_build_batch(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartBuildBatch", input, options)
   end
 
   @doc """
   Attempts to stop running a build.
   """
-  def stop_build(client, input, options \\ []) do
-    request(client, "StopBuild", input, options)
+  def stop_build(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopBuild", input, options)
   end
 
   @doc """
   Stops a running batch build.
   """
-  def stop_build_batch(client, input, options \\ []) do
-    request(client, "StopBuildBatch", input, options)
+  def stop_build_batch(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopBuildBatch", input, options)
   end
 
   @doc """
   Changes the settings of a build project.
   """
-  def update_project(client, input, options \\ []) do
-    request(client, "UpdateProject", input, options)
+  def update_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateProject", input, options)
   end
 
   @doc """
   Updates a report group.
   """
-  def update_report_group(client, input, options \\ []) do
-    request(client, "UpdateReportGroup", input, options)
+  def update_report_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateReportGroup", input, options)
   end
 
   @doc """
@@ -439,61 +467,7 @@ defmodule AWS.CodeBuild do
 
   If you use Bitbucket for your repository, `rotateSecret` is ignored.
   """
-  def update_webhook(client, input, options \\ []) do
-    request(client, "UpdateWebhook", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "codebuild"}
-    host = build_host("codebuild", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "CodeBuild_20161006.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_webhook(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateWebhook", input, options)
   end
 end

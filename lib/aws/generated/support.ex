@@ -65,6 +65,25 @@ defmodule AWS.Support do
   checks on your resources.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2013-04-15",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "support",
+      global?: false,
+      protocol: "json",
+      service_id: "Support",
+      signature_version: "v4",
+      signing_name: "support",
+      target_prefix: "AWSSupport_20130415"
+    }
+  end
+
   @doc """
   Adds one or more attachments to an attachment set.
 
@@ -79,8 +98,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def add_attachments_to_set(client, input, options \\ []) do
-    request(client, "AddAttachmentsToSet", input, options)
+  def add_attachments_to_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddAttachmentsToSet", input, options)
   end
 
   @doc """
@@ -98,8 +117,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def add_communication_to_case(client, input, options \\ []) do
-    request(client, "AddCommunicationToCase", input, options)
+  def add_communication_to_case(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddCommunicationToCase", input, options)
   end
 
   @doc """
@@ -131,8 +150,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def create_case(client, input, options \\ []) do
-    request(client, "CreateCase", input, options)
+  def create_case(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCase", input, options)
   end
 
   @doc """
@@ -151,8 +170,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_attachment(client, input, options \\ []) do
-    request(client, "DescribeAttachment", input, options)
+  def describe_attachment(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAttachment", input, options)
   end
 
   @doc """
@@ -181,8 +200,8 @@ defmodule AWS.Support do
   message appears. For information about changing your support plan, see [AWS
   Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_cases(client, input, options \\ []) do
-    request(client, "DescribeCases", input, options)
+  def describe_cases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCases", input, options)
   end
 
   @doc """
@@ -206,8 +225,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_communications(client, input, options \\ []) do
-    request(client, "DescribeCommunications", input, options)
+  def describe_communications(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCommunications", input, options)
   end
 
   @doc """
@@ -231,8 +250,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_services(client, input, options \\ []) do
-    request(client, "DescribeServices", input, options)
+  def describe_services(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeServices", input, options)
   end
 
   @doc """
@@ -248,8 +267,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_severity_levels(client, input, options \\ []) do
-    request(client, "DescribeSeverityLevels", input, options)
+  def describe_severity_levels(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSeverityLevels", input, options)
   end
 
   @doc """
@@ -271,8 +290,14 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_trusted_advisor_check_refresh_statuses(client, input, options \\ []) do
-    request(client, "DescribeTrustedAdvisorCheckRefreshStatuses", input, options)
+  def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeTrustedAdvisorCheckRefreshStatuses",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -307,8 +332,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_trusted_advisor_check_result(client, input, options \\ []) do
-    request(client, "DescribeTrustedAdvisorCheckResult", input, options)
+  def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTrustedAdvisorCheckResult", input, options)
   end
 
   @doc """
@@ -327,8 +352,14 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_trusted_advisor_check_summaries(client, input, options \\ []) do
-    request(client, "DescribeTrustedAdvisorCheckSummaries", input, options)
+  def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeTrustedAdvisorCheckSummaries",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -347,8 +378,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def describe_trusted_advisor_checks(client, input, options \\ []) do
-    request(client, "DescribeTrustedAdvisorChecks", input, options)
+  def describe_trusted_advisor_checks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTrustedAdvisorChecks", input, options)
   end
 
   @doc """
@@ -370,8 +401,8 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def refresh_trusted_advisor_check(client, input, options \\ []) do
-    request(client, "RefreshTrustedAdvisorCheck", input, options)
+  def refresh_trusted_advisor_check(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RefreshTrustedAdvisorCheck", input, options)
   end
 
   @doc """
@@ -387,61 +418,7 @@ defmodule AWS.Support do
   a Business or Enterprise support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
-  def resolve_case(client, input, options \\ []) do
-    request(client, "ResolveCase", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "support"}
-    host = build_host("support", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSSupport_20130415.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def resolve_case(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResolveCase", input, options)
   end
 end

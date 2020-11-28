@@ -11,27 +11,68 @@ defmodule AWS.IoT1ClickDevices do
   protocols.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2018-05-14",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "devices.iot1click",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "IoT 1Click Devices Service",
+      signature_version: "v4",
+      signing_name: "iot1click",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Adds device(s) to your account (i.e., claim one or more devices) if and only if
   you
   received a claim code with the device(s).
   """
-  def claim_devices_by_claim_code(client, claim_code, input, options \\ []) do
-    path_ = "/claims/#{URI.encode(claim_code)}"
+  def claim_devices_by_claim_code(%Client{} = client, claim_code, input, options \\ []) do
+    url_path = "/claims/#{URI.encode(claim_code)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Given a device ID, returns a DescribeDeviceResponse object describing the
   details of the device.
   """
-  def describe_device(client, device_id, options \\ []) do
-    path_ = "/devices/#{URI.encode(device_id)}"
+  def describe_device(%Client{} = client, device_id, options \\ []) do
+    url_path = "/devices/#{URI.encode(device_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -42,21 +83,43 @@ defmodule AWS.IoT1ClickDevices do
   and finalizing the claim. For a device of type button, a device event can
   be published by simply clicking the device.
   """
-  def finalize_device_claim(client, device_id, input, options \\ []) do
-    path_ = "/devices/#{URI.encode(device_id)}/finalize-claim"
+  def finalize_device_claim(%Client{} = client, device_id, input, options \\ []) do
+    url_path = "/devices/#{URI.encode(device_id)}/finalize-claim"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Given a device ID, returns the invokable methods associated with the device.
   """
-  def get_device_methods(client, device_id, options \\ []) do
-    path_ = "/devices/#{URI.encode(device_id)}/methods"
+  def get_device_methods(%Client{} = client, device_id, options \\ []) do
+    url_path = "/devices/#{URI.encode(device_id)}/methods"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -67,11 +130,22 @@ defmodule AWS.IoT1ClickDevices do
   and finalizing the claim. For a device of type button, a device event can
   be published by simply clicking the device.
   """
-  def initiate_device_claim(client, device_id, input, options \\ []) do
-    path_ = "/devices/#{URI.encode(device_id)}/initiate-claim"
+  def initiate_device_claim(%Client{} = client, device_id, input, options \\ []) do
+    url_path = "/devices/#{URI.encode(device_id)}/initiate-claim"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -81,77 +155,149 @@ defmodule AWS.IoT1ClickDevices do
 
   See the "Example POST" code snippet below.
   """
-  def invoke_device_method(client, device_id, input, options \\ []) do
-    path_ = "/devices/#{URI.encode(device_id)}/methods"
+  def invoke_device_method(%Client{} = client, device_id, input, options \\ []) do
+    url_path = "/devices/#{URI.encode(device_id)}/methods"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Using a device ID, returns a DeviceEventsResponse object containing an
   array of events for the device.
   """
-  def list_device_events(client, device_id, from_time_stamp, max_results \\ nil, next_token \\ nil, to_time_stamp, options \\ []) do
-    path_ = "/devices/#{URI.encode(device_id)}/events"
+  def list_device_events(
+        %Client{} = client,
+        device_id,
+        from_time_stamp,
+        max_results \\ nil,
+        next_token \\ nil,
+        to_time_stamp,
+        options \\ []
+      ) do
+    url_path = "/devices/#{URI.encode(device_id)}/events"
     headers = []
-    query_ = []
-    query_ = if !is_nil(to_time_stamp) do
-      [{"toTimeStamp", to_time_stamp} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(from_time_stamp) do
-      [{"fromTimeStamp", from_time_stamp} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(to_time_stamp) do
+        [{"toTimeStamp", to_time_stamp} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(from_time_stamp) do
+        [{"fromTimeStamp", from_time_stamp} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the 1-Click compatible devices associated with your AWS account.
   """
-  def list_devices(client, device_type \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/devices"
+  def list_devices(
+        %Client{} = client,
+        device_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/devices"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(device_type) do
-      [{"deviceType", device_type} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(device_type) do
+        [{"deviceType", device_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists the tags associated with the specified resource ARN.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -161,110 +307,91 @@ defmodule AWS.IoT1ClickDevices do
   for the maximum number of tags allowed per
   resource.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 204)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Disassociates a device from your AWS account using its device ID.
   """
-  def unclaim_device(client, device_id, input, options \\ []) do
-    path_ = "/devices/#{URI.encode(device_id)}/unclaim"
+  def unclaim_device(%Client{} = client, device_id, input, options \\ []) do
+    url_path = "/devices/#{URI.encode(device_id)}/unclaim"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Using tag keys, deletes the tags (key/value pairs) associated with the specified
   resource ARN.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"TagKeys", "tagKeys"},
+        {"TagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, 204)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
   Using a Boolean value (true or false), this operation
   enables or disables the device given a device ID.
   """
-  def update_device_state(client, device_id, input, options \\ []) do
-    path_ = "/devices/#{URI.encode(device_id)}/state"
+  def update_device_state(%Client{} = client, device_id, input, options \\ []) do
+    url_path = "/devices/#{URI.encode(device_id)}/state"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, 200)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "iot1click"}
-    host = build_host("devices.iot1click", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

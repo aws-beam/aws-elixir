@@ -26,6 +26,25 @@ defmodule AWS.IoT do
   [Authorizing Direct Calls to AWS Services](https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2015-05-28",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "iot",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "IoT",
+      signature_version: "v4",
+      signing_name: "execute-api",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Accepts a pending certificate transfer.
 
@@ -34,35 +53,69 @@ defmodule AWS.IoT do
   To check for pending certificate transfers, call `ListCertificates` to enumerate
   your certificates.
   """
-  def accept_certificate_transfer(client, certificate_id, input, options \\ []) do
-    path_ = "/accept-certificate-transfer/#{URI.encode(certificate_id)}"
+  def accept_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
+    url_path = "/accept-certificate-transfer/#{URI.encode(certificate_id)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"setAsActive", "setAsActive"},
+        {"setAsActive", "setAsActive"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :patch, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Adds a thing to a billing group.
   """
-  def add_thing_to_billing_group(client, input, options \\ []) do
-    path_ = "/billing-groups/addThingToBillingGroup"
+  def add_thing_to_billing_group(%Client{} = client, input, options \\ []) do
+    url_path = "/billing-groups/addThingToBillingGroup"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Adds a thing to a thing group.
   """
-  def add_thing_to_thing_group(client, input, options \\ []) do
-    path_ = "/thing-groups/addThingToThingGroup"
+  def add_thing_to_thing_group(%Client{} = client, input, options \\ []) do
+    url_path = "/thing-groups/addThingToThingGroup"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -78,21 +131,48 @@ defmodule AWS.IoT do
     * The total number of targets associated with a job must not exceed
   100.
   """
-  def associate_targets_with_job(client, job_id, input, options \\ []) do
-    path_ = "/jobs/#{URI.encode(job_id)}/targets"
+  def associate_targets_with_job(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/jobs/#{URI.encode(job_id)}/targets"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+
+    {query_params, input} =
+      [
+        {"namespaceId", "namespaceId"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Attaches a policy to the specified target.
   """
-  def attach_policy(client, policy_name, input, options \\ []) do
-    path_ = "/target-policies/#{URI.encode(policy_name)}"
+  def attach_policy(%Client{} = client, policy_name, input, options \\ []) do
+    url_path = "/target-policies/#{URI.encode(policy_name)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -101,15 +181,28 @@ defmodule AWS.IoT do
 
   **Note:** This API is deprecated. Please use `AttachPolicy` instead.
   """
-  def attach_principal_policy(client, policy_name, input, options \\ []) do
-    path_ = "/principal-policies/#{URI.encode(policy_name)}"
+  def attach_principal_policy(%Client{} = client, policy_name, input, options \\ []) do
+    url_path = "/principal-policies/#{URI.encode(policy_name)}"
+
     {headers, input} =
       [
-        {"principal", "x-amzn-iot-principal"},
+        {"principal", "x-amzn-iot-principal"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -119,15 +212,27 @@ defmodule AWS.IoT do
   Each thing group or account can have up to five security profiles associated
   with it.
   """
-  def attach_security_profile(client, security_profile_name, input, options \\ []) do
-    path_ = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+  def attach_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
+    url_path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"securityProfileTargetArn", "securityProfileTargetArn"},
+        {"securityProfileTargetArn", "securityProfileTargetArn"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -136,15 +241,28 @@ defmodule AWS.IoT do
   A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
   Cognito identities or federated identities.
   """
-  def attach_thing_principal(client, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/principals"
+  def attach_thing_principal(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}/principals"
+
     {headers, input} =
       [
-        {"principal", "x-amzn-principal"},
+        {"principal", "x-amzn-principal"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -152,11 +270,22 @@ defmodule AWS.IoT do
 
   If the task is not in progress, an InvalidRequestException occurs.
   """
-  def cancel_audit_mitigation_actions_task(client, task_id, input, options \\ []) do
-    path_ = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}/cancel"
+  def cancel_audit_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
+    url_path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}/cancel"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -165,11 +294,22 @@ defmodule AWS.IoT do
   The audit can be either scheduled or on-demand. If the audit is not in progress,
   an "InvalidRequestException" occurs.
   """
-  def cancel_audit_task(client, task_id, input, options \\ []) do
-    path_ = "/audit/tasks/#{URI.encode(task_id)}/cancel"
+  def cancel_audit_task(%Client{} = client, task_id, input, options \\ []) do
+    url_path = "/audit/tasks/#{URI.encode(task_id)}/cancel"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -184,49 +324,95 @@ defmodule AWS.IoT do
   After a certificate transfer is cancelled, the status of the certificate changes
   from PENDING_TRANSFER to INACTIVE.
   """
-  def cancel_certificate_transfer(client, certificate_id, input, options \\ []) do
-    path_ = "/cancel-certificate-transfer/#{URI.encode(certificate_id)}"
+  def cancel_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
+    url_path = "/cancel-certificate-transfer/#{URI.encode(certificate_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Cancels a job.
   """
-  def cancel_job(client, job_id, input, options \\ []) do
-    path_ = "/jobs/#{URI.encode(job_id)}/cancel"
+  def cancel_job(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/jobs/#{URI.encode(job_id)}/cancel"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"force", "force"},
+        {"force", "force"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Cancels the execution of a job for a given thing.
   """
-  def cancel_job_execution(client, job_id, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/cancel"
+  def cancel_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/cancel"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"force", "force"},
+        {"force", "force"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Clears the default authorizer.
   """
-  def clear_default_authorizer(client, input, options \\ []) do
-    path_ = "/default-authorizer"
+  def clear_default_authorizer(%Client{} = client, input, options \\ []) do
+    url_path = "/default-authorizer"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -237,41 +423,85 @@ defmodule AWS.IoT do
   token which you pass back when calling `ConfirmTopicRuleDestination` to confirm
   that you own or have access to the endpoint.
   """
-  def confirm_topic_rule_destination(client, confirmation_token, options \\ []) do
-    path_ = "/confirmdestination/#{AWS.Util.encode_uri(confirmation_token, true)}"
+  def confirm_topic_rule_destination(%Client{} = client, confirmation_token, options \\ []) do
+    url_path = "/confirmdestination/#{AWS.Util.encode_uri(confirmation_token, true)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a Device Defender audit suppression.
   """
-  def create_audit_suppression(client, input, options \\ []) do
-    path_ = "/audit/suppressions/create"
+  def create_audit_suppression(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/suppressions/create"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates an authorizer.
   """
-  def create_authorizer(client, authorizer_name, input, options \\ []) do
-    path_ = "/authorizer/#{URI.encode(authorizer_name)}"
+  def create_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
+    url_path = "/authorizer/#{URI.encode(authorizer_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a billing group.
   """
-  def create_billing_group(client, billing_group_name, input, options \\ []) do
-    path_ = "/billing-groups/#{URI.encode(billing_group_name)}"
+  def create_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
+    url_path = "/billing-groups/#{URI.encode(billing_group_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -317,15 +547,27 @@ defmodule AWS.IoT do
   > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
   --certificate-signing-request file://@path"
   """
-  def create_certificate_from_csr(client, input, options \\ []) do
-    path_ = "/certificates"
+  def create_certificate_from_csr(%Client{} = client, input, options \\ []) do
+    url_path = "/certificates"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"setAsActive", "setAsActive"},
+        {"setAsActive", "setAsActive"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -336,11 +578,22 @@ defmodule AWS.IoT do
   the metric only to MQTT topics whose name match the pattern specified in the
   dimension.
   """
-  def create_dimension(client, name, input, options \\ []) do
-    path_ = "/dimensions/#{URI.encode(name)}"
+  def create_dimension(%Client{} = client, name, input, options \\ []) do
+    url_path = "/dimensions/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -348,31 +601,69 @@ defmodule AWS.IoT do
 
   The domain configuration feature is in public preview and is subject to change.
   """
-  def create_domain_configuration(client, domain_configuration_name, input, options \\ []) do
-    path_ = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+  def create_domain_configuration(
+        %Client{} = client,
+        domain_configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a dynamic thing group.
   """
-  def create_dynamic_thing_group(client, thing_group_name, input, options \\ []) do
-    path_ = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+  def create_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
+    url_path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a job.
   """
-  def create_job(client, job_id, input, options \\ []) do
-    path_ = "/jobs/#{URI.encode(job_id)}"
+  def create_job(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/jobs/#{URI.encode(job_id)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -385,15 +676,27 @@ defmodule AWS.IoT do
   **Note** This is the only time AWS IoT issues the private key for this
   certificate, so it is important to keep it in a secure location.
   """
-  def create_keys_and_certificate(client, input, options \\ []) do
-    path_ = "/keys-and-certificate"
+  def create_keys_and_certificate(%Client{} = client, input, options \\ []) do
+    url_path = "/keys-and-certificate"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"setAsActive", "setAsActive"},
+        {"setAsActive", "setAsActive"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -404,21 +707,43 @@ defmodule AWS.IoT do
   For more information, see [Mitigation actions](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html).
   Each mitigation action can apply only one type of change.
   """
-  def create_mitigation_action(client, action_name, input, options \\ []) do
-    path_ = "/mitigationactions/actions/#{URI.encode(action_name)}"
+  def create_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
+    url_path = "/mitigationactions/actions/#{URI.encode(action_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates an AWS IoT OTAUpdate on a target group of things or groups.
   """
-  def create_o_t_a_update(client, ota_update_id, input, options \\ []) do
-    path_ = "/otaUpdates/#{URI.encode(ota_update_id)}"
+  def create_o_t_a_update(%Client{} = client, ota_update_id, input, options \\ []) do
+    url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -428,11 +753,22 @@ defmodule AWS.IoT do
   a policy version with a version identifier of **1** and sets **1** as the
   policy's default version.
   """
-  def create_policy(client, policy_name, input, options \\ []) do
-    path_ = "/policies/#{URI.encode(policy_name)}"
+  def create_policy(%Client{} = client, policy_name, input, options \\ []) do
+    url_path = "/policies/#{URI.encode(policy_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -446,79 +782,163 @@ defmodule AWS.IoT do
   default version is the operative version (that is, the version that is in effect
   for the certificates to which the policy is attached).
   """
-  def create_policy_version(client, policy_name, input, options \\ []) do
-    path_ = "/policies/#{URI.encode(policy_name)}/version"
+  def create_policy_version(%Client{} = client, policy_name, input, options \\ []) do
+    url_path = "/policies/#{URI.encode(policy_name)}/version"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"setAsDefault", "setAsDefault"},
+        {"setAsDefault", "setAsDefault"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a provisioning claim.
   """
-  def create_provisioning_claim(client, template_name, input, options \\ []) do
-    path_ = "/provisioning-templates/#{URI.encode(template_name)}/provisioning-claim"
+  def create_provisioning_claim(%Client{} = client, template_name, input, options \\ []) do
+    url_path = "/provisioning-templates/#{URI.encode(template_name)}/provisioning-claim"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a fleet provisioning template.
   """
-  def create_provisioning_template(client, input, options \\ []) do
-    path_ = "/provisioning-templates"
+  def create_provisioning_template(%Client{} = client, input, options \\ []) do
+    url_path = "/provisioning-templates"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a new version of a fleet provisioning template.
   """
-  def create_provisioning_template_version(client, template_name, input, options \\ []) do
-    path_ = "/provisioning-templates/#{URI.encode(template_name)}/versions"
+  def create_provisioning_template_version(
+        %Client{} = client,
+        template_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/provisioning-templates/#{URI.encode(template_name)}/versions"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"setAsDefault", "setAsDefault"},
+        {"setAsDefault", "setAsDefault"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a role alias.
   """
-  def create_role_alias(client, role_alias, input, options \\ []) do
-    path_ = "/role-aliases/#{URI.encode(role_alias)}"
+  def create_role_alias(%Client{} = client, role_alias, input, options \\ []) do
+    url_path = "/role-aliases/#{URI.encode(role_alias)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a scheduled audit that is run at a specified time interval.
   """
-  def create_scheduled_audit(client, scheduled_audit_name, input, options \\ []) do
-    path_ = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+  def create_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
+    url_path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a Device Defender security profile.
   """
-  def create_security_profile(client, security_profile_name, input, options \\ []) do
-    path_ = "/security-profiles/#{URI.encode(security_profile_name)}"
+  def create_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
+    url_path = "/security-profiles/#{URI.encode(security_profile_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -527,11 +947,22 @@ defmodule AWS.IoT do
   A stream transports data bytes in chunks or blocks packaged as MQTT messages
   from a source like S3. You can have one or more files associated with a stream.
   """
-  def create_stream(client, stream_id, input, options \\ []) do
-    path_ = "/streams/#{URI.encode(stream_id)}"
+  def create_stream(%Client{} = client, stream_id, input, options \\ []) do
+    url_path = "/streams/#{URI.encode(stream_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -545,11 +976,22 @@ defmodule AWS.IoT do
   [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html)
   for information about authorizing control plane actions.
   """
-  def create_thing(client, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}"
+  def create_thing(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -559,21 +1001,43 @@ defmodule AWS.IoT do
   [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html)
   for information about authorizing control plane actions.
   """
-  def create_thing_group(client, thing_group_name, input, options \\ []) do
-    path_ = "/thing-groups/#{URI.encode(thing_group_name)}"
+  def create_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
+    url_path = "/thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a new thing type.
   """
-  def create_thing_type(client, thing_type_name, input, options \\ []) do
-    path_ = "/thing-types/#{URI.encode(thing_type_name)}"
+  def create_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
+    url_path = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -582,15 +1046,28 @@ defmodule AWS.IoT do
   Creating rules is an administrator-level action. Any user who has permission to
   create rules will be able to access data processed by the rule.
   """
-  def create_topic_rule(client, rule_name, input, options \\ []) do
-    path_ = "/rules/#{URI.encode(rule_name)}"
+  def create_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
+    url_path = "/rules/#{URI.encode(rule_name)}"
+
     {headers, input} =
       [
-        {"tags", "x-amz-tagging"},
+        {"tags", "x-amz-tagging"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -598,11 +1075,22 @@ defmodule AWS.IoT do
 
   The destination must be confirmed prior to use.
   """
-  def create_topic_rule_destination(client, input, options \\ []) do
-    path_ = "/destinations"
+  def create_topic_rule_destination(%Client{} = client, input, options \\ []) do
+    url_path = "/destinations"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -611,59 +1099,116 @@ defmodule AWS.IoT do
   Any configuration data you entered is deleted and all audit checks are reset to
   disabled.
   """
-  def delete_account_audit_configuration(client, input, options \\ []) do
-    path_ = "/audit/configuration"
+  def delete_account_audit_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/configuration"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"deleteScheduledAudits", "deleteScheduledAudits"},
+        {"deleteScheduledAudits", "deleteScheduledAudits"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a Device Defender audit suppression.
   """
-  def delete_audit_suppression(client, input, options \\ []) do
-    path_ = "/audit/suppressions/delete"
+  def delete_audit_suppression(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/suppressions/delete"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes an authorizer.
   """
-  def delete_authorizer(client, authorizer_name, input, options \\ []) do
-    path_ = "/authorizer/#{URI.encode(authorizer_name)}"
+  def delete_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
+    url_path = "/authorizer/#{URI.encode(authorizer_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the billing group.
   """
-  def delete_billing_group(client, billing_group_name, input, options \\ []) do
-    path_ = "/billing-groups/#{URI.encode(billing_group_name)}"
+  def delete_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
+    url_path = "/billing-groups/#{URI.encode(billing_group_name)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"expectedVersion", "expectedVersion"},
+        {"expectedVersion", "expectedVersion"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a registered CA certificate.
   """
-  def delete_c_a_certificate(client, certificate_id, input, options \\ []) do
-    path_ = "/cacertificate/#{URI.encode(certificate_id)}"
+  def delete_c_a_certificate(%Client{} = client, certificate_id, input, options \\ []) do
+    url_path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -674,25 +1219,48 @@ defmodule AWS.IoT do
   `DetachPrincipalPolicy` API to detach all policies. Next, use the
   `UpdateCertificate` API to set the certificate to the INACTIVE status.
   """
-  def delete_certificate(client, certificate_id, input, options \\ []) do
-    path_ = "/certificates/#{URI.encode(certificate_id)}"
+  def delete_certificate(%Client{} = client, certificate_id, input, options \\ []) do
+    url_path = "/certificates/#{URI.encode(certificate_id)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"forceDelete", "forceDelete"},
+        {"forceDelete", "forceDelete"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes the specified dimension from your AWS account.
   """
-  def delete_dimension(client, name, input, options \\ []) do
-    path_ = "/dimensions/#{URI.encode(name)}"
+  def delete_dimension(%Client{} = client, name, input, options \\ []) do
+    url_path = "/dimensions/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -700,25 +1268,53 @@ defmodule AWS.IoT do
 
   The domain configuration feature is in public preview and is subject to change.
   """
-  def delete_domain_configuration(client, domain_configuration_name, input, options \\ []) do
-    path_ = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+  def delete_domain_configuration(
+        %Client{} = client,
+        domain_configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a dynamic thing group.
   """
-  def delete_dynamic_thing_group(client, thing_group_name, input, options \\ []) do
-    path_ = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+  def delete_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
+    url_path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"expectedVersion", "expectedVersion"},
+        {"expectedVersion", "expectedVersion"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -733,54 +1329,114 @@ defmodule AWS.IoT do
   Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a
   LimitExceededException will occur.
   """
-  def delete_job(client, job_id, input, options \\ []) do
-    path_ = "/jobs/#{URI.encode(job_id)}"
+  def delete_job(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/jobs/#{URI.encode(job_id)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"force", "force"},
+        {"namespaceId", "namespaceId"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a job execution.
   """
-  def delete_job_execution(client, execution_number, job_id, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/executionNumber/#{URI.encode(execution_number)}"
+  def delete_job_execution(
+        %Client{} = client,
+        execution_number,
+        job_id,
+        thing_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/executionNumber/#{
+        URI.encode(execution_number)
+      }"
+
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"force", "force"},
+        {"namespaceId", "namespaceId"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a defined mitigation action from your AWS account.
   """
-  def delete_mitigation_action(client, action_name, input, options \\ []) do
-    path_ = "/mitigationactions/actions/#{URI.encode(action_name)}"
+  def delete_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
+    url_path = "/mitigationactions/actions/#{URI.encode(action_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Delete an OTA update.
   """
-  def delete_o_t_a_update(client, ota_update_id, input, options \\ []) do
-    path_ = "/otaUpdates/#{URI.encode(ota_update_id)}"
+  def delete_o_t_a_update(%Client{} = client, ota_update_id, input, options \\ []) do
+    url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"deleteStream", "deleteStream"},
-        {"forceDeleteAWSJob", "forceDeleteAWSJob"},
+        {"forceDeleteAWSJob", "forceDeleteAWSJob"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -796,11 +1452,22 @@ defmodule AWS.IoT do
   When a policy is deleted using DeletePolicy, its default version is deleted with
   it.
   """
-  def delete_policy(client, policy_name, input, options \\ []) do
-    path_ = "/policies/#{URI.encode(policy_name)}"
+  def delete_policy(%Client{} = client, policy_name, input, options \\ []) do
+    url_path = "/policies/#{URI.encode(policy_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -810,85 +1477,188 @@ defmodule AWS.IoT do
   default version of a policy, use `DeletePolicy`. To find out which version of a
   policy is marked as the default version, use ListPolicyVersions.
   """
-  def delete_policy_version(client, policy_name, policy_version_id, input, options \\ []) do
-    path_ = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+  def delete_policy_version(
+        %Client{} = client,
+        policy_name,
+        policy_version_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a fleet provisioning template.
   """
-  def delete_provisioning_template(client, template_name, input, options \\ []) do
-    path_ = "/provisioning-templates/#{URI.encode(template_name)}"
+  def delete_provisioning_template(%Client{} = client, template_name, input, options \\ []) do
+    url_path = "/provisioning-templates/#{URI.encode(template_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a fleet provisioning template version.
   """
-  def delete_provisioning_template_version(client, template_name, version_id, input, options \\ []) do
-    path_ = "/provisioning-templates/#{URI.encode(template_name)}/versions/#{URI.encode(version_id)}"
+  def delete_provisioning_template_version(
+        %Client{} = client,
+        template_name,
+        version_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/provisioning-templates/#{URI.encode(template_name)}/versions/#{URI.encode(version_id)}"
+
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a CA certificate registration code.
   """
-  def delete_registration_code(client, input, options \\ []) do
-    path_ = "/registrationcode"
+  def delete_registration_code(%Client{} = client, input, options \\ []) do
+    url_path = "/registrationcode"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a role alias
   """
-  def delete_role_alias(client, role_alias, input, options \\ []) do
-    path_ = "/role-aliases/#{URI.encode(role_alias)}"
+  def delete_role_alias(%Client{} = client, role_alias, input, options \\ []) do
+    url_path = "/role-aliases/#{URI.encode(role_alias)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a scheduled audit.
   """
-  def delete_scheduled_audit(client, scheduled_audit_name, input, options \\ []) do
-    path_ = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+  def delete_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
+    url_path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a Device Defender security profile.
   """
-  def delete_security_profile(client, security_profile_name, input, options \\ []) do
-    path_ = "/security-profiles/#{URI.encode(security_profile_name)}"
+  def delete_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
+    url_path = "/security-profiles/#{URI.encode(security_profile_name)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"expectedVersion", "expectedVersion"},
+        {"expectedVersion", "expectedVersion"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a stream.
   """
-  def delete_stream(client, stream_id, input, options \\ []) do
-    path_ = "/streams/#{URI.encode(stream_id)}"
+  def delete_stream(%Client{} = client, stream_id, input, options \\ []) do
+    url_path = "/streams/#{URI.encode(stream_id)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -897,29 +1667,53 @@ defmodule AWS.IoT do
   Returns successfully with no error if the deletion is successful or you specify
   a thing that doesn't exist.
   """
-  def delete_thing(client, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}"
+  def delete_thing(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"expectedVersion", "expectedVersion"},
+        {"expectedVersion", "expectedVersion"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a thing group.
   """
-  def delete_thing_group(client, thing_group_name, input, options \\ []) do
-    path_ = "/thing-groups/#{URI.encode(thing_group_name)}"
+  def delete_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
+    url_path = "/thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"expectedVersion", "expectedVersion"},
+        {"expectedVersion", "expectedVersion"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -931,46 +1725,91 @@ defmodule AWS.IoT do
   on any associated thing, and finally use `DeleteThingType` to delete the thing
   type.
   """
-  def delete_thing_type(client, thing_type_name, input, options \\ []) do
-    path_ = "/thing-types/#{URI.encode(thing_type_name)}"
+  def delete_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
+    url_path = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes the rule.
   """
-  def delete_topic_rule(client, rule_name, input, options \\ []) do
-    path_ = "/rules/#{URI.encode(rule_name)}"
+  def delete_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
+    url_path = "/rules/#{URI.encode(rule_name)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a topic rule destination.
   """
-  def delete_topic_rule_destination(client, arn, input, options \\ []) do
-    path_ = "/destinations/#{AWS.Util.encode_uri(arn, true)}"
+  def delete_topic_rule_destination(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/destinations/#{AWS.Util.encode_uri(arn, true)}"
     headers = []
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Deletes a logging level.
   """
-  def delete_v2_logging_level(client, input, options \\ []) do
-    path_ = "/v2LoggingLevel"
+  def delete_v2_logging_level(%Client{} = client, input, options \\ []) do
+    url_path = "/v2LoggingLevel"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"targetName", "targetName"},
-        {"targetType", "targetType"},
+        {"targetType", "targetType"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -978,11 +1817,22 @@ defmodule AWS.IoT do
 
   You can not associate new things with deprecated thing type.
   """
-  def deprecate_thing_type(client, thing_type_name, input, options \\ []) do
-    path_ = "/thing-types/#{URI.encode(thing_type_name)}/deprecate"
+  def deprecate_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
+    url_path = "/thing-types/#{URI.encode(thing_type_name)}/deprecate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -991,11 +1841,22 @@ defmodule AWS.IoT do
   Settings include how audit notifications are sent and which audit checks are
   enabled or disabled.
   """
-  def describe_account_audit_configuration(client, options \\ []) do
-    path_ = "/audit/configuration"
+  def describe_account_audit_configuration(%Client{} = client, options \\ []) do
+    url_path = "/audit/configuration"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1004,11 +1865,22 @@ defmodule AWS.IoT do
   Properties include the reason for noncompliance, the severity of the issue, and
   when the audit that returned the finding was started.
   """
-  def describe_audit_finding(client, finding_id, options \\ []) do
-    path_ = "/audit/findings/#{URI.encode(finding_id)}"
+  def describe_audit_finding(%Client{} = client, finding_id, options \\ []) do
+    url_path = "/audit/findings/#{URI.encode(finding_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1018,91 +1890,190 @@ defmodule AWS.IoT do
   Properties include the actions being applied, the audit checks to which they're
   being applied, the task status, and aggregated task statistics.
   """
-  def describe_audit_mitigation_actions_task(client, task_id, options \\ []) do
-    path_ = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
+  def describe_audit_mitigation_actions_task(%Client{} = client, task_id, options \\ []) do
+    url_path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a Device Defender audit suppression.
   """
-  def describe_audit_suppression(client, input, options \\ []) do
-    path_ = "/audit/suppressions/describe"
+  def describe_audit_suppression(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/suppressions/describe"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a Device Defender audit.
   """
-  def describe_audit_task(client, task_id, options \\ []) do
-    path_ = "/audit/tasks/#{URI.encode(task_id)}"
+  def describe_audit_task(%Client{} = client, task_id, options \\ []) do
+    url_path = "/audit/tasks/#{URI.encode(task_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes an authorizer.
   """
-  def describe_authorizer(client, authorizer_name, options \\ []) do
-    path_ = "/authorizer/#{URI.encode(authorizer_name)}"
+  def describe_authorizer(%Client{} = client, authorizer_name, options \\ []) do
+    url_path = "/authorizer/#{URI.encode(authorizer_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information about a billing group.
   """
-  def describe_billing_group(client, billing_group_name, options \\ []) do
-    path_ = "/billing-groups/#{URI.encode(billing_group_name)}"
+  def describe_billing_group(%Client{} = client, billing_group_name, options \\ []) do
+    url_path = "/billing-groups/#{URI.encode(billing_group_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a registered CA certificate.
   """
-  def describe_c_a_certificate(client, certificate_id, options \\ []) do
-    path_ = "/cacertificate/#{URI.encode(certificate_id)}"
+  def describe_c_a_certificate(%Client{} = client, certificate_id, options \\ []) do
+    url_path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about the specified certificate.
   """
-  def describe_certificate(client, certificate_id, options \\ []) do
-    path_ = "/certificates/#{URI.encode(certificate_id)}"
+  def describe_certificate(%Client{} = client, certificate_id, options \\ []) do
+    url_path = "/certificates/#{URI.encode(certificate_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes the default authorizer.
   """
-  def describe_default_authorizer(client, options \\ []) do
-    path_ = "/default-authorizer"
+  def describe_default_authorizer(%Client{} = client, options \\ []) do
+    url_path = "/default-authorizer"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Provides details about a dimension that is defined in your AWS account.
   """
-  def describe_dimension(client, name, options \\ []) do
-    path_ = "/dimensions/#{URI.encode(name)}"
+  def describe_dimension(%Client{} = client, name, options \\ []) do
+    url_path = "/dimensions/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1110,191 +2081,406 @@ defmodule AWS.IoT do
 
   The domain configuration feature is in public preview and is subject to change.
   """
-  def describe_domain_configuration(client, domain_configuration_name, options \\ []) do
-    path_ = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+  def describe_domain_configuration(%Client{} = client, domain_configuration_name, options \\ []) do
+    url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns a unique endpoint specific to the AWS account making the call.
   """
-  def describe_endpoint(client, endpoint_type \\ nil, options \\ []) do
-    path_ = "/endpoint"
+  def describe_endpoint(%Client{} = client, endpoint_type \\ nil, options \\ []) do
+    url_path = "/endpoint"
     headers = []
-    query_ = []
-    query_ = if !is_nil(endpoint_type) do
-      [{"endpointType", endpoint_type} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(endpoint_type) do
+        [{"endpointType", endpoint_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes event configurations.
   """
-  def describe_event_configurations(client, options \\ []) do
-    path_ = "/event-configurations"
+  def describe_event_configurations(%Client{} = client, options \\ []) do
+    url_path = "/event-configurations"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a search index.
   """
-  def describe_index(client, index_name, options \\ []) do
-    path_ = "/indices/#{URI.encode(index_name)}"
+  def describe_index(%Client{} = client, index_name, options \\ []) do
+    url_path = "/indices/#{URI.encode(index_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a job.
   """
-  def describe_job(client, job_id, options \\ []) do
-    path_ = "/jobs/#{URI.encode(job_id)}"
+  def describe_job(%Client{} = client, job_id, options \\ []) do
+    url_path = "/jobs/#{URI.encode(job_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a job execution.
   """
-  def describe_job_execution(client, job_id, thing_name, execution_number \\ nil, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}"
+  def describe_job_execution(
+        %Client{} = client,
+        job_id,
+        thing_name,
+        execution_number \\ nil,
+        options \\ []
+      ) do
+    url_path = "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(execution_number) do
-      [{"executionNumber", execution_number} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(execution_number) do
+        [{"executionNumber", execution_number} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a mitigation action.
   """
-  def describe_mitigation_action(client, action_name, options \\ []) do
-    path_ = "/mitigationactions/actions/#{URI.encode(action_name)}"
+  def describe_mitigation_action(%Client{} = client, action_name, options \\ []) do
+    url_path = "/mitigationactions/actions/#{URI.encode(action_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information about a fleet provisioning template.
   """
-  def describe_provisioning_template(client, template_name, options \\ []) do
-    path_ = "/provisioning-templates/#{URI.encode(template_name)}"
+  def describe_provisioning_template(%Client{} = client, template_name, options \\ []) do
+    url_path = "/provisioning-templates/#{URI.encode(template_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information about a fleet provisioning template version.
   """
-  def describe_provisioning_template_version(client, template_name, version_id, options \\ []) do
-    path_ = "/provisioning-templates/#{URI.encode(template_name)}/versions/#{URI.encode(version_id)}"
+  def describe_provisioning_template_version(
+        %Client{} = client,
+        template_name,
+        version_id,
+        options \\ []
+      ) do
+    url_path =
+      "/provisioning-templates/#{URI.encode(template_name)}/versions/#{URI.encode(version_id)}"
+
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a role alias.
   """
-  def describe_role_alias(client, role_alias, options \\ []) do
-    path_ = "/role-aliases/#{URI.encode(role_alias)}"
+  def describe_role_alias(%Client{} = client, role_alias, options \\ []) do
+    url_path = "/role-aliases/#{URI.encode(role_alias)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a scheduled audit.
   """
-  def describe_scheduled_audit(client, scheduled_audit_name, options \\ []) do
-    path_ = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+  def describe_scheduled_audit(%Client{} = client, scheduled_audit_name, options \\ []) do
+    url_path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a Device Defender security profile.
   """
-  def describe_security_profile(client, security_profile_name, options \\ []) do
-    path_ = "/security-profiles/#{URI.encode(security_profile_name)}"
+  def describe_security_profile(%Client{} = client, security_profile_name, options \\ []) do
+    url_path = "/security-profiles/#{URI.encode(security_profile_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a stream.
   """
-  def describe_stream(client, stream_id, options \\ []) do
-    path_ = "/streams/#{URI.encode(stream_id)}"
+  def describe_stream(%Client{} = client, stream_id, options \\ []) do
+    url_path = "/streams/#{URI.encode(stream_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about the specified thing.
   """
-  def describe_thing(client, thing_name, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}"
+  def describe_thing(%Client{} = client, thing_name, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describe a thing group.
   """
-  def describe_thing_group(client, thing_group_name, options \\ []) do
-    path_ = "/thing-groups/#{URI.encode(thing_group_name)}"
+  def describe_thing_group(%Client{} = client, thing_group_name, options \\ []) do
+    url_path = "/thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Describes a bulk thing provisioning task.
   """
-  def describe_thing_registration_task(client, task_id, options \\ []) do
-    path_ = "/thing-registration-tasks/#{URI.encode(task_id)}"
+  def describe_thing_registration_task(%Client{} = client, task_id, options \\ []) do
+    url_path = "/thing-registration-tasks/#{URI.encode(task_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about the specified thing type.
   """
-  def describe_thing_type(client, thing_type_name, options \\ []) do
-    path_ = "/thing-types/#{URI.encode(thing_type_name)}"
+  def describe_thing_type(%Client{} = client, thing_type_name, options \\ []) do
+    url_path = "/thing-types/#{URI.encode(thing_type_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Detaches a policy from the specified target.
   """
-  def detach_policy(client, policy_name, input, options \\ []) do
-    path_ = "/target-policies/#{URI.encode(policy_name)}"
+  def detach_policy(%Client{} = client, policy_name, input, options \\ []) do
+    url_path = "/target-policies/#{URI.encode(policy_name)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1302,30 +2488,55 @@ defmodule AWS.IoT do
 
   **Note:** This API is deprecated. Please use `DetachPolicy` instead.
   """
-  def detach_principal_policy(client, policy_name, input, options \\ []) do
-    path_ = "/principal-policies/#{URI.encode(policy_name)}"
+  def detach_principal_policy(%Client{} = client, policy_name, input, options \\ []) do
+    url_path = "/principal-policies/#{URI.encode(policy_name)}"
+
     {headers, input} =
       [
-        {"principal", "x-amzn-iot-principal"},
+        {"principal", "x-amzn-iot-principal"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Disassociates a Device Defender security profile from a thing group or from this
   account.
   """
-  def detach_security_profile(client, security_profile_name, input, options \\ []) do
-    path_ = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+  def detach_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
+    url_path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"securityProfileTargetArn", "securityProfileTargetArn"},
+        {"securityProfileTargetArn", "securityProfileTargetArn"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1337,80 +2548,160 @@ defmodule AWS.IoT do
   This call is asynchronous. It might take several seconds for the detachment to
   propagate.
   """
-  def detach_thing_principal(client, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/principals"
+  def detach_thing_principal(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}/principals"
+
     {headers, input} =
       [
-        {"principal", "x-amzn-principal"},
+        {"principal", "x-amzn-principal"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Disables the rule.
   """
-  def disable_topic_rule(client, rule_name, input, options \\ []) do
-    path_ = "/rules/#{URI.encode(rule_name)}/disable"
+  def disable_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
+    url_path = "/rules/#{URI.encode(rule_name)}/disable"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Enables the rule.
   """
-  def enable_topic_rule(client, rule_name, input, options \\ []) do
-    path_ = "/rules/#{URI.encode(rule_name)}/enable"
+  def enable_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
+    url_path = "/rules/#{URI.encode(rule_name)}/enable"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns the approximate count of unique values that match the query.
   """
-  def get_cardinality(client, input, options \\ []) do
-    path_ = "/indices/cardinality"
+  def get_cardinality(%Client{} = client, input, options \\ []) do
+    url_path = "/indices/cardinality"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets a list of the policies that have an effect on the authorization behavior of
   the specified device when it connects to the AWS IoT device gateway.
   """
-  def get_effective_policies(client, input, options \\ []) do
-    path_ = "/effective-policies"
+  def get_effective_policies(%Client{} = client, input, options \\ []) do
+    url_path = "/effective-policies"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"thingName", "thingName"},
+        {"thingName", "thingName"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets the indexing configuration.
   """
-  def get_indexing_configuration(client, options \\ []) do
-    path_ = "/indexing/config"
+  def get_indexing_configuration(%Client{} = client, options \\ []) do
+    url_path = "/indexing/config"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets a job document.
   """
-  def get_job_document(client, job_id, options \\ []) do
-    path_ = "/jobs/#{URI.encode(job_id)}/job-document"
+  def get_job_document(%Client{} = client, job_id, options \\ []) do
+    url_path = "/jobs/#{URI.encode(job_id)}/job-document"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1418,21 +2709,43 @@ defmodule AWS.IoT do
 
   NOTE: use of this command is not recommended. Use `GetV2LoggingOptions` instead.
   """
-  def get_logging_options(client, options \\ []) do
-    path_ = "/loggingOptions"
+  def get_logging_options(%Client{} = client, options \\ []) do
+    url_path = "/loggingOptions"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets an OTA update.
   """
-  def get_o_t_a_update(client, ota_update_id, options \\ []) do
-    path_ = "/otaUpdates/#{URI.encode(ota_update_id)}"
+  def get_o_t_a_update(%Client{} = client, ota_update_id, options \\ []) do
+    url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1448,42 +2761,86 @@ defmodule AWS.IoT do
   approximation, the more values that match the query, the more accurate the
   percentile values.
   """
-  def get_percentiles(client, input, options \\ []) do
-    path_ = "/indices/percentiles"
+  def get_percentiles(%Client{} = client, input, options \\ []) do
+    url_path = "/indices/percentiles"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about the specified policy with the policy document of the
   default version.
   """
-  def get_policy(client, policy_name, options \\ []) do
-    path_ = "/policies/#{URI.encode(policy_name)}"
+  def get_policy(%Client{} = client, policy_name, options \\ []) do
+    url_path = "/policies/#{URI.encode(policy_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about the specified policy version.
   """
-  def get_policy_version(client, policy_name, policy_version_id, options \\ []) do
-    path_ = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+  def get_policy_version(%Client{} = client, policy_name, policy_version_id, options \\ []) do
+    url_path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets a registration code used to register a CA certificate with AWS IoT.
   """
-  def get_registration_code(client, options \\ []) do
-    path_ = "/registrationcode"
+  def get_registration_code(%Client{} = client, options \\ []) do
+    url_path = "/registrationcode"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1493,87 +2850,169 @@ defmodule AWS.IoT do
   If the aggregation field is of type `String`, only the count statistic is
   returned.
   """
-  def get_statistics(client, input, options \\ []) do
-    path_ = "/indices/statistics"
+  def get_statistics(%Client{} = client, input, options \\ []) do
+    url_path = "/indices/statistics"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about the rule.
   """
-  def get_topic_rule(client, rule_name, options \\ []) do
-    path_ = "/rules/#{URI.encode(rule_name)}"
+  def get_topic_rule(%Client{} = client, rule_name, options \\ []) do
+    url_path = "/rules/#{URI.encode(rule_name)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets information about a topic rule destination.
   """
-  def get_topic_rule_destination(client, arn, options \\ []) do
-    path_ = "/destinations/#{AWS.Util.encode_uri(arn, true)}"
+  def get_topic_rule_destination(%Client{} = client, arn, options \\ []) do
+    url_path = "/destinations/#{AWS.Util.encode_uri(arn, true)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets the fine grained logging options.
   """
-  def get_v2_logging_options(client, options \\ []) do
-    path_ = "/v2LoggingOptions"
+  def get_v2_logging_options(%Client{} = client, options \\ []) do
+    url_path = "/v2LoggingOptions"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the active violations for a given Device Defender security profile.
   """
-  def list_active_violations(client, max_results \\ nil, next_token \\ nil, security_profile_name \\ nil, thing_name \\ nil, options \\ []) do
-    path_ = "/active-violations"
+  def list_active_violations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        security_profile_name \\ nil,
+        thing_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/active-violations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(thing_name) do
-      [{"thingName", thing_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(security_profile_name) do
-      [{"securityProfileName", security_profile_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(thing_name) do
+        [{"thingName", thing_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(security_profile_name) do
+        [{"securityProfileName", security_profile_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the policies attached to the specified thing group.
   """
-  def list_attached_policies(client, target, input, options \\ []) do
-    path_ = "/attached-policies/#{URI.encode(target)}"
+  def list_attached_policies(%Client{} = client, target, input, options \\ []) do
+    url_path = "/attached-policies/#{URI.encode(target)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"marker", "marker"},
         {"pageSize", "pageSize"},
-        {"recursive", "recursive"},
+        {"recursive", "recursive"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1582,197 +3021,364 @@ defmodule AWS.IoT do
 
   (Findings are retained for 90 days.)
   """
-  def list_audit_findings(client, input, options \\ []) do
-    path_ = "/audit/findings"
+  def list_audit_findings(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/findings"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets the status of audit mitigation action tasks that were executed.
   """
-  def list_audit_mitigation_actions_executions(client, action_status \\ nil, finding_id, max_results \\ nil, next_token \\ nil, task_id, options \\ []) do
-    path_ = "/audit/mitigationactions/executions"
+  def list_audit_mitigation_actions_executions(
+        %Client{} = client,
+        action_status \\ nil,
+        finding_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        task_id,
+        options \\ []
+      ) do
+    url_path = "/audit/mitigationactions/executions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(task_id) do
-      [{"taskId", task_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(finding_id) do
-      [{"findingId", finding_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(action_status) do
-      [{"actionStatus", action_status} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(task_id) do
+        [{"taskId", task_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(finding_id) do
+        [{"findingId", finding_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(action_status) do
+        [{"actionStatus", action_status} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets a list of audit mitigation action tasks that match the specified filters.
   """
-  def list_audit_mitigation_actions_tasks(client, audit_task_id \\ nil, end_time, finding_id \\ nil, max_results \\ nil, next_token \\ nil, start_time, task_status \\ nil, options \\ []) do
-    path_ = "/audit/mitigationactions/tasks"
+  def list_audit_mitigation_actions_tasks(
+        %Client{} = client,
+        audit_task_id \\ nil,
+        end_time,
+        finding_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        start_time,
+        task_status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/mitigationactions/tasks"
     headers = []
-    query_ = []
-    query_ = if !is_nil(task_status) do
-      [{"taskStatus", task_status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(start_time) do
-      [{"startTime", start_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(finding_id) do
-      [{"findingId", finding_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(end_time) do
-      [{"endTime", end_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(audit_task_id) do
-      [{"auditTaskId", audit_task_id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(task_status) do
+        [{"taskStatus", task_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(finding_id) do
+        [{"findingId", finding_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(audit_task_id) do
+        [{"auditTaskId", audit_task_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists your Device Defender audit listings.
   """
-  def list_audit_suppressions(client, input, options \\ []) do
-    path_ = "/audit/suppressions/list"
+  def list_audit_suppressions(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/suppressions/list"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the Device Defender audits that have been performed during a given time
   period.
   """
-  def list_audit_tasks(client, end_time, max_results \\ nil, next_token \\ nil, start_time, task_status \\ nil, task_type \\ nil, options \\ []) do
-    path_ = "/audit/tasks"
+  def list_audit_tasks(
+        %Client{} = client,
+        end_time,
+        max_results \\ nil,
+        next_token \\ nil,
+        start_time,
+        task_status \\ nil,
+        task_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/tasks"
     headers = []
-    query_ = []
-    query_ = if !is_nil(task_type) do
-      [{"taskType", task_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(task_status) do
-      [{"taskStatus", task_status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(start_time) do
-      [{"startTime", start_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(end_time) do
-      [{"endTime", end_time} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(task_type) do
+        [{"taskType", task_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(task_status) do
+        [{"taskStatus", task_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the authorizers registered in your account.
   """
-  def list_authorizers(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, status \\ nil, options \\ []) do
-    path_ = "/authorizers/"
+  def list_authorizers(
+        %Client{} = client,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/authorizers/"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status) do
-      [{"status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the billing groups you have created.
   """
-  def list_billing_groups(client, max_results \\ nil, name_prefix_filter \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/billing-groups"
+  def list_billing_groups(
+        %Client{} = client,
+        max_results \\ nil,
+        name_prefix_filter \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/billing-groups"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name_prefix_filter) do
-      [{"namePrefixFilter", name_prefix_filter} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_prefix_filter) do
+        [{"namePrefixFilter", name_prefix_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1781,26 +3387,49 @@ defmodule AWS.IoT do
   The results are paginated with a default page size of 25. You can use the
   returned marker to retrieve additional results.
   """
-  def list_c_a_certificates(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, options \\ []) do
-    path_ = "/cacertificates"
+  def list_c_a_certificates(
+        %Client{} = client,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path = "/cacertificates"
     headers = []
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1809,71 +3438,133 @@ defmodule AWS.IoT do
   The results are paginated with a default page size of 25. You can use the
   returned marker to retrieve additional results.
   """
-  def list_certificates(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, options \\ []) do
-    path_ = "/certificates"
+  def list_certificates(
+        %Client{} = client,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path = "/certificates"
     headers = []
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List the device certificates signed by the specified CA certificate.
   """
-  def list_certificates_by_c_a(client, ca_certificate_id, ascending_order \\ nil, marker \\ nil, page_size \\ nil, options \\ []) do
-    path_ = "/certificates-by-ca/#{URI.encode(ca_certificate_id)}"
+  def list_certificates_by_c_a(
+        %Client{} = client,
+        ca_certificate_id,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path = "/certificates-by-ca/#{URI.encode(ca_certificate_id)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List the set of dimensions that are defined for your AWS account.
   """
-  def list_dimensions(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/dimensions"
+  def list_dimensions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/dimensions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -1883,236 +3574,462 @@ defmodule AWS.IoT do
 
   The domain configuration feature is in public preview and is subject to change.
   """
-  def list_domain_configurations(client, marker \\ nil, page_size \\ nil, service_type \\ nil, options \\ []) do
-    path_ = "/domainConfigurations"
+  def list_domain_configurations(
+        %Client{} = client,
+        marker \\ nil,
+        page_size \\ nil,
+        service_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domainConfigurations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(service_type) do
-      [{"serviceType", service_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(service_type) do
+        [{"serviceType", service_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the search indices.
   """
-  def list_indices(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/indices"
+  def list_indices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/indices"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the job executions for a job.
   """
-  def list_job_executions_for_job(client, job_id, max_results \\ nil, next_token \\ nil, status \\ nil, options \\ []) do
-    path_ = "/jobs/#{URI.encode(job_id)}/things"
+  def list_job_executions_for_job(
+        %Client{} = client,
+        job_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/jobs/#{URI.encode(job_id)}/things"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status) do
-      [{"status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the job executions for the specified thing.
   """
-  def list_job_executions_for_thing(client, thing_name, max_results \\ nil, next_token \\ nil, status \\ nil, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/jobs"
+  def list_job_executions_for_thing(
+        %Client{} = client,
+        thing_name,
+        max_results \\ nil,
+        namespace_id \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/things/#{URI.encode(thing_name)}/jobs"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status) do
-      [{"status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace_id) do
+        [{"namespaceId", namespace_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists jobs.
   """
-  def list_jobs(client, max_results \\ nil, next_token \\ nil, status \\ nil, target_selection \\ nil, thing_group_id \\ nil, thing_group_name \\ nil, options \\ []) do
-    path_ = "/jobs"
+  def list_jobs(
+        %Client{} = client,
+        max_results \\ nil,
+        namespace_id \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        target_selection \\ nil,
+        thing_group_id \\ nil,
+        thing_group_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/jobs"
     headers = []
-    query_ = []
-    query_ = if !is_nil(thing_group_name) do
-      [{"thingGroupName", thing_group_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(thing_group_id) do
-      [{"thingGroupId", thing_group_id} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(target_selection) do
-      [{"targetSelection", target_selection} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(status) do
-      [{"status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(thing_group_name) do
+        [{"thingGroupName", thing_group_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_group_id) do
+        [{"thingGroupId", thing_group_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_selection) do
+        [{"targetSelection", target_selection} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace_id) do
+        [{"namespaceId", namespace_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Gets a list of all mitigation actions that match the specified filter criteria.
   """
-  def list_mitigation_actions(client, action_type \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/mitigationactions/actions"
+  def list_mitigation_actions(
+        %Client{} = client,
+        action_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/mitigationactions/actions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(action_type) do
-      [{"actionType", action_type} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(action_type) do
+        [{"actionType", action_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists OTA updates.
   """
-  def list_o_t_a_updates(client, max_results \\ nil, next_token \\ nil, ota_update_status \\ nil, options \\ []) do
-    path_ = "/otaUpdates"
+  def list_o_t_a_updates(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        ota_update_status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/otaUpdates"
     headers = []
-    query_ = []
-    query_ = if !is_nil(ota_update_status) do
-      [{"otaUpdateStatus", ota_update_status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(ota_update_status) do
+        [{"otaUpdateStatus", ota_update_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists certificates that are being transferred but not yet accepted.
   """
-  def list_outgoing_certificates(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, options \\ []) do
-    path_ = "/certificates-out-going"
+  def list_outgoing_certificates(
+        %Client{} = client,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path = "/certificates-out-going"
     headers = []
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists your policies.
   """
-  def list_policies(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, options \\ []) do
-    path_ = "/policies"
+  def list_policies(
+        %Client{} = client,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path = "/policies"
     headers = []
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2120,41 +4037,79 @@ defmodule AWS.IoT do
 
   **Note:** This API is deprecated. Please use `ListTargetsForPolicy` instead.
   """
-  def list_policy_principals(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, policy_name, options \\ []) do
-    path_ = "/policy-principals"
+  def list_policy_principals(
+        %Client{} = client,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        policy_name,
+        options \\ []
+      ) do
+    url_path = "/policy-principals"
     headers = []
-    headers = if !is_nil(policy_name) do
-      [{"x-amzn-iot-policy", policy_name} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(policy_name) do
+        [{"x-amzn-iot-policy", policy_name} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the versions of the specified policy and identifies the default version.
   """
-  def list_policy_versions(client, policy_name, options \\ []) do
-    path_ = "/policies/#{URI.encode(policy_name)}/version"
+  def list_policy_versions(%Client{} = client, policy_name, options \\ []) do
+    url_path = "/policies/#{URI.encode(policy_name)}/version"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2164,31 +4119,58 @@ defmodule AWS.IoT do
 
   **Note:** This API is deprecated. Please use `ListAttachedPolicies` instead.
   """
-  def list_principal_policies(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, principal, options \\ []) do
-    path_ = "/principal-policies"
+  def list_principal_policies(
+        %Client{} = client,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        principal,
+        options \\ []
+      ) do
+    url_path = "/principal-policies"
     headers = []
-    headers = if !is_nil(principal) do
-      [{"x-amzn-iot-principal", principal} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(principal) do
+        [{"x-amzn-iot-principal", principal} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2197,111 +4179,219 @@ defmodule AWS.IoT do
   A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
   Cognito identities or federated identities.
   """
-  def list_principal_things(client, max_results \\ nil, next_token \\ nil, principal, options \\ []) do
-    path_ = "/principals/things"
+  def list_principal_things(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        principal,
+        options \\ []
+      ) do
+    url_path = "/principals/things"
     headers = []
-    headers = if !is_nil(principal) do
-      [{"x-amzn-principal", principal} | headers]
-    else
-      headers
-    end
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+
+    headers =
+      if !is_nil(principal) do
+        [{"x-amzn-principal", principal} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   A list of fleet provisioning template versions.
   """
-  def list_provisioning_template_versions(client, template_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/provisioning-templates/#{URI.encode(template_name)}/versions"
+  def list_provisioning_template_versions(
+        %Client{} = client,
+        template_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/provisioning-templates/#{URI.encode(template_name)}/versions"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the fleet provisioning templates in your AWS account.
   """
-  def list_provisioning_templates(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/provisioning-templates"
+  def list_provisioning_templates(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/provisioning-templates"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the role aliases registered in your account.
   """
-  def list_role_aliases(client, ascending_order \\ nil, marker \\ nil, page_size \\ nil, options \\ []) do
-    path_ = "/role-aliases"
+  def list_role_aliases(
+        %Client{} = client,
+        ascending_order \\ nil,
+        marker \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path = "/role-aliases"
     headers = []
-    query_ = []
-    query_ = if !is_nil(page_size) do
-      [{"pageSize", page_size} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(marker) do
-      [{"marker", marker} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"pageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists all of your scheduled audits.
   """
-  def list_scheduled_audits(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/audit/scheduledaudits"
+  def list_scheduled_audits(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/audit/scheduledaudits"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2310,192 +4400,362 @@ defmodule AWS.IoT do
   You can use filters to list only those security profiles associated with a thing
   group or only those associated with your account.
   """
-  def list_security_profiles(client, dimension_name \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/security-profiles"
+  def list_security_profiles(
+        %Client{} = client,
+        dimension_name \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/security-profiles"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(dimension_name) do
-      [{"dimensionName", dimension_name} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(dimension_name) do
+        [{"dimensionName", dimension_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the Device Defender security profiles attached to a target (thing group).
   """
-  def list_security_profiles_for_target(client, max_results \\ nil, next_token \\ nil, recursive \\ nil, security_profile_target_arn, options \\ []) do
-    path_ = "/security-profiles-for-target"
+  def list_security_profiles_for_target(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        recursive \\ nil,
+        security_profile_target_arn,
+        options \\ []
+      ) do
+    url_path = "/security-profiles-for-target"
     headers = []
-    query_ = []
-    query_ = if !is_nil(security_profile_target_arn) do
-      [{"securityProfileTargetArn", security_profile_target_arn} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(recursive) do
-      [{"recursive", recursive} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(security_profile_target_arn) do
+        [{"securityProfileTargetArn", security_profile_target_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(recursive) do
+        [{"recursive", recursive} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists all of the streams in your AWS account.
   """
-  def list_streams(client, ascending_order \\ nil, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/streams"
+  def list_streams(
+        %Client{} = client,
+        ascending_order \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/streams"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(ascending_order) do
-      [{"isAscendingOrder", ascending_order} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ascending_order) do
+        [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
   """
-  def list_tags_for_resource(client, next_token \\ nil, resource_arn, options \\ []) do
-    path_ = "/tags"
+  def list_tags_for_resource(%Client{} = client, next_token \\ nil, resource_arn, options \\ []) do
+    url_path = "/tags"
     headers = []
-    query_ = []
-    query_ = if !is_nil(resource_arn) do
-      [{"resourceArn", resource_arn} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List targets for the specified policy.
   """
-  def list_targets_for_policy(client, policy_name, input, options \\ []) do
-    path_ = "/policy-targets/#{URI.encode(policy_name)}"
+  def list_targets_for_policy(%Client{} = client, policy_name, input, options \\ []) do
+    url_path = "/policy-targets/#{URI.encode(policy_name)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"marker", "marker"},
-        {"pageSize", "pageSize"},
+        {"pageSize", "pageSize"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the targets (thing groups) associated with a given Device Defender
   security profile.
   """
-  def list_targets_for_security_profile(client, security_profile_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
+  def list_targets_for_security_profile(
+        %Client{} = client,
+        security_profile_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/security-profiles/#{URI.encode(security_profile_name)}/targets"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List the thing groups in your account.
   """
-  def list_thing_groups(client, max_results \\ nil, name_prefix_filter \\ nil, next_token \\ nil, parent_group \\ nil, recursive \\ nil, options \\ []) do
-    path_ = "/thing-groups"
+  def list_thing_groups(
+        %Client{} = client,
+        max_results \\ nil,
+        name_prefix_filter \\ nil,
+        next_token \\ nil,
+        parent_group \\ nil,
+        recursive \\ nil,
+        options \\ []
+      ) do
+    url_path = "/thing-groups"
     headers = []
-    query_ = []
-    query_ = if !is_nil(recursive) do
-      [{"recursive", recursive} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(parent_group) do
-      [{"parentGroup", parent_group} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(name_prefix_filter) do
-      [{"namePrefixFilter", name_prefix_filter} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(recursive) do
+        [{"recursive", recursive} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(parent_group) do
+        [{"parentGroup", parent_group} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_prefix_filter) do
+        [{"namePrefixFilter", name_prefix_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List the thing groups to which the specified thing belongs.
   """
-  def list_thing_groups_for_thing(client, thing_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/thing-groups"
+  def list_thing_groups_for_thing(
+        %Client{} = client,
+        thing_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/things/#{URI.encode(thing_name)}/thing-groups"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2504,86 +4764,187 @@ defmodule AWS.IoT do
   A principal can be X.509 certificates, IAM users, groups, and roles, Amazon
   Cognito identities or federated identities.
   """
-  def list_thing_principals(client, thing_name, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}/principals"
+  def list_thing_principals(
+        %Client{} = client,
+        thing_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/things/#{URI.encode(thing_name)}/principals"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Information about the thing registration tasks.
   """
-  def list_thing_registration_task_reports(client, task_id, max_results \\ nil, next_token \\ nil, report_type, options \\ []) do
-    path_ = "/thing-registration-tasks/#{URI.encode(task_id)}/reports"
+  def list_thing_registration_task_reports(
+        %Client{} = client,
+        task_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        report_type,
+        options \\ []
+      ) do
+    url_path = "/thing-registration-tasks/#{URI.encode(task_id)}/reports"
     headers = []
-    query_ = []
-    query_ = if !is_nil(report_type) do
-      [{"reportType", report_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(report_type) do
+        [{"reportType", report_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   List bulk thing provisioning tasks.
   """
-  def list_thing_registration_tasks(client, max_results \\ nil, next_token \\ nil, status \\ nil, options \\ []) do
-    path_ = "/thing-registration-tasks"
+  def list_thing_registration_tasks(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/thing-registration-tasks"
     headers = []
-    query_ = []
-    query_ = if !is_nil(status) do
-      [{"status", status} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the existing thing types.
   """
-  def list_thing_types(client, max_results \\ nil, next_token \\ nil, thing_type_name \\ nil, options \\ []) do
-    path_ = "/thing-types"
+  def list_thing_types(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        thing_type_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/thing-types"
     headers = []
-    query_ = []
-    query_ = if !is_nil(thing_type_name) do
-      [{"thingTypeName", thing_type_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(thing_type_name) do
+        [{"thingTypeName", thing_type_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2598,156 +4959,299 @@ defmodule AWS.IoT do
   returned. You will also not be charged if no attributes or pagination token was
   provided in request and no pagination token and no results were returned.
   """
-  def list_things(client, attribute_name \\ nil, attribute_value \\ nil, max_results \\ nil, next_token \\ nil, thing_type_name \\ nil, options \\ []) do
-    path_ = "/things"
+  def list_things(
+        %Client{} = client,
+        attribute_name \\ nil,
+        attribute_value \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        thing_type_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/things"
     headers = []
-    query_ = []
-    query_ = if !is_nil(thing_type_name) do
-      [{"thingTypeName", thing_type_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(attribute_value) do
-      [{"attributeValue", attribute_value} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(attribute_name) do
-      [{"attributeName", attribute_name} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(thing_type_name) do
+        [{"thingTypeName", thing_type_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(attribute_value) do
+        [{"attributeValue", attribute_value} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(attribute_name) do
+        [{"attributeName", attribute_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the things you have added to the given billing group.
   """
-  def list_things_in_billing_group(client, billing_group_name, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/billing-groups/#{URI.encode(billing_group_name)}/things"
+  def list_things_in_billing_group(
+        %Client{} = client,
+        billing_group_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/billing-groups/#{URI.encode(billing_group_name)}/things"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the things in the specified group.
   """
-  def list_things_in_thing_group(client, thing_group_name, max_results \\ nil, next_token \\ nil, recursive \\ nil, options \\ []) do
-    path_ = "/thing-groups/#{URI.encode(thing_group_name)}/things"
+  def list_things_in_thing_group(
+        %Client{} = client,
+        thing_group_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        recursive \\ nil,
+        options \\ []
+      ) do
+    url_path = "/thing-groups/#{URI.encode(thing_group_name)}/things"
     headers = []
-    query_ = []
-    query_ = if !is_nil(recursive) do
-      [{"recursive", recursive} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(recursive) do
+        [{"recursive", recursive} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists all the topic rule destinations in your AWS account.
   """
-  def list_topic_rule_destinations(client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    path_ = "/destinations"
+  def list_topic_rule_destinations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/destinations"
     headers = []
-    query_ = []
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists the rules for the specific topic.
   """
-  def list_topic_rules(client, max_results \\ nil, next_token \\ nil, rule_disabled \\ nil, topic \\ nil, options \\ []) do
-    path_ = "/rules"
+  def list_topic_rules(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        rule_disabled \\ nil,
+        topic \\ nil,
+        options \\ []
+      ) do
+    url_path = "/rules"
     headers = []
-    query_ = []
-    query_ = if !is_nil(topic) do
-      [{"topic", topic} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(rule_disabled) do
-      [{"ruleDisabled", rule_disabled} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(topic) do
+        [{"topic", topic} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(rule_disabled) do
+        [{"ruleDisabled", rule_disabled} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists logging levels.
   """
-  def list_v2_logging_levels(client, max_results \\ nil, next_token \\ nil, target_type \\ nil, options \\ []) do
-    path_ = "/v2LoggingLevel"
+  def list_v2_logging_levels(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        target_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2LoggingLevel"
     headers = []
-    query_ = []
-    query_ = if !is_nil(target_type) do
-      [{"targetType", target_type} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(target_type) do
+        [{"targetType", target_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2757,41 +5261,73 @@ defmodule AWS.IoT do
   You can use filters to limit the results to those alerts issued for a particular
   security profile, behavior, or thing (device).
   """
-  def list_violation_events(client, end_time, max_results \\ nil, next_token \\ nil, security_profile_name \\ nil, start_time, thing_name \\ nil, options \\ []) do
-    path_ = "/violation-events"
+  def list_violation_events(
+        %Client{} = client,
+        end_time,
+        max_results \\ nil,
+        next_token \\ nil,
+        security_profile_name \\ nil,
+        start_time,
+        thing_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/violation-events"
     headers = []
-    query_ = []
-    query_ = if !is_nil(thing_name) do
-      [{"thingName", thing_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(start_time) do
-      [{"startTime", start_time} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(security_profile_name) do
-      [{"securityProfileName", security_profile_name} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"nextToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(end_time) do
-      [{"endTime", end_time} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(thing_name) do
+        [{"thingName", thing_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(security_profile_name) do
+        [{"securityProfileName", security_profile_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2804,16 +5340,28 @@ defmodule AWS.IoT do
   CA certificate registered, make sure you pass the CA certificate when you
   register your device certificates with the RegisterCertificate API.
   """
-  def register_c_a_certificate(client, input, options \\ []) do
-    path_ = "/cacertificate"
+  def register_c_a_certificate(%Client{} = client, input, options \\ []) do
+    url_path = "/cacertificate"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"allowAutoRegistration", "allowAutoRegistration"},
-        {"setAsActive", "setAsActive"},
+        {"setAsActive", "setAsActive"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2823,25 +5371,48 @@ defmodule AWS.IoT do
   must specify the CA certificate that was used to sign the device certificate
   being registered.
   """
-  def register_certificate(client, input, options \\ []) do
-    path_ = "/certificate/register"
+  def register_certificate(%Client{} = client, input, options \\ []) do
+    url_path = "/certificate/register"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"setAsActive", "setAsActive"},
+        {"setAsActive", "setAsActive"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Register a certificate that does not have a certificate authority (CA).
   """
-  def register_certificate_without_c_a(client, input, options \\ []) do
-    path_ = "/certificate/register-no-ca"
+  def register_certificate_without_c_a(%Client{} = client, input, options \\ []) do
+    url_path = "/certificate/register-no-ca"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2852,11 +5423,22 @@ defmodule AWS.IoT do
   and cause throttle errors. Please contact [AWS Customer Support](https://console.aws.amazon.com/support/home) to raise your throttling
   limits if necessary.
   """
-  def register_thing(client, input, options \\ []) do
-    path_ = "/things"
+  def register_thing(%Client{} = client, input, options \\ []) do
+    url_path = "/things"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2872,21 +5454,43 @@ defmodule AWS.IoT do
   called, the certificate will be returned to the source's account in the INACTIVE
   state.
   """
-  def reject_certificate_transfer(client, certificate_id, input, options \\ []) do
-    path_ = "/reject-certificate-transfer/#{URI.encode(certificate_id)}"
+  def reject_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
+    url_path = "/reject-certificate-transfer/#{URI.encode(certificate_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes the given thing from the billing group.
   """
-  def remove_thing_from_billing_group(client, input, options \\ []) do
-    path_ = "/billing-groups/removeThingFromBillingGroup"
+  def remove_thing_from_billing_group(%Client{} = client, input, options \\ []) do
+    url_path = "/billing-groups/removeThingFromBillingGroup"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2896,11 +5500,22 @@ defmodule AWS.IoT do
   thing group and either a `thingArn` or a `thingName` to identify the thing to
   remove from the thing group.
   """
-  def remove_thing_from_thing_group(client, input, options \\ []) do
-    path_ = "/thing-groups/removeThingFromThingGroup"
+  def remove_thing_from_thing_group(%Client{} = client, input, options \\ []) do
+    url_path = "/thing-groups/removeThingFromThingGroup"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2910,21 +5525,43 @@ defmodule AWS.IoT do
   administrator-level action. Any user who has permission to create rules will be
   able to access data processed by the rule.
   """
-  def replace_topic_rule(client, rule_name, input, options \\ []) do
-    path_ = "/rules/#{URI.encode(rule_name)}"
+  def replace_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
+    url_path = "/rules/#{URI.encode(rule_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   The query search index.
   """
-  def search_index(client, input, options \\ []) do
-    path_ = "/indices/search"
+  def search_index(%Client{} = client, input, options \\ []) do
+    url_path = "/indices/search"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2933,11 +5570,22 @@ defmodule AWS.IoT do
   This will be used if a websocket connection is made without specifying an
   authorizer.
   """
-  def set_default_authorizer(client, input, options \\ []) do
-    path_ = "/default-authorizer"
+  def set_default_authorizer(%Client{} = client, input, options \\ []) do
+    url_path = "/default-authorizer"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2947,11 +5595,28 @@ defmodule AWS.IoT do
   This action affects all certificates to which the policy is attached. To list
   the principals the policy is attached to, use the ListPrincipalPolicy API.
   """
-  def set_default_policy_version(client, policy_name, policy_version_id, input, options \\ []) do
-    path_ = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
+  def set_default_policy_version(
+        %Client{} = client,
+        policy_name,
+        policy_version_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/policies/#{URI.encode(policy_name)}/version/#{URI.encode(policy_version_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -2959,71 +5624,148 @@ defmodule AWS.IoT do
 
   NOTE: use of this command is not recommended. Use `SetV2LoggingOptions` instead.
   """
-  def set_logging_options(client, input, options \\ []) do
-    path_ = "/loggingOptions"
+  def set_logging_options(%Client{} = client, input, options \\ []) do
+    url_path = "/loggingOptions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Sets the logging level.
   """
-  def set_v2_logging_level(client, input, options \\ []) do
-    path_ = "/v2LoggingLevel"
+  def set_v2_logging_level(%Client{} = client, input, options \\ []) do
+    url_path = "/v2LoggingLevel"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Sets the logging options for the V2 logging service.
   """
-  def set_v2_logging_options(client, input, options \\ []) do
-    path_ = "/v2LoggingOptions"
+  def set_v2_logging_options(%Client{} = client, input, options \\ []) do
+    url_path = "/v2LoggingOptions"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Starts a task that applies a set of mitigation actions to the specified target.
   """
-  def start_audit_mitigation_actions_task(client, task_id, input, options \\ []) do
-    path_ = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
+  def start_audit_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
+    url_path = "/audit/mitigationactions/tasks/#{URI.encode(task_id)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Starts an on-demand Device Defender audit.
   """
-  def start_on_demand_audit_task(client, input, options \\ []) do
-    path_ = "/audit/tasks"
+  def start_on_demand_audit_task(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/tasks"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Creates a bulk thing provisioning task.
   """
-  def start_thing_registration_task(client, input, options \\ []) do
-    path_ = "/thing-registration-tasks"
+  def start_thing_registration_task(%Client{} = client, input, options \\ []) do
+    url_path = "/thing-registration-tasks"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Cancels a bulk thing provisioning task.
   """
-  def stop_thing_registration_task(client, task_id, input, options \\ []) do
-    path_ = "/thing-registration-tasks/#{URI.encode(task_id)}/cancel"
+  def stop_thing_registration_task(%Client{} = client, task_id, input, options \\ []) do
+    url_path = "/thing-registration-tasks/#{URI.encode(task_id)}/cancel"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3031,11 +5773,22 @@ defmodule AWS.IoT do
 
   Tags are metadata which can be used to manage a resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    path_ = "/tags"
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tags"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3045,15 +5798,27 @@ defmodule AWS.IoT do
   Use this to test and debug the authorization behavior of devices that connect to
   the AWS IoT device gateway.
   """
-  def test_authorization(client, input, options \\ []) do
-    path_ = "/test-authorization"
+  def test_authorization(%Client{} = client, input, options \\ []) do
+    url_path = "/test-authorization"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"clientId", "clientId"},
+        {"clientId", "clientId"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :post, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3062,11 +5827,22 @@ defmodule AWS.IoT do
   Use this to test and debug the custom authorization behavior of devices that
   connect to the AWS IoT device gateway.
   """
-  def test_invoke_authorizer(client, authorizer_name, input, options \\ []) do
-    path_ = "/authorizer/#{URI.encode(authorizer_name)}/test"
+  def test_invoke_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
+    url_path = "/authorizer/#{URI.encode(authorizer_name)}/test"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3083,25 +5859,48 @@ defmodule AWS.IoT do
   The certificate must not have any policies attached to it. You can use the
   DetachPrincipalPolicy API to detach them.
   """
-  def transfer_certificate(client, certificate_id, input, options \\ []) do
-    path_ = "/transfer-certificate/#{URI.encode(certificate_id)}"
+  def transfer_certificate(%Client{} = client, certificate_id, input, options \\ []) do
+    url_path = "/transfer-certificate/#{URI.encode(certificate_id)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"targetAwsAccount", "targetAwsAccount"},
+        {"targetAwsAccount", "targetAwsAccount"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :patch, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes the given tags (metadata) from the resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    path_ = "/untag"
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/untag"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3110,56 +5909,112 @@ defmodule AWS.IoT do
   Settings include how audit notifications are sent and which audit checks are
   enabled or disabled.
   """
-  def update_account_audit_configuration(client, input, options \\ []) do
-    path_ = "/audit/configuration"
+  def update_account_audit_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/configuration"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a Device Defender audit suppression.
   """
-  def update_audit_suppression(client, input, options \\ []) do
-    path_ = "/audit/suppressions/update"
+  def update_audit_suppression(%Client{} = client, input, options \\ []) do
+    url_path = "/audit/suppressions/update"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates an authorizer.
   """
-  def update_authorizer(client, authorizer_name, input, options \\ []) do
-    path_ = "/authorizer/#{URI.encode(authorizer_name)}"
+  def update_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
+    url_path = "/authorizer/#{URI.encode(authorizer_name)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates information about the billing group.
   """
-  def update_billing_group(client, billing_group_name, input, options \\ []) do
-    path_ = "/billing-groups/#{URI.encode(billing_group_name)}"
+  def update_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
+    url_path = "/billing-groups/#{URI.encode(billing_group_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a registered CA certificate.
   """
-  def update_c_a_certificate(client, certificate_id, input, options \\ []) do
-    path_ = "/cacertificate/#{URI.encode(certificate_id)}"
+  def update_c_a_certificate(%Client{} = client, certificate_id, input, options \\ []) do
+    url_path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
         {"newAutoRegistrationStatus", "newAutoRegistrationStatus"},
-        {"newStatus", "newStatus"},
+        {"newStatus", "newStatus"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3175,15 +6030,27 @@ defmodule AWS.IoT do
   connect. Devices cannot use a certificate that is not in the ACTIVE state to
   reconnect.
   """
-  def update_certificate(client, certificate_id, input, options \\ []) do
-    path_ = "/certificates/#{URI.encode(certificate_id)}"
+  def update_certificate(%Client{} = client, certificate_id, input, options \\ []) do
+    url_path = "/certificates/#{URI.encode(certificate_id)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"newStatus", "newStatus"},
+        {"newStatus", "newStatus"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :put, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3192,11 +6059,22 @@ defmodule AWS.IoT do
   You cannot change the type of a dimension after it is created (you can delete it
   and re-create it).
   """
-  def update_dimension(client, name, input, options \\ []) do
-    path_ = "/dimensions/#{URI.encode(name)}"
+  def update_dimension(%Client{} = client, name, input, options \\ []) do
+    url_path = "/dimensions/#{URI.encode(name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3206,106 +6084,227 @@ defmodule AWS.IoT do
 
   The domain configuration feature is in public preview and is subject to change.
   """
-  def update_domain_configuration(client, domain_configuration_name, input, options \\ []) do
-    path_ = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
+  def update_domain_configuration(
+        %Client{} = client,
+        domain_configuration_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a dynamic thing group.
   """
-  def update_dynamic_thing_group(client, thing_group_name, input, options \\ []) do
-    path_ = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
+  def update_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
+    url_path = "/dynamic-thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the event configurations.
   """
-  def update_event_configurations(client, input, options \\ []) do
-    path_ = "/event-configurations"
+  def update_event_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/event-configurations"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the search configuration.
   """
-  def update_indexing_configuration(client, input, options \\ []) do
-    path_ = "/indexing/config"
+  def update_indexing_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/indexing/config"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates supported fields of the specified job.
   """
-  def update_job(client, job_id, input, options \\ []) do
-    path_ = "/jobs/#{URI.encode(job_id)}"
+  def update_job(%Client{} = client, job_id, input, options \\ []) do
+    url_path = "/jobs/#{URI.encode(job_id)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+
+    {query_params, input} =
+      [
+        {"namespaceId", "namespaceId"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the definition for the specified mitigation action.
   """
-  def update_mitigation_action(client, action_name, input, options \\ []) do
-    path_ = "/mitigationactions/actions/#{URI.encode(action_name)}"
+  def update_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
+    url_path = "/mitigationactions/actions/#{URI.encode(action_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a fleet provisioning template.
   """
-  def update_provisioning_template(client, template_name, input, options \\ []) do
-    path_ = "/provisioning-templates/#{URI.encode(template_name)}"
+  def update_provisioning_template(%Client{} = client, template_name, input, options \\ []) do
+    url_path = "/provisioning-templates/#{URI.encode(template_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a role alias.
   """
-  def update_role_alias(client, role_alias, input, options \\ []) do
-    path_ = "/role-aliases/#{URI.encode(role_alias)}"
+  def update_role_alias(%Client{} = client, role_alias, input, options \\ []) do
+    url_path = "/role-aliases/#{URI.encode(role_alias)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a scheduled audit, including which checks are performed and how often
   the audit takes place.
   """
-  def update_scheduled_audit(client, scheduled_audit_name, input, options \\ []) do
-    path_ = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
+  def update_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
+    url_path = "/audit/scheduledaudits/#{URI.encode(scheduled_audit_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a Device Defender security profile.
   """
-  def update_security_profile(client, security_profile_name, input, options \\ []) do
-    path_ = "/security-profiles/#{URI.encode(security_profile_name)}"
+  def update_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
+    url_path = "/security-profiles/#{URI.encode(security_profile_name)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"expectedVersion", "expectedVersion"},
+        {"expectedVersion", "expectedVersion"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :patch, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3313,41 +6312,85 @@ defmodule AWS.IoT do
 
   The stream version will be incremented by one.
   """
-  def update_stream(client, stream_id, input, options \\ []) do
-    path_ = "/streams/#{URI.encode(stream_id)}"
+  def update_stream(%Client{} = client, stream_id, input, options \\ []) do
+    url_path = "/streams/#{URI.encode(stream_id)}"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the data for a thing.
   """
-  def update_thing(client, thing_name, input, options \\ []) do
-    path_ = "/things/#{URI.encode(thing_name)}"
+  def update_thing(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/things/#{URI.encode(thing_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Update a thing group.
   """
-  def update_thing_group(client, thing_group_name, input, options \\ []) do
-    path_ = "/thing-groups/#{URI.encode(thing_group_name)}"
+  def update_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
+    url_path = "/thing-groups/#{URI.encode(thing_group_name)}"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates the groups to which the thing belongs.
   """
-  def update_thing_groups_for_thing(client, input, options \\ []) do
-    path_ = "/thing-groups/updateThingGroupsForThing"
+  def update_thing_groups_for_thing(%Client{} = client, input, options \\ []) do
+    url_path = "/thing-groups/updateThingGroupsForThing"
     headers = []
-    query_ = []
-    request(client, :put, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -3356,84 +6399,42 @@ defmodule AWS.IoT do
   You use this to change the status, endpoint URL, or confirmation URL of the
   destination.
   """
-  def update_topic_rule_destination(client, input, options \\ []) do
-    path_ = "/destinations"
+  def update_topic_rule_destination(%Client{} = client, input, options \\ []) do
+    url_path = "/destinations"
     headers = []
-    query_ = []
-    request(client, :patch, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Validates a Device Defender security profile behaviors specification.
   """
-  def validate_security_profile_behaviors(client, input, options \\ []) do
-    path_ = "/security-profile-behaviors/validate"
+  def validate_security_profile_behaviors(%Client{} = client, input, options \\ []) do
+    url_path = "/security-profile-behaviors/validate"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "execute-api"}
-    host = build_host("iot", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

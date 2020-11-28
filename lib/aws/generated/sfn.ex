@@ -24,6 +24,25 @@ defmodule AWS.SFN do
   about Step Functions, see the * [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) *.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "AWS SFN",
+      api_version: "2016-11-23",
+      content_type: "application/x-amz-json-1.0",
+      credential_scope: nil,
+      endpoint_prefix: "states",
+      global?: false,
+      protocol: "json",
+      service_id: "SFN",
+      signature_version: "v4",
+      signing_name: "states",
+      target_prefix: "AWSStepFunctions"
+    }
+  end
+
   @doc """
   Creates an activity.
 
@@ -44,8 +63,8 @@ defmodule AWS.SFN do
   idempotent request of the previous. In this case, `tags` will not be updated,
   even if they are different.
   """
-  def create_activity(client, input, options \\ []) do
-    request(client, "CreateActivity", input, options)
+  def create_activity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateActivity", input, options)
   end
 
   @doc """
@@ -69,15 +88,15 @@ defmodule AWS.SFN do
   treat it as an idempotent request of the previous. In this case, `roleArn` and
   `tags` will not be updated, even if they are different.
   """
-  def create_state_machine(client, input, options \\ []) do
-    request(client, "CreateStateMachine", input, options)
+  def create_state_machine(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateStateMachine", input, options)
   end
 
   @doc """
   Deletes an activity.
   """
-  def delete_activity(client, input, options \\ []) do
-    request(client, "DeleteActivity", input, options)
+  def delete_activity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteActivity", input, options)
   end
 
   @doc """
@@ -90,8 +109,8 @@ defmodule AWS.SFN do
   than a minute). Running executions may emit logs after `DeleteStateMachine` API
   is called.
   """
-  def delete_state_machine(client, input, options \\ []) do
-    request(client, "DeleteStateMachine", input, options)
+  def delete_state_machine(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteStateMachine", input, options)
   end
 
   @doc """
@@ -100,8 +119,8 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
-  def describe_activity(client, input, options \\ []) do
-    request(client, "DescribeActivity", input, options)
+  def describe_activity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeActivity", input, options)
   end
 
   @doc """
@@ -112,8 +131,8 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
-  def describe_execution(client, input, options \\ []) do
-    request(client, "DescribeExecution", input, options)
+  def describe_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeExecution", input, options)
   end
 
   @doc """
@@ -122,8 +141,8 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
-  def describe_state_machine(client, input, options \\ []) do
-    request(client, "DescribeStateMachine", input, options)
+  def describe_state_machine(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStateMachine", input, options)
   end
 
   @doc """
@@ -134,8 +153,8 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
-  def describe_state_machine_for_execution(client, input, options \\ []) do
-    request(client, "DescribeStateMachineForExecution", input, options)
+  def describe_state_machine_for_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStateMachineForExecution", input, options)
   end
 
   @doc """
@@ -155,8 +174,8 @@ defmodule AWS.SFN do
   [Avoid Latency When Polling for Activity Tasks](https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html)
   in the Step Functions Developer Guide.
   """
-  def get_activity_task(client, input, options \\ []) do
-    request(client, "GetActivityTask", input, options)
+  def get_activity_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetActivityTask", input, options)
   end
 
   @doc """
@@ -173,8 +192,8 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
-  def get_execution_history(client, input, options \\ []) do
-    request(client, "GetExecutionHistory", input, options)
+  def get_execution_history(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetExecutionHistory", input, options)
   end
 
   @doc """
@@ -189,8 +208,8 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
-  def list_activities(client, input, options \\ []) do
-    request(client, "ListActivities", input, options)
+  def list_activities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListActivities", input, options)
   end
 
   @doc """
@@ -209,8 +228,8 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
-  def list_executions(client, input, options \\ []) do
-    request(client, "ListExecutions", input, options)
+  def list_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListExecutions", input, options)
   end
 
   @doc """
@@ -225,8 +244,8 @@ defmodule AWS.SFN do
   This operation is eventually consistent. The results are best effort and may not
   reflect very recent updates and changes.
   """
-  def list_state_machines(client, input, options \\ []) do
-    request(client, "ListStateMachines", input, options)
+  def list_state_machines(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStateMachines", input, options)
   end
 
   @doc """
@@ -235,8 +254,8 @@ defmodule AWS.SFN do
   Tags may only contain Unicode letters, digits, white space, or these symbols: `_
   . : / = + - @`.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -244,8 +263,8 @@ defmodule AWS.SFN do
   [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
   pattern to report that the task identified by the `taskToken` failed.
   """
-  def send_task_failure(client, input, options \\ []) do
-    request(client, "SendTaskFailure", input, options)
+  def send_task_failure(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendTaskFailure", input, options)
   end
 
   @doc """
@@ -269,8 +288,8 @@ defmodule AWS.SFN do
   `SendTaskHeartbeat` requests received. Use `HeartbeatSeconds` to configure the
   timeout interval for heartbeats.
   """
-  def send_task_heartbeat(client, input, options \\ []) do
-    request(client, "SendTaskHeartbeat", input, options)
+  def send_task_heartbeat(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendTaskHeartbeat", input, options)
   end
 
   @doc """
@@ -279,8 +298,8 @@ defmodule AWS.SFN do
   pattern to report that the task identified by the `taskToken` completed
   successfully.
   """
-  def send_task_success(client, input, options \\ []) do
-    request(client, "SendTaskSuccess", input, options)
+  def send_task_success(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendTaskSuccess", input, options)
   end
 
   @doc """
@@ -292,8 +311,15 @@ defmodule AWS.SFN do
   different, it will return a 400 `ExecutionAlreadyExists` error. Names can be
   reused after 90 days.
   """
-  def start_execution(client, input, options \\ []) do
-    request(client, "StartExecution", input, options)
+  def start_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartExecution", input, options)
+  end
+
+  @doc """
+  Starts a Synchronous Express state machine execution.
+  """
+  def start_sync_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartSyncExecution", input, options)
   end
 
   @doc """
@@ -301,8 +327,8 @@ defmodule AWS.SFN do
 
   This API action is not supported by `EXPRESS` state machines.
   """
-  def stop_execution(client, input, options \\ []) do
-    request(client, "StopExecution", input, options)
+  def stop_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopExecution", input, options)
   end
 
   @doc """
@@ -315,15 +341,15 @@ defmodule AWS.SFN do
   Tags may only contain Unicode letters, digits, white space, or these symbols: `_
   . : / = + - @`.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Remove a tag from a Step Functions resource
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
@@ -339,61 +365,7 @@ defmodule AWS.SFN do
   `UpdateStateMachine` may use the previous state machine `definition` and
   `roleArn`.
   """
-  def update_state_machine(client, input, options \\ []) do
-    request(client, "UpdateStateMachine", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "states"}
-    host = build_host("states", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.0"},
-      {"X-Amz-Target", "AWSStepFunctions.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_state_machine(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateStateMachine", input, options)
   end
 end

@@ -3,13 +3,32 @@
 
 defmodule AWS.EMR do
   @moduledoc """
-  Amazon EMR is a web service that makes it easy to process large amounts of data
-  efficiently.
+  Amazon EMR is a web service that makes it easier to process large amounts of
+  data efficiently.
 
-  Amazon EMR uses Hadoop processing combined with several AWS products to do tasks
+  Amazon EMR uses Hadoop processing combined with several AWS services to do tasks
   such as web indexing, data mining, log file analysis, machine learning,
-  scientific simulation, and data warehousing.
+  scientific simulation, and data warehouse management.
   """
+
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Amazon EMR",
+      api_version: "2009-03-31",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "elasticmapreduce",
+      global?: false,
+      protocol: "json",
+      service_id: "EMR",
+      signature_version: "v4",
+      signing_name: "elasticmapreduce",
+      target_prefix: "ElasticMapReduce"
+    }
+  end
 
   @doc """
   Adds an instance fleet to a running cluster.
@@ -17,15 +36,15 @@ defmodule AWS.EMR do
   The instance fleet configuration is available only in Amazon EMR versions 4.8.0
   and later, excluding 5.0.x.
   """
-  def add_instance_fleet(client, input, options \\ []) do
-    request(client, "AddInstanceFleet", input, options)
+  def add_instance_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddInstanceFleet", input, options)
   end
 
   @doc """
   Adds one or more instance groups to a running cluster.
   """
-  def add_instance_groups(client, input, options \\ []) do
-    request(client, "AddInstanceGroups", input, options)
+  def add_instance_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddInstanceGroups", input, options)
   end
 
   @doc """
@@ -53,8 +72,8 @@ defmodule AWS.EMR do
   You can only add steps to a cluster that is in one of the following states:
   STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
   """
-  def add_job_flow_steps(client, input, options \\ []) do
-    request(client, "AddJobFlowSteps", input, options)
+  def add_job_flow_steps(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddJobFlowSteps", input, options)
   end
 
   @doc """
@@ -64,8 +83,8 @@ defmodule AWS.EMR do
   clusters to track your Amazon EMR resource allocation costs. For more
   information, see [Tag Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
   """
-  def add_tags(client, input, options \\ []) do
-    request(client, "AddTags", input, options)
+  def add_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddTags", input, options)
   end
 
   @doc """
@@ -73,39 +92,80 @@ defmodule AWS.EMR do
 
   Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0.
   A maximum of 256 steps are allowed in each CancelSteps request. CancelSteps is
-  idempotent but asynchronous; it does not guarantee a step will be canceled, even
-  if the request is successfully submitted. You can only cancel steps that are in
-  a `PENDING` state.
+  idempotent but asynchronous; it does not guarantee that a step will be canceled,
+  even if the request is successfully submitted. You can only cancel steps that
+  are in a `PENDING` state.
   """
-  def cancel_steps(client, input, options \\ []) do
-    request(client, "CancelSteps", input, options)
+  def cancel_steps(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelSteps", input, options)
   end
 
   @doc """
   Creates a security configuration, which is stored in the service and can be
   specified when a cluster is created.
   """
-  def create_security_configuration(client, input, options \\ []) do
-    request(client, "CreateSecurityConfiguration", input, options)
+  def create_security_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSecurityConfiguration", input, options)
+  end
+
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
+
+  Creates a new Amazon EMR Studio.
+  """
+  def create_studio(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateStudio", input, options)
+  end
+
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
+
+  Maps a user or group to the Amazon EMR Studio specified by `StudioId`, and
+  applies a session policy to refine Studio permissions for that user or group.
+  """
+  def create_studio_session_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateStudioSessionMapping", input, options)
   end
 
   @doc """
   Deletes a security configuration.
   """
-  def delete_security_configuration(client, input, options \\ []) do
-    request(client, "DeleteSecurityConfiguration", input, options)
+  def delete_security_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSecurityConfiguration", input, options)
+  end
+
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
+
+  Removes an Amazon EMR Studio from the Studio metadata store.
+  """
+  def delete_studio(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteStudio", input, options)
+  end
+
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
+
+  Removes a user or group from an Amazon EMR Studio.
+  """
+  def delete_studio_session_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteStudioSessionMapping", input, options)
   end
 
   @doc """
   Provides cluster-level details including status, hardware and software
   configuration, VPC settings, and so on.
   """
-  def describe_cluster(client, input, options \\ []) do
-    request(client, "DescribeCluster", input, options)
+  def describe_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeCluster", input, options)
   end
 
   @doc """
-  This API is deprecated and will eventually be removed.
+  This API is no longer supported and will eventually be removed.
 
   We recommend you use `ListClusters`, `DescribeCluster`, `ListSteps`,
   `ListInstanceGroups` and `ListBootstrapActions` instead.
@@ -127,30 +187,41 @@ defmodule AWS.EMR do
 
   Amazon EMR can return a maximum of 512 job flow descriptions.
   """
-  def describe_job_flows(client, input, options \\ []) do
-    request(client, "DescribeJobFlows", input, options)
+  def describe_job_flows(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeJobFlows", input, options)
   end
 
   @doc """
   Provides details of a notebook execution.
   """
-  def describe_notebook_execution(client, input, options \\ []) do
-    request(client, "DescribeNotebookExecution", input, options)
+  def describe_notebook_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeNotebookExecution", input, options)
   end
 
   @doc """
   Provides the details of a security configuration by returning the configuration
   JSON.
   """
-  def describe_security_configuration(client, input, options \\ []) do
-    request(client, "DescribeSecurityConfiguration", input, options)
+  def describe_security_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeSecurityConfiguration", input, options)
   end
 
   @doc """
   Provides more detail about the cluster step.
   """
-  def describe_step(client, input, options \\ []) do
-    request(client, "DescribeStep", input, options)
+  def describe_step(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStep", input, options)
+  end
+
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
+
+  Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
+  Studio access URL, and so on.
+  """
+  def describe_studio(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStudio", input, options)
   end
 
   @doc """
@@ -160,22 +231,33 @@ defmodule AWS.EMR do
   For more information see [Configure Block Public Access for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html)
   in the *Amazon EMR Management Guide*.
   """
-  def get_block_public_access_configuration(client, input, options \\ []) do
-    request(client, "GetBlockPublicAccessConfiguration", input, options)
+  def get_block_public_access_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBlockPublicAccessConfiguration", input, options)
   end
 
   @doc """
   Fetches the attached managed scaling policy for an Amazon EMR cluster.
   """
-  def get_managed_scaling_policy(client, input, options \\ []) do
-    request(client, "GetManagedScalingPolicy", input, options)
+  def get_managed_scaling_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetManagedScalingPolicy", input, options)
+  end
+
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
+
+  Fetches mapping details for the specified Amazon EMR Studio and identity (user
+  or group).
+  """
+  def get_studio_session_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetStudioSessionMapping", input, options)
   end
 
   @doc """
   Provides information about the bootstrap actions associated with a cluster.
   """
-  def list_bootstrap_actions(client, input, options \\ []) do
-    request(client, "ListBootstrapActions", input, options)
+  def list_bootstrap_actions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBootstrapActions", input, options)
   end
 
   @doc """
@@ -186,8 +268,8 @@ defmodule AWS.EMR do
   returns a maximum of 50 clusters per call, but returns a marker to track the
   paging of the cluster list across multiple ListClusters calls.
   """
-  def list_clusters(client, input, options \\ []) do
-    request(client, "ListClusters", input, options)
+  def list_clusters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListClusters", input, options)
   end
 
   @doc """
@@ -196,15 +278,15 @@ defmodule AWS.EMR do
   The instance fleet configuration is available only in Amazon EMR versions 4.8.0
   and later, excluding 5.0.x versions.
   """
-  def list_instance_fleets(client, input, options \\ []) do
-    request(client, "ListInstanceFleets", input, options)
+  def list_instance_fleets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListInstanceFleets", input, options)
   end
 
   @doc """
   Provides all available details about the instance groups in a cluster.
   """
-  def list_instance_groups(client, input, options \\ []) do
-    request(client, "ListInstanceGroups", input, options)
+  def list_instance_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListInstanceGroups", input, options)
   end
 
   @doc """
@@ -214,8 +296,8 @@ defmodule AWS.EMR do
   EC2 instances in any of the following states are considered active:
   AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.
   """
-  def list_instances(client, input, options \\ []) do
-    request(client, "ListInstances", input, options)
+  def list_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListInstances", input, options)
   end
 
   @doc """
@@ -226,8 +308,8 @@ defmodule AWS.EMR do
   the paging of a longer notebook execution list across multiple
   `ListNotebookExecution` calls.
   """
-  def list_notebook_executions(client, input, options \\ []) do
-    request(client, "ListNotebookExecutions", input, options)
+  def list_notebook_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListNotebookExecutions", input, options)
   end
 
   @doc """
@@ -238,8 +320,8 @@ defmodule AWS.EMR do
   track the paging of the cluster list across multiple ListSecurityConfigurations
   calls.
   """
-  def list_security_configurations(client, input, options \\ []) do
-    request(client, "ListSecurityConfigurations", input, options)
+  def list_security_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSecurityConfigurations", input, options)
   end
 
   @doc """
@@ -248,16 +330,39 @@ defmodule AWS.EMR do
 
   You can specify a maximum of ten `stepIDs`.
   """
-  def list_steps(client, input, options \\ []) do
-    request(client, "ListSteps", input, options)
+  def list_steps(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSteps", input, options)
+  end
+
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
+
+  Returns a list of all user or group session mappings for the EMR Studio
+  specified by `StudioId`.
+  """
+  def list_studio_session_mappings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStudioSessionMappings", input, options)
+  end
+
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
+
+  Returns a list of all Amazon EMR Studios associated with the AWS account. The
+  list includes details such as ID, Studio Access URL, and creation time for each
+  Studio.
+  """
+  def list_studios(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStudios", input, options)
   end
 
   @doc """
   Modifies the number of steps that can be executed concurrently for the cluster
   specified using ClusterID.
   """
-  def modify_cluster(client, input, options \\ []) do
-    request(client, "ModifyCluster", input, options)
+  def modify_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyCluster", input, options)
   end
 
   @doc """
@@ -269,8 +374,8 @@ defmodule AWS.EMR do
   The instance fleet configuration is available only in Amazon EMR versions 4.8.0
   and later, excluding 5.0.x versions.
   """
-  def modify_instance_fleet(client, input, options \\ []) do
-    request(client, "ModifyInstanceFleet", input, options)
+  def modify_instance_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyInstanceFleet", input, options)
   end
 
   @doc """
@@ -280,8 +385,8 @@ defmodule AWS.EMR do
   The input parameters include the new target instance count for the group and the
   instance group ID. The call will either succeed or fail atomically.
   """
-  def modify_instance_groups(client, input, options \\ []) do
-    request(client, "ModifyInstanceGroups", input, options)
+  def modify_instance_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyInstanceGroups", input, options)
   end
 
   @doc """
@@ -291,8 +396,8 @@ defmodule AWS.EMR do
   The automatic scaling policy defines how an instance group dynamically adds and
   terminates EC2 instances in response to the value of a CloudWatch metric.
   """
-  def put_auto_scaling_policy(client, input, options \\ []) do
-    request(client, "PutAutoScalingPolicy", input, options)
+  def put_auto_scaling_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutAutoScalingPolicy", input, options)
   end
 
   @doc """
@@ -302,8 +407,8 @@ defmodule AWS.EMR do
   For more information see [Configure Block Public Access for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html)
   in the *Amazon EMR Management Guide*.
   """
-  def put_block_public_access_configuration(client, input, options \\ []) do
-    request(client, "PutBlockPublicAccessConfiguration", input, options)
+  def put_block_public_access_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutBlockPublicAccessConfiguration", input, options)
   end
 
   @doc """
@@ -314,23 +419,23 @@ defmodule AWS.EMR do
   applies to the core and task nodes. The master node cannot be scaled after
   initial configuration.
   """
-  def put_managed_scaling_policy(client, input, options \\ []) do
-    request(client, "PutManagedScalingPolicy", input, options)
+  def put_managed_scaling_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutManagedScalingPolicy", input, options)
   end
 
   @doc """
   Removes an automatic scaling policy from a specified instance group within an
   EMR cluster.
   """
-  def remove_auto_scaling_policy(client, input, options \\ []) do
-    request(client, "RemoveAutoScalingPolicy", input, options)
+  def remove_auto_scaling_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveAutoScalingPolicy", input, options)
   end
 
   @doc """
   Removes a managed scaling policy from a specified EMR cluster.
   """
-  def remove_managed_scaling_policy(client, input, options \\ []) do
-    request(client, "RemoveManagedScalingPolicy", input, options)
+  def remove_managed_scaling_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveManagedScalingPolicy", input, options)
   end
 
   @doc """
@@ -342,8 +447,8 @@ defmodule AWS.EMR do
 
   The following example removes the stack tag with value Prod from a cluster:
   """
-  def remove_tags(client, input, options \\ []) do
-    request(client, "RemoveTags", input, options)
+  def remove_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveTags", input, options)
   end
 
   @doc """
@@ -378,8 +483,8 @@ defmodule AWS.EMR do
   and later, excluding 5.0.x versions. The RunJobFlow request can contain
   InstanceFleets parameters or InstanceGroups parameters, but not both.
   """
-  def run_job_flow(client, input, options \\ []) do
-    request(client, "RunJobFlow", input, options)
+  def run_job_flow(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RunJobFlow", input, options)
   end
 
   @doc """
@@ -403,8 +508,8 @@ defmodule AWS.EMR do
   For more information, see[Managing Cluster Termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html)
   in the *Amazon EMR Management Guide*.
   """
-  def set_termination_protection(client, input, options \\ []) do
-    request(client, "SetTerminationProtection", input, options)
+  def set_termination_protection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetTerminationProtection", input, options)
   end
 
   @doc """
@@ -419,22 +524,22 @@ defmodule AWS.EMR do
   default `true` setting when you create a cluster by using the
   `VisibleToAllUsers` parameter with `RunJobFlow`.
   """
-  def set_visible_to_all_users(client, input, options \\ []) do
-    request(client, "SetVisibleToAllUsers", input, options)
+  def set_visible_to_all_users(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetVisibleToAllUsers", input, options)
   end
 
   @doc """
   Starts a notebook execution.
   """
-  def start_notebook_execution(client, input, options \\ []) do
-    request(client, "StartNotebookExecution", input, options)
+  def start_notebook_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartNotebookExecution", input, options)
   end
 
   @doc """
   Stops a notebook execution.
   """
-  def stop_notebook_execution(client, input, options \\ []) do
-    request(client, "StopNotebookExecution", input, options)
+  def stop_notebook_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopNotebookExecution", input, options)
   end
 
   @doc """
@@ -450,61 +555,18 @@ defmodule AWS.EMR do
   1-5 minutes for the cluster to completely terminate and release allocated
   resources, such as Amazon EC2 instances.
   """
-  def terminate_job_flows(client, input, options \\ []) do
-    request(client, "TerminateJobFlows", input, options)
+  def terminate_job_flows(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TerminateJobFlows", input, options)
   end
 
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "elasticmapreduce"}
-    host = build_host("elasticmapreduce", client)
-    url = build_url(host, client)
+  @doc """
+  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
+  to change.
 
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "ElasticMapReduce.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  Updates the session policy attached to the user or group for the specified
+  Amazon EMR Studio.
+  """
+  def update_studio_session_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateStudioSessionMapping", input, options)
   end
 end

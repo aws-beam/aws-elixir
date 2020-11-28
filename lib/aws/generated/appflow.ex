@@ -40,6 +40,25 @@ defmodule AWS.Appflow do
   documentation.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2020-08-23",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "appflow",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "Appflow",
+      signature_version: "v4",
+      signing_name: "appflow",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates a new connector profile associated with your AWS account.
 
@@ -47,11 +66,22 @@ defmodule AWS.Appflow do
   more connector profiles than this quota allows, you can submit a request to the
   Amazon AppFlow team through the Amazon AppFlow support channel.
   """
-  def create_connector_profile(client, input, options \\ []) do
-    path_ = "/create-connector-profile"
+  def create_connector_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/create-connector-profile"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -62,21 +92,43 @@ defmodule AWS.Appflow do
   can only transfer data to one item in this list at a time. Amazon AppFlow does
   not currently support flows to multiple destinations at once.
   """
-  def create_flow(client, input, options \\ []) do
-    path_ = "/create-flow"
+  def create_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/create-flow"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Enables you to delete an existing connector profile.
   """
-  def delete_connector_profile(client, input, options \\ []) do
-    path_ = "/delete-connector-profile"
+  def delete_connector_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/delete-connector-profile"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -85,22 +137,44 @@ defmodule AWS.Appflow do
   Before deleting the flow, Amazon AppFlow validates the request by checking the
   flow configuration and status. You can delete flows one at a time.
   """
-  def delete_flow(client, input, options \\ []) do
-    path_ = "/delete-flow"
+  def delete_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/delete-flow"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Provides details regarding the entity used with the connector, with a
   description of the data model for each entity.
   """
-  def describe_connector_entity(client, input, options \\ []) do
-    path_ = "/describe-connector-entity"
+  def describe_connector_entity(%Client{} = client, input, options \\ []) do
+    url_path = "/describe-connector-entity"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -112,11 +186,22 @@ defmodule AWS.Appflow do
   If no names or `connector-types` are provided, returns all connector profiles in
   a paginated form. If there is no match, this operation returns an empty list.
   """
-  def describe_connector_profiles(client, input, options \\ []) do
-    path_ = "/describe-connector-profiles"
+  def describe_connector_profiles(%Client{} = client, input, options \\ []) do
+    url_path = "/describe-connector-profiles"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -128,31 +213,64 @@ defmodule AWS.Appflow do
   to the next call to the `DescribeConnectors` API operation to retrieve the next
   page.
   """
-  def describe_connectors(client, input, options \\ []) do
-    path_ = "/describe-connectors"
+  def describe_connectors(%Client{} = client, input, options \\ []) do
+    url_path = "/describe-connectors"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Provides a description of the specified flow.
   """
-  def describe_flow(client, input, options \\ []) do
-    path_ = "/describe-flow"
+  def describe_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/describe-flow"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Fetches the execution history of the flow.
   """
-  def describe_flow_execution_records(client, input, options \\ []) do
-    path_ = "/describe-flow-execution-records"
+  def describe_flow_execution_records(%Client{} = client, input, options \\ []) do
+    url_path = "/describe-flow-execution-records"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -161,31 +279,64 @@ defmodule AWS.Appflow do
   For example, you can query Salesforce for *Account* and *Opportunity* entities,
   or query ServiceNow for the *Incident* entity.
   """
-  def list_connector_entities(client, input, options \\ []) do
-    path_ = "/list-connector-entities"
+  def list_connector_entities(%Client{} = client, input, options \\ []) do
+    url_path = "/list-connector-entities"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Lists all of the flows associated with your account.
   """
-  def list_flows(client, input, options \\ []) do
-    path_ = "/list-flows"
+  def list_flows(%Client{} = client, input, options \\ []) do
+    url_path = "/list-flows"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Retrieves the tags that are associated with a specified flow.
   """
-  def list_tags_for_resource(client, resource_arn, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -194,11 +345,22 @@ defmodule AWS.Appflow do
   For on-demand flows, this operation runs the flow immediately. For schedule and
   event-triggered flows, this operation activates the flow.
   """
-  def start_flow(client, input, options \\ []) do
-    path_ = "/start-flow"
+  def start_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/start-flow"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -208,118 +370,110 @@ defmodule AWS.Appflow do
   error message. For schedule and event-triggered flows, this operation
   deactivates the flow.
   """
-  def stop_flow(client, input, options \\ []) do
-    path_ = "/stop-flow"
+  def stop_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/stop-flow"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Applies a tag to the specified flow.
   """
-  def tag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Removes a tag from the specified flow.
   """
-  def untag_resource(client, resource_arn, input, options \\ []) do
-    path_ = "/tags/#{URI.encode(resource_arn)}"
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
-    {query_, input} =
+
+    {query_params, input} =
       [
-        {"tagKeys", "tagKeys"},
+        {"tagKeys", "tagKeys"}
       ]
-      |> AWS.Request.build_params(input)
-    request(client, :delete, path_, query_, headers, input, options, nil)
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates a given connector profile associated with your account.
   """
-  def update_connector_profile(client, input, options \\ []) do
-    path_ = "/update-connector-profile"
+  def update_connector_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/update-connector-profile"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 
   @doc """
   Updates an existing flow.
   """
-  def update_flow(client, input, options \\ []) do
-    path_ = "/update-flow"
+  def update_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/update-flow"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, nil)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "appflow"}
-    host = build_host("appflow", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
   end
 end

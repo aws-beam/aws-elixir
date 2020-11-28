@@ -12,6 +12,25 @@ defmodule AWS.MigrationHub do
   Also, you must make the API calls while in your home region.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-05-31",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "mgh",
+      global?: false,
+      protocol: "json",
+      service_id: "Migration Hub",
+      signature_version: "v4",
+      signing_name: "mgh",
+      target_prefix: "AWSMigrationHub"
+    }
+  end
+
   @doc """
   Associates a created artifact of an AWS cloud resource, the target receiving the
   migration, with the migration task performed by a migration tool.
@@ -28,16 +47,16 @@ defmodule AWS.MigrationHub do
     * Examples of the AWS resource behind the created artifact are,
   AMI's, EC2 instance, or DMS endpoint, etc.
   """
-  def associate_created_artifact(client, input, options \\ []) do
-    request(client, "AssociateCreatedArtifact", input, options)
+  def associate_created_artifact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateCreatedArtifact", input, options)
   end
 
   @doc """
   Associates a discovered resource ID from Application Discovery Service with a
   migration task.
   """
-  def associate_discovered_resource(client, input, options \\ []) do
-    request(client, "AssociateDiscoveredResource", input, options)
+  def associate_discovered_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateDiscoveredResource", input, options)
   end
 
   @doc """
@@ -49,8 +68,8 @@ defmodule AWS.MigrationHub do
   by the tool; however, it does not need to be unique for each AWS account because
   it is scoped to the AWS account.
   """
-  def create_progress_update_stream(client, input, options \\ []) do
-    request(client, "CreateProgressUpdateStream", input, options)
+  def create_progress_update_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateProgressUpdateStream", input, options)
   end
 
   @doc """
@@ -79,22 +98,22 @@ defmodule AWS.MigrationHub do
   that stream will be an entirely new logical resource (without any resources
   associated with the old stream).
   """
-  def delete_progress_update_stream(client, input, options \\ []) do
-    request(client, "DeleteProgressUpdateStream", input, options)
+  def delete_progress_update_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProgressUpdateStream", input, options)
   end
 
   @doc """
   Gets the migration status of an application.
   """
-  def describe_application_state(client, input, options \\ []) do
-    request(client, "DescribeApplicationState", input, options)
+  def describe_application_state(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeApplicationState", input, options)
   end
 
   @doc """
   Retrieves a list of all attributes associated with a specific migration task.
   """
-  def describe_migration_task(client, input, options \\ []) do
-    request(client, "DescribeMigrationTask", input, options)
+  def describe_migration_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeMigrationTask", input, options)
   end
 
   @doc """
@@ -113,16 +132,16 @@ defmodule AWS.MigrationHub do
     * Examples of the AWS resource behind the created artifact are,
   AMI's, EC2 instance, or RDS instance, etc.
   """
-  def disassociate_created_artifact(client, input, options \\ []) do
-    request(client, "DisassociateCreatedArtifact", input, options)
+  def disassociate_created_artifact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateCreatedArtifact", input, options)
   end
 
   @doc """
   Disassociate an Application Discovery Service discovered resource from a
   migration task.
   """
-  def disassociate_discovered_resource(client, input, options \\ []) do
-    request(client, "DisassociateDiscoveredResource", input, options)
+  def disassociate_discovered_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateDiscoveredResource", input, options)
   end
 
   @doc """
@@ -132,8 +151,8 @@ defmodule AWS.MigrationHub do
   This API is a prerequisite to calling the `NotifyMigrationTaskState` API as the
   migration tool must first register the migration task with Migration Hub.
   """
-  def import_migration_task(client, input, options \\ []) do
-    request(client, "ImportMigrationTask", input, options)
+  def import_migration_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportMigrationTask", input, options)
   end
 
   @doc """
@@ -142,8 +161,8 @@ defmodule AWS.MigrationHub do
   If you use the optional `ApplicationIds` parameter, only the migration statuses
   for those applications will be returned.
   """
-  def list_application_states(client, input, options \\ []) do
-    request(client, "ListApplicationStates", input, options)
+  def list_application_states(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListApplicationStates", input, options)
   end
 
   @doc """
@@ -160,15 +179,15 @@ defmodule AWS.MigrationHub do
 
     * Lists created artifacts in a paginated interface.
   """
-  def list_created_artifacts(client, input, options \\ []) do
-    request(client, "ListCreatedArtifacts", input, options)
+  def list_created_artifacts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListCreatedArtifacts", input, options)
   end
 
   @doc """
   Lists discovered resources associated with the given `MigrationTask`.
   """
-  def list_discovered_resources(client, input, options \\ []) do
-    request(client, "ListDiscoveredResources", input, options)
+  def list_discovered_resources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDiscoveredResources", input, options)
   end
 
   @doc """
@@ -184,15 +203,15 @@ defmodule AWS.MigrationHub do
 
     * Lists migration tasks in a paginated interface.
   """
-  def list_migration_tasks(client, input, options \\ []) do
-    request(client, "ListMigrationTasks", input, options)
+  def list_migration_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMigrationTasks", input, options)
   end
 
   @doc """
   Lists progress update streams associated with the user account making this call.
   """
-  def list_progress_update_streams(client, input, options \\ []) do
-    request(client, "ListProgressUpdateStreams", input, options)
+  def list_progress_update_streams(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListProgressUpdateStreams", input, options)
   end
 
   @doc """
@@ -202,8 +221,8 @@ defmodule AWS.MigrationHub do
   status is set or updated by passing one of three values to `Status`:
   `NOT_STARTED | IN_PROGRESS | COMPLETED`.
   """
-  def notify_application_state(client, input, options \\ []) do
-    request(client, "NotifyApplicationState", input, options)
+  def notify_application_state(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "NotifyApplicationState", input, options)
   end
 
   @doc """
@@ -221,8 +240,8 @@ defmodule AWS.MigrationHub do
     * `ProgressUpdateStream` is used for access control and to provide a
   namespace for each migration tool.
   """
-  def notify_migration_task_state(client, input, options \\ []) do
-    request(client, "NotifyMigrationTaskState", input, options)
+  def notify_migration_task_state(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "NotifyMigrationTaskState", input, options)
   end
 
   @doc """
@@ -246,61 +265,7 @@ defmodule AWS.MigrationHub do
   association occurs or not. To confirm if an association was found based on the
   provided details, call `ListDiscoveredResources`.
   """
-  def put_resource_attributes(client, input, options \\ []) do
-    request(client, "PutResourceAttributes", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "mgh"}
-    host = build_host("mgh", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AWSMigrationHub.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def put_resource_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutResourceAttributes", input, options)
   end
 end

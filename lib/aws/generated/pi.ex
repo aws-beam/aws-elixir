@@ -23,11 +23,30 @@ defmodule AWS.PI do
   as SQL, Wait-event, User or Host, measured at that time point.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "AWS PI",
+      api_version: "2018-02-27",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "pi",
+      global?: false,
+      protocol: "json",
+      service_id: "PI",
+      signature_version: "v4",
+      signing_name: "pi",
+      target_prefix: "PerformanceInsightsv20180227"
+    }
+  end
+
   @doc """
   For a specific time period, retrieve the top `N` dimension keys for a metric.
   """
-  def describe_dimension_keys(client, input, options \\ []) do
-    request(client, "DescribeDimensionKeys", input, options)
+  def describe_dimension_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDimensionKeys", input, options)
   end
 
   @doc """
@@ -37,61 +56,7 @@ defmodule AWS.PI do
   You can provide specific dimension groups and dimensions, and provide
   aggregation and filtering criteria for each group.
   """
-  def get_resource_metrics(client, input, options \\ []) do
-    request(client, "GetResourceMetrics", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "pi"}
-    host = build_host("pi", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "PerformanceInsightsv20180227.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def get_resource_metrics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResourceMetrics", input, options)
   end
 end

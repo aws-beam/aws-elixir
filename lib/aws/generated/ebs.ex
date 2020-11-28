@@ -30,6 +30,25 @@ defmodule AWS.EBS do
   *AWS General Reference*.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2019-11-02",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "ebs",
+      global?: false,
+      protocol: "rest-json",
+      service_id: "EBS",
+      signature_version: "v4",
+      signing_name: "ebs",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Seals and completes the snapshot after all of the required blocks of data have
   been written to it.
@@ -37,108 +56,177 @@ defmodule AWS.EBS do
   Completing the snapshot changes the status to `completed`. You cannot write new
   blocks to a snapshot after it has been completed.
   """
-  def complete_snapshot(client, snapshot_id, input, options \\ []) do
-    path_ = "/snapshots/completion/#{URI.encode(snapshot_id)}"
+  def complete_snapshot(%Client{} = client, snapshot_id, input, options \\ []) do
+    url_path = "/snapshots/completion/#{URI.encode(snapshot_id)}"
+
     {headers, input} =
       [
         {"ChangedBlocksCount", "x-amz-ChangedBlocksCount"},
         {"Checksum", "x-amz-Checksum"},
         {"ChecksumAggregationMethod", "x-amz-Checksum-Aggregation-Method"},
-        {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"},
+        {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 202)
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
   Returns the data in a block in an Amazon Elastic Block Store snapshot.
   """
-  def get_snapshot_block(client, block_index, snapshot_id, block_token, options \\ []) do
-    path_ = "/snapshots/#{URI.encode(snapshot_id)}/blocks/#{URI.encode(block_index)}"
+  def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ []) do
+    url_path = "/snapshots/#{URI.encode(snapshot_id)}/blocks/#{URI.encode(block_index)}"
     headers = []
-    query_ = []
-    query_ = if !is_nil(block_token) do
-      [{"blockToken", block_token} | query_]
-    else
-      query_
-    end
-    case request(client, :get, path_, query_, headers, nil, options, nil) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-Checksum", "Checksum"},
-            {"x-amz-Checksum-Algorithm", "ChecksumAlgorithm"},
-            {"x-amz-Data-Length", "DataLength"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+    query_params = []
 
-        {:ok, body, response}
+    query_params =
+      if !is_nil(block_token) do
+        [{"blockToken", block_token} | query_params]
+      else
+        query_params
+      end
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-Checksum", "Checksum"},
+          {"x-amz-Checksum-Algorithm", "ChecksumAlgorithm"},
+          {"x-amz-Data-Length", "DataLength"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information about the blocks that are different between two Amazon
   Elastic Block Store snapshots of the same volume/snapshot lineage.
   """
-  def list_changed_blocks(client, second_snapshot_id, first_snapshot_id \\ nil, max_results \\ nil, next_token \\ nil, starting_block_index \\ nil, options \\ []) do
-    path_ = "/snapshots/#{URI.encode(second_snapshot_id)}/changedblocks"
+  def list_changed_blocks(
+        %Client{} = client,
+        second_snapshot_id,
+        first_snapshot_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        starting_block_index \\ nil,
+        options \\ []
+      ) do
+    url_path = "/snapshots/#{URI.encode(second_snapshot_id)}/changedblocks"
     headers = []
-    query_ = []
-    query_ = if !is_nil(starting_block_index) do
-      [{"startingBlockIndex", starting_block_index} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"pageToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(first_snapshot_id) do
-      [{"firstSnapshotId", first_snapshot_id} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(starting_block_index) do
+        [{"startingBlockIndex", starting_block_index} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"pageToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(first_snapshot_id) do
+        [{"firstSnapshotId", first_snapshot_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
   Returns information about the blocks in an Amazon Elastic Block Store snapshot.
   """
-  def list_snapshot_blocks(client, snapshot_id, max_results \\ nil, next_token \\ nil, starting_block_index \\ nil, options \\ []) do
-    path_ = "/snapshots/#{URI.encode(snapshot_id)}/blocks"
+  def list_snapshot_blocks(
+        %Client{} = client,
+        snapshot_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        starting_block_index \\ nil,
+        options \\ []
+      ) do
+    url_path = "/snapshots/#{URI.encode(snapshot_id)}/blocks"
     headers = []
-    query_ = []
-    query_ = if !is_nil(starting_block_index) do
-      [{"startingBlockIndex", starting_block_index} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(next_token) do
-      [{"pageToken", next_token} | query_]
-    else
-      query_
-    end
-    query_ = if !is_nil(max_results) do
-      [{"maxResults", max_results} | query_]
-    else
-      query_
-    end
-    request(client, :get, path_, query_, headers, nil, options, nil)
+    query_params = []
+
+    query_params =
+      if !is_nil(starting_block_index) do
+        [{"startingBlockIndex", starting_block_index} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"pageToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
   end
 
   @doc """
@@ -149,36 +237,41 @@ defmodule AWS.EBS do
 
   Data written to a snapshot must be aligned with 512-byte sectors.
   """
-  def put_snapshot_block(client, block_index, snapshot_id, input, options \\ []) do
-    path_ = "/snapshots/#{URI.encode(snapshot_id)}/blocks/#{URI.encode(block_index)}"
+  def put_snapshot_block(%Client{} = client, block_index, snapshot_id, input, options \\ []) do
+    url_path = "/snapshots/#{URI.encode(snapshot_id)}/blocks/#{URI.encode(block_index)}"
+
     {headers, input} =
       [
         {"Checksum", "x-amz-Checksum"},
         {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"},
         {"DataLength", "x-amz-Data-Length"},
-        {"Progress", "x-amz-Progress"},
+        {"Progress", "x-amz-Progress"}
       ]
-      |> AWS.Request.build_params(input)
-    query_ = []
-    case request(client, :put, path_, query_, headers, input, options, 201) do
-      {:ok, body, response} when not is_nil(body) ->
-        body =
-          [
-            {"x-amz-Checksum", "Checksum"},
-            {"x-amz-Checksum-Algorithm", "ChecksumAlgorithm"},
-          ]
-          |> Enum.reduce(body, fn {header_name, key}, acc ->
-            case List.keyfind(response.headers, header_name, 0) do
-              nil -> acc
-              {_header_name, value} -> Map.put(acc, key, value)
-            end
-          end)
+      |> Request.build_params(input)
 
-        {:ok, body, response}
+    query_params = []
 
-      result ->
-        result
-    end
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-Checksum", "Checksum"},
+          {"x-amz-Checksum-Algorithm", "ChecksumAlgorithm"}
+        ]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -190,74 +283,21 @@ defmodule AWS.EBS do
   PutSnapshotBlock](https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html)
   to write blocks of data to the snapshot.
   """
-  def start_snapshot(client, input, options \\ []) do
-    path_ = "/snapshots"
+  def start_snapshot(%Client{} = client, input, options \\ []) do
+    url_path = "/snapshots"
     headers = []
-    query_ = []
-    request(client, :post, path_, query_, headers, input, options, 201)
-  end
+    query_params = []
 
-  @spec request(AWS.Client.t(), binary(), binary(), list(), list(), map(), list(), pos_integer()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, method, path, query, headers, input, options, success_status_code) do
-    client = %{client | service: "ebs"}
-    host = build_host("ebs", client)
-    url = host
-    |> build_url(path, client)
-    |> add_query(query, client)
-
-    additional_headers = [{"Host", host}, {"Content-Type", "application/x-amz-json-1.1"}]
-    headers = AWS.Request.add_headers(additional_headers, headers)
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, method, url, headers, payload)
-    perform_request(client, method, url, payload, headers, options, success_status_code)
-  end
-
-  defp perform_request(client, method, url, payload, headers, options, success_status_code) do
-    case AWS.Client.request(client, method, url, payload, headers, options) do
-      {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
-        body = if(body != "", do: decode!(client, body))
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, path, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}#{path}"
-  end
-
-  defp add_query(url, [], _client) do
-    url
-  end
-  defp add_query(url, query, client) do
-    querystring = encode!(client, query, :query)
-    "#{url}?#{querystring}"
-  end
-
-  defp encode!(client, payload, format \\ :json) do
-    AWS.Client.encode!(client, payload, format)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 end

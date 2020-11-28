@@ -13,6 +13,25 @@ defmodule AWS.IAM do
   can access. For more information about IAM, see [AWS Identity and Access Management (IAM)](http://aws.amazon.com/iam/) and the [AWS Identity and Access Management User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "IAM",
+      api_version: "2010-05-08",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: "us-east-1",
+      endpoint_prefix: "iam",
+      global?: true,
+      protocol: "query",
+      service_id: "IAM",
+      signature_version: "v4",
+      signing_name: "iam",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Adds a new client ID (also known as audience) to the list of client IDs already
   registered for the specified IAM OpenID Connect (OIDC) provider resource.
@@ -20,8 +39,8 @@ defmodule AWS.IAM do
   This operation is idempotent; it does not fail or return an error if you add an
   existing client ID to the provider.
   """
-  def add_client_i_d_to_open_i_d_connect_provider(client, input, options \\ []) do
-    request(client, "AddClientIDToOpenIDConnectProvider", input, options)
+  def add_client_i_d_to_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddClientIDToOpenIDConnectProvider", input, options)
   end
 
   @doc """
@@ -42,15 +61,15 @@ defmodule AWS.IAM do
   For more information about roles, go to [Working with Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
   For more information about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
   """
-  def add_role_to_instance_profile(client, input, options \\ []) do
-    request(client, "AddRoleToInstanceProfile", input, options)
+  def add_role_to_instance_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddRoleToInstanceProfile", input, options)
   end
 
   @doc """
   Adds the specified user to the specified group.
   """
-  def add_user_to_group(client, input, options \\ []) do
-    request(client, "AddUserToGroup", input, options)
+  def add_user_to_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddUserToGroup", input, options)
   end
 
   @doc """
@@ -62,8 +81,8 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def attach_group_policy(client, input, options \\ []) do
-    request(client, "AttachGroupPolicy", input, options)
+  def attach_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachGroupPolicy", input, options)
   end
 
   @doc """
@@ -81,8 +100,8 @@ defmodule AWS.IAM do
   [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def attach_role_policy(client, input, options \\ []) do
-    request(client, "AttachRolePolicy", input, options)
+  def attach_role_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachRolePolicy", input, options)
   end
 
   @doc """
@@ -94,8 +113,8 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def attach_user_policy(client, input, options \\ []) do
-    request(client, "AttachUserPolicy", input, options)
+  def attach_user_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachUserPolicy", input, options)
   end
 
   @doc """
@@ -107,8 +126,8 @@ defmodule AWS.IAM do
   information about modifying passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
   """
-  def change_password(client, input, options \\ []) do
-    request(client, "ChangePassword", input, options)
+  def change_password(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ChangePassword", input, options)
   end
 
   @doc """
@@ -132,8 +151,8 @@ defmodule AWS.IAM do
   file) if you want to be able to access it again. If a secret key is lost, you
   can delete the access keys for the associated user and then create new keys.
   """
-  def create_access_key(client, input, options \\ []) do
-    request(client, "CreateAccessKey", input, options)
+  def create_access_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAccessKey", input, options)
   end
 
   @doc """
@@ -143,8 +162,8 @@ defmodule AWS.IAM do
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
   *IAM User Guide*.
   """
-  def create_account_alias(client, input, options \\ []) do
-    request(client, "CreateAccountAlias", input, options)
+  def create_account_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAccountAlias", input, options)
   end
 
   @doc """
@@ -154,8 +173,8 @@ defmodule AWS.IAM do
   information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
-  def create_group(client, input, options \\ []) do
-    request(client, "CreateGroup", input, options)
+  def create_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGroup", input, options)
   end
 
   @doc """
@@ -167,8 +186,8 @@ defmodule AWS.IAM do
   information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
-  def create_instance_profile(client, input, options \\ []) do
-    request(client, "CreateInstanceProfile", input, options)
+  def create_instance_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateInstanceProfile", input, options)
   end
 
   @doc """
@@ -178,8 +197,8 @@ defmodule AWS.IAM do
   For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
   """
-  def create_login_profile(client, input, options \\ []) do
-    request(client, "CreateLoginProfile", input, options)
+  def create_login_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLoginProfile", input, options)
   end
 
   @doc """
@@ -208,8 +227,8 @@ defmodule AWS.IAM do
   operation creates. Therefore, it is best to limit access to the
   `CreateOpenIDConnectProvider` operation to highly privileged users.
   """
-  def create_open_i_d_connect_provider(client, input, options \\ []) do
-    request(client, "CreateOpenIDConnectProvider", input, options)
+  def create_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateOpenIDConnectProvider", input, options)
   end
 
   @doc """
@@ -224,8 +243,8 @@ defmodule AWS.IAM do
   Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def create_policy(client, input, options \\ []) do
-    request(client, "CreatePolicy", input, options)
+  def create_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePolicy", input, options)
   end
 
   @doc """
@@ -242,8 +261,8 @@ defmodule AWS.IAM do
   For more information about managed policy versions, see [Versioning for Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
-  def create_policy_version(client, input, options \\ []) do
-    request(client, "CreatePolicyVersion", input, options)
+  def create_policy_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePolicyVersion", input, options)
   end
 
   @doc """
@@ -254,8 +273,8 @@ defmodule AWS.IAM do
   information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
-  def create_role(client, input, options \\ []) do
-    request(client, "CreateRole", input, options)
+  def create_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRole", input, options)
   end
 
   @doc """
@@ -282,8 +301,8 @@ defmodule AWS.IAM do
   and [About SAML 2.0-based Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)
   in the *IAM User Guide*.
   """
-  def create_s_a_m_l_provider(client, input, options \\ []) do
-    request(client, "CreateSAMLProvider", input, options)
+  def create_s_a_m_l_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSAMLProvider", input, options)
   end
 
   @doc """
@@ -300,8 +319,8 @@ defmodule AWS.IAM do
   To attach a policy to this service-linked role, you must make the request using
   the AWS service that depends on this role.
   """
-  def create_service_linked_role(client, input, options \\ []) do
-    request(client, "CreateServiceLinkedRole", input, options)
+  def create_service_linked_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateServiceLinkedRole", input, options)
   end
 
   @doc """
@@ -323,8 +342,8 @@ defmodule AWS.IAM do
   Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html)
   in the *IAM User Guide*.
   """
-  def create_service_specific_credential(client, input, options \\ []) do
-    request(client, "CreateServiceSpecificCredential", input, options)
+  def create_service_specific_credential(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateServiceSpecificCredential", input, options)
   end
 
   @doc """
@@ -334,8 +353,8 @@ defmodule AWS.IAM do
   information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
-  def create_user(client, input, options \\ []) do
-    request(client, "CreateUser", input, options)
+  def create_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUser", input, options)
   end
 
   @doc """
@@ -356,8 +375,8 @@ defmodule AWS.IAM do
   provision your virtual device, you should ensure that the information is
   destroyed following secure procedures.
   """
-  def create_virtual_m_f_a_device(client, input, options \\ []) do
-    request(client, "CreateVirtualMFADevice", input, options)
+  def create_virtual_m_f_a_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateVirtualMFADevice", input, options)
   end
 
   @doc """
@@ -368,8 +387,8 @@ defmodule AWS.IAM do
   [Enabling a Virtual Multi-factor Authentication (MFA) Device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
   """
-  def deactivate_m_f_a_device(client, input, options \\ []) do
-    request(client, "DeactivateMFADevice", input, options)
+  def deactivate_m_f_a_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeactivateMFADevice", input, options)
   end
 
   @doc """
@@ -381,8 +400,8 @@ defmodule AWS.IAM do
   AWS account root user credentials even if the AWS account has no associated
   users.
   """
-  def delete_access_key(client, input, options \\ []) do
-    request(client, "DeleteAccessKey", input, options)
+  def delete_access_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAccessKey", input, options)
   end
 
   @doc """
@@ -392,8 +411,8 @@ defmodule AWS.IAM do
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
   *IAM User Guide*.
   """
-  def delete_account_alias(client, input, options \\ []) do
-    request(client, "DeleteAccountAlias", input, options)
+  def delete_account_alias(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAccountAlias", input, options)
   end
 
   @doc """
@@ -401,8 +420,8 @@ defmodule AWS.IAM do
 
   There are no parameters.
   """
-  def delete_account_password_policy(client, input, options \\ []) do
-    request(client, "DeleteAccountPasswordPolicy", input, options)
+  def delete_account_password_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAccountPasswordPolicy", input, options)
   end
 
   @doc """
@@ -410,8 +429,8 @@ defmodule AWS.IAM do
 
   The group must not contain any users or have any attached policies.
   """
-  def delete_group(client, input, options \\ []) do
-    request(client, "DeleteGroup", input, options)
+  def delete_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGroup", input, options)
   end
 
   @doc """
@@ -422,8 +441,8 @@ defmodule AWS.IAM do
   policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def delete_group_policy(client, input, options \\ []) do
-    request(client, "DeleteGroupPolicy", input, options)
+  def delete_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGroupPolicy", input, options)
   end
 
   @doc """
@@ -438,8 +457,8 @@ defmodule AWS.IAM do
 
   For more information about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
   """
-  def delete_instance_profile(client, input, options \\ []) do
-    request(client, "DeleteInstanceProfile", input, options)
+  def delete_instance_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteInstanceProfile", input, options)
   end
 
   @doc """
@@ -452,8 +471,8 @@ defmodule AWS.IAM do
   making keys inactive or deleting them, see `UpdateAccessKey` and
   `DeleteAccessKey`.
   """
-  def delete_login_profile(client, input, options \\ []) do
-    request(client, "DeleteLoginProfile", input, options)
+  def delete_login_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLoginProfile", input, options)
   end
 
   @doc """
@@ -466,8 +485,8 @@ defmodule AWS.IAM do
   This operation is idempotent; it does not fail or return an error if you call
   the operation for a provider that does not exist.
   """
-  def delete_open_i_d_connect_provider(client, input, options \\ []) do
-    request(client, "DeleteOpenIDConnectProvider", input, options)
+  def delete_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteOpenIDConnectProvider", input, options)
   end
 
   @doc """
@@ -495,8 +514,8 @@ defmodule AWS.IAM do
   For information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def delete_policy(client, input, options \\ []) do
-    request(client, "DeletePolicy", input, options)
+  def delete_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePolicy", input, options)
   end
 
   @doc """
@@ -509,8 +528,8 @@ defmodule AWS.IAM do
   For information about versions for managed policies, see [Versioning for Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
-  def delete_policy_version(client, input, options \\ []) do
-    request(client, "DeletePolicyVersion", input, options)
+  def delete_policy_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePolicyVersion", input, options)
   end
 
   @doc """
@@ -523,8 +542,8 @@ defmodule AWS.IAM do
   you are about to delete. Deleting a role or instance profile that is associated
   with a running instance will break any applications running on the instance.
   """
-  def delete_role(client, input, options \\ []) do
-    request(client, "DeleteRole", input, options)
+  def delete_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRole", input, options)
   end
 
   @doc """
@@ -534,8 +553,8 @@ defmodule AWS.IAM do
   example, it might allow anyone who assumes the role to perform all the actions
   granted in its permissions policies.
   """
-  def delete_role_permissions_boundary(client, input, options \\ []) do
-    request(client, "DeleteRolePermissionsBoundary", input, options)
+  def delete_role_permissions_boundary(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRolePermissionsBoundary", input, options)
   end
 
   @doc """
@@ -546,8 +565,8 @@ defmodule AWS.IAM do
   to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def delete_role_policy(client, input, options \\ []) do
-    request(client, "DeleteRolePolicy", input, options)
+  def delete_role_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRolePolicy", input, options)
   end
 
   @doc """
@@ -560,8 +579,8 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
-  def delete_s_a_m_l_provider(client, input, options \\ []) do
-    request(client, "DeleteSAMLProvider", input, options)
+  def delete_s_a_m_l_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSAMLProvider", input, options)
   end
 
   @doc """
@@ -573,8 +592,8 @@ defmodule AWS.IAM do
   Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
   """
-  def delete_s_s_h_public_key(client, input, options \\ []) do
-    request(client, "DeleteSSHPublicKey", input, options)
+  def delete_s_s_h_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSSHPublicKey", input, options)
   end
 
   @doc """
@@ -595,8 +614,8 @@ defmodule AWS.IAM do
   [DeleteLoadBalancerListeners](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html)
   in the *Elastic Load Balancing API Reference*.
   """
-  def delete_server_certificate(client, input, options \\ []) do
-    request(client, "DeleteServerCertificate", input, options)
+  def delete_server_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteServerCertificate", input, options)
   end
 
   @doc """
@@ -622,15 +641,15 @@ defmodule AWS.IAM do
   Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)
   in the *IAM User Guide*.
   """
-  def delete_service_linked_role(client, input, options \\ []) do
-    request(client, "DeleteServiceLinkedRole", input, options)
+  def delete_service_linked_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteServiceLinkedRole", input, options)
   end
 
   @doc """
   Deletes the specified service-specific credential.
   """
-  def delete_service_specific_credential(client, input, options \\ []) do
-    request(client, "DeleteServiceSpecificCredential", input, options)
+  def delete_service_specific_credential(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteServiceSpecificCredential", input, options)
   end
 
   @doc """
@@ -642,8 +661,8 @@ defmodule AWS.IAM do
   AWS account root user credentials even if the AWS account has no associated IAM
   users.
   """
-  def delete_signing_certificate(client, input, options \\ []) do
-    request(client, "DeleteSigningCertificate", input, options)
+  def delete_signing_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSigningCertificate", input, options)
   end
 
   @doc """
@@ -673,8 +692,8 @@ defmodule AWS.IAM do
 
     * Group memberships (`RemoveUserFromGroup`)
   """
-  def delete_user(client, input, options \\ []) do
-    request(client, "DeleteUser", input, options)
+  def delete_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUser", input, options)
   end
 
   @doc """
@@ -684,8 +703,8 @@ defmodule AWS.IAM do
   allowing the user to perform all the actions granted in its permissions
   policies.
   """
-  def delete_user_permissions_boundary(client, input, options \\ []) do
-    request(client, "DeleteUserPermissionsBoundary", input, options)
+  def delete_user_permissions_boundary(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUserPermissionsBoundary", input, options)
   end
 
   @doc """
@@ -696,8 +715,8 @@ defmodule AWS.IAM do
   to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def delete_user_policy(client, input, options \\ []) do
-    request(client, "DeleteUserPolicy", input, options)
+  def delete_user_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUserPolicy", input, options)
   end
 
   @doc """
@@ -706,8 +725,8 @@ defmodule AWS.IAM do
   You must deactivate a user's virtual MFA device before you can delete it. For
   information about deactivating MFA devices, see `DeactivateMFADevice`.
   """
-  def delete_virtual_m_f_a_device(client, input, options \\ []) do
-    request(client, "DeleteVirtualMFADevice", input, options)
+  def delete_virtual_m_f_a_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteVirtualMFADevice", input, options)
   end
 
   @doc """
@@ -718,8 +737,8 @@ defmodule AWS.IAM do
   [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def detach_group_policy(client, input, options \\ []) do
-    request(client, "DetachGroupPolicy", input, options)
+  def detach_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachGroupPolicy", input, options)
   end
 
   @doc """
@@ -730,8 +749,8 @@ defmodule AWS.IAM do
   [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def detach_role_policy(client, input, options \\ []) do
-    request(client, "DetachRolePolicy", input, options)
+  def detach_role_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachRolePolicy", input, options)
   end
 
   @doc """
@@ -742,8 +761,8 @@ defmodule AWS.IAM do
   [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def detach_user_policy(client, input, options \\ []) do
-    request(client, "DetachUserPolicy", input, options)
+  def detach_user_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachUserPolicy", input, options)
   end
 
   @doc """
@@ -752,8 +771,8 @@ defmodule AWS.IAM do
   When enabled, the MFA device is required for every subsequent login by the IAM
   user associated with the device.
   """
-  def enable_m_f_a_device(client, input, options \\ []) do
-    request(client, "EnableMFADevice", input, options)
+  def enable_m_f_a_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableMFADevice", input, options)
   end
 
   @doc """
@@ -762,8 +781,8 @@ defmodule AWS.IAM do
   For more information about the credential report, see [Getting Credential Reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
   """
-  def generate_credential_report(client, input, options \\ []) do
-    request(client, "GenerateCredentialReport", input, options)
+  def generate_credential_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GenerateCredentialReport", input, options)
   end
 
   @doc """
@@ -881,8 +900,8 @@ defmodule AWS.IAM do
   Activity](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
   """
-  def generate_organizations_access_report(client, input, options \\ []) do
-    request(client, "GenerateOrganizationsAccessReport", input, options)
+  def generate_organizations_access_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GenerateOrganizationsAccessReport", input, options)
   end
 
   @doc """
@@ -940,8 +959,8 @@ defmodule AWS.IAM do
   Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
   """
-  def generate_service_last_accessed_details(client, input, options \\ []) do
-    request(client, "GenerateServiceLastAccessedDetails", input, options)
+  def generate_service_last_accessed_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GenerateServiceLastAccessedDetails", input, options)
   end
 
   @doc """
@@ -950,8 +969,8 @@ defmodule AWS.IAM do
   The information includes the date and time of last use, along with the AWS
   service and Region that were specified in the last request made with that key.
   """
-  def get_access_key_last_used(client, input, options \\ []) do
-    request(client, "GetAccessKeyLastUsed", input, options)
+  def get_access_key_last_used(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccessKeyLastUsed", input, options)
   end
 
   @doc """
@@ -969,8 +988,8 @@ defmodule AWS.IAM do
   You can optionally filter the results using the `Filter` parameter. You can
   paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def get_account_authorization_details(client, input, options \\ []) do
-    request(client, "GetAccountAuthorizationDetails", input, options)
+  def get_account_authorization_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccountAuthorizationDetails", input, options)
   end
 
   @doc """
@@ -979,8 +998,8 @@ defmodule AWS.IAM do
   For more information about using a password policy, go to [Managing an IAM Password
   Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html).
   """
-  def get_account_password_policy(client, input, options \\ []) do
-    request(client, "GetAccountPasswordPolicy", input, options)
+  def get_account_password_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccountPasswordPolicy", input, options)
   end
 
   @doc """
@@ -990,8 +1009,8 @@ defmodule AWS.IAM do
   information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
-  def get_account_summary(client, input, options \\ []) do
-    request(client, "GetAccountSummary", input, options)
+  def get_account_summary(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccountSummary", input, options)
   end
 
   @doc """
@@ -1009,8 +1028,8 @@ defmodule AWS.IAM do
   in unencoded form here for clarity but must be URL encoded to be included as a
   part of a real HTML request.
   """
-  def get_context_keys_for_custom_policy(client, input, options \\ []) do
-    request(client, "GetContextKeysForCustomPolicy", input, options)
+  def get_context_keys_for_custom_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContextKeysForCustomPolicy", input, options)
   end
 
   @doc """
@@ -1035,8 +1054,8 @@ defmodule AWS.IAM do
   `GetContextKeysForPrincipalPolicy` to understand what key names and values you
   must supply when you call `SimulatePrincipalPolicy`.
   """
-  def get_context_keys_for_principal_policy(client, input, options \\ []) do
-    request(client, "GetContextKeysForPrincipalPolicy", input, options)
+  def get_context_keys_for_principal_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContextKeysForPrincipalPolicy", input, options)
   end
 
   @doc """
@@ -1045,8 +1064,8 @@ defmodule AWS.IAM do
   For more information about the credential report, see [Getting Credential Reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
   """
-  def get_credential_report(client, input, options \\ []) do
-    request(client, "GetCredentialReport", input, options)
+  def get_credential_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCredentialReport", input, options)
   end
 
   @doc """
@@ -1054,8 +1073,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def get_group(client, input, options \\ []) do
-    request(client, "GetGroup", input, options)
+  def get_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGroup", input, options)
   end
 
   @doc """
@@ -1075,8 +1094,8 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def get_group_policy(client, input, options \\ []) do
-    request(client, "GetGroupPolicy", input, options)
+  def get_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGroupPolicy", input, options)
   end
 
   @doc """
@@ -1086,8 +1105,8 @@ defmodule AWS.IAM do
   For more information about instance profiles, see [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html)
   in the *IAM User Guide*.
   """
-  def get_instance_profile(client, input, options \\ []) do
-    request(client, "GetInstanceProfile", input, options)
+  def get_instance_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInstanceProfile", input, options)
   end
 
   @doc """
@@ -1096,16 +1115,16 @@ defmodule AWS.IAM do
   If the user has not been assigned a password, the operation returns a 404
   (`NoSuchEntity`) error.
   """
-  def get_login_profile(client, input, options \\ []) do
-    request(client, "GetLoginProfile", input, options)
+  def get_login_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLoginProfile", input, options)
   end
 
   @doc """
   Returns information about the specified OpenID Connect (OIDC) provider resource
   object in IAM.
   """
-  def get_open_i_d_connect_provider(client, input, options \\ []) do
-    request(client, "GetOpenIDConnectProvider", input, options)
+  def get_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOpenIDConnectProvider", input, options)
   end
 
   @doc """
@@ -1133,8 +1152,8 @@ defmodule AWS.IAM do
 
   By default, the list is sorted by service namespace.
   """
-  def get_organizations_access_report(client, input, options \\ []) do
-    request(client, "GetOrganizationsAccessReport", input, options)
+  def get_organizations_access_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOrganizationsAccessReport", input, options)
   end
 
   @doc """
@@ -1154,8 +1173,8 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def get_policy(client, input, options \\ []) do
-    request(client, "GetPolicy", input, options)
+  def get_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPolicy", input, options)
   end
 
   @doc """
@@ -1180,8 +1199,8 @@ defmodule AWS.IAM do
   For more information about managed policy versions, see [Versioning for Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
-  def get_policy_version(client, input, options \\ []) do
-    request(client, "GetPolicyVersion", input, options)
+  def get_policy_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPolicyVersion", input, options)
   end
 
   @doc """
@@ -1195,8 +1214,8 @@ defmodule AWS.IAM do
   can use the `decode` method of the `java.net.URLDecoder` utility class in the
   Java SDK. Other languages and SDKs provide similar functionality.
   """
-  def get_role(client, input, options \\ []) do
-    request(client, "GetRole", input, options)
+  def get_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRole", input, options)
   end
 
   @doc """
@@ -1219,8 +1238,8 @@ defmodule AWS.IAM do
   For more information about roles, see [Using Roles to Delegate Permissions and Federate
   Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
   """
-  def get_role_policy(client, input, options \\ []) do
-    request(client, "GetRolePolicy", input, options)
+  def get_role_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRolePolicy", input, options)
   end
 
   @doc """
@@ -1229,8 +1248,8 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
-  def get_s_a_m_l_provider(client, input, options \\ []) do
-    request(client, "GetSAMLProvider", input, options)
+  def get_s_a_m_l_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSAMLProvider", input, options)
   end
 
   @doc """
@@ -1242,8 +1261,8 @@ defmodule AWS.IAM do
   Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
   """
-  def get_s_s_h_public_key(client, input, options \\ []) do
-    request(client, "GetSSHPublicKey", input, options)
+  def get_s_s_h_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSSHPublicKey", input, options)
   end
 
   @doc """
@@ -1254,8 +1273,8 @@ defmodule AWS.IAM do
   in the *IAM User Guide*. This topic includes a list of AWS services that can use
   the server certificates that you manage with IAM.
   """
-  def get_server_certificate(client, input, options \\ []) do
-    request(client, "GetServerCertificate", input, options)
+  def get_server_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetServerCertificate", input, options)
   end
 
   @doc """
@@ -1310,8 +1329,8 @@ defmodule AWS.IAM do
   Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
   """
-  def get_service_last_accessed_details(client, input, options \\ []) do
-    request(client, "GetServiceLastAccessedDetails", input, options)
+  def get_service_last_accessed_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetServiceLastAccessedDetails", input, options)
   end
 
   @doc """
@@ -1340,8 +1359,14 @@ defmodule AWS.IAM do
   By default, the list of associated entities is sorted by date, with the most
   recent access listed first.
   """
-  def get_service_last_accessed_details_with_entities(client, input, options \\ []) do
-    request(client, "GetServiceLastAccessedDetailsWithEntities", input, options)
+  def get_service_last_accessed_details_with_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetServiceLastAccessedDetailsWithEntities",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1353,8 +1378,8 @@ defmodule AWS.IAM do
   deletion fails, this operation returns the reason that it failed, if that
   information is returned by the service.
   """
-  def get_service_linked_role_deletion_status(client, input, options \\ []) do
-    request(client, "GetServiceLinkedRoleDeletionStatus", input, options)
+  def get_service_linked_role_deletion_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetServiceLinkedRoleDeletionStatus", input, options)
   end
 
   @doc """
@@ -1364,8 +1389,8 @@ defmodule AWS.IAM do
   If you do not specify a user name, IAM determines the user name implicitly based
   on the AWS access key ID used to sign the request to this API.
   """
-  def get_user(client, input, options \\ []) do
-    request(client, "GetUser", input, options)
+  def get_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUser", input, options)
   end
 
   @doc """
@@ -1385,8 +1410,8 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def get_user_policy(client, input, options \\ []) do
-    request(client, "GetUserPolicy", input, options)
+  def get_user_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetUserPolicy", input, options)
   end
 
   @doc """
@@ -1407,8 +1432,8 @@ defmodule AWS.IAM do
   To ensure the security of your AWS account, the secret access key is accessible
   only during key and user creation.
   """
-  def list_access_keys(client, input, options \\ []) do
-    request(client, "ListAccessKeys", input, options)
+  def list_access_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAccessKeys", input, options)
   end
 
   @doc """
@@ -1419,8 +1444,8 @@ defmodule AWS.IAM do
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
   *IAM User Guide*.
   """
-  def list_account_aliases(client, input, options \\ []) do
-    request(client, "ListAccountAliases", input, options)
+  def list_account_aliases(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAccountAliases", input, options)
   end
 
   @doc """
@@ -1437,8 +1462,8 @@ defmodule AWS.IAM do
   specified group (or none that match the specified path prefix), the operation
   returns an empty list.
   """
-  def list_attached_group_policies(client, input, options \\ []) do
-    request(client, "ListAttachedGroupPolicies", input, options)
+  def list_attached_group_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAttachedGroupPolicies", input, options)
   end
 
   @doc """
@@ -1455,8 +1480,8 @@ defmodule AWS.IAM do
   specified role (or none that match the specified path prefix), the operation
   returns an empty list.
   """
-  def list_attached_role_policies(client, input, options \\ []) do
-    request(client, "ListAttachedRolePolicies", input, options)
+  def list_attached_role_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAttachedRolePolicies", input, options)
   end
 
   @doc """
@@ -1473,8 +1498,8 @@ defmodule AWS.IAM do
   specified group (or none that match the specified path prefix), the operation
   returns an empty list.
   """
-  def list_attached_user_policies(client, input, options \\ []) do
-    request(client, "ListAttachedUserPolicies", input, options)
+  def list_attached_user_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAttachedUserPolicies", input, options)
   end
 
   @doc """
@@ -1488,8 +1513,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_entities_for_policy(client, input, options \\ []) do
-    request(client, "ListEntitiesForPolicy", input, options)
+  def list_entities_for_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEntitiesForPolicy", input, options)
   end
 
   @doc """
@@ -1505,8 +1530,8 @@ defmodule AWS.IAM do
   there are no inline policies embedded with the specified group, the operation
   returns an empty list.
   """
-  def list_group_policies(client, input, options \\ []) do
-    request(client, "ListGroupPolicies", input, options)
+  def list_group_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGroupPolicies", input, options)
   end
 
   @doc """
@@ -1514,8 +1539,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_groups(client, input, options \\ []) do
-    request(client, "ListGroups", input, options)
+  def list_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGroups", input, options)
   end
 
   @doc """
@@ -1523,8 +1548,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_groups_for_user(client, input, options \\ []) do
-    request(client, "ListGroupsForUser", input, options)
+  def list_groups_for_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGroupsForUser", input, options)
   end
 
   @doc """
@@ -1535,8 +1560,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_instance_profiles(client, input, options \\ []) do
-    request(client, "ListInstanceProfiles", input, options)
+  def list_instance_profiles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListInstanceProfiles", input, options)
   end
 
   @doc """
@@ -1547,8 +1572,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_instance_profiles_for_role(client, input, options \\ []) do
-    request(client, "ListInstanceProfilesForRole", input, options)
+  def list_instance_profiles_for_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListInstanceProfilesForRole", input, options)
   end
 
   @doc """
@@ -1561,16 +1586,16 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_m_f_a_devices(client, input, options \\ []) do
-    request(client, "ListMFADevices", input, options)
+  def list_m_f_a_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMFADevices", input, options)
   end
 
   @doc """
   Lists information about the IAM OpenID Connect (OIDC) provider resource objects
   defined in the AWS account.
   """
-  def list_open_i_d_connect_providers(client, input, options \\ []) do
-    request(client, "ListOpenIDConnectProviders", input, options)
+  def list_open_i_d_connect_providers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListOpenIDConnectProviders", input, options)
   end
 
   @doc """
@@ -1587,8 +1612,8 @@ defmodule AWS.IAM do
   For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def list_policies(client, input, options \\ []) do
-    request(client, "ListPolicies", input, options)
+  def list_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPolicies", input, options)
   end
 
   @doc """
@@ -1627,8 +1652,8 @@ defmodule AWS.IAM do
   returned. To view which managed policy is currently used to set the permissions
   boundary for a user or role, use the `GetUser` or `GetRole` operations.
   """
-  def list_policies_granting_service_access(client, input, options \\ []) do
-    request(client, "ListPoliciesGrantingServiceAccess", input, options)
+  def list_policies_granting_service_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPoliciesGrantingServiceAccess", input, options)
   end
 
   @doc """
@@ -1638,8 +1663,8 @@ defmodule AWS.IAM do
   For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def list_policy_versions(client, input, options \\ []) do
-    request(client, "ListPolicyVersions", input, options)
+  def list_policy_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPolicyVersions", input, options)
   end
 
   @doc """
@@ -1655,8 +1680,8 @@ defmodule AWS.IAM do
   there are no inline policies embedded with the specified role, the operation
   returns an empty list.
   """
-  def list_role_policies(client, input, options \\ []) do
-    request(client, "ListRolePolicies", input, options)
+  def list_role_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRolePolicies", input, options)
   end
 
   @doc """
@@ -1666,8 +1691,8 @@ defmodule AWS.IAM do
   tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
   """
-  def list_role_tags(client, input, options \\ []) do
-    request(client, "ListRoleTags", input, options)
+  def list_role_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRoleTags", input, options)
   end
 
   @doc """
@@ -1678,8 +1703,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_roles(client, input, options \\ []) do
-    request(client, "ListRoles", input, options)
+  def list_roles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListRoles", input, options)
   end
 
   @doc """
@@ -1687,8 +1712,8 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
-  def list_s_a_m_l_providers(client, input, options \\ []) do
-    request(client, "ListSAMLProviders", input, options)
+  def list_s_a_m_l_providers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSAMLProviders", input, options)
   end
 
   @doc """
@@ -1706,8 +1731,8 @@ defmodule AWS.IAM do
   Although each user is limited to a small number of keys, you can still paginate
   the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_s_s_h_public_keys(client, input, options \\ []) do
-    request(client, "ListSSHPublicKeys", input, options)
+  def list_s_s_h_public_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSSHPublicKeys", input, options)
   end
 
   @doc """
@@ -1722,8 +1747,8 @@ defmodule AWS.IAM do
   in the *IAM User Guide*. This topic also includes a list of AWS services that
   can use the server certificates that you manage with IAM.
   """
-  def list_server_certificates(client, input, options \\ []) do
-    request(client, "ListServerCertificates", input, options)
+  def list_server_certificates(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListServerCertificates", input, options)
   end
 
   @doc """
@@ -1736,8 +1761,8 @@ defmodule AWS.IAM do
   credentials to authenticate to an AWS service, see [Set Up service-specific credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html)
   in the AWS CodeCommit User Guide.
   """
-  def list_service_specific_credentials(client, input, options \\ []) do
-    request(client, "ListServiceSpecificCredentials", input, options)
+  def list_service_specific_credentials(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListServiceSpecificCredentials", input, options)
   end
 
   @doc """
@@ -1755,8 +1780,8 @@ defmodule AWS.IAM do
   this operation to manage AWS account root user credentials even if the AWS
   account has no associated users.
   """
-  def list_signing_certificates(client, input, options \\ []) do
-    request(client, "ListSigningCertificates", input, options)
+  def list_signing_certificates(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSigningCertificates", input, options)
   end
 
   @doc """
@@ -1771,8 +1796,8 @@ defmodule AWS.IAM do
   there are no inline policies embedded with the specified user, the operation
   returns an empty list.
   """
-  def list_user_policies(client, input, options \\ []) do
-    request(client, "ListUserPolicies", input, options)
+  def list_user_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUserPolicies", input, options)
   end
 
   @doc """
@@ -1782,8 +1807,8 @@ defmodule AWS.IAM do
   tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
   """
-  def list_user_tags(client, input, options \\ []) do
-    request(client, "ListUserTags", input, options)
+  def list_user_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUserTags", input, options)
   end
 
   @doc """
@@ -1794,8 +1819,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_users(client, input, options \\ []) do
-    request(client, "ListUsers", input, options)
+  def list_users(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListUsers", input, options)
   end
 
   @doc """
@@ -1807,8 +1832,8 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_virtual_m_f_a_devices(client, input, options \\ []) do
-    request(client, "ListVirtualMFADevices", input, options)
+  def list_virtual_m_f_a_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListVirtualMFADevices", input, options)
   end
 
   @doc """
@@ -1829,8 +1854,8 @@ defmodule AWS.IAM do
   IAM, go to [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
-  def put_group_policy(client, input, options \\ []) do
-    request(client, "PutGroupPolicy", input, options)
+  def put_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutGroupPolicy", input, options)
   end
 
   @doc """
@@ -1849,8 +1874,8 @@ defmodule AWS.IAM do
   permissions for a role are evaluated, see [IAM JSON Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
   in the IAM User Guide.
   """
-  def put_role_permissions_boundary(client, input, options \\ []) do
-    request(client, "PutRolePermissionsBoundary", input, options)
+  def put_role_permissions_boundary(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRolePermissionsBoundary", input, options)
   end
 
   @doc """
@@ -1877,8 +1902,8 @@ defmodule AWS.IAM do
   IAM, go to [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
-  def put_role_policy(client, input, options \\ []) do
-    request(client, "PutRolePolicy", input, options)
+  def put_role_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRolePolicy", input, options)
   end
 
   @doc """
@@ -1895,8 +1920,8 @@ defmodule AWS.IAM do
   permissions for a user are evaluated, see [IAM JSON Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
   in the IAM User Guide.
   """
-  def put_user_permissions_boundary(client, input, options \\ []) do
-    request(client, "PutUserPermissionsBoundary", input, options)
+  def put_user_permissions_boundary(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutUserPermissionsBoundary", input, options)
   end
 
   @doc """
@@ -1917,8 +1942,8 @@ defmodule AWS.IAM do
   IAM, go to [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
-  def put_user_policy(client, input, options \\ []) do
-    request(client, "PutUserPolicy", input, options)
+  def put_user_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutUserPolicy", input, options)
   end
 
   @doc """
@@ -1929,8 +1954,14 @@ defmodule AWS.IAM do
   This operation is idempotent; it does not fail or return an error if you try to
   remove a client ID that does not exist.
   """
-  def remove_client_i_d_from_open_i_d_connect_provider(client, input, options \\ []) do
-    request(client, "RemoveClientIDFromOpenIDConnectProvider", input, options)
+  def remove_client_i_d_from_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "RemoveClientIDFromOpenIDConnectProvider",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1944,15 +1975,15 @@ defmodule AWS.IAM do
   For more information about IAM roles, go to [Working with Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
   For more information about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
   """
-  def remove_role_from_instance_profile(client, input, options \\ []) do
-    request(client, "RemoveRoleFromInstanceProfile", input, options)
+  def remove_role_from_instance_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveRoleFromInstanceProfile", input, options)
   end
 
   @doc """
   Removes the specified user from the specified group.
   """
-  def remove_user_from_group(client, input, options \\ []) do
-    request(client, "RemoveUserFromGroup", input, options)
+  def remove_user_from_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveUserFromGroup", input, options)
   end
 
   @doc """
@@ -1962,8 +1993,8 @@ defmodule AWS.IAM do
   configured by the user. Resetting the password immediately invalidates the
   previous password associated with this user.
   """
-  def reset_service_specific_credential(client, input, options \\ []) do
-    request(client, "ResetServiceSpecificCredential", input, options)
+  def reset_service_specific_credential(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResetServiceSpecificCredential", input, options)
   end
 
   @doc """
@@ -1974,8 +2005,8 @@ defmodule AWS.IAM do
   [Using a Virtual MFA Device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
   """
-  def resync_m_f_a_device(client, input, options \\ []) do
-    request(client, "ResyncMFADevice", input, options)
+  def resync_m_f_a_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResyncMFADevice", input, options)
   end
 
   @doc """
@@ -1989,8 +2020,8 @@ defmodule AWS.IAM do
   For information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
-  def set_default_policy_version(client, input, options \\ []) do
-    request(client, "SetDefaultPolicyVersion", input, options)
+  def set_default_policy_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetDefaultPolicyVersion", input, options)
   end
 
   @doc """
@@ -2016,8 +2047,8 @@ defmodule AWS.IAM do
   To view the current session token version, see the `GlobalEndpointTokenVersion`
   entry in the response of the `GetAccountSummary` operation.
   """
-  def set_security_token_service_preferences(client, input, options \\ []) do
-    request(client, "SetSecurityTokenServicePreferences", input, options)
+  def set_security_token_service_preferences(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetSecurityTokenServicePreferences", input, options)
   end
 
   @doc """
@@ -2043,8 +2074,8 @@ defmodule AWS.IAM do
   If the output is long, you can use `MaxItems` and `Marker` parameters to
   paginate the results.
   """
-  def simulate_custom_policy(client, input, options \\ []) do
-    request(client, "SimulateCustomPolicy", input, options)
+  def simulate_custom_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SimulateCustomPolicy", input, options)
   end
 
   @doc """
@@ -2080,8 +2111,8 @@ defmodule AWS.IAM do
   If the output is long, you can use the `MaxItems` and `Marker` parameters to
   paginate the results.
   """
-  def simulate_principal_policy(client, input, options \\ []) do
-    request(client, "SimulatePrincipalPolicy", input, options)
+  def simulate_principal_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SimulatePrincipalPolicy", input, options)
   end
 
   @doc """
@@ -2119,8 +2150,8 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
   """
-  def tag_role(client, input, options \\ []) do
-    request(client, "TagRole", input, options)
+  def tag_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagRole", input, options)
   end
 
   @doc """
@@ -2159,8 +2190,8 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
   """
-  def tag_user(client, input, options \\ []) do
-    request(client, "TagUser", input, options)
+  def tag_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagUser", input, options)
   end
 
   @doc """
@@ -2169,8 +2200,8 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
   """
-  def untag_role(client, input, options \\ []) do
-    request(client, "UntagRole", input, options)
+  def untag_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagRole", input, options)
   end
 
   @doc """
@@ -2179,8 +2210,8 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
   """
-  def untag_user(client, input, options \\ []) do
-    request(client, "UntagUser", input, options)
+  def untag_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagUser", input, options)
   end
 
   @doc """
@@ -2199,8 +2230,8 @@ defmodule AWS.IAM do
   For information about rotating keys, see [Managing Keys and Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)
   in the *IAM User Guide*.
   """
-  def update_access_key(client, input, options \\ []) do
-    request(client, "UpdateAccessKey", input, options)
+  def update_access_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAccessKey", input, options)
   end
 
   @doc """
@@ -2217,8 +2248,8 @@ defmodule AWS.IAM do
   Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html)
   in the *IAM User Guide*.
   """
-  def update_account_password_policy(client, input, options \\ []) do
-    request(client, "UpdateAccountPasswordPolicy", input, options)
+  def update_account_password_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAccountPasswordPolicy", input, options)
   end
 
   @doc """
@@ -2227,8 +2258,8 @@ defmodule AWS.IAM do
   This is typically referred to as the "role trust policy". For more information
   about roles, go to [Using Roles to Delegate Permissions and Federate Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
   """
-  def update_assume_role_policy(client, input, options \\ []) do
-    request(client, "UpdateAssumeRolePolicy", input, options)
+  def update_assume_role_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAssumeRolePolicy", input, options)
   end
 
   @doc """
@@ -2245,8 +2276,8 @@ defmodule AWS.IAM do
   `Managers` group, but not the `MGRs` group, then the update fails. For more
   information about permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html).
   """
-  def update_group(client, input, options \\ []) do
-    request(client, "UpdateGroup", input, options)
+  def update_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGroup", input, options)
   end
 
   @doc """
@@ -2256,8 +2287,8 @@ defmodule AWS.IAM do
   information about modifying passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
   """
-  def update_login_profile(client, input, options \\ []) do
-    request(client, "UpdateLoginProfile", input, options)
+  def update_login_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLoginProfile", input, options)
   end
 
   @doc """
@@ -2276,15 +2307,21 @@ defmodule AWS.IAM do
   validated by the thumbprint. Therefore, it is best to limit access to the
   `UpdateOpenIDConnectProviderThumbprint` operation to highly privileged users.
   """
-  def update_open_i_d_connect_provider_thumbprint(client, input, options \\ []) do
-    request(client, "UpdateOpenIDConnectProviderThumbprint", input, options)
+  def update_open_i_d_connect_provider_thumbprint(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateOpenIDConnectProviderThumbprint",
+      input,
+      options
+    )
   end
 
   @doc """
   Updates the description or maximum session duration setting of a role.
   """
-  def update_role(client, input, options \\ []) do
-    request(client, "UpdateRole", input, options)
+  def update_role(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRole", input, options)
   end
 
   @doc """
@@ -2293,8 +2330,8 @@ defmodule AWS.IAM do
   Modifies only the description of a role. This operation performs the same
   function as the `Description` parameter in the `UpdateRole` operation.
   """
-  def update_role_description(client, input, options \\ []) do
-    request(client, "UpdateRoleDescription", input, options)
+  def update_role_description(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRoleDescription", input, options)
   end
 
   @doc """
@@ -2302,8 +2339,8 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
-  def update_s_a_m_l_provider(client, input, options \\ []) do
-    request(client, "UpdateSAMLProvider", input, options)
+  def update_s_a_m_l_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSAMLProvider", input, options)
   end
 
   @doc """
@@ -2319,8 +2356,8 @@ defmodule AWS.IAM do
   Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
   """
-  def update_s_s_h_public_key(client, input, options \\ []) do
-    request(client, "UpdateSSHPublicKey", input, options)
+  def update_s_s_h_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSSHPublicKey", input, options)
   end
 
   @doc """
@@ -2345,8 +2382,8 @@ defmodule AWS.IAM do
   [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
   *IAM User Guide*.
   """
-  def update_server_certificate(client, input, options \\ []) do
-    request(client, "UpdateServerCertificate", input, options)
+  def update_server_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateServerCertificate", input, options)
   end
 
   @doc """
@@ -2356,8 +2393,8 @@ defmodule AWS.IAM do
   to the service. This operation can be used to disable a user's service-specific
   credential as part of a credential rotation work flow.
   """
-  def update_service_specific_credential(client, input, options \\ []) do
-    request(client, "UpdateServiceSpecificCredential", input, options)
+  def update_service_specific_credential(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateServiceSpecificCredential", input, options)
   end
 
   @doc """
@@ -2373,8 +2410,8 @@ defmodule AWS.IAM do
   to manage AWS account root user credentials even if the AWS account has no
   associated users.
   """
-  def update_signing_certificate(client, input, options \\ []) do
-    request(client, "UpdateSigningCertificate", input, options)
+  def update_signing_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSigningCertificate", input, options)
   end
 
   @doc """
@@ -2391,8 +2428,8 @@ defmodule AWS.IAM do
   have permission on all (*). For more information about permissions, see
   [Permissions and Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html).
   """
-  def update_user(client, input, options \\ []) do
-    request(client, "UpdateUser", input, options)
+  def update_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateUser", input, options)
   end
 
   @doc """
@@ -2404,8 +2441,8 @@ defmodule AWS.IAM do
   repository, see [Set up AWS CodeCommit for SSH Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
   """
-  def upload_s_s_h_public_key(client, input, options \\ []) do
-    request(client, "UploadSSHPublicKey", input, options)
+  def upload_s_s_h_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UploadSSHPublicKey", input, options)
   end
 
   @doc """
@@ -2437,8 +2474,8 @@ defmodule AWS.IAM do
   API with IAM, go to [Calling the API by Making HTTP Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html) in
   the *IAM User Guide*.
   """
-  def upload_server_certificate(client, input, options \\ []) do
-    request(client, "UploadServerCertificate", input, options)
+  def upload_server_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UploadServerCertificate", input, options)
   end
 
   @doc """
@@ -2462,62 +2499,7 @@ defmodule AWS.IAM do
   API with IAM, go to [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
-  def upload_signing_certificate(client, input, options \\ []) do
-    request(client, "UploadSigningCertificate", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "iam",
-                        region:  "us-east-1"}
-    host = build_host("iam", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2010-05-08"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def upload_signing_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UploadSigningCertificate", input, options)
   end
 end

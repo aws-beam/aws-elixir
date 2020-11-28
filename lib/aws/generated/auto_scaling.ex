@@ -17,6 +17,25 @@ defmodule AWS.AutoScaling do
   Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2011-01-01",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: nil,
+      endpoint_prefix: "autoscaling",
+      global?: false,
+      protocol: "query",
+      service_id: "Auto Scaling",
+      signature_version: "v4",
+      signing_name: "autoscaling",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Attaches one or more EC2 instances to the specified Auto Scaling group.
 
@@ -30,33 +49,40 @@ defmodule AWS.AutoScaling do
   attached to your Auto Scaling group, the instances are also registered with the
   target groups.
 
-  For more information, see [Attach EC2 Instances to Your Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html)
+  For more information, see [Attach EC2 instances to your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def attach_instances(client, input, options \\ []) do
-    request(client, "AttachInstances", input, options)
+  def attach_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachInstances", input, options)
   end
 
   @doc """
   Attaches one or more target groups to the specified Auto Scaling group.
 
+  This operation is used with the following load balancer types:
+
+    * Application Load Balancer - Operates at the application layer
+  (layer 7) and supports HTTP and HTTPS.
+
+    * Network Load Balancer - Operates at the transport layer (layer 4)
+  and supports TCP, TLS, and UDP.
+
+    * Gateway Load Balancer - Operates at the network layer (layer 3).
+
   To describe the target groups for an Auto Scaling group, call the
   `DescribeLoadBalancerTargetGroups` API. To detach the target group from the Auto
   Scaling group, call the `DetachLoadBalancerTargetGroups` API.
 
-  With Application Load Balancers and Network Load Balancers, instances are
-  registered as targets with a target group. With Classic Load Balancers,
-  instances are registered with the load balancer. For more information, see
-  [Attaching a Load Balancer to Your Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html)
+  For more information, see [Elastic Load Balancing and Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def attach_load_balancer_target_groups(client, input, options \\ []) do
-    request(client, "AttachLoadBalancerTargetGroups", input, options)
+  def attach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachLoadBalancerTargetGroups", input, options)
   end
 
   @doc """
-  To attach an Application Load Balancer or a Network Load Balancer, use the
-  `AttachLoadBalancerTargetGroups` API operation instead.
+  To attach an Application Load Balancer, Network Load Balancer, or Gateway Load
+  Balancer, use the `AttachLoadBalancerTargetGroups` API operation instead.
 
   Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
   Amazon EC2 Auto Scaling registers the running instances with these Classic Load
@@ -66,18 +92,18 @@ defmodule AWS.AutoScaling do
   `DescribeLoadBalancers` API. To detach the load balancer from the Auto Scaling
   group, call the `DetachLoadBalancers` API.
 
-  For more information, see [Attaching a Load Balancer to Your Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html)
+  For more information, see [Elastic Load Balancing and Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def attach_load_balancers(client, input, options \\ []) do
-    request(client, "AttachLoadBalancers", input, options)
+  def attach_load_balancers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AttachLoadBalancers", input, options)
   end
 
   @doc """
   Deletes one or more scheduled actions for the specified Auto Scaling group.
   """
-  def batch_delete_scheduled_action(client, input, options \\ []) do
-    request(client, "BatchDeleteScheduledAction", input, options)
+  def batch_delete_scheduled_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDeleteScheduledAction", input, options)
   end
 
   @doc """
@@ -87,8 +113,8 @@ defmodule AWS.AutoScaling do
   If you leave a parameter unspecified when updating a scheduled scaling action,
   the corresponding value remains unchanged.
   """
-  def batch_put_scheduled_update_group_action(client, input, options \\ []) do
-    request(client, "BatchPutScheduledUpdateGroupAction", input, options)
+  def batch_put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchPutScheduledUpdateGroupAction", input, options)
   end
 
   @doc """
@@ -99,8 +125,8 @@ defmodule AWS.AutoScaling do
 
   For more information, see [Replacing Auto Scaling Instances Based on an Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html).
   """
-  def cancel_instance_refresh(client, input, options \\ []) do
-    request(client, "CancelInstanceRefresh", input, options)
+  def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelInstanceRefresh", input, options)
   end
 
   @doc """
@@ -127,11 +153,11 @@ defmodule AWS.AutoScaling do
     5. ## If you finish before the timeout period ends, complete the
   lifecycle action.
 
-  For more information, see [Amazon EC2 Auto Scaling Lifecycle Hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
+  For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def complete_lifecycle_action(client, input, options \\ []) do
-    request(client, "CompleteLifecycleAction", input, options)
+  def complete_lifecycle_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CompleteLifecycleAction", input, options)
   end
 
   @doc """
@@ -139,14 +165,14 @@ defmodule AWS.AutoScaling do
 
   If you exceed your maximum limit of Auto Scaling groups, the call fails. To
   query this limit, call the `DescribeAccountLimits` API. For information about
-  updating this limit, see [Amazon EC2 Auto Scaling Service Quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
+  updating this limit, see [Amazon EC2 Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
-  For introductory exercises for creating an Auto Scaling group, see [Getting Started with Amazon EC2 Auto
+  For introductory exercises for creating an Auto Scaling group, see [Getting started with Amazon EC2 Auto
   Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html)
-  and [Tutorial: Set Up a Scaled and Load-Balanced Application](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html)
+  and [Tutorial: Set up a scaled and load-balanced application](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html)
   in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Auto Scaling
-  Groups](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html)
+  groups](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
   Every Auto Scaling group has three size parameters (`DesiredCapacity`,
@@ -155,8 +181,8 @@ defmodule AWS.AutoScaling do
   defines weights for the instance types, you must specify these sizes with the
   same units that you use for weighting instances.
   """
-  def create_auto_scaling_group(client, input, options \\ []) do
-    request(client, "CreateAutoScalingGroup", input, options)
+  def create_auto_scaling_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAutoScalingGroup", input, options)
   end
 
   @doc """
@@ -164,14 +190,14 @@ defmodule AWS.AutoScaling do
 
   If you exceed your maximum limit of launch configurations, the call fails. To
   query this limit, call the `DescribeAccountLimits` API. For information about
-  updating this limit, see [Amazon EC2 Auto Scaling Service Quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
+  updating this limit, see [Amazon EC2 Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
-  For more information, see [Launch Configurations](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html)
+  For more information, see [Launch configurations](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def create_launch_configuration(client, input, options \\ []) do
-    request(client, "CreateLaunchConfiguration", input, options)
+  def create_launch_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLaunchConfiguration", input, options)
   end
 
   @doc """
@@ -180,11 +206,11 @@ defmodule AWS.AutoScaling do
   When you specify a tag with a key that already exists, the operation overwrites
   the previous tag definition, and you do not get an error message.
 
-  For more information, see [Tagging Auto Scaling Groups and Instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html)
+  For more information, see [Tagging Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def create_or_update_tags(client, input, options \\ []) do
-    request(client, "CreateOrUpdateTags", input, options)
+  def create_or_update_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateOrUpdateTags", input, options)
   end
 
   @doc """
@@ -205,8 +231,8 @@ defmodule AWS.AutoScaling do
   `UpdateAutoScalingGroup` API and set the minimum size and desired capacity of
   the Auto Scaling group to zero.
   """
-  def delete_auto_scaling_group(client, input, options \\ []) do
-    request(client, "DeleteAutoScalingGroup", input, options)
+  def delete_auto_scaling_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAutoScalingGroup", input, options)
   end
 
   @doc """
@@ -215,8 +241,8 @@ defmodule AWS.AutoScaling do
   The launch configuration must not be attached to an Auto Scaling group. When
   this call completes, the launch configuration is no longer available for use.
   """
-  def delete_launch_configuration(client, input, options \\ []) do
-    request(client, "DeleteLaunchConfiguration", input, options)
+  def delete_launch_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLaunchConfiguration", input, options)
   end
 
   @doc """
@@ -225,15 +251,15 @@ defmodule AWS.AutoScaling do
   If there are any outstanding lifecycle actions, they are completed first
   (`ABANDON` for launching instances, `CONTINUE` for terminating instances).
   """
-  def delete_lifecycle_hook(client, input, options \\ []) do
-    request(client, "DeleteLifecycleHook", input, options)
+  def delete_lifecycle_hook(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLifecycleHook", input, options)
   end
 
   @doc """
   Deletes the specified notification.
   """
-  def delete_notification_configuration(client, input, options \\ []) do
-    request(client, "DeleteNotificationConfiguration", input, options)
+  def delete_notification_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteNotificationConfiguration", input, options)
   end
 
   @doc """
@@ -243,37 +269,37 @@ defmodule AWS.AutoScaling do
   underlying alarm action, but does not delete the alarm, even if it no longer has
   an associated action.
 
-  For more information, see [Deleting a Scaling Policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html)
+  For more information, see [Deleting a scaling policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def delete_policy(client, input, options \\ []) do
-    request(client, "DeletePolicy", input, options)
+  def delete_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePolicy", input, options)
   end
 
   @doc """
   Deletes the specified scheduled action.
   """
-  def delete_scheduled_action(client, input, options \\ []) do
-    request(client, "DeleteScheduledAction", input, options)
+  def delete_scheduled_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteScheduledAction", input, options)
   end
 
   @doc """
   Deletes the specified tags.
   """
-  def delete_tags(client, input, options \\ []) do
-    request(client, "DeleteTags", input, options)
+  def delete_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTags", input, options)
   end
 
   @doc """
   Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS
   account.
 
-  For information about requesting an increase, see [Amazon EC2 Auto Scaling Service
-  Quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
+  For information about requesting an increase, see [Amazon EC2 Auto Scaling service
+  quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def describe_account_limits(client, input, options \\ []) do
-    request(client, "DescribeAccountLimits", input, options)
+  def describe_account_limits(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAccountLimits", input, options)
   end
 
   @doc """
@@ -291,29 +317,35 @@ defmodule AWS.AutoScaling do
 
     * PercentChangeInCapacity
   """
-  def describe_adjustment_types(client, input, options \\ []) do
-    request(client, "DescribeAdjustmentTypes", input, options)
+  def describe_adjustment_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAdjustmentTypes", input, options)
   end
 
   @doc """
   Describes one or more Auto Scaling groups.
   """
-  def describe_auto_scaling_groups(client, input, options \\ []) do
-    request(client, "DescribeAutoScalingGroups", input, options)
+  def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAutoScalingGroups", input, options)
   end
 
   @doc """
   Describes one or more Auto Scaling instances.
   """
-  def describe_auto_scaling_instances(client, input, options \\ []) do
-    request(client, "DescribeAutoScalingInstances", input, options)
+  def describe_auto_scaling_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAutoScalingInstances", input, options)
   end
 
   @doc """
   Describes the notification types that are supported by Amazon EC2 Auto Scaling.
   """
-  def describe_auto_scaling_notification_types(client, input, options \\ []) do
-    request(client, "DescribeAutoScalingNotificationTypes", input, options)
+  def describe_auto_scaling_notification_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeAutoScalingNotificationTypes",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -340,15 +372,15 @@ defmodule AWS.AutoScaling do
 
   For more information, see [Replacing Auto Scaling Instances Based on an Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html).
   """
-  def describe_instance_refreshes(client, input, options \\ []) do
-    request(client, "DescribeInstanceRefreshes", input, options)
+  def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeInstanceRefreshes", input, options)
   end
 
   @doc """
   Describes one or more launch configurations.
   """
-  def describe_launch_configurations(client, input, options \\ []) do
-    request(client, "DescribeLaunchConfigurations", input, options)
+  def describe_launch_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLaunchConfigurations", input, options)
   end
 
   @doc """
@@ -360,33 +392,33 @@ defmodule AWS.AutoScaling do
 
     * autoscaling:EC2_INSTANCE_TERMINATING
   """
-  def describe_lifecycle_hook_types(client, input, options \\ []) do
-    request(client, "DescribeLifecycleHookTypes", input, options)
+  def describe_lifecycle_hook_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLifecycleHookTypes", input, options)
   end
 
   @doc """
   Describes the lifecycle hooks for the specified Auto Scaling group.
   """
-  def describe_lifecycle_hooks(client, input, options \\ []) do
-    request(client, "DescribeLifecycleHooks", input, options)
+  def describe_lifecycle_hooks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLifecycleHooks", input, options)
   end
 
   @doc """
   Describes the target groups for the specified Auto Scaling group.
   """
-  def describe_load_balancer_target_groups(client, input, options \\ []) do
-    request(client, "DescribeLoadBalancerTargetGroups", input, options)
+  def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLoadBalancerTargetGroups", input, options)
   end
 
   @doc """
   Describes the load balancers for the specified Auto Scaling group.
 
   This operation describes only Classic Load Balancers. If you have Application
-  Load Balancers or Network Load Balancers, use the
+  Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
   `DescribeLoadBalancerTargetGroups` API instead.
   """
-  def describe_load_balancers(client, input, options \\ []) do
-    request(client, "DescribeLoadBalancers", input, options)
+  def describe_load_balancers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLoadBalancers", input, options)
   end
 
   @doc """
@@ -395,38 +427,38 @@ defmodule AWS.AutoScaling do
   The `GroupStandbyInstances` metric is not returned by default. You must
   explicitly request this metric when calling the `EnableMetricsCollection` API.
   """
-  def describe_metric_collection_types(client, input, options \\ []) do
-    request(client, "DescribeMetricCollectionTypes", input, options)
+  def describe_metric_collection_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeMetricCollectionTypes", input, options)
   end
 
   @doc """
   Describes the notification actions associated with the specified Auto Scaling
   group.
   """
-  def describe_notification_configurations(client, input, options \\ []) do
-    request(client, "DescribeNotificationConfigurations", input, options)
+  def describe_notification_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeNotificationConfigurations", input, options)
   end
 
   @doc """
   Describes the policies for the specified Auto Scaling group.
   """
-  def describe_policies(client, input, options \\ []) do
-    request(client, "DescribePolicies", input, options)
+  def describe_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePolicies", input, options)
   end
 
   @doc """
   Describes one or more scaling activities for the specified Auto Scaling group.
   """
-  def describe_scaling_activities(client, input, options \\ []) do
-    request(client, "DescribeScalingActivities", input, options)
+  def describe_scaling_activities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeScalingActivities", input, options)
   end
 
   @doc """
   Describes the scaling process types for use with the `ResumeProcesses` and
   `SuspendProcesses` APIs.
   """
-  def describe_scaling_process_types(client, input, options \\ []) do
-    request(client, "DescribeScalingProcessTypes", input, options)
+  def describe_scaling_process_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeScalingProcessTypes", input, options)
   end
 
   @doc """
@@ -436,8 +468,8 @@ defmodule AWS.AutoScaling do
   To describe the actions that have already run, call the
   `DescribeScalingActivities` API.
   """
-  def describe_scheduled_actions(client, input, options \\ []) do
-    request(client, "DescribeScheduledActions", input, options)
+  def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeScheduledActions", input, options)
   end
 
   @doc """
@@ -452,22 +484,22 @@ defmodule AWS.AutoScaling do
   particular tag only if it matches all the filters. If there's no match, no
   special message is returned.
 
-  For more information, see [Tagging Auto Scaling Groups and Instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html)
+  For more information, see [Tagging Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def describe_tags(client, input, options \\ []) do
-    request(client, "DescribeTags", input, options)
+  def describe_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTags", input, options)
   end
 
   @doc """
   Describes the termination policies supported by Amazon EC2 Auto Scaling.
 
-  For more information, see [Controlling Which Auto Scaling Instances Terminate During Scale
-  In](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html)
+  For more information, see [Controlling which Auto Scaling instances terminate during scale
+  in](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def describe_termination_policy_types(client, input, options \\ []) do
-    request(client, "DescribeTerminationPolicyTypes", input, options)
+  def describe_termination_policy_types(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTerminationPolicyTypes", input, options)
   end
 
   @doc """
@@ -484,18 +516,18 @@ defmodule AWS.AutoScaling do
   attached to the Auto Scaling group, the instances are deregistered from the
   target groups.
 
-  For more information, see [Detach EC2 Instances from Your Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html)
+  For more information, see [Detach EC2 instances from your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def detach_instances(client, input, options \\ []) do
-    request(client, "DetachInstances", input, options)
+  def detach_instances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachInstances", input, options)
   end
 
   @doc """
   Detaches one or more target groups from the specified Auto Scaling group.
   """
-  def detach_load_balancer_target_groups(client, input, options \\ []) do
-    request(client, "DetachLoadBalancerTargetGroups", input, options)
+  def detach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachLoadBalancerTargetGroups", input, options)
   end
 
   @doc """
@@ -503,7 +535,7 @@ defmodule AWS.AutoScaling do
   group.
 
   This operation detaches only Classic Load Balancers. If you have Application
-  Load Balancers or Network Load Balancers, use the
+  Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
   `DetachLoadBalancerTargetGroups` API instead.
 
   When you detach a load balancer, it enters the `Removing` state while
@@ -511,25 +543,26 @@ defmodule AWS.AutoScaling do
   then you can no longer describe the load balancer using the
   `DescribeLoadBalancers` API call. The instances remain running.
   """
-  def detach_load_balancers(client, input, options \\ []) do
-    request(client, "DetachLoadBalancers", input, options)
+  def detach_load_balancers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DetachLoadBalancers", input, options)
   end
 
   @doc """
   Disables group metrics for the specified Auto Scaling group.
   """
-  def disable_metrics_collection(client, input, options \\ []) do
-    request(client, "DisableMetricsCollection", input, options)
+  def disable_metrics_collection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableMetricsCollection", input, options)
   end
 
   @doc """
   Enables group metrics for the specified Auto Scaling group.
 
-  For more information, see [Monitoring Your Auto Scaling Groups and Instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html)
+  For more information, see [Monitoring CloudWatch metrics for your Auto Scaling groups and
+  instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def enable_metrics_collection(client, input, options \\ []) do
-    request(client, "EnableMetricsCollection", input, options)
+  def enable_metrics_collection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableMetricsCollection", input, options)
   end
 
   @doc """
@@ -544,11 +577,11 @@ defmodule AWS.AutoScaling do
   the Auto Scaling group launches new instances to replace the instances on
   standby.
 
-  For more information, see [Temporarily Removing Instances from Your Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html)
+  For more information, see [Temporarily removing instances from your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def enter_standby(client, input, options \\ []) do
-    request(client, "EnterStandby", input, options)
+  def enter_standby(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnterStandby", input, options)
   end
 
   @doc """
@@ -556,8 +589,8 @@ defmodule AWS.AutoScaling do
 
   This can be useful for testing the design of your scaling policy.
   """
-  def execute_policy(client, input, options \\ []) do
-    request(client, "ExecutePolicy", input, options)
+  def execute_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExecutePolicy", input, options)
   end
 
   @doc """
@@ -566,11 +599,11 @@ defmodule AWS.AutoScaling do
   After you put the instances back in service, the desired capacity is
   incremented.
 
-  For more information, see [Temporarily Removing Instances from Your Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html)
+  For more information, see [Temporarily removing instances from your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def exit_standby(client, input, options \\ []) do
-    request(client, "ExitStandby", input, options)
+  def exit_standby(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExitStandby", input, options)
   end
 
   @doc """
@@ -601,7 +634,7 @@ defmodule AWS.AutoScaling do
     5. If you finish before the timeout period ends, complete the
   lifecycle action using the `CompleteLifecycleAction` API call.
 
-  For more information, see [Amazon EC2 Auto Scaling Lifecycle Hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
+  For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
   If you exceed your maximum limit of lifecycle hooks, which by default is 50 per
@@ -611,8 +644,8 @@ defmodule AWS.AutoScaling do
   `DescribeLifecycleHooks` API call. If you are no longer using a lifecycle hook,
   you can delete it by calling the `DeleteLifecycleHook` API.
   """
-  def put_lifecycle_hook(client, input, options \\ []) do
-    request(client, "PutLifecycleHook", input, options)
+  def put_lifecycle_hook(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutLifecycleHook", input, options)
   end
 
   @doc """
@@ -624,24 +657,27 @@ defmodule AWS.AutoScaling do
 
   This configuration overwrites any existing configuration.
 
-  For more information, see [Getting Amazon SNS Notifications When Your Auto Scaling Group
-  Scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html)
+  For more information, see [Getting Amazon SNS notifications when your Auto Scaling group
+  scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
+
+  If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling
+  group, the call fails.
   """
-  def put_notification_configuration(client, input, options \\ []) do
-    request(client, "PutNotificationConfiguration", input, options)
+  def put_notification_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutNotificationConfiguration", input, options)
   end
 
   @doc """
   Creates or updates a scaling policy for an Auto Scaling group.
 
   For more information about using scaling policies to scale your Auto Scaling
-  group, see [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html)
-  and [Step and Simple Scaling Policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html)
+  group, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html)
+  and [Step and simple scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def put_scaling_policy(client, input, options \\ []) do
-    request(client, "PutScalingPolicy", input, options)
+  def put_scaling_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutScalingPolicy", input, options)
   end
 
   @doc """
@@ -650,11 +686,11 @@ defmodule AWS.AutoScaling do
   If you leave a parameter unspecified when updating a scheduled scaling action,
   the corresponding value remains unchanged.
 
-  For more information, see [Scheduled Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html)
+  For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def put_scheduled_update_group_action(client, input, options \\ []) do
-    request(client, "PutScheduledUpdateGroupAction", input, options)
+  def put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutScheduledUpdateGroupAction", input, options)
   end
 
   @doc """
@@ -684,22 +720,22 @@ defmodule AWS.AutoScaling do
     5. If you finish before the timeout period ends, complete the
   lifecycle action.
 
-  For more information, see [Auto Scaling Lifecycle](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html)
+  For more information, see [Auto Scaling lifecycle](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def record_lifecycle_action_heartbeat(client, input, options \\ []) do
-    request(client, "RecordLifecycleActionHeartbeat", input, options)
+  def record_lifecycle_action_heartbeat(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RecordLifecycleActionHeartbeat", input, options)
   end
 
   @doc """
-  Resumes the specified suspended automatic scaling processes, or all suspended
+  Resumes the specified suspended auto scaling processes, or all suspended
   process, for the specified Auto Scaling group.
 
-  For more information, see [Suspending and Resuming Scaling Processes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html)
+  For more information, see [Suspending and resuming scaling processes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def resume_processes(client, input, options \\ []) do
-    request(client, "ResumeProcesses", input, options)
+  def resume_processes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResumeProcesses", input, options)
   end
 
   @doc """
@@ -709,32 +745,35 @@ defmodule AWS.AutoScaling do
   is lower than the current size of the group, the Auto Scaling group uses its
   termination policy to determine which instances to terminate.
 
-  For more information, see [Manual Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html)
+  For more information, see [Manual scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def set_desired_capacity(client, input, options \\ []) do
-    request(client, "SetDesiredCapacity", input, options)
+  def set_desired_capacity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetDesiredCapacity", input, options)
   end
 
   @doc """
   Sets the health status of the specified instance.
 
-  For more information, see [Health Checks for Auto Scaling Instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html)
+  For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def set_instance_health(client, input, options \\ []) do
-    request(client, "SetInstanceHealth", input, options)
+  def set_instance_health(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetInstanceHealth", input, options)
   end
 
   @doc """
   Updates the instance protection settings of the specified instances.
 
   For more information about preventing instances that are part of an Auto Scaling
-  group from terminating on scale in, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection)
+  group from terminating on scale in, see [Instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection)
   in the *Amazon EC2 Auto Scaling User Guide*.
+
+  If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling
+  group, the call fails.
   """
-  def set_instance_protection(client, input, options \\ []) do
-    request(client, "SetInstanceProtection", input, options)
+  def set_instance_protection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetInstanceProtection", input, options)
   end
 
   @doc """
@@ -750,23 +789,23 @@ defmodule AWS.AutoScaling do
 
   For more information, see [Replacing Auto Scaling Instances Based on an Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html).
   """
-  def start_instance_refresh(client, input, options \\ []) do
-    request(client, "StartInstanceRefresh", input, options)
+  def start_instance_refresh(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartInstanceRefresh", input, options)
   end
 
   @doc """
-  Suspends the specified automatic scaling processes, or all processes, for the
+  Suspends the specified auto scaling processes, or all processes, for the
   specified Auto Scaling group.
 
   If you suspend either the `Launch` or `Terminate` process types, it can prevent
   other process types from functioning properly. For more information, see
-  [Suspending and Resuming Scaling Processes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html)
+  [Suspending and resuming scaling processes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
   To resume processes that have been suspended, call the `ResumeProcesses` API.
   """
-  def suspend_processes(client, input, options \\ []) do
-    request(client, "SuspendProcesses", input, options)
+  def suspend_processes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SuspendProcesses", input, options)
   end
 
   @doc """
@@ -784,11 +823,17 @@ defmodule AWS.AutoScaling do
   Zones. If you decrement the desired capacity, your Auto Scaling group can become
   unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to
   rebalance the group, and rebalancing might terminate instances in other zones.
-  For more information, see [Rebalancing Activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage)
+  For more information, see [Rebalancing activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
-  def terminate_instance_in_auto_scaling_group(client, input, options \\ []) do
-    request(client, "TerminateInstanceInAutoScalingGroup", input, options)
+  def terminate_instance_in_auto_scaling_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "TerminateInstanceInAutoScalingGroup",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -834,61 +879,7 @@ defmodule AWS.AutoScaling do
   `DescribePolicies` API. If the group has scaling policies, you can update them
   by calling the `PutScalingPolicy` API.
   """
-  def update_auto_scaling_group(client, input, options \\ []) do
-    request(client, "UpdateAutoScalingGroup", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "autoscaling"}
-    host = build_host("autoscaling", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2011-01-01"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def update_auto_scaling_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAutoScalingGroup", input, options)
   end
 end

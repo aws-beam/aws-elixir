@@ -6,6 +6,25 @@ defmodule AWS.Machinelearning do
   Definition of the public APIs exposed by Amazon Machine Learning
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2014-12-12",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "machinelearning",
+      global?: false,
+      protocol: "json",
+      service_id: nil,
+      signature_version: "v4",
+      signing_name: "machinelearning",
+      target_prefix: "AmazonML_20141212"
+    }
+  end
+
   @doc """
   Adds one or more tags to an object, up to a limit of 10.
 
@@ -13,8 +32,8 @@ defmodule AWS.Machinelearning do
   that is already associated with the ML object, `AddTags` updates the tag's
   value.
   """
-  def add_tags(client, input, options \\ []) do
-    request(client, "AddTags", input, options)
+  def add_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddTags", input, options)
   end
 
   @doc """
@@ -35,8 +54,8 @@ defmodule AWS.Machinelearning do
   appears, the results are available in the location specified by the `OutputUri`
   parameter.
   """
-  def create_batch_prediction(client, input, options \\ []) do
-    request(client, "CreateBatchPrediction", input, options)
+  def create_batch_prediction(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBatchPrediction", input, options)
   end
 
   @doc """
@@ -56,8 +75,8 @@ defmodule AWS.Machinelearning do
   `FAILED` and includes an error message in the `Message` attribute of the
   `GetDataSource` operation response.
   """
-  def create_data_source_from_r_d_s(client, input, options \\ []) do
-    request(client, "CreateDataSourceFromRDS", input, options)
+  def create_data_source_from_r_d_s(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDataSourceFromRDS", input, options)
   end
 
   @doc """
@@ -99,8 +118,8 @@ defmodule AWS.Machinelearning do
 
   <!--?oxy_insert_end-->
   """
-  def create_data_source_from_redshift(client, input, options \\ []) do
-    request(client, "CreateDataSourceFromRedshift", input, options)
+  def create_data_source_from_redshift(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDataSourceFromRedshift", input, options)
   end
 
   @doc """
@@ -136,8 +155,8 @@ defmodule AWS.Machinelearning do
   combined with another variable or will it be split apart into word combinations?
   The recipe provides answers to these questions.
   """
-  def create_data_source_from_s3(client, input, options \\ []) do
-    request(client, "CreateDataSourceFromS3", input, options)
+  def create_data_source_from_s3(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDataSourceFromS3", input, options)
   end
 
   @doc """
@@ -160,8 +179,8 @@ defmodule AWS.Machinelearning do
   You can use the `GetEvaluation` operation to check progress of the evaluation
   during the creation operation.
   """
-  def create_evaluation(client, input, options \\ []) do
-    request(client, "CreateEvaluation", input, options)
+  def create_evaluation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEvaluation", input, options)
   end
 
   @doc """
@@ -183,8 +202,8 @@ defmodule AWS.Machinelearning do
   created by setting `ComputeStatistics` to `true` in `CreateDataSourceFromRDS`,
   `CreateDataSourceFromS3`, or `CreateDataSourceFromRedshift` operations.
   """
-  def create_m_l_model(client, input, options \\ []) do
-    request(client, "CreateMLModel", input, options)
+  def create_m_l_model(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateMLModel", input, options)
   end
 
   @doc """
@@ -193,8 +212,8 @@ defmodule AWS.Machinelearning do
   The endpoint contains the URI of the `MLModel`; that is, the location to send
   real-time prediction requests for the specified `MLModel`.
   """
-  def create_realtime_endpoint(client, input, options \\ []) do
-    request(client, "CreateRealtimeEndpoint", input, options)
+  def create_realtime_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRealtimeEndpoint", input, options)
   end
 
   @doc """
@@ -207,8 +226,8 @@ defmodule AWS.Machinelearning do
   **Caution:** The result of the `DeleteBatchPrediction` operation is
   irreversible.
   """
-  def delete_batch_prediction(client, input, options \\ []) do
-    request(client, "DeleteBatchPrediction", input, options)
+  def delete_batch_prediction(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBatchPrediction", input, options)
   end
 
   @doc """
@@ -219,8 +238,8 @@ defmodule AWS.Machinelearning do
 
   **Caution:** The results of the `DeleteDataSource` operation are irreversible.
   """
-  def delete_data_source(client, input, options \\ []) do
-    request(client, "DeleteDataSource", input, options)
+  def delete_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDataSource", input, options)
   end
 
   @doc """
@@ -234,8 +253,8 @@ defmodule AWS.Machinelearning do
 
   </caution>
   """
-  def delete_evaluation(client, input, options \\ []) do
-    request(client, "DeleteEvaluation", input, options)
+  def delete_evaluation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEvaluation", input, options)
   end
 
   @doc """
@@ -246,15 +265,15 @@ defmodule AWS.Machinelearning do
 
   **Caution:** The result of the `DeleteMLModel` operation is irreversible.
   """
-  def delete_m_l_model(client, input, options \\ []) do
-    request(client, "DeleteMLModel", input, options)
+  def delete_m_l_model(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMLModel", input, options)
   end
 
   @doc """
   Deletes a real time endpoint of an `MLModel`.
   """
-  def delete_realtime_endpoint(client, input, options \\ []) do
-    request(client, "DeleteRealtimeEndpoint", input, options)
+  def delete_realtime_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRealtimeEndpoint", input, options)
   end
 
   @doc """
@@ -264,53 +283,53 @@ defmodule AWS.Machinelearning do
 
   If you specify a tag that doesn't exist, Amazon ML ignores it.
   """
-  def delete_tags(client, input, options \\ []) do
-    request(client, "DeleteTags", input, options)
+  def delete_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTags", input, options)
   end
 
   @doc """
   Returns a list of `BatchPrediction` operations that match the search criteria in
   the request.
   """
-  def describe_batch_predictions(client, input, options \\ []) do
-    request(client, "DescribeBatchPredictions", input, options)
+  def describe_batch_predictions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeBatchPredictions", input, options)
   end
 
   @doc """
   Returns a list of `DataSource` that match the search criteria in the request.
   """
-  def describe_data_sources(client, input, options \\ []) do
-    request(client, "DescribeDataSources", input, options)
+  def describe_data_sources(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataSources", input, options)
   end
 
   @doc """
   Returns a list of `DescribeEvaluations` that match the search criteria in the
   request.
   """
-  def describe_evaluations(client, input, options \\ []) do
-    request(client, "DescribeEvaluations", input, options)
+  def describe_evaluations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEvaluations", input, options)
   end
 
   @doc """
   Returns a list of `MLModel` that match the search criteria in the request.
   """
-  def describe_m_l_models(client, input, options \\ []) do
-    request(client, "DescribeMLModels", input, options)
+  def describe_m_l_models(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeMLModels", input, options)
   end
 
   @doc """
   Describes one or more of the tags for your Amazon ML object.
   """
-  def describe_tags(client, input, options \\ []) do
-    request(client, "DescribeTags", input, options)
+  def describe_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTags", input, options)
   end
 
   @doc """
   Returns a `BatchPrediction` that includes detailed metadata, status, and data
   file information for a `Batch Prediction` request.
   """
-  def get_batch_prediction(client, input, options \\ []) do
-    request(client, "GetBatchPrediction", input, options)
+  def get_batch_prediction(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBatchPrediction", input, options)
   end
 
   @doc """
@@ -321,16 +340,16 @@ defmodule AWS.Machinelearning do
   adds the schema description and the list of files pointed to by the DataSource
   to the normal format.
   """
-  def get_data_source(client, input, options \\ []) do
-    request(client, "GetDataSource", input, options)
+  def get_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDataSource", input, options)
   end
 
   @doc """
   Returns an `Evaluation` that includes metadata as well as the current status of
   the `Evaluation`.
   """
-  def get_evaluation(client, input, options \\ []) do
-    request(client, "GetEvaluation", input, options)
+  def get_evaluation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetEvaluation", input, options)
   end
 
   @doc """
@@ -339,8 +358,8 @@ defmodule AWS.Machinelearning do
 
   `GetMLModel` provides results in normal or verbose format.
   """
-  def get_m_l_model(client, input, options \\ []) do
-    request(client, "GetMLModel", input, options)
+  def get_m_l_model(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMLModel", input, options)
   end
 
   @doc """
@@ -349,8 +368,8 @@ defmodule AWS.Machinelearning do
   Note Not all response parameters will be populated. Whether a response parameter
   is populated depends on the type of model requested.
   """
-  def predict(client, input, options \\ []) do
-    request(client, "Predict", input, options)
+  def predict(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "Predict", input, options)
   end
 
   @doc """
@@ -359,8 +378,8 @@ defmodule AWS.Machinelearning do
   You can use the `GetBatchPrediction` operation to view the contents of the
   updated data element.
   """
-  def update_batch_prediction(client, input, options \\ []) do
-    request(client, "UpdateBatchPrediction", input, options)
+  def update_batch_prediction(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateBatchPrediction", input, options)
   end
 
   @doc """
@@ -369,8 +388,8 @@ defmodule AWS.Machinelearning do
   You can use the `GetDataSource` operation to view the contents of the updated
   data element.
   """
-  def update_data_source(client, input, options \\ []) do
-    request(client, "UpdateDataSource", input, options)
+  def update_data_source(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDataSource", input, options)
   end
 
   @doc """
@@ -379,8 +398,8 @@ defmodule AWS.Machinelearning do
   You can use the `GetEvaluation` operation to view the contents of the updated
   data element.
   """
-  def update_evaluation(client, input, options \\ []) do
-    request(client, "UpdateEvaluation", input, options)
+  def update_evaluation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateEvaluation", input, options)
   end
 
   @doc """
@@ -389,61 +408,7 @@ defmodule AWS.Machinelearning do
   You can use the `GetMLModel` operation to view the contents of the updated data
   element.
   """
-  def update_m_l_model(client, input, options \\ []) do
-    request(client, "UpdateMLModel", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "machinelearning"}
-    host = build_host("machinelearning", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AmazonML_20141212.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_m_l_model(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateMLModel", input, options)
   end
 end

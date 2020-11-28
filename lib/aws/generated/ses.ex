@@ -13,6 +13,25 @@ defmodule AWS.SES do
   in the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Amazon SES",
+      api_version: "2010-12-01",
+      content_type: "application/x-www-form-urlencoded",
+      credential_scope: nil,
+      endpoint_prefix: "email",
+      global?: false,
+      protocol: "query",
+      service_id: "SES",
+      signature_version: "v4",
+      signing_name: "ses",
+      target_prefix: nil
+    }
+  end
+
   @doc """
   Creates a receipt rule set by cloning an existing one.
 
@@ -23,8 +42,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def clone_receipt_rule_set(client, input, options \\ []) do
-    request(client, "CloneReceiptRuleSet", input, options)
+  def clone_receipt_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CloneReceiptRuleSet", input, options)
   end
 
   @doc """
@@ -35,8 +54,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def create_configuration_set(client, input, options \\ []) do
-    request(client, "CreateConfigurationSet", input, options)
+  def create_configuration_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateConfigurationSet", input, options)
   end
 
   @doc """
@@ -52,8 +71,14 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def create_configuration_set_event_destination(client, input, options \\ []) do
-    request(client, "CreateConfigurationSetEventDestination", input, options)
+  def create_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateConfigurationSetEventDestination",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -65,8 +90,14 @@ defmodule AWS.SES do
   handle these events. For information about using custom domains, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html).
   """
-  def create_configuration_set_tracking_options(client, input, options \\ []) do
-    request(client, "CreateConfigurationSetTrackingOptions", input, options)
+  def create_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateConfigurationSetTrackingOptions",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -78,8 +109,14 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def create_custom_verification_email_template(client, input, options \\ []) do
-    request(client, "CreateCustomVerificationEmailTemplate", input, options)
+  def create_custom_verification_email_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateCustomVerificationEmailTemplate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -90,8 +127,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def create_receipt_filter(client, input, options \\ []) do
-    request(client, "CreateReceiptFilter", input, options)
+  def create_receipt_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateReceiptFilter", input, options)
   end
 
   @doc """
@@ -101,8 +138,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def create_receipt_rule(client, input, options \\ []) do
-    request(client, "CreateReceiptRule", input, options)
+  def create_receipt_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateReceiptRule", input, options)
   end
 
   @doc """
@@ -113,8 +150,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def create_receipt_rule_set(client, input, options \\ []) do
-    request(client, "CreateReceiptRuleSet", input, options)
+  def create_receipt_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateReceiptRuleSet", input, options)
   end
 
   @doc """
@@ -126,8 +163,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def create_template(client, input, options \\ []) do
-    request(client, "CreateTemplate", input, options)
+  def create_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTemplate", input, options)
   end
 
   @doc """
@@ -138,8 +175,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_configuration_set(client, input, options \\ []) do
-    request(client, "DeleteConfigurationSet", input, options)
+  def delete_configuration_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteConfigurationSet", input, options)
   end
 
   @doc """
@@ -151,8 +188,14 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_configuration_set_event_destination(client, input, options \\ []) do
-    request(client, "DeleteConfigurationSetEventDestination", input, options)
+  def delete_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteConfigurationSetEventDestination",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -168,8 +211,14 @@ defmodule AWS.SES do
   configuration set to capture open and click events using the standard, Amazon
   SES-operated domains.
   """
-  def delete_configuration_set_tracking_options(client, input, options \\ []) do
-    request(client, "DeleteConfigurationSetTrackingOptions", input, options)
+  def delete_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteConfigurationSetTrackingOptions",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -181,8 +230,14 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_custom_verification_email_template(client, input, options \\ []) do
-    request(client, "DeleteCustomVerificationEmailTemplate", input, options)
+  def delete_custom_verification_email_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteCustomVerificationEmailTemplate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -191,8 +246,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_identity(client, input, options \\ []) do
-    request(client, "DeleteIdentity", input, options)
+  def delete_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIdentity", input, options)
   end
 
   @doc """
@@ -211,8 +266,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_identity_policy(client, input, options \\ []) do
-    request(client, "DeleteIdentityPolicy", input, options)
+  def delete_identity_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteIdentityPolicy", input, options)
   end
 
   @doc """
@@ -222,8 +277,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_receipt_filter(client, input, options \\ []) do
-    request(client, "DeleteReceiptFilter", input, options)
+  def delete_receipt_filter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteReceiptFilter", input, options)
   end
 
   @doc """
@@ -233,8 +288,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_receipt_rule(client, input, options \\ []) do
-    request(client, "DeleteReceiptRule", input, options)
+  def delete_receipt_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteReceiptRule", input, options)
   end
 
   @doc """
@@ -246,8 +301,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_receipt_rule_set(client, input, options \\ []) do
-    request(client, "DeleteReceiptRuleSet", input, options)
+  def delete_receipt_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteReceiptRuleSet", input, options)
   end
 
   @doc """
@@ -255,8 +310,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def delete_template(client, input, options \\ []) do
-    request(client, "DeleteTemplate", input, options)
+  def delete_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTemplate", input, options)
   end
 
   @doc """
@@ -264,8 +319,8 @@ defmodule AWS.SES do
 
   Use the `DeleteIdentity` operation to delete email addresses and domains.
   """
-  def delete_verified_email_address(client, input, options \\ []) do
-    request(client, "DeleteVerifiedEmailAddress", input, options)
+  def delete_verified_email_address(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteVerifiedEmailAddress", input, options)
   end
 
   @doc """
@@ -277,8 +332,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def describe_active_receipt_rule_set(client, input, options \\ []) do
-    request(client, "DescribeActiveReceiptRuleSet", input, options)
+  def describe_active_receipt_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeActiveReceiptRuleSet", input, options)
   end
 
   @doc """
@@ -288,8 +343,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def describe_configuration_set(client, input, options \\ []) do
-    request(client, "DescribeConfigurationSet", input, options)
+  def describe_configuration_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeConfigurationSet", input, options)
   end
 
   @doc """
@@ -299,8 +354,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def describe_receipt_rule(client, input, options \\ []) do
-    request(client, "DescribeReceiptRule", input, options)
+  def describe_receipt_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeReceiptRule", input, options)
   end
 
   @doc """
@@ -310,8 +365,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def describe_receipt_rule_set(client, input, options \\ []) do
-    request(client, "DescribeReceiptRuleSet", input, options)
+  def describe_receipt_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeReceiptRuleSet", input, options)
   end
 
   @doc """
@@ -320,8 +375,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def get_account_sending_enabled(client, input, options \\ []) do
-    request(client, "GetAccountSendingEnabled", input, options)
+  def get_account_sending_enabled(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccountSendingEnabled", input, options)
   end
 
   @doc """
@@ -334,8 +389,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def get_custom_verification_email_template(client, input, options \\ []) do
-    request(client, "GetCustomVerificationEmailTemplate", input, options)
+  def get_custom_verification_email_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCustomVerificationEmailTemplate", input, options)
   end
 
   @doc """
@@ -363,8 +418,8 @@ defmodule AWS.SES do
   For more information about creating DNS records using DKIM tokens, go to the
   [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
   """
-  def get_identity_dkim_attributes(client, input, options \\ []) do
-    request(client, "GetIdentityDkimAttributes", input, options)
+  def get_identity_dkim_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetIdentityDkimAttributes", input, options)
   end
 
   @doc """
@@ -374,8 +429,14 @@ defmodule AWS.SES do
   This operation is throttled at one request per second and can only get custom
   MAIL FROM attributes for up to 100 identities at a time.
   """
-  def get_identity_mail_from_domain_attributes(client, input, options \\ []) do
-    request(client, "GetIdentityMailFromDomainAttributes", input, options)
+  def get_identity_mail_from_domain_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetIdentityMailFromDomainAttributes",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -388,8 +449,8 @@ defmodule AWS.SES do
   For more information about using notifications with Amazon SES, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html).
   """
-  def get_identity_notification_attributes(client, input, options \\ []) do
-    request(client, "GetIdentityNotificationAttributes", input, options)
+  def get_identity_notification_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetIdentityNotificationAttributes", input, options)
   end
 
   @doc """
@@ -408,8 +469,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def get_identity_policies(client, input, options \\ []) do
-    request(client, "GetIdentityPolicies", input, options)
+  def get_identity_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetIdentityPolicies", input, options)
   end
 
   @doc """
@@ -436,8 +497,8 @@ defmodule AWS.SES do
   This operation is throttled at one request per second and can only get
   verification attributes for up to 100 identities at a time.
   """
-  def get_identity_verification_attributes(client, input, options \\ []) do
-    request(client, "GetIdentityVerificationAttributes", input, options)
+  def get_identity_verification_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetIdentityVerificationAttributes", input, options)
   end
 
   @doc """
@@ -445,8 +506,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def get_send_quota(client, input, options \\ []) do
-    request(client, "GetSendQuota", input, options)
+  def get_send_quota(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSendQuota", input, options)
   end
 
   @doc """
@@ -458,8 +519,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def get_send_statistics(client, input, options \\ []) do
-    request(client, "GetSendStatistics", input, options)
+  def get_send_statistics(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSendStatistics", input, options)
   end
 
   @doc """
@@ -468,8 +529,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def get_template(client, input, options \\ []) do
-    request(client, "GetTemplate", input, options)
+  def get_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetTemplate", input, options)
   end
 
   @doc """
@@ -487,8 +548,8 @@ defmodule AWS.SES do
   again, passing the `NextToken` parameter and the value of the NextToken element
   to retrieve additional results.
   """
-  def list_configuration_sets(client, input, options \\ []) do
-    request(client, "ListConfigurationSets", input, options)
+  def list_configuration_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListConfigurationSets", input, options)
   end
 
   @doc """
@@ -501,8 +562,14 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def list_custom_verification_email_templates(client, input, options \\ []) do
-    request(client, "ListCustomVerificationEmailTemplates", input, options)
+  def list_custom_verification_email_templates(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListCustomVerificationEmailTemplates",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -512,8 +579,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def list_identities(client, input, options \\ []) do
-    request(client, "ListIdentities", input, options)
+  def list_identities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListIdentities", input, options)
   end
 
   @doc """
@@ -532,8 +599,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def list_identity_policies(client, input, options \\ []) do
-    request(client, "ListIdentityPolicies", input, options)
+  def list_identity_policies(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListIdentityPolicies", input, options)
   end
 
   @doc """
@@ -544,8 +611,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def list_receipt_filters(client, input, options \\ []) do
-    request(client, "ListReceiptFilters", input, options)
+  def list_receipt_filters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReceiptFilters", input, options)
   end
 
   @doc """
@@ -560,8 +627,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def list_receipt_rule_sets(client, input, options \\ []) do
-    request(client, "ListReceiptRuleSets", input, options)
+  def list_receipt_rule_sets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReceiptRuleSets", input, options)
   end
 
   @doc """
@@ -570,8 +637,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def list_templates(client, input, options \\ []) do
-    request(client, "ListTemplates", input, options)
+  def list_templates(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTemplates", input, options)
   end
 
   @doc """
@@ -580,15 +647,15 @@ defmodule AWS.SES do
   Use the `ListIdentities` operation to list the email addresses and domains
   associated with your account.
   """
-  def list_verified_email_addresses(client, input, options \\ []) do
-    request(client, "ListVerifiedEmailAddresses", input, options)
+  def list_verified_email_addresses(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListVerifiedEmailAddresses", input, options)
   end
 
   @doc """
   Adds or updates the delivery options for a configuration set.
   """
-  def put_configuration_set_delivery_options(client, input, options \\ []) do
-    request(client, "PutConfigurationSetDeliveryOptions", input, options)
+  def put_configuration_set_delivery_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutConfigurationSetDeliveryOptions", input, options)
   end
 
   @doc """
@@ -604,8 +671,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def put_identity_policy(client, input, options \\ []) do
-    request(client, "PutIdentityPolicy", input, options)
+  def put_identity_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutIdentityPolicy", input, options)
   end
 
   @doc """
@@ -619,8 +686,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def reorder_receipt_rule_set(client, input, options \\ []) do
-    request(client, "ReorderReceiptRuleSet", input, options)
+  def reorder_receipt_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ReorderReceiptRuleSet", input, options)
   end
 
   @doc """
@@ -637,8 +704,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def send_bounce(client, input, options \\ []) do
-    request(client, "SendBounce", input, options)
+  def send_bounce(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendBounce", input, options)
   end
 
   @doc """
@@ -677,8 +744,8 @@ defmodule AWS.SES do
     * The number of destinations you can contact in a single call to the
   API may be limited by your account's maximum sending rate.
   """
-  def send_bulk_templated_email(client, input, options \\ []) do
-    request(client, "SendBulkTemplatedEmail", input, options)
+  def send_bulk_templated_email(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendBulkTemplatedEmail", input, options)
   end
 
   @doc """
@@ -695,8 +762,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def send_custom_verification_email(client, input, options \\ []) do
-    request(client, "SendCustomVerificationEmail", input, options)
+  def send_custom_verification_email(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendCustomVerificationEmail", input, options)
   end
 
   @doc """
@@ -736,8 +803,8 @@ defmodule AWS.SES do
   Limits](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html)
   in the *Amazon SES Developer Guide.*
   """
-  def send_email(client, input, options \\ []) do
-    request(client, "SendEmail", input, options)
+  def send_email(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendEmail", input, options)
   end
 
   @doc """
@@ -820,8 +887,8 @@ defmodule AWS.SES do
   Limits](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html)
   in the *Amazon SES Developer Guide.*
   """
-  def send_raw_email(client, input, options \\ []) do
-    request(client, "SendRawEmail", input, options)
+  def send_raw_email(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendRawEmail", input, options)
   end
 
   @doc """
@@ -866,8 +933,8 @@ defmodule AWS.SES do
   API](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html)
   in the *Amazon Simple Email Service Developer Guide*.
   """
-  def send_templated_email(client, input, options \\ []) do
-    request(client, "SendTemplatedEmail", input, options)
+  def send_templated_email(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendTemplatedEmail", input, options)
   end
 
   @doc """
@@ -880,8 +947,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def set_active_receipt_rule_set(client, input, options \\ []) do
-    request(client, "SetActiveReceiptRuleSet", input, options)
+  def set_active_receipt_rule_set(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetActiveReceiptRuleSet", input, options)
   end
 
   @doc """
@@ -904,8 +971,8 @@ defmodule AWS.SES do
 
   For more information about Easy DKIM signing, go to the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html).
   """
-  def set_identity_dkim_enabled(client, input, options \\ []) do
-    request(client, "SetIdentityDkimEnabled", input, options)
+  def set_identity_dkim_enabled(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetIdentityDkimEnabled", input, options)
   end
 
   @doc """
@@ -923,8 +990,14 @@ defmodule AWS.SES do
   For more information about using notifications with Amazon SES, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html).
   """
-  def set_identity_feedback_forwarding_enabled(client, input, options \\ []) do
-    request(client, "SetIdentityFeedbackForwardingEnabled", input, options)
+  def set_identity_feedback_forwarding_enabled(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "SetIdentityFeedbackForwardingEnabled",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -937,8 +1010,14 @@ defmodule AWS.SES do
   For more information about using notifications with Amazon SES, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html).
   """
-  def set_identity_headers_in_notifications_enabled(client, input, options \\ []) do
-    request(client, "SetIdentityHeadersInNotificationsEnabled", input, options)
+  def set_identity_headers_in_notifications_enabled(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "SetIdentityHeadersInNotificationsEnabled",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -952,8 +1031,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def set_identity_mail_from_domain(client, input, options \\ []) do
-    request(client, "SetIdentityMailFromDomain", input, options)
+  def set_identity_mail_from_domain(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetIdentityMailFromDomain", input, options)
   end
 
   @doc """
@@ -970,8 +1049,8 @@ defmodule AWS.SES do
 
   For more information about feedback notification, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html).
   """
-  def set_identity_notification_topic(client, input, options \\ []) do
-    request(client, "SetIdentityNotificationTopic", input, options)
+  def set_identity_notification_topic(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetIdentityNotificationTopic", input, options)
   end
 
   @doc """
@@ -981,8 +1060,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def set_receipt_rule_position(client, input, options \\ []) do
-    request(client, "SetReceiptRulePosition", input, options)
+  def set_receipt_rule_position(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetReceiptRulePosition", input, options)
   end
 
   @doc """
@@ -991,8 +1070,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def test_render_template(client, input, options \\ []) do
-    request(client, "TestRenderTemplate", input, options)
+  def test_render_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TestRenderTemplate", input, options)
   end
 
   @doc """
@@ -1006,8 +1085,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def update_account_sending_enabled(client, input, options \\ []) do
-    request(client, "UpdateAccountSendingEnabled", input, options)
+  def update_account_sending_enabled(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAccountSendingEnabled", input, options)
   end
 
   @doc """
@@ -1025,8 +1104,14 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def update_configuration_set_event_destination(client, input, options \\ []) do
-    request(client, "UpdateConfigurationSetEventDestination", input, options)
+  def update_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateConfigurationSetEventDestination",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1039,8 +1124,18 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def update_configuration_set_reputation_metrics_enabled(client, input, options \\ []) do
-    request(client, "UpdateConfigurationSetReputationMetricsEnabled", input, options)
+  def update_configuration_set_reputation_metrics_enabled(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateConfigurationSetReputationMetricsEnabled",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1054,8 +1149,14 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def update_configuration_set_sending_enabled(client, input, options \\ []) do
-    request(client, "UpdateConfigurationSetSendingEnabled", input, options)
+  def update_configuration_set_sending_enabled(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateConfigurationSetSendingEnabled",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1067,8 +1168,14 @@ defmodule AWS.SES do
   handle these events. For information about using custom domains, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html).
   """
-  def update_configuration_set_tracking_options(client, input, options \\ []) do
-    request(client, "UpdateConfigurationSetTrackingOptions", input, options)
+  def update_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateConfigurationSetTrackingOptions",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1080,8 +1187,14 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def update_custom_verification_email_template(client, input, options \\ []) do
-    request(client, "UpdateCustomVerificationEmailTemplate", input, options)
+  def update_custom_verification_email_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateCustomVerificationEmailTemplate",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -1091,8 +1204,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def update_receipt_rule(client, input, options \\ []) do
-    request(client, "UpdateReceiptRule", input, options)
+  def update_receipt_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateReceiptRule", input, options)
   end
 
   @doc """
@@ -1104,8 +1217,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def update_template(client, input, options \\ []) do
-    request(client, "UpdateTemplate", input, options)
+  def update_template(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTemplate", input, options)
   end
 
   @doc """
@@ -1139,8 +1252,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def verify_domain_dkim(client, input, options \\ []) do
-    request(client, "VerifyDomainDkim", input, options)
+  def verify_domain_dkim(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "VerifyDomainDkim", input, options)
   end
 
   @doc """
@@ -1152,8 +1265,8 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def verify_domain_identity(client, input, options \\ []) do
-    request(client, "VerifyDomainIdentity", input, options)
+  def verify_domain_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "VerifyDomainIdentity", input, options)
   end
 
   @doc """
@@ -1161,8 +1274,8 @@ defmodule AWS.SES do
 
   Use the `VerifyEmailIdentity` operation to verify a new email address.
   """
-  def verify_email_address(client, input, options \\ []) do
-    request(client, "VerifyEmailAddress", input, options)
+  def verify_email_address(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "VerifyEmailAddress", input, options)
   end
 
   @doc """
@@ -1174,61 +1287,7 @@ defmodule AWS.SES do
 
   You can execute this operation no more than once per second.
   """
-  def verify_email_identity(client, input, options \\ []) do
-    request(client, "VerifyEmailIdentity", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "ses"}
-    host = build_host("email", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    input = Map.merge(input, %{"Action" => action, "Version" => "2010-12-01"})
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :query)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :xml)
+  def verify_email_identity(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "VerifyEmailIdentity", input, options)
   end
 end

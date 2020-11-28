@@ -16,28 +16,47 @@ defmodule AWS.AlexaForBusiness do
   manage them as shared devices in their organization.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2017-11-09",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "a4b",
+      global?: false,
+      protocol: "json",
+      service_id: "Alexa For Business",
+      signature_version: "v4",
+      signing_name: "a4b",
+      target_prefix: "AlexaForBusiness"
+    }
+  end
+
   @doc """
   Associates a skill with the organization under the customer's AWS account.
 
   If a skill is private, the user implicitly accepts access to this skill during
   enablement.
   """
-  def approve_skill(client, input, options \\ []) do
-    request(client, "ApproveSkill", input, options)
+  def approve_skill(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ApproveSkill", input, options)
   end
 
   @doc """
   Associates a contact with a given address book.
   """
-  def associate_contact_with_address_book(client, input, options \\ []) do
-    request(client, "AssociateContactWithAddressBook", input, options)
+  def associate_contact_with_address_book(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateContactWithAddressBook", input, options)
   end
 
   @doc """
   Associates a device with the specified network profile.
   """
-  def associate_device_with_network_profile(client, input, options \\ []) do
-    request(client, "AssociateDeviceWithNetworkProfile", input, options)
+  def associate_device_with_network_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateDeviceWithNetworkProfile", input, options)
   end
 
   @doc """
@@ -47,8 +66,8 @@ defmodule AWS.AlexaForBusiness do
   skills in any skill groups added to that room. This operation requires the
   device to be online, or else a manual sync is required.
   """
-  def associate_device_with_room(client, input, options \\ []) do
-    request(client, "AssociateDeviceWithRoom", input, options)
+  def associate_device_with_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateDeviceWithRoom", input, options)
   end
 
   @doc """
@@ -57,128 +76,128 @@ defmodule AWS.AlexaForBusiness do
   This enables all skills in the associated skill group on all devices in the
   room.
   """
-  def associate_skill_group_with_room(client, input, options \\ []) do
-    request(client, "AssociateSkillGroupWithRoom", input, options)
+  def associate_skill_group_with_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateSkillGroupWithRoom", input, options)
   end
 
   @doc """
   Associates a skill with a skill group.
   """
-  def associate_skill_with_skill_group(client, input, options \\ []) do
-    request(client, "AssociateSkillWithSkillGroup", input, options)
+  def associate_skill_with_skill_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateSkillWithSkillGroup", input, options)
   end
 
   @doc """
   Makes a private skill available for enrolled users to enable on their devices.
   """
-  def associate_skill_with_users(client, input, options \\ []) do
-    request(client, "AssociateSkillWithUsers", input, options)
+  def associate_skill_with_users(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateSkillWithUsers", input, options)
   end
 
   @doc """
   Creates an address book with the specified details.
   """
-  def create_address_book(client, input, options \\ []) do
-    request(client, "CreateAddressBook", input, options)
+  def create_address_book(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAddressBook", input, options)
   end
 
   @doc """
   Creates a recurring schedule for usage reports to deliver to the specified S3
   location with a specified daily or weekly interval.
   """
-  def create_business_report_schedule(client, input, options \\ []) do
-    request(client, "CreateBusinessReportSchedule", input, options)
+  def create_business_report_schedule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBusinessReportSchedule", input, options)
   end
 
   @doc """
   Adds a new conference provider under the user's AWS account.
   """
-  def create_conference_provider(client, input, options \\ []) do
-    request(client, "CreateConferenceProvider", input, options)
+  def create_conference_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateConferenceProvider", input, options)
   end
 
   @doc """
   Creates a contact with the specified details.
   """
-  def create_contact(client, input, options \\ []) do
-    request(client, "CreateContact", input, options)
+  def create_contact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateContact", input, options)
   end
 
   @doc """
   Creates a gateway group with the specified details.
   """
-  def create_gateway_group(client, input, options \\ []) do
-    request(client, "CreateGatewayGroup", input, options)
+  def create_gateway_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGatewayGroup", input, options)
   end
 
   @doc """
   Creates a network profile with the specified details.
   """
-  def create_network_profile(client, input, options \\ []) do
-    request(client, "CreateNetworkProfile", input, options)
+  def create_network_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateNetworkProfile", input, options)
   end
 
   @doc """
   Creates a new room profile with the specified details.
   """
-  def create_profile(client, input, options \\ []) do
-    request(client, "CreateProfile", input, options)
+  def create_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateProfile", input, options)
   end
 
   @doc """
   Creates a room with the specified details.
   """
-  def create_room(client, input, options \\ []) do
-    request(client, "CreateRoom", input, options)
+  def create_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateRoom", input, options)
   end
 
   @doc """
   Creates a skill group with a specified name and description.
   """
-  def create_skill_group(client, input, options \\ []) do
-    request(client, "CreateSkillGroup", input, options)
+  def create_skill_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateSkillGroup", input, options)
   end
 
   @doc """
   Creates a user.
   """
-  def create_user(client, input, options \\ []) do
-    request(client, "CreateUser", input, options)
+  def create_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUser", input, options)
   end
 
   @doc """
   Deletes an address book by the address book ARN.
   """
-  def delete_address_book(client, input, options \\ []) do
-    request(client, "DeleteAddressBook", input, options)
+  def delete_address_book(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAddressBook", input, options)
   end
 
   @doc """
   Deletes the recurring report delivery schedule with the specified schedule ARN.
   """
-  def delete_business_report_schedule(client, input, options \\ []) do
-    request(client, "DeleteBusinessReportSchedule", input, options)
+  def delete_business_report_schedule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBusinessReportSchedule", input, options)
   end
 
   @doc """
   Deletes a conference provider.
   """
-  def delete_conference_provider(client, input, options \\ []) do
-    request(client, "DeleteConferenceProvider", input, options)
+  def delete_conference_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteConferenceProvider", input, options)
   end
 
   @doc """
   Deletes a contact by the contact ARN.
   """
-  def delete_contact(client, input, options \\ []) do
-    request(client, "DeleteContact", input, options)
+  def delete_contact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteContact", input, options)
   end
 
   @doc """
   Removes a device from Alexa For Business.
   """
-  def delete_device(client, input, options \\ []) do
-    request(client, "DeleteDevice", input, options)
+  def delete_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDevice", input, options)
   end
 
   @doc """
@@ -188,71 +207,71 @@ defmodule AWS.AlexaForBusiness do
 
   This action can be called once every 24 hours for a specific shared device.
   """
-  def delete_device_usage_data(client, input, options \\ []) do
-    request(client, "DeleteDeviceUsageData", input, options)
+  def delete_device_usage_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDeviceUsageData", input, options)
   end
 
   @doc """
   Deletes a gateway group.
   """
-  def delete_gateway_group(client, input, options \\ []) do
-    request(client, "DeleteGatewayGroup", input, options)
+  def delete_gateway_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGatewayGroup", input, options)
   end
 
   @doc """
   Deletes a network profile by the network profile ARN.
   """
-  def delete_network_profile(client, input, options \\ []) do
-    request(client, "DeleteNetworkProfile", input, options)
+  def delete_network_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteNetworkProfile", input, options)
   end
 
   @doc """
   Deletes a room profile by the profile ARN.
   """
-  def delete_profile(client, input, options \\ []) do
-    request(client, "DeleteProfile", input, options)
+  def delete_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProfile", input, options)
   end
 
   @doc """
   Deletes a room by the room ARN.
   """
-  def delete_room(client, input, options \\ []) do
-    request(client, "DeleteRoom", input, options)
+  def delete_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRoom", input, options)
   end
 
   @doc """
   Deletes room skill parameter details by room, skill, and parameter key ID.
   """
-  def delete_room_skill_parameter(client, input, options \\ []) do
-    request(client, "DeleteRoomSkillParameter", input, options)
+  def delete_room_skill_parameter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRoomSkillParameter", input, options)
   end
 
   @doc """
   Unlinks a third-party account from a skill.
   """
-  def delete_skill_authorization(client, input, options \\ []) do
-    request(client, "DeleteSkillAuthorization", input, options)
+  def delete_skill_authorization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSkillAuthorization", input, options)
   end
 
   @doc """
   Deletes a skill group by skill group ARN.
   """
-  def delete_skill_group(client, input, options \\ []) do
-    request(client, "DeleteSkillGroup", input, options)
+  def delete_skill_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSkillGroup", input, options)
   end
 
   @doc """
   Deletes a specified user by user ARN and enrollment ARN.
   """
-  def delete_user(client, input, options \\ []) do
-    request(client, "DeleteUser", input, options)
+  def delete_user(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteUser", input, options)
   end
 
   @doc """
   Disassociates a contact from a given address book.
   """
-  def disassociate_contact_from_address_book(client, input, options \\ []) do
-    request(client, "DisassociateContactFromAddressBook", input, options)
+  def disassociate_contact_from_address_book(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateContactFromAddressBook", input, options)
   end
 
   @doc """
@@ -262,23 +281,23 @@ defmodule AWS.AlexaForBusiness do
   registered to the account. The device settings and skills are removed from the
   room.
   """
-  def disassociate_device_from_room(client, input, options \\ []) do
-    request(client, "DisassociateDeviceFromRoom", input, options)
+  def disassociate_device_from_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateDeviceFromRoom", input, options)
   end
 
   @doc """
   Disassociates a skill from a skill group.
   """
-  def disassociate_skill_from_skill_group(client, input, options \\ []) do
-    request(client, "DisassociateSkillFromSkillGroup", input, options)
+  def disassociate_skill_from_skill_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateSkillFromSkillGroup", input, options)
   end
 
   @doc """
   Makes a private skill unavailable for enrolled users and prevents them from
   enabling it on their devices.
   """
-  def disassociate_skill_from_users(client, input, options \\ []) do
-    request(client, "DisassociateSkillFromUsers", input, options)
+  def disassociate_skill_from_users(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateSkillFromUsers", input, options)
   end
 
   @doc """
@@ -286,107 +305,107 @@ defmodule AWS.AlexaForBusiness do
 
   This disables all skills in the skill group on all devices in the room.
   """
-  def disassociate_skill_group_from_room(client, input, options \\ []) do
-    request(client, "DisassociateSkillGroupFromRoom", input, options)
+  def disassociate_skill_group_from_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateSkillGroupFromRoom", input, options)
   end
 
   @doc """
   Forgets smart home appliances associated to a room.
   """
-  def forget_smart_home_appliances(client, input, options \\ []) do
-    request(client, "ForgetSmartHomeAppliances", input, options)
+  def forget_smart_home_appliances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ForgetSmartHomeAppliances", input, options)
   end
 
   @doc """
   Gets address the book details by the address book ARN.
   """
-  def get_address_book(client, input, options \\ []) do
-    request(client, "GetAddressBook", input, options)
+  def get_address_book(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAddressBook", input, options)
   end
 
   @doc """
   Retrieves the existing conference preferences.
   """
-  def get_conference_preference(client, input, options \\ []) do
-    request(client, "GetConferencePreference", input, options)
+  def get_conference_preference(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetConferencePreference", input, options)
   end
 
   @doc """
   Gets details about a specific conference provider.
   """
-  def get_conference_provider(client, input, options \\ []) do
-    request(client, "GetConferenceProvider", input, options)
+  def get_conference_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetConferenceProvider", input, options)
   end
 
   @doc """
   Gets the contact details by the contact ARN.
   """
-  def get_contact(client, input, options \\ []) do
-    request(client, "GetContact", input, options)
+  def get_contact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetContact", input, options)
   end
 
   @doc """
   Gets the details of a device by device ARN.
   """
-  def get_device(client, input, options \\ []) do
-    request(client, "GetDevice", input, options)
+  def get_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDevice", input, options)
   end
 
   @doc """
   Retrieves the details of a gateway.
   """
-  def get_gateway(client, input, options \\ []) do
-    request(client, "GetGateway", input, options)
+  def get_gateway(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGateway", input, options)
   end
 
   @doc """
   Retrieves the details of a gateway group.
   """
-  def get_gateway_group(client, input, options \\ []) do
-    request(client, "GetGatewayGroup", input, options)
+  def get_gateway_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGatewayGroup", input, options)
   end
 
   @doc """
   Retrieves the configured values for the user enrollment invitation email
   template.
   """
-  def get_invitation_configuration(client, input, options \\ []) do
-    request(client, "GetInvitationConfiguration", input, options)
+  def get_invitation_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetInvitationConfiguration", input, options)
   end
 
   @doc """
   Gets the network profile details by the network profile ARN.
   """
-  def get_network_profile(client, input, options \\ []) do
-    request(client, "GetNetworkProfile", input, options)
+  def get_network_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetNetworkProfile", input, options)
   end
 
   @doc """
   Gets the details of a room profile by profile ARN.
   """
-  def get_profile(client, input, options \\ []) do
-    request(client, "GetProfile", input, options)
+  def get_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetProfile", input, options)
   end
 
   @doc """
   Gets room details by room ARN.
   """
-  def get_room(client, input, options \\ []) do
-    request(client, "GetRoom", input, options)
+  def get_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRoom", input, options)
   end
 
   @doc """
   Gets room skill parameter details by room, skill, and parameter key ARN.
   """
-  def get_room_skill_parameter(client, input, options \\ []) do
-    request(client, "GetRoomSkillParameter", input, options)
+  def get_room_skill_parameter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRoomSkillParameter", input, options)
   end
 
   @doc """
   Gets skill group details by skill group ARN.
   """
-  def get_skill_group(client, input, options \\ []) do
-    request(client, "GetSkillGroup", input, options)
+  def get_skill_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSkillGroup", input, options)
   end
 
   @doc """
@@ -396,23 +415,23 @@ defmodule AWS.AlexaForBusiness do
   time this action is called. A new download URL is returned each time, and is
   valid for 24 hours.
   """
-  def list_business_report_schedules(client, input, options \\ []) do
-    request(client, "ListBusinessReportSchedules", input, options)
+  def list_business_report_schedules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListBusinessReportSchedules", input, options)
   end
 
   @doc """
   Lists conference providers under a specific AWS account.
   """
-  def list_conference_providers(client, input, options \\ []) do
-    request(client, "ListConferenceProviders", input, options)
+  def list_conference_providers(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListConferenceProviders", input, options)
   end
 
   @doc """
   Lists the device event history, including device connection status, for up to 30
   days.
   """
-  def list_device_events(client, input, options \\ []) do
-    request(client, "ListDeviceEvents", input, options)
+  def list_device_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDeviceEvents", input, options)
   end
 
   @doc """
@@ -420,8 +439,8 @@ defmodule AWS.AlexaForBusiness do
 
   Use GetGatewayGroup to retrieve details of a specific gateway group.
   """
-  def list_gateway_groups(client, input, options \\ []) do
-    request(client, "ListGatewayGroups", input, options)
+  def list_gateway_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGatewayGroups", input, options)
   end
 
   @doc """
@@ -431,59 +450,59 @@ defmodule AWS.AlexaForBusiness do
   group ARN can be provided to only retrieve gateway summaries of gateways that
   are associated with that gateway group ARN.
   """
-  def list_gateways(client, input, options \\ []) do
-    request(client, "ListGateways", input, options)
+  def list_gateways(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGateways", input, options)
   end
 
   @doc """
   Lists all enabled skills in a specific skill group.
   """
-  def list_skills(client, input, options \\ []) do
-    request(client, "ListSkills", input, options)
+  def list_skills(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSkills", input, options)
   end
 
   @doc """
   Lists all categories in the Alexa skill store.
   """
-  def list_skills_store_categories(client, input, options \\ []) do
-    request(client, "ListSkillsStoreCategories", input, options)
+  def list_skills_store_categories(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSkillsStoreCategories", input, options)
   end
 
   @doc """
   Lists all skills in the Alexa skill store by category.
   """
-  def list_skills_store_skills_by_category(client, input, options \\ []) do
-    request(client, "ListSkillsStoreSkillsByCategory", input, options)
+  def list_skills_store_skills_by_category(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSkillsStoreSkillsByCategory", input, options)
   end
 
   @doc """
   Lists all of the smart home appliances associated with a room.
   """
-  def list_smart_home_appliances(client, input, options \\ []) do
-    request(client, "ListSmartHomeAppliances", input, options)
+  def list_smart_home_appliances(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSmartHomeAppliances", input, options)
   end
 
   @doc """
   Lists all tags for the specified resource.
   """
-  def list_tags(client, input, options \\ []) do
-    request(client, "ListTags", input, options)
+  def list_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTags", input, options)
   end
 
   @doc """
   Sets the conference preferences on a specific conference provider at the account
   level.
   """
-  def put_conference_preference(client, input, options \\ []) do
-    request(client, "PutConferencePreference", input, options)
+  def put_conference_preference(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutConferencePreference", input, options)
   end
 
   @doc """
   Configures the email template for the user enrollment invitation with the
   specified attributes.
   """
-  def put_invitation_configuration(client, input, options \\ []) do
-    request(client, "PutInvitationConfiguration", input, options)
+  def put_invitation_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutInvitationConfiguration", input, options)
   end
 
   @doc """
@@ -491,8 +510,8 @@ defmodule AWS.AlexaForBusiness do
 
   Not all skills have a room skill parameter.
   """
-  def put_room_skill_parameter(client, input, options \\ []) do
-    request(client, "PutRoomSkillParameter", input, options)
+  def put_room_skill_parameter(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRoomSkillParameter", input, options)
   end
 
   @doc """
@@ -502,16 +521,16 @@ defmodule AWS.AlexaForBusiness do
   must be a private skill. Also, the skill must be owned by the AWS account that
   assumed the IAM role.
   """
-  def put_skill_authorization(client, input, options \\ []) do
-    request(client, "PutSkillAuthorization", input, options)
+  def put_skill_authorization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutSkillAuthorization", input, options)
   end
 
   @doc """
   Registers an Alexa-enabled device built by an Original Equipment Manufacturer
   (OEM) using Alexa Voice Service (AVS).
   """
-  def register_a_v_s_device(client, input, options \\ []) do
-    request(client, "RegisterAVSDevice", input, options)
+  def register_a_v_s_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterAVSDevice", input, options)
   end
 
   @doc """
@@ -521,8 +540,8 @@ defmodule AWS.AlexaForBusiness do
   private or public skill that is rejected can be added later by calling the
   ApproveSkill API.
   """
-  def reject_skill(client, input, options \\ []) do
-    request(client, "RejectSkill", input, options)
+  def reject_skill(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RejectSkill", input, options)
   end
 
   @doc """
@@ -530,83 +549,83 @@ defmodule AWS.AlexaForBusiness do
 
   This operation is used by skill developers.
   """
-  def resolve_room(client, input, options \\ []) do
-    request(client, "ResolveRoom", input, options)
+  def resolve_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ResolveRoom", input, options)
   end
 
   @doc """
   Revokes an invitation and invalidates the enrollment URL.
   """
-  def revoke_invitation(client, input, options \\ []) do
-    request(client, "RevokeInvitation", input, options)
+  def revoke_invitation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RevokeInvitation", input, options)
   end
 
   @doc """
   Searches address books and lists the ones that meet a set of filter and sort
   criteria.
   """
-  def search_address_books(client, input, options \\ []) do
-    request(client, "SearchAddressBooks", input, options)
+  def search_address_books(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchAddressBooks", input, options)
   end
 
   @doc """
   Searches contacts and lists the ones that meet a set of filter and sort
   criteria.
   """
-  def search_contacts(client, input, options \\ []) do
-    request(client, "SearchContacts", input, options)
+  def search_contacts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchContacts", input, options)
   end
 
   @doc """
   Searches devices and lists the ones that meet a set of filter criteria.
   """
-  def search_devices(client, input, options \\ []) do
-    request(client, "SearchDevices", input, options)
+  def search_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchDevices", input, options)
   end
 
   @doc """
   Searches network profiles and lists the ones that meet a set of filter and sort
   criteria.
   """
-  def search_network_profiles(client, input, options \\ []) do
-    request(client, "SearchNetworkProfiles", input, options)
+  def search_network_profiles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchNetworkProfiles", input, options)
   end
 
   @doc """
   Searches room profiles and lists the ones that meet a set of filter criteria.
   """
-  def search_profiles(client, input, options \\ []) do
-    request(client, "SearchProfiles", input, options)
+  def search_profiles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchProfiles", input, options)
   end
 
   @doc """
   Searches rooms and lists the ones that meet a set of filter and sort criteria.
   """
-  def search_rooms(client, input, options \\ []) do
-    request(client, "SearchRooms", input, options)
+  def search_rooms(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchRooms", input, options)
   end
 
   @doc """
   Searches skill groups and lists the ones that meet a set of filter and sort
   criteria.
   """
-  def search_skill_groups(client, input, options \\ []) do
-    request(client, "SearchSkillGroups", input, options)
+  def search_skill_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchSkillGroups", input, options)
   end
 
   @doc """
   Searches users and lists the ones that meet a set of filter and sort criteria.
   """
-  def search_users(client, input, options \\ []) do
-    request(client, "SearchUsers", input, options)
+  def search_users(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchUsers", input, options)
   end
 
   @doc """
   Triggers an asynchronous flow to send text, SSML, or audio announcements to
   rooms that are identified by a search or filter.
   """
-  def send_announcement(client, input, options \\ []) do
-    request(client, "SendAnnouncement", input, options)
+  def send_announcement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendAnnouncement", input, options)
   end
 
   @doc """
@@ -615,8 +634,8 @@ defmodule AWS.AlexaForBusiness do
   The URL is valid for 30 days or until you call this operation again, whichever
   comes first.
   """
-  def send_invitation(client, input, options \\ []) do
-    request(client, "SendInvitation", input, options)
+  def send_invitation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SendInvitation", input, options)
   end
 
   @doc """
@@ -640,65 +659,65 @@ defmodule AWS.AlexaForBusiness do
   is assigned to a room), contacts, address books, delegation access for account
   linking, and communications (if enabled on the room profile).
   """
-  def start_device_sync(client, input, options \\ []) do
-    request(client, "StartDeviceSync", input, options)
+  def start_device_sync(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartDeviceSync", input, options)
   end
 
   @doc """
   Initiates the discovery of any smart home appliances associated with the room.
   """
-  def start_smart_home_appliance_discovery(client, input, options \\ []) do
-    request(client, "StartSmartHomeApplianceDiscovery", input, options)
+  def start_smart_home_appliance_discovery(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartSmartHomeApplianceDiscovery", input, options)
   end
 
   @doc """
   Adds metadata tags to a specified resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes metadata tags from a specified resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
   Updates address book details by the address book ARN.
   """
-  def update_address_book(client, input, options \\ []) do
-    request(client, "UpdateAddressBook", input, options)
+  def update_address_book(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAddressBook", input, options)
   end
 
   @doc """
   Updates the configuration of the report delivery schedule with the specified
   schedule ARN.
   """
-  def update_business_report_schedule(client, input, options \\ []) do
-    request(client, "UpdateBusinessReportSchedule", input, options)
+  def update_business_report_schedule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateBusinessReportSchedule", input, options)
   end
 
   @doc """
   Updates an existing conference provider's settings.
   """
-  def update_conference_provider(client, input, options \\ []) do
-    request(client, "UpdateConferenceProvider", input, options)
+  def update_conference_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateConferenceProvider", input, options)
   end
 
   @doc """
   Updates the contact details by the contact ARN.
   """
-  def update_contact(client, input, options \\ []) do
-    request(client, "UpdateContact", input, options)
+  def update_contact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateContact", input, options)
   end
 
   @doc """
   Updates the device name by device ARN.
   """
-  def update_device(client, input, options \\ []) do
-    request(client, "UpdateDevice", input, options)
+  def update_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDevice", input, options)
   end
 
   @doc """
@@ -707,8 +726,8 @@ defmodule AWS.AlexaForBusiness do
   If any optional field is not provided, the existing corresponding value is left
   unmodified.
   """
-  def update_gateway(client, input, options \\ []) do
-    request(client, "UpdateGateway", input, options)
+  def update_gateway(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGateway", input, options)
   end
 
   @doc """
@@ -717,89 +736,35 @@ defmodule AWS.AlexaForBusiness do
   If any optional field is not provided, the existing corresponding value is left
   unmodified.
   """
-  def update_gateway_group(client, input, options \\ []) do
-    request(client, "UpdateGatewayGroup", input, options)
+  def update_gateway_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateGatewayGroup", input, options)
   end
 
   @doc """
   Updates a network profile by the network profile ARN.
   """
-  def update_network_profile(client, input, options \\ []) do
-    request(client, "UpdateNetworkProfile", input, options)
+  def update_network_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateNetworkProfile", input, options)
   end
 
   @doc """
   Updates an existing room profile by room profile ARN.
   """
-  def update_profile(client, input, options \\ []) do
-    request(client, "UpdateProfile", input, options)
+  def update_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateProfile", input, options)
   end
 
   @doc """
   Updates room details by room ARN.
   """
-  def update_room(client, input, options \\ []) do
-    request(client, "UpdateRoom", input, options)
+  def update_room(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateRoom", input, options)
   end
 
   @doc """
   Updates skill group details by skill group ARN.
   """
-  def update_skill_group(client, input, options \\ []) do
-    request(client, "UpdateSkillGroup", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "a4b"}
-    host = build_host("a4b", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "AlexaForBusiness.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_skill_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSkillGroup", input, options)
   end
 end

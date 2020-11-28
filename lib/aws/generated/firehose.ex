@@ -10,6 +10,25 @@ defmodule AWS.Firehose do
   S3), Amazon Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "Firehose",
+      api_version: "2015-08-04",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "firehose",
+      global?: false,
+      protocol: "json",
+      service_id: "Firehose",
+      signature_version: "v4",
+      signing_name: "firehose",
+      target_prefix: "Firehose_20150804"
+    }
+  end
+
   @doc """
   Creates a Kinesis Data Firehose delivery stream.
 
@@ -77,8 +96,8 @@ defmodule AWS.Firehose do
   Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3)
   in the *Amazon Kinesis Data Firehose Developer Guide*.
   """
-  def create_delivery_stream(client, input, options \\ []) do
-    request(client, "CreateDeliveryStream", input, options)
+  def create_delivery_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDeliveryStream", input, options)
   end
 
   @doc """
@@ -95,8 +114,8 @@ defmodule AWS.Firehose do
   the data. Therefore, as a best practice, first stop any applications that are
   sending records before you delete a delivery stream.
   """
-  def delete_delivery_stream(client, input, options \\ []) do
-    request(client, "DeleteDeliveryStream", input, options)
+  def delete_delivery_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDeliveryStream", input, options)
   end
 
   @doc """
@@ -112,8 +131,8 @@ defmodule AWS.Firehose do
   `DELETING_FAILED`, you can force deletion by invoking `DeleteDeliveryStream`
   again but with `DeleteDeliveryStreamInput$AllowForceDelete` set to true.
   """
-  def describe_delivery_stream(client, input, options \\ []) do
-    request(client, "DescribeDeliveryStream", input, options)
+  def describe_delivery_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDeliveryStream", input, options)
   end
 
   @doc """
@@ -127,8 +146,8 @@ defmodule AWS.Firehose do
   operation again and setting the `ExclusiveStartDeliveryStreamName` parameter to
   the name of the last delivery stream returned in the last call.
   """
-  def list_delivery_streams(client, input, options \\ []) do
-    request(client, "ListDeliveryStreams", input, options)
+  def list_delivery_streams(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDeliveryStreams", input, options)
   end
 
   @doc """
@@ -136,8 +155,8 @@ defmodule AWS.Firehose do
 
   This operation has a limit of five transactions per second per account.
   """
-  def list_tags_for_delivery_stream(client, input, options \\ []) do
-    request(client, "ListTagsForDeliveryStream", input, options)
+  def list_tags_for_delivery_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForDeliveryStream", input, options)
   end
 
   @doc """
@@ -180,8 +199,8 @@ defmodule AWS.Firehose do
   Don't concatenate two or more base64 strings to form the data fields of your
   records. Instead, concatenate the raw data, then perform base64 encoding.
   """
-  def put_record(client, input, options \\ []) do
-    request(client, "PutRecord", input, options)
+  def put_record(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRecord", input, options)
   end
 
   @doc """
@@ -246,8 +265,8 @@ defmodule AWS.Firehose do
   Don't concatenate two or more base64 strings to form the data fields of your
   records. Instead, concatenate the raw data, then perform base64 encoding.
   """
-  def put_record_batch(client, input, options \\ []) do
-    request(client, "PutRecordBatch", input, options)
+  def put_record_batch(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRecordBatch", input, options)
   end
 
   @doc """
@@ -295,8 +314,8 @@ defmodule AWS.Firehose do
   times and `StopDeliveryStreamEncryption` 12 times for the same delivery stream
   in a 24-hour period.
   """
-  def start_delivery_stream_encryption(client, input, options \\ []) do
-    request(client, "StartDeliveryStreamEncryption", input, options)
+  def start_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartDeliveryStreamEncryption", input, options)
   end
 
   @doc """
@@ -325,8 +344,8 @@ defmodule AWS.Firehose do
   times and `StopDeliveryStreamEncryption` 12 times for the same delivery stream
   in a 24-hour period.
   """
-  def stop_delivery_stream_encryption(client, input, options \\ []) do
-    request(client, "StopDeliveryStreamEncryption", input, options)
+  def stop_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopDeliveryStreamEncryption", input, options)
   end
 
   @doc """
@@ -344,8 +363,8 @@ defmodule AWS.Firehose do
 
   This operation has a limit of five transactions per second per account.
   """
-  def tag_delivery_stream(client, input, options \\ []) do
-    request(client, "TagDeliveryStream", input, options)
+  def tag_delivery_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagDeliveryStream", input, options)
   end
 
   @doc """
@@ -358,8 +377,8 @@ defmodule AWS.Firehose do
 
   This operation has a limit of five transactions per second per account.
   """
-  def untag_delivery_stream(client, input, options \\ []) do
-    request(client, "UntagDeliveryStream", input, options)
+  def untag_delivery_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagDeliveryStream", input, options)
   end
 
   @doc """
@@ -394,61 +413,7 @@ defmodule AWS.Firehose do
   updated, and can be retrieved using `DescribeDeliveryStream`. Use the new
   version ID to set `CurrentDeliveryStreamVersionId` in the next call.
   """
-  def update_destination(client, input, options \\ []) do
-    request(client, "UpdateDestination", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "firehose"}
-    host = build_host("firehose", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "Firehose_20150804.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def update_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDestination", input, options)
   end
 end

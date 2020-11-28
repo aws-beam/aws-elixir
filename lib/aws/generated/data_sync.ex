@@ -13,6 +13,25 @@ defmodule AWS.DataSync do
   programming interface that you can use to manage AWS DataSync.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "DataSync",
+      api_version: "2018-11-09",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "datasync",
+      global?: false,
+      protocol: "json",
+      service_id: "DataSync",
+      signature_version: "v4",
+      signing_name: "datasync",
+      target_prefix: "FmrsService"
+    }
+  end
+
   @doc """
   Cancels execution of a task.
 
@@ -25,8 +44,8 @@ defmodule AWS.DataSync do
   cases, AWS DataSync successfully complete the transfer when you start the next
   task execution.
   """
-  def cancel_task_execution(client, input, options \\ []) do
-    request(client, "CancelTaskExecution", input, options)
+  def cancel_task_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelTaskExecution", input, options)
   end
 
   @doc """
@@ -50,30 +69,30 @@ defmodule AWS.DataSync do
   Agents are automatically updated by AWS on a regular basis, using a mechanism
   that ensures minimal interruption to your tasks.
   """
-  def create_agent(client, input, options \\ []) do
-    request(client, "CreateAgent", input, options)
+  def create_agent(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAgent", input, options)
   end
 
   @doc """
   Creates an endpoint for an Amazon EFS file system.
   """
-  def create_location_efs(client, input, options \\ []) do
-    request(client, "CreateLocationEfs", input, options)
+  def create_location_efs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationEfs", input, options)
   end
 
   @doc """
   Creates an endpoint for an Amazon FSx for Windows file system.
   """
-  def create_location_fsx_windows(client, input, options \\ []) do
-    request(client, "CreateLocationFsxWindows", input, options)
+  def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationFsxWindows", input, options)
   end
 
   @doc """
   Defines a file system on a Network File System (NFS) server that can be read
   from or written to.
   """
-  def create_location_nfs(client, input, options \\ []) do
-    request(client, "CreateLocationNfs", input, options)
+  def create_location_nfs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationNfs", input, options)
   end
 
   @doc """
@@ -82,8 +101,8 @@ defmodule AWS.DataSync do
   For more information about self-managed object storage locations, see
   `create-object-location`.
   """
-  def create_location_object_storage(client, input, options \\ []) do
-    request(client, "CreateLocationObjectStorage", input, options)
+  def create_location_object_storage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationObjectStorage", input, options)
   end
 
   @doc """
@@ -93,16 +112,16 @@ defmodule AWS.DataSync do
   https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
   in the *AWS DataSync User Guide*.
   """
-  def create_location_s3(client, input, options \\ []) do
-    request(client, "CreateLocationS3", input, options)
+  def create_location_s3(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationS3", input, options)
   end
 
   @doc """
   Defines a file system on a Server Message Block (SMB) server that can be read
   from or written to.
   """
-  def create_location_smb(client, input, options \\ []) do
-    request(client, "CreateLocationSmb", input, options)
+  def create_location_smb(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLocationSmb", input, options)
   end
 
   @doc """
@@ -125,8 +144,8 @@ defmodule AWS.DataSync do
   ErrorCode and ErrorDetail. Mount issues are often caused by either a
   misconfigured firewall or a mistyped NFS server hostname.
   """
-  def create_task(client, input, options \\ []) do
-    request(client, "CreateTask", input, options)
+  def create_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateTask", input, options)
   end
 
   @doc """
@@ -137,22 +156,22 @@ defmodule AWS.DataSync do
   account. However, it doesn't delete the agent virtual machine (VM) from your
   on-premises environment.
   """
-  def delete_agent(client, input, options \\ []) do
-    request(client, "DeleteAgent", input, options)
+  def delete_agent(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAgent", input, options)
   end
 
   @doc """
   Deletes the configuration of a location used by AWS DataSync.
   """
-  def delete_location(client, input, options \\ []) do
-    request(client, "DeleteLocation", input, options)
+  def delete_location(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLocation", input, options)
   end
 
   @doc """
   Deletes a task.
   """
-  def delete_task(client, input, options \\ []) do
-    request(client, "DeleteTask", input, options)
+  def delete_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteTask", input, options)
   end
 
   @doc """
@@ -162,30 +181,30 @@ defmodule AWS.DataSync do
   To specify which agent to describe, use the Amazon Resource Name (ARN) of the
   agent in your request.
   """
-  def describe_agent(client, input, options \\ []) do
-    request(client, "DescribeAgent", input, options)
+  def describe_agent(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAgent", input, options)
   end
 
   @doc """
   Returns metadata, such as the path information about an Amazon EFS location.
   """
-  def describe_location_efs(client, input, options \\ []) do
-    request(client, "DescribeLocationEfs", input, options)
+  def describe_location_efs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationEfs", input, options)
   end
 
   @doc """
   Returns metadata, such as the path information about an Amazon FSx for Windows
   location.
   """
-  def describe_location_fsx_windows(client, input, options \\ []) do
-    request(client, "DescribeLocationFsxWindows", input, options)
+  def describe_location_fsx_windows(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationFsxWindows", input, options)
   end
 
   @doc """
   Returns metadata, such as the path information, about an NFS location.
   """
-  def describe_location_nfs(client, input, options \\ []) do
-    request(client, "DescribeLocationNfs", input, options)
+  def describe_location_nfs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationNfs", input, options)
   end
 
   @doc """
@@ -194,36 +213,36 @@ defmodule AWS.DataSync do
   For more information about self-managed object storage locations, see
   `create-object-location`.
   """
-  def describe_location_object_storage(client, input, options \\ []) do
-    request(client, "DescribeLocationObjectStorage", input, options)
+  def describe_location_object_storage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationObjectStorage", input, options)
   end
 
   @doc """
   Returns metadata, such as bucket name, about an Amazon S3 bucket location.
   """
-  def describe_location_s3(client, input, options \\ []) do
-    request(client, "DescribeLocationS3", input, options)
+  def describe_location_s3(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationS3", input, options)
   end
 
   @doc """
   Returns metadata, such as the path and user information about an SMB location.
   """
-  def describe_location_smb(client, input, options \\ []) do
-    request(client, "DescribeLocationSmb", input, options)
+  def describe_location_smb(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeLocationSmb", input, options)
   end
 
   @doc """
   Returns metadata about a task.
   """
-  def describe_task(client, input, options \\ []) do
-    request(client, "DescribeTask", input, options)
+  def describe_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTask", input, options)
   end
 
   @doc """
   Returns detailed metadata about a task that is being executed.
   """
-  def describe_task_execution(client, input, options \\ []) do
-    request(client, "DescribeTaskExecution", input, options)
+  def describe_task_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeTaskExecution", input, options)
   end
 
   @doc """
@@ -240,8 +259,8 @@ defmodule AWS.DataSync do
   returns only a truncated list of your agents), the response contains a marker
   that you can specify in your next request to fetch the next page of agents.
   """
-  def list_agents(client, input, options \\ []) do
-    request(client, "ListAgents", input, options)
+  def list_agents(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAgents", input, options)
   end
 
   @doc """
@@ -252,29 +271,29 @@ defmodule AWS.DataSync do
   token that you can specify in your next request to fetch the next page of
   locations.
   """
-  def list_locations(client, input, options \\ []) do
-    request(client, "ListLocations", input, options)
+  def list_locations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLocations", input, options)
   end
 
   @doc """
   Returns all the tags associated with a specified resource.
   """
-  def list_tags_for_resource(client, input, options \\ []) do
-    request(client, "ListTagsForResource", input, options)
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
   Returns a list of executed tasks.
   """
-  def list_task_executions(client, input, options \\ []) do
-    request(client, "ListTaskExecutions", input, options)
+  def list_task_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTaskExecutions", input, options)
   end
 
   @doc """
   Returns a list of all the tasks.
   """
-  def list_tasks(client, input, options \\ []) do
-    request(client, "ListTasks", input, options)
+  def list_tasks(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTasks", input, options)
   end
 
   @doc """
@@ -289,89 +308,49 @@ defmodule AWS.DataSync do
   For detailed information, see the Task Execution section in the Components and
   Terminology topic in the *AWS DataSync User Guide*.
   """
-  def start_task_execution(client, input, options \\ []) do
-    request(client, "StartTaskExecution", input, options)
+  def start_task_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartTaskExecution", input, options)
   end
 
   @doc """
   Applies a key-value pair to an AWS resource.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes a tag from an AWS resource.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
   Updates the name of an agent.
   """
-  def update_agent(client, input, options \\ []) do
-    request(client, "UpdateAgent", input, options)
+  def update_agent(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAgent", input, options)
   end
 
   @doc """
   Updates the metadata associated with a task.
   """
-  def update_task(client, input, options \\ []) do
-    request(client, "UpdateTask", input, options)
+  def update_task(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTask", input, options)
   end
 
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "datasync"}
-    host = build_host("datasync", client)
-    url = build_url(host, client)
+  @doc """
+  Updates execution of a task.
 
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "FmrsService.#{action}"}
-    ]
+  You can modify bandwidth throttling for a task execution that is running or
+  queued. For more information, see [Adjusting Bandwidth Throttling for a Task Execution](https://docs.aws.amazon.com/datasync/latest/working-with-task-executions.html#adjust-bandwidth-throttling).
 
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  The only `Option` that can be modified by `UpdateTaskExecution` is `
+  [BytesPerSecond](https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond)
+  `.
+  """
+  def update_task_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTaskExecution", input, options)
   end
 end

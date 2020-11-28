@@ -13,6 +13,25 @@ defmodule AWS.DynamoDBStreams do
   in the Amazon DynamoDB Developer Guide.
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: nil,
+      api_version: "2012-08-10",
+      content_type: "application/x-amz-json-1.0",
+      credential_scope: nil,
+      endpoint_prefix: "streams.dynamodb",
+      global?: false,
+      protocol: "json",
+      service_id: "DynamoDB Streams",
+      signature_version: "v4",
+      signing_name: "dynamodb",
+      target_prefix: "DynamoDBStreams_20120810"
+    }
+  end
+
   @doc """
   Returns information about a stream, including the current status of the stream,
   its Amazon Resource Name (ARN), the composition of its shards, and its
@@ -26,8 +45,8 @@ defmodule AWS.DynamoDBStreams do
   stream records). If both `StartingSequenceNumber` and `EndingSequenceNumber` are
   present, then that shard is closed and can no longer receive more data.
   """
-  def describe_stream(client, input, options \\ []) do
-    request(client, "DescribeStream", input, options)
+  def describe_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeStream", input, options)
   end
 
   @doc """
@@ -43,8 +62,8 @@ defmodule AWS.DynamoDBStreams do
   `GetRecords` can retrieve a maximum of 1 MB of data or 1000 stream records,
   whichever comes first.
   """
-  def get_records(client, input, options \\ []) do
-    request(client, "GetRecords", input, options)
+  def get_records(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRecords", input, options)
   end
 
   @doc """
@@ -56,8 +75,8 @@ defmodule AWS.DynamoDBStreams do
 
   A shard iterator expires 15 minutes after it is returned to the requester.
   """
-  def get_shard_iterator(client, input, options \\ []) do
-    request(client, "GetShardIterator", input, options)
+  def get_shard_iterator(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetShardIterator", input, options)
   end
 
   @doc """
@@ -69,61 +88,7 @@ defmodule AWS.DynamoDBStreams do
 
   You can call `ListStreams` at a maximum rate of 5 times per second.
   """
-  def list_streams(client, input, options \\ []) do
-    request(client, "ListStreams", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "dynamodb"}
-    host = build_host("streams.dynamodb", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.0"},
-      {"X-Amz-Target", "DynamoDBStreams_20120810.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def list_streams(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStreams", input, options)
   end
 end

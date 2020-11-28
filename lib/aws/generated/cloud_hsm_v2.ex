@@ -6,26 +6,45 @@ defmodule AWS.CloudHSMV2 do
   For more information about AWS CloudHSM, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/) and the [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/).
   """
 
+  alias AWS.Client
+  alias AWS.Request
+
+  def metadata do
+    %AWS.ServiceMetadata{
+      abbreviation: "CloudHSM V2",
+      api_version: "2017-04-28",
+      content_type: "application/x-amz-json-1.1",
+      credential_scope: nil,
+      endpoint_prefix: "cloudhsmv2",
+      global?: false,
+      protocol: "json",
+      service_id: "CloudHSM V2",
+      signature_version: "v4",
+      signing_name: "cloudhsm",
+      target_prefix: "BaldrApiService"
+    }
+  end
+
   @doc """
   Copy an AWS CloudHSM cluster backup to a different region.
   """
-  def copy_backup_to_region(client, input, options \\ []) do
-    request(client, "CopyBackupToRegion", input, options)
+  def copy_backup_to_region(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CopyBackupToRegion", input, options)
   end
 
   @doc """
   Creates a new AWS CloudHSM cluster.
   """
-  def create_cluster(client, input, options \\ []) do
-    request(client, "CreateCluster", input, options)
+  def create_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateCluster", input, options)
   end
 
   @doc """
   Creates a new hardware security module (HSM) in the specified AWS CloudHSM
   cluster.
   """
-  def create_hsm(client, input, options \\ []) do
-    request(client, "CreateHsm", input, options)
+  def create_hsm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateHsm", input, options)
   end
 
   @doc """
@@ -34,8 +53,8 @@ defmodule AWS.CloudHSMV2 do
   A backup can be restored up to 7 days after the DeleteBackup request is made.
   For more information on restoring a backup, see `RestoreBackup`.
   """
-  def delete_backup(client, input, options \\ []) do
-    request(client, "DeleteBackup", input, options)
+  def delete_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBackup", input, options)
   end
 
   @doc """
@@ -45,8 +64,8 @@ defmodule AWS.CloudHSMV2 do
   if the cluster contains any HSMs, use `DescribeClusters`. To delete an HSM, use
   `DeleteHsm`.
   """
-  def delete_cluster(client, input, options \\ []) do
-    request(client, "DeleteCluster", input, options)
+  def delete_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteCluster", input, options)
   end
 
   @doc """
@@ -56,8 +75,8 @@ defmodule AWS.CloudHSMV2 do
   elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify
   only one of these values. To find these values, use `DescribeClusters`.
   """
-  def delete_hsm(client, input, options \\ []) do
-    request(client, "DeleteHsm", input, options)
+  def delete_hsm(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteHsm", input, options)
   end
 
   @doc """
@@ -70,8 +89,8 @@ defmodule AWS.CloudHSMV2 do
   no `NextToken` (or an empty or null value), that means there are no more backups
   to get.
   """
-  def describe_backups(client, input, options \\ []) do
-    request(client, "DescribeBackups", input, options)
+  def describe_backups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeBackups", input, options)
   end
 
   @doc """
@@ -84,8 +103,8 @@ defmodule AWS.CloudHSMV2 do
   with no `NextToken` (or an empty or null value), that means there are no more
   clusters to get.
   """
-  def describe_clusters(client, input, options \\ []) do
-    request(client, "DescribeClusters", input, options)
+  def describe_clusters(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeClusters", input, options)
   end
 
   @doc """
@@ -96,8 +115,8 @@ defmodule AWS.CloudHSMV2 do
   request (CSR) with your issuing CA. To get the cluster's CSR, use
   `DescribeClusters`.
   """
-  def initialize_cluster(client, input, options \\ []) do
-    request(client, "InitializeCluster", input, options)
+  def initialize_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "InitializeCluster", input, options)
   end
 
   @doc """
@@ -109,8 +128,22 @@ defmodule AWS.CloudHSMV2 do
   to get more tags. When you receive a response with no `NextToken` (or an empty
   or null value), that means there are no more tags to get.
   """
-  def list_tags(client, input, options \\ []) do
-    request(client, "ListTags", input, options)
+  def list_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTags", input, options)
+  end
+
+  @doc """
+  Modifies attributes for AWS CloudHSM backup.
+  """
+  def modify_backup_attributes(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyBackupAttributes", input, options)
+  end
+
+  @doc """
+  Modifies AWS CloudHSM cluster.
+  """
+  def modify_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyCluster", input, options)
   end
 
   @doc """
@@ -119,75 +152,21 @@ defmodule AWS.CloudHSMV2 do
 
   For mor information on deleting a backup, see `DeleteBackup`.
   """
-  def restore_backup(client, input, options \\ []) do
-    request(client, "RestoreBackup", input, options)
+  def restore_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RestoreBackup", input, options)
   end
 
   @doc """
   Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.
   """
-  def tag_resource(client, input, options \\ []) do
-    request(client, "TagResource", input, options)
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
   end
 
   @doc """
   Removes the specified tag or tags from the specified AWS CloudHSM cluster.
   """
-  def untag_resource(client, input, options \\ []) do
-    request(client, "UntagResource", input, options)
-  end
-
-  @spec request(AWS.Client.t(), binary(), map(), list()) ::
-          {:ok, map() | nil, map()}
-          | {:error, term()}
-  defp request(client, action, input, options) do
-    client = %{client | service: "cloudhsm"}
-    host = build_host("cloudhsmv2", client)
-    url = build_url(host, client)
-
-    headers = [
-      {"Host", host},
-      {"Content-Type", "application/x-amz-json-1.1"},
-      {"X-Amz-Target", "BaldrApiService.#{action}"}
-    ]
-
-    payload = encode!(client, input)
-    headers = AWS.Request.sign_v4(client, "POST", url, headers, payload)
-    post(client, url, payload, headers, options)
-  end
-
-  defp post(client, url, payload, headers, options) do
-    case AWS.Client.request(client, :post, url, payload, headers, options) do
-      {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, body)
-        {:ok, body, response}
-
-      {:ok, response} ->
-        {:error, {:unexpected_response, response}}
-
-      error = {:error, _reason} -> error
-    end
-  end
-
-  defp build_host(_endpoint_prefix, %{region: "local", endpoint: endpoint}) do
-    endpoint
-  end
-  defp build_host(_endpoint_prefix, %{region: "local"}) do
-    "localhost"
-  end
-  defp build_host(endpoint_prefix, %{region: region, endpoint: endpoint}) do
-    "#{endpoint_prefix}.#{region}.#{endpoint}"
-  end
-
-  defp build_url(host, %{:proto => proto, :port => port}) do
-    "#{proto}://#{host}:#{port}/"
-  end
-
-  defp encode!(client, payload) do
-    AWS.Client.encode!(client, payload, :json)
-  end
-
-  defp decode!(client, payload) do
-    AWS.Client.decode!(client, payload, :json)
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 end

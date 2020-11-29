@@ -23,7 +23,7 @@ defmodule AWS.HTTPClient do
     body :: iodata(),
     headers :: list(),
     options :: keyword()
-  ) :: {:ok, %{status_code: integer(), body: iodata()}} | {:error, term()}
+  ) :: {:ok, %{status_code: integer(), body: map()}} | {:error, term()}
 
   defdelegate request(method, url, body, headers, options), to: HTTPoison
 end

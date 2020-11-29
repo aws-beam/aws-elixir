@@ -19,7 +19,7 @@ defmodule AWS.HTTPClient do
   """
   @callback request(
     method :: atom(),
-    url ::binary(),
+    url :: binary(),
     body :: iodata(),
     headers :: list(),
     options :: keyword()

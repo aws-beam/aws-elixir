@@ -6,8 +6,8 @@ defmodule AWS.JSON do
   by defining a different implementation by setting the `:json_module`
   configuration in AWS.Client:
 
-     client = %AWS.Client{json_module: MyCustomJSONParser}
-     Aws.SNS.publish(client, %{})
+      client = %AWS.Client{json_module: MyCustomJSONParser}
+      AWS.SNS.publish(client, %{})
 
   """
 

@@ -6,8 +6,8 @@ defmodule AWS.HTTPClient do
   by defining a different implementation by setting the `:http_client`
   configuration in AWS.Client:
 
-    client = %AWS.Client{http_client: {MyHttpClient, []}}
-    Aws.SNS.publish(client, "My message")
+      client = %AWS.Client{http_client: {MyHttpClient, []}}
+      AWS.SNS.publish(client, "My message")
 
   """
 

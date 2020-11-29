@@ -6,8 +6,8 @@ defmodule AWS.XML do
   by defining a different implementation by setting the `:xml_module`
   configuration in AWS.Client:
 
-     client = %AWS.Client{xml_module: MyCustomXMLParser}
-     Aws.SNS.publish(client, %{})
+      client = %AWS.Client{xml_module: MyCustomXMLParser}
+      AWS.SNS.publish(client, %{})
 
   """
 

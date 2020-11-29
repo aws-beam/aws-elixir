@@ -72,7 +72,7 @@ defmodule AWS.Client do
 
   def encode!(client, payload, format) do
     {mod, opts} = Map.fetch!(client, String.to_existing_atom("#{format}_module"))
-    apply(mod, :encode!, [payload, opts])
+    apply(mod, :encode_to_iodata!, [payload, opts])
   end
 
   def decode!(client, payload, format) do

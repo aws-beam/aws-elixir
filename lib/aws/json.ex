@@ -12,16 +12,16 @@ defmodule AWS.JSON do
   """
 
   @doc """
-  Encodes a map into JSON string. Raises in case of errors.
+  Encodes a map into JSON iodata. Raises in case of errors.
   """
-  @callback encode!(input :: map(), options :: keyword()) :: String.t()
+  @callback encode_to_iodata!(input :: map(), options :: keyword()) :: iodata()
 
   @doc """
   Decodes a JSON string into a map. Raises in case of errors.
   """
   @callback decode!(input :: String.t(), options :: keyword()) :: map()
 
-  defdelegate encode!(input, options), to: Poison
+  defdelegate encode_to_iodata!(input, options), to: Poison, as: :encode!
 
   defdelegate decode!(input, options), to: Poison
 end

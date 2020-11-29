@@ -12,16 +12,16 @@ defmodule AWS.XML do
   """
 
   @doc """
-  Encodes a map into XML string. Raises in case of errors.
+  Encodes a map into XML iodata. Raises in case of errors.
   """
-  @callback encode!(input :: map(), options :: keyword()) :: String.t()
+  @callback encode_to_iodata!(input :: map(), options :: keyword()) :: iodata()
 
   @doc """
   Decodes a XML string into a map. Raises in case of errors.
   """
   @callback decode!(input :: String.t(), options :: keyword()) :: map()
 
-  defdelegate encode!(input, options), to: AWS.Util
+  defdelegate encode_to_iodata!(input, options), to: AWS.Util, as: :encode!
 
   defdelegate decode!(input, options), to: AWS.Util
 end

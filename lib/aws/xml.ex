@@ -17,9 +17,9 @@ defmodule AWS.XML do
   @callback encode_to_iodata!(input :: map(), options :: keyword()) :: iodata()
 
   @doc """
-  Decodes a XML string into a map. Raises in case of errors.
+  Decodes a XML into a map. Raises in case of errors.
   """
-  @callback decode!(input :: String.t(), options :: keyword()) :: map()
+  @callback decode!(input :: iodata(), options :: keyword()) :: map()
 
   import Record
 

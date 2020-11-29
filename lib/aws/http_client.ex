@@ -14,16 +14,16 @@ defmodule AWS.HTTPClient do
   @doc """
   Executes a HTTP request. Either returns {:ok, map} or {:error, reason}.
 
-  - `body` is already parsed into a binary. It may be in either JSON or XML format.
+  - `body` is already parsed into iodata. It may be in either JSON or XML format.
   - `headers` already contains required headers such as Authorization. See AWS.Request.sign_v4 for more details.
   """
   @callback request(
     method :: atom(),
     url ::binary(),
-    body :: binary(),
-    headers :: map(),
+    body :: iodata(),
+    headers :: list(),
     options :: keyword()
-  ) :: {:ok, %{status_code: integer(), body: binary()}} | {:error, term()}
+  ) :: {:ok, %{status_code: integer(), body: iodata()}} | {:error, term()}
 
   defdelegate request(method, url, body, headers, options), to: HTTPoison
 end

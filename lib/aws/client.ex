@@ -63,7 +63,7 @@ defmodule AWS.Client do
     }
   end
 
-  def request(client, method, url, body, headers, _opts) do
+  def request(client, method, url, body, headers, _opts \\ []) do
     {mod, options} = Map.fetch!(client, :http_client)
     apply(mod, :request, [method, url, body, headers, options])
   end

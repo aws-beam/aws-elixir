@@ -20,4 +20,8 @@ defmodule AWS.XML do
   Decodes a XML string into a map. Raises in case of errors.
   """
   @callback decode!(input :: String.t(), options :: keyword()) :: map()
+
+  defdelegate encode!(input, options), to: AWS.Util
+
+  defdelegate decode!(input, options), to: AWS.Util
 end

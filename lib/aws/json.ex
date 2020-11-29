@@ -20,4 +20,8 @@ defmodule AWS.JSON do
   Decodes a JSON string into a map. Raises in case of errors.
   """
   @callback decode!(input :: String.t(), options :: keyword()) :: map()
+
+  defdelegate encode!(input, options), to: Poison
+
+  defdelegate decode!(input, options), to: Poison
 end

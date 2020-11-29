@@ -24,4 +24,6 @@ defmodule AWS.HTTPClient do
     headers :: map(),
     options :: keyword()
   ) :: {:ok, %{status_code: integer(), body: binary()}} | {:error, term()}
+
+  defdelegate request(method, url, body, headers, options), to: HTTPoison
 end

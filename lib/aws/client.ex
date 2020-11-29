@@ -11,9 +11,9 @@ defmodule AWS.Client do
             endpoint: "amazonaws.com",
             proto: "https",
             port: "443",
-            http_client: {HTTPoison, []},
-            json_module: {Poison, []},
-            xml_module: {AWS.Util, []}
+            http_client: {AWS.HTTPClient, []},
+            json_module: {AWS.JSON, []},
+            xml_module: {AWS.XML, []}
 
   @type t :: %__MODULE__{}
 

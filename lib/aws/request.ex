@@ -310,6 +310,8 @@ defmodule AWS.Request do
 end
 
 defmodule AWS.Request.Internal do
+  @moduledoc false
+
   @doc """
   Add an `Authorization` header with an AWS4-HMAC-SHA256 signature to the list
   of headers.

@@ -17,14 +17,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        elixir: ["1.8.2", "1.9.4", "1.10.4", "1.11.2"]
+        elixir: ["1.8.2", "1.9.4", "1.10.4"]
         erlang: ["22.3", "23.1"]
         ubuntu: ["bionic-20200219"]
         exclude:
           - elixir: "1.9.4"
-            erlang: "23.1.4"
+            erlang: "23.1"
           - elixir: "1.8.2"
-            erlang: "23.1.4"
+            erlang: "23.1"
 
     steps:
       - uses: actions/checkout@v2

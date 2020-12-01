@@ -1,6 +1,36 @@
 defmodule AWS.Client do
   @moduledoc """
-  Access and connections details needed when making requests to AWS services.
+  Provides credentials and connection details for making requests to AWS services.
+
+  You can configure `access_key_id` and `secret_access_key` which are the credentials
+  needed by [IAM](https://aws.amazon.com/iam), and also the `region` for your services.
+  The list of regions can be found in the [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)
+  documentation. You can also use "local" to make requests to your localhost.
+  Note that the region is overwritten with the credential scope when the service is global.
+
+  ## Custom HTTP client
+
+  The option `http_client` accepts a tuple with a module and a list of options.
+  The module must implement the callback `c:AWS.HTTPClient.request/5`.
+
+  ## Custom JSON or XML parsers
+
+  You can configure a custom JSON parser by using the option `json_module`. This
+  option accepts a tuple with a module and options. The given module must
+  implement the callbacks from `AWS.JSON`.
+
+  Similarly, there is a `xml_module` option that configures the XML parser. The
+  XML module must implement the callbacks from `AWS.XML`.
+
+  ## Additional options
+
+  - `session_token`: an option to set the `X-Amz-Security-Token` when performing
+    the requests.
+  - `port`: is the port to use when making requests. By default is `443`
+  - `proto`: is the protocol to use. It can be "http" or "https". By default it's "https".
+  - `endpoint`: AWS's endpoint. By default it is `amazonaws.com`.
+
+  The `service` option is overwritten by each service with its signing name from metadata.
   """
 
   defstruct access_key_id: nil,

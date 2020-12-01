@@ -121,9 +121,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def create_documentation_part(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
     headers = []
@@ -142,9 +139,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def create_documentation_version(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{URI.encode(rest_api_id)}/documentation/versions"
     headers = []
@@ -468,9 +462,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def delete_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -499,9 +490,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def delete_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -1325,9 +1313,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def get_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -1355,9 +1340,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def get_documentation_parts(
         %Client{} = client,
         rest_api_id,
@@ -1428,9 +1410,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def get_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -1458,9 +1437,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def get_documentation_versions(
         %Client{} = client,
         rest_api_id,
@@ -2123,9 +2099,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def get_sdk_type(%Client{} = client, id, options \\ []) do
     url_path = "/sdktypes/#{URI.encode(id)}"
     headers = []
@@ -2144,9 +2117,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def get_sdk_types(%Client{} = client, limit \\ nil, position \\ nil, options \\ []) do
     url_path = "/sdktypes"
     headers = []
@@ -2551,9 +2521,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def import_documentation_parts(%Client{} = client, rest_api_id, input, options \\ []) do
     url_path = "/restapis/#{URI.encode(rest_api_id)}/documentation/parts"
     headers = []
@@ -3018,9 +2985,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def update_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -3049,9 +3013,6 @@ defmodule AWS.APIGateway do
     )
   end
 
-  @doc """
-
-  """
   def update_documentation_version(
         %Client{} = client,
         documentation_version,

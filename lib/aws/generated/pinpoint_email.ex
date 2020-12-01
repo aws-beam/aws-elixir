@@ -1113,9 +1113,6 @@ defmodule AWS.PinpointEmail do
     )
   end
 
-  @doc """
-
-  """
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{URI.encode(ip)}/warmup"
     headers = []

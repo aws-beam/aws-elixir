@@ -282,9 +282,6 @@ defmodule AWS.CodeBuild do
     Request.request_post(client, metadata(), "DescribeTestCases", input, options)
   end
 
-  @doc """
-
-  """
   def get_report_group_trend(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetReportGroupTrend", input, options)
   end

@@ -2,10 +2,6 @@
 # See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.S3 do
-  @moduledoc """
-
-  """
-
   alias AWS.Client
   alias AWS.Request
 

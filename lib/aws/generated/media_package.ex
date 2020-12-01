@@ -353,9 +353,6 @@ defmodule AWS.MediaPackage do
     )
   end
 
-  @doc """
-
-  """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
@@ -428,9 +425,6 @@ defmodule AWS.MediaPackage do
     )
   end
 
-  @doc """
-
-  """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
@@ -449,9 +443,6 @@ defmodule AWS.MediaPackage do
     )
   end
 
-  @doc """
-
-  """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []

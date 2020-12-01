@@ -2,10 +2,6 @@
 # See https://github.com/aws-beam/aws-codegen for more details.
 
 defmodule AWS.TimestreamQuery do
-  @moduledoc """
-
-  """
-
   alias AWS.Client
   alias AWS.Request
 

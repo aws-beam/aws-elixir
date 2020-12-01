@@ -392,9 +392,6 @@ defmodule AWS.NetworkFirewall do
     Request.request_post(client, metadata(), "UpdateFirewallPolicy", input, options)
   end
 
-  @doc """
-
-  """
   def update_firewall_policy_change_protection(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
@@ -449,9 +446,6 @@ defmodule AWS.NetworkFirewall do
     Request.request_post(client, metadata(), "UpdateRuleGroup", input, options)
   end
 
-  @doc """
-
-  """
   def update_subnet_change_protection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSubnetChangeProtection", input, options)
   end

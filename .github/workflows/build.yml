@@ -8,13 +8,24 @@ on:
       - master
 jobs:
   build:
-    strategy:
-      matrix:
-        platform: [ubuntu-latest]
-        elixir: ['1.8.2', '1.9.4', '1.10.4']
-    runs-on: ${{ matrix.platform }}
+    runs-on: ubuntu-latest
     container:
-      image: elixir:${{ matrix.elixir }}-slim
+      image: hexpm/elixir:${{ matrix.elixir }}-erlang-${{ matrix.erlang }}-ubuntu-${{ matrix.ubuntu }}
+
+    name: Elixir ${{ matrix.elixir }} / Erlang ${{ matrix.erlang }} with Ubuntu ${{matrix.ubuntu}}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        elixir: ["1.8.2", "1.9.4", "1.10.4", "1.11.2"]
+        erlang: ["22.3.4", "23.1.4"]
+        ubuntu: ["focal-20201008"]
+        exclude:
+          - elixir: "1.9.4"
+            erlang: "23.1.4"
+          - elixir: "1.8.2"
+            erlang: "23.1.4"
+
     steps:
       - uses: actions/checkout@v2
       - name: Install Dependencies
@@ -22,5 +33,4 @@ jobs:
           mix local.rebar --force
           mix local.hex --force
           mix deps.get
-      - run: mix deps.get
       - run: mix test

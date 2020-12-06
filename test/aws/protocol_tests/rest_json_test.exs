@@ -50,7 +50,7 @@ defmodule AWS.ProtocolTests.RestJSONTest do
 
         {:ok, body, conn} = Plug.Conn.read_body(conn)
 
-        assert body == "{\"Config\":{\"B\":\"two\",\"A\":\"one\"}}"
+        assert body == "{\"Config\":{\"A\":\"one\",\"B\":\"two\"}}"
 
         assert conn.request_path == path
         assert conn.query_string == "Ascending=true&PipelineId=foo"

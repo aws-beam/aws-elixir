@@ -23,7 +23,14 @@ defmodule AWS.HTTPClient do
     body :: iodata(),
     headers :: list(),
     options :: keyword()
-  ) :: {:ok, %{status_code: integer(), body: map()}} | {:error, term()}
+  ) :: {:ok, %{status_code: integer(), headers: list(), body: map()}} | {:error, term()}
 
-  defdelegate request(method, url, body, headers, options), to: HTTPoison
+  def request(method, url, body, headers, options) do
+    options = [:with_body | options]
+    case :hackney.request(method, url, headers, body, options) do
+      {:ok, status_code, response_headers, body} ->
+        {:ok, %{status_code: status_code, headers: response_headers, body: body}}
+      error -> error
+    end
+  end
 end

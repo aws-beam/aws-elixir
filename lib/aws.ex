@@ -29,7 +29,7 @@ defmodule AWS do
   You can customize your HTTP client or the module responsible for parsing
   and encoding JSON or XML by using options for the `AWS.Client`.
 
-  By default, AWS Elixir uses HTTPoison for the HTTP client, Poison for JSON,
+  By default, AWS Elixir uses hackney for the HTTP client, Jason for JSON,
   and a custom module for XML that is written on top of xmlerl.
   For more details, check `AWS.Client` documentation.
   """

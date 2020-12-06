@@ -44,8 +44,8 @@ defmodule AWS.Mixfile do
       {:earmark, "~> 1.4", only: [:dev]},
       {:ex_doc, "~> 0.21", only: [:dev]},
       {:bypass, "~> 2.1", only: [:test]},
-      {:httpoison, "~> 1.6"},
-      {:poison, "~> 4.0"}
+      {:jason, "~> 1.2"},
+      {:hackney, "~> 1.16"}
     ]
   end
 

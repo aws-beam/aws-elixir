@@ -2,7 +2,7 @@ defmodule AWS.JSON do
   @moduledoc """
   Specifies the behaviour of a JSON parser.
 
-  You can switch the default JSON parser which uses Poison underneath
+  You can switch the default JSON parser which uses Jason underneath
   by defining a different implementation by setting the `:json_module`
   configuration in AWS.Client:
 
@@ -21,7 +21,7 @@ defmodule AWS.JSON do
   """
   @callback decode!(input :: iodata(), options :: keyword()) :: map()
 
-  defdelegate encode_to_iodata!(input, options), to: Poison, as: :encode!
+  defdelegate encode_to_iodata!(input, options), to: Jason, as: :encode!
 
-  defdelegate decode!(input, options), to: Poison
+  defdelegate decode!(input, options), to: Jason
 end

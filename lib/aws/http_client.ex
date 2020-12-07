@@ -23,7 +23,7 @@ defmodule AWS.HTTPClient do
     body :: iodata(),
     headers :: list(),
     options :: keyword()
-  ) :: {:ok, %{status_code: integer(), headers: list(), body: map()}} | {:error, term()}
+  ) :: {:ok, %{status_code: integer(), headers: list({binary(), binary()}), body: map()}} | {:error, term()}
 
   def request(method, url, body, headers, options) do
     options = [:with_body | options]

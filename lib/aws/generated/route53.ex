@@ -38,7 +38,7 @@ defmodule AWS.Route53 do
   `CreateVPCAssociationAuthorization` request. Then the account that created the
   VPC must submit an `AssociateVPCWithHostedZone` request.
   """
-  def associate_v_p_c_with_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
+  def associate_vpc_with_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/associatevpc"
     headers = []
     query_params = []
@@ -638,7 +638,7 @@ defmodule AWS.Route53 do
   with a hosted zone that you created by using a different account, you must
   submit one authorization request for each VPC.
   """
-  def create_v_p_c_association_authorization(
+  def create_vpc_association_authorization(
         %Client{} = client,
         hosted_zone_id,
         input,
@@ -891,7 +891,7 @@ defmodule AWS.Route53 do
   zone. If you want to delete an existing association, use
   `DisassociateVPCFromHostedZone`.
   """
-  def delete_v_p_c_association_authorization(
+  def delete_vpc_association_authorization(
         %Client{} = client,
         hosted_zone_id,
         input,
@@ -941,12 +941,7 @@ defmodule AWS.Route53 do
   `DisassociateVPCFromHostedZone`. If the hosted zone has a value for
   `OwningService`, you can't use `DisassociateVPCFromHostedZone`.
   """
-  def disassociate_v_p_c_from_hosted_zone(
-        %Client{} = client,
-        hosted_zone_id,
-        input,
-        options \\ []
-      ) do
+  def disassociate_vpc_from_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/disassociatevpc"
     headers = []
     query_params = []
@@ -1637,7 +1632,7 @@ defmodule AWS.Route53 do
   """
   def list_hosted_zones_by_name(
         %Client{} = client,
-        d_n_s_name \\ nil,
+        dns_name \\ nil,
         hosted_zone_id \\ nil,
         max_items \\ nil,
         options \\ []
@@ -1661,8 +1656,8 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(d_n_s_name) do
-        [{"dnsname", d_n_s_name} | query_params]
+      if !is_nil(dns_name) do
+        [{"dnsname", dns_name} | query_params]
       else
         query_params
       end
@@ -1696,12 +1691,12 @@ defmodule AWS.Route53 do
   Amazon Elastic File System (Amazon EFS), the value of `Owner` is
   `efs.amazonaws.com`.
   """
-  def list_hosted_zones_by_v_p_c(
+  def list_hosted_zones_by_vpc(
         %Client{} = client,
         max_items \\ nil,
         next_token \\ nil,
-        v_p_c_id,
-        v_p_c_region,
+        vpc_id,
+        vpc_region,
         options \\ []
       ) do
     url_path = "/2013-04-01/hostedzonesbyvpc"
@@ -1709,15 +1704,15 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(v_p_c_region) do
-        [{"vpcregion", v_p_c_region} | query_params]
+      if !is_nil(vpc_region) do
+        [{"vpcregion", vpc_region} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(v_p_c_id) do
-        [{"vpcid", v_p_c_id} | query_params]
+      if !is_nil(vpc_id) do
+        [{"vpcid", vpc_id} | query_params]
       else
         query_params
       end
@@ -2331,7 +2326,7 @@ defmodule AWS.Route53 do
   The response includes a `VPCs` element with a `VPC` child element for each VPC
   that can be associated with the hosted zone.
   """
-  def list_v_p_c_association_authorizations(
+  def list_vpc_association_authorizations(
         %Client{} = client,
         hosted_zone_id,
         max_results \\ nil,
@@ -2376,14 +2371,14 @@ defmodule AWS.Route53 do
   You can optionally specify the IP address of a DNS resolver, an EDNS0 client
   subnet IP address, and a subnet mask.
   """
-  def test_d_n_s_answer(
+  def test_dns_answer(
         %Client{} = client,
-        e_d_n_s0_client_subnet_i_p \\ nil,
-        e_d_n_s0_client_subnet_mask \\ nil,
+        e_dns0_client_subnet_ip \\ nil,
+        e_dns0_client_subnet_mask \\ nil,
         hosted_zone_id,
         record_name,
         record_type,
-        resolver_i_p \\ nil,
+        resolver_ip \\ nil,
         options \\ []
       ) do
     url_path = "/2013-04-01/testdnsanswer"
@@ -2391,8 +2386,8 @@ defmodule AWS.Route53 do
     query_params = []
 
     query_params =
-      if !is_nil(resolver_i_p) do
-        [{"resolverip", resolver_i_p} | query_params]
+      if !is_nil(resolver_ip) do
+        [{"resolverip", resolver_ip} | query_params]
       else
         query_params
       end
@@ -2419,15 +2414,15 @@ defmodule AWS.Route53 do
       end
 
     query_params =
-      if !is_nil(e_d_n_s0_client_subnet_mask) do
-        [{"edns0clientsubnetmask", e_d_n_s0_client_subnet_mask} | query_params]
+      if !is_nil(e_dns0_client_subnet_mask) do
+        [{"edns0clientsubnetmask", e_dns0_client_subnet_mask} | query_params]
       else
         query_params
       end
 
     query_params =
-      if !is_nil(e_d_n_s0_client_subnet_i_p) do
-        [{"edns0clientsubnetip", e_d_n_s0_client_subnet_i_p} | query_params]
+      if !is_nil(e_dns0_client_subnet_ip) do
+        [{"edns0clientsubnetip", e_dns0_client_subnet_ip} | query_params]
       else
         query_params
       end

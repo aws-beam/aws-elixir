@@ -302,7 +302,7 @@ defmodule AWS.CognitoIdentityProvider do
   enabled and no preference is set, a challenge to choose an MFA option will be
   returned during sign in.
   """
-  def admin_set_user_m_f_a_preference(%Client{} = client, input, options \\ []) do
+  def admin_set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AdminSetUserMFAPreference", input, options)
   end
 
@@ -659,7 +659,7 @@ defmodule AWS.CognitoIdentityProvider do
   customization (app `clientId` will be `ALL`), then that is returned. If nothing
   is present, then an empty shape is returned.
   """
-  def get_u_i_customization(%Client{} = client, input, options \\ []) do
+  def get_ui_customization(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetUICustomization", input, options)
   end
 
@@ -822,7 +822,7 @@ defmodule AWS.CognitoIdentityProvider do
   Otherwise, there is no place to host the app's pages, and the service will throw
   an error.
   """
-  def set_u_i_customization(%Client{} = client, input, options \\ []) do
+  def set_ui_customization(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetUICustomization", input, options)
   end
 
@@ -839,7 +839,7 @@ defmodule AWS.CognitoIdentityProvider do
   selectively based on the assessed risk level of sign in attempts, disable MFA
   for users and turn on Adaptive Authentication for the user pool.
   """
-  def set_user_m_f_a_preference(%Client{} = client, input, options \\ []) do
+  def set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetUserMFAPreference", input, options)
   end
 

@@ -272,7 +272,7 @@ defmodule AWS.QuickSight do
   QuickSight. Assignment names are unique per AWS account. To avoid overwriting
   rules in other namespaces, use assignment names that are unique.
   """
-  def create_i_a_m_policy_assignment(
+  def create_iam_policy_assignment(
         %Client{} = client,
         aws_account_id,
         namespace,
@@ -696,7 +696,7 @@ defmodule AWS.QuickSight do
   @doc """
   Deletes an existing IAM policy assignment.
   """
-  def delete_i_a_m_policy_assignment(
+  def delete_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
         aws_account_id,
@@ -1291,7 +1291,7 @@ defmodule AWS.QuickSight do
   Describes an existing IAM policy assignment, as specified by the assignment
   name.
   """
-  def describe_i_a_m_policy_assignment(
+  def describe_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
         aws_account_id,
@@ -2072,7 +2072,7 @@ defmodule AWS.QuickSight do
   @doc """
   Lists IAM policy assignments in the current Amazon QuickSight account.
   """
-  def list_i_a_m_policy_assignments(
+  def list_iam_policy_assignments(
         %Client{} = client,
         aws_account_id,
         namespace,
@@ -2118,7 +2118,7 @@ defmodule AWS.QuickSight do
   for the IAM policies assigned to the specified user and group or groups that the
   user belongs to.
   """
-  def list_i_a_m_policy_assignments_for_user(
+  def list_iam_policy_assignments_for_user(
         %Client{} = client,
         aws_account_id,
         namespace,
@@ -3106,7 +3106,7 @@ defmodule AWS.QuickSight do
   specified in the request. This overwrites all of the users included in
   `Identities`.
   """
-  def update_i_a_m_policy_assignment(
+  def update_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
         aws_account_id,

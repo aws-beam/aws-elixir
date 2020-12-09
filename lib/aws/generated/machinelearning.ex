@@ -75,7 +75,7 @@ defmodule AWS.Machinelearning do
   `FAILED` and includes an error message in the `Message` attribute of the
   `GetDataSource` operation response.
   """
-  def create_data_source_from_r_d_s(%Client{} = client, input, options \\ []) do
+  def create_data_source_from_rds(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDataSourceFromRDS", input, options)
   end
 
@@ -202,7 +202,7 @@ defmodule AWS.Machinelearning do
   created by setting `ComputeStatistics` to `true` in `CreateDataSourceFromRDS`,
   `CreateDataSourceFromS3`, or `CreateDataSourceFromRedshift` operations.
   """
-  def create_m_l_model(%Client{} = client, input, options \\ []) do
+  def create_ml_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateMLModel", input, options)
   end
 
@@ -265,7 +265,7 @@ defmodule AWS.Machinelearning do
 
   **Caution:** The result of the `DeleteMLModel` operation is irreversible.
   """
-  def delete_m_l_model(%Client{} = client, input, options \\ []) do
+  def delete_ml_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteMLModel", input, options)
   end
 
@@ -313,7 +313,7 @@ defmodule AWS.Machinelearning do
   @doc """
   Returns a list of `MLModel` that match the search criteria in the request.
   """
-  def describe_m_l_models(%Client{} = client, input, options \\ []) do
+  def describe_ml_models(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeMLModels", input, options)
   end
 
@@ -358,7 +358,7 @@ defmodule AWS.Machinelearning do
 
   `GetMLModel` provides results in normal or verbose format.
   """
-  def get_m_l_model(%Client{} = client, input, options \\ []) do
+  def get_ml_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMLModel", input, options)
   end
 
@@ -408,7 +408,7 @@ defmodule AWS.Machinelearning do
   You can use the `GetMLModel` operation to view the contents of the updated data
   element.
   """
-  def update_m_l_model(%Client{} = client, input, options \\ []) do
+  def update_ml_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateMLModel", input, options)
   end
 end

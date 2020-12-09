@@ -42,7 +42,7 @@ defmodule AWS.Shield do
   must be subscribed to the [Business Support plan](https://aws.amazon.com/premiumsupport/business-support/) or the
   [Enterprise Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/).
   """
-  def associate_d_r_t_log_bucket(%Client{} = client, input, options \\ []) do
+  def associate_drt_log_bucket(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateDRTLogBucket", input, options)
   end
 
@@ -77,7 +77,7 @@ defmodule AWS.Shield do
   be subscribed to the [Business Support plan](https://aws.amazon.com/premiumsupport/business-support/) or the
   [Enterprise Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/).
   """
-  def associate_d_r_t_role(%Client{} = client, input, options \\ []) do
+  def associate_drt_role(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateDRTRole", input, options)
   end
 
@@ -218,7 +218,7 @@ defmodule AWS.Shield do
   Response Team (DRT) to access your AWS account while assisting with attack
   mitigation.
   """
-  def describe_d_r_t_access(%Client{} = client, input, options \\ []) do
+  def describe_drt_access(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDRTAccess", input, options)
   end
 
@@ -271,7 +271,7 @@ defmodule AWS.Shield do
   and had granted the DRT access to your account, you can submit a
   `DisassociateDRTLogBucket` request to remove this access.
   """
-  def disassociate_d_r_t_log_bucket(%Client{} = client, input, options \\ []) do
+  def disassociate_drt_log_bucket(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateDRTLogBucket", input, options)
   end
 
@@ -284,7 +284,7 @@ defmodule AWS.Shield do
   and had granted the DRT access to your account, you can submit a
   `DisassociateDRTRole` request to remove this access.
   """
-  def disassociate_d_r_t_role(%Client{} = client, input, options \\ []) do
+  def disassociate_drt_role(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateDRTRole", input, options)
   end
 

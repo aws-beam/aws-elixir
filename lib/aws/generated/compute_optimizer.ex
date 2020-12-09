@@ -81,7 +81,7 @@ defmodule AWS.ComputeOptimizer do
 
   You can have only one Amazon EC2 instance export job in progress per AWS Region.
   """
-  def export_e_c2_instance_recommendations(%Client{} = client, input, options \\ []) do
+  def export_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ExportEC2InstanceRecommendations", input, options)
   end
 
@@ -105,7 +105,7 @@ defmodule AWS.ComputeOptimizer do
   information, see the [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
   in the *AWS Compute Optimizer User Guide*.
   """
-  def get_e_c2_instance_recommendations(%Client{} = client, input, options \\ []) do
+  def get_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetEC2InstanceRecommendations", input, options)
   end
 
@@ -118,7 +118,7 @@ defmodule AWS.ComputeOptimizer do
   only for resources that have the unified CloudWatch agent installed on them. For
   more information, see [Enabling Memory Utilization with the CloudWatch Agent](https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent).
   """
-  def get_e_c2_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
+  def get_ec2_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),

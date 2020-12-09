@@ -1264,7 +1264,7 @@ defmodule AWS.GameLift do
 
     * `StartFleetActions` or `StopFleetActions`
   """
-  def describe_e_c2_instance_limits(%Client{} = client, input, options \\ []) do
+  def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEC2InstanceLimits", input, options)
   end
 

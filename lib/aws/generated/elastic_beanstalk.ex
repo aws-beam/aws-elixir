@@ -74,7 +74,7 @@ defmodule AWS.ElasticBeanstalk do
   @doc """
   Checks if the specified CNAME is available.
   """
-  def check_d_n_s_availability(%Client{} = client, input, options \\ []) do
+  def check_dns_availability(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CheckDNSAvailability", input, options)
   end
 
@@ -476,7 +476,7 @@ defmodule AWS.ElasticBeanstalk do
   @doc """
   Swaps the CNAMEs of two environments.
   """
-  def swap_environment_c_n_a_m_es(%Client{} = client, input, options \\ []) do
+  def swap_environment_cnames(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SwapEnvironmentCNAMEs", input, options)
   end
 

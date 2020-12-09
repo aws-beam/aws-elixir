@@ -39,7 +39,7 @@ defmodule AWS.IAM do
   This operation is idempotent; it does not fail or return an error if you add an
   existing client ID to the provider.
   """
-  def add_client_i_d_to_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+  def add_client_id_to_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddClientIDToOpenIDConnectProvider", input, options)
   end
 
@@ -227,7 +227,7 @@ defmodule AWS.IAM do
   operation creates. Therefore, it is best to limit access to the
   `CreateOpenIDConnectProvider` operation to highly privileged users.
   """
-  def create_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+  def create_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateOpenIDConnectProvider", input, options)
   end
 
@@ -301,7 +301,7 @@ defmodule AWS.IAM do
   and [About SAML 2.0-based Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)
   in the *IAM User Guide*.
   """
-  def create_s_a_m_l_provider(%Client{} = client, input, options \\ []) do
+  def create_saml_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateSAMLProvider", input, options)
   end
 
@@ -375,7 +375,7 @@ defmodule AWS.IAM do
   provision your virtual device, you should ensure that the information is
   destroyed following secure procedures.
   """
-  def create_virtual_m_f_a_device(%Client{} = client, input, options \\ []) do
+  def create_virtual_mfa_device(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateVirtualMFADevice", input, options)
   end
 
@@ -387,7 +387,7 @@ defmodule AWS.IAM do
   [Enabling a Virtual Multi-factor Authentication (MFA) Device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
   """
-  def deactivate_m_f_a_device(%Client{} = client, input, options \\ []) do
+  def deactivate_mfa_device(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeactivateMFADevice", input, options)
   end
 
@@ -485,7 +485,7 @@ defmodule AWS.IAM do
   This operation is idempotent; it does not fail or return an error if you call
   the operation for a provider that does not exist.
   """
-  def delete_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+  def delete_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteOpenIDConnectProvider", input, options)
   end
 
@@ -579,21 +579,8 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
-  def delete_s_a_m_l_provider(%Client{} = client, input, options \\ []) do
+  def delete_saml_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSAMLProvider", input, options)
-  end
-
-  @doc """
-  Deletes the specified SSH public key.
-
-  The SSH public key deleted by this operation is used only for authenticating the
-  associated IAM user to an AWS CodeCommit repository. For more information about
-  using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
-  """
-  def delete_s_s_h_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "DeleteSSHPublicKey", input, options)
   end
 
   @doc """
@@ -666,6 +653,19 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Deletes the specified SSH public key.
+
+  The SSH public key deleted by this operation is used only for authenticating the
+  associated IAM user to an AWS CodeCommit repository. For more information about
+  using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
+  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  in the *AWS CodeCommit User Guide*.
+  """
+  def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteSSHPublicKey", input, options)
+  end
+
+  @doc """
   Deletes the specified IAM user.
 
   Unlike the AWS Management Console, when you delete a user programmatically, you
@@ -725,7 +725,7 @@ defmodule AWS.IAM do
   You must deactivate a user's virtual MFA device before you can delete it. For
   information about deactivating MFA devices, see `DeactivateMFADevice`.
   """
-  def delete_virtual_m_f_a_device(%Client{} = client, input, options \\ []) do
+  def delete_virtual_mfa_device(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteVirtualMFADevice", input, options)
   end
 
@@ -771,7 +771,7 @@ defmodule AWS.IAM do
   When enabled, the MFA device is required for every subsequent login by the IAM
   user associated with the device.
   """
-  def enable_m_f_a_device(%Client{} = client, input, options \\ []) do
+  def enable_mfa_device(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "EnableMFADevice", input, options)
   end
 
@@ -1123,7 +1123,7 @@ defmodule AWS.IAM do
   Returns information about the specified OpenID Connect (OIDC) provider resource
   object in IAM.
   """
-  def get_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+  def get_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetOpenIDConnectProvider", input, options)
   end
 
@@ -1248,21 +1248,8 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
-  def get_s_a_m_l_provider(%Client{} = client, input, options \\ []) do
+  def get_saml_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetSAMLProvider", input, options)
-  end
-
-  @doc """
-  Retrieves the specified SSH public key, including metadata about the key.
-
-  The SSH public key retrieved by this operation is used only for authenticating
-  the associated IAM user to an AWS CodeCommit repository. For more information
-  about using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
-  """
-  def get_s_s_h_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetSSHPublicKey", input, options)
   end
 
   @doc """
@@ -1380,6 +1367,19 @@ defmodule AWS.IAM do
   """
   def get_service_linked_role_deletion_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetServiceLinkedRoleDeletionStatus", input, options)
+  end
+
+  @doc """
+  Retrieves the specified SSH public key, including metadata about the key.
+
+  The SSH public key retrieved by this operation is used only for authenticating
+  the associated IAM user to an AWS CodeCommit repository. For more information
+  about using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
+  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  in the *AWS CodeCommit User Guide*.
+  """
+  def get_ssh_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetSSHPublicKey", input, options)
   end
 
   @doc """
@@ -1586,7 +1586,7 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_m_f_a_devices(%Client{} = client, input, options \\ []) do
+  def list_mfa_devices(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListMFADevices", input, options)
   end
 
@@ -1594,7 +1594,7 @@ defmodule AWS.IAM do
   Lists information about the IAM OpenID Connect (OIDC) provider resource objects
   defined in the AWS account.
   """
-  def list_open_i_d_connect_providers(%Client{} = client, input, options \\ []) do
+  def list_open_id_connect_providers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListOpenIDConnectProviders", input, options)
   end
 
@@ -1712,27 +1712,8 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
-  def list_s_a_m_l_providers(%Client{} = client, input, options \\ []) do
+  def list_saml_providers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSAMLProviders", input, options)
-  end
-
-  @doc """
-  Returns information about the SSH public keys associated with the specified IAM
-  user.
-
-  If none exists, the operation returns an empty list.
-
-  The SSH public keys returned by this operation are used only for authenticating
-  the IAM user to an AWS CodeCommit repository. For more information about using
-  SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
-
-  Although each user is limited to a small number of keys, you can still paginate
-  the results using the `MaxItems` and `Marker` parameters.
-  """
-  def list_s_s_h_public_keys(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "ListSSHPublicKeys", input, options)
   end
 
   @doc """
@@ -1785,6 +1766,25 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Returns information about the SSH public keys associated with the specified IAM
+  user.
+
+  If none exists, the operation returns an empty list.
+
+  The SSH public keys returned by this operation are used only for authenticating
+  the IAM user to an AWS CodeCommit repository. For more information about using
+  SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
+  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  in the *AWS CodeCommit User Guide*.
+
+  Although each user is limited to a small number of keys, you can still paginate
+  the results using the `MaxItems` and `Marker` parameters.
+  """
+  def list_ssh_public_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSSHPublicKeys", input, options)
+  end
+
+  @doc """
   Lists the names of the inline policies embedded in the specified IAM user.
 
   An IAM user can also have managed policies attached to it. To list the managed
@@ -1832,7 +1832,7 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
-  def list_virtual_m_f_a_devices(%Client{} = client, input, options \\ []) do
+  def list_virtual_mfa_devices(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListVirtualMFADevices", input, options)
   end
 
@@ -1954,7 +1954,7 @@ defmodule AWS.IAM do
   This operation is idempotent; it does not fail or return an error if you try to
   remove a client ID that does not exist.
   """
-  def remove_client_i_d_from_open_i_d_connect_provider(%Client{} = client, input, options \\ []) do
+  def remove_client_id_from_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -2005,7 +2005,7 @@ defmodule AWS.IAM do
   [Using a Virtual MFA Device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
   """
-  def resync_m_f_a_device(%Client{} = client, input, options \\ []) do
+  def resync_mfa_device(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResyncMFADevice", input, options)
   end
 
@@ -2307,7 +2307,7 @@ defmodule AWS.IAM do
   validated by the thumbprint. Therefore, it is best to limit access to the
   `UpdateOpenIDConnectProviderThumbprint` operation to highly privileged users.
   """
-  def update_open_i_d_connect_provider_thumbprint(%Client{} = client, input, options \\ []) do
+  def update_open_id_connect_provider_thumbprint(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -2339,25 +2339,8 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
-  def update_s_a_m_l_provider(%Client{} = client, input, options \\ []) do
+  def update_saml_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSAMLProvider", input, options)
-  end
-
-  @doc """
-  Sets the status of an IAM user's SSH public key to active or inactive.
-
-  SSH public keys that are inactive cannot be used for authentication. This
-  operation can be used to disable a user's SSH public key as part of a key
-  rotation work flow.
-
-  The SSH public key affected by this operation is used only for authenticating
-  the associated IAM user to an AWS CodeCommit repository. For more information
-  about using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
-  """
-  def update_s_s_h_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UpdateSSHPublicKey", input, options)
   end
 
   @doc """
@@ -2415,6 +2398,23 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Sets the status of an IAM user's SSH public key to active or inactive.
+
+  SSH public keys that are inactive cannot be used for authentication. This
+  operation can be used to disable a user's SSH public key as part of a key
+  rotation work flow.
+
+  The SSH public key affected by this operation is used only for authenticating
+  the associated IAM user to an AWS CodeCommit repository. For more information
+  about using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
+  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  in the *AWS CodeCommit User Guide*.
+  """
+  def update_ssh_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateSSHPublicKey", input, options)
+  end
+
+  @doc """
   Updates the name and/or the path of the specified IAM user.
 
   You should understand the implications of changing an IAM user's path or name.
@@ -2430,19 +2430,6 @@ defmodule AWS.IAM do
   """
   def update_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateUser", input, options)
-  end
-
-  @doc """
-  Uploads an SSH public key and associates it with the specified IAM user.
-
-  The SSH public key uploaded by this operation can be used only for
-  authenticating the associated IAM user to an AWS CodeCommit repository. For more
-  information about using SSH keys to authenticate to an AWS CodeCommit
-  repository, see [Set up AWS CodeCommit for SSH Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
-  """
-  def upload_s_s_h_public_key(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "UploadSSHPublicKey", input, options)
   end
 
   @doc """
@@ -2501,5 +2488,18 @@ defmodule AWS.IAM do
   """
   def upload_signing_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UploadSigningCertificate", input, options)
+  end
+
+  @doc """
+  Uploads an SSH public key and associates it with the specified IAM user.
+
+  The SSH public key uploaded by this operation can be used only for
+  authenticating the associated IAM user to an AWS CodeCommit repository. For more
+  information about using SSH keys to authenticate to an AWS CodeCommit
+  repository, see [Set up AWS CodeCommit for SSH Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  in the *AWS CodeCommit User Guide*.
+  """
+  def upload_ssh_public_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UploadSSHPublicKey", input, options)
   end
 end

@@ -271,7 +271,7 @@ defmodule AWS.StorageGateway do
 
   File gateways don't support creating hard or symbolic links on a file share.
   """
-  def create_s_m_b_file_share(%Client{} = client, input, options \\ []) do
+  def create_smb_file_share(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateSMBFileShare", input, options)
   end
 
@@ -663,7 +663,7 @@ defmodule AWS.StorageGateway do
 
   This operation is only supported for file gateways.
   """
-  def describe_s_m_b_file_shares(%Client{} = client, input, options \\ []) do
+  def describe_smb_file_shares(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeSMBFileShares", input, options)
   end
 
@@ -673,7 +673,7 @@ defmodule AWS.StorageGateway do
 
   This operation is only supported for file gateways.
   """
-  def describe_s_m_b_settings(%Client{} = client, input, options \\ []) do
+  def describe_smb_settings(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeSMBSettings", input, options)
   end
 
@@ -1100,7 +1100,7 @@ defmodule AWS.StorageGateway do
   The `smbguest` user is the user when the authentication method for the file
   share is set to `GuestAccess`.
   """
-  def set_s_m_b_guest_password(%Client{} = client, input, options \\ []) do
+  def set_smb_guest_password(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetSMBGuestPassword", input, options)
   end
 
@@ -1312,7 +1312,7 @@ defmodule AWS.StorageGateway do
 
   File gateways don't support creating hard or symbolic links on a file share.
   """
-  def update_s_m_b_file_share(%Client{} = client, input, options \\ []) do
+  def update_smb_file_share(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSMBFileShare", input, options)
   end
 
@@ -1320,7 +1320,7 @@ defmodule AWS.StorageGateway do
   Controls whether the shares on a gateway are visible in a net view or browse
   list.
   """
-  def update_s_m_b_file_share_visibility(%Client{} = client, input, options \\ []) do
+  def update_smb_file_share_visibility(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSMBFileShareVisibility", input, options)
   end
 
@@ -1333,7 +1333,7 @@ defmodule AWS.StorageGateway do
 
   A higher security level can affect performance of the gateway.
   """
-  def update_s_m_b_security_strategy(%Client{} = client, input, options \\ []) do
+  def update_smb_security_strategy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSMBSecurityStrategy", input, options)
   end
 

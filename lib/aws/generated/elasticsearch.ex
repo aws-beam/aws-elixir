@@ -93,9 +93,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Associates a package with an Amazon ES domain.
   """
-  def associate_package(%Client{} = client, domain_name, package_i_d, input, options \\ []) do
+  def associate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
-      "/2015-01-01/packages/associate/#{URI.encode(package_i_d)}/#{URI.encode(domain_name)}"
+      "/2015-01-01/packages/associate/#{URI.encode(package_id)}/#{URI.encode(domain_name)}"
 
     headers = []
     query_params = []
@@ -315,8 +315,8 @@ defmodule AWS.Elasticsearch do
   @doc """
   Delete the package.
   """
-  def delete_package(%Client{} = client, package_i_d, input, options \\ []) do
-    url_path = "/2015-01-01/packages/#{URI.encode(package_i_d)}"
+  def delete_package(%Client{} = client, package_id, input, options \\ []) do
+    url_path = "/2015-01-01/packages/#{URI.encode(package_id)}"
     headers = []
     query_params = []
 
@@ -605,9 +605,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Dissociates a package from the Amazon ES domain.
   """
-  def dissociate_package(%Client{} = client, domain_name, package_i_d, input, options \\ []) do
+  def dissociate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
-      "/2015-01-01/packages/dissociate/#{URI.encode(package_i_d)}/#{URI.encode(domain_name)}"
+      "/2015-01-01/packages/dissociate/#{URI.encode(package_id)}/#{URI.encode(domain_name)}"
 
     headers = []
     query_params = []
@@ -662,12 +662,12 @@ defmodule AWS.Elasticsearch do
   """
   def get_package_version_history(
         %Client{} = client,
-        package_i_d,
+        package_id,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-01-01/packages/#{URI.encode(package_i_d)}/history"
+    url_path = "/2015-01-01/packages/#{URI.encode(package_id)}/history"
     headers = []
     query_params = []
 
@@ -789,12 +789,12 @@ defmodule AWS.Elasticsearch do
   """
   def list_domains_for_package(
         %Client{} = client,
-        package_i_d,
+        package_id,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-01-01/packages/#{URI.encode(package_i_d)}/domains"
+    url_path = "/2015-01-01/packages/#{URI.encode(package_id)}/domains"
     headers = []
     query_params = []
 
@@ -959,14 +959,14 @@ defmodule AWS.Elasticsearch do
   @doc """
   Returns all tags for the given Elasticsearch domain.
   """
-  def list_tags(%Client{} = client, a_r_n, options \\ []) do
+  def list_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/2015-01-01/tags/"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(a_r_n) do
-        [{"arn", a_r_n} | query_params]
+      if !is_nil(arn) do
+        [{"arn", arn} | query_params]
       else
         query_params
       end

@@ -72,7 +72,7 @@ defmodule AWS.Cloud9 do
   Compute Cloud (Amazon EC2) instance, and then connects from the instance to the
   environment.
   """
-  def create_environment_e_c2(%Client{} = client, input, options \\ []) do
+  def create_environment_ec2(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEnvironmentEC2", input, options)
   end
 

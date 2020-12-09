@@ -2954,9 +2954,9 @@ defmodule AWS.S3 do
         if_unmodified_since \\ nil,
         range \\ nil,
         request_payer \\ nil,
-        s_s_e_customer_algorithm \\ nil,
-        s_s_e_customer_key \\ nil,
-        s_s_e_customer_key_m_d5 \\ nil,
+        sse_customer_algorithm \\ nil,
+        sse_customer_key \\ nil,
+        sse_customer_key_md5 \\ nil,
         options \\ []
       ) do
     url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
@@ -3012,22 +3012,22 @@ defmodule AWS.S3 do
       end
 
     headers =
-      if !is_nil(s_s_e_customer_algorithm) do
-        [{"x-amz-server-side-encryption-customer-algorithm", s_s_e_customer_algorithm} | headers]
+      if !is_nil(sse_customer_algorithm) do
+        [{"x-amz-server-side-encryption-customer-algorithm", sse_customer_algorithm} | headers]
       else
         headers
       end
 
     headers =
-      if !is_nil(s_s_e_customer_key) do
-        [{"x-amz-server-side-encryption-customer-key", s_s_e_customer_key} | headers]
+      if !is_nil(sse_customer_key) do
+        [{"x-amz-server-side-encryption-customer-key", sse_customer_key} | headers]
       else
         headers
       end
 
     headers =
-      if !is_nil(s_s_e_customer_key_m_d5) do
-        [{"x-amz-server-side-encryption-customer-key-MD5", s_s_e_customer_key_m_d5} | headers]
+      if !is_nil(sse_customer_key_md5) do
+        [{"x-amz-server-side-encryption-customer-key-MD5", sse_customer_key_md5} | headers]
       else
         headers
       end

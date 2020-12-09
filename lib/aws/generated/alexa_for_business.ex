@@ -529,7 +529,7 @@ defmodule AWS.AlexaForBusiness do
   Registers an Alexa-enabled device built by an Original Equipment Manufacturer
   (OEM) using Alexa Voice Service (AVS).
   """
-  def register_a_v_s_device(%Client{} = client, input, options \\ []) do
+  def register_avs_device(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RegisterAVSDevice", input, options)
   end
 

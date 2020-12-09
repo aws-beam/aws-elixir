@@ -560,7 +560,7 @@ defmodule AWS.Organizations do
 
   This operation can be called only from the organization's management account.
   """
-  def disable_a_w_s_service_access(%Client{} = client, input, options \\ []) do
+  def disable_aws_service_access(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableAWSServiceAccess", input, options)
   end
 
@@ -587,33 +587,6 @@ defmodule AWS.Organizations do
   """
   def disable_policy_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisablePolicyType", input, options)
-  end
-
-  @doc """
-  Enables the integration of an AWS service (the service that is specified by
-  `ServicePrincipal`) with AWS Organizations.
-
-  When you enable integration, you allow the specified service to create a
-  [service-linked role](http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
-  in all the accounts in your organization. This allows the service to perform
-  operations on your behalf in your organization and its accounts.
-
-  We recommend that you enable integration between AWS Organizations and the
-  specified AWS service by using the console or commands that are provided by the
-  specified service. Doing so ensures that the service is aware that it can create
-  the resources that are required for the integration. How the service creates
-  those resources in the organization's accounts depends on that service. For more
-  information, see the documentation for the other AWS service.
-
-  For more information about enabling services to integrate with AWS
-  Organizations, see [Integrating AWS Organizations with Other AWS Services](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
-  in the *AWS Organizations User Guide.*
-
-  This operation can be called only from the organization's management account and
-  only if the organization has [enabled all features](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
-  """
-  def enable_a_w_s_service_access(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "EnableAWSServiceAccess", input, options)
   end
 
   @doc """
@@ -651,6 +624,33 @@ defmodule AWS.Organizations do
   """
   def enable_all_features(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "EnableAllFeatures", input, options)
+  end
+
+  @doc """
+  Enables the integration of an AWS service (the service that is specified by
+  `ServicePrincipal`) with AWS Organizations.
+
+  When you enable integration, you allow the specified service to create a
+  [service-linked role](http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
+  in all the accounts in your organization. This allows the service to perform
+  operations on your behalf in your organization and its accounts.
+
+  We recommend that you enable integration between AWS Organizations and the
+  specified AWS service by using the console or commands that are provided by the
+  specified service. Doing so ensures that the service is aware that it can create
+  the resources that are required for the integration. How the service creates
+  those resources in the organization's accounts depends on that service. For more
+  information, see the documentation for the other AWS service.
+
+  For more information about enabling services to integrate with AWS
+  Organizations, see [Integrating AWS Organizations with Other AWS Services](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the *AWS Organizations User Guide.*
+
+  This operation can be called only from the organization's management account and
+  only if the organization has [enabled all features](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
+  """
+  def enable_aws_service_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableAWSServiceAccess", input, options)
   end
 
   @doc """
@@ -751,31 +751,6 @@ defmodule AWS.Organizations do
   end
 
   @doc """
-  Returns a list of the AWS services that you enabled to integrate with your
-  organization.
-
-  After a service on this list creates the resources that it requires for the
-  integration, it can perform operations on your organization and its accounts.
-
-  For more information about integrating other services with AWS Organizations,
-  including the list of services that currently work with Organizations, see
-  [Integrating AWS Organizations with Other AWS Services](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
-  in the *AWS Organizations User Guide.*
-
-  This operation can be called only from the organization's management account or
-  by a member account that is a delegated administrator for an AWS service.
-  """
-  def list_a_w_s_service_access_for_organization(%Client{} = client, input, options \\ []) do
-    Request.request_post(
-      client,
-      metadata(),
-      "ListAWSServiceAccessForOrganization",
-      input,
-      options
-    )
-  end
-
-  @doc """
   Lists all the accounts in the organization.
 
   To request only the accounts in a specified root or organizational unit (OU),
@@ -812,6 +787,31 @@ defmodule AWS.Organizations do
   """
   def list_accounts_for_parent(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAccountsForParent", input, options)
+  end
+
+  @doc """
+  Returns a list of the AWS services that you enabled to integrate with your
+  organization.
+
+  After a service on this list creates the resources that it requires for the
+  integration, it can perform operations on your organization and its accounts.
+
+  For more information about integrating other services with AWS Organizations,
+  including the list of services that currently work with Organizations, see
+  [Integrating AWS Organizations with Other AWS Services](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the *AWS Organizations User Guide.*
+
+  This operation can be called only from the organization's management account or
+  by a member account that is a delegated administrator for an AWS service.
+  """
+  def list_aws_service_access_for_organization(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListAWSServiceAccessForOrganization",
+      input,
+      options
+    )
   end
 
   @doc """

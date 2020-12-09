@@ -42,7 +42,7 @@ defmodule AWS.ComprehendMedical do
 
   Use this operation to get the status of an inference job.
   """
-  def describe_i_c_d10_c_m_inference_job(%Client{} = client, input, options \\ []) do
+  def describe_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeICD10CMInferenceJob", input, options)
   end
 
@@ -52,7 +52,7 @@ defmodule AWS.ComprehendMedical do
 
   Use this operation to get the status of a detection job.
   """
-  def describe_p_h_i_detection_job(%Client{} = client, input, options \\ []) do
+  def describe_phi_detection_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePHIDetectionJob", input, options)
   end
 
@@ -104,7 +104,7 @@ defmodule AWS.ComprehendMedical do
 
   Amazon Comprehend Medical only detects entities in English language texts.
   """
-  def detect_p_h_i(%Client{} = client, input, options \\ []) do
+  def detect_phi(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DetectPHI", input, options)
   end
 
@@ -116,7 +116,7 @@ defmodule AWS.ComprehendMedical do
   Amazon Comprehend Medical only detects medical entities in English language
   texts.
   """
-  def infer_i_c_d10_c_m(%Client{} = client, input, options \\ []) do
+  def infer_icd10_cm(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "InferICD10CM", input, options)
   end
 
@@ -142,7 +142,7 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Gets a list of InferICD10CM jobs that you have submitted.
   """
-  def list_i_c_d10_c_m_inference_jobs(%Client{} = client, input, options \\ []) do
+  def list_icd10_cm_inference_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListICD10CMInferenceJobs", input, options)
   end
 
@@ -150,7 +150,7 @@ defmodule AWS.ComprehendMedical do
   Gets a list of protected health information (PHI) detection jobs that you have
   submitted.
   """
-  def list_p_h_i_detection_jobs(%Client{} = client, input, options \\ []) do
+  def list_phi_detection_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPHIDetectionJobs", input, options)
   end
 
@@ -177,7 +177,7 @@ defmodule AWS.ComprehendMedical do
 
   Use the `DescribeICD10CMInferenceJob` operation to track the status of a job.
   """
-  def start_i_c_d10_c_m_inference_job(%Client{} = client, input, options \\ []) do
+  def start_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartICD10CMInferenceJob", input, options)
   end
 
@@ -186,7 +186,7 @@ defmodule AWS.ComprehendMedical do
 
   Use the `DescribePHIDetectionJob` operation to track the status of a job.
   """
-  def start_p_h_i_detection_job(%Client{} = client, input, options \\ []) do
+  def start_phi_detection_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartPHIDetectionJob", input, options)
   end
 
@@ -210,14 +210,14 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Stops an InferICD10CM inference job in progress.
   """
-  def stop_i_c_d10_c_m_inference_job(%Client{} = client, input, options \\ []) do
+  def stop_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopICD10CMInferenceJob", input, options)
   end
 
   @doc """
   Stops a protected health information (PHI) detection job in progress.
   """
-  def stop_p_h_i_detection_job(%Client{} = client, input, options \\ []) do
+  def stop_phi_detection_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopPHIDetectionJob", input, options)
   end
 

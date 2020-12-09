@@ -47,7 +47,7 @@ defmodule AWS.DocDB do
   @doc """
   Copies the specified cluster parameter group.
   """
-  def copy_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterParameterGroup", input, options)
   end
 
@@ -63,14 +63,14 @@ defmodule AWS.DocDB do
   snapshot identified by `TargetDBClusterSnapshotIdentifier` while that cluster
   snapshot is in the *copying* status.
   """
-  def copy_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterSnapshot", input, options)
   end
 
   @doc """
   Creates a new Amazon DocumentDB cluster.
   """
-  def create_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def create_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBCluster", input, options)
   end
 
@@ -92,21 +92,21 @@ defmodule AWS.DocDB do
   then reboot the instances in the cluster without failover. For more information,
   see [ Modifying Amazon DocumentDB Cluster Parameter Groups](https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-modify.html).
   """
-  def create_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterParameterGroup", input, options)
   end
 
   @doc """
   Creates a snapshot of a cluster.
   """
-  def create_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterSnapshot", input, options)
   end
 
   @doc """
   Creates a new instance.
   """
-  def create_d_b_instance(%Client{} = client, input, options \\ []) do
+  def create_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBInstance", input, options)
   end
 
@@ -116,7 +116,7 @@ defmodule AWS.DocDB do
   subnet groups must contain at least one subnet in at least two Availability
   Zones in the AWS Region.
   """
-  def create_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def create_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBSubnetGroup", input, options)
   end
 
@@ -127,7 +127,7 @@ defmodule AWS.DocDB do
   and can't be recovered. Manual DB cluster snapshots of the specified cluster are
   not deleted.
   """
-  def delete_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBCluster", input, options)
   end
 
@@ -136,7 +136,7 @@ defmodule AWS.DocDB do
 
   The cluster parameter group to be deleted can't be associated with any clusters.
   """
-  def delete_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterParameterGroup", input, options)
   end
 
@@ -147,14 +147,14 @@ defmodule AWS.DocDB do
 
   The cluster snapshot must be in the `available` state to be deleted.
   """
-  def delete_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterSnapshot", input, options)
   end
 
   @doc """
   Deletes a previously provisioned instance.
   """
-  def delete_d_b_instance(%Client{} = client, input, options \\ []) do
+  def delete_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBInstance", input, options)
   end
 
@@ -164,7 +164,7 @@ defmodule AWS.DocDB do
   The specified database subnet group must not be associated with any DB
   instances.
   """
-  def delete_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBSubnetGroup", input, options)
   end
 
@@ -182,14 +182,14 @@ defmodule AWS.DocDB do
   If a `DBClusterParameterGroupName` parameter is specified, the list contains
   only the description of the specified cluster parameter group.
   """
-  def describe_d_b_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameterGroups", input, options)
   end
 
   @doc """
   Returns the detailed parameter list for a particular cluster parameter group.
   """
-  def describe_d_b_cluster_parameters(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameters", input, options)
   end
 
@@ -204,7 +204,7 @@ defmodule AWS.DocDB do
   attribute, then the manual cluster snapshot is public and can be copied or
   restored by all AWS accounts.
   """
-  def describe_d_b_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -219,7 +219,7 @@ defmodule AWS.DocDB do
 
   This API operation supports pagination.
   """
-  def describe_d_b_cluster_snapshots(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterSnapshots", input, options)
   end
 
@@ -232,14 +232,14 @@ defmodule AWS.DocDB do
   the `filterName=engine,Values=docdb` filter parameter to return only Amazon
   DocumentDB clusters.
   """
-  def describe_d_b_clusters(%Client{} = client, input, options \\ []) do
+  def describe_db_clusters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusters", input, options)
   end
 
   @doc """
   Returns a list of the available engines.
   """
-  def describe_d_b_engine_versions(%Client{} = client, input, options \\ []) do
+  def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBEngineVersions", input, options)
   end
 
@@ -248,7 +248,7 @@ defmodule AWS.DocDB do
 
   This API supports pagination.
   """
-  def describe_d_b_instances(%Client{} = client, input, options \\ []) do
+  def describe_db_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBInstances", input, options)
   end
 
@@ -258,7 +258,7 @@ defmodule AWS.DocDB do
   If a `DBSubnetGroupName` is specified, the list will contain only the
   descriptions of the specified `DBSubnetGroup`.
   """
-  def describe_d_b_subnet_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBSubnetGroups", input, options)
   end
 
@@ -299,7 +299,7 @@ defmodule AWS.DocDB do
   @doc """
   Returns a list of orderable instance options for the specified engine.
   """
-  def describe_orderable_d_b_instance_options(%Client{} = client, input, options \\ []) do
+  def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeOrderableDBInstanceOptions", input, options)
   end
 
@@ -322,7 +322,7 @@ defmodule AWS.DocDB do
   Amazon DocumentDB replica, if one exists. You can force a failover when you want
   to simulate a failure of a primary instance for testing.
   """
-  def failover_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def failover_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "FailoverDBCluster", input, options)
   end
 
@@ -339,7 +339,7 @@ defmodule AWS.DocDB do
   You can change one or more database configuration parameters by specifying these
   parameters and the new values in the request.
   """
-  def modify_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBCluster", input, options)
   end
 
@@ -362,7 +362,7 @@ defmodule AWS.DocDB do
   creating the default database for a cluster, such as the character set for the
   default database defined by the `character_set_database` parameter.
   """
-  def modify_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterParameterGroup", input, options)
   end
 
@@ -381,7 +381,7 @@ defmodule AWS.DocDB do
   for the `ValuesToAdd` parameter. You can't use `all` as a value for that
   parameter in this case.
   """
-  def modify_d_b_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterSnapshotAttribute", input, options)
   end
 
@@ -391,7 +391,7 @@ defmodule AWS.DocDB do
   You can change one or more database configuration parameters by specifying these
   parameters and the new values in the request.
   """
-  def modify_d_b_instance(%Client{} = client, input, options \\ []) do
+  def modify_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBInstance", input, options)
   end
 
@@ -401,7 +401,7 @@ defmodule AWS.DocDB do
   subnet groups must contain at least one subnet in at least two Availability
   Zones in the AWS Region.
   """
-  def modify_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBSubnetGroup", input, options)
   end
 
@@ -416,7 +416,7 @@ defmodule AWS.DocDB do
   instance results in a momentary outage, during which the instance status is set
   to *rebooting*.
   """
-  def reboot_d_b_instance(%Client{} = client, input, options \\ []) do
+  def reboot_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RebootDBInstance", input, options)
   end
 
@@ -438,7 +438,7 @@ defmodule AWS.DocDB do
   static parameters are set to `pending-reboot` to take effect on the next DB
   instance reboot.
   """
-  def reset_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetDBClusterParameterGroup", input, options)
   end
 
@@ -453,7 +453,7 @@ defmodule AWS.DocDB do
   DB cluster, except that the new cluster is created with the default security
   group.
   """
-  def restore_d_b_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
+  def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterFromSnapshot", input, options)
   end
 
@@ -465,7 +465,7 @@ defmodule AWS.DocDB do
   cluster with the same configuration as the original cluster, except that the new
   cluster is created with the default security group.
   """
-  def restore_d_b_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
+  def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterToPointInTime", input, options)
   end
 
@@ -474,7 +474,7 @@ defmodule AWS.DocDB do
 
   For more information, see [Stopping and Starting an Amazon DocumentDB Cluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html).
   """
-  def start_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def start_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartDBCluster", input, options)
   end
 
@@ -484,7 +484,7 @@ defmodule AWS.DocDB do
   The cluster must be in the *available* state. For more information, see
   [Stopping and Starting an Amazon DocumentDB Cluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html).
   """
-  def stop_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def stop_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopDBCluster", input, options)
   end
 end

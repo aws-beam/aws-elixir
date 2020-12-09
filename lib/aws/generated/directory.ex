@@ -170,7 +170,7 @@ defmodule AWS.Directory do
   permissions are required to run the *CreateMicrosoftAD* operation, see [AWS Directory Service API Permissions: Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
   """
-  def create_microsoft_a_d(%Client{} = client, input, options \\ []) do
+  def create_microsoft_ad(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateMicrosoftAD", input, options)
   end
 
@@ -314,7 +314,7 @@ defmodule AWS.Directory do
   @doc """
   Describes the status of LDAP security for the specified directory.
   """
-  def describe_l_d_a_p_s_settings(%Client{} = client, input, options \\ []) do
+  def describe_ldaps_settings(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLDAPSSettings", input, options)
   end
 
@@ -361,7 +361,7 @@ defmodule AWS.Directory do
   @doc """
   Deactivates LDAP secure calls for the specified directory.
   """
-  def disable_l_d_a_p_s(%Client{} = client, input, options \\ []) do
+  def disable_ldaps(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableLDAPS", input, options)
   end
 
@@ -383,7 +383,7 @@ defmodule AWS.Directory do
   @doc """
   Activates the switch for the specific directory to always use LDAP secure calls.
   """
-  def enable_l_d_a_p_s(%Client{} = client, input, options \\ []) do
+  def enable_ldaps(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "EnableLDAPS", input, options)
   end
 

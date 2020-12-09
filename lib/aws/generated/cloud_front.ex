@@ -1817,14 +1817,14 @@ defmodule AWS.CloudFront do
   @doc """
   List the distributions that are associated with a specified AWS WAF web ACL.
   """
-  def list_distributions_by_web_a_c_l_id(
+  def list_distributions_by_web_acl_id(
         %Client{} = client,
-        web_a_c_l_id,
+        web_acl_id,
         marker \\ nil,
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-05-31/distributionsByWebACLId/#{URI.encode(web_a_c_l_id)}"
+    url_path = "/2020-05-31/distributionsByWebACLId/#{URI.encode(web_acl_id)}"
     headers = []
     query_params = []
 

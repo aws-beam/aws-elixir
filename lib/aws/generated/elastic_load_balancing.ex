@@ -147,7 +147,7 @@ defmodule AWS.ElasticLoadBalancing do
   For more information, see [Duration-Based Session Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration)
   in the *Classic Load Balancers Guide*.
   """
-  def create_l_b_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
+  def create_lb_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLBCookieStickinessPolicy", input, options)
   end
 
@@ -457,7 +457,7 @@ defmodule AWS.ElasticLoadBalancing do
   Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html)
   in the *Classic Load Balancers Guide*.
   """
-  def set_load_balancer_listener_s_s_l_certificate(%Client{} = client, input, options \\ []) do
+  def set_load_balancer_listener_ssl_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),

@@ -333,7 +333,7 @@ defmodule AWS.FraudDetector do
   Gets the encryption key if a Key Management Service (KMS) customer master key
   (CMK) has been specified to be used to encrypt content in Amazon Fraud Detector.
   """
-  def get_k_m_s_encryption_key(%Client{} = client, input, options \\ []) do
+  def get_kms_encryption_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetKMSEncryptionKey", input, options)
   end
 
@@ -476,7 +476,7 @@ defmodule AWS.FraudDetector do
   Specifies the Key Management Service (KMS) customer master key (CMK) to be used
   to encrypt content in Amazon Fraud Detector.
   """
-  def put_k_m_s_encryption_key(%Client{} = client, input, options \\ []) do
+  def put_kms_encryption_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutKMSEncryptionKey", input, options)
   end
 

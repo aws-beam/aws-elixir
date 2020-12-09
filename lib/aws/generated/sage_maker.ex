@@ -105,7 +105,7 @@ defmodule AWS.SageMaker do
   For information about how to use Autopilot, see [ Automate Model Development with Amazon SageMaker
   Autopilot](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html).
   """
-  def create_auto_m_l_job(%Client{} = client, input, options \\ []) do
+  def create_auto_ml_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAutoMLJob", input, options)
   end
 
@@ -1079,7 +1079,7 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about an Amazon SageMaker job.
   """
-  def describe_auto_m_l_job(%Client{} = client, input, options \\ []) do
+  def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAutoMLJob", input, options)
   end
 
@@ -1352,14 +1352,14 @@ defmodule AWS.SageMaker do
   @doc """
   Request a list of jobs.
   """
-  def list_auto_m_l_jobs(%Client{} = client, input, options \\ []) do
+  def list_auto_ml_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAutoMLJobs", input, options)
   end
 
   @doc """
   List the Candidates created for the job.
   """
-  def list_candidates_for_auto_m_l_job(%Client{} = client, input, options \\ []) do
+  def list_candidates_for_auto_ml_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCandidatesForAutoMLJob", input, options)
   end
 
@@ -1670,7 +1670,7 @@ defmodule AWS.SageMaker do
   @doc """
   A method for forcing the termination of a running job.
   """
-  def stop_auto_m_l_job(%Client{} = client, input, options \\ []) do
+  def stop_auto_ml_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopAutoMLJob", input, options)
   end
 

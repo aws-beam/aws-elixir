@@ -302,7 +302,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   in the *Application Load Balancers Guide* or [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies)
   in the *Network Load Balancers Guide*.
   """
-  def describe_s_s_l_policies(%Client{} = client, input, options \\ []) do
+  def describe_ssl_policies(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeSSLPolicies", input, options)
   end
 

@@ -3844,14 +3844,14 @@ defmodule AWS.Chime do
   @doc """
   Lists the tags applied to an Amazon Chime SDK meeting resource.
   """
-  def list_tags_for_resource(%Client{} = client, resource_a_r_n, options \\ []) do
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
     headers = []
     query_params = []
 
     query_params =
-      if !is_nil(resource_a_r_n) do
-        [{"arn", resource_a_r_n} | query_params]
+      if !is_nil(resource_arn) do
+        [{"arn", resource_arn} | query_params]
       else
         query_params
       end
@@ -4512,7 +4512,7 @@ defmodule AWS.Chime do
 
   Returns the `User` object with the updated personal meeting PIN.
   """
-  def reset_personal_p_i_n(%Client{} = client, account_id, user_id, input, options \\ []) do
+  def reset_personal_pin(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
       "/accounts/#{URI.encode(account_id)}/users/#{URI.encode(user_id)}?operation=reset-personal-pin"
 

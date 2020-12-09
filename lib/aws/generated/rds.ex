@@ -78,7 +78,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def add_role_to_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddRoleToDBCluster", input, options)
   end
 
@@ -88,7 +88,7 @@ defmodule AWS.RDS do
   To add a role to a DB instance, the status of the DB instance must be
   `available`.
   """
-  def add_role_to_d_b_instance(%Client{} = client, input, options \\ []) do
+  def add_role_to_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddRoleToDBInstance", input, options)
   end
 
@@ -136,7 +136,7 @@ defmodule AWS.RDS do
 
   For an overview of CIDR ranges, go to the [Wikipedia Tutorial](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
   """
-  def authorize_d_b_security_group_ingress(%Client{} = client, input, options \\ []) do
+  def authorize_db_security_group_ingress(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AuthorizeDBSecurityGroupIngress", input, options)
   end
 
@@ -148,7 +148,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora MySQL DB clusters.
   """
-  def backtrack_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def backtrack_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BacktrackDBCluster", input, options)
   end
 
@@ -166,7 +166,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def copy_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterParameterGroup", input, options)
   end
 
@@ -244,14 +244,14 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def copy_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterSnapshot", input, options)
   end
 
   @doc """
   Copies the specified DB parameter group.
   """
-  def copy_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBParameterGroup", input, options)
   end
 
@@ -267,7 +267,7 @@ defmodule AWS.RDS do
   For more information about copying snapshots, see [Copying a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot)
   in the *Amazon RDS User Guide.*
   """
-  def copy_d_b_snapshot(%Client{} = client, input, options \\ []) do
+  def copy_db_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBSnapshot", input, options)
   end
 
@@ -305,7 +305,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def create_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def create_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBCluster", input, options)
   end
 
@@ -315,7 +315,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def create_d_b_cluster_endpoint(%Client{} = client, input, options \\ []) do
+  def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterEndpoint", input, options)
   end
 
@@ -351,7 +351,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def create_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterParameterGroup", input, options)
   end
 
@@ -363,14 +363,14 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def create_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterSnapshot", input, options)
   end
 
   @doc """
   Creates a new DB instance.
   """
-  def create_d_b_instance(%Client{} = client, input, options \\ []) do
+  def create_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBInstance", input, options)
   end
 
@@ -391,7 +391,7 @@ defmodule AWS.RDS do
 
   Your source DB instance must have backup retention enabled.
   """
-  def create_d_b_instance_read_replica(%Client{} = client, input, options \\ []) do
+  def create_db_instance_read_replica(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBInstanceReadReplica", input, options)
   end
 
@@ -418,14 +418,14 @@ defmodule AWS.RDS do
   or the *DescribeDBParameters* command to verify that your DB parameter group has
   been created or modified.
   """
-  def create_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def create_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBParameterGroup", input, options)
   end
 
   @doc """
   Creates a new DB proxy.
   """
-  def create_d_b_proxy(%Client{} = client, input, options \\ []) do
+  def create_db_proxy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBProxy", input, options)
   end
 
@@ -437,7 +437,7 @@ defmodule AWS.RDS do
   A DB security group controls access to EC2-Classic DB instances that are not in
   a VPC.
   """
-  def create_d_b_security_group(%Client{} = client, input, options \\ []) do
+  def create_db_security_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBSecurityGroup", input, options)
   end
 
@@ -447,7 +447,7 @@ defmodule AWS.RDS do
   The source DB instance must be in the `available` or
   `storage-optimization`state.
   """
-  def create_d_b_snapshot(%Client{} = client, input, options \\ []) do
+  def create_db_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBSnapshot", input, options)
   end
 
@@ -457,7 +457,7 @@ defmodule AWS.RDS do
   DB subnet groups must contain at least one subnet in at least two AZs in the AWS
   Region.
   """
-  def create_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def create_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBSubnetGroup", input, options)
   end
 
@@ -544,7 +544,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def delete_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBCluster", input, options)
   end
 
@@ -553,7 +553,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def delete_d_b_cluster_endpoint(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterEndpoint", input, options)
   end
 
@@ -568,7 +568,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def delete_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterParameterGroup", input, options)
   end
 
@@ -584,7 +584,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def delete_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterSnapshot", input, options)
   end
 
@@ -617,7 +617,7 @@ defmodule AWS.RDS do
   longer a read replica. After the promotion completes, then call the
   `DeleteDBInstance` API action to delete the final instance in the DB cluster.
   """
-  def delete_d_b_instance(%Client{} = client, input, options \\ []) do
+  def delete_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBInstance", input, options)
   end
 
@@ -625,7 +625,7 @@ defmodule AWS.RDS do
   Deletes automated backups based on the source instance's `DbiResourceId` value
   or the restorable instance's resource ID.
   """
-  def delete_d_b_instance_automated_backup(%Client{} = client, input, options \\ []) do
+  def delete_db_instance_automated_backup(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBInstanceAutomatedBackup", input, options)
   end
 
@@ -634,14 +634,14 @@ defmodule AWS.RDS do
 
   The DB parameter group to be deleted can't be associated with any DB instances.
   """
-  def delete_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBParameterGroup", input, options)
   end
 
   @doc """
   Deletes an existing proxy.
   """
-  def delete_d_b_proxy(%Client{} = client, input, options \\ []) do
+  def delete_db_proxy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBProxy", input, options)
   end
 
@@ -650,7 +650,7 @@ defmodule AWS.RDS do
 
   The specified DB security group must not be associated with any DB instances.
   """
-  def delete_d_b_security_group(%Client{} = client, input, options \\ []) do
+  def delete_db_security_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBSecurityGroup", input, options)
   end
 
@@ -661,7 +661,7 @@ defmodule AWS.RDS do
 
   The DB snapshot must be in the `available` state to be deleted.
   """
-  def delete_d_b_snapshot(%Client{} = client, input, options \\ []) do
+  def delete_db_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBSnapshot", input, options)
   end
 
@@ -671,7 +671,7 @@ defmodule AWS.RDS do
   The specified database subnet group must not be associated with any DB
   instances.
   """
-  def delete_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBSubnetGroup", input, options)
   end
 
@@ -712,7 +712,7 @@ defmodule AWS.RDS do
   Remove the association between one or more `DBProxyTarget` data structures and a
   `DBProxyTargetGroup`.
   """
-  def deregister_d_b_proxy_targets(%Client{} = client, input, options \\ []) do
+  def deregister_db_proxy_targets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeregisterDBProxyTargets", input, options)
   end
 
@@ -757,7 +757,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora MySQL DB clusters.
   """
-  def describe_d_b_cluster_backtracks(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_backtracks(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterBacktracks", input, options)
   end
 
@@ -766,7 +766,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def describe_d_b_cluster_endpoints(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterEndpoints", input, options)
   end
 
@@ -781,7 +781,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def describe_d_b_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameterGroups", input, options)
   end
 
@@ -793,7 +793,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def describe_d_b_cluster_parameters(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameters", input, options)
   end
 
@@ -814,7 +814,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def describe_d_b_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -834,7 +834,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def describe_d_b_cluster_snapshots(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterSnapshots", input, options)
   end
 
@@ -849,14 +849,14 @@ defmodule AWS.RDS do
   This operation can also return information for Amazon Neptune DB instances and
   Amazon DocumentDB instances.
   """
-  def describe_d_b_clusters(%Client{} = client, input, options \\ []) do
+  def describe_db_clusters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusters", input, options)
   end
 
   @doc """
   Returns a list of the available DB engines.
   """
-  def describe_d_b_engine_versions(%Client{} = client, input, options \\ []) do
+  def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBEngineVersions", input, options)
   end
 
@@ -870,7 +870,7 @@ defmodule AWS.RDS do
 
   All parameters are optional.
   """
-  def describe_d_b_instance_automated_backups(%Client{} = client, input, options \\ []) do
+  def describe_db_instance_automated_backups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBInstanceAutomatedBackups", input, options)
   end
 
@@ -882,14 +882,14 @@ defmodule AWS.RDS do
   This operation can also return information for Amazon Neptune DB instances and
   Amazon DocumentDB instances.
   """
-  def describe_d_b_instances(%Client{} = client, input, options \\ []) do
+  def describe_db_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBInstances", input, options)
   end
 
   @doc """
   Returns a list of DB log files for the DB instance.
   """
-  def describe_d_b_log_files(%Client{} = client, input, options \\ []) do
+  def describe_db_log_files(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBLogFiles", input, options)
   end
 
@@ -899,21 +899,21 @@ defmodule AWS.RDS do
   If a `DBParameterGroupName` is specified, the list will contain only the
   description of the specified DB parameter group.
   """
-  def describe_d_b_parameter_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBParameterGroups", input, options)
   end
 
   @doc """
   Returns the detailed parameter list for a particular DB parameter group.
   """
-  def describe_d_b_parameters(%Client{} = client, input, options \\ []) do
+  def describe_db_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBParameters", input, options)
   end
 
   @doc """
   Returns information about DB proxies.
   """
-  def describe_d_b_proxies(%Client{} = client, input, options \\ []) do
+  def describe_db_proxies(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBProxies", input, options)
   end
 
@@ -921,7 +921,7 @@ defmodule AWS.RDS do
   Returns information about DB proxy target groups, represented by
   `DBProxyTargetGroup` data structures.
   """
-  def describe_d_b_proxy_target_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_proxy_target_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBProxyTargetGroups", input, options)
   end
 
@@ -930,7 +930,7 @@ defmodule AWS.RDS do
 
   This API supports pagination.
   """
-  def describe_d_b_proxy_targets(%Client{} = client, input, options \\ []) do
+  def describe_db_proxy_targets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBProxyTargets", input, options)
   end
 
@@ -940,7 +940,7 @@ defmodule AWS.RDS do
   If a `DBSecurityGroupName` is specified, the list will contain only the
   descriptions of the specified DB security group.
   """
-  def describe_d_b_security_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_security_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBSecurityGroups", input, options)
   end
 
@@ -958,7 +958,7 @@ defmodule AWS.RDS do
   snapshot, or to make the manual DB snapshot public or private, use the
   `ModifyDBSnapshotAttribute` API action.
   """
-  def describe_d_b_snapshot_attributes(%Client{} = client, input, options \\ []) do
+  def describe_db_snapshot_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBSnapshotAttributes", input, options)
   end
 
@@ -967,7 +967,7 @@ defmodule AWS.RDS do
 
   This API action supports pagination.
   """
-  def describe_d_b_snapshots(%Client{} = client, input, options \\ []) do
+  def describe_db_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBSnapshots", input, options)
   end
 
@@ -979,7 +979,7 @@ defmodule AWS.RDS do
 
   For an overview of CIDR ranges, go to the [Wikipedia Tutorial](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
   """
-  def describe_d_b_subnet_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBSubnetGroups", input, options)
   end
 
@@ -1095,7 +1095,7 @@ defmodule AWS.RDS do
   @doc """
   Returns a list of orderable DB instance options for the specified engine.
   """
-  def describe_orderable_d_b_instance_options(%Client{} = client, input, options \\ []) do
+  def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeOrderableDBInstanceOptions", input, options)
   end
 
@@ -1111,14 +1111,14 @@ defmodule AWS.RDS do
   Returns information about reserved DB instances for this account, or about a
   specified reserved DB instance.
   """
-  def describe_reserved_d_b_instances(%Client{} = client, input, options \\ []) do
+  def describe_reserved_db_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeReservedDBInstances", input, options)
   end
 
   @doc """
   Lists available reserved DB instance offerings.
   """
-  def describe_reserved_d_b_instances_offerings(%Client{} = client, input, options \\ []) do
+  def describe_reserved_db_instances_offerings(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -1144,7 +1144,7 @@ defmodule AWS.RDS do
 
   You can use this information when you call `ModifyDBInstance`.
   """
-  def describe_valid_d_b_instance_modifications(%Client{} = client, input, options \\ []) do
+  def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -1157,7 +1157,7 @@ defmodule AWS.RDS do
   @doc """
   Downloads all or a portion of the specified log file, up to 1 MB in size.
   """
-  def download_d_b_log_file_portion(%Client{} = client, input, options \\ []) do
+  def download_db_log_file_portion(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DownloadDBLogFilePortion", input, options)
   end
 
@@ -1179,7 +1179,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def failover_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def failover_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "FailoverDBCluster", input, options)
   end
 
@@ -1256,7 +1256,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def modify_current_d_b_cluster_capacity(%Client{} = client, input, options \\ []) do
+  def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyCurrentDBClusterCapacity", input, options)
   end
 
@@ -1270,7 +1270,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def modify_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBCluster", input, options)
   end
 
@@ -1279,7 +1279,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def modify_d_b_cluster_endpoint(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterEndpoint", input, options)
   end
 
@@ -1316,7 +1316,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def modify_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterParameterGroup", input, options)
   end
 
@@ -1344,7 +1344,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def modify_d_b_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterSnapshotAttribute", input, options)
   end
 
@@ -1356,7 +1356,7 @@ defmodule AWS.RDS do
   can make to your DB instance, call `DescribeValidDBInstanceModifications` before
   you call `ModifyDBInstance`.
   """
-  def modify_d_b_instance(%Client{} = client, input, options \\ []) do
+  def modify_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBInstance", input, options)
   end
 
@@ -1382,21 +1382,21 @@ defmodule AWS.RDS do
   or the *DescribeDBParameters* command to verify that your DB parameter group has
   been created or modified.
   """
-  def modify_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBParameterGroup", input, options)
   end
 
   @doc """
   Changes the settings for an existing DB proxy.
   """
-  def modify_d_b_proxy(%Client{} = client, input, options \\ []) do
+  def modify_db_proxy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBProxy", input, options)
   end
 
   @doc """
   Modifies the properties of a `DBProxyTargetGroup`.
   """
-  def modify_d_b_proxy_target_group(%Client{} = client, input, options \\ []) do
+  def modify_db_proxy_target_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBProxyTargetGroup", input, options)
   end
 
@@ -1407,7 +1407,7 @@ defmodule AWS.RDS do
 
   Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
   """
-  def modify_d_b_snapshot(%Client{} = client, input, options \\ []) do
+  def modify_db_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBSnapshot", input, options)
   end
 
@@ -1433,7 +1433,7 @@ defmodule AWS.RDS do
   `DescribeDBSnapshotAttributes` API action. The accounts are returned as values
   for the `restore` attribute.
   """
-  def modify_d_b_snapshot_attribute(%Client{} = client, input, options \\ []) do
+  def modify_db_snapshot_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBSnapshotAttribute", input, options)
   end
 
@@ -1443,7 +1443,7 @@ defmodule AWS.RDS do
   DB subnet groups must contain at least one subnet in at least two AZs in the AWS
   Region.
   """
-  def modify_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBSubnetGroup", input, options)
   end
 
@@ -1507,14 +1507,14 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def promote_read_replica_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PromoteReadReplicaDBCluster", input, options)
   end
 
   @doc """
   Purchases a reserved DB instance offering.
   """
-  def purchase_reserved_d_b_instances_offering(%Client{} = client, input, options \\ []) do
+  def purchase_reserved_db_instances_offering(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -1538,7 +1538,7 @@ defmodule AWS.RDS do
   For more information about rebooting, see [Rebooting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html)
   in the *Amazon RDS User Guide.*
   """
-  def reboot_d_b_instance(%Client{} = client, input, options \\ []) do
+  def reboot_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RebootDBInstance", input, options)
   end
 
@@ -1546,7 +1546,7 @@ defmodule AWS.RDS do
   Associate one or more `DBProxyTarget` data structures with a
   `DBProxyTargetGroup`.
   """
-  def register_d_b_proxy_targets(%Client{} = client, input, options \\ []) do
+  def register_db_proxy_targets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RegisterDBProxyTargets", input, options)
   end
 
@@ -1572,7 +1572,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def remove_role_from_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveRoleFromDBCluster", input, options)
   end
 
@@ -1580,7 +1580,7 @@ defmodule AWS.RDS do
   Disassociates an AWS Identity and Access Management (IAM) role from a DB
   instance.
   """
-  def remove_role_from_d_b_instance(%Client{} = client, input, options \\ []) do
+  def remove_role_from_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveRoleFromDBInstance", input, options)
   end
 
@@ -1626,7 +1626,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def reset_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetDBClusterParameterGroup", input, options)
   end
 
@@ -1641,7 +1641,7 @@ defmodule AWS.RDS do
   are set to `pending-reboot` to take effect on the next DB instance restart or
   `RebootDBInstance` request.
   """
-  def reset_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetDBParameterGroup", input, options)
   end
 
@@ -1666,7 +1666,7 @@ defmodule AWS.RDS do
   This action only applies to Aurora DB clusters. The source DB engine must be
   MySQL.
   """
-  def restore_d_b_cluster_from_s3(%Client{} = client, input, options \\ []) do
+  def restore_db_cluster_from_s3(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterFromS3", input, options)
   end
 
@@ -1691,7 +1691,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def restore_d_b_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
+  def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterFromSnapshot", input, options)
   end
 
@@ -1715,7 +1715,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def restore_d_b_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
+  def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterToPointInTime", input, options)
   end
 
@@ -1744,7 +1744,7 @@ defmodule AWS.RDS do
   This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora,
   use `RestoreDBClusterFromSnapshot`.
   """
-  def restore_d_b_instance_from_d_b_snapshot(%Client{} = client, input, options \\ []) do
+  def restore_db_instance_from_db_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBInstanceFromDBSnapshot", input, options)
   end
 
@@ -1758,7 +1758,7 @@ defmodule AWS.RDS do
   Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
   in the *Amazon RDS User Guide.*
   """
-  def restore_d_b_instance_from_s3(%Client{} = client, input, options \\ []) do
+  def restore_db_instance_from_s3(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBInstanceFromS3", input, options)
   end
 
@@ -1780,7 +1780,7 @@ defmodule AWS.RDS do
   This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora,
   use `RestoreDBClusterToPointInTime`.
   """
-  def restore_d_b_instance_to_point_in_time(%Client{} = client, input, options \\ []) do
+  def restore_db_instance_to_point_in_time(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBInstanceToPointInTime", input, options)
   end
 
@@ -1792,7 +1792,7 @@ defmodule AWS.RDS do
   or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
   EC2SecurityGroupId).
   """
-  def revoke_d_b_security_group_ingress(%Client{} = client, input, options \\ []) do
+  def revoke_db_security_group_ingress(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RevokeDBSecurityGroupIngress", input, options)
   end
 
@@ -1815,7 +1815,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def start_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def start_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartDBCluster", input, options)
   end
 
@@ -1830,7 +1830,7 @@ defmodule AWS.RDS do
   This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora DB
   clusters, use `StartDBCluster` instead.
   """
-  def start_d_b_instance(%Client{} = client, input, options \\ []) do
+  def start_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartDBInstance", input, options)
   end
 
@@ -1866,7 +1866,7 @@ defmodule AWS.RDS do
 
   This action only applies to Aurora DB clusters.
   """
-  def stop_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def stop_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopDBCluster", input, options)
   end
 
@@ -1884,7 +1884,7 @@ defmodule AWS.RDS do
   This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora
   clusters, use `StopDBCluster` instead.
   """
-  def stop_d_b_instance(%Client{} = client, input, options \\ []) do
+  def stop_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopDBInstance", input, options)
   end
 end

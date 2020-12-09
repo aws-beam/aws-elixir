@@ -152,7 +152,7 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_i_p_set(%Client{} = client, input, options \\ []) do
+  def create_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateIPSet", input, options)
   end
 
@@ -508,7 +508,7 @@ defmodule AWS.WAF do
 
   For more information about how to use the AWS WAF API, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def create_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def create_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateWebACL", input, options)
   end
 
@@ -526,7 +526,7 @@ defmodule AWS.WAF do
   [Migrating your AWS WAF Classic resources to AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-migrating-from-classic.html)
   in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   """
-  def create_web_a_c_l_migration_stack(%Client{} = client, input, options \\ []) do
+  def create_web_acl_migration_stack(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateWebACLMigrationStack", input, options)
   end
 
@@ -653,7 +653,7 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteIPSet` request.
   """
-  def delete_i_p_set(%Client{} = client, input, options \\ []) do
+  def delete_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteIPSet", input, options)
   end
 
@@ -924,7 +924,7 @@ defmodule AWS.WAF do
 
     3. Submit a `DeleteWebACL` request.
   """
-  def delete_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def delete_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteWebACL", input, options)
   end
 
@@ -1064,7 +1064,7 @@ defmodule AWS.WAF do
 
   Returns the `IPSet` that is specified by `IPSetId`.
   """
-  def get_i_p_set(%Client{} = client, input, options \\ []) do
+  def get_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetIPSet", input, options)
   end
 
@@ -1288,7 +1288,7 @@ defmodule AWS.WAF do
 
   Returns the `WebACL` that is specified by `WebACLId`.
   """
-  def get_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def get_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetWebACL", input, options)
   end
 
@@ -1373,7 +1373,7 @@ defmodule AWS.WAF do
 
   Returns an array of `IPSetSummary` objects in the response.
   """
-  def list_i_p_sets(%Client{} = client, input, options \\ []) do
+  def list_ip_sets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListIPSets", input, options)
   end
 
@@ -1568,7 +1568,7 @@ defmodule AWS.WAF do
 
   Returns an array of `WebACLSummary` objects in the response.
   """
-  def list_web_a_c_ls(%Client{} = client, input, options \\ []) do
+  def list_web_acls(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListWebACLs", input, options)
   end
 
@@ -1875,7 +1875,7 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_i_p_set(%Client{} = client, input, options \\ []) do
+  def update_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateIPSet", input, options)
   end
 
@@ -2306,7 +2306,7 @@ defmodule AWS.WAF do
   For more information about how to use the AWS WAF API to allow or block HTTP
   requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
   """
-  def update_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def update_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateWebACL", input, options)
   end
 

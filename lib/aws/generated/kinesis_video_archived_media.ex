@@ -215,7 +215,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   For more information, see the **Errors** section at the bottom of this topic, as
   well as [Common Errors](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html).
   """
-  def get_d_a_s_h_streaming_session_u_r_l(%Client{} = client, input, options \\ []) do
+  def get_dash_streaming_session_url(%Client{} = client, input, options \\ []) do
     url_path = "/getDASHStreamingSessionURL"
     headers = []
     query_params = []
@@ -389,7 +389,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   For more information, see the **Errors** section at the bottom of this topic, as
   well as [Common Errors](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html).
   """
-  def get_h_l_s_streaming_session_u_r_l(%Client{} = client, input, options \\ []) do
+  def get_hls_streaming_session_url(%Client{} = client, input, options \\ []) do
     url_path = "/getHLSStreamingSessionURL"
     headers = []
     query_params = []

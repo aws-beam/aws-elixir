@@ -728,7 +728,7 @@ defmodule AWS.IoT do
   @doc """
   Creates an AWS IoT OTAUpdate on a target group of things or groups.
   """
-  def create_o_t_a_update(%Client{} = client, ota_update_id, input, options \\ []) do
+  def create_ota_update(%Client{} = client, ota_update_id, input, options \\ []) do
     url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
     query_params = []
@@ -1193,7 +1193,7 @@ defmodule AWS.IoT do
   @doc """
   Deletes a registered CA certificate.
   """
-  def delete_c_a_certificate(%Client{} = client, certificate_id, input, options \\ []) do
+  def delete_ca_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
     query_params = []
@@ -1415,7 +1415,7 @@ defmodule AWS.IoT do
   @doc """
   Delete an OTA update.
   """
-  def delete_o_t_a_update(%Client{} = client, ota_update_id, input, options \\ []) do
+  def delete_ota_update(%Client{} = client, ota_update_id, input, options \\ []) do
     url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
 
@@ -1995,7 +1995,7 @@ defmodule AWS.IoT do
   @doc """
   Describes a registered CA certificate.
   """
-  def describe_c_a_certificate(%Client{} = client, certificate_id, options \\ []) do
+  def describe_ca_certificate(%Client{} = client, certificate_id, options \\ []) do
     url_path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
     query_params = []
@@ -2730,7 +2730,7 @@ defmodule AWS.IoT do
   @doc """
   Gets an OTA update.
   """
-  def get_o_t_a_update(%Client{} = client, ota_update_id, options \\ []) do
+  def get_ota_update(%Client{} = client, ota_update_id, options \\ []) do
     url_path = "/otaUpdates/#{URI.encode(ota_update_id)}"
     headers = []
     query_params = []
@@ -3387,7 +3387,7 @@ defmodule AWS.IoT do
   The results are paginated with a default page size of 25. You can use the
   returned marker to retrieve additional results.
   """
-  def list_c_a_certificates(
+  def list_ca_certificates(
         %Client{} = client,
         ascending_order \\ nil,
         marker \\ nil,
@@ -3486,7 +3486,7 @@ defmodule AWS.IoT do
   @doc """
   List the device certificates signed by the specified CA certificate.
   """
-  def list_certificates_by_c_a(
+  def list_certificates_by_ca(
         %Client{} = client,
         ca_certificate_id,
         ascending_order \\ nil,
@@ -3891,7 +3891,7 @@ defmodule AWS.IoT do
   @doc """
   Lists OTA updates.
   """
-  def list_o_t_a_updates(
+  def list_ota_updates(
         %Client{} = client,
         max_results \\ nil,
         next_token \\ nil,
@@ -5340,7 +5340,7 @@ defmodule AWS.IoT do
   CA certificate registered, make sure you pass the CA certificate when you
   register your device certificates with the RegisterCertificate API.
   """
-  def register_c_a_certificate(%Client{} = client, input, options \\ []) do
+  def register_ca_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/cacertificate"
     headers = []
 
@@ -5397,7 +5397,7 @@ defmodule AWS.IoT do
   @doc """
   Register a certificate that does not have a certificate authority (CA).
   """
-  def register_certificate_without_c_a(%Client{} = client, input, options \\ []) do
+  def register_certificate_without_ca(%Client{} = client, input, options \\ []) do
     url_path = "/certificate/register-no-ca"
     headers = []
     query_params = []
@@ -5993,7 +5993,7 @@ defmodule AWS.IoT do
   @doc """
   Updates a registered CA certificate.
   """
-  def update_c_a_certificate(%Client{} = client, certificate_id, input, options \\ []) do
+  def update_ca_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/cacertificate/#{URI.encode(certificate_id)}"
     headers = []
 

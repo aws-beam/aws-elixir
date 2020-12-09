@@ -460,7 +460,7 @@ defmodule AWS.ServiceCatalog do
   Note that a delegated administrator is not authorized to invoke
   `DisableAWSOrganizationsAccess`.
   """
-  def disable_a_w_s_organizations_access(%Client{} = client, input, options \\ []) do
+  def disable_aws_organizations_access(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableAWSOrganizationsAccess", input, options)
   end
 
@@ -526,7 +526,7 @@ defmodule AWS.ServiceCatalog do
   Note that a delegated administrator is not authorized to invoke
   `EnableAWSOrganizationsAccess`.
   """
-  def enable_a_w_s_organizations_access(%Client{} = client, input, options \\ []) do
+  def enable_aws_organizations_access(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "EnableAWSOrganizationsAccess", input, options)
   end
 
@@ -557,7 +557,7 @@ defmodule AWS.ServiceCatalog do
   This API can only be called by the management account in the organization or by
   a delegated admin.
   """
-  def get_a_w_s_organizations_access_status(%Client{} = client, input, options \\ []) do
+  def get_aws_organizations_access_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetAWSOrganizationsAccessStatus", input, options)
   end
 

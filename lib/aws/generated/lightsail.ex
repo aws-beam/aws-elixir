@@ -884,7 +884,7 @@ defmodule AWS.Lightsail do
   Returns information about Amazon Lightsail containers, such as the current
   version of the Lightsail Control (lightsailctl) plugin.
   """
-  def get_container_a_p_i_metadata(%Client{} = client, input, options \\ []) do
+  def get_container_api_metadata(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetContainerAPIMetadata", input, options)
   end
 

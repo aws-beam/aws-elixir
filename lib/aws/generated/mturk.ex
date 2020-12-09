@@ -103,7 +103,7 @@ defmodule AWS.MTurk do
   Attempting to extend HITs that were created before July 22, 2015 will result in
   an `AWS.MechanicalTurk.HITTooOldForExtension` exception.
   """
-  def create_additional_assignments_for_h_i_t(%Client{} = client, input, options \\ []) do
+  def create_additional_assignments_for_hit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAdditionalAssignmentsForHIT", input, options)
   end
 
@@ -132,7 +132,7 @@ defmodule AWS.MTurk do
   If a HIT is created with 10 or more maximum assignments, there is an additional
   fee. For more information, see [Amazon Mechanical Turk Pricing](https://requester.mturk.com/pricing).
   """
-  def create_h_i_t(%Client{} = client, input, options \\ []) do
+  def create_hit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateHIT", input, options)
   end
 
@@ -143,7 +143,7 @@ defmodule AWS.MTurk do
   creating HITs. If you register a HIT type with values that match an existing HIT
   type, the HIT type ID of the existing type will be returned.
   """
-  def create_h_i_t_type(%Client{} = client, input, options \\ []) do
+  def create_hit_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateHITType", input, options)
   end
 
@@ -163,7 +163,7 @@ defmodule AWS.MTurk do
   If a HIT is created with 10 or more maximum assignments, there is an additional
   fee. For more information, see [Amazon Mechanical Turk Pricing](https://requester.mturk.com/pricing).
   """
-  def create_h_i_t_with_h_i_t_type(%Client{} = client, input, options \\ []) do
+  def create_hit_with_hit_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateHITWithHITType", input, options)
   end
 
@@ -209,7 +209,7 @@ defmodule AWS.MTurk do
      Disposing HITs can improve the performance of operations such as
   ListReviewableHITs and ListHITs.
   """
-  def delete_h_i_t(%Client{} = client, input, options \\ []) do
+  def delete_hit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteHIT", input, options)
   end
 
@@ -290,14 +290,14 @@ defmodule AWS.MTurk do
   the QuestionForm data structure. Instead, we recommend that Requesters who want
   to create HITs asking Workers to upload files to use Amazon S3.
   """
-  def get_file_upload_u_r_l(%Client{} = client, input, options \\ []) do
+  def get_file_upload_url(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetFileUploadURL", input, options)
   end
 
   @doc """
   The `GetHIT` operation retrieves the details of the specified HIT.
   """
-  def get_h_i_t(%Client{} = client, input, options \\ []) do
+  def get_hit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetHIT", input, options)
   end
 
@@ -348,7 +348,7 @@ defmodule AWS.MTurk do
   single page of results. You can use the parameters of the operation to control
   sorting and pagination.
   """
-  def list_assignments_for_h_i_t(%Client{} = client, input, options \\ []) do
+  def list_assignments_for_hit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAssignmentsForHIT", input, options)
   end
 
@@ -366,7 +366,7 @@ defmodule AWS.MTurk do
   The operation returns HITs of any status, except for HITs that have been deleted
   of with the DeleteHIT operation or that have been auto-deleted.
   """
-  def list_h_i_ts(%Client{} = client, input, options \\ []) do
+  def list_hits(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListHITs", input, options)
   end
 
@@ -377,7 +377,7 @@ defmodule AWS.MTurk do
   The operation returns HITs of any status, except for HITs that have been deleted
   with the `DeleteHIT` operation or that have been auto-deleted.
   """
-  def list_h_i_ts_for_qualification_type(%Client{} = client, input, options \\ []) do
+  def list_hits_for_qualification_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListHITsForQualificationType", input, options)
   end
 
@@ -409,7 +409,7 @@ defmodule AWS.MTurk do
   see Review Policies. The ListReviewPolicyResultsForHIT operation can return
   results for both Assignment-level and HIT-level review results.
   """
-  def list_review_policy_results_for_h_i_t(%Client{} = client, input, options \\ []) do
+  def list_review_policy_results_for_hit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListReviewPolicyResultsForHIT", input, options)
   end
 
@@ -418,7 +418,7 @@ defmodule AWS.MTurk do
   Reviewable or Status equal to Reviewing that belong to the Requester calling the
   operation.
   """
-  def list_reviewable_h_i_ts(%Client{} = client, input, options \\ []) do
+  def list_reviewable_hits(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListReviewableHITs", input, options)
   end
 
@@ -512,7 +512,7 @@ defmodule AWS.MTurk do
 
   If you update it to a time in the past, the HIT will be immediately expired.
   """
-  def update_expiration_for_h_i_t(%Client{} = client, input, options \\ []) do
+  def update_expiration_for_hit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateExpirationForHIT", input, options)
   end
 
@@ -522,7 +522,7 @@ defmodule AWS.MTurk do
   If the status is Reviewable, this operation can update the status to Reviewing,
   or it can revert a Reviewing HIT back to the Reviewable status.
   """
-  def update_h_i_t_review_status(%Client{} = client, input, options \\ []) do
+  def update_hit_review_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateHITReviewStatus", input, options)
   end
 
@@ -534,7 +534,7 @@ defmodule AWS.MTurk do
   associates it with the new HITType properties. The HIT takes on the properties
   of the new HITType in place of the old ones.
   """
-  def update_h_i_t_type_of_h_i_t(%Client{} = client, input, options \\ []) do
+  def update_hit_type_of_hit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateHITTypeOfHIT", input, options)
   end
 

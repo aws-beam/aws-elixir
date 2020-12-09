@@ -145,7 +145,7 @@ defmodule AWS.GuardDuty do
   for IP addresses that are included in IPSets. Only users from the master account
   can use this operation.
   """
-  def create_i_p_set(%Client{} = client, detector_id, input, options \\ []) do
+  def create_ip_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/ipset"
     headers = []
     query_params = []
@@ -334,29 +334,6 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Deletes the IPSet specified by the `ipSetId`.
-
-  IPSets are called trusted IP lists in the console user interface.
-  """
-  def delete_i_p_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
-    headers = []
-    query_params = []
-
-    Request.request_rest(
-      client,
-      metadata(),
-      :delete,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
-  end
-
-  @doc """
   Deletes invitations sent to the current member account by AWS accounts specified
   by their account IDs.
   """
@@ -369,6 +346,29 @@ defmodule AWS.GuardDuty do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the IPSet specified by the `ipSetId`.
+
+  IPSets are called trusted IP lists in the console user interface.
+  """
+  def delete_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
+    url_path = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
       url_path,
       query_params,
       headers,
@@ -681,10 +681,11 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Retrieves the IPSet specified by the `ipSetId`.
+  Returns the count of all GuardDuty membership invitations that were sent to the
+  current member account except the currently accepted invitation.
   """
-  def get_i_p_set(%Client{} = client, detector_id, ip_set_id, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
+  def get_invitations_count(%Client{} = client, options \\ []) do
+    url_path = "/invitation/count"
     headers = []
     query_params = []
 
@@ -702,11 +703,10 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Returns the count of all GuardDuty membership invitations that were sent to the
-  current member account except the currently accepted invitation.
+  Retrieves the IPSet specified by the `ipSetId`.
   """
-  def get_invitations_count(%Client{} = client, options \\ []) do
-    url_path = "/invitation/count"
+  def get_ip_set(%Client{} = client, detector_id, ip_set_id, options \\ []) do
+    url_path = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
     headers = []
     query_params = []
 
@@ -960,19 +960,11 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists the IPSets of the GuardDuty service specified by the detector ID.
-
-  If you use this operation from a member account, the IPSets returned are the
-  IPSets from the associated master account.
+  Lists all GuardDuty membership invitations that were sent to the current AWS
+  account.
   """
-  def list_i_p_sets(
-        %Client{} = client,
-        detector_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
-    url_path = "/detector/#{URI.encode(detector_id)}/ipset"
+  def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/invitation"
     headers = []
     query_params = []
 
@@ -1004,11 +996,19 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists all GuardDuty membership invitations that were sent to the current AWS
-  account.
+  Lists the IPSets of the GuardDuty service specified by the detector ID.
+
+  If you use this operation from a member account, the IPSets returned are the
+  IPSets from the associated master account.
   """
-  def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    url_path = "/invitation"
+  def list_ip_sets(
+        %Client{} = client,
+        detector_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/detector/#{URI.encode(detector_id)}/ipset"
     headers = []
     query_params = []
 
@@ -1422,7 +1422,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the IPSet specified by the IPSet ID.
   """
-  def update_i_p_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
+  def update_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
     headers = []
     query_params = []

@@ -270,7 +270,7 @@ defmodule AWS.STS do
     * [Creating a Role for SAML 2.0 Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html)
   in the *IAM User Guide*.
   """
-  def assume_role_with_s_a_m_l(%Client{} = client, input, options \\ []) do
+  def assume_role_with_saml(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssumeRoleWithSAML", input, options)
   end
 

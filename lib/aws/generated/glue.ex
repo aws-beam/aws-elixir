@@ -157,7 +157,7 @@ defmodule AWS.Glue do
   learning task run at any time by calling `CancelMLTaskRun` with a task run's
   parent transform's `TransformID` and the task run's `TaskRunId`.
   """
-  def cancel_m_l_task_run(%Client{} = client, input, options \\ []) do
+  def cancel_ml_task_run(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelMLTaskRun", input, options)
   end
 
@@ -238,7 +238,7 @@ defmodule AWS.Glue do
   `AllocatedCapacity`, `Timeout`, and `MaxRetries`. For more information, see
   [Jobs](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html).
   """
-  def create_m_l_transform(%Client{} = client, input, options \\ []) do
+  def create_ml_transform(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateMLTransform", input, options)
   end
 
@@ -417,7 +417,7 @@ defmodule AWS.Glue do
   `DeleteMLTransforms`. However, any AWS Glue jobs that still reference the
   deleted transform will no longer succeed.
   """
-  def delete_m_l_transform(%Client{} = client, input, options \\ []) do
+  def delete_ml_transform(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteMLTransform", input, options)
   end
 
@@ -710,6 +710,13 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates mappings.
+  """
+  def get_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMapping", input, options)
+  end
+
+  @doc """
   Gets details for a specific task run on a machine learning transform.
 
   Machine learning task runs are asynchronous tasks that AWS Glue runs on your
@@ -717,7 +724,7 @@ defmodule AWS.Glue do
   any task run by calling `GetMLTaskRun` with the `TaskRunID` and its parent
   transform's `TransformID`.
   """
-  def get_m_l_task_run(%Client{} = client, input, options \\ []) do
+  def get_ml_task_run(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMLTaskRun", input, options)
   end
 
@@ -732,7 +739,7 @@ defmodule AWS.Glue do
 
   This operation returns a list of historic runs and must be paginated.
   """
-  def get_m_l_task_runs(%Client{} = client, input, options \\ []) do
+  def get_ml_task_runs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMLTaskRuns", input, options)
   end
 
@@ -745,7 +752,7 @@ defmodule AWS.Glue do
   from examples provided by humans. These transformations are then saved by AWS
   Glue. You can retrieve their metadata by calling `GetMLTransform`.
   """
-  def get_m_l_transform(%Client{} = client, input, options \\ []) do
+  def get_ml_transform(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMLTransform", input, options)
   end
 
@@ -758,15 +765,8 @@ defmodule AWS.Glue do
   from examples provided by humans. These transformations are then saved by AWS
   Glue, and you can retrieve their metadata by calling `GetMLTransforms`.
   """
-  def get_m_l_transforms(%Client{} = client, input, options \\ []) do
+  def get_ml_transforms(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMLTransforms", input, options)
-  end
-
-  @doc """
-  Creates mappings.
-  """
-  def get_mapping(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetMapping", input, options)
   end
 
   @doc """
@@ -1031,7 +1031,7 @@ defmodule AWS.Glue do
   the responses so that tagged resources can be retrieved as a group. If you
   choose to use tag filtering, only resources with the tags are retrieved.
   """
-  def list_m_l_transforms(%Client{} = client, input, options \\ []) do
+  def list_ml_transforms(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListMLTransforms", input, options)
   end
 
@@ -1287,7 +1287,7 @@ defmodule AWS.Glue do
   Returns a unique identifier for the run. You can call `GetMLTaskRun` to get more
   information about the stats of the `EvaluationTaskRun`.
   """
-  def start_m_l_evaluation_task_run(%Client{} = client, input, options \\ []) do
+  def start_ml_evaluation_task_run(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartMLEvaluationTaskRun", input, options)
   end
 
@@ -1307,7 +1307,7 @@ defmodule AWS.Glue do
   future runs of the machine learning transform will use the new and improved
   labels and perform a higher-quality transformation.
   """
-  def start_m_l_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
+  def start_ml_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -1464,7 +1464,7 @@ defmodule AWS.Glue do
   improving the quality of your machine learning transform, or making it more
   cost-effective).
   """
-  def update_m_l_transform(%Client{} = client, input, options \\ []) do
+  def update_ml_transform(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateMLTransform", input, options)
   end
 

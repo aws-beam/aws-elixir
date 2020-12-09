@@ -99,7 +99,7 @@ defmodule AWS.WAFV2 do
   the Web ACL. For information, see
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html).
   """
-  def associate_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def associate_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateWebACL", input, options)
   end
 
@@ -138,7 +138,7 @@ defmodule AWS.WAFV2 do
   receiving a lot of requests from a ranges of IP addresses, you can configure AWS
   WAF to block them using an IPSet that lists those IP addresses.
   """
-  def create_i_p_set(%Client{} = client, input, options \\ []) do
+  def create_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateIPSet", input, options)
   end
 
@@ -195,7 +195,7 @@ defmodule AWS.WAFV2 do
   API Gateway REST API, an Application Load Balancer, or an AWS AppSync GraphQL
   API.
   """
-  def create_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def create_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateWebACL", input, options)
   end
 
@@ -219,7 +219,7 @@ defmodule AWS.WAFV2 do
 
   Deletes the specified `IPSet`.
   """
-  def delete_i_p_set(%Client{} = client, input, options \\ []) do
+  def delete_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteIPSet", input, options)
   end
 
@@ -283,7 +283,7 @@ defmodule AWS.WAFV2 do
   You can only use this if `ManagedByFirewallManager` is false in the specified
   `WebACL`.
   """
-  def delete_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def delete_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteWebACL", input, options)
   end
 
@@ -317,7 +317,7 @@ defmodule AWS.WAFV2 do
   ID in the CloudFront call `UpdateDistribution`. For information, see
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html).
   """
-  def disassociate_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def disassociate_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateWebACL", input, options)
   end
 
@@ -330,7 +330,7 @@ defmodule AWS.WAFV2 do
 
   Retrieves the specified `IPSet`.
   """
-  def get_i_p_set(%Client{} = client, input, options \\ []) do
+  def get_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetIPSet", input, options)
   end
 
@@ -431,7 +431,7 @@ defmodule AWS.WAFV2 do
 
   Retrieves the specified `WebACL`.
   """
-  def get_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def get_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetWebACL", input, options)
   end
 
@@ -444,7 +444,7 @@ defmodule AWS.WAFV2 do
 
   Retrieves the `WebACL` for the specified resource.
   """
-  def get_web_a_c_l_for_resource(%Client{} = client, input, options \\ []) do
+  def get_web_acl_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetWebACLForResource", input, options)
   end
 
@@ -472,7 +472,7 @@ defmodule AWS.WAFV2 do
 
   Retrieves an array of `IPSetSummary` objects for the IP sets that you manage.
   """
-  def list_i_p_sets(%Client{} = client, input, options \\ []) do
+  def list_ip_sets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListIPSets", input, options)
   end
 
@@ -515,7 +515,7 @@ defmodule AWS.WAFV2 do
   of AWS CloudFront resources, use the AWS CloudFront call
   `ListDistributionsByWebACLId`.
   """
-  def list_resources_for_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def list_resources_for_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListResourcesForWebACL", input, options)
   end
 
@@ -563,7 +563,7 @@ defmodule AWS.WAFV2 do
 
   Retrieves an array of `WebACLSummary` objects for the web ACLs that you manage.
   """
-  def list_web_a_c_ls(%Client{} = client, input, options \\ []) do
+  def list_web_acls(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListWebACLs", input, options)
   end
 
@@ -671,7 +671,7 @@ defmodule AWS.WAFV2 do
 
   Updates the specified `IPSet`.
   """
-  def update_i_p_set(%Client{} = client, input, options \\ []) do
+  def update_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateIPSet", input, options)
   end
 
@@ -726,7 +726,7 @@ defmodule AWS.WAFV2 do
   API Gateway REST API, an Application Load Balancer, or an AWS AppSync GraphQL
   API.
   """
-  def update_web_a_c_l(%Client{} = client, input, options \\ []) do
+  def update_web_acl(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateWebACL", input, options)
   end
 end

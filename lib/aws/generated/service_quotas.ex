@@ -87,16 +87,6 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Retrieves the default service quotas values.
-
-  The Value returned for each quota is the AWS default value, even if the quotas
-  have been increased..
-  """
-  def get_a_w_s_default_service_quota(%Client{} = client, input, options \\ []) do
-    Request.request_post(client, metadata(), "GetAWSDefaultServiceQuota", input, options)
-  end
-
-  @doc """
   Retrieves the `ServiceQuotaTemplateAssociationStatus` value from the service.
 
   Use this action to determine if the Service Quota template is associated, or
@@ -110,6 +100,16 @@ defmodule AWS.ServiceQuotas do
       input,
       options
     )
+  end
+
+  @doc """
+  Retrieves the default service quotas values.
+
+  The Value returned for each quota is the AWS default value, even if the quotas
+  have been increased..
+  """
+  def get_aws_default_service_quota(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAWSDefaultServiceQuota", input, options)
   end
 
   @doc """
@@ -159,7 +159,7 @@ defmodule AWS.ServiceQuotas do
   parameter contains a value to pass the next call to the same API to request the
   next part of the list.
   """
-  def list_a_w_s_default_service_quotas(%Client{} = client, input, options \\ []) do
+  def list_aws_default_service_quotas(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAWSDefaultServiceQuotas", input, options)
   end
 

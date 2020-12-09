@@ -51,7 +51,7 @@ defmodule AWS.Neptune do
   Associates an Identity and Access Management (IAM) role from an Neptune DB
   cluster.
   """
-  def add_role_to_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddRoleToDBCluster", input, options)
   end
 
@@ -84,7 +84,7 @@ defmodule AWS.Neptune do
   @doc """
   Copies the specified DB cluster parameter group.
   """
-  def copy_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterParameterGroup", input, options)
   end
 
@@ -95,14 +95,14 @@ defmodule AWS.Neptune do
   `SourceDBClusterSnapshotIdentifier` must be the Amazon Resource Name (ARN) of
   the shared DB cluster snapshot.
   """
-  def copy_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBClusterSnapshot", input, options)
   end
 
   @doc """
   Copies the specified DB parameter group.
   """
-  def copy_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyDBParameterGroup", input, options)
   end
 
@@ -117,7 +117,7 @@ defmodule AWS.Neptune do
   cluster in the console, deletion protection is enabled by default). You can only
   delete a DB cluster if its `DeletionProtection` field is set to `false`.
   """
-  def create_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def create_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBCluster", input, options)
   end
 
@@ -125,7 +125,7 @@ defmodule AWS.Neptune do
   Creates a new custom endpoint and associates it with an Amazon Neptune DB
   cluster.
   """
-  def create_d_b_cluster_endpoint(%Client{} = client, input, options \\ []) do
+  def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterEndpoint", input, options)
   end
 
@@ -157,21 +157,21 @@ defmodule AWS.Neptune do
   `DescribeDBClusterParameters` command to verify that your DB cluster parameter
   group has been created or modified.
   """
-  def create_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterParameterGroup", input, options)
   end
 
   @doc """
   Creates a snapshot of a DB cluster.
   """
-  def create_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBClusterSnapshot", input, options)
   end
 
   @doc """
   Creates a new DB instance.
   """
-  def create_d_b_instance(%Client{} = client, input, options \\ []) do
+  def create_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBInstance", input, options)
   end
 
@@ -197,7 +197,7 @@ defmodule AWS.Neptune do
   Groups* option of the Amazon Neptune console or the *DescribeDBParameters*
   command to verify that your DB parameter group has been created or modified.
   """
-  def create_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def create_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBParameterGroup", input, options)
   end
 
@@ -207,7 +207,7 @@ defmodule AWS.Neptune do
   DB subnet groups must contain at least one subnet in at least two AZs in the AWS
   Region.
   """
-  def create_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def create_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBSubnetGroup", input, options)
   end
 
@@ -247,14 +247,14 @@ defmodule AWS.Neptune do
   Note that the DB Cluster cannot be deleted if deletion protection is enabled. To
   delete it, you must first set its `DeletionProtection` field to `False`.
   """
-  def delete_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBCluster", input, options)
   end
 
   @doc """
   Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.
   """
-  def delete_d_b_cluster_endpoint(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterEndpoint", input, options)
   end
 
@@ -264,7 +264,7 @@ defmodule AWS.Neptune do
   The DB cluster parameter group to be deleted can't be associated with any DB
   clusters.
   """
-  def delete_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterParameterGroup", input, options)
   end
 
@@ -275,7 +275,7 @@ defmodule AWS.Neptune do
 
   The DB cluster snapshot must be in the `available` state to be deleted.
   """
-  def delete_d_b_cluster_snapshot(%Client{} = client, input, options \\ []) do
+  def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBClusterSnapshot", input, options)
   end
 
@@ -298,7 +298,7 @@ defmodule AWS.Neptune do
   You can't delete a DB instance if it is the only instance in the DB cluster, or
   if it has deletion protection enabled.
   """
-  def delete_d_b_instance(%Client{} = client, input, options \\ []) do
+  def delete_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBInstance", input, options)
   end
 
@@ -307,7 +307,7 @@ defmodule AWS.Neptune do
 
   The DBParameterGroup to be deleted can't be associated with any DB instances.
   """
-  def delete_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBParameterGroup", input, options)
   end
 
@@ -317,7 +317,7 @@ defmodule AWS.Neptune do
   The specified database subnet group must not be associated with any DB
   instances.
   """
-  def delete_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBSubnetGroup", input, options)
   end
 
@@ -334,7 +334,7 @@ defmodule AWS.Neptune do
   This operation can also return information for Amazon RDS clusters and Amazon
   DocDB clusters.
   """
-  def describe_d_b_cluster_endpoints(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterEndpoints", input, options)
   end
 
@@ -344,14 +344,14 @@ defmodule AWS.Neptune do
   If a `DBClusterParameterGroupName` parameter is specified, the list will contain
   only the description of the specified DB cluster parameter group.
   """
-  def describe_d_b_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameterGroups", input, options)
   end
 
   @doc """
   Returns the detailed parameter list for a particular DB cluster parameter group.
   """
-  def describe_d_b_cluster_parameters(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterParameters", input, options)
   end
 
@@ -370,7 +370,7 @@ defmodule AWS.Neptune do
   cluster snapshot, or to make the manual DB cluster snapshot public or private,
   use the `ModifyDBClusterSnapshotAttribute` API action.
   """
-  def describe_d_b_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -385,7 +385,7 @@ defmodule AWS.Neptune do
 
   This API action supports pagination.
   """
-  def describe_d_b_cluster_snapshots(%Client{} = client, input, options \\ []) do
+  def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusterSnapshots", input, options)
   end
 
@@ -395,14 +395,14 @@ defmodule AWS.Neptune do
   This operation can also return information for Amazon RDS clusters and Amazon
   DocDB clusters.
   """
-  def describe_d_b_clusters(%Client{} = client, input, options \\ []) do
+  def describe_db_clusters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBClusters", input, options)
   end
 
   @doc """
   Returns a list of the available DB engines.
   """
-  def describe_d_b_engine_versions(%Client{} = client, input, options \\ []) do
+  def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBEngineVersions", input, options)
   end
 
@@ -412,7 +412,7 @@ defmodule AWS.Neptune do
   This operation can also return information for Amazon RDS instances and Amazon
   DocDB instances.
   """
-  def describe_d_b_instances(%Client{} = client, input, options \\ []) do
+  def describe_db_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBInstances", input, options)
   end
 
@@ -422,14 +422,14 @@ defmodule AWS.Neptune do
   If a `DBParameterGroupName` is specified, the list will contain only the
   description of the specified DB parameter group.
   """
-  def describe_d_b_parameter_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBParameterGroups", input, options)
   end
 
   @doc """
   Returns the detailed parameter list for a particular DB parameter group.
   """
-  def describe_d_b_parameters(%Client{} = client, input, options \\ []) do
+  def describe_db_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBParameters", input, options)
   end
 
@@ -441,7 +441,7 @@ defmodule AWS.Neptune do
 
   For an overview of CIDR ranges, go to the [Wikipedia Tutorial](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
   """
-  def describe_d_b_subnet_groups(%Client{} = client, input, options \\ []) do
+  def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDBSubnetGroups", input, options)
   end
 
@@ -502,7 +502,7 @@ defmodule AWS.Neptune do
   @doc """
   Returns a list of orderable DB instance options for the specified engine.
   """
-  def describe_orderable_d_b_instance_options(%Client{} = client, input, options \\ []) do
+  def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeOrderableDBInstanceOptions", input, options)
   end
 
@@ -520,7 +520,7 @@ defmodule AWS.Neptune do
 
   You can use this information when you call `ModifyDBInstance`.
   """
-  def describe_valid_d_b_instance_modifications(%Client{} = client, input, options \\ []) do
+  def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
     Request.request_post(
       client,
       metadata(),
@@ -543,7 +543,7 @@ defmodule AWS.Neptune do
   re-establish any existing connections that use those endpoint addresses when the
   failover is complete.
   """
-  def failover_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def failover_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "FailoverDBCluster", input, options)
   end
 
@@ -560,14 +560,14 @@ defmodule AWS.Neptune do
   You can change one or more database configuration parameters by specifying these
   parameters and the new values in the request.
   """
-  def modify_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBCluster", input, options)
   end
 
   @doc """
   Modifies the properties of an endpoint in an Amazon Neptune DB cluster.
   """
-  def modify_d_b_cluster_endpoint(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterEndpoint", input, options)
   end
 
@@ -593,7 +593,7 @@ defmodule AWS.Neptune do
   console or the `DescribeDBClusterParameters` command to verify that your DB
   cluster parameter group has been created or modified.
   """
-  def modify_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterParameterGroup", input, options)
   end
 
@@ -616,7 +616,7 @@ defmodule AWS.Neptune do
   snapshot, or whether a manual DB cluster snapshot public or private, use the
   `DescribeDBClusterSnapshotAttributes` API action.
   """
-  def modify_d_b_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
+  def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBClusterSnapshotAttribute", input, options)
   end
 
@@ -628,7 +628,7 @@ defmodule AWS.Neptune do
   can make to your DB instance, call `DescribeValidDBInstanceModifications` before
   you call `ModifyDBInstance`.
   """
-  def modify_d_b_instance(%Client{} = client, input, options \\ []) do
+  def modify_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBInstance", input, options)
   end
 
@@ -653,7 +653,7 @@ defmodule AWS.Neptune do
   Groups* option of the Amazon Neptune console or the *DescribeDBParameters*
   command to verify that your DB parameter group has been created or modified.
   """
-  def modify_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBParameterGroup", input, options)
   end
 
@@ -663,7 +663,7 @@ defmodule AWS.Neptune do
   DB subnet groups must contain at least one subnet in at least two AZs in the AWS
   Region.
   """
-  def modify_d_b_subnet_group(%Client{} = client, input, options \\ []) do
+  def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBSubnetGroup", input, options)
   end
 
@@ -685,7 +685,7 @@ defmodule AWS.Neptune do
   @doc """
   Not supported.
   """
-  def promote_read_replica_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PromoteReadReplicaDBCluster", input, options)
   end
 
@@ -700,14 +700,14 @@ defmodule AWS.Neptune do
   instance results in a momentary outage, during which the DB instance status is
   set to rebooting.
   """
-  def reboot_d_b_instance(%Client{} = client, input, options \\ []) do
+  def reboot_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RebootDBInstance", input, options)
   end
 
   @doc """
   Disassociates an Identity and Access Management (IAM) role from a DB cluster.
   """
-  def remove_role_from_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveRoleFromDBCluster", input, options)
   end
 
@@ -744,7 +744,7 @@ defmodule AWS.Neptune do
   for every DB instance in your DB cluster that you want the updated static
   parameter to apply to.
   """
-  def reset_d_b_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+  def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetDBClusterParameterGroup", input, options)
   end
 
@@ -759,7 +759,7 @@ defmodule AWS.Neptune do
   are set to `pending-reboot` to take effect on the next DB instance restart or
   `RebootDBInstance` request.
   """
-  def reset_d_b_parameter_group(%Client{} = client, input, options \\ []) do
+  def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetDBParameterGroup", input, options)
   end
 
@@ -774,7 +774,7 @@ defmodule AWS.Neptune do
   source DB cluster, except that the new DB cluster is created with the default
   security group.
   """
-  def restore_d_b_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
+  def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterFromSnapshot", input, options)
   end
 
@@ -793,7 +793,7 @@ defmodule AWS.Neptune do
   `RestoreDBClusterToPointInTime` action has completed and the DB cluster is
   available.
   """
-  def restore_d_b_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
+  def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RestoreDBClusterToPointInTime", input, options)
   end
 
@@ -801,7 +801,7 @@ defmodule AWS.Neptune do
   Starts an Amazon Neptune DB cluster that was stopped using the AWS console, the
   AWS CLI stop-db-cluster command, or the StopDBCluster API.
   """
-  def start_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def start_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartDBCluster", input, options)
   end
 
@@ -814,7 +814,7 @@ defmodule AWS.Neptune do
   Neptune also retains the transaction logs so you can do a point-in-time restore
   if necessary.
   """
-  def stop_d_b_cluster(%Client{} = client, input, options \\ []) do
+  def stop_db_cluster(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopDBCluster", input, options)
   end
 end

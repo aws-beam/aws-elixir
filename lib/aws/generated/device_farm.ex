@@ -102,7 +102,7 @@ defmodule AWS.DeviceFarm do
   Creates a configuration record in Device Farm for your Amazon Virtual Private
   Cloud (VPC) endpoint.
   """
-  def create_v_p_c_e_configuration(%Client{} = client, input, options \\ []) do
+  def create_vpce_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateVPCEConfiguration", input, options)
   end
 
@@ -175,7 +175,7 @@ defmodule AWS.DeviceFarm do
   @doc """
   Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.
   """
-  def delete_v_p_c_e_configuration(%Client{} = client, input, options \\ []) do
+  def delete_vpce_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteVPCEConfiguration", input, options)
   end
 
@@ -320,7 +320,7 @@ defmodule AWS.DeviceFarm do
   Returns information about the configuration settings for your Amazon Virtual
   Private Cloud (VPC) endpoint.
   """
-  def get_v_p_c_e_configuration(%Client{} = client, input, options \\ []) do
+  def get_vpce_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetVPCEConfiguration", input, options)
   end
 
@@ -525,7 +525,7 @@ defmodule AWS.DeviceFarm do
   Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
   configurations in the AWS account.
   """
-  def list_v_p_c_e_configurations(%Client{} = client, input, options \\ []) do
+  def list_vpce_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListVPCEConfigurations", input, options)
   end
 
@@ -669,7 +669,7 @@ defmodule AWS.DeviceFarm do
   Updates information about an Amazon Virtual Private Cloud (VPC) endpoint
   configuration.
   """
-  def update_v_p_c_e_configuration(%Client{} = client, input, options \\ []) do
+  def update_vpce_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateVPCEConfiguration", input, options)
   end
 end

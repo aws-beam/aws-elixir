@@ -113,7 +113,7 @@ defmodule AWS.AppStream do
   @doc """
   Creates a URL to start an image builder streaming session.
   """
-  def create_image_builder_streaming_u_r_l(%Client{} = client, input, options \\ []) do
+  def create_image_builder_streaming_url(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateImageBuilderStreamingURL", input, options)
   end
 
@@ -133,7 +133,7 @@ defmodule AWS.AppStream do
 
   A streaming URL enables application streaming to be tested without user setup.
   """
-  def create_streaming_u_r_l(%Client{} = client, input, options \\ []) do
+  def create_streaming_url(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateStreamingURL", input, options)
   end
 

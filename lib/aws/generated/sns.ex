@@ -205,7 +205,7 @@ defmodule AWS.SNS do
 
   These settings are set with the `SetSMSAttributes` action.
   """
-  def get_s_m_s_attributes(%Client{} = client, input, options \\ []) do
+  def get_sms_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetSMSAttributes", input, options)
   end
 
@@ -399,7 +399,7 @@ defmodule AWS.SNS do
   information, see [Publishing to a mobile phone](https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html) in
   the *Amazon SNS Developer Guide*.
   """
-  def set_s_m_s_attributes(%Client{} = client, input, options \\ []) do
+  def set_sms_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetSMSAttributes", input, options)
   end
 

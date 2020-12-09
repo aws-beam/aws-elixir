@@ -537,7 +537,7 @@ defmodule AWS.Backup do
   @doc """
   Returns a valid JSON document specifying a backup plan or an error.
   """
-  def get_backup_plan_from_j_s_o_n(%Client{} = client, input, options \\ []) do
+  def get_backup_plan_from_json(%Client{} = client, input, options \\ []) do
     url_path = "/backup/template/json/toPlan"
     headers = []
     query_params = []

@@ -46,15 +46,18 @@ defmodule AWS.HTTPClient do
   defp ensure_hackney_running!() do
     unless Code.ensure_loaded?(:hackney) do
       Logger.error("""
-      Missing 'hackney' dependency! Add it to mix.exs file:
+      Could not find hackney dependency.
 
-      {:hackney, "~> 1.16"}
+      Please add :hackney to your dependencies:
 
-      Optionally, you can provide your own #{__MODULE__} implementation (Check AWS.Client docs).
+          {:hackney, "~> 1.16"}
 
+      Or provide your own #{__MODULE__} implementation:
+
+          %AWS.Client{http_client: {MyCustomHTTPClient, []}}
       """)
 
-      raise "missing 'hackney' dependency."
+      raise "missing hackney dependency"
     end
 
     {:ok, _apps} = Application.ensure_all_started(:hackney)

@@ -10,7 +10,22 @@
 * Support for most AWS services that use `json` and `rest-json` protocols.
 
 
-## Example
+## Installation
+
+* Add `aws` to your list of dependencies in `mix.exs`. It also requires [hackney](https://github.com/benoitc/hackney) for the default HTTP client. Optionally, you can implement your own (Check AWS.Client docs).
+
+  ```elixir
+  def deps do
+    [
+      {:aws, "~> 0.5.0"},
+      {:hackney, "~> 1.16"}
+    ]
+  end
+  ```
+
+* Run `mix deps.get` to install.
+
+## Usage
 
 Listing Amazon Kinesis streams. Start a console with `iex -S mix`:
 
@@ -26,22 +41,13 @@ iex> IO.inspect result
 %{"HasMoreStreams" => false, "StreamNames" => []}
 ```
 
-## Usage
-
-* Add it as a Mix dependency in the project.
-
-  ```elixir
-  def deps do
-    [{:aws, "~> 0.5.0"}]
-  end
-  ```
-
-* Run `mix deps.get` to install.
-
 ## Development
 
-Code is generated using the [aws-codegen](https://github.com/aws-beam/aws-codegen)
-library from the JSON descriptions of AWS services provided by Amazon.
+Most of the code is generated using the [aws-codegen](https://github.com/aws-beam/aws-codegen)
+library from the JSON descriptions of AWS services provided by Amazon. They can be found in `lib/aws/generated`.
+
+Code outside `lib/aws/generated` is manually written and used as support for the generated code.
+
 
 ## Documentation
 

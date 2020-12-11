@@ -15,9 +15,9 @@ defmodule AWS.ClientTest do
     end
   end
 
- describe "encode!/3" do
+  describe "encode!/3" do
     test "encodes into json", %{client: client} do
-      assert AWS.Client.encode!(client,  %{"body" => "content"}, :json) == "{\"body\":\"content\"}"
+      assert AWS.Client.encode!(client, %{"body" => "content"}, :json) == "{\"body\":\"content\"}"
     end
 
     test "encodes into xml", %{client: client} do
@@ -47,9 +47,7 @@ defmodule AWS.ClientTest do
       result = AWS.Client.request(client, :post, "#{url(bypass)}/publish", "", headers)
       assert {:ok, %{status_code: 200, body: ^expected_body}} = result
     end
-
   end
 
   defp url(bypass), do: "http://localhost:#{bypass.port}/"
-
 end

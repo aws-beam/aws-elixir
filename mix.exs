@@ -44,8 +44,8 @@ defmodule AWS.Mixfile do
       {:earmark, "~> 1.4", only: [:dev]},
       {:ex_doc, "~> 0.21", only: [:dev]},
       {:bypass, "~> 2.1", only: [:test]},
-      {:httpoison, "~> 1.6"},
-      {:poison, "~> 4.0"}
+      {:jason, "~> 1.2"},
+      {:hackney, "~> 1.16", optional: true}
     ]
   end
 
@@ -61,7 +61,7 @@ defmodule AWS.Mixfile do
     [
       main: "AWS",
       groups_for_modules: [
-        "Web Services": &(String.starts_with?(&1.source_path, @auto_generated_files_dir))
+        "Web Services": &String.starts_with?(&1.source_path, @auto_generated_files_dir)
       ],
       source_ref: "v#{@version}",
       source_url: @repo_url

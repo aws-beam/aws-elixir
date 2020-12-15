@@ -199,6 +199,13 @@ defmodule AWS.MediaStoreData do
 
     query_params = []
 
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
+      )
+
     Request.request_rest(
       client,
       metadata(),

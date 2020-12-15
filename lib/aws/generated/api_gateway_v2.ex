@@ -1511,6 +1511,13 @@ defmodule AWS.ApiGatewayV2 do
       ]
       |> Request.build_params(input)
 
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
+      )
+
     Request.request_rest(
       client,
       metadata(),
@@ -1537,6 +1544,13 @@ defmodule AWS.ApiGatewayV2 do
         {"FailOnWarnings", "failOnWarnings"}
       ]
       |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
+      )
 
     Request.request_rest(
       client,

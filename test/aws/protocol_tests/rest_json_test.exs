@@ -95,4 +95,50 @@ defmodule AWS.ProtocolTests.RestJSONTest do
       Bypass.down(bypass)
     end
   end
+
+  describe "request with body without encoding" do
+    test "case #1", %{client: client, metadata: metadata} do
+      file = File.read!("./test/fixtures/sample.png")
+
+      input = %{"Body" => file}
+      path = "/2014-01-01/jobsByPipeline/foo"
+
+      bypass = Bypass.open()
+      client = %{client | port: bypass.port}
+
+      Bypass.expect(bypass, fn conn ->
+        [content_type] = Plug.Conn.get_req_header(conn, "content-type")
+        assert content_type == metadata.content_type
+
+        {:ok, body, conn} = Plug.Conn.read_body(conn)
+
+        assert body == file
+
+        assert conn.request_path == path
+
+        Plug.Conn.resp(
+          conn,
+          200,
+          "{\"data\": \"ok\"}"
+        )
+      end)
+
+      {:ok, body, _} =
+        Request.request_rest(
+          client,
+          metadata,
+          :post,
+          path,
+          %{},
+          [],
+          input,
+          [send_body_as_binary?: true],
+          200
+        )
+
+      assert body == %{"data" => "ok"}
+
+      Bypass.down(bypass)
+    end
+  end
 end

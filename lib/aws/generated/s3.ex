@@ -6179,6 +6179,13 @@ defmodule AWS.S3 do
         ]
       )
 
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
+      )
+
     Request.request_rest(
       client,
       metadata(),
@@ -7159,6 +7166,13 @@ defmodule AWS.S3 do
           {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
           {"x-amz-server-side-encryption", "ServerSideEncryption"}
         ]
+      )
+
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
       )
 
     Request.request_rest(

@@ -64,6 +64,7 @@ defmodule AWS.Request do
         success_status_code
       ) do
     client = prepare_client(client, metadata)
+    input = input || %{}
 
     host =
       if metadata.endpoint_prefix == "s3-control" do
@@ -81,7 +82,15 @@ defmodule AWS.Request do
     additional_headers = [{"Host", host}, {"Content-Type", metadata.content_type}]
     headers = add_headers(additional_headers, headers)
 
-    payload = encode!(client, metadata.protocol, input)
+    {send_body_as_binary?, options} = Keyword.pop(options, :send_body_as_binary?)
+
+    payload =
+      if send_body_as_binary? do
+        Map.fetch!(input, "Body")
+      else
+        encode!(client, metadata.protocol, input)
+      end
+
     headers = sign_v4(client, method, url, headers, payload)
 
     {response_header_parameters, options} = Keyword.pop(options, :response_header_parameters)
@@ -165,7 +174,7 @@ defmodule AWS.Request do
     "#{url}?#{querystring}"
   end
 
-  defp encode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols do
+  defp encode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols and is_map(payload) do
     encode_format =
       case protocol do
         "query" -> :query

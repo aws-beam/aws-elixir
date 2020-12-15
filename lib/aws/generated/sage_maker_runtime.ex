@@ -75,6 +75,13 @@ defmodule AWS.SageMakerRuntime do
         ]
       )
 
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
+      )
+
     Request.request_rest(
       client,
       metadata(),

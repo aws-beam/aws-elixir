@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
+
+## [v0.7.0] - 2020-12-22
 ### Added
 - Add support for more AWS APIs. There are more than 170 new modules, which includes
 the majority of AWS services.
@@ -392,7 +394,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.6.0...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.7.0...HEAD
+[v0.7.0]: https://github.com/aws-beam/aws-elixir/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/aws-beam/aws-elixir/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/aws-beam/aws-elixir/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/aws-beam/aws-elixir/compare/v0.3.0...v0.4.0

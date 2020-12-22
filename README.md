@@ -45,8 +45,8 @@ iex> AWS.S3.put_object(client, "your-bucket-name", "foo/your-file-on-s3.txt", %{
   ```elixir
   def deps do
     [
-      {:aws, "~> 0.6.0"},
-      {:hackney, "~> 1.16"}
+      {:aws, "~> 0.7.0"},
+      {:hackney, "~> 1.17"}
     ]
   end
   ```
@@ -69,7 +69,9 @@ Local
 * Run `MIX_ENV=docs mix docs`
 * Open `docs/index.html`
 
-__note:__ Arguments, errors and reponse structure can be found by viewing the model schemas used to generate this module at `aws-sdk-go/models/apis/<aws-service>/<version>/` an example is `aws-sdk-go/models/apis/rekognition/2016-06-27/api-2.json`. Alternatively you can access the documentation for the service you want at [AWS docs page](https://docs.aws.amazon.com/).
+__note:__ Arguments, errors and reponse structure can be found by viewing the model schemas used to generate this module at `aws-sdk-go/models/apis/<aws-service>/<version>/`.
+An example is [`aws-sdk-go/models/apis/rekognition/2016-06-27/api-2.json`](https://github.com/aws/aws-sdk-go/blob/master/models/apis/rekognition/2016-06-27/api-2.json).
+Alternatively you can access the documentation for the service you want at [AWS docs page](https://docs.aws.amazon.com/).
 
 ## Tests
 

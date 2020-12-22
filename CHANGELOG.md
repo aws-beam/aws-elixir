@@ -4,10 +4,24 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 ### Added
-- Includes support for more AWS APIs.
+- Add support for more AWS APIs. There are more than 170 new modules, which includes
+the majority of AWS services.
+- Load AWS credentials from env if available.
+- Add header `X-Amz-Content-SHA256` required for APIs using the rest-xml protocol.
+- Handle querystring parameters.
+- Allow the user to configure the HTTP client, as well as the JSON parser.
 
 ### Changed
 - Improve documentation by using more markdown and removing HTML tags.
+- Rename modules and function names to consider the correct use of abbreviations, like SQS or DB.
+- Migrate to Jason (JSON parser) and hackney (HTTP client) as the default dependencies. Hackney
+is an optional dependency.
+
+### Fixed
+- Fixed the way we send the payload to endpoints that accepts binaries as body (S3
+is an example).
+- Normalize querystring when signing.
+- Remove duplicated headers.
 
 ## [v0.6.0] - 2020-08-20
 ### Added

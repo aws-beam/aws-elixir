@@ -105,7 +105,7 @@ defmodule AWS.ComputeOptimizer do
   requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
   in the *AWS Compute Optimizer User Guide*.
   """
-  def get_e_b_s_volume_recommendations(%Client{} = client, input, options \\ []) do
+  def get_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetEBSVolumeRecommendations", input, options)
   end
 

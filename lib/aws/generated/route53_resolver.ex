@@ -245,6 +245,13 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Gets DNSSEC validation information for a specified resource.
+  """
+  def get_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResolverDnssecConfig", input, options)
+  end
+
+  @doc """
   Gets information about a specified Resolver endpoint, such as whether it's an
   inbound or an outbound Resolver endpoint, and the current status of the
   endpoint.
@@ -310,13 +317,22 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Gets information about a Resolver rule policy.
+  Gets information about the Resolver rule policy for a specified rule.
 
-  A Resolver rule policy specifies the Resolver operations and resources that you
-  want to allow another AWS account to be able to use.
+  A Resolver rule policy includes the rule that you want to share with another
+  account, the account that you want to share the rule with, and the Resolver
+  operations that you want to allow the account to use.
   """
   def get_resolver_rule_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetResolverRulePolicy", input, options)
+  end
+
+  @doc """
+  Lists the configurations for DNSSEC validation that are associated with the
+  current AWS account.
+  """
+  def list_resolver_dnssec_configs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListResolverDnssecConfigs", input, options)
   end
 
   @doc """
@@ -390,9 +406,9 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Specifies an AWS account that you want to share rules with, the Resolver rules
-  that you want to share, and the operations that you want the account to be able
-  to perform on those rules.
+  Specifies an AWS rule that you want to share with another account, the account
+  that you want to share the rule with, and the operations that you want the
+  account to be able to perform on the rule.
   """
   def put_resolver_rule_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutResolverRulePolicy", input, options)
@@ -410,6 +426,15 @@ defmodule AWS.Route53Resolver do
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an existing DNSSEC validation configuration.
+
+  If there is no existing DNSSEC validation configuration, one is created.
+  """
+  def update_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateResolverDnssecConfig", input, options)
   end
 
   @doc """

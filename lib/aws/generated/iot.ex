@@ -291,7 +291,7 @@ defmodule AWS.IoT do
   @doc """
   Cancels an audit that is in progress.
 
-  The audit can be either scheduled or on-demand. If the audit is not in progress,
+  The audit can be either scheduled or on demand. If the audit isn't in progress,
   an "InvalidRequestException" occurs.
   """
   def cancel_audit_task(%Client{} = client, task_id, input, options \\ []) do
@@ -333,6 +333,27 @@ defmodule AWS.IoT do
       client,
       metadata(),
       :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Cancels a Device Defender ML Detect mitigation action.
+  """
+  def cancel_detect_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
+    url_path = "/detect/mitigationactions/tasks/#{URI.encode(task_id)}/cancel"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
       url_path,
       query_params,
       headers,
@@ -556,6 +577,28 @@ defmodule AWS.IoT do
         {"setAsActive", "setAsActive"}
       ]
       |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Use this API to define a Custom Metric published by your devices to Device
+  Defender.
+  """
+  def create_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
+    url_path = "/custom-metric/#{URI.encode(metric_name)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -1243,6 +1286,34 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Before you can delete a custom metric, you must first remove the custom metric
+  from all security profiles it's a part of.
+
+  The security profile associated with the custom metric can be found using the
+  [ListSecurityProfiles](https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html)
+  API with `metricName` set to your custom metric name.
+
+  Deletes a Device Defender detect custom metric.
+  """
+  def delete_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
+    url_path = "/custom-metric/#{URI.encode(metric_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Removes the specified dimension from your AWS account.
   """
   def delete_dimension(%Client{} = client, name, input, options \\ []) do
@@ -1863,7 +1934,7 @@ defmodule AWS.IoT do
   Gets information about a single audit finding.
 
   Properties include the reason for noncompliance, the severity of the issue, and
-  when the audit that returned the finding was started.
+  the start time when the audit that returned the finding.
   """
   def describe_audit_finding(%Client{} = client, finding_id, options \\ []) do
     url_path = "/audit/findings/#{URI.encode(finding_id)}"
@@ -2035,10 +2106,52 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Gets information about a Device Defender detect custom metric.
+  """
+  def describe_custom_metric(%Client{} = client, metric_name, options \\ []) do
+    url_path = "/custom-metric/#{URI.encode(metric_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Describes the default authorizer.
   """
   def describe_default_authorizer(%Client{} = client, options \\ []) do
     url_path = "/default-authorizer"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets information about a Device Defender ML Detect mitigation action.
+  """
+  def describe_detect_mitigation_actions_task(%Client{} = client, task_id, options \\ []) do
+    url_path = "/detect/mitigationactions/tasks/#{URI.encode(task_id)}"
     headers = []
     query_params = []
 
@@ -2615,6 +2728,54 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Returns a Device Defender's ML Detect Security Profile training model's status.
+  """
+  def get_behavior_model_training_summaries(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        security_profile_name \\ nil,
+        options \\ []
+      ) do
+    url_path = "/behavior-model-training/summaries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(security_profile_name) do
+        [{"securityProfileName", security_profile_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the approximate count of unique values that match the query.
   """
   def get_cardinality(%Client{} = client, input, options \\ []) do
@@ -2936,6 +3097,8 @@ defmodule AWS.IoT do
   """
   def list_active_violations(
         %Client{} = client,
+        behavior_criteria_type \\ nil,
+        list_suppressed_alerts \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         security_profile_name \\ nil,
@@ -2970,6 +3133,20 @@ defmodule AWS.IoT do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(list_suppressed_alerts) do
+        [{"listSuppressedAlerts", list_suppressed_alerts} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(behavior_criteria_type) do
+        [{"behaviorCriteriaType", behavior_criteria_type} | query_params]
       else
         query_params
       end
@@ -3515,6 +3692,183 @@ defmodule AWS.IoT do
     query_params =
       if !is_nil(ascending_order) do
         [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists your Device Defender detect custom metrics.
+  """
+  def list_custom_metrics(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/custom-metrics"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists mitigation actions executions for a Device Defender ML Detect Security
+  Profile.
+  """
+  def list_detect_mitigation_actions_executions(
+        %Client{} = client,
+        end_time \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        start_time \\ nil,
+        task_id \\ nil,
+        thing_name \\ nil,
+        violation_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/detect/mitigationactions/executions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(violation_id) do
+        [{"violationId", violation_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(thing_name) do
+        [{"thingName", thing_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(task_id) do
+        [{"taskId", task_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  List of Device Defender ML Detect mitigation actions tasks.
+  """
+  def list_detect_mitigation_actions_tasks(
+        %Client{} = client,
+        end_time,
+        max_results \\ nil,
+        next_token \\ nil,
+        start_time,
+        options \\ []
+      ) do
+    url_path = "/detect/mitigationactions/tasks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
       else
         query_params
       end
@@ -4395,15 +4749,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the Device Defender security profiles you have created.
+  Lists the Device Defender security profiles you've created.
 
-  You can use filters to list only those security profiles associated with a thing
-  group or only those associated with your account.
+  You can filter security profiles by dimension or custom metric.
+
+  `dimensionName` and `metricName` cannot be used in the same request.
   """
   def list_security_profiles(
         %Client{} = client,
         dimension_name \\ nil,
         max_results \\ nil,
+        metric_name \\ nil,
         next_token \\ nil,
         options \\ []
       ) do
@@ -4414,6 +4770,13 @@ defmodule AWS.IoT do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(metric_name) do
+        [{"metricName", metric_name} | query_params]
       else
         query_params
       end
@@ -5263,7 +5626,9 @@ defmodule AWS.IoT do
   """
   def list_violation_events(
         %Client{} = client,
+        behavior_criteria_type \\ nil,
         end_time,
+        list_suppressed_alerts \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         security_profile_name \\ nil,
@@ -5311,8 +5676,22 @@ defmodule AWS.IoT do
       end
 
     query_params =
+      if !is_nil(list_suppressed_alerts) do
+        [{"listSuppressedAlerts", list_suppressed_alerts} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(end_time) do
         [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(behavior_criteria_type) do
+        [{"behaviorCriteriaType", behavior_criteria_type} | query_params]
       else
         query_params
       end
@@ -5706,6 +6085,27 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Starts a Device Defender ML Detect mitigation actions task.
+  """
+  def start_detect_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
+    url_path = "/detect/mitigationactions/tasks/#{URI.encode(task_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Starts an on-demand Device Defender audit.
   """
   def start_on_demand_audit_task(%Client{} = client, input, options \\ []) do
@@ -6054,10 +6454,31 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Updates a Device Defender detect custom metric.
+  """
+  def update_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
+    url_path = "/custom-metric/#{URI.encode(metric_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates the definition for a dimension.
 
   You cannot change the type of a dimension after it is created (you can delete it
-  and re-create it).
+  and recreate it).
   """
   def update_dimension(%Client{} = client, name, input, options \\ []) do
     url_path = "/dimensions/#{URI.encode(name)}"

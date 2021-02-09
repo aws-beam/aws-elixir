@@ -63,7 +63,17 @@ defmodule AWS.ResourceGroups do
   @doc """
   Creates a resource group with the specified name and description.
 
-  You can optionally include a resource query, or a service configuration.
+  You can optionally include a resource query, or a service configuration. For
+  more information about constructing a resource query, see [Create a tag-based group in Resource
+  Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
+  For more information about service configurations, see [Service configurations for resource
+  groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:CreateGroup`
   """
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/groups"
@@ -88,6 +98,12 @@ defmodule AWS.ResourceGroups do
 
   Deleting a resource group does not delete any resources that are members of the
   group; it only deletes the group structure.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:DeleteGroup`
   """
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/delete-group"
@@ -109,6 +125,12 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Returns information about a specified resource group.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:GetGroup`
   """
   def get_group(%Client{} = client, input, options \\ []) do
     url_path = "/get-group"
@@ -131,12 +153,14 @@ defmodule AWS.ResourceGroups do
   @doc """
   Returns the service configuration associated with the specified resource group.
 
-  AWS Resource Groups supports configurations for the following resource group
-  types:
+  For details about the service configuration syntax, see [Service configurations for resource
+  groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
 
-    * `AWS::EC2::CapacityReservationPool` - Amazon EC2 capacity
-  reservation pools. For more information, see [Working with capacity reservation groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group)
-  in the *EC2 Users Guide*.
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:GetGroupConfiguration`
   """
   def get_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-configuration"
@@ -158,6 +182,15 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Retrieves the resource query associated with the specified resource group.
+
+  For more information about resource queries, see [Create a tag-based group in Resource
+  Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:GetGroupQuery`
   """
   def get_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-query"
@@ -180,6 +213,12 @@ defmodule AWS.ResourceGroups do
   @doc """
   Returns a list of tags that are associated with a resource group, specified by
   an ARN.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:GetTags`
   """
   def get_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{URI.encode(arn)}/tags"
@@ -201,6 +240,12 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Adds the specified resources to the specified group.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:GroupResources`
   """
   def group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/group-resources"
@@ -223,6 +268,12 @@ defmodule AWS.ResourceGroups do
   @doc """
   Returns a list of ARNs of the resources that are members of a specified resource
   group.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:ListGroupResources`
   """
   def list_group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-group-resources"
@@ -244,6 +295,12 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Returns a list of existing resource groups in your account.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:ListGroups`
   """
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/groups-list"
@@ -270,10 +327,46 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
+  Attaches a service configuration to the specified group.
+
+  This occurs asynchronously, and can take time to complete. You can use
+  `GetGroupConfiguration` to check the status of the update.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:PutGroupConfiguration`
+  """
+  def put_group_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/put-group-configuration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Returns a list of AWS resource identifiers that matches the specified query.
 
   The query uses the same format as a resource query in a CreateGroup or
   UpdateGroupQuery operation.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:SearchResources`
   """
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resources/search"
@@ -303,6 +396,12 @@ defmodule AWS.ResourceGroups do
   sensitive information in tags. We use tags to provide you with billing and
   administration services. Tags are not intended to be used for private or
   sensitive data.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:Tag`
   """
   def tag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{URI.encode(arn)}/tags"
@@ -324,6 +423,12 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Removes the specified resources from the specified group.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:UngroupResources`
   """
   def ungroup_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ungroup-resources"
@@ -345,6 +450,12 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Deletes tags from a specified resource group.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:Untag`
   """
   def untag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{URI.encode(arn)}/tags"
@@ -368,6 +479,12 @@ defmodule AWS.ResourceGroups do
   Updates the description for an existing group.
 
   You cannot update the name of a resource group.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:UpdateGroup`
   """
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/update-group"
@@ -389,6 +506,15 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Updates the resource query of a group.
+
+  For more information about resource queries, see [Create a tag-based group in Resource
+  Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    * `resource-groups:UpdateGroupQuery`
   """
   def update_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/update-group-query"

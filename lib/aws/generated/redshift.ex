@@ -1161,6 +1161,8 @@ defmodule AWS.Redshift do
 
       * ds2.8xlarge
 
+      * ra3.xlplus
+
       * ra3.4xlarge
 
       * ra3.16xlarge

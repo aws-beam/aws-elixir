@@ -50,13 +50,18 @@ defmodule AWS.Personalize do
   Transactions per second (TPS) is the throughput and unit of billing for Amazon
   Personalize. The minimum provisioned TPS (`minProvisionedTPS`) specifies the
   baseline throughput provisioned by Amazon Personalize, and thus, the minimum
-  billing charge. If your TPS increases beyond `minProvisionedTPS`, Amazon
-  Personalize auto-scales the provisioned capacity up and down, but never below
-  `minProvisionedTPS`, to maintain a 70% utilization. There's a short time delay
-  while the capacity is increased that might cause loss of transactions. It's
-  recommended to start with a low `minProvisionedTPS`, track your usage using
-  Amazon CloudWatch metrics, and then increase the `minProvisionedTPS` as
-  necessary.
+  billing charge.
+
+  If your TPS increases beyond `minProvisionedTPS`, Amazon Personalize auto-scales
+  the provisioned capacity up and down, but never below `minProvisionedTPS`.
+  There's a short time delay while the capacity is increased that might cause loss
+  of transactions.
+
+  The actual TPS used is calculated as the average requests/second within a
+  5-minute window. You pay for maximum of either the minimum provisioned TPS or
+  the actual TPS. We recommend starting with a low `minProvisionedTPS`, track your
+  usage using Amazon CloudWatch metrics, and then increase the `minProvisionedTPS`
+  as necessary.
 
   ## Status
 
@@ -187,7 +192,8 @@ defmodule AWS.Personalize do
   data source, as Amazon Personalize makes a copy of your data and processes it in
   an internal AWS system.
 
-  The dataset import job replaces any previous data in the dataset.
+  The dataset import job replaces any existing data in the dataset that you
+  imported in bulk.
 
   ## Status
 
@@ -214,22 +220,19 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Creates an event tracker that you use when sending event data to the specified
+  Creates an event tracker that you use when adding event data to a specified
   dataset group using the
-  [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html)
-  API.
-
-  When Amazon Personalize creates an event tracker, it also creates an
-  *event-interactions* dataset in the dataset group associated with the event
-  tracker. The event-interactions dataset stores the event data from the
-  `PutEvents` call. The contents of this dataset are not available to the user.
+  [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html) API.
 
   Only one event tracker can be associated with a dataset group. You will get an
   error if you call `CreateEventTracker` using the same dataset group as an
   existing event tracker.
 
-  When you send event data you include your tracking ID. The tracking ID
-  identifies the customer and authorizes the customer to send the data.
+  When you create an event tracker, the response includes a tracking ID, which you
+  pass as a parameter when you use the
+  [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html)
+  operation. Amazon Personalize then appends the event data to the Interactions
+  dataset of the dataset group you specify in your event tracker.
 
   The event tracker can be in one of the following states:
 
@@ -256,7 +259,7 @@ defmodule AWS.Personalize do
   @doc """
   Creates a recommendation filter.
 
-  For more information, see [Using Filters with Amazon Personalize](https://docs.aws.amazon.com/personalize/latest/dg/filters.html).
+  For more information, see `filter`.
   """
   def create_filter(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateFilter", input, options)
@@ -304,6 +307,9 @@ defmodule AWS.Personalize do
   specify one of the predefined recipes provided by Amazon Personalize.
   Alternatively, you can specify `performAutoML` and Amazon Personalize will
   analyze your data and select the optimum USER_PERSONALIZATION recipe for you.
+
+  Amazon Personalize doesn't support configuring the `hpoObjective` for solution
+  hyperparameter optimization at this time.
 
   ## Status
 

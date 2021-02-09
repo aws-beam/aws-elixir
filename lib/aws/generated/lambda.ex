@@ -189,6 +189,8 @@ defmodule AWS.Lambda do
 
     * [Using AWS Lambda with Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
 
+    * [Using AWS Lambda with Self-Managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+
   The following error handling options are only available for stream sources
   (DynamoDB and Kinesis):
 
@@ -230,11 +232,12 @@ defmodule AWS.Lambda do
   @doc """
   Creates a Lambda function.
 
-  To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html)
+  To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html)
   and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role).
-  The deployment package contains your function code. The execution role grants
-  the function permission to use AWS services, such as Amazon CloudWatch Logs for
-  log streaming and AWS X-Ray for request tracing.
+  The deployment package is a .zip file archive or container image that contains
+  your function code. The execution role grants the function permission to use AWS
+  services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for
+  request tracing.
 
   When you create a function, Lambda provisions an instance of the function and
   its supporting resources. If your function connects to a VPC, this process can
@@ -256,7 +259,8 @@ defmodule AWS.Lambda do
   unpublished and published versions of the function, and include tags
   (`TagResource`) and per-function concurrency limits (`PutFunctionConcurrency`).
 
-  To enable code signing for this function, specify the ARN of a code-signing
+  You can use code signing if your deployment package is a .zip file archive. To
+  enable code signing for this function, specify the ARN of a code-signing
   configuration. When a user attempts to deploy a code package with
   `UpdateFunctionCode`, Lambda checks that the code package has a valid signature
   from a trusted publisher. The code-signing configuration includes set set of
@@ -1071,8 +1075,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns a list of [code signing configurations](https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html)
-  for the specified function.
+  Returns a list of [code signing configurations](https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html).
 
   A request returns up to 10,000 configurations per call. You can use the
   `MaxItems` parameter to return fewer configurations per call.
@@ -1952,6 +1955,10 @@ defmodule AWS.Lambda do
 
   The function's code is locked when you publish a version. You can't modify the
   code of a published version, only the unpublished version.
+
+  For a function defined as a container image, Lambda resolves the image tag to an
+  image digest. In Amazon ECR, if you update the image tag to a new image, Lambda
+  does not automatically update the function.
   """
   def update_function_code(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/code"

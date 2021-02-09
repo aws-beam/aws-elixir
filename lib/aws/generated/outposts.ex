@@ -3,10 +3,10 @@
 
 defmodule AWS.Outposts do
   @moduledoc """
-  AWS Outposts is a fully-managed service that extends AWS infrastructure, APIs,
+  AWS Outposts is a fully managed service that extends AWS infrastructure, APIs,
   and tools to customer premises.
 
-  By providing local access to AWS-managed infrastructure, AWS Outposts enables
+  By providing local access to AWS managed infrastructure, AWS Outposts enables
   customers to build and run applications on premises using the same programming
   interfaces as in AWS Regions, while using local compute and storage resources
   for lower latency and local data processing needs.
@@ -221,6 +221,74 @@ defmodule AWS.Outposts do
       query_params,
       headers,
       nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the tags for the specified resource.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Adds tags to the specified resource.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes tags from the specified resource.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       nil
     )

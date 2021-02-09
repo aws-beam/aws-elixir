@@ -93,7 +93,7 @@ defmodule AWS.SQS do
   `&AttributeName.2=second`
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
   """
   def add_permission(%Client{} = client, input, options \\ []) do
@@ -229,7 +229,7 @@ defmodule AWS.SQS do
   `&AttributeName.2=second`
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
   """
   def create_queue(%Client{} = client, input, options \\ []) do
@@ -301,7 +301,7 @@ defmodule AWS.SQS do
   queue with the same name.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
   """
   def delete_queue(%Client{} = client, input, options \\ []) do
@@ -360,7 +360,7 @@ defmodule AWS.SQS do
   in the *Amazon Simple Queue Service Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
   """
   def list_queue_tags(%Client{} = client, input, options \\ []) do
@@ -382,7 +382,7 @@ defmodule AWS.SQS do
   your next request to `listQueues` to receive the next page of results.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
   """
   def list_queues(%Client{} = client, input, options \\ []) do
@@ -467,7 +467,7 @@ defmodule AWS.SQS do
      Only the owner of a queue can remove permissions from it.
 
      Cross-account permissions don't apply to this action. For more
-  information, see [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  information, see [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
 
      To remove the ability to change queue permissions, you must deny
@@ -545,7 +545,7 @@ defmodule AWS.SQS do
   handle new attributes gracefully.
 
      Cross-account permissions don't apply to this action. For more
-  information, see [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  information, see [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
 
      To remove the ability to change queue permissions, you must deny
@@ -578,7 +578,7 @@ defmodule AWS.SQS do
   in the *Amazon Simple Queue Service Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
   """
   def tag_queue(%Client{} = client, input, options \\ []) do
@@ -592,7 +592,7 @@ defmodule AWS.SQS do
   in the *Amazon Simple Queue Service Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
-  [Grant Cross-Account Permissions to a Role and a User Name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon Simple Queue Service Developer Guide*.
   """
   def untag_queue(%Client{} = client, input, options \\ []) do

@@ -29,6 +29,59 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Accepts the specified grant.
+  """
+  def accept_grant(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AcceptGrant", input, options)
+  end
+
+  @doc """
+  Checks in the specified license.
+
+  Check in a license when it is no longer in use.
+  """
+  def check_in_license(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CheckInLicense", input, options)
+  end
+
+  @doc """
+  Checks out the specified license for offline use.
+  """
+  def checkout_borrow_license(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CheckoutBorrowLicense", input, options)
+  end
+
+  @doc """
+  Checks out the specified license.
+  """
+  def checkout_license(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CheckoutLicense", input, options)
+  end
+
+  @doc """
+  Creates a grant for the specified license.
+
+  A grant shares the use of license entitlements with specific AWS accounts.
+  """
+  def create_grant(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGrant", input, options)
+  end
+
+  @doc """
+  Creates a new version of the specified grant.
+  """
+  def create_grant_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateGrantVersion", input, options)
+  end
+
+  @doc """
+  Creates a license.
+  """
+  def create_license(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLicense", input, options)
+  end
+
+  @doc """
   Creates a license configuration.
 
   A license configuration is an abstraction of a customer license agreement that
@@ -43,6 +96,38 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Creates a new version of the specified license.
+  """
+  def create_license_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLicenseVersion", input, options)
+  end
+
+  @doc """
+  Creates a long-lived token.
+
+  A refresh token is a JWT token used to get an access token. With an access
+  token, you can call AssumeRoleWithWebIdentity to get role credentials that you
+  can use to call License Manager to manage the specified license.
+  """
+  def create_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateToken", input, options)
+  end
+
+  @doc """
+  Deletes the specified grant.
+  """
+  def delete_grant(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteGrant", input, options)
+  end
+
+  @doc """
+  Deletes the specified license.
+  """
+  def delete_license(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLicense", input, options)
+  end
+
+  @doc """
   Deletes the specified license configuration.
 
   You cannot delete a license configuration that is in use.
@@ -52,10 +137,56 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Deletes the specified token.
+
+  Must be called in the license home Region.
+  """
+  def delete_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteToken", input, options)
+  end
+
+  @doc """
+  Extends the expiration date for license consumption.
+  """
+  def extend_license_consumption(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExtendLicenseConsumption", input, options)
+  end
+
+  @doc """
+  Gets a temporary access token to use with AssumeRoleWithWebIdentity.
+
+  Access tokens are valid for one hour.
+  """
+  def get_access_token(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccessToken", input, options)
+  end
+
+  @doc """
+  Gets detailed information about the specified grant.
+  """
+  def get_grant(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetGrant", input, options)
+  end
+
+  @doc """
+  Gets detailed information about the specified license.
+  """
+  def get_license(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLicense", input, options)
+  end
+
+  @doc """
   Gets detailed information about the specified license configuration.
   """
   def get_license_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetLicenseConfiguration", input, options)
+  end
+
+  @doc """
+  Gets detailed information about the usage of the specified license.
+  """
+  def get_license_usage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLicenseUsage", input, options)
   end
 
   @doc """
@@ -80,6 +211,13 @@ defmodule AWS.LicenseManager do
       input,
       options
     )
+  end
+
+  @doc """
+  Lists the grants distributed for the specified license.
+  """
+  def list_distributed_grants(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDistributedGrants", input, options)
   end
 
   @doc """
@@ -116,6 +254,34 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Lists all versions of the specified license.
+  """
+  def list_license_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLicenseVersions", input, options)
+  end
+
+  @doc """
+  Lists the licenses for your account.
+  """
+  def list_licenses(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLicenses", input, options)
+  end
+
+  @doc """
+  Lists grants that are received but not accepted.
+  """
+  def list_received_grants(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReceivedGrants", input, options)
+  end
+
+  @doc """
+  Lists received licenses.
+  """
+  def list_received_licenses(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListReceivedLicenses", input, options)
+  end
+
+  @doc """
   Lists resources managed using Systems Manager inventory.
   """
   def list_resource_inventory(%Client{} = client, input, options \\ []) do
@@ -130,6 +296,13 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Lists your tokens.
+  """
+  def list_tokens(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTokens", input, options)
+  end
+
+  @doc """
   Lists all license usage records for a license configuration, displaying license
   consumption details by resource at a selected point in time.
 
@@ -138,6 +311,13 @@ defmodule AWS.LicenseManager do
   """
   def list_usage_for_license_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListUsageForLicenseConfiguration", input, options)
+  end
+
+  @doc """
+  Rejects the specified grant.
+  """
+  def reject_grant(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RejectGrant", input, options)
   end
 
   @doc """

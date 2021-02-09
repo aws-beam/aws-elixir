@@ -198,7 +198,7 @@ defmodule AWS.Lightsail do
   Creates an Amazon Lightsail container service.
 
   A Lightsail container service is a compute resource to which you can deploy
-  containers. For more information, see [Container services in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-containers)
+  containers. For more information, see [Container services in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services)
   in the *Lightsail Dev Guide*.
   """
   def create_container_service(%Client{} = client, input, options \\ []) do
@@ -234,9 +234,8 @@ defmodule AWS.Lightsail do
   need to create a new set of log in credentials.
 
   You can only push container images to the container service registry of your
-  Lightsail account. You cannot pull container images perform any other container
-  image management actions on the container service registry of your Lightsail
-  account.
+  Lightsail account. You cannot pull container images or perform any other
+  container image management actions on the container service registry.
 
   After you push your container images to the container image registry of your
   Lightsail account, use the `RegisterContainerImage` action to register the
@@ -245,8 +244,8 @@ defmodule AWS.Lightsail do
   This action is not required if you install and use the Lightsail Control
   (lightsailctl) plugin to push container images to your Lightsail container
   service. For more information, see [Pushing and managing container images on your Amazon Lightsail container
-  services](amazon-lightsail-pushing-container-images) in the *Lightsail Dev
-  Guide*.
+  services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
+  in the *Lightsail Dev Guide*.
   """
   def create_container_service_registry_login(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -1498,6 +1497,17 @@ defmodule AWS.Lightsail do
   """
   def send_contact_method_verification(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SendContactMethodVerification", input, options)
+  end
+
+  @doc """
+  Sets the IP address type for a Amazon Lightsail resource.
+
+  Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6
+  for the specified resource. Alternately, you can use this action to disable
+  dual-stack, and enable IPv4 only.
+  """
+  def set_ip_address_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetIpAddressType", input, options)
   end
 
   @doc """

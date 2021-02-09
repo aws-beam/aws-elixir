@@ -32,6 +32,17 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates an *association* between the source and the destination.
+
+  A source can be associated with multiple destinations, and a destination can be
+  associated with multiple sources. An association is a lineage tracking entity.
+  For more information, see [Amazon SageMaker ML Lineage Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
+  """
+  def add_association(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddAssociation", input, options)
+  end
+
+  @doc """
   Adds or overwrites one or more tags for the specified Amazon SageMaker resource.
 
   You can add tags to notebook instances, training jobs, hyperparameter tuning
@@ -66,6 +77,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates an *action*.
+
+  An action is a lineage tracking entity that represents an action or activity.
+  For example, a model deployment or an HPO job. Generally, an action involves at
+  least one input or output artifact. For more information, see [Amazon SageMaker ML Lineage
+  Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
+  """
+  def create_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAction", input, options)
+  end
+
+  @doc """
   Create a machine learning algorithm that you can use in Amazon SageMaker and
   list in the AWS Marketplace.
   """
@@ -93,6 +116,17 @@ defmodule AWS.SageMaker do
   """
   def create_app_image_config(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAppImageConfig", input, options)
+  end
+
+  @doc """
+  Creates an *artifact*.
+
+  An artifact is a lineage tracking entity that represents a URI addressable
+  object or data. Some examples are the S3 URI of a dataset and the ECR registry
+  path of an image. For more information, see [Amazon SageMaker ML Lineage Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
+  """
+  def create_artifact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateArtifact", input, options)
   end
 
   @doc """
@@ -161,6 +195,33 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates a *context*.
+
+  A context is a lineage tracking entity that represents a logical grouping of
+  other tracking or experiment entities. Some examples are an endpoint and a model
+  package. For more information, see [Amazon SageMaker ML Lineage Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
+  """
+  def create_context(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateContext", input, options)
+  end
+
+  @doc """
+  Creates a definition for a job that monitors data quality and drift.
+
+  For information about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html).
+  """
+  def create_data_quality_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDataQualityJobDefinition", input, options)
+  end
+
+  @doc """
+  Creates a device fleet.
+  """
+  def create_device_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDeviceFleet", input, options)
+  end
+
+  @doc """
   Creates a `Domain` used by Amazon SageMaker Studio.
 
   A domain consists of an associated Amazon Elastic File System (EFS) volume, a
@@ -169,9 +230,16 @@ defmodule AWS.SageMaker do
   one domain per region. Users within a domain can share notebook files and other
   artifacts with each other.
 
+  ## EFS storage
+
   When a domain is created, an EFS volume is created for use by all of the users
   within the domain. Each user receives a private home directory within the EFS
   volume for notebooks, Git repositories, and data files.
+
+  SageMaker uses the AWS Key Management Service (AWS KMS) to encrypt the EFS
+  volume attached to the domain with an AWS managed customer master key (CMK) by
+  default. For more control, you can specify a customer managed CMK. For more
+  information, see [Protect Data at Rest Using Encryption](https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html).
 
   ## VPC configuration
 
@@ -197,6 +265,17 @@ defmodule AWS.SageMaker do
   """
   def create_domain(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDomain", input, options)
+  end
+
+  @doc """
+  Starts a SageMaker Edge Manager model packaging job.
+
+  Edge Manager will use the model artifacts from the Amazon Simple Storage Service
+  bucket that you specify. After the model has been packaged, Amazon SageMaker
+  saves the resulting artifacts to an S3 bucket that you specify.
+  """
+  def create_edge_packaging_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEdgePackagingJob", input, options)
   end
 
   @doc """
@@ -348,6 +427,25 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Create a new `FeatureGroup`.
+
+  A `FeatureGroup` is a group of `Features` defined in the `FeatureStore` to
+  describe a `Record`.
+
+  The `FeatureGroup` defines the schema and features contained in the
+  FeatureGroup. A `FeatureGroup` definition is composed of a list of `Features`, a
+  `RecordIdentifierFeatureName`, an `EventTimeFeatureName` and configurations for
+  its `OnlineStore` and `OfflineStore`. Check [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
+  to see the `FeatureGroup`s quota for your AWS account.
+
+  You must include at least one of `OnlineStoreConfig` and `OfflineStoreConfig` to
+  create a `FeatureGroup`.
+  """
+  def create_feature_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFeatureGroup", input, options)
+  end
+
+  @doc """
   Creates a flow definition.
   """
   def create_flow_definition(%Client{} = client, input, options \\ []) do
@@ -427,6 +525,17 @@ defmodule AWS.SageMaker do
 
   The output can be used as the manifest file for another labeling job or as
   training data for your machine learning models.
+
+  You can use this operation to create a static labeling job or a streaming
+  labeling job. A static labeling job stops if all data objects in the input
+  manifest file identified in `ManifestS3Uri` have been labeled. A streaming
+  labeling job runs perpetually until it is manually stopped, or remains idle for
+  10 days. You can send new data objects to an active (`InProgress`) streaming
+  labeling job in real time. To learn how to create a static labeling job, see
+  [Create a Labeling Job (API)
+  ](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-create-labeling-job-api.html)
+  in the Amazon SageMaker Developer Guide. To learn how to create a streaming
+  labeling job, see [Create a Streaming Labeling Job](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-create-job.html).
   """
   def create_labeling_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLabelingJob", input, options)
@@ -470,8 +579,28 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates the definition for a model bias job.
+  """
+  def create_model_bias_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateModelBiasJobDefinition", input, options)
+  end
+
+  @doc """
+  Creates the definition for a model explainability job.
+  """
+  def create_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateModelExplainabilityJobDefinition",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Creates a model package that you can use to create Amazon SageMaker models or
-  list on AWS Marketplace.
+  list on AWS Marketplace, or a versioned model that is part of a model group.
 
   Buyers can subscribe to model packages listed on AWS Marketplace to create
   models in Amazon SageMaker.
@@ -481,9 +610,34 @@ defmodule AWS.SageMaker do
   values for `InferenceSpecification`. To create a model from an algorithm
   resource that you created or subscribed to in AWS Marketplace, provide a value
   for `SourceAlgorithmSpecification`.
+
+  There are two types of model packages:
+
+     Versioned - a model that is part of a model group in the model
+  registry.
+
+     Unversioned - a model package that is not part of a model group.
   """
   def create_model_package(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateModelPackage", input, options)
+  end
+
+  @doc """
+  Creates a model group.
+
+  A model group contains a group of model versions.
+  """
+  def create_model_package_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateModelPackageGroup", input, options)
+  end
+
+  @doc """
+  Creates a definition for a job that monitors model quality and drift.
+
+  For information about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html).
+  """
+  def create_model_quality_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateModelQualityJobDefinition", input, options)
   end
 
   @doc """
@@ -573,6 +727,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates a pipeline using a JSON pipeline definition.
+  """
+  def create_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePipeline", input, options)
+  end
+
+  @doc """
   Creates a URL for a specified UserProfile in a Domain.
 
   When accessed in a web browser, the user will be automatically signed in to
@@ -625,6 +786,14 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates a machine learning (ML) project that can contain one or more templates
+  that set up an ML pipeline from training to deploying an approved model.
+  """
+  def create_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateProject", input, options)
+  end
+
+  @doc """
   Starts a model training job.
 
   After training completes, Amazon SageMaker saves the resulting model artifacts
@@ -633,7 +802,7 @@ defmodule AWS.SageMaker do
   If you choose to host your model using Amazon SageMaker hosting services, you
   can use the resulting model artifacts as part of the model. You can also use the
   artifacts in a machine learning service other than Amazon SageMaker, provided
-  that you know how to use them for inferences.
+  that you know how to use them for inference.
 
   In the request body, you provide the following:
 
@@ -659,7 +828,7 @@ defmodule AWS.SageMaker do
   more information, see [Managed Spot
   Training](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html).
 
-    * `RoleARN` - The Amazon Resource Number (ARN) that Amazon SageMaker
+    * `RoleArn` - The Amazon Resource Name (ARN) that Amazon SageMaker
   assumes to perform tasks on your behalf during model training. You must grant
   this role the necessary permissions so that Amazon SageMaker can successfully
   complete model training.
@@ -810,6 +979,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an action.
+  """
+  def delete_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAction", input, options)
+  end
+
+  @doc """
   Removes the specified algorithm from your account.
   """
   def delete_algorithm(%Client{} = client, input, options \\ []) do
@@ -831,10 +1007,47 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an artifact.
+
+  Either `ArtifactArn` or `Source` must be specified.
+  """
+  def delete_artifact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteArtifact", input, options)
+  end
+
+  @doc """
+  Deletes an association.
+  """
+  def delete_association(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAssociation", input, options)
+  end
+
+  @doc """
   Deletes the specified Git repository from your account.
   """
   def delete_code_repository(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteCodeRepository", input, options)
+  end
+
+  @doc """
+  Deletes an context.
+  """
+  def delete_context(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteContext", input, options)
+  end
+
+  @doc """
+  Deletes a data quality monitoring job definition.
+  """
+  def delete_data_quality_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDataQualityJobDefinition", input, options)
+  end
+
+  @doc """
+  Deletes a fleet.
+  """
+  def delete_device_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDeviceFleet", input, options)
   end
 
   @doc """
@@ -891,6 +1104,21 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Delete the `FeatureGroup` and any data that was written to the `OnlineStore` of
+  the `FeatureGroup`.
+
+  Data cannot be accessed from the `OnlineStore` immediately after
+  `DeleteFeatureGroup` is called.
+
+  Data written into the `OfflineStore` will not be deleted. The AWS Glue database
+  and tables that are automatically created for your `OfflineStore` are not
+  deleted.
+  """
+  def delete_feature_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFeatureGroup", input, options)
+  end
+
+  @doc """
   Deletes the specified flow definition.
   """
   def delete_flow_definition(%Client{} = client, input, options \\ []) do
@@ -939,6 +1167,26 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an Amazon SageMaker model bias job definition.
+  """
+  def delete_model_bias_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteModelBiasJobDefinition", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon SageMaker model explainability job definition.
+  """
+  def delete_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteModelExplainabilityJobDefinition",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Deletes a model package.
 
   A model package is used to create Amazon SageMaker models or list on AWS
@@ -947,6 +1195,27 @@ defmodule AWS.SageMaker do
   """
   def delete_model_package(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteModelPackage", input, options)
+  end
+
+  @doc """
+  Deletes the specified model group.
+  """
+  def delete_model_package_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteModelPackageGroup", input, options)
+  end
+
+  @doc """
+  Deletes a model group resource policy.
+  """
+  def delete_model_package_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteModelPackageGroupPolicy", input, options)
+  end
+
+  @doc """
+  Deletes the secified model quality monitoring job definition.
+  """
+  def delete_model_quality_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteModelQualityJobDefinition", input, options)
   end
 
   @doc """
@@ -984,6 +1253,20 @@ defmodule AWS.SageMaker do
       input,
       options
     )
+  end
+
+  @doc """
+  Deletes a pipeline if there are no in-progress executions.
+  """
+  def delete_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePipeline", input, options)
+  end
+
+  @doc """
+  Delete the specified project.
+  """
+  def delete_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteProject", input, options)
   end
 
   @doc """
@@ -1056,6 +1339,22 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deregisters the specified devices.
+
+  After you deregister a device, you will need to re-register the devices.
+  """
+  def deregister_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeregisterDevices", input, options)
+  end
+
+  @doc """
+  Describes an action.
+  """
+  def describe_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAction", input, options)
+  end
+
+  @doc """
   Returns a description of the specified algorithm that is in your account.
   """
   def describe_algorithm(%Client{} = client, input, options \\ []) do
@@ -1074,6 +1373,13 @@ defmodule AWS.SageMaker do
   """
   def describe_app_image_config(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAppImageConfig", input, options)
+  end
+
+  @doc """
+  Describes an artifact.
+  """
+  def describe_artifact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeArtifact", input, options)
   end
 
   @doc """
@@ -1101,10 +1407,45 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Describes a context.
+  """
+  def describe_context(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeContext", input, options)
+  end
+
+  @doc """
+  Gets the details of a data quality monitoring job definition.
+  """
+  def describe_data_quality_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDataQualityJobDefinition", input, options)
+  end
+
+  @doc """
+  Describes the device.
+  """
+  def describe_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDevice", input, options)
+  end
+
+  @doc """
+  A description of the fleet the device belongs to.
+  """
+  def describe_device_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDeviceFleet", input, options)
+  end
+
+  @doc """
   The description of the domain.
   """
   def describe_domain(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDomain", input, options)
+  end
+
+  @doc """
+  A description of edge packaging jobs.
+  """
+  def describe_edge_packaging_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEdgePackagingJob", input, options)
   end
 
   @doc """
@@ -1127,6 +1468,16 @@ defmodule AWS.SageMaker do
   """
   def describe_experiment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeExperiment", input, options)
+  end
+
+  @doc """
+  Use this operation to describe a `FeatureGroup`.
+
+  The response includes information on the creation time, `FeatureGroup` name, the
+  unique identifier for each `FeatureGroup`, and more.
+  """
+  def describe_feature_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFeatureGroup", input, options)
   end
 
   @doc """
@@ -1180,6 +1531,26 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Returns a description of a model bias job definition.
+  """
+  def describe_model_bias_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeModelBiasJobDefinition", input, options)
+  end
+
+  @doc """
+  Returns a description of a model explainability job definition.
+  """
+  def describe_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeModelExplainabilityJobDefinition",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Returns a description of the specified model package, which is used to create
   Amazon SageMaker models or list them on AWS Marketplace.
 
@@ -1188,6 +1559,20 @@ defmodule AWS.SageMaker do
   """
   def describe_model_package(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeModelPackage", input, options)
+  end
+
+  @doc """
+  Gets a description for the specified model group.
+  """
+  def describe_model_package_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeModelPackageGroup", input, options)
+  end
+
+  @doc """
+  Returns a description of a model quality job definition.
+  """
+  def describe_model_quality_job_definition(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeModelQualityJobDefinition", input, options)
   end
 
   @doc """
@@ -1221,10 +1606,44 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Describes the details of a pipeline.
+  """
+  def describe_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePipeline", input, options)
+  end
+
+  @doc """
+  Describes the details of an execution's pipeline definition.
+  """
+  def describe_pipeline_definition_for_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribePipelineDefinitionForExecution",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Describes the details of a pipeline execution.
+  """
+  def describe_pipeline_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePipelineExecution", input, options)
+  end
+
+  @doc """
   Returns a description of a processing job.
   """
   def describe_processing_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeProcessingJob", input, options)
+  end
+
+  @doc """
+  Describes the details of a project.
+  """
+  def describe_project(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeProject", input, options)
   end
 
   @doc """
@@ -1298,6 +1717,21 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Disables using Service Catalog in SageMaker.
+
+  Service Catalog is used to create SageMaker projects.
+  """
+  def disable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DisableSagemakerServicecatalogPortfolio",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Disassociates a trial component from a trial.
 
   This doesn't effect other trials the component is associated with. Before you
@@ -1314,6 +1748,54 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Enables using Service Catalog in SageMaker.
+
+  Service Catalog is used to create SageMaker projects.
+  """
+  def enable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "EnableSagemakerServicecatalogPortfolio",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Describes a fleet.
+  """
+  def get_device_fleet_report(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDeviceFleetReport", input, options)
+  end
+
+  @doc """
+  Gets a resource policy that manages access for a model group.
+
+  For information about resource policies, see [Identity-based policies and resource-based
+  policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
+  in the *AWS Identity and Access Management User Guide.*.
+  """
+  def get_model_package_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetModelPackageGroupPolicy", input, options)
+  end
+
+  @doc """
+  Gets the status of Service Catalog in SageMaker.
+
+  Service Catalog is used to create SageMaker projects.
+  """
+  def get_sagemaker_servicecatalog_portfolio_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetSagemakerServicecatalogPortfolioStatus",
+      input,
+      options
+    )
+  end
+
+  @doc """
   An auto-complete API for the search functionality in the Amazon SageMaker
   console.
 
@@ -1323,6 +1805,13 @@ defmodule AWS.SageMaker do
   """
   def get_search_suggestions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetSearchSuggestions", input, options)
+  end
+
+  @doc """
+  Lists the actions in your account and their properties.
+  """
+  def list_actions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListActions", input, options)
   end
 
   @doc """
@@ -1347,6 +1836,20 @@ defmodule AWS.SageMaker do
   """
   def list_apps(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListApps", input, options)
+  end
+
+  @doc """
+  Lists the artifacts in your account and their properties.
+  """
+  def list_artifacts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListArtifacts", input, options)
+  end
+
+  @doc """
+  Lists the associations in your account and their properties.
+  """
+  def list_associations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAssociations", input, options)
   end
 
   @doc """
@@ -1382,10 +1885,45 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists the contexts in your account and their properties.
+  """
+  def list_contexts(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListContexts", input, options)
+  end
+
+  @doc """
+  Lists the data quality job definitions in your account.
+  """
+  def list_data_quality_job_definitions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDataQualityJobDefinitions", input, options)
+  end
+
+  @doc """
+  Returns a list of devices in the fleet.
+  """
+  def list_device_fleets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDeviceFleets", input, options)
+  end
+
+  @doc """
+  A list of devices.
+  """
+  def list_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDevices", input, options)
+  end
+
+  @doc """
   Lists the domains.
   """
   def list_domains(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDomains", input, options)
+  end
+
+  @doc """
+  Returns a list of edge packaging jobs.
+  """
+  def list_edge_packaging_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEdgePackagingJobs", input, options)
   end
 
   @doc """
@@ -1410,6 +1948,13 @@ defmodule AWS.SageMaker do
   """
   def list_experiments(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListExperiments", input, options)
+  end
+
+  @doc """
+  List `FeatureGroup`s based on given filter and order.
+  """
+  def list_feature_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFeatureGroups", input, options)
   end
 
   @doc """
@@ -1468,10 +2013,44 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists model bias jobs definitions that satisfy various filters.
+  """
+  def list_model_bias_job_definitions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListModelBiasJobDefinitions", input, options)
+  end
+
+  @doc """
+  Lists model explainability job definitions that satisfy various filters.
+  """
+  def list_model_explainability_job_definitions(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ListModelExplainabilityJobDefinitions",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Gets a list of the model groups in your AWS account.
+  """
+  def list_model_package_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListModelPackageGroups", input, options)
+  end
+
+  @doc """
   Lists the model packages that have been created.
   """
   def list_model_packages(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListModelPackages", input, options)
+  end
+
+  @doc """
+  Gets a list of model quality monitoring job definitions in your account.
+  """
+  def list_model_quality_job_definitions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListModelQualityJobDefinitions", input, options)
   end
 
   @doc """
@@ -1518,10 +2097,45 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Gets a list of `PipeLineExecutionStep` objects.
+  """
+  def list_pipeline_execution_steps(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPipelineExecutionSteps", input, options)
+  end
+
+  @doc """
+  Gets a list of the pipeline executions.
+  """
+  def list_pipeline_executions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPipelineExecutions", input, options)
+  end
+
+  @doc """
+  Gets a list of parameters for a pipeline execution.
+  """
+  def list_pipeline_parameters_for_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPipelineParametersForExecution", input, options)
+  end
+
+  @doc """
+  Gets a list of pipelines.
+  """
+  def list_pipelines(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPipelines", input, options)
+  end
+
+  @doc """
   Lists processing jobs that satisfy various filters.
   """
   def list_processing_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListProcessingJobs", input, options)
+  end
+
+  @doc """
+  Gets a list of the projects in an AWS account.
+  """
+  def list_projects(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListProjects", input, options)
   end
 
   @doc """
@@ -1626,6 +2240,24 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Adds a resouce policy to control access to a model group.
+
+  For information about resoure policies, see [Identity-based policies and resource-based
+  policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
+  in the *AWS Identity and Access Management User Guide.*.
+  """
+  def put_model_package_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutModelPackageGroupPolicy", input, options)
+  end
+
+  @doc """
+  Register devices.
+  """
+  def register_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterDevices", input, options)
+  end
+
+  @doc """
   Renders the UI template so that you can preview the worker's experience.
   """
   def render_ui_template(%Client{} = client, input, options \\ []) do
@@ -1649,7 +2281,8 @@ defmodule AWS.SageMaker do
   @doc """
   Starts a previously stopped monitoring schedule.
 
-  New monitoring schedules are immediately started after creation.
+  By default, when you successfully create a new schedule, the status of a
+  monitoring schedule is `scheduled`.
   """
   def start_monitoring_schedule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartMonitoringSchedule", input, options)
@@ -1665,6 +2298,13 @@ defmodule AWS.SageMaker do
   """
   def start_notebook_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartNotebookInstance", input, options)
+  end
+
+  @doc """
+  Starts a pipeline execution.
+  """
+  def start_pipeline_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartPipelineExecution", input, options)
   end
 
   @doc """
@@ -1688,6 +2328,13 @@ defmodule AWS.SageMaker do
   """
   def stop_compilation_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopCompilationJob", input, options)
+  end
+
+  @doc """
+  Request to stop an edge packaging job.
+  """
+  def stop_edge_packaging_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopEdgePackagingJob", input, options)
   end
 
   @doc """
@@ -1738,6 +2385,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Stops a pipeline execution.
+  """
+  def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopPipelineExecution", input, options)
+  end
+
+  @doc """
   Stops a processing job.
   """
   def stop_processing_job(%Client{} = client, input, options \\ []) do
@@ -1772,6 +2426,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Updates an action.
+  """
+  def update_action(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAction", input, options)
+  end
+
+  @doc """
   Updates the properties of an AppImageConfig.
   """
   def update_app_image_config(%Client{} = client, input, options \\ []) do
@@ -1779,10 +2440,38 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Updates an artifact.
+  """
+  def update_artifact(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateArtifact", input, options)
+  end
+
+  @doc """
   Updates the specified Git repository with the specified values.
   """
   def update_code_repository(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateCodeRepository", input, options)
+  end
+
+  @doc """
+  Updates a context.
+  """
+  def update_context(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateContext", input, options)
+  end
+
+  @doc """
+  Updates a fleet of devices.
+  """
+  def update_device_fleet(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDeviceFleet", input, options)
+  end
+
+  @doc """
+  Updates one or more devices in a fleet.
+  """
+  def update_devices(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDevices", input, options)
   end
 
   @doc """
@@ -1844,6 +2533,13 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Updates a versioned model.
+  """
+  def update_model_package(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateModelPackage", input, options)
+  end
+
+  @doc """
   Updates a previously created schedule.
   """
   def update_monitoring_schedule(%Client{} = client, input, options \\ []) do
@@ -1873,6 +2569,27 @@ defmodule AWS.SageMaker do
       input,
       options
     )
+  end
+
+  @doc """
+  Updates a pipeline.
+  """
+  def update_pipeline(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePipeline", input, options)
+  end
+
+  @doc """
+  Updates a pipeline execution.
+  """
+  def update_pipeline_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePipelineExecution", input, options)
+  end
+
+  @doc """
+  Update a model training job to request a new Debugger profiling configuration.
+  """
+  def update_training_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateTrainingJob", input, options)
   end
 
   @doc """

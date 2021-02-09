@@ -3,21 +3,21 @@
 
 defmodule AWS.Connect do
   @moduledoc """
-  Amazon Connect is a cloud-based contact center solution that makes it easy to
-  set up and manage a customer contact center and provide reliable customer
-  engagement at any scale.
+  Amazon Connect is a cloud-based contact center solution that you use to set up
+  and manage a customer contact center and provide reliable customer engagement at
+  any scale.
 
-  Amazon Connect provides rich metrics and real-time reporting that allow you to
+  Amazon Connect provides metrics and real-time reporting that enable you to
   optimize contact routing. You can also resolve customer issues more efficiently
-  by putting customers in touch with the right agents.
+  by getting customers in touch with the appropriate agents.
 
-  There are limits to the number of Amazon Connect resources that you can create
-  and limits to the number of requests that you can make per second. For more
-  information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
+  There are limits to the number of Amazon Connect resources that you can create.
+  There are also limits to the number of requests that you can make per second.
+  For more information, see [Amazon Connect Service Quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   in the *Amazon Connect Administrator Guide*.
 
-  To connect programmatically to an AWS service, you use an endpoint. For a list
-  of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  You can connect programmatically to an AWS service by using an endpoint. For a
+  list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
 
   Working with contact flows? Check out the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
@@ -42,6 +42,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Associates an approved origin to an Amazon Connect instance.
   """
   def associate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
@@ -63,15 +65,16 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Associates a storage resource type for the first time.
+  This API is in preview release for Amazon Connect and is subject to change.
 
-  You can only associate one type of storage configuration in a single call. This
-  means, for example, that you can't define an instance with multiple S3 buckets
-  for storing chat transcripts.
+  Associates a storage resource type for the first time. You can only associate
+  one type of storage configuration in a single call. This means, for example,
+  that you can't define an instance with multiple S3 buckets for storing chat
+  transcripts.
 
   This API does not create a resource that doesn't exist. It only associates it to
   the instance. Ensure that the resource being specified in the storage
-  configuration, like an Amazon S3 bucket, exists when being used for association.
+  configuration, like an S3 bucket, exists when being used for association.
   """
   def associate_instance_storage_config(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{URI.encode(instance_id)}/storage-config"
@@ -92,6 +95,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Allows the specified Amazon Connect instance to access the specified Lambda
   function.
   """
@@ -114,6 +119,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Allows the specified Amazon Connect instance to access the specified Amazon Lex
   bot.
   """
@@ -126,6 +133,37 @@ defmodule AWS.Connect do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Associates a set of quick connects with a queue.
+  """
+  def associate_queue_quick_connects(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/associate-quick-connects"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -165,6 +203,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Associates a security key to the instance.
   """
   def associate_security_key(%Client{} = client, instance_id, input, options \\ []) do
@@ -209,13 +249,84 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Initiates an Amazon Connect instance with all the supported channels enabled.
+  This API is in preview release for Amazon Connect and is subject to change.
 
-  It does not attach any storage (such as Amazon S3, or Kinesis) or allow for any
-  configurations on features such as Contact Lens for Amazon Connect.
+  Initiates an Amazon Connect instance with all the supported channels enabled. It
+  does not attach any storage, such as Amazon Simple Storage Service (Amazon S3)
+  or Amazon Kinesis. It also does not allow for any configurations on features,
+  such as Contact Lens for Amazon Connect.
   """
   def create_instance(%Client{} = client, input, options \\ []) do
     url_path = "/instance"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Create an AppIntegration association with an Amazon Connect instance.
+  """
+  def create_integration_association(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/instance/#{URI.encode(instance_id)}/integration-associations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Creates a new queue for the specified Amazon Connect instance.
+  """
+  def create_queue(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/queues/#{URI.encode(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Creates a quick connect for the specified Amazon Connect instance.
+  """
+  def create_quick_connect(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/quick-connects/#{URI.encode(instance_id)}"
     headers = []
     query_params = []
 
@@ -237,6 +348,39 @@ defmodule AWS.Connect do
   """
   def create_routing_profile(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/routing-profiles/#{URI.encode(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Creates a use case for an AppIntegration association.
+  """
+  def create_use_case(
+        %Client{} = client,
+        instance_id,
+        integration_association_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/instance/#{URI.encode(instance_id)}/integration-associations/#{
+        URI.encode(integration_association_id)
+      }/use-cases"
+
     headers = []
     query_params = []
 
@@ -300,10 +444,109 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Deletes the Amazon Connect instance.
   """
   def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{URI.encode(instance_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Deletes an AppIntegration association from an Amazon Connect instance. The
+  association must not have any use cases associated with it.
+  """
+  def delete_integration_association(
+        %Client{} = client,
+        instance_id,
+        integration_association_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/instance/#{URI.encode(instance_id)}/integration-associations/#{
+        URI.encode(integration_association_id)
+      }"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Deletes a quick connect.
+  """
+  def delete_quick_connect(
+        %Client{} = client,
+        instance_id,
+        quick_connect_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/quick-connects/#{URI.encode(instance_id)}/#{URI.encode(quick_connect_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Deletes a use case from an AppIntegration association.
+  """
+  def delete_use_case(
+        %Client{} = client,
+        instance_id,
+        integration_association_id,
+        use_case_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/instance/#{URI.encode(instance_id)}/integration-associations/#{
+        URI.encode(integration_association_id)
+      }/use-cases/#{URI.encode(use_case_id)}"
+
     headers = []
     query_params = []
 
@@ -400,10 +643,40 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Returns the current state of the specified instance identifier.
+  This API is in preview release for Amazon Connect and is subject to change.
 
-  It tracks the instance while it is being created and returns an error status if
-  applicable.
+  Describes the hours of operation.
+  """
+  def describe_hours_of_operation(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{URI.encode(instance_id)}/#{URI.encode(hours_of_operation_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Returns the current state of the specified instance identifier. It tracks the
+  instance while it is being created and returns an error status, if applicable.
 
   If an instance is not created successfully, the instance status reason field
   returns details relevant to the reason. The instance in a failed state is
@@ -428,6 +701,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Describes the specified instance attribute.
   """
   def describe_instance_attribute(%Client{} = client, attribute_type, instance_id, options \\ []) do
@@ -449,6 +724,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Retrieves the current storage configurations for the specified resource type,
   association ID, and instance ID.
   """
@@ -469,6 +746,52 @@ defmodule AWS.Connect do
       else
         query_params
       end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Describes the specified queue.
+  """
+  def describe_queue(%Client{} = client, instance_id, queue_id, options \\ []) do
+    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Describes the quick connect.
+  """
+  def describe_quick_connect(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
+    url_path = "/quick-connects/#{URI.encode(instance_id)}/#{URI.encode(quick_connect_id)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -579,6 +902,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Revokes access to integrated applications from Amazon Connect.
   """
   def disassociate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
@@ -605,6 +930,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Removes the storage type configurations for the specified resource type and
   association ID.
   """
@@ -638,7 +965,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Remove the Lambda function from the drop-down options available in the relevant
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Remove the Lambda function from the dropdown options available in the relevant
   contact flow blocks.
   """
   def disassociate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
@@ -665,6 +994,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Revokes authorization from the specified instance to access the specified Amazon
   Lex bot.
   """
@@ -683,6 +1014,37 @@ defmodule AWS.Connect do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Disassociates a set of quick connects from a queue.
+  """
+  def disassociate_queue_quick_connects(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/disassociate-quick-connects"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -722,6 +1084,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Deletes the specified security key.
   """
   def disassociate_security_key(
@@ -839,6 +1203,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Returns a paginated list of all approved origins associated with the instance.
   """
   def list_approved_origins(
@@ -981,6 +1347,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Returns a paginated list of all attribute types for the given instance.
   """
   def list_instance_attributes(
@@ -1022,6 +1390,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Returns a paginated list of storage configs for the identified instance and
   resource type.
   """
@@ -1072,11 +1442,12 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Return a list of instances which are in active state, creation-in-progress
-  state, and failed state.
+  This API is in preview release for Amazon Connect and is subject to change.
 
-  Instances that aren't successfully created (they are in a failed state) are
-  returned only for 24 hours after the CreateInstance API was invoked.
+  Return a list of instances which are in active state, creation-in-progress
+  state, and failed state. Instances that aren't successfully created (they are in
+  a failed state) are returned only for 24 hours after the CreateInstance API was
+  invoked.
   """
   def list_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/instance"
@@ -1111,8 +1482,54 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Returns a paginated list of all the Lambda functions that show up in the
-  drop-down options in the relevant contact flow blocks.
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Provides summary information about the AppIntegration associations for the
+  specified Amazon Connect instance.
+  """
+  def list_integration_associations(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/instance/#{URI.encode(instance_id)}/integration-associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Returns a paginated list of all Lambda functions that display in the dropdown
+  options in the relevant contact flow blocks.
   """
   def list_lambda_functions(
         %Client{} = client,
@@ -1153,6 +1570,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Returns a paginated list of all the Amazon Lex bots currently associated with
   the instance.
   """
@@ -1299,6 +1718,50 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Lists the quick connects associated with a queue.
+  """
+  def list_queue_quick_connects(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/quick-connects"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Provides information about the queues for the specified Amazon Connect instance.
 
   For more information about queues, see [Queues: Standard and Agent](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html)
@@ -1351,7 +1814,59 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  List the queues associated with a routing profile.
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Provides information about the quick connects for the specified Amazon Connect
+  instance.
+  """
+  def list_quick_connects(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        quick_connect_types \\ nil,
+        options \\ []
+      ) do
+    url_path = "/quick-connects/#{URI.encode(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(quick_connect_types) do
+        [{"QuickConnectTypes", quick_connect_types} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the queues associated with a routing profile.
   """
   def list_routing_profile_queues(
         %Client{} = client,
@@ -1441,6 +1956,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Returns a paginated list of all security keys associated with the instance.
   """
   def list_security_keys(
@@ -1536,6 +2053,54 @@ defmodule AWS.Connect do
     url_path = "/tags/#{URI.encode(resource_arn)}"
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Lists the use cases.
+  """
+  def list_use_cases(
+        %Client{} = client,
+        instance_id,
+        integration_association_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/instance/#{URI.encode(instance_id)}/integration-associations/#{
+        URI.encode(integration_association_id)
+      }/use-cases"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -1667,9 +2232,9 @@ defmodule AWS.Connect do
   Response of this API provides a token required to obtain credentials from the
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API in the Amazon Connect Participant Service.
 
-  When a new chat contact is successfully created, clients need to subscribe to
-  the participant’s connection for the created chat within 5 minutes. This is
-  achieved by invoking
+  When a new chat contact is successfully created, clients must subscribe to the
+  participant’s connection for the created chat within 5 minutes. This is achieved
+  by invoking
   [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html)
   with WEBSOCKET and CONNECTION_CREDENTIALS.
 
@@ -1681,7 +2246,7 @@ defmodule AWS.Connect do
     * The [quota for concurrent active chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   is exceeded. Active chat throttling returns a `LimitExceededException`.
 
-  For more information about how chat works, see
+  For more information about chat, see
   [Chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat.html) in the
   *Amazon Connect Administrator Guide*.
   """
@@ -1704,7 +2269,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API starts recording the contact when the agent joins the call.
+  Starts recording the contact when the agent joins the call.
 
   StartContactRecording is a one-time action. For example, if you use
   StopContactRecording to stop recording an ongoing call, you can't use
@@ -1738,18 +2303,17 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API places an outbound call to a contact, and then initiates the contact
-  flow.
+  Places an outbound call to a contact, and then initiates the contact flow.
 
   It performs the actions in the contact flow that's specified (in
   `ContactFlowId`).
 
-  Agents are not involved in initiating the outbound API (that is, dialing the
-  contact). If the contact flow places an outbound call to a contact, and then
-  puts the contact in queue, that's when the call is routed to the agent, like any
-  other inbound case.
+  Agents do not initiate the outbound API, which means that they do not dial the
+  contact. If the contact flow places an outbound call to a contact, and then puts
+  the contact in queue, the call is then routed to the agent, like any other
+  inbound case.
 
-  There is a 60 second dialing timeout for this operation. If the call is not
+  There is a 60-second dialing timeout for this operation. If the call is not
   connected after 60 seconds, it fails.
 
   UK numbers with a 447 prefix are not allowed by default. Before you can dial
@@ -1759,6 +2323,27 @@ defmodule AWS.Connect do
   """
   def start_outbound_voice_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-voice"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Initiates a contact flow to start a new task.
+  """
+  def start_task_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/task"
     headers = []
     query_params = []
 
@@ -1797,7 +2382,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  When a contact is being recorded, this API stops recording the call.
+  Stops recording a call when a contact is being recorded.
 
   StopContactRecording is a one-time action. If you use StopContactRecording to
   stop recording an ongoing call, you can't use StartContactRecording to restart
@@ -1858,7 +2443,8 @@ defmodule AWS.Connect do
   @doc """
   Adds the specified tags to the specified resource.
 
-  The supported resource types are users, routing profiles, and contact flows.
+  The supported resource types are users, routing profiles, queues, quick
+  connects, and contact flows.
 
   For sample policies that use tags, see [Amazon Connect Identity-Based Policy Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
   in the *Amazon Connect Administrator Guide*.
@@ -1911,21 +2497,21 @@ defmodule AWS.Connect do
   Creates or updates the contact attributes associated with the specified contact.
 
   You can add or update attributes for both ongoing and completed contacts. For
-  example, you can update the customer's name or the reason the customer called
-  while the call is active, or add notes about steps that the agent took during
-  the call that are displayed to the next agent that takes the call. You can also
+  example, while the call is active, you can update the customer's name or the
+  reason the customer called. You can add notes about steps that the agent took
+  during the call that display to the next agent that takes the call. You can also
   update attributes for a contact using data from your CRM application and save
   the data with the contact in Amazon Connect. You could also flag calls for
-  additional analysis, such as legal review or identifying abusive callers.
+  additional analysis, such as legal review or to identify abusive callers.
 
   Contact attributes are available in Amazon Connect for 24 months, and are then
   deleted.
 
   **Important:** You cannot use the operation to update attributes for contacts
-  that occurred prior to the release of the API, September 12, 2018. You can
-  update attributes only for contacts that started after the release of the API.
-  If you attempt to update attributes for a contact that occurred prior to the
-  release of the API, a 400 error is returned. This applies also to queued
+  that occurred prior to the release of the API, which was September 12, 2018. You
+  can update attributes only for contacts that started after the release of the
+  API. If you attempt to update attributes for a contact that occurred prior to
+  the release of the API, a 400 error is returned. This applies also to queued
   callbacks that were initiated prior to the release of the API but are still
   active in your instance.
   """
@@ -2006,6 +2592,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Updates the value for the specified attribute type.
   """
   def update_instance_attribute(
@@ -2033,9 +2621,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Updates an existing configuration for a resource type.
+  This API is in preview release for Amazon Connect and is subject to change.
 
-  This API is idempotent.
+  Updates an existing configuration for a resource type. This API is idempotent.
   """
   def update_instance_storage_config(
         %Client{} = client,
@@ -2052,6 +2640,196 @@ defmodule AWS.Connect do
         {"ResourceType", "resourceType"}
       ]
       |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates the hours of operation for the specified queue.
+  """
+  def update_queue_hours_of_operation(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/hours-of-operation"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates the maximum number of contacts allowed in a queue before it is
+  considered full.
+  """
+  def update_queue_max_contacts(%Client{} = client, instance_id, queue_id, input, options \\ []) do
+    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/max-contacts"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates the name and description of a queue. At least `Name` or `Description`
+  must be provided.
+  """
+  def update_queue_name(%Client{} = client, instance_id, queue_id, input, options \\ []) do
+    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/name"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates the outbound caller ID name, number, and outbound whisper flow for a
+  specified queue.
+  """
+  def update_queue_outbound_caller_config(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/outbound-caller-config"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates the status of the queue.
+  """
+  def update_queue_status(%Client{} = client, instance_id, queue_id, input, options \\ []) do
+    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/status"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates the configuration settings for the specified quick connect.
+  """
+  def update_quick_connect_config(
+        %Client{} = client,
+        instance_id,
+        quick_connect_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/quick-connects/#{URI.encode(instance_id)}/#{URI.encode(quick_connect_id)}/config"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Updates the name and description of a quick connect. The request accepts the
+  following data in JSON format. At least `Name` or `Description` must be
+  provided.
+  """
+  def update_quick_connect_name(
+        %Client{} = client,
+        instance_id,
+        quick_connect_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/quick-connects/#{URI.encode(instance_id)}/#{URI.encode(quick_connect_id)}/name"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -2261,13 +3039,12 @@ defmodule AWS.Connect do
   @doc """
   Updates the identity information for the specified user.
 
-  Someone with the ability to invoke `UpdateUserIndentityInfo` can change the
-  login credentials of other users by changing their email address. This poses a
+  We strongly recommend limiting who has the ability to invoke
+  `UpdateUserIdentityInfo`. Someone with that ability can change the login
+  credentials of other users by changing their email address. This poses a
   security risk to your organization. They can change the email address of a user
-  to the attacker's email address, and then reset the password through email. We
-  strongly recommend limiting who has the ability to invoke
-  `UpdateUserIndentityInfo`. For more information, see [Best Practices for Security
-  Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html)
+  to the attacker's email address, and then reset the password through email. For
+  more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html)
   in the *Amazon Connect Administrator Guide*.
   """
   def update_user_identity_info(%Client{} = client, instance_id, user_id, input, options \\ []) do

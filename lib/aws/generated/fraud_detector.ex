@@ -111,8 +111,7 @@ defmodule AWS.FraudDetector do
   You cannot delete an entity type that is included in an event type.
 
   When you delete an entity type, Amazon Fraud Detector permanently deletes that
-  entity type from the evaluation history, and the data is no longer stored in
-  Amazon Fraud Detector.
+  entity type and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_entity_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEntityType", input, options)
@@ -122,8 +121,7 @@ defmodule AWS.FraudDetector do
   Deletes the specified event.
 
   When you delete an event, Amazon Fraud Detector permanently deletes that event
-  from the evaluation history, and the event data is no longer stored in Amazon
-  Fraud Detector.
+  and the event data is no longer stored in Amazon Fraud Detector.
   """
   def delete_event(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEvent", input, options)
@@ -135,8 +133,7 @@ defmodule AWS.FraudDetector do
   You cannot delete an event type that is used in a detector or a model.
 
   When you delete an entity type, Amazon Fraud Detector permanently deletes that
-  entity type from the evaluation history, and the data is no longer stored in
-  Amazon Fraud Detector.
+  entity type and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_event_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEventType", input, options)
@@ -163,8 +160,7 @@ defmodule AWS.FraudDetector do
   relevant event ID.
 
   When you delete a label, Amazon Fraud Detector permanently deletes that label
-  from the evaluation history, and the data is no longer stored in Amazon Fraud
-  Detector.
+  and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_label(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteLabel", input, options)
@@ -177,8 +173,7 @@ defmodule AWS.FraudDetector do
   they are not associated with a detector version.
 
   When you delete a model, Amazon Fraud Detector permanently deletes that model
-  from the evaluation history, and the data is no longer stored in Amazon Fraud
-  Detector.
+  and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_model(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteModel", input, options)
@@ -191,8 +186,7 @@ defmodule AWS.FraudDetector do
   they are not associated with a detector version.
 
   When you delete a model version, Amazon Fraud Detector permanently deletes that
-  model version from the evaluation history, and the data is no longer stored in
-  Amazon Fraud Detector.
+  model version and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_model_version(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteModelVersion", input, options)
@@ -204,8 +198,7 @@ defmodule AWS.FraudDetector do
   You cannot delete an outcome that is used in a rule version.
 
   When you delete an outcome, Amazon Fraud Detector permanently deletes that
-  outcome from the evaluation history, and the data is no longer stored in Amazon
-  Fraud Detector.
+  outcome and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_outcome(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteOutcome", input, options)
@@ -217,9 +210,8 @@ defmodule AWS.FraudDetector do
   You cannot delete a rule if it is used by an `ACTIVE` or `INACTIVE` detector
   version.
 
-  When you delete a rule, Amazon Fraud Detector permanently deletes that rule from
-  the evaluation history, and the data is no longer stored in Amazon Fraud
-  Detector.
+  When you delete a rule, Amazon Fraud Detector permanently deletes that rule and
+  the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteRule", input, options)
@@ -236,8 +228,7 @@ defmodule AWS.FraudDetector do
   variables manually.
 
   When you delete a variable, Amazon Fraud Detector permanently deletes that
-  variable from the evaluation history, and the data is no longer stored in Amazon
-  Fraud Detector.
+  variable and the data is no longer stored in Amazon Fraud Detector.
   """
   def delete_variable(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteVariable", input, options)

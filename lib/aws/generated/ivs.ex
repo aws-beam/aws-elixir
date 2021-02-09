@@ -294,7 +294,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      204
     )
   end
 
@@ -340,7 +340,7 @@ defmodule AWS.Ivs do
       headers,
       input,
       options,
-      nil
+      204
     )
   end
 

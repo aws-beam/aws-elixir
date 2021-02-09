@@ -161,6 +161,9 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+  ## We strongly recommend using a launch template when calling this operation to
+  ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.
+
   Creates an Auto Scaling group with the specified name and attributes.
 
   If you exceed your maximum limit of Auto Scaling groups, the call fails. To
@@ -837,6 +840,9 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+  ## We strongly recommend that all Auto Scaling groups use launch templates to
+  ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.
+
   Updates the configuration for the specified Auto Scaling group.
 
   To update an Auto Scaling group, specify the name of the group and the parameter

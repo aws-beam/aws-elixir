@@ -37,13 +37,13 @@ defmodule AWS.SageMakerRuntime do
   behavior of headers outside those enumerated in the request syntax.
 
   Calls to `InvokeEndpoint` are authenticated by using AWS Signature Version 4.
-  For information, see [Authenticating Requests (AWS Signature Version 4)](http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
+  For information, see [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
   in the *Amazon S3 API Reference*.
 
   A customer's model containers must respond to requests within 60 seconds. The
   model itself can have a maximum processing time of 60 seconds before responding
-  to the /invocations. If your model is going to take 50-60 seconds of processing
-  time, the SDK socket timeout should be set to be 70 seconds.
+  to invocations. If your model is going to take 50-60 seconds of processing time,
+  the SDK socket timeout should be set to be 70 seconds.
 
   Endpoints are scoped to an individual account, and are not public. The URL does
   not contain the account ID, but Amazon SageMaker determines the account ID from
@@ -57,6 +57,7 @@ defmodule AWS.SageMakerRuntime do
         {"Accept", "Accept"},
         {"ContentType", "Content-Type"},
         {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
+        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
         {"TargetModel", "X-Amzn-SageMaker-Target-Model"},
         {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
       ]

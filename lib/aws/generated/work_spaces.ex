@@ -64,6 +64,11 @@ defmodule AWS.WorkSpaces do
 
   For more information about copying images, see [ Copy a Custom WorkSpaces Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html).
 
+  In the China (Ningxia) Region, you can copy images only within the same Region.
+
+  In the AWS GovCloud (US-West) Region, to copy images to and from other AWS
+  Regions, contact AWS Support.
+
   Before copying a shared image, be sure to verify that it has been shared from
   the correct AWS account. To determine if an image has been shared and to see the
   AWS account ID that owns an image, use the
@@ -172,6 +177,16 @@ defmodule AWS.WorkSpaces do
   This operation is asynchronous and returns before the WorkSpace directory is
   deregistered. If any WorkSpaces are registered to this directory, you must
   remove them before you can deregister the directory.
+
+  Simple AD and AD Connector are made available to you free of charge to use with
+  WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD
+  Connector directory for 30 consecutive days, this directory will be
+  automatically deregistered for use with Amazon WorkSpaces, and you will be
+  charged for this directory as per the [AWS Directory Services pricing terms](http://aws.amazon.com/directoryservice/pricing/).
+
+  To delete empty directories, see [ Delete the Directory for Your WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html).
+  If you delete your Simple AD or AD Connector directory, you can always create a
+  new one when you want to start using WorkSpaces again.
   """
   def deregister_workspace_directory(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeregisterWorkspaceDirectory", input, options)
@@ -527,6 +542,16 @@ defmodule AWS.WorkSpaces do
   DescribeWorkSpaces](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html).
   If the WorkSpace ID isn't returned, then the WorkSpace has been successfully
   terminated.
+
+  Simple AD and AD Connector are made available to you free of charge to use with
+  WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD
+  Connector directory for 30 consecutive days, this directory will be
+  automatically deregistered for use with Amazon WorkSpaces, and you will be
+  charged for this directory as per the [AWS Directory Services pricing terms](http://aws.amazon.com/directoryservice/pricing/).
+
+  To delete empty directories, see [ Delete the Directory for Your WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html).
+  If you delete your Simple AD or AD Connector directory, you can always create a
+  new one when you want to start using WorkSpaces again.
   """
   def terminate_workspaces(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TerminateWorkspaces", input, options)
@@ -564,11 +589,20 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Shares or unshares an image with one account by specifying whether that account
-  has permission to copy the image.
+  Shares or unshares an image with one account in the same AWS Region by
+  specifying whether that account has permission to copy the image.
 
   If the copy image permission is granted, the image is shared with that account.
   If the copy image permission is revoked, the image is unshared with the account.
+
+  After an image has been shared, the recipient account can copy the image to
+  other AWS Regions as needed.
+
+  In the China (Ningxia) Region, you can copy images only within the same Region.
+
+  In the AWS GovCloud (US-West) Region, to copy images to and from other AWS
+  Regions, contact AWS Support.
+
   For more information about sharing images, see [ Share or Unshare a Custom WorkSpaces
   Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html).
 

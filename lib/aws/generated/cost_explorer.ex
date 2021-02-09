@@ -169,6 +169,16 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Retrieves an array of Cost Category names and values incurred cost.
+
+  If some Cost Category names and values are not associated with any cost, they
+  will not be returned by this API.
+  """
+  def get_cost_categories(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetCostCategories", input, options)
+  end
+
+  @doc """
   Retrieves a forecast for how much Amazon Web Services predicts that you will
   spend over the forecast time period that you select, based on your past costs.
   """

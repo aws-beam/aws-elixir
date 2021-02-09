@@ -117,9 +117,9 @@ defmodule AWS.IoTSiteWise do
   [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html). 
 
   With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a
-  timestamp of no more than 15 minutes in the past and no more than 5 minutes in
-  the future. AWS IoT SiteWise rejects timestamps outside of the inclusive range
-  of [-15, +5] minutes and returns a `TimestampOutOfRangeException` error.
+  timestamp of no more than 7 days in the past and no more than 5 minutes in the
+  future. AWS IoT SiteWise rejects timestamps outside of the inclusive range of
+  [-7 days, +5 minutes] and returns a `TimestampOutOfRangeException` error.
 
   For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate
   timestamps unless the newer TQV has a different quality. For example, if you
@@ -293,44 +293,6 @@ defmodule AWS.IoTSiteWise do
       input,
       options,
       202
-    )
-  end
-
-  @doc """
-  Creates a pre-signed URL to a portal.
-
-  Use this operation to create URLs to portals that use AWS Identity and Access
-  Management (IAM) to authenticate users. An IAM user with access to a portal can
-  call this API to get a URL to that portal. The URL contains an authentication
-  token that lets the IAM user access the portal.
-  """
-  def create_presigned_portal_url(
-        %Client{} = client,
-        portal_id,
-        session_duration_seconds \\ nil,
-        options \\ []
-      ) do
-    url_path = "/portals/#{URI.encode(portal_id)}/presigned-url"
-    headers = []
-    query_params = []
-
-    query_params =
-      if !is_nil(session_duration_seconds) do
-        [{"sessionDurationSeconds", session_duration_seconds} | query_params]
-      else
-        query_params
-      end
-
-    Request.request_rest(
-      client,
-      metadata(),
-      :get,
-      url_path,
-      query_params,
-      headers,
-      nil,
-      options,
-      200
     )
   end
 
@@ -1215,6 +1177,58 @@ defmodule AWS.IoTSiteWise do
     url_path = "/asset-models"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves a paginated list of asset relationships for an asset.
+
+  You can use this operation to identify an asset's root asset and all associated
+  assets between that asset and its root.
+  """
+  def list_asset_relationships(
+        %Client{} = client,
+        asset_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        traversal_type,
+        options \\ []
+      ) do
+    url_path = "/assets/#{URI.encode(asset_id)}/assetRelationships"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(traversal_type) do
+        [{"traversalType", traversal_type} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

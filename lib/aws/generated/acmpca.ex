@@ -3,8 +3,6 @@
 
 defmodule AWS.ACMPCA do
   @moduledoc """
-
-
   This is the *ACM Private CA API Reference*.
 
   It provides descriptions, syntax, and usage examples for each of the actions and
@@ -115,7 +113,8 @@ defmodule AWS.ACMPCA do
     * If the private CA and the ACM certificates reside in different
   accounts, then permissions cannot be used to enable automatic renewals. Instead,
   the ACM certificate owner must set up a resource-based policy to enable
-  cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
+  cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private
+  CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
   """
   def create_permission(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreatePermission", input, options)
@@ -181,7 +180,8 @@ defmodule AWS.ACMPCA do
     * If the private CA and the ACM certificates reside in different
   accounts, then permissions cannot be used to enable automatic renewals. Instead,
   the ACM certificate owner must set up a resource-based policy to enable
-  cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
+  cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private
+  CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
   """
   def delete_permission(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeletePermission", input, options)
@@ -207,7 +207,8 @@ defmodule AWS.ACMPCA do
 
     * A policy grants access on a private CA to an AWS customer account,
   to AWS Organizations, or to an AWS Organizations unit. Policies are under the
-  control of a CA administrator. For more information, see [Using a Resource Based Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
+  control of a CA administrator. For more information, see [Using a Resource Based Policy with ACM Private
+  CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
 
     * A policy permits a user of AWS Certificate Manager (ACM) to issue
   ACM certificates signed by a CA in another account.
@@ -218,7 +219,7 @@ defmodule AWS.ACMPCA do
   Private CA policy. For more information, see [Using a Service Linked Role with ACM](https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html).
 
     * Updates made in AWS Resource Manager (RAM) are reflected in
-  policies. For more information, see [Using AWS Resource Access Manager (RAM) with ACM Private CA](acm-pca/latest/userguide/pca-ram.html).
+  policies. For more information, see [Attach a Policy for Cross-Account Access](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html).
   """
   def delete_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeletePolicy", input, options)
@@ -245,7 +246,7 @@ defmodule AWS.ACMPCA do
     * `EXPIRED` - Your private CA certificate has expired.
 
     * `FAILED` - Your private CA has failed. Your CA can fail because of
-  problems such a network outage or backend AWS failure or other errors. A failed
+  problems such a network outage or back-end AWS failure or other errors. A failed
   CA can never return to the pending state. You must create a new CA.
 
     * `DELETED` - Your private CA is within the restoration period,
@@ -328,13 +329,14 @@ defmodule AWS.ACMPCA do
 
   The policy can be attached or updated with
   [PutPolicy](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html) and removed with
-  [DeletePolicy](acm-pca/latest/APIReference/API_DeletePolicy.html).
+  [DeletePolicy](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html).
 
   ## About Policies
 
     * A policy grants access on a private CA to an AWS customer account,
   to AWS Organizations, or to an AWS Organizations unit. Policies are under the
-  control of a CA administrator. For more information, see [Using a Resource Based Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
+  control of a CA administrator. For more information, see [Using a Resource Based Policy with ACM Private
+  CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
 
     * A policy permits a user of AWS Certificate Manager (ACM) to issue
   ACM certificates signed by a CA in another account.
@@ -345,7 +347,7 @@ defmodule AWS.ACMPCA do
   Private CA policy. For more information, see [Using a Service Linked Role with ACM](https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html).
 
     * Updates made in AWS Resource Manager (RAM) are reflected in
-  policies. For more information, see [Using AWS Resource Access Manager (RAM) with ACM Private CA](acm-pca/latest/userguide/pca-ram.html).
+  policies. For more information, see [Attach a Policy for Cross-Account Access](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html).
   """
   def get_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetPolicy", input, options)
@@ -359,7 +361,7 @@ defmodule AWS.ACMPCA do
   preparations must in place:
 
     1. In ACM Private CA, call the
-  [CreateCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html) action to create the private CA that that you plan to back with the imported
+  [CreateCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html) action to create the private CA that you plan to back with the imported
   certificate.
 
     2. Call the
@@ -372,22 +374,29 @@ defmodule AWS.ACMPCA do
     4. Create a certificate chain and copy the signed certificate and
   the certificate chain to your working directory.
 
-  The following requirements apply when you import a CA certificate.
+  ACM Private CA supports three scenarios for installing a CA certificate:
 
-    * You cannot import a non-self-signed certificate for use as a root
-  CA.
+    * Installing a certificate for a root CA hosted by ACM Private CA.
 
-    * You cannot import a self-signed certificate for use as a
-  subordinate CA.
+    * Installing a subordinate CA certificate whose parent authority is
+  hosted by ACM Private CA.
+
+    * Installing a subordinate CA certificate whose parent authority is
+  externally hosted.
+
+  The following additional requirements apply when you import a CA certificate.
+
+    * Only a self-signed certificate can be imported as a root CA.
+
+    * A self-signed certificate cannot be imported as a subordinate CA.
 
     * Your certificate chain must not include the private CA certificate
   that you are importing.
 
-    * Your ACM Private CA-hosted or on-premises CA certificate must be
-  the last certificate in your chain. The subordinate certificate, if any, that
-  your root CA signed must be next to last. The subordinate certificate signed by
-  the preceding subordinate CA must come next, and so on until your chain is
-  built.
+    * Your root CA must be the last certificate in your chain. The
+  subordinate certificate, if any, that your root CA signed must be next to last.
+  The subordinate certificate signed by the preceding subordinate CA must come
+  next, and so on until your chain is built.
 
     * The chain must be PEM-encoded.
 
@@ -498,7 +507,8 @@ defmodule AWS.ACMPCA do
     * If the private CA and the ACM certificates reside in different
   accounts, then permissions cannot be used to enable automatic renewals. Instead,
   the ACM certificate owner must set up a resource-based policy to enable
-  cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
+  cross-account issuance and renewals. For more information, see [Using a Resource Based Policy with ACM Private
+  CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
   """
   def list_permissions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPermissions", input, options)
@@ -521,18 +531,19 @@ defmodule AWS.ACMPCA do
   @doc """
   Attaches a resource-based policy to a private CA.
 
-  A policy can also be applied by
-  [sharing](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html) a private CA through AWS Resource Access Manager (RAM).
+  A policy can also be applied by sharing a private CA through AWS Resource Access
+  Manager (RAM). For more information, see [Attach a Policy for Cross-Account Access](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html).
 
   The policy can be displayed with
-  [GetPolicy](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html)
-  and removed with
-  [DeletePolicy](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html).  ## About Policies
+  [GetPolicy](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html) and removed with
+  [DeletePolicy](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html).
+
+  ## About Policies
 
     * A policy grants access on a private CA to an AWS customer account,
   to AWS Organizations, or to an AWS Organizations unit. Policies are under the
-  control of a CA administrator. For more information, see [Using a Resource Based
-  Policy with ACM Private CA](acm-pca/latest/userguide/pca-rbp.html).
+  control of a CA administrator. For more information, see [Using a Resource Based Policy with ACM Private
+  CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html).
 
     * A policy permits a user of AWS Certificate Manager (ACM) to issue
   ACM certificates signed by a CA in another account.
@@ -543,7 +554,7 @@ defmodule AWS.ACMPCA do
   Private CA policy. For more information, see [Using a Service Linked Role with ACM](https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html).
 
     * Updates made in AWS Resource Manager (RAM) are reflected in
-  policies. For more information, see [Using AWS Resource Access Manager (RAM) with ACM Private CA](acm-pca/latest/userguide/pca-ram.html).
+  policies. For more information, see [Attach a Policy for Cross-Account Access](https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html).
   """
   def put_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutPolicy", input, options)

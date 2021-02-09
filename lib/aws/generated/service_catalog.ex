@@ -166,8 +166,12 @@ defmodule AWS.ServiceCatalog do
   `AWSOrganizationsAccess` must be enabled in order to create a portfolio share to
   an organization node.
 
-  You can't share a shared resource. This includes portfolios that contain a
-  shared product.
+  You can't share a shared resource, including portfolios that contain a shared
+  product.
+
+  If the portfolio share with the specified account or organization node already
+  exists, this action will have no effect and will not return an error. To update
+  an existing share, you must use the ` UpdatePortfolioShare` API instead.
   """
   def create_portfolio_share(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreatePortfolioShare", input, options)
@@ -177,6 +181,11 @@ defmodule AWS.ServiceCatalog do
   Creates a product.
 
   A delegated admin is authorized to invoke this command.
+
+  The user or role that performs this operation must have the
+  `cloudformation:GetTemplate` IAM policy permission. This policy permission is
+  required when using the `ImportFromPhysicalId` template source in the
+  information data section.
   """
   def create_product(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateProduct", input, options)
@@ -206,6 +215,11 @@ defmodule AWS.ServiceCatalog do
 
   You cannot create a provisioning artifact for a product that was shared with
   you.
+
+  The user or role that performs this operation must have the
+  `cloudformation:GetTemplate` IAM policy permission. This policy permission is
+  required when using the `ImportFromPhysicalId` template source in the
+  information data section.
   """
   def create_provisioning_artifact(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateProvisioningArtifact", input, options)
@@ -338,6 +352,20 @@ defmodule AWS.ServiceCatalog do
   """
   def describe_portfolio_share_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePortfolioShareStatus", input, options)
+  end
+
+  @doc """
+  Returns a summary of each of the portfolio shares that were created for the
+  specified portfolio.
+
+  You can use this API to determine which accounts or organizational nodes this
+  portfolio have been shared, whether the recipient entity has imported the share,
+  and whether TagOptions are included with the share.
+
+  The `PortfolioId` and `Type` parameters are both required.
+  """
+  def describe_portfolio_shares(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePortfolioShares", input, options)
   end
 
   @doc """
@@ -574,18 +602,22 @@ defmodule AWS.ServiceCatalog do
   Requests the import of a resource as a Service Catalog provisioned product that
   is associated to a Service Catalog product and provisioning artifact.
 
-  Once imported all supported Service Catalog governance actions are supported on
+  Once imported, all supported Service Catalog governance actions are supported on
   the provisioned product.
 
   Resource import only supports CloudFormation stack ARNs. CloudFormation
   StackSets and non-root nested stacks are not supported.
 
   The CloudFormation stack must have one of the following statuses to be imported:
-  CREATE_COMPLETE, UPDATE_COMPLETE, UPDATE_ROLLBACK_COMPLETE, IMPORT_COMPLETE,
-  IMPORT_ROLLBACK_COMPLETE.
+  `CREATE_COMPLETE`, `UPDATE_COMPLETE`, `UPDATE_ROLLBACK_COMPLETE`,
+  `IMPORT_COMPLETE`, `IMPORT_ROLLBACK_COMPLETE`.
 
   Import of the resource requires that the CloudFormation stack template matches
   the associated Service Catalog product provisioning artifact.
+
+  The user or role that performs this operation must have the
+  `cloudformation:GetTemplate` and `cloudformation:DescribeStacks` IAM policy
+  permissions.
   """
   def import_as_provisioned_product(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ImportAsProvisionedProduct", input, options)
@@ -838,6 +870,30 @@ defmodule AWS.ServiceCatalog do
   """
   def update_portfolio(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdatePortfolio", input, options)
+  end
+
+  @doc """
+  Updates the specified portfolio share.
+
+  You can use this API to enable or disable TagOptions sharing for an existing
+  portfolio share.
+
+  The portfolio share cannot be updated if the ` CreatePortfolioShare` operation
+  is `IN_PROGRESS`, as the share is not available to recipient entities. In this
+  case, you must wait for the portfolio share to be COMPLETED.
+
+  You must provide the `accountId` or organization node in the input, but not
+  both.
+
+  If the portfolio is shared to both an external account and an organization node,
+  and both shares need to be updated, you must invoke `UpdatePortfolioShare`
+  separately for each share type.
+
+  This API cannot be used for removing the portfolio share. You must use
+  `DeletePortfolioShare` API for that action.
+  """
+  def update_portfolio_share(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePortfolioShare", input, options)
   end
 
   @doc """

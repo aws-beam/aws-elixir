@@ -30,7 +30,7 @@ defmodule AWS.ApplicationAutoScaling do
 
     * Amazon Keyspaces (for Apache Cassandra) tables
 
-    * Amazon Managed Streaming for Apache Kafka cluster storage
+    * Amazon Managed Streaming for Apache Kafka broker storage
 
   ## API Summary
 
@@ -86,8 +86,8 @@ defmodule AWS.ApplicationAutoScaling do
   delete the CloudWatch alarm associated with the scaling policy, even if it no
   longer has an associated action.
 
-  For more information, see [Delete a Step Scaling Policy](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#delete-step-scaling-policy)
-  and [Delete a Target Tracking Scaling Policy](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#delete-target-tracking-policy)
+  For more information, see [Delete a step scaling policy](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#delete-step-scaling-policy)
+  and [Delete a target tracking scaling policy](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#delete-target-tracking-policy)
   in the *Application Auto Scaling User Guide*.
   """
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
@@ -98,7 +98,7 @@ defmodule AWS.ApplicationAutoScaling do
   Deletes the specified scheduled action for an Application Auto Scaling scalable
   target.
 
-  For more information, see [Delete a Scheduled Action](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html#delete-scheduled-action)
+  For more information, see [Delete a scheduled action](https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html#delete-scheduled-action)
   in the *Application Auto Scaling User Guide*.
   """
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
@@ -145,8 +145,8 @@ defmodule AWS.ApplicationAutoScaling do
   You can filter the results using `ResourceId`, `ScalableDimension`, and
   `PolicyNames`.
 
-  For more information, see [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html)
-  and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html)
+  For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html)
+  and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html)
   in the *Application Auto Scaling User Guide*.
   """
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
@@ -160,7 +160,8 @@ defmodule AWS.ApplicationAutoScaling do
   You can filter the results using the `ResourceId`, `ScalableDimension`, and
   `ScheduledActionNames` parameters.
 
-  For more information, see [Scheduled Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html)
+  For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html)
+  and [Managing scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html)
   in the *Application Auto Scaling User Guide*.
   """
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
@@ -195,8 +196,8 @@ defmodule AWS.ApplicationAutoScaling do
   the target tracking policy could instruct the scalable target to scale out
   again.
 
-  For more information, see [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html)
-  and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html)
+  For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html)
+  and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html)
   in the *Application Auto Scaling User Guide*.
 
   If a scalable target is deregistered, the scalable target is no longer available
@@ -217,13 +218,13 @@ defmodule AWS.ApplicationAutoScaling do
   registered the resource as a scalable target.
 
   When start and end times are specified with a recurring schedule using a cron
-  expression or rates, they form the boundaries of when the recurring action
+  expression or rates, they form the boundaries for when the recurring action
   starts and stops.
 
   To update a scheduled action, specify the parameters that you want to change. If
   you don't specify start and end times, the old values are deleted.
 
-  For more information, see [Scheduled Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html)
+  For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html)
   in the *Application Auto Scaling User Guide*.
 
   If a scalable target is deregistered, the scalable target is no longer available

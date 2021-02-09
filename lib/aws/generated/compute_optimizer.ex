@@ -4,8 +4,8 @@
 defmodule AWS.ComputeOptimizer do
   @moduledoc """
   AWS Compute Optimizer is a service that analyzes the configuration and
-  utilization metrics of your AWS resources, such as EC2 instances and Auto
-  Scaling groups.
+  utilization metrics of your AWS compute resources, such as EC2 instances, Auto
+  Scaling groups, AWS Lambda functions, and Amazon EBS volumes.
 
   It reports whether your resources are optimal, and generates optimization
   recommendations to reduce the cost and improve the performance of your
@@ -98,6 +98,18 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+  Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.
+
+  AWS Compute Optimizer generates recommendations for Amazon EBS volumes that meet
+  a specific set of requirements. For more information, see the [Supported resources and
+  requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
+  in the *AWS Compute Optimizer User Guide*.
+  """
+  def get_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetEBSVolumeRecommendations", input, options)
+  end
+
+  @doc """
   Returns Amazon EC2 instance recommendations.
 
   AWS Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud
@@ -132,11 +144,23 @@ defmodule AWS.ComputeOptimizer do
   Returns the enrollment (opt in) status of an account to the AWS Compute
   Optimizer service.
 
-  If the account is the master account of an organization, this action also
+  If the account is the management account of an organization, this action also
   confirms the enrollment status of member accounts within the organization.
   """
   def get_enrollment_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetEnrollmentStatus", input, options)
+  end
+
+  @doc """
+  Returns AWS Lambda function recommendations.
+
+  AWS Compute Optimizer generates recommendations for functions that meet a
+  specific set of requirements. For more information, see the [Supported resources and
+  requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
+  in the *AWS Compute Optimizer User Guide*.
+  """
+  def get_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLambdaFunctionRecommendations", input, options)
   end
 
   @doc """
@@ -155,8 +179,8 @@ defmodule AWS.ComputeOptimizer do
   Updates the enrollment (opt in) status of an account to the AWS Compute
   Optimizer service.
 
-  If the account is a master account of an organization, this action can also be
-  used to enroll member accounts within the organization.
+  If the account is a management account of an organization, this action can also
+  be used to enroll member accounts within the organization.
   """
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEnrollmentStatus", input, options)

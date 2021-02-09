@@ -470,6 +470,106 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Lists all of the tags on the resource.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Syncs the resource with what is currently recorded in App registry.
+
+  Specifically, the resource’s App registry system tags are synced with its
+  associated application. The resource is removed if it is not associated with the
+  application. The caller must have permissions to read and update the resource.
+  """
+  def sync_resource(%Client{} = client, resource, resource_type, input, options \\ []) do
+    url_path = "/sync/#{URI.encode(resource_type)}/#{URI.encode(resource)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Assigns one or more tags (key-value pairs) to the specified resource.
+
+  Each tag consists of a key and an optional value. If a tag with the same key is
+  already associated with the resource, this action updates its value.
+
+  This operation returns an empty response if the call was successful.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes tags from a resource.
+
+  This operation returns an empty response if the call was successful.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates an existing application with new attributes.
   """
   def update_application(%Client{} = client, application, input, options \\ []) do

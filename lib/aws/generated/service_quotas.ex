@@ -3,19 +3,11 @@
 
 defmodule AWS.ServiceQuotas do
   @moduledoc """
-  Service Quotas is a web service that you can use to manage many of your AWS
-  service quotas.
+  With Service Quotas, you can view and manage your quotas easily as your AWS
+  workloads grow.
 
-  Quotas, also referred to as limits, are the maximum values for a resource, item,
-  or operation. This guide provide descriptions of the Service Quotas actions that
-  you can call from an API. For the Service Quotas user guide, which explains how
-  to use Service Quotas from the console, see [What is Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html).
-
-  AWS provides SDKs that consist of libraries and sample code for programming
-  languages and platforms (Java, Ruby, .NET, iOS, Android, etc...,). The SDKs
-  provide a convenient way to create programmatic access to Service Quotas and
-  AWS. For information about the AWS SDKs, including how to download and install
-  them, see the [Tools for Amazon Web Services](https://docs.aws.amazon.com/aws.amazon.com/tools) page.
+  Quotas, also referred to as limits, are the maximum number of resources that you
+  can create in your AWS account. For more information, see the [Service Quotas User Guide](https://docs.aws.amazon.com/servicequotas/latest/userguide/).
   """
 
   alias AWS.Client
@@ -38,20 +30,19 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Associates the Service Quotas template with your organization so that when new
-  accounts are created in your organization, the template submits increase
-  requests for the specified service quotas.
+  Associates your quota request template with your organization.
 
-  Use the Service Quotas template to request an increase for any adjustable quota
-  value. After you define the Service Quotas template, use this operation to
-  associate, or enable, the template.
+  When a new account is created in your organization, the quota increase requests
+  in the template are automatically applied to the account. You can add a quota
+  increase request for any adjustable quota to your template.
   """
   def associate_service_quota_template(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssociateServiceQuotaTemplate", input, options)
   end
 
   @doc """
-  Removes a service quota increase request from the Service Quotas template.
+  Deletes the quota increase request for the specified quota from your quota
+  request template.
   """
   def delete_service_quota_increase_request_from_template(
         %Client{} = client,
@@ -68,29 +59,18 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Disables the Service Quotas template.
+  Disables your quota request template.
 
-  Once the template is disabled, it does not request quota increases for new
-  accounts in your organization. Disabling the quota template does not apply the
-  quota increase requests from the template.
-
-  ## Related operations
-
-    * To enable the quota template, call
-  `AssociateServiceQuotaTemplate`.
-
-    * To delete a specific service quota from the template, use
-  `DeleteServiceQuotaIncreaseRequestFromTemplate`.
+  After a template is disabled, the quota increase requests in the template are
+  not applied to new accounts in your organization. Disabling a quota request
+  template does not apply its quota increase requests.
   """
   def disassociate_service_quota_template(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateServiceQuotaTemplate", input, options)
   end
 
   @doc """
-  Retrieves the `ServiceQuotaTemplateAssociationStatus` value from the service.
-
-  Use this action to determine if the Service Quota template is associated, or
-  enabled.
+  Retrieves the status of the association for the quota request template.
   """
   def get_association_for_service_quota_template(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -103,35 +83,34 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Retrieves the default service quotas values.
+  Retrieves the default value for the specified quota.
 
-  The Value returned for each quota is the AWS default value, even if the quotas
-  have been increased..
+  The default value does not reflect any quota increases.
   """
   def get_aws_default_service_quota(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetAWSDefaultServiceQuota", input, options)
   end
 
   @doc """
-  Retrieves the details for a particular increase request.
+  Retrieves information about the specified quota increase request.
   """
   def get_requested_service_quota_change(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetRequestedServiceQuotaChange", input, options)
   end
 
   @doc """
-  Returns the details for the specified service quota.
+  Retrieves the applied quota value for the specified quota.
 
-  This operation provides a different Value than the `GetAWSDefaultServiceQuota`
-  operation. This operation returns the applied value for each quota.
-  `GetAWSDefaultServiceQuota` returns the default AWS value for each quota.
+  For some quotas, only the default values are available. If the applied quota
+  value is not available for a quota, the quota is not retrieved.
   """
   def get_service_quota(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetServiceQuota", input, options)
   end
 
   @doc """
-  Returns the details of the service quota increase request in your template.
+  Retrieves information about the specified quota increase request in your quota
+  request template.
   """
   def get_service_quota_increase_request_from_template(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -144,27 +123,16 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists all default service quotas for the specified AWS service or all AWS
-  services.
+  Lists the default values for the quotas for the specified AWS service.
 
-  ListAWSDefaultServiceQuotas is similar to `ListServiceQuotas` except for the
-  Value object. The Value object returned by `ListAWSDefaultServiceQuotas` is the
-  default value assigned by AWS. This request returns a list of all service quotas
-  for the specified service. The listing of each you'll see the default values are
-  the values that AWS provides for the quotas.
-
-  Always check the `NextToken` response parameter when calling any of the `List*`
-  operations. These operations can return an unexpected list of results, even when
-  there are more results available. When this happens, the `NextToken` response
-  parameter contains a value to pass the next call to the same API to request the
-  next part of the list.
+  A default value does not reflect any quota increases.
   """
   def list_aws_default_service_quotas(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAWSDefaultServiceQuotas", input, options)
   end
 
   @doc """
-  Requests a list of the changes to quotas for a service.
+  Retrieves the quota increase requests for the specified service.
   """
   def list_requested_service_quota_change_history(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -177,12 +145,7 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Requests a list of the changes to specific service quotas.
-
-  This command provides additional granularity over the
-  `ListRequestedServiceQuotaChangeHistory` command. Once a quota change request
-  has reached `CASE_CLOSED, APPROVED,` or `DENIED`, the history has been kept for
-  90 days.
+  Retrieves the quota increase requests for the specified quota.
   """
   def list_requested_service_quota_change_history_by_quota(
         %Client{} = client,
@@ -199,7 +162,7 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Returns a list of the quota increase requests in the template.
+  Lists the quota increase requests in the specified quota request template.
   """
   def list_service_quota_increase_requests_in_template(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -212,38 +175,31 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists all service quotas for the specified AWS service.
+  Lists the applied quota values for the specified AWS service.
 
-  This request returns a list of the service quotas for the specified service.
-  you'll see the default values are the values that AWS provides for the quotas.
-
-  Always check the `NextToken` response parameter when calling any of the `List*`
-  operations. These operations can return an unexpected list of results, even when
-  there are more results available. When this happens, the `NextToken` response
-  parameter contains a value to pass the next call to the same API to request the
-  next part of the list.
+  For some quotas, only the default values are available. If the applied quota
+  value is not available for a quota, the quota is not retrieved.
   """
   def list_service_quotas(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServiceQuotas", input, options)
   end
 
   @doc """
-  Lists the AWS services available in Service Quotas.
-
-  Not all AWS services are available in Service Quotas. To list the see the list
-  of the service quotas for a specific service, use `ListServiceQuotas`.
+  Lists the names and codes for the services integrated with Service Quotas.
   """
   def list_services(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServices", input, options)
   end
 
   @doc """
-  Defines and adds a quota to the service quota template.
+  Returns a list of the tags assigned to the specified applied quota.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
 
-  To add a quota to the template, you must provide the `ServiceCode`, `QuotaCode`,
-  `AwsRegion`, and `DesiredValue`. Once you add a quota to the template, use
-  `ListServiceQuotaIncreaseRequestsInTemplate` to see the list of quotas in the
-  template.
+  @doc """
+  Adds a quota increase request to your quota request template.
   """
   def put_service_quota_increase_request_into_template(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -256,12 +212,27 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Retrieves the details of a service quota increase request.
-
-  The response to this command provides the details in the
-  `RequestedServiceQuotaChange` object.
+  Submits a quota increase request for the specified quota.
   """
   def request_service_quota_increase(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RequestServiceQuotaIncrease", input, options)
+  end
+
+  @doc """
+  Adds tags to the specified applied quota.
+
+  You can include one or more tags to add to the quota.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
+  end
+
+  @doc """
+  Removes tags from the specified applied quota.
+
+  You can specify one or more tags to remove.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 end

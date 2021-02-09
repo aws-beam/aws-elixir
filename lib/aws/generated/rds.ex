@@ -196,11 +196,11 @@ defmodule AWS.RDS do
 
   The pre-signed URL request must contain the following parameter values:
 
-      * `KmsKeyId` - The KMS key identifier for the key to use
-  to encrypt the copy of the DB cluster snapshot in the destination AWS Region.
-  This is the same identifier for both the `CopyDBClusterSnapshot` action that is
-  called in the destination AWS Region, and the action contained in the pre-signed
-  URL.
+      * `KmsKeyId` - The AWS KMS key identifier for the
+  customer master key (CMK) to use to encrypt the copy of the DB cluster snapshot
+  in the destination AWS Region. This is the same identifier for both the
+  `CopyDBClusterSnapshot` action that is called in the destination AWS Region, and
+  the action contained in the pre-signed URL.
 
       * `DestinationRegion` - The name of the AWS Region that
   the DB cluster snapshot is to be created in.
@@ -284,8 +284,7 @@ defmodule AWS.RDS do
   A custom AZ is an on-premises AZ that is integrated with a VMware vSphere
   cluster.
 
-  For more information about RDS on VMware, see the [ *RDS on VMware User Guide.*
-  ](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
+  For more information about RDS on VMware, see the [ RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
   """
   def create_custom_availability_zone(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateCustomAvailabilityZone", input, options)
@@ -444,8 +443,8 @@ defmodule AWS.RDS do
   @doc """
   Creates a snapshot of a DB instance.
 
-  The source DB instance must be in the `available` or
-  `storage-optimization`state.
+  The source DB instance must be in the `available` or `storage-optimization`
+  state.
   """
   def create_db_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDBSnapshot", input, options)
@@ -525,8 +524,7 @@ defmodule AWS.RDS do
   A custom AZ is an on-premises AZ that is integrated with a VMware vSphere
   cluster.
 
-  For more information about RDS on VMware, see the [ *RDS on VMware User Guide.*
-  ](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
+  For more information about RDS on VMware, see the [ RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
   """
   def delete_custom_availability_zone(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteCustomAvailabilityZone", input, options)
@@ -622,8 +620,8 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Deletes automated backups based on the source instance's `DbiResourceId` value
-  or the restorable instance's resource ID.
+  Deletes automated backups using the `DbiResourceId` value of the source DB
+  instance or the Amazon Resource Name (ARN) of the automated backups.
   """
   def delete_db_instance_automated_backup(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBInstanceAutomatedBackup", input, options)
@@ -742,8 +740,7 @@ defmodule AWS.RDS do
   A custom AZ is an on-premises AZ that is integrated with a VMware vSphere
   cluster.
 
-  For more information about RDS on VMware, see the [ *RDS on VMware User Guide.*
-  ](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
+  For more information about RDS on VMware, see the [ RDS on VMware User Guide.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html)
   """
   def describe_custom_availability_zones(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeCustomAvailabilityZones", input, options)
@@ -1130,7 +1127,7 @@ defmodule AWS.RDS do
 
   @doc """
   Returns a list of the source AWS Regions where the current AWS Region can create
-  a read replica or copy a DB snapshot from.
+  a read replica, copy a DB snapshot from, or replicate automated backups from.
 
   This API action supports pagination.
   """
@@ -1722,21 +1719,21 @@ defmodule AWS.RDS do
   @doc """
   Creates a new DB instance from a DB snapshot.
 
-  The target database is created from the source database restore point with the
-  most of original configuration with the default security group and the default
-  DB parameter group. By default, the new DB instance is created as a single-AZ
-  deployment except when the instance is a SQL Server instance that has an option
-  group that is associated with mirroring; in this case, the instance becomes a
-  mirrored AZ deployment and not a single-AZ deployment.
+  The target database is created from the source database restore point with most
+  of the source's original configuration, including the default security group and
+  DB parameter group. By default, the new DB instance is created as a Single-AZ
+  deployment, except when the instance is a SQL Server instance that has an option
+  group associated with mirroring. In this case, the instance becomes a Multi-AZ
+  deployment, not a Single-AZ deployment.
 
-  If your intent is to replace your original DB instance with the new, restored DB
+  If you want to replace your original DB instance with the new, restored DB
   instance, then rename your original DB instance before you call the
   RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with
-  the same name. Once you have renamed your original DB instance with a different
+  the same name. After you have renamed your original DB instance with a different
   identifier, then you can pass the original name of the DB instance as the
   DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action.
-  The result is that you will replace the original DB instance with the DB
-  instance created from the snapshot.
+  The result is that you replace the original DB instance with the DB instance
+  created from the snapshot.
 
   If you are restoring from a shared manual DB snapshot, the
   `DBSnapshotIdentifier` must be the ARN of the shared DB snapshot.
@@ -1835,6 +1832,22 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Enables replication of automated backups to a different AWS Region.
+
+  For more information, see [ Replicating Automated Backups to Another AWS Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html)
+  in the *Amazon RDS User Guide.*
+  """
+  def start_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "StartDBInstanceAutomatedBackupsReplication",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Starts an export of a snapshot to Amazon S3.
 
   The provided IAM role must have access to the S3 bucket.
@@ -1886,5 +1899,21 @@ defmodule AWS.RDS do
   """
   def stop_db_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopDBInstance", input, options)
+  end
+
+  @doc """
+  Stops automated backup replication for a DB instance.
+
+  For more information, see [ Replicating Automated Backups to Another AWS Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html)
+  in the *Amazon RDS User Guide.*
+  """
+  def stop_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "StopDBInstanceAutomatedBackupsReplication",
+      input,
+      options
+    )
   end
 end

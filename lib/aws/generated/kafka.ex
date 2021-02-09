@@ -721,6 +721,27 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Updates all the brokers in the cluster to the specified type.
+  """
+  def update_broker_type(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{URI.encode(cluster_arn)}/nodes/type"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the cluster with the configuration that is specified in the request
   body.
   """

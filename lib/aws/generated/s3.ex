@@ -186,6 +186,7 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption-aws-kms-key-id", "SSEKMSKeyId"},
@@ -294,20 +295,18 @@ defmodule AWS.S3 do
   All headers with the `x-amz-` prefix, including `x-amz-copy-source`, must be
   signed.
 
-  ## Encryption
+  ## Server-side encryption
 
-  The source object that you are copying can be encrypted or unencrypted. The
-  source object can be encrypted with server-side encryption using AWS managed
-  encryption keys (SSE-S3 or SSE-KMS) or by using a customer-provided encryption
-  key. With server-side encryption, Amazon S3 encrypts your data as it writes it
-  to disks in its data centers and decrypts the data when you access it.
+  When you perform a CopyObject operation, you can optionally use the appropriate
+  encryption-related headers to encrypt the object using server-side encryption
+  with AWS managed encryption keys (SSE-S3 or SSE-KMS) or a customer-provided
+  encryption key. With server-side encryption, Amazon S3 encrypts your data as it
+  writes it to disks in its data centers and decrypts the data when you access it.
+  For more information about server-side encryption, see [Using Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html).
 
-  You can optionally use the appropriate encryption-related headers to request
-  server-side encryption for the target object. You have the option to provide
-  your own encryption key or use SSE-S3 or SSE-KMS, regardless of the form of
-  server-side encryption that was used to encrypt the source object. You can even
-  request encryption if the source object was not encrypted. For more information
-  about server-side encryption, see [Using Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html).
+  If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the object.
+  For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   ## Access Control List (ACL)-Specific Request Headers
 
@@ -367,6 +366,7 @@ defmodule AWS.S3 do
          "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
         {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
         {"CopySourceSSECustomerKey", "x-amz-copy-source-server-side-encryption-customer-key"},
+        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
         {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
         {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
         {"RequestPayer", "x-amz-request-payer"},
@@ -408,6 +408,7 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-copy-source-version-id", "CopySourceVersionId"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
@@ -773,6 +774,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
+        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
         {"CacheControl", "Cache-Control"},
         {"ContentDisposition", "Content-Disposition"},
         {"ContentEncoding", "Content-Encoding"},
@@ -809,6 +811,7 @@ defmodule AWS.S3 do
         [
           {"x-amz-abort-date", "AbortDate"},
           {"x-amz-abort-rule-id", "AbortRuleId"},
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
@@ -3096,6 +3099,7 @@ defmodule AWS.S3 do
         :response_header_parameters,
         [
           {"accept-ranges", "AcceptRanges"},
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"Cache-Control", "CacheControl"},
           {"Content-Disposition", "ContentDisposition"},
           {"Content-Encoding", "ContentEncoding"},
@@ -3703,6 +3707,7 @@ defmodule AWS.S3 do
         [
           {"accept-ranges", "AcceptRanges"},
           {"x-amz-archive-status", "ArchiveStatus"},
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"Cache-Control", "CacheControl"},
           {"Content-Disposition", "ContentDisposition"},
           {"Content-Encoding", "ContentEncoding"},
@@ -4985,13 +4990,17 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This implementation of the `PUT` operation uses the `encryption` subresource to
-  set the default encryption state of an existing bucket.
+  This operation uses the `encryption` subresource to configure default encryption
+  and Amazon S3 Bucket Key for an existing bucket.
 
-  This implementation of the `PUT` operation sets default encryption for a bucket
-  using server-side encryption with Amazon S3-managed keys SSE-S3 or AWS KMS
-  customer master keys (CMKs) (SSE-KMS). For information about the Amazon S3
-  default encryption feature, see [Amazon S3 Default Bucket Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html).
+  Default encryption for a bucket can use server-side encryption with Amazon
+  S3-managed keys (SSE-S3) or AWS KMS customer master keys (SSE-KMS). If you
+  specify default encryption using SSE-KMS, you can also configure Amazon S3
+  Bucket Key. For information about default encryption, see [Amazon S3 default bucket
+  encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)
+  in the *Amazon Simple Storage Service Developer Guide*. For more information
+  about S3 Bucket Keys, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   This operation requires AWS Signature Version 4. For more information, see [
   Authenticating Requests (AWS Signature Version
@@ -5710,15 +5719,14 @@ defmodule AWS.S3 do
   permission.
 
   Specify the replication configuration in the request body. In the replication
-  configuration, you provide the name of the destination bucket where you want
-  Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to
-  replicate objects on your behalf, and other relevant information.
+  configuration, you provide the name of the destination bucket or buckets where
+  you want Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume
+  to replicate objects on your behalf, and other relevant information.
 
   A replication configuration must include at least one rule, and can contain a
   maximum of 1,000. Each rule identifies a subset of objects to replicate by
   filtering the objects in the source bucket. To choose additional subsets of
-  objects to replicate, add a rule for each subset. All rules must specify the
-  same destination bucket.
+  objects to replicate, add a rule for each subset.
 
   To specify a subset of the objects in the source bucket to apply a replication
   rule to, add the Filter element as a child of the Rule element. You can filter
@@ -6086,8 +6094,13 @@ defmodule AWS.S3 do
   You can optionally request server-side encryption. With server-side encryption,
   Amazon S3 encrypts your data as it writes it to disks in its data centers and
   decrypts the data when you access it. You have the option to provide your own
-  encryption key or use AWS managed encryption keys. For more information, see
-  [Using Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html).
+  encryption key or use AWS managed encryption keys (SSE-S3 or SSE-KMS). For more
+  information, see [Using Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html).
+
+  If you request server-side encryption using AWS Key Management Service
+  (SSE-KMS), you can enable an S3 Bucket Key at the object-level. For more
+  information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   ## Access Control List (ACL)-Specific Request Headers
 
@@ -6131,6 +6144,7 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ACL", "x-amz-acl"},
+        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
         {"CacheControl", "Cache-Control"},
         {"ContentDisposition", "Content-Disposition"},
         {"ContentEncoding", "Content-Encoding"},
@@ -6167,6 +6181,7 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"ETag", "ETag"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
@@ -7159,6 +7174,7 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"ETag", "ETag"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
@@ -7336,6 +7352,7 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [
+          {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-copy-source-version-id", "CopySourceVersionId"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},

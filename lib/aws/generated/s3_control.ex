@@ -170,13 +170,14 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  S3 Batch Operations performs large-scale Batch Operations on Amazon S3 objects.
+  You can use S3 Batch Operations to perform large-scale batch operations on
+  Amazon S3 objects.
 
-  Batch Operations can run a single operation or action on lists of Amazon S3
-  objects that you specify. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
+  Batch Operations can run a single operation on lists of Amazon S3 objects that
+  you specify. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
   in the *Amazon Simple Storage Service Developer Guide*.
 
-  This operation creates an S3 Batch Operations job.
+  This operation creates a S3 Batch Operations job.
 
   Related actions include:
 
@@ -187,6 +188,9 @@ defmodule AWS.S3Control do
     *
   [UpdateJobPriority](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html)     *
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
+
+    *
+  [JobOperation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html)
   """
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/v20180820/jobs"
@@ -381,7 +385,7 @@ defmodule AWS.S3Control do
   point ARN, see the
   [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html#API_control_DeleteBucketLifecycleConfiguration_Examples) section.
 
-  For more information about object expiration, see [ Elements to Describe
+  For more information about object expiration, see [Elements to Describe
   Lifecycle
   Actions](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions).
 
@@ -439,8 +443,7 @@ defmodule AWS.S3Control do
   can always use this operation, even if the policy explicitly denies the root
   user the ability to perform this action.
 
-  For more information about bucket policies, see [Using Bucket Policies and User Policies](
-  https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
+  For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request and an
@@ -616,12 +619,13 @@ defmodule AWS.S3Control do
   @doc """
   Deletes the Amazon S3 Storage Lens configuration.
 
-  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   To use this action, you must have permission to perform the
   `s3:DeleteStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
-  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def delete_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
@@ -651,12 +655,13 @@ defmodule AWS.S3Control do
   @doc """
   Deletes the Amazon S3 Storage Lens configuration tags.
 
-  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   To use this action, you must have permission to perform the
   `s3:DeleteStorageLensConfigurationTagging` action. For more information, see
-  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def delete_storage_lens_configuration_tagging(
@@ -1194,12 +1199,13 @@ defmodule AWS.S3Control do
   @doc """
   Gets the Amazon S3 Storage Lens configuration.
 
-  For more information, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  For more information, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   To use this action, you must have permission to perform the
   `s3:GetStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
-  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def get_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ []) do
@@ -1231,12 +1237,13 @@ defmodule AWS.S3Control do
   @doc """
   Gets the tags of Amazon S3 Storage Lens configuration.
 
-  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   To use this action, you must have permission to perform the
   `s3:GetStorageLensConfigurationTagging` action. For more information, see
-  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def get_storage_lens_configuration_tagging(
@@ -1491,12 +1498,13 @@ defmodule AWS.S3Control do
   @doc """
   Gets a list of Amazon S3 Storage Lens configurations.
 
-  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   To use this action, you must have permission to perform the
   `s3:ListStorageLensConfigurations` action. For more information, see [Setting permissions to use Amazon S3 Storage
-  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def list_storage_lens_configurations(
@@ -1723,7 +1731,7 @@ defmodule AWS.S3Control do
   services. For more information, see [Cost Allocation and Tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
 
   Within a bucket, if you add a tag that has the same key as an existing tag, the
-  new value overwrites the old value. For more information, see [Using Cost Allocation in Amazon S3 Bucket
+  new value overwrites the old value. For more information, see [ Using Cost Allocation in Amazon S3 Bucket
   Tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html).
 
   To use this operation, you must have permissions to perform the
@@ -1909,12 +1917,12 @@ defmodule AWS.S3Control do
   @doc """
   Puts an Amazon S3 Storage Lens configuration.
 
-  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   To use this action, you must have permission to perform the
   `s3:PutStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
-  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def put_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
@@ -1944,12 +1952,13 @@ defmodule AWS.S3Control do
   @doc """
   Put or replace tags on an existing Amazon S3 Storage Lens configuration.
 
-  For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
+  ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
+  *Amazon Simple Storage Service Developer Guide*.
 
   To use this action, you must have permission to perform the
   `s3:PutStorageLensConfigurationTagging` action. For more information, see
-  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM)
+  [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
   in the *Amazon Simple Storage Service Developer Guide*.
   """
   def put_storage_lens_configuration_tagging(%Client{} = client, config_id, input, options \\ []) do

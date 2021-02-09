@@ -113,6 +113,13 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Deletes the registry permissions policy.
+  """
+  def delete_registry_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteRegistryPolicy", input, options)
+  end
+
+  @doc """
   Deletes a repository.
 
   If the repository contains images, you must either delete all images in the
@@ -146,6 +153,16 @@ defmodule AWS.ECR do
   """
   def describe_images(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeImages", input, options)
+  end
+
+  @doc """
+  Describes the settings for a registry.
+
+  The replication configuration for a repository can be created or updated with
+  the `PutReplicationConfiguration` API action.
+  """
+  def describe_registry(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeRegistry", input, options)
   end
 
   @doc """
@@ -201,6 +218,13 @@ defmodule AWS.ECR do
   """
   def get_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetLifecyclePolicyPreview", input, options)
+  end
+
+  @doc """
+  Retrieves the permissions policy for a registry.
+  """
+  def get_registry_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetRegistryPolicy", input, options)
   end
 
   @doc """
@@ -285,6 +309,36 @@ defmodule AWS.ECR do
   """
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutLifecyclePolicy", input, options)
+  end
+
+  @doc """
+  Creates or updates the permissions policy for your registry.
+
+  A registry policy is used to specify permissions for another AWS account and is
+  used when configuring cross-account replication. For more information, see
+  [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html)
+  in the *Amazon Elastic Container Registry User Guide*.
+  """
+  def put_registry_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutRegistryPolicy", input, options)
+  end
+
+  @doc """
+  Creates or updates the replication configuration for a registry.
+
+  The existing replication configuration for a repository can be retrieved with
+  the `DescribeRegistry` API action. The first time the
+  PutReplicationConfiguration API is called, a service-linked IAM role is created
+  in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon
+  ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html)
+  in the *Amazon Elastic Container Registry User Guide*.
+
+  When configuring cross-account replication, the destination account must grant
+  the source account permission to replicate. This permission is controlled using
+  a registry permissions policy. For more information, see `PutRegistryPolicy`.
+  """
+  def put_replication_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutReplicationConfiguration", input, options)
   end
 
   @doc """

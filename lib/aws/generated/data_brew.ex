@@ -32,6 +32,33 @@ defmodule AWS.DataBrew do
 
   @doc """
   Deletes one or more versions of a recipe at a time.
+
+  The entire request will be rejected if:
+
+    * The recipe does not exist.
+
+    * There is an invalid version identifier in the list of versions.
+
+    * The verision list is empty.
+
+    * The version list size exceeds 50.
+
+    * The verison list contains duplicate entries.
+
+  The request will complete successfully, but with partial failures, if:
+
+    * A version does not exist.
+
+    * A version is being used by a job.
+
+    * You specify `LATEST_WORKING`, but it's being used by a project.
+
+    * The version fails to be deleted.
+
+  The `LATEST_WORKING` version will only be deleted if the recipe has no other
+  versions. If you try to delete `LATEST_WORKING` while other versions exist (or
+  if they can't be deleted), then `LATEST_WORKING` will be listed as partial
+  failure in the response.
   """
   def batch_delete_recipe_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{URI.encode(name)}/batchDeleteRecipeVersion"
@@ -52,7 +79,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new AWS Glue DataBrew dataset for this AWS account.
+  Creates a new DataBrew dataset.
   """
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasets"
@@ -73,8 +100,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new job to profile an AWS Glue DataBrew dataset that exists in the
-  current AWS account.
+  Creates a new job to analyze a dataset and create its data profile.
   """
   def create_profile_job(%Client{} = client, input, options \\ []) do
     url_path = "/profileJobs"
@@ -95,7 +121,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new AWS Glue DataBrew project in the current AWS account.
+  Creates a new DataBrew project.
   """
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
@@ -116,7 +142,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new AWS Glue DataBrew recipe for the current AWS account.
+  Creates a new DataBrew recipe.
   """
   def create_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/recipes"
@@ -137,11 +163,8 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new job for an existing AWS Glue DataBrew recipe in the current AWS
-  account.
-
-  You can create a standalone job using either a project, or a combination of a
-  recipe and a dataset.
+  Creates a new job to transform input data, using steps defined in an existing
+  AWS Glue DataBrew recipe
   """
   def create_recipe_job(%Client{} = client, input, options \\ []) do
     url_path = "/recipeJobs"
@@ -162,7 +185,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new schedule for one or more AWS Glue DataBrew jobs.
+  Creates a new schedule for one or more DataBrew jobs.
 
   Jobs can be run at a specific date and time, or at regular intervals.
   """
@@ -185,7 +208,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Deletes a dataset from AWS Glue DataBrew.
+  Deletes a dataset from DataBrew.
   """
   def delete_dataset(%Client{} = client, name, input, options \\ []) do
     url_path = "/datasets/#{URI.encode(name)}"
@@ -206,9 +229,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Deletes the specified AWS Glue DataBrew job from the current AWS account.
-
-  The job can be for a recipe or for a profile.
+  Deletes the specified DataBrew job.
   """
   def delete_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/jobs/#{URI.encode(name)}"
@@ -229,7 +250,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Deletes an existing AWS Glue DataBrew project from the current AWS account.
+  Deletes an existing DataBrew project.
   """
   def delete_project(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{URI.encode(name)}"
@@ -250,7 +271,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Deletes a single version of an AWS Glue DataBrew recipe.
+  Deletes a single version of a DataBrew recipe.
   """
   def delete_recipe_version(%Client{} = client, name, recipe_version, input, options \\ []) do
     url_path = "/recipes/#{URI.encode(name)}/recipeVersion/#{URI.encode(recipe_version)}"
@@ -271,7 +292,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Deletes the specified AWS Glue DataBrew schedule from the current AWS account.
+  Deletes the specified DataBrew schedule.
   """
   def delete_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{URI.encode(name)}"
@@ -292,8 +313,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Returns the definition of a specific AWS Glue DataBrew dataset that is in the
-  current AWS account.
+  Returns the definition of a specific DataBrew dataset.
   """
   def describe_dataset(%Client{} = client, name, options \\ []) do
     url_path = "/datasets/#{URI.encode(name)}"
@@ -314,8 +334,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Returns the definition of a specific AWS Glue DataBrew job that is in the
-  current AWS account.
+  Returns the definition of a specific DataBrew job.
   """
   def describe_job(%Client{} = client, name, options \\ []) do
     url_path = "/jobs/#{URI.encode(name)}"
@@ -336,8 +355,28 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Returns the definition of a specific AWS Glue DataBrew project that is in the
-  current AWS account.
+  Represents one run of a DataBrew job.
+  """
+  def describe_job_run(%Client{} = client, name, run_id, options \\ []) do
+    url_path = "/jobs/#{URI.encode(name)}/jobRun/#{URI.encode(run_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns the definition of a specific DataBrew project.
   """
   def describe_project(%Client{} = client, name, options \\ []) do
     url_path = "/projects/#{URI.encode(name)}"
@@ -358,8 +397,8 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Returns the definition of a specific AWS Glue DataBrew recipe that is in the
-  current AWS account.
+  Returns the definition of a specific DataBrew recipe corresponding to a
+  particular version.
   """
   def describe_recipe(%Client{} = client, name, recipe_version \\ nil, options \\ []) do
     url_path = "/recipes/#{URI.encode(name)}"
@@ -387,8 +426,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Returns the definition of a specific AWS Glue DataBrew schedule that is in the
-  current AWS account.
+  Returns the definition of a specific DataBrew schedule.
   """
   def describe_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{URI.encode(name)}"
@@ -409,7 +447,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists all of the AWS Glue DataBrew datasets for the current AWS account.
+  Lists all of the DataBrew datasets.
   """
   def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/datasets"
@@ -444,8 +482,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists all of the previous runs of a particular AWS Glue DataBrew job in the
-  current AWS account.
+  Lists all of the previous runs of a particular DataBrew job.
   """
   def list_job_runs(
         %Client{} = client,
@@ -486,7 +523,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists the AWS Glue DataBrew jobs in the current AWS account.
+  Lists all of the DataBrew jobs that are defined.
   """
   def list_jobs(
         %Client{} = client,
@@ -542,7 +579,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists all of the DataBrew projects in the current AWS account.
+  Lists all of the DataBrew projects that are defined.
   """
   def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/projects"
@@ -577,8 +614,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists all of the versions of a particular AWS Glue DataBrew recipe in the
-  current AWS account.
+  Lists the versions of a particular DataBrew recipe, except for `LATEST_WORKING`.
   """
   def list_recipe_versions(
         %Client{} = client,
@@ -626,7 +662,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists all of the AWS Glue DataBrew recipes in the current AWS account.
+  Lists all of the DataBrew recipes that are defined.
   """
   def list_recipes(
         %Client{} = client,
@@ -674,7 +710,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists the AWS Glue DataBrew schedules in the current AWS account.
+  Lists the DataBrew schedules that are defined.
   """
   def list_schedules(
         %Client{} = client,
@@ -722,7 +758,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists all the tags for an AWS Glue DataBrew resource.
+  Lists all the tags for a DataBrew resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -743,8 +779,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Publishes a new major version of an AWS Glue DataBrew recipe that exists in the
-  current AWS account.
+  Publishes a new version of a DataBrew recipe.
   """
   def publish_recipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{URI.encode(name)}/publishRecipe"
@@ -765,8 +800,8 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Performs a recipe step within an interactive AWS Glue DataBrew session that's
-  currently open.
+  Performs a recipe step within an interactive DataBrew session that's currently
+  open.
   """
   def send_project_session_action(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{URI.encode(name)}/sendProjectSessionAction"
@@ -787,7 +822,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Runs an AWS Glue DataBrew job that exists in the current AWS account.
+  Runs a DataBrew job.
   """
   def start_job_run(%Client{} = client, name, input, options \\ []) do
     url_path = "/jobs/#{URI.encode(name)}/startJobRun"
@@ -808,7 +843,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates an interactive session, enabling you to manipulate an AWS Glue DataBrew
+  Creates an interactive session, enabling you to manipulate data in a DataBrew
   project.
   """
   def start_project_session(%Client{} = client, name, input, options \\ []) do
@@ -830,7 +865,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Stops the specified job from running in the current AWS account.
+  Stops a particular run of a job.
   """
   def stop_job_run(%Client{} = client, name, run_id, input, options \\ []) do
     url_path = "/jobs/#{URI.encode(name)}/jobRun/#{URI.encode(run_id)}/stopJobRun"
@@ -851,8 +886,8 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Adds metadata tags to an AWS Glue DataBrew resource, such as a dataset, job,
-  project, or recipe.
+  Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe,
+  job, or schedule.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -873,7 +908,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Removes metadata tags from an AWS Glue DataBrew resource.
+  Removes metadata tags from a DataBrew resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -899,8 +934,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Modifies the definition of an existing AWS Glue DataBrew dataset in the current
-  AWS account.
+  Modifies the definition of an existing DataBrew dataset.
   """
   def update_dataset(%Client{} = client, name, input, options \\ []) do
     url_path = "/datasets/#{URI.encode(name)}"
@@ -921,8 +955,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Modifies the definition of an existing AWS Glue DataBrew job in the current AWS
-  account.
+  Modifies the definition of an existing profile job.
   """
   def update_profile_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/profileJobs/#{URI.encode(name)}"
@@ -943,8 +976,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Modifies the definition of an existing AWS Glue DataBrew project in the current
-  AWS account.
+  Modifies the definition of an existing DataBrew project.
   """
   def update_project(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{URI.encode(name)}"
@@ -965,8 +997,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Modifies the definition of the latest working version of an AWS Glue DataBrew
-  recipe in the current AWS account.
+  Modifies the definition of the `LATEST_WORKING` version of a DataBrew recipe.
   """
   def update_recipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{URI.encode(name)}"
@@ -987,8 +1018,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Modifies the definition of an existing AWS Glue DataBrew recipe job in the
-  current AWS account.
+  Modifies the definition of an existing DataBrew recipe job.
   """
   def update_recipe_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipeJobs/#{URI.encode(name)}"
@@ -1009,8 +1039,7 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Modifies the definition of an existing AWS Glue DataBrew schedule in the current
-  AWS account.
+  Modifies the definition of an existing DataBrew schedule.
   """
   def update_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{URI.encode(name)}"

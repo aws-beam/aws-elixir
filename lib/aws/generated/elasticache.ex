@@ -232,7 +232,7 @@ defmodule AWS.ElastiCache do
   Using Global Datastore for Redis, you can create cross-region read replica
   clusters for ElastiCache for Redis to enable low-latency reads and disaster
   recovery across regions. For more information, see [Replication Across Regions Using Global
-  Datastore](/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters.html).
+  Datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
 
     * The **GlobalReplicationGroupIdSuffix** is the name of the Global
   Datastore.
@@ -256,11 +256,23 @@ defmodule AWS.ElastiCache do
   where one of the clusters is a read/write primary and the others are read-only
   replicas. Writes to the primary are asynchronously propagated to the replicas.
 
-  A Redis (cluster mode enabled) replication group is a collection of 1 to 90 node
-  groups (shards). Each node group (shard) has one read/write primary node and up
-  to 5 read-only replica nodes. Writes to the primary are asynchronously
-  propagated to the replicas. Redis (cluster mode enabled) replication groups
-  partition the data across node groups (shards).
+  A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards
+  (API/CLI: node groups). Each shard has a primary node and up to 5 read-only
+  replica nodes. The configuration can range from 90 shards and 0 replicas to 15
+  shards and 5 replicas, which is the maximum number or replicas allowed.
+
+  The node or shard limit can be increased to a maximum of 500 per cluster if the
+  Redis engine version is 5.0.6 or higher. For example, you can choose to
+  configure a 500 node cluster that ranges between 83 shards (one primary and 5
+  replicas per shard) and 500 shards (single primary and no replicas). Make sure
+  there are enough available IP addresses to accommodate the increase. Common
+  pitfalls include the subnets in the subnet group have too small a CIDR range or
+  the subnets are shared and heavily used by other clusters. For more information,
+  see [Creating a Subnet Group](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html).
+  For versions below 5.0.6, the limit is 250 per cluster.
+
+  To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
+  and choose the limit type **Nodes per cluster per instance type**.
 
   When a Redis (cluster mode disabled) replication group has been successfully
   created, you can add one or more read replicas to it, up to a total of 5 read
@@ -339,7 +351,11 @@ defmodule AWS.ElastiCache do
 
     * Redis (cluster mode enabled) clusters
 
+    * Redis (cluster mode disabled) clusters
+
     * A cluster that is the last read replica of a replication group
+
+    * A cluster that is the primary node of a replication group
 
     * A node group (shard) that has Multi-AZ mode enabled
 
@@ -355,7 +371,7 @@ defmodule AWS.ElastiCache do
   Deletes the specified cache parameter group.
 
   You cannot delete a cache parameter group if it is associated with any cache
-  clusters.
+  clusters. You cannot delete the default cache parameter groups in your account.
   """
   def delete_cache_parameter_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteCacheParameterGroup", input, options)
@@ -373,7 +389,8 @@ defmodule AWS.ElastiCache do
   @doc """
   Deletes a cache subnet group.
 
-  You cannot delete a cache subnet group if it is associated with any clusters.
+  You cannot delete a default cache subnet group or one that is associated with
+  any clusters.
   """
   def delete_cache_subnet_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteCacheSubnetGroup", input, options)
@@ -442,9 +459,9 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.x onwards: Deletes a ser group.
+  For Redis engine version 6.x onwards: Deletes a user group.
 
-  The user group must first be disassociated from the replcation group before it
+  The user group must first be disassociated from the replication group before it
   can be deleted. For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
   """
   def delete_user_group(%Client{} = client, input, options \\ []) do
@@ -665,7 +682,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Dynamically increases the number of replics in a Redis (cluster mode disabled)
+  Dynamically increases the number of replicas in a Redis (cluster mode disabled)
   replication group or the number of replica nodes in one or more node groups
   (shards) of a Redis (cluster mode enabled) replication group.
 
@@ -756,7 +773,7 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Modifies a replication group's shards (node groups) by allowing you to add
-  shards, remove shards, or rebalance the keyspaces among exisiting shards.
+  shards, remove shards, or rebalance the keyspaces among existing shards.
   """
   def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -784,6 +801,11 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Allows you to purchase a reserved cache node offering.
+
+  Reserved nodes are not eligible for cancellation and are non-refundable. For
+  more information, see [Managing Costs with Reserved Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html)
+  for Redis or [Managing Costs with Reserved Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html)
+  for Memcached.
   """
   def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PurchaseReservedCacheNodesOffering", input, options)

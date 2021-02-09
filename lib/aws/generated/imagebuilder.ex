@@ -5,7 +5,7 @@ defmodule AWS.Imagebuilder do
   @moduledoc """
   EC2 Image Builder is a fully managed AWS service that makes it easier to
   automate the creation, management, and deployment of customized, secure, and
-  up-to-date “golden” server images that are pre-installed and pre-configured with
+  up-to-date "golden" server images that are pre-installed and pre-configured with
   software and settings to meet specific IT standards.
   """
 
@@ -57,6 +57,29 @@ defmodule AWS.Imagebuilder do
   """
   def create_component(%Client{} = client, input, options \\ []) do
     url_path = "/CreateComponent"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a new container recipe.
+
+  Container recipes define how images are configured, tested, and assessed.
+  """
+  def create_container_recipe(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateContainerRecipe"
     headers = []
     query_params = []
 
@@ -200,6 +223,32 @@ defmodule AWS.Imagebuilder do
     {query_params, input} =
       [
         {"componentBuildVersionArn", "componentBuildVersionArn"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a container recipe.
+  """
+  def delete_container_recipe(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteContainerRecipe"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"containerRecipeArn", "containerRecipeArn"}
       ]
       |> Request.build_params(input)
 
@@ -385,6 +434,62 @@ defmodule AWS.Imagebuilder do
     query_params =
       if !is_nil(component_arn) do
         [{"componentArn", component_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves a container recipe.
+  """
+  def get_container_recipe(%Client{} = client, container_recipe_arn, options \\ []) do
+    url_path = "/GetContainerRecipe"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(container_recipe_arn) do
+        [{"containerRecipeArn", container_recipe_arn} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves the policy for a container recipe.
+  """
+  def get_container_recipe_policy(%Client{} = client, container_recipe_arn, options \\ []) do
+    url_path = "/GetContainerRecipePolicy"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(container_recipe_arn) do
+        [{"containerRecipeArn", container_recipe_arn} | query_params]
       else
         query_params
       end
@@ -670,6 +775,27 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  Returns a list of container recipes.
+  """
+  def list_container_recipes(%Client{} = client, input, options \\ []) do
+    url_path = "/ListContainerRecipes"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of distribution configurations.
   """
   def list_distribution_configurations(%Client{} = client, input, options \\ []) do
@@ -849,6 +975,35 @@ defmodule AWS.Imagebuilder do
   """
   def put_component_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutComponentPolicy"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Applies a policy to a container image.
+
+  We recommend that you call the RAM API CreateResourceShare
+  (https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
+  to share resources. If you call the Image Builder API `PutContainerImagePolicy`,
+  you must also call the RAM API PromoteResourceShareCreatedFromPolicy
+  (https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+  in order for the resource to be visible to all principals with whom the resource
+  is shared.
+  """
+  def put_container_recipe_policy(%Client{} = client, input, options \\ []) do
+    url_path = "/PutContainerRecipePolicy"
     headers = []
     query_params = []
 

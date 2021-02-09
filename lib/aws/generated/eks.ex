@@ -39,6 +39,33 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Creates an Amazon EKS add-on.
+
+  Amazon EKS add-ons help to automate the provisioning and lifecycle management of
+  common operational software for Amazon EKS clusters. Amazon EKS add-ons can only
+  be used with Amazon EKS clusters running version 1.18 with platform version
+  `eks.3` or later because add-ons rely on the Server-side Apply Kubernetes
+  feature, which is only available in Kubernetes 1.18 and later.
+  """
+  def create_addon(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/addons"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates an Amazon EKS control plane.
 
   The Amazon EKS control plane consists of control plane instances that run the
@@ -161,7 +188,7 @@ defmodule AWS.EKS do
 
   An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and
   associated Amazon EC2 instances that are managed by AWS for an Amazon EKS
-  cluster. Each node group uses a version of the Amazon EKS-optimized Amazon Linux
+  cluster. Each node group uses a version of the Amazon EKS optimized Amazon Linux
   2 AMI. For more information, see [Managed Node Groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
   in the *Amazon EKS User Guide*.
   """
@@ -174,6 +201,30 @@ defmodule AWS.EKS do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Delete an Amazon EKS add-on.
+
+  When you remove the add-on, it will also be deleted from the cluster. You can
+  always manually start an add-on on the cluster using the Kubernetes API.
+  """
+  def delete_addon(%Client{} = client, addon_name, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/addons/#{URI.encode(addon_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
       url_path,
       query_params,
       headers,
@@ -276,6 +327,83 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Describes an Amazon EKS add-on.
+  """
+  def describe_addon(%Client{} = client, addon_name, cluster_name, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/addons/#{URI.encode(addon_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Describes the Kubernetes versions that the add-on can be used with.
+  """
+  def describe_addon_versions(
+        %Client{} = client,
+        addon_name \\ nil,
+        kubernetes_version \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/addons/supported-versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(kubernetes_version) do
+        [{"kubernetesVersion", kubernetes_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(addon_name) do
+        [{"addonName", addon_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns descriptive information about an Amazon EKS cluster.
 
   The API server endpoint and certificate authority data returned by this
@@ -360,7 +488,14 @@ defmodule AWS.EKS do
   update fails, the status is `Failed`, and an error detail explains the reason
   for the failure.
   """
-  def describe_update(%Client{} = client, name, update_id, nodegroup_name \\ nil, options \\ []) do
+  def describe_update(
+        %Client{} = client,
+        name,
+        update_id,
+        addon_name \\ nil,
+        nodegroup_name \\ nil,
+        options \\ []
+      ) do
     url_path = "/clusters/#{URI.encode(name)}/updates/#{URI.encode(update_id)}"
     headers = []
     query_params = []
@@ -368,6 +503,54 @@ defmodule AWS.EKS do
     query_params =
       if !is_nil(nodegroup_name) do
         [{"nodegroupName", nodegroup_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(addon_name) do
+        [{"addonName", addon_name} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists the available add-ons.
+  """
+  def list_addons(
+        %Client{} = client,
+        cluster_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/addons"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -534,6 +717,7 @@ defmodule AWS.EKS do
   def list_updates(
         %Client{} = client,
         name,
+        addon_name \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         nodegroup_name \\ nil,
@@ -560,6 +744,13 @@ defmodule AWS.EKS do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(addon_name) do
+        [{"addonName", addon_name} | query_params]
       else
         query_params
       end
@@ -622,6 +813,27 @@ defmodule AWS.EKS do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates an Amazon EKS add-on.
+  """
+  def update_addon(%Client{} = client, addon_name, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/addons/#{URI.encode(addon_name)}/update"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -761,8 +973,8 @@ defmodule AWS.EKS do
   available AMI version of a node group's current Kubernetes version by not
   specifying a Kubernetes version in the request. You can update to the latest AMI
   version of your cluster's current Kubernetes version by specifying your
-  cluster's Kubernetes version in the request. For more information, see [Amazon EKS-Optimized Linux AMI
-  Versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html)
+  cluster's Kubernetes version in the request. For more information, see [Amazon EKS optimized Amazon Linux 2 AMI
+  versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html)
   in the *Amazon EKS User Guide*.
 
   You cannot roll back a node group to an earlier Kubernetes version or AMI

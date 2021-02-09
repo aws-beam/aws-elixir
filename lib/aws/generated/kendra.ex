@@ -91,6 +91,15 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Creates a thesaurus for an index.
+
+  The thesaurus contains a list of synonyms in Solr format.
+  """
+  def create_thesaurus(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateThesaurus", input, options)
+  end
+
+  @doc """
   Deletes an Amazon Kendra data source.
 
   An exception is not thrown if the data source is already being deleted. While
@@ -120,6 +129,13 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Deletes an existing Amazon Kendra thesaurus.
+  """
+  def delete_thesaurus(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteThesaurus", input, options)
+  end
+
+  @doc """
   Gets information about a Amazon Kendra data source.
   """
   def describe_data_source(%Client{} = client, input, options \\ []) do
@@ -138,6 +154,13 @@ defmodule AWS.Kendra do
   """
   def describe_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeIndex", input, options)
+  end
+
+  @doc """
+  Describes an existing Amazon Kendra thesaurus.
+  """
+  def describe_thesaurus(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeThesaurus", input, options)
   end
 
   @doc """
@@ -175,6 +198,13 @@ defmodule AWS.Kendra do
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Lists the Amazon Kendra thesauri associated with an index.
+  """
+  def list_thesauri(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListThesauri", input, options)
   end
 
   @doc """
@@ -259,5 +289,12 @@ defmodule AWS.Kendra do
   """
   def update_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateIndex", input, options)
+  end
+
+  @doc """
+  Updates a thesaurus file associated with an index.
+  """
+  def update_thesaurus(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateThesaurus", input, options)
   end
 end

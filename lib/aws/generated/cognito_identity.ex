@@ -146,7 +146,7 @@ defmodule AWS.CognitoIdentity do
   This known Cognito ID is returned by `GetId`. You can optionally add additional
   logins for the identity. Supplying multiple logins creates an implicit link.
 
-  The OpenId token is valid for 10 minutes.
+  The OpenID token is valid for 10 minutes.
 
   This is a public API. You do not need any credentials to call this API.
   """
@@ -175,6 +175,14 @@ defmodule AWS.CognitoIdentity do
   """
   def get_open_id_token_for_developer_identity(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetOpenIdTokenForDeveloperIdentity", input, options)
+  end
+
+  @doc """
+  Use `GetPrincipalTagAttributeMap` to list all mappings between `PrincipalTags`
+  and user attributes.
+  """
+  def get_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPrincipalTagAttributeMap", input, options)
   end
 
   @doc """
@@ -267,7 +275,15 @@ defmodule AWS.CognitoIdentity do
   end
 
   @doc """
-  Assigns a set of tags to an Amazon Cognito identity pool.
+  You can use this operation to use default (username and clientID) attribute or
+  custom attribute mappings.
+  """
+  def set_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetPrincipalTagAttributeMap", input, options)
+  end
+
+  @doc """
+  Assigns a set of tags to the specified Amazon Cognito identity pool.
 
   A tag is a label that you can use to categorize and manage identity pools in
   different ways, such as by purpose, owner, environment, or other criteria.
@@ -317,7 +333,7 @@ defmodule AWS.CognitoIdentity do
   end
 
   @doc """
-  Removes the specified tags from an Amazon Cognito identity pool.
+  Removes the specified tags from the specified Amazon Cognito identity pool.
 
   You can use this action up to 5 times per second, per account
   """

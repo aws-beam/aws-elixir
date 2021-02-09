@@ -6,6 +6,9 @@ defmodule AWS.NetworkManager do
   Transit Gateway Network Manager (Network Manager) enables you to create a global
   network, in which you can monitor your AWS and on-premises networks that are
   built around transit gateways.
+
+  The Network Manager APIs are supported in the US West (Oregon) Region only. You
+  must specify the `us-west-2` Region in all requests made to Network Manager.
   """
 
   alias AWS.Client
@@ -70,6 +73,68 @@ defmodule AWS.NetworkManager do
   """
   def associate_link(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{URI.encode(global_network_id)}/link-associations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Associates a transit gateway Connect peer with a device, and optionally, with a
+  link.
+
+  If you specify a link, it must be associated with the specified device.
+
+  You can only associate transit gateway Connect peers that have been created on a
+  transit gateway that's registered in your global network.
+
+  You cannot associate a transit gateway Connect peer with more than one device
+  and link.
+  """
+  def associate_transit_gateway_connect_peer(
+        %Client{} = client,
+        global_network_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-connect-peer-associations"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a connection between two devices.
+
+  The devices can be a physical or virtual appliance that connects to a
+  third-party appliance in a VPC, or a physical appliance that connects to another
+  physical appliance in an on-premises network.
+  """
+  def create_connection(%Client{} = client, global_network_id, input, options \\ []) do
+    url_path = "/global-networks/#{URI.encode(global_network_id)}/connections"
     headers = []
     query_params = []
 
@@ -164,6 +229,35 @@ defmodule AWS.NetworkManager do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the specified connection in your global network.
+  """
+  def delete_connection(
+        %Client{} = client,
+        connection_id,
+        global_network_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/global-networks/#{URI.encode(global_network_id)}/connections/#{URI.encode(connection_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
       url_path,
       query_params,
       headers,
@@ -411,6 +505,94 @@ defmodule AWS.NetworkManager do
       query_params,
       headers,
       input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disassociates a transit gateway Connect peer from a device and link.
+  """
+  def disassociate_transit_gateway_connect_peer(
+        %Client{} = client,
+        global_network_id,
+        transit_gateway_connect_peer_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-connect-peer-associations/#{
+        URI.encode(transit_gateway_connect_peer_arn)
+      }"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets information about one or more of your connections in a global network.
+  """
+  def get_connections(
+        %Client{} = client,
+        global_network_id,
+        connection_ids \\ nil,
+        device_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/global-networks/#{URI.encode(global_network_id)}/connections"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(device_id) do
+        [{"deviceId", device_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(connection_ids) do
+        [{"connectionIds", connection_ids} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       nil
     )
@@ -708,6 +890,58 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Gets information about one or more of your transit gateway Connect peer
+  associations in a global network.
+  """
+  def get_transit_gateway_connect_peer_associations(
+        %Client{} = client,
+        global_network_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        transit_gateway_connect_peer_arns \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-connect-peer-associations"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(transit_gateway_connect_peer_arns) do
+        [{"transitGatewayConnectPeerArns", transit_gateway_connect_peer_arns} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets information about the transit gateway registrations in a specified global
   network.
   """
@@ -841,6 +1075,37 @@ defmodule AWS.NetworkManager do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the information for an existing connection.
+
+  To remove information for any of the parameters, specify an empty string.
+  """
+  def update_connection(
+        %Client{} = client,
+        connection_id,
+        global_network_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/global-networks/#{URI.encode(global_network_id)}/connections/#{URI.encode(connection_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
       url_path,
       query_params,
       headers,

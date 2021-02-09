@@ -305,7 +305,7 @@ defmodule AWS.QuickSight do
   for use in access control.
 
   For an example, see [How do I create an IAM policy to control access to Amazon EC2 resources using
-  tags?](https://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/)
+  tags?](http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/)
   in the AWS Knowledge Center. Tags are visible on the tagged dataset, but not on
   the ingestion resource.
   """
@@ -1612,8 +1612,8 @@ defmodule AWS.QuickSight do
 
     * The resulting user session is valid for 10 hours.
 
-  For more information, see [Embedding Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html)
-  in the *Amazon QuickSight User Guide* .
+  For more information, see [Embedded Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
+  in the *Amazon QuickSight User Guide*.
   """
   def get_dashboard_embed_url(
         %Client{} = client,

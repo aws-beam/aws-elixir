@@ -242,8 +242,8 @@ defmodule AWS.Directory do
   end
 
   @doc """
-  Deletes from the system the certificate that was registered for a secured LDAP
-  connection.
+  Deletes from the system the certificate that was registered for secure LDAP or
+  client certificate authentication.
   """
   def deregister_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeregisterCertificate", input, options)
@@ -257,8 +257,8 @@ defmodule AWS.Directory do
   end
 
   @doc """
-  Displays information about the certificate registered for a secured LDAP
-  connection.
+  Displays information about the certificate registered for secure LDAP or client
+  certificate authentication.
   """
   def describe_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeCertificate", input, options)
@@ -359,6 +359,13 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Disables alternative client authentication methods for the specified directory.
+  """
+  def disable_client_authentication(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisableClientAuthentication", input, options)
+  end
+
+  @doc """
   Deactivates LDAP secure calls for the specified directory.
   """
   def disable_ldaps(%Client{} = client, input, options \\ []) do
@@ -378,6 +385,13 @@ defmodule AWS.Directory do
   """
   def disable_sso(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableSso", input, options)
+  end
+
+  @doc """
+  Enables alternative client authentication methods for the specified directory.
+  """
+  def enable_client_authentication(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "EnableClientAuthentication", input, options)
   end
 
   @doc """
@@ -421,8 +435,8 @@ defmodule AWS.Directory do
   end
 
   @doc """
-  For the specified directory, lists all the certificates registered for a secured
-  LDAP connection.
+  For the specified directory, lists all the certificates registered for a secure
+  LDAP or client certificate authentication.
   """
   def list_certificates(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCertificates", input, options)
@@ -457,7 +471,7 @@ defmodule AWS.Directory do
   end
 
   @doc """
-  Registers a certificate for secured LDAP connection.
+  Registers a certificate for a secure LDAP or client certificate authentication.
   """
   def register_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RegisterCertificate", input, options)

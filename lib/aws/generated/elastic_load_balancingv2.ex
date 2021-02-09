@@ -84,9 +84,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @doc """
   Creates a listener for the specified Application Load Balancer, Network Load
-  Balancer.
-
-  or Gateway Load Balancer.
+  Balancer, or Gateway Load Balancer.
 
   For more information, see the following:
 

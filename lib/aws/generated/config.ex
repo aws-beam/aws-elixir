@@ -235,6 +235,13 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Deletes the stored query for an AWS account in an AWS Region.
+  """
+  def delete_stored_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteStoredQuery", input, options)
+  end
+
+  @doc """
   Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the
   specified delivery channel.
 
@@ -468,10 +475,6 @@ defmodule AWS.Config do
   @doc """
   Provides organization config rule deployment status for an organization.
 
-  Only a master account and a delegated administrator account can call this API.
-  When calling this API with a delegated administrator, you must ensure AWS
-  Organizations `ListDelegatedAdministrator` permissions are added.
-
   The status is not considered successful until organization config rule is
   successfully deployed in all the member accounts with an exception of excluded
   accounts.
@@ -494,10 +497,6 @@ defmodule AWS.Config do
   @doc """
   Returns a list of organization config rules.
 
-  Only a master account and a delegated administrator account can call this API.
-  When calling this API with a delegated administrator, you must ensure AWS
-  Organizations `ListDelegatedAdministrator` permissions are added.
-
   When you specify the limit and the next token, you receive a paginated response.
   Limit and next token are not applicable if you specify organization config rule
   names. It is only applicable, when you request all the organization config
@@ -509,10 +508,6 @@ defmodule AWS.Config do
 
   @doc """
   Provides organization conformance pack deployment status for an organization.
-
-  Only a master account and a delegated administrator account can call this API.
-  When calling this API with a delegated administrator, you must ensure AWS
-  Organizations `ListDelegatedAdministrator` permissions are added.
 
   The status is not considered successful until organization conformance pack is
   successfully deployed in all the member accounts with an exception of excluded
@@ -535,10 +530,6 @@ defmodule AWS.Config do
 
   @doc """
   Returns a list of organization conformance packs.
-
-  Only a master account and a delegated administrator account can call this API.
-  When calling this API with a delegated administrator, you must ensure AWS
-  Organizations `ListDelegatedAdministrator` permissions are added.
 
   When you specify the limit and the next token, you receive a paginated response.
 
@@ -793,10 +784,6 @@ defmodule AWS.Config do
   @doc """
   Returns detailed status for each member account within an organization for a
   given organization config rule.
-
-  Only a master account and a delegated administrator account can call this API.
-  When calling this API with a delegated administrator, you must ensure AWS
-  Organizations `ListDelegatedAdministrator` permissions are added.
   """
   def get_organization_config_rule_detailed_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -811,10 +798,6 @@ defmodule AWS.Config do
   @doc """
   Returns detailed status for each member account within an organization for a
   given organization conformance pack.
-
-  Only a master account and a delegated administrator account can call this API.
-  When calling this API with a delegated administrator, you must ensure AWS
-  Organizations `ListDelegatedAdministrator` permissions are added.
   """
   def get_organization_conformance_pack_detailed_status(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -847,6 +830,13 @@ defmodule AWS.Config do
   """
   def get_resource_config_history(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetResourceConfigHistory", input, options)
+  end
+
+  @doc """
+  Returns the details of a specific stored query.
+  """
+  def get_stored_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetStoredQuery", input, options)
   end
 
   @doc """
@@ -886,6 +876,15 @@ defmodule AWS.Config do
   """
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDiscoveredResources", input, options)
+  end
+
+  @doc """
+  List the stored queries for an AWS account in an AWS Region.
+
+  The default is 100.
+  """
+  def list_stored_queries(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListStoredQueries", input, options)
   end
 
   @doc """
@@ -1027,6 +1026,10 @@ defmodule AWS.Config do
     Request.request_post(client, metadata(), "PutEvaluations", input, options)
   end
 
+  def put_external_evaluation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutExternalEvaluation", input, options)
+  end
+
   @doc """
   Adds or updates organization config rule for your entire organization evaluating
   whether your AWS resources comply with your desired configurations.
@@ -1115,6 +1118,10 @@ defmodule AWS.Config do
 
   If you make backward incompatible changes to the SSM document, you must call
   this again to ensure the remediations can run.
+
+  This API does not support adding remediation configurations for service-linked
+  AWS Config Rules such as Organization Config rules, the rules deployed by
+  conformance packs, and rules deployed by AWS Security Hub.
   """
   def put_remediation_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutRemediationConfigurations", input, options)
@@ -1170,6 +1177,16 @@ defmodule AWS.Config do
   """
   def put_retention_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutRetentionConfiguration", input, options)
+  end
+
+  @doc """
+  Saves a new query or updates an existing saved query.
+
+  The `QueryName` must be unique for an AWS account in an AWS Region. You can
+  create upto 300 queries in an AWS account in an AWS Region.
+  """
+  def put_stored_query(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutStoredQuery", input, options)
   end
 
   @doc """

@@ -6,12 +6,22 @@ defmodule AWS.ManagedBlockchain do
 
 
   Amazon Managed Blockchain is a fully managed service for creating and managing
-  blockchain networks using open source frameworks.
+  blockchain networks using open-source frameworks.
 
   Blockchain allows you to build applications where multiple parties can securely
   and transparently run transactions and share data without the need for a
-  trusted, central authority. Currently, Managed Blockchain supports the
-  Hyperledger Fabric open source framework.
+  trusted, central authority.
+
+  Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source
+  frameworks. Ethereum on Managed Blockchain is in preview release and is subject
+  to change. Because of fundamental differences between the frameworks, some API
+  actions or data types may only apply in the context of one framework and not the
+  other. For example, actions related to Hyperledger Fabric network members such
+  as `CreateMember` and `DeleteMember` do not apply to Ethereum.
+
+  The description for each action indicates the framework or frameworks to which
+  it applies. Data types and properties that apply only in the context of a
+  particular framework are similarly indicated.
   """
 
   alias AWS.Client
@@ -35,6 +45,8 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Creates a member within a Managed Blockchain network.
+
+  Applies only to Hyperledger Fabric.
   """
   def create_member(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}/members"
@@ -56,6 +68,8 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Creates a new blockchain network using Amazon Managed Blockchain.
+
+  Applies only to Hyperledger Fabric.
   """
   def create_network(%Client{} = client, input, options \\ []) do
     url_path = "/networks"
@@ -76,10 +90,14 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Creates a peer node in a member.
+  Creates a node on the specified blockchain network.
+
+  Applies to Hyperledger Fabric and Ethereum.
+
+  Ethereum on Managed Blockchain is in preview release and is subject to change.
   """
-  def create_node(%Client{} = client, member_id, network_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}/nodes"
+  def create_node(%Client{} = client, network_id, input, options \\ []) do
+    url_path = "/networks/#{URI.encode(network_id)}/nodes"
     headers = []
     query_params = []
 
@@ -101,6 +119,8 @@ defmodule AWS.ManagedBlockchain do
   can vote on, for example, a proposal to add a new member to the network.
 
   Any member can create a proposal.
+
+  Applies only to Hyperledger Fabric.
   """
   def create_proposal(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}/proposals"
@@ -130,6 +150,8 @@ defmodule AWS.ManagedBlockchain do
   result of an approved proposal to remove a member. If `MemberId` is the last
   member in a network specified by the last AWS account, the network is deleted
   also.
+
+  Applies only to Hyperledger Fabric.
   """
   def delete_member(%Client{} = client, member_id, network_id, input, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}"
@@ -150,18 +172,21 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Deletes a peer node from a member that your AWS account owns.
+  Deletes a node that your AWS account owns.
 
   All data on the node is lost and cannot be recovered.
-  """
-  def delete_node(%Client{} = client, member_id, network_id, node_id, input, options \\ []) do
-    url_path =
-      "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}/nodes/#{
-        URI.encode(node_id)
-      }"
 
+  Applies to Hyperledger Fabric and Ethereum.
+  """
+  def delete_node(%Client{} = client, network_id, node_id, input, options \\ []) do
+    url_path = "/networks/#{URI.encode(network_id)}/nodes/#{URI.encode(node_id)}"
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"MemberId", "memberId"}
+      ]
+      |> Request.build_params(input)
 
     Request.request_rest(
       client,
@@ -178,6 +203,8 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Returns detailed information about a member.
+
+  Applies only to Hyperledger Fabric.
   """
   def get_member(%Client{} = client, member_id, network_id, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}"
@@ -199,6 +226,8 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Returns detailed information about a network.
+
+  Applies to Hyperledger Fabric and Ethereum.
   """
   def get_network(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}"
@@ -219,16 +248,21 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns detailed information about a peer node.
-  """
-  def get_node(%Client{} = client, member_id, network_id, node_id, options \\ []) do
-    url_path =
-      "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}/nodes/#{
-        URI.encode(node_id)
-      }"
+  Returns detailed information about a node.
 
+  Applies to Hyperledger Fabric and Ethereum.
+  """
+  def get_node(%Client{} = client, network_id, node_id, member_id \\ nil, options \\ []) do
+    url_path = "/networks/#{URI.encode(network_id)}/nodes/#{URI.encode(node_id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(member_id) do
+        [{"memberId", member_id} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -245,6 +279,8 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Returns detailed information about a proposal.
+
+  Applies only to Hyperledger Fabric.
   """
   def get_proposal(%Client{} = client, network_id, proposal_id, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}/proposals/#{URI.encode(proposal_id)}"
@@ -265,7 +301,9 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns a listing of all invitations for the current AWS account.
+  Returns a list of all invitations for the current AWS account.
+
+  Applies only to Hyperledger Fabric.
   """
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitations"
@@ -300,8 +338,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns a listing of the members in a network and properties of their
+  Returns a list of the members in a network and properties of their
   configurations.
+
+  Applies only to Hyperledger Fabric.
   """
   def list_members(
         %Client{} = client,
@@ -366,8 +406,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns information about the networks in which the current AWS account has
-  members.
+  Returns information about the networks in which the current AWS account
+  participates.
+
+  Applies to Hyperledger Fabric and Ethereum.
   """
   def list_networks(
         %Client{} = client,
@@ -432,17 +474,19 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Returns information about the nodes within a network.
+
+  Applies to Hyperledger Fabric and Ethereum.
   """
   def list_nodes(
         %Client{} = client,
-        member_id,
         network_id,
         max_results \\ nil,
+        member_id \\ nil,
         next_token \\ nil,
         status \\ nil,
         options \\ []
       ) do
-    url_path = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}/nodes"
+    url_path = "/networks/#{URI.encode(network_id)}/nodes"
     headers = []
     query_params = []
 
@@ -456,6 +500,13 @@ defmodule AWS.ManagedBlockchain do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(member_id) do
+        [{"memberId", member_id} | query_params]
       else
         query_params
       end
@@ -481,8 +532,10 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns the listing of votes for a specified proposal, including the value of
-  each vote and the unique identifier of the member that cast the vote.
+  Returns the list of votes for a specified proposal, including the value of each
+  vote and the unique identifier of the member that cast the vote.
+
+  Applies only to Hyperledger Fabric.
   """
   def list_proposal_votes(
         %Client{} = client,
@@ -524,7 +577,9 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
-  Returns a listing of proposals for the network.
+  Returns a list of proposals for the network.
+
+  Applies only to Hyperledger Fabric.
   """
   def list_proposals(
         %Client{} = client,
@@ -565,10 +620,39 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
+  Returns a list of tags for the specified resource.
+
+  Each tag consists of a key and optional value.
+
+  For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html)
+  in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
+  in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Rejects an invitation to join a network.
 
   This action can be called by a principal in an AWS account that has received an
   invitation to create a member and join a network.
+
+  Applies only to Hyperledger Fabric.
   """
   def reject_invitation(%Client{} = client, invitation_id, input, options \\ []) do
     url_path = "/invitations/#{URI.encode(invitation_id)}"
@@ -589,7 +673,73 @@ defmodule AWS.ManagedBlockchain do
   end
 
   @doc """
+  Adds or overwrites the specified tags for the specified Amazon Managed
+  Blockchain resource.
+
+  Each tag consists of a key and optional value.
+
+  When you specify a tag key that already exists, the tag value is overwritten
+  with the new value. Use `UntagResource` to remove tag keys.
+
+  A resource can have up to 50 tags. If you try to create more than 50 tags for a
+  resource, your request fails and returns an error.
+
+  For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html)
+  in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
+  in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes the specified tags from the Amazon Managed Blockchain resource.
+
+  For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html)
+  in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
+  in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Updates a member configuration with new parameters.
+
+  Applies only to Hyperledger Fabric.
   """
   def update_member(%Client{} = client, member_id, network_id, input, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}"
@@ -611,13 +761,11 @@ defmodule AWS.ManagedBlockchain do
 
   @doc """
   Updates a node configuration with new parameters.
-  """
-  def update_node(%Client{} = client, member_id, network_id, node_id, input, options \\ []) do
-    url_path =
-      "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}/nodes/#{
-        URI.encode(node_id)
-      }"
 
+  Applies only to Hyperledger Fabric.
+  """
+  def update_node(%Client{} = client, network_id, node_id, input, options \\ []) do
+    url_path = "/networks/#{URI.encode(network_id)}/nodes/#{URI.encode(node_id)}"
     headers = []
     query_params = []
 
@@ -639,6 +787,8 @@ defmodule AWS.ManagedBlockchain do
 
   The member to vote as, specified by `VoterMemberId`, must be in the same AWS
   account as the principal that calls the action.
+
+  Applies only to Hyperledger Fabric.
   """
   def vote_on_proposal(%Client{} = client, network_id, proposal_id, input, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}/proposals/#{URI.encode(proposal_id)}/votes"

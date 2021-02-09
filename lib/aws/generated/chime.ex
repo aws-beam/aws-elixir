@@ -10,8 +10,9 @@ defmodule AWS.Chime do
   This guide provides detailed information about the Amazon Chime API, including
   operations, types, inputs and outputs, and error codes. It also includes some
   server-side API actions to use with the Amazon Chime SDK. For more information
-  about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  about the Amazon Chime SDK, see [ Using the Amazon Chime SDK
+  ](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the *Amazon
+  Chime Developer Guide*.
 
   You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST
   API to make API calls. We recommend using an AWS SDK or the AWS CLI. Each API
@@ -34,10 +35,10 @@ defmodule AWS.Chime do
   Chime commands, see the [Amazon Chime commands](https://docs.aws.amazon.com/cli/latest/reference/chime/index.html) in
   the *AWS CLI Command Reference*.
 
-  ### Using REST
+  ### Using REST APIs
 
   If you use REST to make API calls, you must authenticate your request by
-  providing a signature. Amazon Chime supports Signature Version 4. For more
+  providing a signature. Amazon Chime supports signature version 4. For more
   information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html)
   in the *Amazon Web Services General Reference*.
 
@@ -207,8 +208,8 @@ defmodule AWS.Chime do
   @doc """
   Adds up to 50 members to a chat room in an Amazon Chime Enterprise account.
 
-  Members can be either users or bots. The member role designates whether the
-  member is a chat room administrator or a general chat room member.
+  Members can be users or bots. The member role designates whether the member is a
+  chat room administrator or a general chat room member.
   """
   def batch_create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
@@ -264,7 +265,7 @@ defmodule AWS.Chime do
   Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html)
   in the *Amazon Chime Administration Guide*.
 
-  Users suspended from a `Team` account are disassociated from the account, but
+  Users suspended from a `Team` account are disassociated from the account,but
   they can continue to use Amazon Chime as free users. To remove the suspension
   from suspended `Team` account users, invite them to the `Team` account again.
   You can use the `InviteUsers` action to do so.
@@ -325,7 +326,7 @@ defmodule AWS.Chime do
   @doc """
   Updates phone number product types or calling names.
 
-  You can update one attribute at a time for each `UpdatePhoneNumberRequestItem`.
+  You can update one attribute at a time for each `UpdatePhoneNumberRequestItem` .
   For example, you can update either the product type or the calling name.
 
   For product types, choose from Amazon Chime Business Calling and Amazon Chime
@@ -404,10 +405,10 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Creates an Amazon Chime Messaging SDK `AppInstance` under an AWS Account.
+  Creates an Amazon Chime SDK messaging `AppInstance` under an AWS account.
 
-  Only Messaging SDK customers use this API. `CreateAppInstance` supports
-  `idempotency` behavior as described in the AWS API Standard.
+  Only SDK messaging customers use this API. `CreateAppInstance` supports
+  idempotency behavior as described in the AWS API Standard.
   """
   def create_app_instance(%Client{} = client, input, options \\ []) do
     url_path = "/app-instances"
@@ -432,8 +433,8 @@ defmodule AWS.Chime do
 
   The promoted user can perform the following actions.
 
-    * `ChannelModerator` actions across all channels in the app
-  instance.
+    * `ChannelModerator` actions across all channels in the
+  `AppInstance`.
 
     * `DeleteChannelMessage` actions.
 
@@ -529,10 +530,20 @@ defmodule AWS.Chime do
   Creates a channel to which you can add users and send messages.
 
   **Restriction**: You can't change a channel's privacy.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -557,10 +568,20 @@ defmodule AWS.Chime do
 
   If you ban a user who is already part of a channel, that user is automatically
   kicked from the channel.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/bans"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -598,10 +619,20 @@ defmodule AWS.Chime do
   but you must be a member to send messages.
 
     * Private Channels: You must be a member to list or send messages.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/memberships"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -631,10 +662,20 @@ defmodule AWS.Chime do
     * Redact messages in the channel.
 
     * List messages in the channel.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/moderators"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -655,9 +696,9 @@ defmodule AWS.Chime do
   initial attendees.
 
   For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
-  in the *Amazon Chime Developer Guide*. For more information about the Amazon
+  in the *Amazon Chime Developer Guide* . For more information about the Amazon
   Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  *Amazon Chime Developer Guide* .
   """
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
@@ -680,13 +721,13 @@ defmodule AWS.Chime do
   @doc """
   Uses the join token and call metadata in a meeting request (From number, To
   number, and so forth) to initiate an outbound call to a public switched
-  telephone network (PSTN) and joins them into Chime meeting.
+  telephone network (PSTN) and join them into a Chime meeting.
 
   Also ensures that the From number belongs to the customer.
 
   To play welcome audio or implement an interactive voice response (IVR), use the
-  `CreateSipMediaApplicationCall` API with the corresponding SIP media application
-  ID.
+  `CreateSipMediaApplicationCall` action with the corresponding SIP media
+  application ID.
   """
   def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{URI.encode(meeting_id)}/dial-outs"
@@ -711,9 +752,9 @@ defmodule AWS.Chime do
   attendees.
 
   For more information about specifying media Regions, see [Amazon Chime SDK Media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
-  in the *Amazon Chime Developer Guide*. For more information about the Amazon
+  in the *Amazon Chime Developer Guide* . For more information about the Amazon
   Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  *Amazon Chime Developer Guide* .
   """
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
@@ -978,15 +1019,15 @@ defmodule AWS.Chime do
   @doc """
   Deletes the specified Amazon Chime account.
 
-  You must suspend all users before deleting a `Team` account. You can use the
-  `BatchSuspendUser` action to do so.
+  You must suspend all users before deleting `Team` account. You can use the
+  `BatchSuspendUser` action to dodo.
 
   For `EnterpriseLWA` and `EnterpriseAD` accounts, you must release the claimed
   domains for your Amazon Chime account before deletion. As soon as you release
   the domain, all users under that account are suspended.
 
   Deleted accounts appear in your `Disabled` accounts list for 90 days. To restore
-  a deleted account from your `Disabled` accounts list, you must contact AWS
+  deleted account from your `Disabled` accounts list, you must contact AWS
   Support.
 
   After 90 days, deleted accounts are permanently removed from your `Disabled`
@@ -1063,7 +1104,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Deletes the streaming configurations of an app instance.
+  Deletes the streaming configurations of an `AppInstance`.
   """
   def delete_app_instance_streaming_configurations(
         %Client{} = client,
@@ -1111,11 +1152,11 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes an attendee from the specified Amazon Chime SDK meeting and deletes
-  their `JoinToken`.
+  their `JoinToken` .
 
   Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted.
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  *Amazon Chime Developer Guide* .
   """
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
@@ -1140,10 +1181,20 @@ defmodule AWS.Chime do
   deletion.
 
   This is an irreversible process.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -1161,10 +1212,20 @@ defmodule AWS.Chime do
 
   @doc """
   Removes a user from a channel's ban list.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/bans/#{URI.encode(member_arn)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -1182,10 +1243,20 @@ defmodule AWS.Chime do
 
   @doc """
   Removes a member from a channel.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/memberships/#{URI.encode(member_arn)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -1207,10 +1278,20 @@ defmodule AWS.Chime do
   Only admins can perform this action. Deletion makes messages inaccessible
   immediately. A background process deletes any revisions created by
   `UpdateChannelMessage`.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -1228,6 +1309,10 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes a channel moderator.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def delete_channel_moderator(
         %Client{} = client,
@@ -1239,7 +1324,12 @@ defmodule AWS.Chime do
     url_path =
       "/channels/#{URI.encode(channel_arn)}/moderators/#{URI.encode(channel_moderator_arn)}"
 
-    headers = []
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -1281,9 +1371,10 @@ defmodule AWS.Chime do
   @doc """
   Deletes the specified Amazon Chime SDK meeting.
 
-  When a meeting is deleted, its attendees are also deleted and clients can no
-  longer join it. For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
-  in the *Amazon Chime Developer Guide*.
+  When a meeting is deleted, its attendees are also deleted, clients connected to
+  the meeting are disconnected, and clients can no longer join the meeting. For
+  more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
+  *Amazon Chime Developer Guide*.
   """
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{URI.encode(meeting_id)}"
@@ -1304,7 +1395,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Moves the specified phone number into the **Deletion queue**.
+  Moves the specified phone number into the **Deletionqueue**.
 
   A phone number must be disassociated from any users or Amazon Chime Voice
   Connectors before it can be deleted.
@@ -1731,7 +1822,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Returns the full details of an `AppInstanceUser`.
+  Returns the full details of an `AppInstanceUser` .
   """
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{URI.encode(app_instance_user_arn)}"
@@ -1752,11 +1843,23 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Returns the full details of a channel in an Amazon Chime app instance.
+  Returns the full details of a channel in an Amazon Chime `AppInstance`.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
-  def describe_channel(%Client{} = client, channel_arn, options \\ []) do
+  def describe_channel(%Client{} = client, channel_arn, chime_bearer \\ nil, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     Request.request_rest(
@@ -1774,10 +1877,28 @@ defmodule AWS.Chime do
 
   @doc """
   Returns the full details of a channel ban.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
-  def describe_channel_ban(%Client{} = client, channel_arn, member_arn, options \\ []) do
+  def describe_channel_ban(
+        %Client{} = client,
+        channel_arn,
+        member_arn,
+        chime_bearer \\ nil,
+        options \\ []
+      ) do
     url_path = "/channels/#{URI.encode(channel_arn)}/bans/#{URI.encode(member_arn)}"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     Request.request_rest(
@@ -1795,10 +1916,28 @@ defmodule AWS.Chime do
 
   @doc """
   Returns the full details of a user's channel membership.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
-  def describe_channel_membership(%Client{} = client, channel_arn, member_arn, options \\ []) do
+  def describe_channel_membership(
+        %Client{} = client,
+        channel_arn,
+        member_arn,
+        chime_bearer \\ nil,
+        options \\ []
+      ) do
     url_path = "/channels/#{URI.encode(channel_arn)}/memberships/#{URI.encode(member_arn)}"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     Request.request_rest(
@@ -1815,17 +1954,30 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Returns the details of a channel based on the membership of the
-  `AppInstanceUser` specified.
+  Returns the details of a channel based on the membership of the specified
+  `AppInstanceUser`.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
         channel_arn,
         app_instance_user_arn,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels/#{URI.encode(channel_arn)}?scope=app-instance-user-membership"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -1851,15 +2003,28 @@ defmodule AWS.Chime do
   @doc """
   Returns the full details of a channel moderated by the specified
   `AppInstanceUser`.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
         channel_arn,
         app_instance_user_arn,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels/#{URI.encode(channel_arn)}?scope=app-instance-user-moderated-channel"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -1884,17 +2049,30 @@ defmodule AWS.Chime do
 
   @doc """
   Returns the full details of a single ChannelModerator.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def describe_channel_moderator(
         %Client{} = client,
         channel_arn,
         channel_moderator_arn,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path =
       "/channels/#{URI.encode(channel_arn)}/moderators/#{URI.encode(channel_moderator_arn)}"
 
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     Request.request_rest(
@@ -2049,7 +2227,7 @@ defmodule AWS.Chime do
 
   @doc """
   Retrieves account settings for the specified Amazon Chime account ID, such as
-  remote control and dial out settings.
+  remote control and dialout settings.
 
   For more information about these settings, see [Use the Policies Page](https://docs.aws.amazon.com/chime/latest/ag/policies.html) in the *Amazon
   Chime Administration Guide*.
@@ -2073,7 +2251,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Gets the retention settings for an app instance.
+  Gets the retention settings for an `AppInstance`.
   """
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{URI.encode(app_instance_arn)}/retention-settings"
@@ -2094,7 +2272,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Gets the streaming settings for an app instance.
+  Gets the streaming settings for an `AppInstance`.
   """
   def get_app_instance_streaming_configurations(
         %Client{} = client,
@@ -2123,7 +2301,7 @@ defmodule AWS.Chime do
   attendee ID.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  *Amazon Chime Developer Guide* .
   """
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
@@ -2167,10 +2345,27 @@ defmodule AWS.Chime do
 
   @doc """
   Gets the full details of a channel message.
+
+  The x-amz-chime-bearer request header is mandatory. Use the `AppInstanceUserArn`
+  of the user that makes the API call as the value in the header.
   """
-  def get_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
+  def get_channel_message(
+        %Client{} = client,
+        channel_arn,
+        message_id,
+        chime_bearer \\ nil,
+        options \\ []
+      ) do
     url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     Request.request_rest(
@@ -2236,7 +2431,7 @@ defmodule AWS.Chime do
   Gets the Amazon Chime SDK meeting details for the specified meeting ID.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  *Amazon Chime Developer Guide* .
   """
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{URI.encode(meeting_id)}"
@@ -2257,7 +2452,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  The endpoint for the messaging session.
+  The details of the endpoint for the messaging session.
   """
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
@@ -2300,8 +2495,9 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Retrieves details for the specified phone number order, such as order creation
-  timestamp, phone numbers in E.164 format, product type, and order status.
+  Retrieves details for the specified phone number order, such as the order
+  creation timestamp, phone numbers in E.164 format, product type, and order
+  status.
   """
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{URI.encode(phone_number_order_id)}"
@@ -2373,7 +2569,7 @@ defmodule AWS.Chime do
   Gets the retention settings for the specified Amazon Chime Enterprise account.
 
   For more information about retention settings, see [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
-  the *Amazon Chime Administration Guide*.
+  the *Amazon Chime Administration Guide* .
   """
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{URI.encode(account_id)}/retention-settings"
@@ -2488,7 +2684,7 @@ defmodule AWS.Chime do
 
   @doc """
   Retrieves details for the specified user ID, such as primary email address,
-  license type, and personal meeting PIN.
+  license type,and personal meeting PIN.
 
   To retrieve user details with an email address instead of a user ID, use the
   `ListUsers` action, and then filter by email address.
@@ -2535,7 +2731,7 @@ defmodule AWS.Chime do
 
   @doc """
   Retrieves details for the specified Amazon Chime Voice Connector, such as
-  timestamps, name, outbound host, and encryption requirements.
+  timestamps,name, outbound host, and encryption requirements.
   """
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{URI.encode(voice_connector_id)}"
@@ -2585,7 +2781,7 @@ defmodule AWS.Chime do
 
   @doc """
   Retrieves details for the specified Amazon Chime Voice Connector group, such as
-  timestamps, name, and associated `VoiceConnectorItems`.
+  timestamps,name, and associated `VoiceConnectorItems` .
   """
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
@@ -2609,7 +2805,8 @@ defmodule AWS.Chime do
   Retrieves the logging configuration details for the specified Amazon Chime Voice
   Connector.
 
-  Shows whether SIP message logs are enabled for sending to Amazon CloudWatch.
+  Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
+  Logs.
   """
   def get_voice_connector_logging_configuration(
         %Client{} = client,
@@ -2782,7 +2979,7 @@ defmodule AWS.Chime do
   Lists the Amazon Chime accounts under the administrator's AWS account.
 
   You can filter accounts by account name prefix. To find out which Amazon Chime
-  account a user belongs to, you can filter by the user's email address, which
+  account a user belongs to, toucan filter by the user's email address, which
   returns one account result.
   """
   def list_accounts(
@@ -2839,7 +3036,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Returns a list of the administrators in the app instance.
+  Returns a list of the administrators in the `AppInstance`.
   """
   def list_app_instance_admins(
         %Client{} = client,
@@ -2880,7 +3077,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  List all `AppInstanceUsers` created under a single app instance.
+  List all `AppInstanceUsers` created under a single `AppInstance`.
   """
   def list_app_instance_users(
         %Client{} = client,
@@ -2928,7 +3125,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Lists all Amazon Chime app instances created under a single AWS account.
+  Lists all Amazon Chime `AppInstance`s created under a single AWS account.
   """
   def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/app-instances"
@@ -2987,7 +3184,7 @@ defmodule AWS.Chime do
   Lists the attendees for the specified Amazon Chime SDK meeting.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  *Amazon Chime Developer Guide* .
   """
   def list_attendees(
         %Client{} = client,
@@ -3071,16 +3268,29 @@ defmodule AWS.Chime do
 
   @doc """
   Lists all the users banned from a particular channel.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def list_channel_bans(
         %Client{} = client,
         channel_arn,
         max_results \\ nil,
         next_token \\ nil,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels/#{URI.encode(channel_arn)}/bans"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -3112,6 +3322,10 @@ defmodule AWS.Chime do
 
   @doc """
   Lists all channel memberships in a channel.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def list_channel_memberships(
         %Client{} = client,
@@ -3119,10 +3333,19 @@ defmodule AWS.Chime do
         max_results \\ nil,
         next_token \\ nil,
         type \\ nil,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels/#{URI.encode(channel_arn)}/memberships"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -3164,16 +3387,29 @@ defmodule AWS.Chime do
 
   Only an `AppInstanceAdmin` can call the API with a user ARN that is not their
   own.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def list_channel_memberships_for_app_instance_user(
         %Client{} = client,
         app_instance_user_arn \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels?scope=app-instance-user-memberships"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -3213,12 +3449,16 @@ defmodule AWS.Chime do
   @doc """
   List all the messages in a channel.
 
-  Returns a paginated list of `ChannelMessages`. Sorted in descending order by
-  default, based on the creation timestamp.
+  Returns a paginated list of `ChannelMessages`. By default, sorted by creation
+  timestamp in descending order .
 
   Redacted messages appear in the results as empty, since they are only redacted,
   not deleted. Deleted messages do not appear in the results. This action always
   returns the latest version of an edited message.
+
+  Also, the x-amz-chime-bearer request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def list_channel_messages(
         %Client{} = client,
@@ -3228,10 +3468,19 @@ defmodule AWS.Chime do
         not_after \\ nil,
         not_before \\ nil,
         sort_order \\ nil,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels/#{URI.encode(channel_arn)}/messages"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -3284,16 +3533,29 @@ defmodule AWS.Chime do
 
   @doc """
   Lists all the moderators for a channel.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def list_channel_moderators(
         %Client{} = client,
         channel_arn,
         max_results \\ nil,
         next_token \\ nil,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels/#{URI.encode(channel_arn)}/moderators"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -3335,6 +3597,10 @@ defmodule AWS.Chime do
 
     * Only an `AppInstanceAdmin` can set privacy = `PRIVATE` to list the
   private channels in an account.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def list_channels(
         %Client{} = client,
@@ -3342,10 +3608,19 @@ defmodule AWS.Chime do
         max_results \\ nil,
         next_token \\ nil,
         privacy \\ nil,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -3390,17 +3665,30 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  A list of the channels moderated by an app instance user.
+  A list of the channels moderated by an `AppInstanceUser`.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def list_channels_moderated_by_app_instance_user(
         %Client{} = client,
         app_instance_user_arn \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        chime_bearer \\ nil,
         options \\ []
       ) do
     url_path = "/channels?scope=app-instance-user-moderated-channels"
     headers = []
+
+    headers =
+      if !is_nil(chime_bearer) do
+        [{"x-amz-chime-bearer", chime_bearer} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
     query_params =
@@ -3462,7 +3750,7 @@ defmodule AWS.Chime do
   Lists up to 100 active Amazon Chime SDK meetings.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide*.
+  *Amazon Chime Developer Guide* .
   """
   def list_meetings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/meetings"
@@ -4058,7 +4346,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Sets the amount of time in days that a given app instance retains data.
+  Sets the amount of time in days that a given `AppInstance` retains data.
   """
   def put_app_instance_retention_settings(
         %Client{} = client,
@@ -4084,7 +4372,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  The data streaming configurations of an app instance.
+  The data streaming configurations of an `AppInstance`.
   """
   def put_app_instance_streaming_configurations(
         %Client{} = client,
@@ -4141,12 +4429,12 @@ defmodule AWS.Chime do
 
   We recommend using AWS CloudTrail to monitor usage of this API for your account.
   For more information, see [Logging Amazon Chime API Calls with AWS CloudTrail](https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html) in the
-  *Amazon Chime Administration Guide*.
+  *Amazon Chime Administration Guide* .
 
   To turn off existing retention settings, remove the number of days from the
   corresponding **RetentionDays** field in the **RetentionSettings** object. For
   more information about retention settings, see [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
-  the *Amazon Chime Administration Guide*.
+  the *Amazon Chime Administration Guide* .
   """
   def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{URI.encode(account_id)}/retention-settings"
@@ -4310,7 +4598,7 @@ defmodule AWS.Chime do
   Adds a streaming configuration for the specified Amazon Chime Voice Connector.
 
   The streaming configuration specifies whether media streaming is enabled for
-  sending to Amazon Kinesis. It also sets the retention period, in hours, for the
+  sending to Indonesians. It also sets the retention period, in hours, for the
   Amazon Kinesis data.
   """
   def put_voice_connector_streaming_configuration(
@@ -4398,12 +4686,21 @@ defmodule AWS.Chime do
 
   The message exists in the back end, but the action returns null content, and the
   state shows as redacted.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}?operation=redact"
 
-    headers = []
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -4637,12 +4934,22 @@ defmodule AWS.Chime do
   @doc """
   Sends a message to a particular channel that the member is a part of.
 
-  `STANDARD` messages can contain 4KB of data and the 1KB of metadata. `CONTROL`
-  messages can contain 30 bytes of data and no metadata.
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
+
+  Also, `STANDARD` messages can contain 4KB of data and the 1KB of metadata.
+  `CONTROL` messages can contain 30 bytes of data and no metadata.
   """
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/messages"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -4858,7 +5165,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Updates the details for an `AppInstanceUser`.
+  Updates the details of an `AppInstanceUser`.
 
   You can update names and metadata.
   """
@@ -4906,10 +5213,20 @@ defmodule AWS.Chime do
   Update a channel's attributes.
 
   **Restriction**: You can't change a channel's privacy.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -4927,10 +5244,20 @@ defmodule AWS.Chime do
 
   @doc """
   Updates the content of a message.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/messages/#{URI.encode(message_id)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -4947,11 +5274,21 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Sets the timestamp to the point when a user last read messages in a channel.
+  The details of the time when a user last read messages in a channel.
+
+  The `x-amz-chime-bearer` request header is mandatory. Use the
+  `AppInstanceUserArn` of the user that makes the API call as the value in the
+  header.
   """
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{URI.encode(channel_arn)}/readMarker"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     Request.request_rest(
@@ -5136,7 +5473,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Updates the details for the specified SIP media application.
+  Updates the details of the specified SIP media application.
   """
   def update_sip_media_application(
         %Client{} = client,
@@ -5162,7 +5499,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Updates the details for the specified SIP rule.
+  Updates the details of the specified SIP rule.
   """
   def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{URI.encode(sip_rule_id)}"
@@ -5248,8 +5585,8 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Updates details for the specified Amazon Chime Voice Connector group, such as
-  the name and Amazon Chime Voice Connector priority ranking.
+  Updates details of the specified Amazon Chime Voice Connector group, such as the
+  name and Amazon Chime Voice Connector priority ranking.
   """
   def update_voice_connector_group(
         %Client{} = client,

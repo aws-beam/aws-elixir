@@ -45,7 +45,7 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Accepts the invitation to be monitored by a master GuardDuty account.
+  Accepts the invitation to be monitored by a GuardDuty administrator account.
   """
   def accept_invitation(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/master"
@@ -68,7 +68,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Archives GuardDuty findings that are specified by the list of finding IDs.
 
-  Only the master account can archive findings. Member accounts don't have
+  Only the administrator account can archive findings. Member accounts don't have
   permission to archive findings from their accounts.
   """
   def archive_findings(%Client{} = client, detector_id, input, options \\ []) do
@@ -142,8 +142,8 @@ defmodule AWS.GuardDuty do
 
   An IPSet is a list of IP addresses that are trusted for secure communication
   with AWS infrastructure and applications. GuardDuty doesn't generate findings
-  for IP addresses that are included in IPSets. Only users from the master account
-  can use this operation.
+  for IP addresses that are included in IPSets. Only users from the administrator
+  account can use this operation.
   """
   def create_ip_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/ipset"
@@ -172,8 +172,8 @@ defmodule AWS.GuardDuty do
 
   When using `Create Members` as an organizations delegated administrator this
   action will enable GuardDuty in the added member accounts, with the exception of
-  the organization master account, which must enable GuardDuty prior to being
-  added as a member.
+  the organization delegated administrator account, which must enable GuardDuty
+  prior to being added as a member.
 
   If you are adding accounts by invitation use this action after GuardDuty has
   been enabled in potential member accounts and before using [ `Invite Members`
@@ -248,8 +248,8 @@ defmodule AWS.GuardDuty do
   Creates a new ThreatIntelSet.
 
   ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates
-  findings based on ThreatIntelSets. Only users of the master account can use this
-  operation.
+  findings based on ThreatIntelSets. Only users of the administrator account can
+  use this operation.
   """
   def create_threat_intel_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/threatintelset"
@@ -379,8 +379,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Deletes GuardDuty member accounts (to the current GuardDuty master account)
-  specified by the account IDs.
+  Deletes GuardDuty member accounts (to the current GuardDuty administrator
+  account) specified by the account IDs.
   """
   def delete_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/member/delete"
@@ -532,7 +532,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Disassociates the current GuardDuty member account from its master account.
+  Disassociates the current GuardDuty member account from its administrator
+  account.
   """
   def disassociate_from_master_account(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/master/disassociate"
@@ -553,7 +554,7 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Disassociates GuardDuty member accounts (to the current GuardDuty master
+  Disassociates GuardDuty member accounts (to the current GuardDuty administrator
   account) specified by the account IDs.
   """
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
@@ -724,7 +725,7 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Provides the details for the GuardDuty master account associated with the
+  Provides the details for the GuardDuty administrator account associated with the
   current GuardDuty member account.
   """
   def get_master_account(%Client{} = client, detector_id, options \\ []) do
@@ -767,8 +768,8 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Retrieves GuardDuty member accounts (to the current GuardDuty master account)
-  specified by the account IDs.
+  Retrieves GuardDuty member accounts (of the current GuardDuty administrator
+  account) specified by the account IDs.
   """
   def get_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/member/get"
@@ -841,8 +842,8 @@ defmodule AWS.GuardDuty do
   @doc """
   Invites other AWS accounts (created as members of the current AWS account by
   CreateMembers) to enable GuardDuty, and allow the current AWS account to view
-  and manage these accounts' GuardDuty findings on their behalf as the master
-  account.
+  and manage these accounts' findings on their behalf as the GuardDuty
+  administrator account.
   """
   def invite_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{URI.encode(detector_id)}/member/invite"
@@ -999,7 +1000,7 @@ defmodule AWS.GuardDuty do
   Lists the IPSets of the GuardDuty service specified by the detector ID.
 
   If you use this operation from a member account, the IPSets returned are the
-  IPSets from the associated master account.
+  IPSets from the associated administrator account.
   """
   def list_ip_sets(
         %Client{} = client,
@@ -1040,7 +1041,7 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists details about all member accounts for the current GuardDuty master
+  Lists details about all member accounts for the current GuardDuty administrator
   account.
   """
   def list_members(
@@ -1200,7 +1201,7 @@ defmodule AWS.GuardDuty do
   Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID.
 
   If you use this operation from a member account, the ThreatIntelSets associated
-  with the master account are returned.
+  with the administrator account are returned.
   """
   def list_threat_intel_sets(
         %Client{} = client,

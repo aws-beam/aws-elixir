@@ -27,6 +27,31 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC.
+
+  This operation changes the KSK status to `ACTIVE`.
+  """
+  def activate_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
+    url_path =
+      "/2013-04-01/keysigningkey/#{URI.encode(hosted_zone_id)}/#{URI.encode(name)}/activate"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Associates an Amazon VPC with a private hosted zone.
 
   To perform the association, the VPC and the private hosted zone must already
@@ -291,6 +316,36 @@ defmodule AWS.Route53 do
   """
   def create_hosted_zone(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new key-signing key (KSK) associated with a hosted zone.
+
+  You can only have two KSKs per hosted zone.
+  """
+  def create_key_signing_key(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/keysigningkey"
     headers = []
     query_params = []
 
@@ -662,6 +717,32 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Deactivates a key-signing key (KSK) so that it will not be used for signing by
+  DNSSEC.
+
+  This operation changes the KSK status to `INACTIVE`.
+  """
+  def deactivate_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
+    url_path =
+      "/2013-04-01/keysigningkey/#{URI.encode(hosted_zone_id)}/#{URI.encode(name)}/deactivate"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a health check.
 
   Amazon Route 53 does not prevent you from deleting a health check even if the
@@ -746,6 +827,31 @@ defmodule AWS.Route53 do
   """
   def delete_hosted_zone(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{URI.encode(id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes a key-signing key (KSK).
+
+  Before you can delete a KSK, you must deactivate it. The KSK must be deactived
+  before you can delete it regardless of whether the hosted zone is enabled for
+  DNSSEC signing.
+  """
+  def delete_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
+    url_path = "/2013-04-01/keysigningkey/#{URI.encode(hosted_zone_id)}/#{URI.encode(name)}"
     headers = []
     query_params = []
 
@@ -915,6 +1021,30 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Disables DNSSEC signing in a specific hosted zone.
+
+  This action does not deactivate any key-signing keys (KSKs) that are active in
+  the hosted zone.
+  """
+  def disable_hosted_zone_dns_s_e_c(%Client{} = client, hosted_zone_id, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/disable-dnssec"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route
   53 private hosted zone.
 
@@ -943,6 +1073,27 @@ defmodule AWS.Route53 do
   """
   def disassociate_vpc_from_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/disassociatevpc"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Enables DNSSEC signing in a specific hosted zone.
+  """
+  def enable_hosted_zone_dns_s_e_c(%Client{} = client, hosted_zone_id, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/enable-dnssec"
     headers = []
     query_params = []
 
@@ -1021,10 +1172,12 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  `GetCheckerIpRanges` still works, but we recommend that you download
-  ip-ranges.json, which includes IP address ranges for all AWS services.
+  Route 53 does not perform authorization for this API because it retrieves
+  information that is already available to the public.
 
-  For more information, see [IP Address Ranges of Amazon Route 53 Servers](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html)
+  `GetCheckerIpRanges` still works, but we recommend that you download
+  ip-ranges.json, which includes IP address ranges for all AWS services. For more
+  information, see [IP Address Ranges of Amazon Route 53 Servers](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html)
   in the *Amazon Route 53 Developer Guide*.
   """
   def get_checker_ip_ranges(%Client{} = client, options \\ []) do
@@ -1046,8 +1199,33 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Returns information about DNSSEC for a specific hosted zone, including the
+  key-signing keys (KSKs) in the hosted zone.
+  """
+  def get_dns_s_e_c(%Client{} = client, hosted_zone_id, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/dnssec"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets information about whether a specified geographic location is supported for
   Amazon Route 53 geolocation resource record sets.
+
+  Route 53 does not perform authorization for this API because it retrieves
+  information that is already available to the public.
 
   Use the following syntax to determine whether a continent is supported for
   geolocation:
@@ -1428,6 +1606,9 @@ defmodule AWS.Route53 do
   supports subdivisions for a country (for example, states or provinces), the
   subdivisions for that country are listed in alphabetical order immediately after
   the corresponding country.
+
+  Route 53 does not perform authorization for this API because it retrieves
+  information that is already available to the public.
 
   For a list of supported geolocation codes, see the
   [GeoLocation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html)

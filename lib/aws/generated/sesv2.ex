@@ -265,6 +265,15 @@ defmodule AWS.SESv2 do
   has to include the `DkimSigningAttributes` object. When you specify this object,
   you provide a selector (a component of the DNS record name that identifies the
   public key that you want to use for DKIM authentication) and a private key.
+
+  When you verify a domain, this operation provides a set of DKIM tokens, which
+  you can convert into CNAME tokens. You add these CNAME tokens to the DNS
+  configuration for your domain. Your domain is verified when Amazon SES detects
+  these records in the DNS configuration for your domain. For some DNS providers,
+  it can take 72 hours or more to complete the domain verification process.
+
+  Additionally, you can associate an existing configuration set with the email
+  identity that you're verifying.
   """
   def create_email_identity(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/identities"
@@ -1967,6 +1976,32 @@ defmodule AWS.SESv2 do
   """
   def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Used to associate a configuration set with an email identity.
+  """
+  def put_email_identity_configuration_set_attributes(
+        %Client{} = client,
+        email_identity,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v2/email/identities/#{URI.encode(email_identity)}/configuration-set"
     headers = []
     query_params = []
 

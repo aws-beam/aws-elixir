@@ -361,7 +361,8 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  The current feature settings for the AWS Account.
+  Describes the global settings of the AWS account, including whether it is opted
+  in to cross-account backup.
   """
   def describe_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
@@ -1580,7 +1581,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates the current global settings for the AWS Account.
+  Updates the current global settings for the AWS account.
 
   Use the `DescribeGlobalSettings` API to determine the current settings.
   """
@@ -1614,6 +1615,8 @@ defmodule AWS.Backup do
   greater than the “transition to cold after days” setting. The “transition to
   cold after days” setting cannot be changed after a backup has been transitioned
   to cold.
+
+  Only Amazon EFS file system backups can be transitioned to cold storage.
   """
   def update_recovery_point_lifecycle(
         %Client{} = client,

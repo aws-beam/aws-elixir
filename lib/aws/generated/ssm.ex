@@ -190,6 +190,15 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  If you create a new application in Application Manager, Systems Manager calls
+  this API action to specify information about the new application, including the
+  application type.
+  """
+  def create_ops_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateOpsMetadata", input, options)
+  end
+
+  @doc """
   Creates a patch baseline.
 
   For information about valid key and value pairs in `PatchFilters` for each
@@ -285,6 +294,13 @@ defmodule AWS.SSM do
   """
   def delete_maintenance_window(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteMaintenanceWindow", input, options)
+  end
+
+  @doc """
+  Delete OpsMetadata related to an application.
+  """
+  def delete_ops_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteOpsMetadata", input, options)
   end
 
   @doc """
@@ -605,6 +621,11 @@ defmodule AWS.SSM do
 
   @doc """
   Lists the tasks in a maintenance window.
+
+  For maintenance window tasks without a specified target, you cannot supply
+  values for `--max-errors` and `--max-concurrency`. Instead, the system inserts a
+  placeholder value of `1`, which may be reported in the response to this command.
+  These values do not affect the running of your task and can be ignored.
   """
   def describe_maintenance_window_tasks(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeMaintenanceWindowTasks", input, options)
@@ -711,6 +732,10 @@ defmodule AWS.SSM do
   ### DEBIAN
 
   Valid properties: PRODUCT, PRIORITY
+
+  ### MACOS
+
+  Valid properties: PRODUCT, CLASSIFICATION
 
   ### ORACLE_LINUX
 
@@ -875,6 +900,11 @@ defmodule AWS.SSM do
 
   @doc """
   Lists the tasks in a maintenance window.
+
+  For maintenance window tasks without a specified target, you cannot supply
+  values for `--max-errors` and `--max-concurrency`. Instead, the system inserts a
+  placeholder value of `1`, which may be reported in the response to this command.
+  These values do not affect the running of your task and can be ignored.
   """
   def get_maintenance_window_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMaintenanceWindowTask", input, options)
@@ -894,6 +924,13 @@ defmodule AWS.SSM do
   """
   def get_ops_item(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetOpsItem", input, options)
+  end
+
+  @doc """
+  View operational metadata related to an application in Application Manager.
+  """
+  def get_ops_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetOpsMetadata", input, options)
   end
 
   @doc """
@@ -1076,6 +1113,13 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Information about approval reviews for a version of an SSM document.
+  """
+  def list_document_metadata_history(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDocumentMetadataHistory", input, options)
+  end
+
+  @doc """
   List all versions for a document.
   """
   def list_document_versions(%Client{} = client, input, options \\ []) do
@@ -1097,6 +1141,24 @@ defmodule AWS.SSM do
   """
   def list_inventory_entries(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListInventoryEntries", input, options)
+  end
+
+  @doc """
+  Returns a list of all OpsItem events in the current AWS account and Region.
+
+  You can limit the results to events associated with specific OpsItems by
+  specifying a filter.
+  """
+  def list_ops_item_events(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListOpsItemEvents", input, options)
+  end
+
+  @doc """
+  Systems Manager calls this API action when displaying all Application Manager
+  OpsMetadata objects or blobs.
+  """
+  def list_ops_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListOpsMetadata", input, options)
   end
 
   @doc """
@@ -1329,6 +1391,16 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Creates a change request for Change Manager.
+
+  The runbooks (Automation documents) specified in the change request run only
+  after all required approvals for the change request have been received.
+  """
+  def start_change_request_execution(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartChangeRequestExecution", input, options)
+  end
+
+  @doc """
   Initiates a connection to a target (for example, an instance) for a Session
   Manager session.
 
@@ -1407,6 +1479,14 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Updates information related to approval reviews for a specific version of a
+  document.
+  """
+  def update_document_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateDocumentMetadata", input, options)
+  end
+
+  @doc """
   Updates an existing maintenance window.
 
   Only specified parameters are modified.
@@ -1465,6 +1545,13 @@ defmodule AWS.SSM do
 
     * MaxErrors
 
+  One or more targets must be specified for maintenance window Run Command-type
+  tasks. Depending on the task, targets are optional for other maintenance window
+  task types (Automation, AWS Lambda, and AWS Step Functions). For more
+  information about running tasks that do not specify targets, see [Registering maintenance window tasks without
+  targets](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html)
+  in the *AWS Systems Manager User Guide*.
+
   If the value for a parameter in `UpdateMaintenanceWindowTask` is null, then the
   corresponding field is not modified. If you set `Replace` to true, then all
   fields required by the `RegisterTaskWithMaintenanceWindow` action are required
@@ -1508,6 +1595,14 @@ defmodule AWS.SSM do
   """
   def update_ops_item(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateOpsItem", input, options)
+  end
+
+  @doc """
+  Systems Manager calls this API action when you edit OpsMetadata in Application
+  Manager.
+  """
+  def update_ops_metadata(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateOpsMetadata", input, options)
   end
 
   @doc """

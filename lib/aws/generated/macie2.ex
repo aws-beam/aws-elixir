@@ -747,10 +747,17 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) aggregated usage data for an account.
   """
-  def get_usage_totals(%Client{} = client, options \\ []) do
+  def get_usage_totals(%Client{} = client, time_range \\ nil, options \\ []) do
     url_path = "/usage"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(time_range) do
+        [{"timeRange", time_range} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,

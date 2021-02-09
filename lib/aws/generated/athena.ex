@@ -133,7 +133,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Returns a database object for the specfied database and data catalog.
+  Returns a database object for the specified database and data catalog.
   """
   def get_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetDatabase", input, options)
@@ -207,6 +207,14 @@ defmodule AWS.Athena do
   """
   def list_databases(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDatabases", input, options)
+  end
+
+  @doc """
+  Returns a list of engine versions that are available to choose from, including
+  the Auto option.
+  """
+  def list_engine_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListEngineVersions", input, options)
   end
 
   @doc """

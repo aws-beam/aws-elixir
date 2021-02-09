@@ -10,9 +10,8 @@ defmodule AWS.SNS do
 
   Applications can use Amazon SNS to easily push real-time notification messages
   to interested subscribers over multiple delivery protocols. For more information
-  about this product see [https://aws.amazon.com/sns](http://aws.amazon.com/sns/). For detailed information about Amazon SNS features and their associated API
-  calls, see the [Amazon SNS Developer
-  Guide](https://docs.aws.amazon.com/sns/latest/dg/).
+  about this product see the [Amazon SNS product page](http://aws.amazon.com/sns/). For detailed information about Amazon SNS
+  features and their associated API calls, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/).
 
   For information on the permissions you need to use this API, see [Identity and access management in Amazon
   SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html)
@@ -398,6 +397,9 @@ defmodule AWS.SNS do
   `Publish` action with the `MessageAttributes.entry.N` parameter. For more
   information, see [Publishing to a mobile phone](https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html) in
   the *Amazon SNS Developer Guide*.
+
+  To use this operation, you must grant the Amazon SNS service principal
+  (`sns.amazonaws.com`) permission to perform the `s3:ListBucket` action.
   """
   def set_sms_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetSMSAttributes", input, options)

@@ -35,6 +35,7 @@ defmodule AWS.TranscribeStreaming do
 
     {headers, input} =
       [
+        {"ContentIdentificationType", "x-amzn-transcribe-content-identification-type"},
         {"EnableChannelIdentification", "x-amzn-transcribe-enable-channel-identification"},
         {"LanguageCode", "x-amzn-transcribe-language-code"},
         {"MediaEncoding", "x-amzn-transcribe-media-encoding"},
@@ -55,6 +56,7 @@ defmodule AWS.TranscribeStreaming do
         options,
         :response_header_parameters,
         [
+          {"x-amzn-transcribe-content-identification-type", "ContentIdentificationType"},
           {"x-amzn-transcribe-enable-channel-identification", "EnableChannelIdentification"},
           {"x-amzn-transcribe-language-code", "LanguageCode"},
           {"x-amzn-transcribe-media-encoding", "MediaEncoding"},

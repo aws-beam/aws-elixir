@@ -155,23 +155,28 @@ defmodule AWS.SecurityHub do
   following finding fields and objects, which Security Hub customers use to manage
   their investigation workflow.
 
-    * `Confidence`
-
-    * `Criticality`
-
     * `Note`
-
-    * `RelatedFindings`
-
-    * `Severity`
-
-    * `Types`
 
     * `UserDefinedFields`
 
     * `VerificationState`
 
     * `Workflow`
+
+  `BatchImportFindings` can be used to update the following finding fields and
+  objects only if they have not been updated using `BatchUpdateFindings`. After
+  they are updated using `BatchUpdateFindings`, these fields cannot be updated
+  using `BatchImportFindings`.
+
+    * `Confidence`
+
+    * `Criticality`
+
+    * `RelatedFindings`
+
+    * `Severity`
+
+    * `Types`
   """
   def batch_import_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/import"
@@ -542,13 +547,31 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns information about the available products that you can subscribe to and
-  integrate with Security Hub in order to consolidate findings.
+  Returns information about product integrations in Security Hub.
+
+  You can optionally provide an integration ARN. If you provide an integration
+  ARN, then the results only include that integration.
+
+  If you do not provide an integration ARN, then the results include all of the
+  available product integrations.
   """
-  def describe_products(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def describe_products(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        product_arn \\ nil,
+        options \\ []
+      ) do
     url_path = "/products"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(product_arn) do
+        [{"ProductArn", product_arn} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

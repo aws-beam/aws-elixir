@@ -30,14 +30,14 @@ defmodule AWS.HealthLake do
   @doc """
   Creates a Data Store that can ingest and export FHIR formatted data.
   """
-  def create_f_h_i_r_datastore(%Client{} = client, input, options \\ []) do
+  def create_fhir_datastore(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateFHIRDatastore", input, options)
   end
 
   @doc """
   Deletes a Data Store.
   """
-  def delete_f_h_i_r_datastore(%Client{} = client, input, options \\ []) do
+  def delete_fhir_datastore(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteFHIRDatastore", input, options)
   end
 
@@ -46,7 +46,7 @@ defmodule AWS.HealthLake do
   Store ID, Data Store ARN, Data Store name, Data Store status, created at, Data
   Store type version, and Data Store endpoint.
   """
-  def describe_f_h_i_r_datastore(%Client{} = client, input, options \\ []) do
+  def describe_fhir_datastore(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeFHIRDatastore", input, options)
   end
 
@@ -54,7 +54,7 @@ defmodule AWS.HealthLake do
   Displays the properties of a FHIR export job, including the ID, ARN, name, and
   the status of the job.
   """
-  def describe_f_h_i_r_export_job(%Client{} = client, input, options \\ []) do
+  def describe_fhir_export_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeFHIRExportJob", input, options)
   end
 
@@ -62,7 +62,7 @@ defmodule AWS.HealthLake do
   Displays the properties of a FHIR import job, including the ID, ARN, name, and
   the status of the job.
   """
-  def describe_f_h_i_r_import_job(%Client{} = client, input, options \\ []) do
+  def describe_fhir_import_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeFHIRImportJob", input, options)
   end
 
@@ -70,21 +70,21 @@ defmodule AWS.HealthLake do
   Lists all FHIR Data Stores that are in the user’s account, regardless of Data
   Store status.
   """
-  def list_f_h_i_r_datastores(%Client{} = client, input, options \\ []) do
+  def list_fhir_datastores(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListFHIRDatastores", input, options)
   end
 
   @doc """
   Begins a FHIR export job.
   """
-  def start_f_h_i_r_export_job(%Client{} = client, input, options \\ []) do
+  def start_fhir_export_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartFHIRExportJob", input, options)
   end
 
   @doc """
   Begins a FHIR Import job.
   """
-  def start_f_h_i_r_import_job(%Client{} = client, input, options \\ []) do
+  def start_fhir_import_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartFHIRImportJob", input, options)
   end
 end

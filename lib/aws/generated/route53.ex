@@ -1026,7 +1026,7 @@ defmodule AWS.Route53 do
   This action does not deactivate any key-signing keys (KSKs) that are active in
   the hosted zone.
   """
-  def disable_hosted_zone_dns_s_e_c(%Client{} = client, hosted_zone_id, input, options \\ []) do
+  def disable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/disable-dnssec"
     headers = []
     query_params = []
@@ -1092,7 +1092,7 @@ defmodule AWS.Route53 do
   @doc """
   Enables DNSSEC signing in a specific hosted zone.
   """
-  def enable_hosted_zone_dns_s_e_c(%Client{} = client, hosted_zone_id, input, options \\ []) do
+  def enable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/enable-dnssec"
     headers = []
     query_params = []
@@ -1202,7 +1202,7 @@ defmodule AWS.Route53 do
   Returns information about DNSSEC for a specific hosted zone, including the
   key-signing keys (KSKs) in the hosted zone.
   """
-  def get_dns_s_e_c(%Client{} = client, hosted_zone_id, options \\ []) do
+  def get_dns_sec(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{URI.encode(hosted_zone_id)}/dnssec"
     headers = []
     query_params = []

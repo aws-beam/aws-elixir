@@ -62,6 +62,7 @@ defmodule AWS do
               service_id: nil,
               signature_version: nil,
               signing_name: nil,
-              target_prefix: nil
+              target_prefix: nil,
+              decode_protocol: nil
   end
 end

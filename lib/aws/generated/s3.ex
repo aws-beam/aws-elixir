@@ -3133,7 +3133,7 @@ defmodule AWS.S3 do
 
     Request.request_rest(
       client,
-      metadata(),
+      %{metadata() | decode_protocol: "binary"},
       :get,
       url_path,
       query_params,

@@ -6,7 +6,7 @@ defmodule AWS.Request do
   alias AWS.ServiceMetadata
   alias AWS.Util
 
-  @valid_protocols ~w(query json rest-json rest-xml)
+  @valid_protocols ~w(query json rest-json rest-xml binary)
 
   @doc """
   Request an AWS Service using a POST request with a protocol.
@@ -41,7 +41,9 @@ defmodule AWS.Request do
 
     case AWS.Client.request(client, :post, url, payload, headers, options) do
       {:ok, %{status_code: 200, body: body} = response} ->
-        body = if body != "", do: decode!(client, metadata.protocol, body)
+        body =
+          if body != "", do: decode!(client, metadata.decode_protocol || metadata.protocol, body)
+
         {:ok, body, response}
 
       {:ok, response} ->
@@ -101,7 +103,7 @@ defmodule AWS.Request do
       when status_code == success_status_code ->
         body =
           if body != "" do
-            decoded = decode!(client, metadata.protocol, body)
+            decoded = decode!(client, metadata.decode_protocol || metadata.protocol, body)
 
             case response_header_parameters do
               [_ | _] ->
@@ -174,7 +176,8 @@ defmodule AWS.Request do
     "#{url}?#{querystring}"
   end
 
-  defp encode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols and is_map(payload) do
+  defp encode!(%Client{} = client, protocol, payload)
+       when protocol in @valid_protocols and is_map(payload) do
     encode_format =
       case protocol do
         "query" -> :query
@@ -190,6 +193,7 @@ defmodule AWS.Request do
       case protocol do
         xml_type when xml_type in ~w(query rest-xml) -> :xml
         json_type when json_type in ~w(json rest-json) -> :json
+        binary_type when binary_type in ~w(binary) -> :binary
       end
 
     Client.decode!(client, payload, decode_format)
@@ -227,17 +231,20 @@ defmodule AWS.Request do
 
     canonical_request = Internal.canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
-    credential_scope = Internal.credential_scope(short_date, client.region,
-                                                 client.service)
-    signing_key = Internal.signing_key(client.secret_access_key, short_date,
-                                       client.region, client.service)
-    string_to_sign = Internal.string_to_sign(long_date, credential_scope,
-                                             hashed_canonical_request)
+    credential_scope = Internal.credential_scope(short_date, client.region, client.service)
+
+    signing_key =
+      Internal.signing_key(client.secret_access_key, short_date, client.region, client.service)
+
+    string_to_sign =
+      Internal.string_to_sign(long_date, credential_scope, hashed_canonical_request)
+
     signature = Util.hmac_sha256_hexdigest(signing_key, string_to_sign)
     signed_headers = Internal.signed_headers(headers)
-    authorization = Internal.authorization(client.access_key_id,
-                                           credential_scope, signed_headers,
-                                           signature)
+
+    authorization =
+      Internal.authorization(client.access_key_id, credential_scope, signed_headers, signature)
+
     Internal.add_authorization_header(headers, authorization)
   end
 
@@ -257,23 +264,33 @@ defmodule AWS.Request do
     headers = Internal.add_date_header(headers, long_date)
     canonical_request = Internal.canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
-    credential_scope = Internal.credential_scope(short_date, client.region,
-                                                 client.service)
-    signing_key = Internal.signing_key(client.secret_access_key, short_date,
-                                       client.region, client.service)
-    string_to_sign = Internal.string_to_sign(long_date, credential_scope,
-                                             hashed_canonical_request)
+    credential_scope = Internal.credential_scope(short_date, client.region, client.service)
+
+    signing_key =
+      Internal.signing_key(client.secret_access_key, short_date, client.region, client.service)
+
+    string_to_sign =
+      Internal.string_to_sign(long_date, credential_scope, hashed_canonical_request)
+
     signature = Util.hmac_sha256_hexdigest(signing_key, string_to_sign)
     signed_headers = Internal.signed_headers(headers)
-    credential = Enum.join([client.access_key_id, short_date, client.region,
-                            client.service, "aws4_request"], "/")
-    result = [{"X-Amz-Algorithm", "AWS4-HMAC-SHA256"},
-              {"X-Amz-Credential", credential},
-              {"X-Amz-Date", long_date},
-              {"X-Amz-SignedHeaders", signed_headers},
-              {"X-Amz-Signature", signature}]
+
+    credential =
+      Enum.join(
+        [client.access_key_id, short_date, client.region, client.service, "aws4_request"],
+        "/"
+      )
+
+    result = [
+      {"X-Amz-Algorithm", "AWS4-HMAC-SHA256"},
+      {"X-Amz-Credential", credential},
+      {"X-Amz-Date", long_date},
+      {"X-Amz-SignedHeaders", signed_headers},
+      {"X-Amz-Signature", signature}
+    ]
+
     if expiry = :proplists.get_value("X-Amz-Expires", headers, nil) do
-      [{"X-Amz-Expires", expiry}|result]
+      [{"X-Amz-Expires", expiry} | result]
     else
       result
     end
@@ -306,6 +323,7 @@ defmodule AWS.Request do
   def add_headers([], headers) do
     headers
   end
+
   def add_headers([{name, _} = header | additions], headers) do
     case List.keyfind(headers, name, 0) do
       nil -> add_headers(additions, [header | headers])
@@ -326,7 +344,7 @@ defmodule AWS.Request.Internal do
   of headers.
   """
   def add_authorization_header(headers, authorization) do
-    [{"Authorization", authorization}|headers]
+    [{"Authorization", authorization} | headers]
   end
 
   @doc """
@@ -334,15 +352,16 @@ defmodule AWS.Request.Internal do
   to a list of headers.
   """
   def add_date_header(headers, date) do
-    [{"X-Amz-Date", date}|headers]
+    [{"X-Amz-Date", date} | headers]
   end
 
   @doc """
   Add an `X-Amz-Security-Token` if credentials configurations are configured for it
   """
   def add_security_token(headers, %AWS.Client{session_token: nil}), do: headers
+
   def add_security_token(headers, %AWS.Client{session_token: session_token}),
-    do: [{"X-Amz-Security-Token", session_token}|headers]
+    do: [{"X-Amz-Security-Token", session_token} | headers]
 
   @doc """
   Add an X-Amz-Content-SHA256 header which is the hash of the payload.
@@ -357,11 +376,22 @@ defmodule AWS.Request.Internal do
   Generate an AWS4-HMAC-SHA256 authorization signature.
   """
   def authorization(access_key_id, credential_scope, signed_headers, signature) do
-    Enum.join(["AWS4-HMAC-SHA256 ",
-               "Credential=", access_key_id, "/", credential_scope, ", ",
-               "SignedHeaders=", signed_headers, ", ",
-               "Signature=", signature],
-              "")
+    Enum.join(
+      [
+        "AWS4-HMAC-SHA256 ",
+        "Credential=",
+        access_key_id,
+        "/",
+        credential_scope,
+        ", ",
+        "SignedHeaders=",
+        signed_headers,
+        ", ",
+        "Signature=",
+        signature
+      ],
+      ""
+    )
   end
 
   @doc """
@@ -381,7 +411,7 @@ defmodule AWS.Request.Internal do
   trailing newline).
   """
   def canonical_headers(headers) do
-    Enum.map(headers, &canonical_header/1) |> Enum.sort |> Enum.join
+    Enum.map(headers, &canonical_header/1) |> Enum.sort() |> Enum.join()
   end
 
   @doc """
@@ -390,7 +420,7 @@ defmodule AWS.Request.Internal do
   """
   def canonical_request(method, url, headers, body) when is_atom(method) do
     Atom.to_string(method)
-    |> String.upcase
+    |> String.upcase()
     |> canonical_request(url, headers, body)
   end
 
@@ -399,8 +429,18 @@ defmodule AWS.Request.Internal do
     canonical_headers = canonical_headers(headers)
     signed_headers = signed_headers(headers)
     payload_hash = AWS.Util.sha256_hexdigest(body)
-    Enum.join([method, canonical_url, canonical_query_string,
-               canonical_headers, signed_headers, payload_hash], "\n")
+
+    Enum.join(
+      [
+        method,
+        canonical_url,
+        canonical_query_string,
+        canonical_headers,
+        signed_headers,
+        payload_hash
+      ],
+      "\n"
+    )
   end
 
   @doc """
@@ -425,7 +465,7 @@ defmodule AWS.Request.Internal do
   and header names are semicolon-joined in alphabetical order.
   """
   def signed_headers(headers) do
-    Enum.map(headers, &signed_header/1) |> Enum.sort |> Enum.join(";")
+    Enum.map(headers, &signed_header/1) |> Enum.sort() |> Enum.join(";")
   end
 
   @doc """
@@ -433,7 +473,7 @@ defmodule AWS.Request.Internal do
   format, a region identifier and a service identifier.
   """
   def signing_key(secret_access_key, short_date, region, service) do
-    "AWS4" <> secret_access_key
+    ("AWS4" <> secret_access_key)
     |> AWS.Util.hmac_sha256(short_date)
     |> AWS.Util.hmac_sha256(region)
     |> AWS.Util.hmac_sha256(service)
@@ -464,9 +504,9 @@ defmodule AWS.Request.Internal do
     |> Enum.map(&String.split(&1, "="))
     |> Enum.sort()
     |> Enum.map_join("&", fn
-         [key, value] -> key <> "=" <> value
-         [key] -> key <> "="
-       end)
+      [key, value] -> key <> "=" <> value
+      [key] -> key <> "="
+    end)
   end
 
   @doc """
@@ -474,8 +514,9 @@ defmodule AWS.Request.Internal do
   credential scope and a hashed canonical request.
   """
   def string_to_sign(long_date, credential_scope, hashed_canonical_request) do
-    Enum.join(["AWS4-HMAC-SHA256", long_date,
-               credential_scope, hashed_canonical_request], "\n")
+    Enum.join(
+      ["AWS4-HMAC-SHA256", long_date, credential_scope, hashed_canonical_request],
+      "\n"
+    )
   end
-
 end

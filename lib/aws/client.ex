@@ -43,7 +43,8 @@ defmodule AWS.Client do
             port: "443",
             http_client: {AWS.HTTPClient, []},
             json_module: {AWS.JSON, []},
-            xml_module: {AWS.XML, []}
+            xml_module: {AWS.XML, []},
+            binary_module: {AWS.Binary, []}
 
   @type t :: %__MODULE__{}
 

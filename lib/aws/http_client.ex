@@ -38,7 +38,10 @@ defmodule AWS.HTTPClient do
       {:ok, status_code, response_headers, body} ->
         {:ok, %{status_code: status_code, headers: response_headers, body: body}}
 
-      error ->
+      {:ok, status_code, response_headers} ->
+        {:ok, %{status_code: status_code, headers: response_headers, body: ""}}
+
+      {:error, _error} = error ->
         error
     end
   end

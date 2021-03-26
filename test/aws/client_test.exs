@@ -35,7 +35,7 @@ defmodule AWS.ClientTest do
       {:ok, bypass: bypass}
     end
 
-    test "sends request to HTTP server", %{client: client, bypass: bypass} do
+    test "sends a POST request to HTTP server", %{client: client, bypass: bypass} do
       headers = [{"authorization", "Bearer 123"}, {"content-type", "application/json"}]
       expected_body = "{\"data\": \"ok\"}"
 
@@ -46,6 +46,18 @@ defmodule AWS.ClientTest do
 
       result = AWS.Client.request(client, :post, "#{url(bypass)}/publish", "", headers)
       assert {:ok, %{status_code: 200, body: ^expected_body}} = result
+    end
+
+    test "sends a HEAD request to HTTP server", %{client: client, bypass: bypass} do
+      headers = [{"authorization", "Bearer 123"}, {"content-type", "application/json"}]
+
+      Bypass.expect_once(bypass, "HEAD", "/head_object", fn conn ->
+        assert true == Enum.all?(headers, fn header -> Enum.member?(conn.req_headers, header) end)
+        Plug.Conn.resp(conn, 200, "")
+      end)
+
+      result = AWS.Client.request(client, :head, "#{url(bypass)}/head_object", "", headers)
+      assert {:ok, %{status_code: 200, body: ""}} = result
     end
   end
 

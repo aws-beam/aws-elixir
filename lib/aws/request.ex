@@ -101,14 +101,21 @@ defmodule AWS.Request do
       when status_code == success_status_code ->
         body =
           if body != "" do
-            decoded = decode!(client, metadata.protocol, body)
+            {receive_body_as_binary?, _options} = Keyword.pop(options, :receive_body_as_binary?)
+
+            response_body =
+              if receive_body_as_binary? do
+                %{"Body" => body}
+              else
+                decode!(client, metadata.protocol, body)
+              end
 
             case response_header_parameters do
               [_ | _] ->
-                merge_body_with_response_headers(decoded, response, response_header_parameters)
+                merge_body_with_response_headers(response_body, response, response_header_parameters)
 
               _ ->
-                decoded
+                response_body
             end
           end
 

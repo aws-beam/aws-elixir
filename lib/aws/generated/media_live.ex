@@ -259,6 +259,27 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Create a partner input
+  """
+  def create_partner_input(%Client{} = client, input_id, input, options \\ []) do
+    url_path = "/prod/inputs/#{URI.encode(input_id)}/partners"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Create tags for a resource
   """
   def create_tags(%Client{} = client, resource_arn, input, options \\ []) do
@@ -558,6 +579,13 @@ defmodule AWS.MediaLive do
           {"ETag", "ETag"},
           {"Last-Modified", "LastModified"}
         ]
+      )
+
+    options =
+      Keyword.put(
+        options,
+        :receive_body_as_binary?,
+        true
       )
 
     Request.request_rest(

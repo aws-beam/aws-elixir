@@ -263,6 +263,16 @@ defmodule AWS.CodePipeline do
   end
 
   @doc """
+  Returns information about an action type created for an external provider, where
+  the action is to be used by customers of the external provider.
+
+  The action can be created with any supported integration model.
+  """
+  def get_action_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetActionType", input, options)
+  end
+
+  @doc """
   Returns information about a job.
 
   Used for custom actions only.
@@ -521,6 +531,17 @@ defmodule AWS.CodePipeline do
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an action type that was created with any supported integration model,
+  where the action type is to be used by customers of the action type provider.
+
+  Use a JSON file with the action definition and `UpdateActionType` to provide the
+  full structure.
+  """
+  def update_action_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateActionType", input, options)
   end
 
   @doc """

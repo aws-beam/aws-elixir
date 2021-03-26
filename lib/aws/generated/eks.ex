@@ -39,6 +39,60 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Associate encryption configuration to an existing cluster.
+
+  You can use this API to enable encryption on existing clusters which do not have
+  encryption already enabled. This allows you to implement a defense-in-depth
+  security strategy without migrating applications to new EKS clusters.
+  """
+  def associate_encryption_config(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/encryption-config/associate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Associate an identity provider configuration to a cluster.
+
+  If you want to authenticate identities using an identity provider, you can
+  create an identity provider configuration and associate it to your cluster.
+  After configuring authentication to your cluster you can create Kubernetes
+  `roles` and `clusterroles` to assign permissions to the roles, and then bind the
+  roles to the identities using Kubernetes `rolebindings` and
+  `clusterrolebindings`. For more information see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in
+  the Kubernetes documentation.
+  """
+  def associate_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/identity-provider-configs/associate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates an Amazon EKS add-on.
 
   Amazon EKS add-ons help to automate the provisioning and lifecycle management of
@@ -77,33 +131,18 @@ defmodule AWS.EKS do
   The cluster control plane is provisioned across multiple Availability Zones and
   fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also
   provisions elastic network interfaces in your VPC subnets to provide
-  connectivity from the control plane instances to the worker nodes (for example,
-  to support `kubectl exec`, `logs`, and `proxy` data flows).
+  connectivity from the control plane instances to the nodes (for example, to
+  support `kubectl exec`, `logs`, and `proxy` data flows).
 
-  Amazon EKS worker nodes run in your AWS account and connect to your cluster's
-  control plane via the Kubernetes API server endpoint and a certificate file that
-  is created for your cluster.
+  Amazon EKS nodes run in your AWS account and connect to your cluster's control
+  plane via the Kubernetes API server endpoint and a certificate file that is
+  created for your cluster.
 
-  You can use the `endpointPublicAccess` and `endpointPrivateAccess` parameters to
-  enable or disable public and private access to your cluster's Kubernetes API
-  server endpoint. By default, public access is enabled, and private access is
-  disabled. For more information, see [Amazon EKS Cluster Endpoint Access Control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
-  in the * *Amazon EKS User Guide* *.
-
-  You can use the `logging` parameter to enable or disable exporting the
-  Kubernetes control plane logs for your cluster to CloudWatch Logs. By default,
-  cluster control plane logs aren't exported to CloudWatch Logs. For more
-  information, see [Amazon EKS Cluster Control Plane Logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
-  in the * *Amazon EKS User Guide* *.
-
-  CloudWatch Logs ingestion, archive storage, and data scanning rates apply to
-  exported control plane logs. For more information, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing/).
-
-  Cluster creation typically takes between 10 and 15 minutes. After you create an
-  Amazon EKS cluster, you must configure your Kubernetes tooling to communicate
-  with the API server and launch worker nodes into your cluster. For more
-  information, see [Managing Cluster Authentication](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html)
-  and [Launching Amazon EKS Worker Nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) in
+  Cluster creation typically takes several minutes. After you create an Amazon EKS
+  cluster, you must configure your Kubernetes tooling to communicate with the API
+  server and launch nodes into your cluster. For more information, see [Managing Cluster
+  Authentication](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html)
+  and [Launching Amazon EKS nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) in
   the *Amazon EKS User Guide*.
   """
   def create_cluster(%Client{} = client, input, options \\ []) do
@@ -178,7 +217,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Creates a managed worker node group for an Amazon EKS cluster.
+  Creates a managed node group for an Amazon EKS cluster.
 
   You can only create a node group for your cluster that is equal to the current
   Kubernetes version for the cluster. All node groups are created with the latest
@@ -460,6 +499,27 @@ defmodule AWS.EKS do
   end
 
   @doc """
+  Returns descriptive information about an identity provider configuration.
+  """
+  def describe_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/identity-provider-configs/describe"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns descriptive information about an Amazon EKS node group.
   """
   def describe_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
@@ -522,6 +582,36 @@ defmodule AWS.EKS do
       query_params,
       headers,
       nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Disassociates an identity provider configuration from a cluster.
+
+  If you disassociate an identity provider from your cluster, users included in
+  the provider can no longer access the cluster. However, you can still access the
+  cluster with AWS IAM users.
+  """
+  def disassociate_identity_provider_config(
+        %Client{} = client,
+        cluster_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/identity-provider-configs/disassociate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       nil
     )
@@ -615,6 +705,47 @@ defmodule AWS.EKS do
         options \\ []
       ) do
     url_path = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  A list of identity provider configurations.
+  """
+  def list_identity_provider_configs(
+        %Client{} = client,
+        cluster_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/clusters/#{URI.encode(cluster_name)}/identity-provider-configs"
     headers = []
     query_params = []
 
@@ -776,7 +907,7 @@ defmodule AWS.EKS do
   resource are deleted as well. Tags that you create for Amazon EKS resources do
   not propagate to any other resources associated with the cluster. For example,
   if you tag a cluster with this operation, that tag does not automatically
-  propagate to the subnets and worker nodes associated with the cluster.
+  propagate to the subnets and nodes associated with the cluster.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"

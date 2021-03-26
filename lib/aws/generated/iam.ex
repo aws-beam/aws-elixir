@@ -46,20 +46,19 @@ defmodule AWS.IAM do
   @doc """
   Adds the specified IAM role to the specified instance profile.
 
-  An instance profile can contain only one role. (The number and size of IAM
-  resources in an AWS account are limited. For more information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
-  in the *IAM User Guide*.) You can remove the existing role and then add a
-  different role to an instance profile. You must then wait for the change to
-  appear across all of AWS because of [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency). To force the
+  An instance profile can contain only one role, and this quota cannot be
+  increased. You can remove the existing role and then add a different role to an
+  instance profile. You must then wait for the change to appear across all of AWS
+  because of [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency). To force the
   change, you must [disassociate the instance profile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html)
   and then [associate the instance profile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html),
   or you can stop your instance and then restart it.
 
-  The caller of this API must be granted the `PassRole` permission on the IAM role
-  by a permissions policy.
+  The caller of this operation must be granted the `PassRole` permission on the
+  IAM role by a permissions policy.
 
-  For more information about roles, go to [Working with Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
-  For more information about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  For more information about roles, see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  For more information about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
   """
   def add_role_to_instance_profile(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddRoleToInstanceProfile", input, options)
@@ -75,10 +74,14 @@ defmodule AWS.IAM do
   @doc """
   Attaches the specified managed policy to the specified IAM group.
 
-  You use this API to attach a managed policy to a group. To embed an inline
+  You use this operation to attach a managed policy to a group. To embed an inline
   policy in a group, use `PutGroupPolicy`.
 
-  For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  As a best practice, you can validate your IAM policies. To learn more, see
+  [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html)
+  in the *IAM User Guide*.
+
+  For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def attach_group_policy(%Client{} = client, input, options \\ []) do
@@ -95,9 +98,13 @@ defmodule AWS.IAM do
   policy is created at the same time as the role, using `CreateRole`. You can
   update a role's trust policy using `UpdateAssumeRolePolicy`.
 
-  Use this API to attach a *managed* policy to a role. To embed an inline policy
-  in a role, use `PutRolePolicy`. For more information about policies, see
-  [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  Use this operation to attach a *managed* policy to a role. To embed an inline
+  policy in a role, use `PutRolePolicy`. For more information about policies, see
+  [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  in the *IAM User Guide*.
+
+  As a best practice, you can validate your IAM policies. To learn more, see
+  [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html)
   in the *IAM User Guide*.
   """
   def attach_role_policy(%Client{} = client, input, options \\ []) do
@@ -107,10 +114,14 @@ defmodule AWS.IAM do
   @doc """
   Attaches the specified managed policy to the specified user.
 
-  You use this API to attach a *managed* policy to a user. To embed an inline
-  policy in a user, use `PutUserPolicy`.
+  You use this operation to attach a *managed* policy to a user. To embed an
+  inline policy in a user, use `PutUserPolicy`.
 
-  For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  As a best practice, you can validate your IAM policies. To learn more, see
+  [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html)
+  in the *IAM User Guide*.
+
+  For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def attach_user_policy(%Client{} = client, input, options \\ []) do
@@ -120,10 +131,13 @@ defmodule AWS.IAM do
   @doc """
   Changes the password of the IAM user who is calling this operation.
 
-  The AWS account root user password is not affected by this operation.
+  This operation can be performed using the AWS CLI, the AWS API, or the **My
+  Security Credentials** page in the AWS Management Console. The AWS account root
+  user password is not affected by this operation.
 
-  To change the password for a different user, see `UpdateLoginProfile`. For more
-  information about modifying passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
+  Use `UpdateLoginProfile` to use the AWS CLI, the AWS API, or the **Users** page
+  in the IAM console to change the password for any IAM user. For more information
+  about modifying passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
   """
   def change_password(%Client{} = client, input, options \\ []) do
@@ -142,8 +156,8 @@ defmodule AWS.IAM do
   AWS account root user credentials. This is true even if the AWS account has no
   associated users.
 
-  The number and size of IAM resources in an AWS account are limited. For more
-  information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  For information about quotas on the number of keys you can create, see [IAM and STS
+  quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
   To ensure the security of your AWS account, the secret access key is accessible
@@ -158,7 +172,7 @@ defmodule AWS.IAM do
   @doc """
   Creates an alias for your AWS account.
 
-  For information about using an AWS account alias, see [Using an Alias for Your AWS Account
+  For information about using an AWS account alias, see [Using an alias for your AWS account
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
   *IAM User Guide*.
   """
@@ -169,8 +183,7 @@ defmodule AWS.IAM do
   @doc """
   Creates a new group.
 
-  The number and size of IAM resources in an AWS account are limited. For more
-  information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  For information about the number of groups you can create, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_group(%Client{} = client, input, options \\ []) do
@@ -180,10 +193,13 @@ defmodule AWS.IAM do
   @doc """
   Creates a new instance profile.
 
-  For information about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  For information about instance profiles, see [Using roles for applications on Amazon
+  EC2](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html)
+  in the *IAM User Guide*, and [Instance profiles](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#ec2-instance-profile)
+  in the *Amazon EC2 User Guide*.
 
-  The number and size of IAM resources in an AWS account are limited. For more
-  information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  For information about the number of instance profiles you can create, see [IAM object
+  quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_instance_profile(%Client{} = client, input, options \\ []) do
@@ -191,10 +207,17 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a password for the specified user, giving the user the ability to access
-  AWS services through the AWS Management Console.
+  Creates a password for the specified IAM user.
 
-  For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
+  A password allows an IAM user to access AWS services through the AWS Management
+  Console.
+
+  You can use the AWS CLI, the AWS API, or the **Users** page in the IAM console
+  to create a password for any IAM user. Use `ChangePassword` to update your own
+  existing password in the **My Security Credentials** page in the AWS Management
+  Console.
+
+  For more information about managing passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
   """
   def create_login_profile(%Client{} = client, input, options \\ []) do
@@ -236,11 +259,15 @@ defmodule AWS.IAM do
 
   This operation creates a policy version with a version identifier of `v1` and
   sets v1 as the policy's default version. For more information about policy
-  versions, see [Versioning for Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
+  versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
 
-  For more information about managed policies in general, see [Managed Policies and Inline
-  Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  As a best practice, you can validate your IAM policies. To learn more, see
+  [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html)
+  in the *IAM User Guide*.
+
+  For more information about managed policies in general, see [Managed policies and inline
+  policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def create_policy(%Client{} = client, input, options \\ []) do
@@ -258,7 +285,7 @@ defmodule AWS.IAM do
   default version is the version that is in effect for the IAM users, groups, and
   roles to which the policy is attached.
 
-  For more information about managed policy versions, see [Versioning for Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
+  For more information about managed policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
   def create_policy_version(%Client{} = client, input, options \\ []) do
@@ -268,9 +295,9 @@ defmodule AWS.IAM do
   @doc """
   Creates a new role for your AWS account.
 
-  For more information about roles, go to [IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
-  The number and size of IAM resources in an AWS account are limited. For more
-  information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  For information about quotas for role names and the number of roles you can
+  create, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_role(%Client{} = client, input, options \\ []) do
@@ -296,9 +323,9 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
-  For more information, see [Enabling SAML 2.0 Federated Users to Access the AWS Management
+  For more information, see [Enabling SAML 2.0 federated users to access the AWS Management
   Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html)
-  and [About SAML 2.0-based Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)
+  and [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)
   in the *IAM User Guide*.
   """
   def create_saml_provider(%Client{} = client, input, options \\ []) do
@@ -313,7 +340,7 @@ defmodule AWS.IAM do
   deleted role, which could put your AWS resources into an unknown state. Allowing
   the service to control the role helps improve service stability and proper
   cleanup when a service and its role are no longer needed. For more information,
-  see [Using Service-Linked Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
+  see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
   in the *IAM User Guide*.
 
   To attach a policy to this service-linked role, you must make the request using
@@ -333,13 +360,14 @@ defmodule AWS.IAM do
   You can have a maximum of two sets of service-specific credentials for each
   supported service per user.
 
-  The only supported service at this time is AWS CodeCommit.
+  You can create service-specific credentials for AWS CodeCommit and Amazon
+  Keyspaces (for Apache Cassandra).
 
   You can reset the password to a new service-generated value by calling
   `ResetServiceSpecificCredential`.
 
-  For more information about service-specific credentials, see [Using IAM with AWS CodeCommit: Git Credentials, SSH Keys, and AWS Access
-  Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html)
+  For more information about service-specific credentials, see [Using IAM with AWS CodeCommit: Git credentials, SSH keys, and AWS access
+  keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html)
   in the *IAM User Guide*.
   """
   def create_service_specific_credential(%Client{} = client, input, options \\ []) do
@@ -349,8 +377,8 @@ defmodule AWS.IAM do
   @doc """
   Creates a new IAM user for your AWS account.
 
-  The number and size of IAM resources in an AWS account are limited. For more
-  information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  For information about quotas for the number of IAM users you can create, see
+  [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def create_user(%Client{} = client, input, options \\ []) do
@@ -362,11 +390,11 @@ defmodule AWS.IAM do
 
   After creating the virtual MFA, use `EnableMFADevice` to attach the MFA device
   to an IAM user. For more information about creating and working with virtual MFA
-  devices, go to [Using a Virtual MFA Device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
+  devices, see [Using a virtual MFA device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
 
-  The number and size of IAM resources in an AWS account are limited. For more
-  information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  For information about the maximum number of MFA devices you can create, see [IAM and STS
+  quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
   The seed information contained in the QR code and the Base32 string should be
@@ -383,8 +411,8 @@ defmodule AWS.IAM do
   Deactivates the specified MFA device and removes it from association with the
   user name for which it was originally enabled.
 
-  For more information about creating and working with virtual MFA devices, go to
-  [Enabling a Virtual Multi-factor Authentication (MFA) Device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
+  For more information about creating and working with virtual MFA devices, see
+  [Enabling a virtual multi-factor authentication (MFA) device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
   """
   def deactivate_mfa_device(%Client{} = client, input, options \\ []) do
@@ -407,7 +435,7 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified AWS account alias.
 
-  For information about using an AWS account alias, see [Using an Alias for Your AWS Account
+  For information about using an AWS account alias, see [Using an alias for your AWS account
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
   *IAM User Guide*.
   """
@@ -438,7 +466,7 @@ defmodule AWS.IAM do
 
   A group can also have managed policies attached to it. To detach a managed
   policy from a group, use `DetachGroupPolicy`. For more information about
-  policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  policies, refer to [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def delete_group_policy(%Client{} = client, input, options \\ []) do
@@ -455,7 +483,7 @@ defmodule AWS.IAM do
   that is associated with a running instance will break any applications running
   on the instance.
 
-  For more information about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  For more information about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
   """
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteInstanceProfile", input, options)
@@ -464,6 +492,11 @@ defmodule AWS.IAM do
   @doc """
   Deletes the password for the specified IAM user, which terminates the user's
   ability to access AWS services through the AWS Management Console.
+
+  You can use the AWS CLI, the AWS API, or the **Users** page in the IAM console
+  to delete a password for any IAM user. You can use `ChangePassword` to update,
+  but not delete, your own password in the **My Security Credentials** page in the
+  AWS Management Console.
 
   Deleting a user's password does not prevent a user from accessing AWS through
   the command line interface or the API. To prevent all user access, you must also
@@ -498,9 +531,9 @@ defmodule AWS.IAM do
   deleting a managed policy:
 
     * Detach the policy from all users, groups, and roles that the
-  policy is attached to, using the `DetachUserPolicy`, `DetachGroupPolicy`, or
-  `DetachRolePolicy` API operations. To list all the users, groups, and roles that
-  a policy is attached to, use `ListEntitiesForPolicy`.
+  policy is attached to, using `DetachUserPolicy`, `DetachGroupPolicy`, or
+  `DetachRolePolicy`. To list all the users, groups, and roles that a policy is
+  attached to, use `ListEntitiesForPolicy`.
 
     * Delete all versions of the policy using `DeletePolicyVersion`. To
   list the policy's versions, use `ListPolicyVersions`. You cannot use
@@ -509,9 +542,9 @@ defmodule AWS.IAM do
   process.
 
     * Delete the policy (this automatically deletes the policy's default
-  version) using this API.
+  version) using this operation.
 
-  For information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For information about managed policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def delete_policy(%Client{} = client, input, options \\ []) do
@@ -521,11 +554,11 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified version from the specified managed policy.
 
-  You cannot delete the default version from a policy using this API. To delete
-  the default version from a policy, use `DeletePolicy`. To find out which version
-  of a policy is marked as the default version, use `ListPolicyVersions`.
+  You cannot delete the default version from a policy using this operation. To
+  delete the default version from a policy, use `DeletePolicy`. To find out which
+  version of a policy is marked as the default version, use `ListPolicyVersions`.
 
-  For information about versions for managed policies, see [Versioning for Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
+  For information about versions for managed policies, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
   def delete_policy_version(%Client{} = client, input, options \\ []) do
@@ -536,7 +569,7 @@ defmodule AWS.IAM do
   Deletes the specified role.
 
   The role must not have any policies attached. For more information about roles,
-  go to [Working with Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
 
   Make sure that you do not have any Amazon EC2 instances running with the role
   you are about to delete. Deleting a role or instance profile that is associated
@@ -562,7 +595,7 @@ defmodule AWS.IAM do
 
   A role can also have managed policies attached to it. To detach a managed policy
   from a role, use `DetachRolePolicy`. For more information about policies, refer
-  to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  to [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def delete_role_policy(%Client{} = client, input, options \\ []) do
@@ -586,8 +619,8 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified server certificate.
 
-  For more information about working with server certificates, see [Working with Server
-  Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  For more information about working with server certificates, see [Working with server
+  certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*. This topic also includes a list of AWS services that
   can use the server certificates that you manage with IAM.
 
@@ -597,7 +630,7 @@ defmodule AWS.IAM do
   use the certificates. This could cause Elastic Load Balancing to stop accepting
   traffic. We recommend that you remove the reference to the certificate from
   Elastic Load Balancing before using this command to delete the certificate. For
-  more information, go to
+  more information, see
   [DeleteLoadBalancerListeners](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html)
   in the *Elastic Load Balancing API Reference*.
   """
@@ -617,15 +650,15 @@ defmodule AWS.IAM do
 
   If you submit a deletion request for a service-linked role whose linked service
   is still accessing a resource, then the deletion task fails. If it fails, the
-  `GetServiceLinkedRoleDeletionStatus` API operation returns the reason for the
+  `GetServiceLinkedRoleDeletionStatus` operation returns the reason for the
   failure, usually including the resources that must be deleted. To delete the
   service-linked role, you must first remove those resources from the linked
   service and then submit the deletion request again. Resources are specific to
   the service that is linked to the role. For more information about removing
   resources from a service, see the [AWS documentation](http://docs.aws.amazon.com/) for your service.
 
-  For more information about service-linked roles, see [Roles Terms and Concepts: AWS Service-Linked
-  Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)
+  For more information about service-linked roles, see [Roles terms and concepts: AWS service-linked
+  role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)
   in the *IAM User Guide*.
   """
   def delete_service_linked_role(%Client{} = client, input, options \\ []) do
@@ -658,7 +691,7 @@ defmodule AWS.IAM do
   The SSH public key deleted by this operation is used only for authenticating the
   associated IAM user to an AWS CodeCommit repository. For more information about
   using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
   """
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
@@ -670,7 +703,7 @@ defmodule AWS.IAM do
 
   Unlike the AWS Management Console, when you delete a user programmatically, you
   must delete the items attached to the user manually, or the deletion fails. For
-  more information, see [Deleting an IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli).
+  more information, see [Deleting an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli).
   Before attempting to delete a user, remove the following items:
 
     * Password (`DeleteLoginProfile`)
@@ -712,7 +745,7 @@ defmodule AWS.IAM do
 
   A user can also have managed policies attached to it. To detach a managed policy
   from a user, use `DetachUserPolicy`. For more information about policies, refer
-  to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  to [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def delete_user_policy(%Client{} = client, input, options \\ []) do
@@ -733,8 +766,8 @@ defmodule AWS.IAM do
   Removes the specified managed policy from the specified IAM group.
 
   A group can also have inline policies embedded with it. To delete an inline
-  policy, use the `DeleteGroupPolicy` API. For information about policies, see
-  [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  policy, use `DeleteGroupPolicy`. For information about policies, see [Managed policies and inline
+  policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def detach_group_policy(%Client{} = client, input, options \\ []) do
@@ -745,8 +778,8 @@ defmodule AWS.IAM do
   Removes the specified managed policy from the specified role.
 
   A role can also have inline policies embedded with it. To delete an inline
-  policy, use the `DeleteRolePolicy` API. For information about policies, see
-  [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  policy, use `DeleteRolePolicy`. For information about policies, see [Managed policies and inline
+  policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def detach_role_policy(%Client{} = client, input, options \\ []) do
@@ -757,8 +790,8 @@ defmodule AWS.IAM do
   Removes the specified managed policy from the specified user.
 
   A user can also have inline policies embedded with it. To delete an inline
-  policy, use the `DeleteUserPolicy` API. For information about policies, see
-  [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  policy, use `DeleteUserPolicy`. For information about policies, see [Managed policies and inline
+  policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def detach_user_policy(%Client{} = client, input, options \\ []) do
@@ -778,7 +811,7 @@ defmodule AWS.IAM do
   @doc """
   Generates a credential report for the AWS account.
 
-  For more information about the credential report, see [Getting Credential Reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
+  For more information about the credential report, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
   """
   def generate_credential_report(%Client{} = client, input, options \\ []) do
@@ -792,11 +825,11 @@ defmodule AWS.IAM do
   unit, or account) or policies in your organization.
 
   To call this operation, you must be signed in using your AWS Organizations
-  master account credentials. You can use your long-term IAM user or root user
+  management account credentials. You can use your long-term IAM user or root user
   credentials, or temporary credentials from assuming an IAM role. SCPs must be
   enabled for your organization root. You must have the required IAM and AWS
-  Organizations permissions. For more information, see [Refining Permissions Using Service Last Accessed
-  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  Organizations permissions. For more information, see [Refining permissions using service last accessed
+  data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
 
   You can generate a service last accessed data report for entities by specifying
@@ -810,8 +843,8 @@ defmodule AWS.IAM do
   For each service in both report types, the data includes the most recent account
   activity that the policy allows to account principals in the entity or the
   entity's children. For important information about the data, reporting period,
-  permissions required, troubleshooting, and supported Regions see [Reducing Permissions Using Service Last Accessed
-  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  permissions required, troubleshooting, and supported Regions see [Reducing permissions using service last accessed
+  data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
 
   The data includes all attempts to access AWS, not just the successful ones. This
@@ -821,7 +854,7 @@ defmodule AWS.IAM do
   compromised, because the request might have been denied. Refer to your
   CloudTrail logs as the authoritative source for information about all API calls
   and whether they were successful or denied access. For more information,
-  see [Logging IAM Events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the *IAM User Guide*.
 
   This operation returns a `JobId`. Use this parameter in the `
@@ -837,19 +870,19 @@ defmodule AWS.IAM do
     * **Root** – When you specify the organizations root as the entity,
   the resulting report lists all of the services allowed by SCPs that are attached
   to your root. For each service, the report includes data for all accounts in
-  your organization except the master account, because the master account is not
-  limited by SCPs.
+  your organization except the management account, because the management account
+  is not limited by SCPs.
 
     * **OU** – When you specify an organizational unit (OU) as the
   entity, the resulting report lists all of the services allowed by SCPs that are
   attached to the OU and its parents. For each service, the report includes data
-  for all accounts in the OU or its children. This data excludes the master
-  account, because the master account is not limited by SCPs.
+  for all accounts in the OU or its children. This data excludes the management
+  account, because the management account is not limited by SCPs.
 
-    * **Master account** – When you specify the master account, the
-  resulting report lists all AWS services, because the master account is not
-  limited by SCPs. For each service, the report includes data for only the master
-  account.
+    * **management account** – When you specify the management account,
+  the resulting report lists all AWS services, because the management account is
+  not limited by SCPs. For each service, the report includes data for only the
+  management account.
 
     * **Account** – When you specify another account as the entity, the
   resulting report lists all of the services allowed by SCPs that are attached to
@@ -863,24 +896,25 @@ defmodule AWS.IAM do
     * **Root** – When you specify the root entity and a policy ID, the
   resulting report lists all of the services that are allowed by the specified
   SCP. For each service, the report includes data for all accounts in your
-  organization to which the SCP applies. This data excludes the master account,
-  because the master account is not limited by SCPs. If the SCP is not attached to
-  any entities in the organization, then the report will return a list of services
-  with no data.
+  organization to which the SCP applies. This data excludes the management
+  account, because the management account is not limited by SCPs. If the SCP is
+  not attached to any entities in the organization, then the report will return a
+  list of services with no data.
 
     * **OU** – When you specify an OU entity and a policy ID, the
   resulting report lists all of the services that are allowed by the specified
   SCP. For each service, the report includes data for all accounts in the OU or
   its children to which the SCP applies. This means that other accounts outside
   the OU that are affected by the SCP might not be included in the data. This data
-  excludes the master account, because the master account is not limited by SCPs.
-  If the SCP is not attached to the OU or one of its children, the report will
-  return a list of services with no data.
+  excludes the management account, because the management account is not limited
+  by SCPs. If the SCP is not attached to the OU or one of its children, the report
+  will return a list of services with no data.
 
-    * **Master account** – When you specify the master account, the
-  resulting report lists all AWS services, because the master account is not
-  limited by SCPs. If you specify a policy ID in the CLI or API, the policy is
-  ignored. For each service, the report includes data for only the master account.
+    * **management account** – When you specify the management account,
+  the resulting report lists all AWS services, because the management account is
+  not limited by SCPs. If you specify a policy ID in the CLI or API, the policy is
+  ignored. For each service, the report includes data for only the management
+  account.
 
     * **Account** – When you specify another account entity and a policy
   ID, the resulting report lists all of the services that are allowed by the
@@ -893,11 +927,11 @@ defmodule AWS.IAM do
   whether a principal could access a service. These other policy types include
   identity-based policies, resource-based policies, access control lists, IAM
   permissions boundaries, and STS assume role policies. It only applies SCP logic.
-  For more about the evaluation of policy types, see [Evaluating Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
+  For more about the evaluation of policy types, see [Evaluating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*.
 
-  For more information about service last accessed data, see [Reducing Policy Scope by Viewing User
-  Activity](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  For more information about service last accessed data, see [Reducing policy scope by viewing user
+  activity](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
   """
   def generate_organizations_access_report(%Client{} = client, input, options \\ []) do
@@ -910,7 +944,7 @@ defmodule AWS.IAM do
 
   Recent activity usually appears within four hours. IAM reports activity for the
   last 365 days, or less if your Region began supporting this feature within the
-  last year. For more information, see [Regions Where Data Is Tracked](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period).
+  last year. For more information, see [Regions where data is tracked](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period).
 
   The service last accessed data includes all attempts to access an AWS API, not
   just the successful ones. This includes all attempts that were made using the
@@ -919,7 +953,7 @@ defmodule AWS.IAM do
   not mean that your account has been compromised, because the request might have
   been denied. Refer to your CloudTrail logs as the authoritative source for
   information about all API calls and whether they were successful or denied
-  access. For more information, see [Logging IAM Events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the *IAM User Guide*.
 
   The `GenerateServiceLastAccessedDetails` operation returns a `JobId`. Use this
@@ -952,11 +986,11 @@ defmodule AWS.IAM do
   resource-based policies, access control lists, AWS Organizations policies, IAM
   permissions boundaries, and AWS STS assume role policies. It only applies
   permissions policy logic. For more about the evaluation of policy types, see
-  [Evaluating Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
+  [Evaluating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*.
 
-  For more information about service and action last accessed data, see [Reducing Permissions Using Service Last Accessed
-  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  For more information about service and action last accessed data, see [Reducing permissions using service last accessed
+  data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
   """
   def generate_service_last_accessed_details(%Client{} = client, input, options \\ []) do
@@ -977,10 +1011,10 @@ defmodule AWS.IAM do
   Retrieves information about all IAM users, groups, roles, and policies in your
   AWS account, including their relationships to one another.
 
-  Use this API to obtain a snapshot of the configuration of IAM permissions
+  Use this operation to obtain a snapshot of the configuration of IAM permissions
   (users, groups, roles, and policies) in your account.
 
-  Policies returned by this API are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
+  Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
   convert the policy back to plain JSON text. For example, if you use Java, you
   can use the `decode` method of the `java.net.URLDecoder` utility class in the
   Java SDK. Other languages and SDKs provide similar functionality.
@@ -995,8 +1029,9 @@ defmodule AWS.IAM do
   @doc """
   Retrieves the password policy for the AWS account.
 
-  For more information about using a password policy, go to [Managing an IAM Password
-  Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html).
+  This tells you the complexity requirements and mandatory rotation periods for
+  the IAM user passwords in your account. For more information about using a
+  password policy, see [Managing an IAM password policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html).
   """
   def get_account_password_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetAccountPasswordPolicy", input, options)
@@ -1005,8 +1040,7 @@ defmodule AWS.IAM do
   @doc """
   Retrieves information about IAM entity usage and IAM quotas in the AWS account.
 
-  The number and size of IAM resources in an AWS account are limited. For more
-  information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
+  For information about IAM quotas, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
   """
   def get_account_summary(%Client{} = client, input, options \\ []) do
@@ -1044,9 +1078,9 @@ defmodule AWS.IAM do
   as strings. If you want to include *only* a list of policies by string, use
   `GetContextKeysForCustomPolicy` instead.
 
-  **Note:** This API discloses information about the permissions granted to other
-  users. If you do not want users to see other user's permissions, then consider
-  allowing them to use `GetContextKeysForCustomPolicy` instead.
+  **Note:** This operation discloses information about the permissions granted to
+  other users. If you do not want users to see other user's permissions, then
+  consider allowing them to use `GetContextKeysForCustomPolicy` instead.
 
   Context keys are variables maintained by AWS and its services that provide
   details about the context of an API query request. Context keys can be evaluated
@@ -1061,7 +1095,7 @@ defmodule AWS.IAM do
   @doc """
   Retrieves a credential report for the AWS account.
 
-  For more information about the credential report, see [Getting Credential Reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
+  For more information about the credential report, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
   """
   def get_credential_report(%Client{} = client, input, options \\ []) do
@@ -1081,7 +1115,7 @@ defmodule AWS.IAM do
   Retrieves the specified inline policy document that is embedded in the specified
   IAM group.
 
-  Policies returned by this API are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
+  Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
   convert the policy back to plain JSON text. For example, if you use Java, you
   can use the `decode` method of the `java.net.URLDecoder` utility class in the
   Java SDK. Other languages and SDKs provide similar functionality.
@@ -1091,7 +1125,7 @@ defmodule AWS.IAM do
   determine the policy's default version, then use `GetPolicyVersion` to retrieve
   the policy document.
 
-  For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def get_group_policy(%Client{} = client, input, options \\ []) do
@@ -1102,7 +1136,7 @@ defmodule AWS.IAM do
   Retrieves information about the specified instance profile, including the
   instance profile's path, GUID, ARN, and role.
 
-  For more information about instance profiles, see [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html)
+  For more information about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html)
   in the *IAM User Guide*.
   """
   def get_instance_profile(%Client{} = client, input, options \\ []) do
@@ -1110,7 +1144,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Retrieves the user name and password-creation date for the specified IAM user.
+  Retrieves the user name and password creation date for the specified IAM user.
 
   If the user has not been assigned a password, the operation returns a 404
   (`NoSuchEntity`) error.
@@ -1138,10 +1172,10 @@ defmodule AWS.IAM do
   data returned could include different information. For details, see
   `GenerateOrganizationsAccessReport`.
 
-  To call this operation, you must be signed in to the master account in your
+  To call this operation, you must be signed in to the management account in your
   organization. SCPs must be enabled for your organization root. You must have
-  permissions to perform this operation. For more information, see [Refining Permissions Using Service Last Accessed
-  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  permissions to perform this operation. For more information, see [Refining permissions using service last accessed
+  data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
 
   For each service that principals in an account (root users, IAM users, or IAM
@@ -1162,15 +1196,15 @@ defmodule AWS.IAM do
   the policy is attached.
 
   To retrieve the list of the specific users, groups, and roles that the policy is
-  attached to, use the `ListEntitiesForPolicy` API. This API returns metadata
-  about the policy. To retrieve the actual policy document for a specific version
-  of the policy, use `GetPolicyVersion`.
+  attached to, use `ListEntitiesForPolicy`. This operation returns metadata about
+  the policy. To retrieve the actual policy document for a specific version of the
+  policy, use `GetPolicyVersion`.
 
-  This API retrieves information about managed policies. To retrieve information
-  about an inline policy that is embedded with an IAM user, group, or role, use
-  the `GetUserPolicy`, `GetGroupPolicy`, or `GetRolePolicy` API.
+  This operation retrieves information about managed policies. To retrieve
+  information about an inline policy that is embedded with an IAM user, group, or
+  role, use `GetUserPolicy`, `GetGroupPolicy`, or `GetRolePolicy`.
 
-  For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def get_policy(%Client{} = client, input, options \\ []) do
@@ -1181,22 +1215,22 @@ defmodule AWS.IAM do
   Retrieves information about the specified version of the specified managed
   policy, including the policy document.
 
-  Policies returned by this API are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
+  Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
   convert the policy back to plain JSON text. For example, if you use Java, you
   can use the `decode` method of the `java.net.URLDecoder` utility class in the
   Java SDK. Other languages and SDKs provide similar functionality.
 
   To list the available versions for a policy, use `ListPolicyVersions`.
 
-  This API retrieves information about managed policies. To retrieve information
-  about an inline policy that is embedded in a user, group, or role, use the
-  `GetUserPolicy`, `GetGroupPolicy`, or `GetRolePolicy` API.
+  This operation retrieves information about managed policies. To retrieve
+  information about an inline policy that is embedded in a user, group, or role,
+  use `GetUserPolicy`, `GetGroupPolicy`, or `GetRolePolicy`.
 
-  For more information about the types of policies, see [Managed Policies and Inline
-  Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For more information about the types of policies, see [Managed policies and inline
+  policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
-  For more information about managed policy versions, see [Versioning for Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
+  For more information about managed policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
   in the *IAM User Guide*.
   """
   def get_policy_version(%Client{} = client, input, options \\ []) do
@@ -1207,9 +1241,9 @@ defmodule AWS.IAM do
   Retrieves information about the specified role, including the role's path, GUID,
   ARN, and the role's trust policy that grants permission to assume the role.
 
-  For more information about roles, see [Working with Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  For more information about roles, see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
 
-  Policies returned by this API are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
+  Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
   convert the policy back to plain JSON text. For example, if you use Java, you
   can use the `decode` method of the `java.net.URLDecoder` utility class in the
   Java SDK. Other languages and SDKs provide similar functionality.
@@ -1222,7 +1256,7 @@ defmodule AWS.IAM do
   Retrieves the specified inline policy document that is embedded with the
   specified IAM role.
 
-  Policies returned by this API are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
+  Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
   convert the policy back to plain JSON text. For example, if you use Java, you
   can use the `decode` method of the `java.net.URLDecoder` utility class in the
   Java SDK. Other languages and SDKs provide similar functionality.
@@ -1232,11 +1266,11 @@ defmodule AWS.IAM do
   policy's default version, then use `GetPolicyVersion` to retrieve the policy
   document.
 
-  For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
-  For more information about roles, see [Using Roles to Delegate Permissions and Federate
-  Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
+  For more information about roles, see [Using roles to delegate permissions and federate
+  identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
   """
   def get_role_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetRolePolicy", input, options)
@@ -1255,8 +1289,8 @@ defmodule AWS.IAM do
   @doc """
   Retrieves information about the specified server certificate stored in IAM.
 
-  For more information about working with server certificates, see [Working with Server
-  Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  For more information about working with server certificates, see [Working with server
+  certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*. This topic includes a list of AWS services that can use
   the server certificates that you manage with IAM.
   """
@@ -1278,7 +1312,7 @@ defmodule AWS.IAM do
   resource-based policies, access control lists, AWS Organizations policies, IAM
   permissions boundaries, and AWS STS assume role policies. It only applies
   permissions policy logic. For more about the evaluation of policy types, see
-  [Evaluating Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
+  [Evaluating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*.
 
   For each service that the resource could access using permissions policies, the
@@ -1312,8 +1346,8 @@ defmodule AWS.IAM do
   recent access attempt for each tracked action within a service. Otherwise, this
   operation returns only service data.
 
-  For more information about service and action last accessed data, see [Reducing Permissions Using Service Last Accessed
-  Data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
+  For more information about service and action last accessed data, see [Reducing permissions using service last accessed
+  data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
   """
   def get_service_last_accessed_details(%Client{} = client, input, options \\ []) do
@@ -1359,8 +1393,8 @@ defmodule AWS.IAM do
   @doc """
   Retrieves the status of your service-linked role deletion.
 
-  After you use the `DeleteServiceLinkedRole` API operation to submit a
-  service-linked role for deletion, you can use the `DeletionTaskId` parameter in
+  After you use `DeleteServiceLinkedRole` to submit a service-linked role for
+  deletion, you can use the `DeletionTaskId` parameter in
   `GetServiceLinkedRoleDeletionStatus` to check the status of the deletion. If the
   deletion fails, this operation returns the reason that it failed, if that
   information is returned by the service.
@@ -1375,7 +1409,7 @@ defmodule AWS.IAM do
   The SSH public key retrieved by this operation is used only for authenticating
   the associated IAM user to an AWS CodeCommit repository. For more information
   about using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
   """
   def get_ssh_public_key(%Client{} = client, input, options \\ []) do
@@ -1387,7 +1421,7 @@ defmodule AWS.IAM do
   creation date, path, unique ID, and ARN.
 
   If you do not specify a user name, IAM determines the user name implicitly based
-  on the AWS access key ID used to sign the request to this API.
+  on the AWS access key ID used to sign the request to this operation.
   """
   def get_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetUser", input, options)
@@ -1397,7 +1431,7 @@ defmodule AWS.IAM do
   Retrieves the specified inline policy document that is embedded in the specified
   IAM user.
 
-  Policies returned by this API are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
+  Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to
   convert the policy back to plain JSON text. For example, if you use Java, you
   can use the `decode` method of the `java.net.URLDecoder` utility class in the
   Java SDK. Other languages and SDKs provide similar functionality.
@@ -1407,7 +1441,7 @@ defmodule AWS.IAM do
   policy's default version. Then use `GetPolicyVersion` to retrieve the policy
   document.
 
-  For more information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def get_user_policy(%Client{} = client, input, options \\ []) do
@@ -1440,7 +1474,7 @@ defmodule AWS.IAM do
   Lists the account alias associated with the AWS account (Note: you can have only
   one).
 
-  For information about using an AWS account alias, see [Using an Alias for Your AWS Account
+  For information about using an AWS account alias, see [Using an alias for your AWS account
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
   *IAM User Guide*.
   """
@@ -1452,8 +1486,8 @@ defmodule AWS.IAM do
   Lists all managed policies that are attached to the specified IAM group.
 
   An IAM group can also have inline policies embedded with it. To list the inline
-  policies for a group, use the `ListGroupPolicies` API. For information about
-  policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  policies for a group, use `ListGroupPolicies`. For information about policies,
+  see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters. You
@@ -1470,8 +1504,8 @@ defmodule AWS.IAM do
   Lists all managed policies that are attached to the specified IAM role.
 
   An IAM role can also have inline policies embedded with it. To list the inline
-  policies for a role, use the `ListRolePolicies` API. For information about
-  policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  policies for a role, use `ListRolePolicies`. For information about policies, see
+  [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters. You
@@ -1488,8 +1522,8 @@ defmodule AWS.IAM do
   Lists all managed policies that are attached to the specified IAM user.
 
   An IAM user can also have inline policies embedded with it. To list the inline
-  policies for a user, use the `ListUserPolicies` API. For information about
-  policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  policies for a user, use `ListUserPolicies`. For information about policies, see
+  [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters. You
@@ -1523,7 +1557,7 @@ defmodule AWS.IAM do
 
   An IAM group can also have managed policies attached to it. To list the managed
   policies that are attached to a group, use `ListAttachedGroupPolicies`. For more
-  information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters. If
@@ -1553,10 +1587,26 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Lists the tags that are attached to the specified IAM instance profile.
+
+  The returned list of tags is sorted by tag key. For more information about
+  tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def list_instance_profile_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListInstanceProfileTags", input, options)
+  end
+
+  @doc """
   Lists the instance profiles that have the specified path prefix.
 
   If there are none, the operation returns an empty list. For more information
-  about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+
+  IAM resource-listing operations return a subset of the available attributes for
+  the resource. For example, this operation does not return tags, even though they
+  are an attribute of the returned object. To view all of the information for an
+  instance profile, see `GetInstanceProfile`.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
@@ -1568,7 +1618,7 @@ defmodule AWS.IAM do
   Lists the instance profiles that have the specified associated IAM role.
 
   If there are none, the operation returns an empty list. For more information
-  about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  about instance profiles, go to [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
@@ -1577,12 +1627,24 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Lists the tags that are attached to the specified IAM virtual multi-factor
+  authentication (MFA) device.
+
+  The returned list of tags is sorted by tag key. For more information about
+  tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def list_mfa_device_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMFADeviceTags", input, options)
+  end
+
+  @doc """
   Lists the MFA devices for an IAM user.
 
   If the request includes a IAM user name, then this operation lists all the MFA
   devices associated with the specified user. If you do not specify a user name,
   IAM determines the user name implicitly based on the AWS access key ID signing
-  the request for this API.
+  the request for this operation.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
@@ -1591,8 +1653,27 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Lists the tags that are attached to the specified OpenID Connect
+  (OIDC)-compatible identity provider.
+
+  The returned list of tags is sorted by tag key. For more information, see [About web identity
+  federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html).
+
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def list_open_id_connect_provider_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListOpenIDConnectProviderTags", input, options)
+  end
+
+  @doc """
   Lists information about the IAM OpenID Connect (OIDC) provider resource objects
   defined in the AWS account.
+
+  IAM resource-listing operations return a subset of the available attributes for
+  the resource. For example, this operation does not return tags, even though they
+  are an attribute of the returned object. To view all of the information for an
+  OIDC provider, see `GetOpenIDConnectProvider`.
   """
   def list_open_id_connect_providers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListOpenIDConnectProviders", input, options)
@@ -1609,8 +1690,13 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
 
-  For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For more information about managed policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
+
+  IAM resource-listing operations return a subset of the available attributes for
+  the resource. For example, this operation does not return tags, even though they
+  are an attribute of the returned object. To view all of the information for a
+  customer manged policy, see `GetPolicy`.
   """
   def list_policies(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListPolicies", input, options)
@@ -1624,7 +1710,7 @@ defmodule AWS.IAM do
   resource could access a service. These other policy types include resource-based
   policies, access control lists, AWS Organizations policies, IAM permissions
   boundaries, and AWS STS assume role policies. It only applies permissions policy
-  logic. For more about the evaluation of policy types, see [Evaluating Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
+  logic. For more about the evaluation of policy types, see [Evaluating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*.
 
   The list of policies returned by the operation depends on the ARN of the
@@ -1645,7 +1731,7 @@ defmodule AWS.IAM do
   For each managed policy, this operation returns the ARN and policy name. For
   each inline policy, it returns the policy name and the entity to which it is
   attached. Inline policies do not have an ARN. For more information about these
-  policy types, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html)
+  policy types, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html)
   in the *IAM User Guide*.
 
   Policies that are attached to users and roles as permissions boundaries are not
@@ -1657,10 +1743,21 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Lists the tags that are attached to the specified IAM customer managed policy.
+
+  The returned list of tags is sorted by tag key. For more information about
+  tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def list_policy_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPolicyTags", input, options)
+  end
+
+  @doc """
   Lists information about the versions of the specified managed policy, including
   the version that is currently set as the policy's default version.
 
-  For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For more information about managed policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def list_policy_versions(%Client{} = client, input, options \\ []) do
@@ -1673,7 +1770,7 @@ defmodule AWS.IAM do
 
   An IAM role can also have managed policies attached to it. To list the managed
   policies that are attached to a role, use `ListAttachedRolePolicies`. For more
-  information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters. If
@@ -1688,8 +1785,8 @@ defmodule AWS.IAM do
   Lists the tags that are attached to the specified role.
 
   The returned list of tags is sorted by tag key. For more information about
-  tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
-  the *IAM User Guide*.
+  tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
   """
   def list_role_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListRoleTags", input, options)
@@ -1699,7 +1796,12 @@ defmodule AWS.IAM do
   Lists the IAM roles that have the specified path prefix.
 
   If there are none, the operation returns an empty list. For more information
-  about roles, go to [Working with Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  about roles, see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+
+  IAM resource-listing operations return a subset of the available attributes for
+  the resource. For example, this operation does not return tags, even though they
+  are an attribute of the returned object. To view all of the information for a
+  role, see `GetRole`.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
@@ -1708,12 +1810,48 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Lists the tags that are attached to the specified Security Assertion Markup
+  Language (SAML) identity provider.
+
+  The returned list of tags is sorted by tag key. For more information, see [About SAML 2.0-based
+  federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html).
+
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def list_saml_provider_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListSAMLProviderTags", input, options)
+  end
+
+  @doc """
   Lists the SAML provider resource objects defined in IAM in the account.
+
+  IAM resource-listing operations return a subset of the available attributes for
+  the resource. For example, this operation does not return tags, even though they
+  are an attribute of the returned object. To view all of the information for a
+  SAML provider, see `GetSAMLProvider`.
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
   def list_saml_providers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSAMLProviders", input, options)
+  end
+
+  @doc """
+  Lists the tags that are attached to the specified IAM server certificate.
+
+  The returned list of tags is sorted by tag key. For more information about
+  tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+
+  For certificates in a Region supported by AWS Certificate Manager (ACM), we
+  recommend that you don't use IAM server certificates. Instead, use ACM to
+  provision, manage, and deploy your server certificates. For more information
+  about IAM server certificates, [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  in the *IAM User Guide*.
+  """
+  def list_server_certificate_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListServerCertificateTags", input, options)
   end
 
   @doc """
@@ -1723,10 +1861,15 @@ defmodule AWS.IAM do
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
 
-  For more information about working with server certificates, see [Working with Server
-  Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  For more information about working with server certificates, see [Working with server
+  certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*. This topic also includes a list of AWS services that
   can use the server certificates that you manage with IAM.
+
+  IAM resource-listing operations return a subset of the available attributes for
+  the resource. For example, this operation does not return tags, even though they
+  are an attribute of the returned object. To view all of the information for a
+  servercertificate, see `GetServerCertificate`.
   """
   def list_server_certificates(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServerCertificates", input, options)
@@ -1739,7 +1882,7 @@ defmodule AWS.IAM do
   If none exists, the operation returns an empty list. The service-specific
   credentials returned by this operation are used only for authenticating the IAM
   user to a specific service. For more information about using service-specific
-  credentials to authenticate to an AWS service, see [Set Up service-specific credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html)
+  credentials to authenticate to an AWS service, see [Set up service-specific credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html)
   in the AWS CodeCommit User Guide.
   """
   def list_service_specific_credentials(%Client{} = client, input, options \\ []) do
@@ -1756,7 +1899,7 @@ defmodule AWS.IAM do
   still paginate the results using the `MaxItems` and `Marker` parameters.
 
   If the `UserName` field is not specified, the user name is determined implicitly
-  based on the AWS access key ID used to sign the request for this API. This
+  based on the AWS access key ID used to sign the request for this operation. This
   operation works for access keys under the AWS account. Consequently, you can use
   this operation to manage AWS account root user credentials even if the AWS
   account has no associated users.
@@ -1774,7 +1917,7 @@ defmodule AWS.IAM do
   The SSH public keys returned by this operation are used only for authenticating
   the IAM user to an AWS CodeCommit repository. For more information about using
   SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
 
   Although each user is limited to a small number of keys, you can still paginate
@@ -1789,7 +1932,7 @@ defmodule AWS.IAM do
 
   An IAM user can also have managed policies attached to it. To list the managed
   policies that are attached to a user, use `ListAttachedUserPolicies`. For more
-  information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters. If
@@ -1801,11 +1944,11 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Lists the tags that are attached to the specified user.
+  Lists the tags that are attached to the specified IAM user.
 
   The returned list of tags is sorted by tag key. For more information about
-  tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
-  the *IAM User Guide*.
+  tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
   """
   def list_user_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListUserTags", input, options)
@@ -1816,6 +1959,11 @@ defmodule AWS.IAM do
 
   If no path prefix is specified, the operation returns all users in the AWS
   account. If there are none, the operation returns an empty list.
+
+  IAM resource-listing operations return a subset of the available attributes for
+  the resource. For example, this operation does not return tags, even though they
+  are an attribute of the returned object. To view all of the information for a
+  user, see `GetUser`.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
@@ -1830,6 +1978,11 @@ defmodule AWS.IAM do
   virtual MFA devices. Assignment status can be `Assigned`, `Unassigned`, or
   `Any`.
 
+  IAM resource-listing operations return a subset of the available attributes for
+  the resource. For example, this operation does not return tags, even though they
+  are an attribute of the returned object. To view all of the information for a
+  virtual MFA device, see `ListVirtualMFADevices`.
+
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
   def list_virtual_mfa_devices(%Client{} = client, input, options \\ []) do
@@ -1842,16 +1995,16 @@ defmodule AWS.IAM do
 
   A user can also have managed policies attached to it. To attach a managed policy
   to a group, use `AttachGroupPolicy`. To create a new managed policy, use
-  `CreatePolicy`. For information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  `CreatePolicy`. For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
-  For information about limits on the number of inline policies that you can embed
-  in a group, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  For information about the maximum number of inline policies that you can embed
+  in a group, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
   Because policy documents can be large, you should use POST rather than GET when
   calling `PutGroupPolicy`. For general information about using the Query API with
-  IAM, go to [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
+  IAM, see [Making query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
   def put_group_policy(%Client{} = client, input, options \\ []) do
@@ -1871,7 +2024,7 @@ defmodule AWS.IAM do
 
   Policies used as permissions boundaries do not provide permissions. You must
   also attach a permissions policy to the role. To learn how the effective
-  permissions for a role are evaluated, see [IAM JSON Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
+  permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
   in the IAM User Guide.
   """
   def put_role_permissions_boundary(%Client{} = client, input, options \\ []) do
@@ -1885,21 +2038,21 @@ defmodule AWS.IAM do
   When you embed an inline policy in a role, the inline policy is used as part of
   the role's access (permissions) policy. The role's trust policy is created at
   the same time as the role, using `CreateRole`. You can update a role's trust
-  policy using `UpdateAssumeRolePolicy`. For more information about IAM roles, go
-  to [Using Roles to Delegate Permissions and Federate Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
+  policy using `UpdateAssumeRolePolicy`. For more information about IAM roles, see
+  [Using roles to delegate permissions and federate identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
 
   A role can also have a managed policy attached to it. To attach a managed policy
   to a role, use `AttachRolePolicy`. To create a new managed policy, use
-  `CreatePolicy`. For information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  `CreatePolicy`. For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
-  For information about limits on the number of inline policies that you can embed
-  with a role, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  For information about the maximum number of inline policies that you can embed
+  with a role, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
   Because policy documents can be large, you should use POST rather than GET when
   calling `PutRolePolicy`. For general information about using the Query API with
-  IAM, go to [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
+  IAM, see [Making query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
   def put_role_policy(%Client{} = client, input, options \\ []) do
@@ -1917,7 +2070,7 @@ defmodule AWS.IAM do
 
   Policies that are used as permissions boundaries do not provide permissions. You
   must also attach a permissions policy to the user. To learn how the effective
-  permissions for a user are evaluated, see [IAM JSON Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
+  permissions for a user are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
   in the IAM User Guide.
   """
   def put_user_permissions_boundary(%Client{} = client, input, options \\ []) do
@@ -1930,16 +2083,16 @@ defmodule AWS.IAM do
 
   An IAM user can also have a managed policy attached to it. To attach a managed
   policy to a user, use `AttachUserPolicy`. To create a new managed policy, use
-  `CreatePolicy`. For information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  `CreatePolicy`. For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
 
-  For information about limits on the number of inline policies that you can embed
-  in a user, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html)
+  For information about the maximum number of inline policies that you can embed
+  in a user, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
   Because policy documents can be large, you should use POST rather than GET when
   calling `PutUserPolicy`. For general information about using the Query API with
-  IAM, go to [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
+  IAM, see [Making query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
   def put_user_policy(%Client{} = client, input, options \\ []) do
@@ -1972,8 +2125,8 @@ defmodule AWS.IAM do
   instance profile that is associated with a running instance might break any
   applications running on the instance.
 
-  For more information about IAM roles, go to [Working with Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
-  For more information about instance profiles, go to [About Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
+  For more information about IAM roles, see [Working with roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
+  For more information about instance profiles, see [About instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html).
   """
   def remove_role_from_instance_profile(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveRoleFromInstanceProfile", input, options)
@@ -2001,8 +2154,8 @@ defmodule AWS.IAM do
   Synchronizes the specified MFA device with its IAM resource object on the AWS
   servers.
 
-  For more information about creating and working with virtual MFA devices, go to
-  [Using a Virtual MFA Device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
+  For more information about creating and working with virtual MFA devices, see
+  [Using a virtual MFA device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
   in the *IAM User Guide*.
   """
   def resync_mfa_device(%Client{} = client, input, options \\ []) do
@@ -2014,10 +2167,10 @@ defmodule AWS.IAM do
   (operative) version.
 
   This operation affects all users, groups, and roles that the policy is attached
-  to. To list the users, groups, and roles that the policy is attached to, use the
-  `ListEntitiesForPolicy` API.
+  to. To list the users, groups, and roles that the policy is attached to, use
+  `ListEntitiesForPolicy`.
 
-  For information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
+  For information about managed policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
   """
   def set_default_policy_version(%Client{} = client, input, options \\ []) do
@@ -2032,8 +2185,8 @@ defmodule AWS.IAM do
   and all STS requests go to a single endpoint at `https://sts.amazonaws.com`. AWS
   recommends using Regional STS endpoints to reduce latency, build in redundancy,
   and increase session token availability. For information about Regional
-  endpoints for STS, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region)
-  in the *AWS General Reference*.
+  endpoints for STS, see [AWS AWS Security Token Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sts.html) in the *AWS
+  General Reference*.
 
   If you make an STS call to the global endpoint, the resulting session tokens
   might be valid in some Regions but not others. It depends on the version that is
@@ -2041,7 +2194,7 @@ defmodule AWS.IAM do
   available by default. These tokens do not work in manually enabled Regions, such
   as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However,
   version 2 tokens are longer and might affect systems where you temporarily store
-  tokens. For information, see [Activating and Deactivating STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
+  tokens. For information, see [Activating and deactivating STS in an AWS region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
   in the *IAM User Guide*.
 
   To view the current session token version, see the `GlobalEndpointTokenVersion`
@@ -2060,7 +2213,7 @@ defmodule AWS.IAM do
 
   The simulation does not perform the API operations; it only checks the
   authorization to determine if the simulated policies allow or deny the
-  operations.
+  operations. You can simulate resources that don't exist in your account.
 
   If you want to simulate existing policies that are attached to an IAM user,
   group, or role, use `SimulatePrincipalPolicy` instead.
@@ -2073,6 +2226,10 @@ defmodule AWS.IAM do
 
   If the output is long, you can use `MaxItems` and `Marker` parameters to
   paginate the results.
+
+  For more information about using the policy simulator, see [Testing IAM policies with the IAM policy simulator
+  ](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html)in
+  the *IAM User Guide*.
   """
   def simulate_custom_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SimulateCustomPolicy", input, options)
@@ -2085,7 +2242,8 @@ defmodule AWS.IAM do
 
   The entity can be an IAM user, group, or role. If you specify a user, then the
   simulation also includes all of the policies that are attached to groups that
-  the user belongs to.
+  the user belongs to. You can simulate resources that don't exist in your
+  account.
 
   You can optionally include a list of one or more additional policies specified
   as strings to include in the simulation. If you want to simulate only policies
@@ -2098,9 +2256,9 @@ defmodule AWS.IAM do
   authorization to determine if the simulated policies allow or deny the
   operations.
 
-  **Note:** This API discloses information about the permissions granted to other
-  users. If you do not want users to see other user's permissions, then consider
-  allowing them to use `SimulateCustomPolicy` instead.
+  **Note:** This operation discloses information about the permissions granted to
+  other users. If you do not want users to see other user's permissions, then
+  consider allowing them to use `SimulateCustomPolicy` instead.
 
   Context keys are variables maintained by AWS and its services that provide
   details about the context of an API query request. You can use the `Condition`
@@ -2110,9 +2268,147 @@ defmodule AWS.IAM do
 
   If the output is long, you can use the `MaxItems` and `Marker` parameters to
   paginate the results.
+
+  For more information about using the policy simulator, see [Testing IAM policies with the IAM policy simulator
+  ](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html)in
+  the *IAM User Guide*.
   """
   def simulate_principal_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SimulatePrincipalPolicy", input, options)
+  end
+
+  @doc """
+  Adds one or more tags to an IAM instance profile.
+
+  If a tag with the same key name already exists, then that tag is overwritten
+  with the new value.
+
+  Each tag consists of a key name and an associated value. By assigning tags to
+  your resources, you can do the following:
+
+    * **Administrative grouping and discovery** - Attach tags to
+  resources to aid in organization and search. For example, you could search for
+  all resources with the key name *Project* and the value *MyImportantProject*. Or
+  search for all resources with the key name *Cost Center* and the value *41200*.
+
+    * **Access control** - Include tags in IAM user-based and
+  resource-based policies. You can use tags to restrict access to only an IAM
+  instance profile that has a specified tag attached. For examples of policies
+  that show how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the
+  *IAM User Guide*.
+
+     If any one of the tags is invalid or if you exceed the allowed
+  maximum number of tags, then the entire request fails and the resource is not
+  created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+
+     AWS always interprets the tag `Value` as a single string. If you
+  need to store an array, you can store comma-separated values in the string.
+  However, you must interpret the value in your code.
+  """
+  def tag_instance_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagInstanceProfile", input, options)
+  end
+
+  @doc """
+  Adds one or more tags to an IAM virtual multi-factor authentication (MFA)
+  device.
+
+  If a tag with the same key name already exists, then that tag is overwritten
+  with the new value.
+
+  A tag consists of a key name and an associated value. By assigning tags to your
+  resources, you can do the following:
+
+    * **Administrative grouping and discovery** - Attach tags to
+  resources to aid in organization and search. For example, you could search for
+  all resources with the key name *Project* and the value *MyImportantProject*. Or
+  search for all resources with the key name *Cost Center* and the value *41200*.
+
+    * **Access control** - Include tags in IAM user-based and
+  resource-based policies. You can use tags to restrict access to only an IAM
+  virtual MFA device that has a specified tag attached. For examples of policies
+  that show how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the
+  *IAM User Guide*.
+
+     If any one of the tags is invalid or if you exceed the allowed
+  maximum number of tags, then the entire request fails and the resource is not
+  created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+
+     AWS always interprets the tag `Value` as a single string. If you
+  need to store an array, you can store comma-separated values in the string.
+  However, you must interpret the value in your code.
+  """
+  def tag_mfa_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagMFADevice", input, options)
+  end
+
+  @doc """
+  Adds one or more tags to an OpenID Connect (OIDC)-compatible identity provider.
+
+  For more information about these providers, see [About web identity federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html).
+  If a tag with the same key name already exists, then that tag is overwritten
+  with the new value.
+
+  A tag consists of a key name and an associated value. By assigning tags to your
+  resources, you can do the following:
+
+    * **Administrative grouping and discovery** - Attach tags to
+  resources to aid in organization and search. For example, you could search for
+  all resources with the key name *Project* and the value *MyImportantProject*. Or
+  search for all resources with the key name *Cost Center* and the value *41200*.
+
+    * **Access control** - Include tags in IAM user-based and
+  resource-based policies. You can use tags to restrict access to only an OIDC
+  provider that has a specified tag attached. For examples of policies that show
+  how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the
+  *IAM User Guide*.
+
+     If any one of the tags is invalid or if you exceed the allowed
+  maximum number of tags, then the entire request fails and the resource is not
+  created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+
+     AWS always interprets the tag `Value` as a single string. If you
+  need to store an array, you can store comma-separated values in the string.
+  However, you must interpret the value in your code.
+  """
+  def tag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagOpenIDConnectProvider", input, options)
+  end
+
+  @doc """
+  Adds one or more tags to an IAM customer managed policy.
+
+  If a tag with the same key name already exists, then that tag is overwritten
+  with the new value.
+
+  A tag consists of a key name and an associated value. By assigning tags to your
+  resources, you can do the following:
+
+    * **Administrative grouping and discovery** - Attach tags to
+  resources to aid in organization and search. For example, you could search for
+  all resources with the key name *Project* and the value *MyImportantProject*. Or
+  search for all resources with the key name *Cost Center* and the value *41200*.
+
+    * **Access control** - Include tags in IAM user-based and
+  resource-based policies. You can use tags to restrict access to only an IAM
+  customer managed policy that has a specified tag attached. For examples of
+  policies that show how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in
+  the *IAM User Guide*.
+
+     If any one of the tags is invalid or if you exceed the allowed
+  maximum number of tags, then the entire request fails and the resource is not
+  created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+
+     AWS always interprets the tag `Value` as a single string. If you
+  need to store an array, you can store comma-separated values in the string.
+  However, you must interpret the value in your code.
+  """
+  def tag_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagPolicy", input, options)
   end
 
   @doc """
@@ -2129,29 +2425,108 @@ defmodule AWS.IAM do
   all resources with the key name *Project* and the value *MyImportantProject*. Or
   search for all resources with the key name *Cost Center* and the value *41200*.
 
-    * **Access control** - Reference tags in IAM user-based and
-  resource-based policies. You can use tags to restrict access to only an IAM user
-  or role that has a specified tag attached. You can also restrict access to only
-  those resources that have a certain tag attached. For examples of policies that
-  show how to use tags to control access, see [Control Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the
+    * **Access control** - Include tags in IAM user-based and
+  resource-based policies. You can use tags to restrict access to only an IAM role
+  that has a specified tag attached. You can also restrict access to only those
+  resources that have a certain tag attached. For examples of policies that show
+  how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the
   *IAM User Guide*.
 
     * **Cost allocation** - Use tags to help track which individuals and
   teams are using which AWS resources.
 
-     Make sure that you have no invalid tags and that you do not exceed
-  the allowed number of tags per role. In either case, the entire request fails
-  and *no* tags are added to the role.
+     If any one of the tags is invalid or if you exceed the allowed
+  maximum number of tags, then the entire request fails and the resource is not
+  created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
 
      AWS always interprets the tag `Value` as a single string. If you
   need to store an array, you can store comma-separated values in the string.
   However, you must interpret the value in your code.
 
-  For more information about tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
+  For more information about tagging, see [Tagging IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
   """
   def tag_role(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagRole", input, options)
+  end
+
+  @doc """
+  Adds one or more tags to a Security Assertion Markup Language (SAML) identity
+  provider.
+
+  For more information about these providers, see [About SAML 2.0-based federation
+  ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html).
+  If a tag with the same key name already exists, then that tag is overwritten
+  with the new value.
+
+  A tag consists of a key name and an associated value. By assigning tags to your
+  resources, you can do the following:
+
+    * **Administrative grouping and discovery** - Attach tags to
+  resources to aid in organization and search. For example, you could search for
+  all resources with the key name *Project* and the value *MyImportantProject*. Or
+  search for all resources with the key name *Cost Center* and the value *41200*.
+
+    * **Access control** - Include tags in IAM user-based and
+  resource-based policies. You can use tags to restrict access to only a SAML
+  identity provider that has a specified tag attached. For examples of policies
+  that show how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the
+  *IAM User Guide*.
+
+     If any one of the tags is invalid or if you exceed the allowed
+  maximum number of tags, then the entire request fails and the resource is not
+  created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+
+     AWS always interprets the tag `Value` as a single string. If you
+  need to store an array, you can store comma-separated values in the string.
+  However, you must interpret the value in your code.
+  """
+  def tag_saml_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagSAMLProvider", input, options)
+  end
+
+  @doc """
+  Adds one or more tags to an IAM server certificate.
+
+  If a tag with the same key name already exists, then that tag is overwritten
+  with the new value.
+
+  For certificates in a Region supported by AWS Certificate Manager (ACM), we
+  recommend that you don't use IAM server certificates. Instead, use ACM to
+  provision, manage, and deploy your server certificates. For more information
+  about IAM server certificates, [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  in the *IAM User Guide*.
+
+  A tag consists of a key name and an associated value. By assigning tags to your
+  resources, you can do the following:
+
+    * **Administrative grouping and discovery** - Attach tags to
+  resources to aid in organization and search. For example, you could search for
+  all resources with the key name *Project* and the value *MyImportantProject*. Or
+  search for all resources with the key name *Cost Center* and the value *41200*.
+
+    * **Access control** - Include tags in IAM user-based and
+  resource-based policies. You can use tags to restrict access to only a server
+  certificate that has a specified tag attached. For examples of policies that
+  show how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the
+  *IAM User Guide*.
+
+    * **Cost allocation** - Use tags to help track which individuals and
+  teams are using which AWS resources.
+
+     If any one of the tags is invalid or if you exceed the allowed
+  maximum number of tags, then the entire request fails and the resource is not
+  created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+
+     AWS always interprets the tag `Value` as a single string. If you
+  need to store an array, you can store comma-separated values in the string.
+  However, you must interpret the value in your code.
+  """
+  def tag_server_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagServerCertificate", input, options)
   end
 
   @doc """
@@ -2168,26 +2543,26 @@ defmodule AWS.IAM do
   all resources with the key name *Project* and the value *MyImportantProject*. Or
   search for all resources with the key name *Cost Center* and the value *41200*.
 
-    * **Access control** - Reference tags in IAM user-based and
+    * **Access control** - Include tags in IAM user-based and
   resource-based policies. You can use tags to restrict access to only an IAM
-  requesting user or to a role that has a specified tag attached. You can also
-  restrict access to only those resources that have a certain tag attached. For
-  examples of policies that show how to use tags to control access, see [Control Access Using IAM
-  Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the
-  *IAM User Guide*.
+  requesting user that has a specified tag attached. You can also restrict access
+  to only those resources that have a certain tag attached. For examples of
+  policies that show how to use tags to control access, see [Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in
+  the *IAM User Guide*.
 
     * **Cost allocation** - Use tags to help track which individuals and
   teams are using which AWS resources.
 
-     Make sure that you have no invalid tags and that you do not exceed
-  the allowed number of tags per role. In either case, the entire request fails
-  and *no* tags are added to the role.
+     If any one of the tags is invalid or if you exceed the allowed
+  maximum number of tags, then the entire request fails and the resource is not
+  created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
 
      AWS always interprets the tag `Value` as a single string. If you
   need to store an array, you can store comma-separated values in the string.
   However, you must interpret the value in your code.
 
-  For more information about tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
+  For more information about tagging, see [Tagging IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
   """
   def tag_user(%Client{} = client, input, options \\ []) do
@@ -2195,20 +2570,91 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Removes the specified tags from the IAM instance profile.
+
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def untag_instance_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagInstanceProfile", input, options)
+  end
+
+  @doc """
+  Removes the specified tags from the IAM virtual multi-factor authentication
+  (MFA) device.
+
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def untag_mfa_device(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagMFADevice", input, options)
+  end
+
+  @doc """
+  Removes the specified tags from the specified OpenID Connect (OIDC)-compatible
+  identity provider in IAM.
+
+  For more information about OIDC providers, see [About web identity federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html).
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def untag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagOpenIDConnectProvider", input, options)
+  end
+
+  @doc """
+  Removes the specified tags from the customer managed policy.
+
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def untag_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagPolicy", input, options)
+  end
+
+  @doc """
   Removes the specified tags from the role.
 
-  For more information about tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
-  the *IAM User Guide*.
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
   """
   def untag_role(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagRole", input, options)
   end
 
   @doc """
+  Removes the specified tags from the specified Security Assertion Markup Language
+  (SAML) identity provider in IAM.
+
+  For more information about these providers, see [About web identity federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html).
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+  """
+  def untag_saml_provider(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagSAMLProvider", input, options)
+  end
+
+  @doc """
+  Removes the specified tags from the IAM server certificate.
+
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
+
+  For certificates in a Region supported by AWS Certificate Manager (ACM), we
+  recommend that you don't use IAM server certificates. Instead, use ACM to
+  provision, manage, and deploy your server certificates. For more information
+  about IAM server certificates, [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  in the *IAM User Guide*.
+  """
+  def untag_server_certificate(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagServerCertificate", input, options)
+  end
+
+  @doc """
   Removes the specified tags from the user.
 
-  For more information about tagging, see [Tagging IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
-  the *IAM User Guide*.
+  For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
+  *IAM User Guide*.
   """
   def untag_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagUser", input, options)
@@ -2227,7 +2673,7 @@ defmodule AWS.IAM do
   manage AWS account root user credentials even if the AWS account has no
   associated users.
 
-  For information about rotating keys, see [Managing Keys and Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)
+  For information about rotating keys, see [Managing keys and certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)
   in the *IAM User Guide*.
   """
   def update_access_key(%Client{} = client, input, options \\ []) do
@@ -2244,8 +2690,8 @@ defmodule AWS.IAM do
   default parameter to be explicitly set. Instead, to invoke the default value, do
   not include that parameter when you invoke the operation.
 
-  For more information about using a password policy, see [Managing an IAM Password
-  Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html)
+  For more information about using a password policy, see [Managing an IAM password
+  policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html)
   in the *IAM User Guide*.
   """
   def update_account_password_policy(%Client{} = client, input, options \\ []) do
@@ -2256,7 +2702,7 @@ defmodule AWS.IAM do
   Updates the policy that grants an IAM entity permission to assume a role.
 
   This is typically referred to as the "role trust policy". For more information
-  about roles, go to [Using Roles to Delegate Permissions and Federate Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
+  about roles, see [Using roles to delegate permissions and federate identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
   """
   def update_assume_role_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateAssumeRolePolicy", input, options)
@@ -2266,7 +2712,7 @@ defmodule AWS.IAM do
   Updates the name and/or the path of the specified IAM group.
 
   You should understand the implications of changing a group's path or name. For
-  more information, see [Renaming Users and Groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html)
+  more information, see [Renaming users and groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html)
   in the *IAM User Guide*.
 
   The person making the request (the principal), must have permission to change
@@ -2274,7 +2720,7 @@ defmodule AWS.IAM do
   group named `Managers` to `MGRs`, the principal must have a policy that allows
   them to update both groups. If the principal has permission to update the
   `Managers` group, but not the `MGRs` group, then the update fails. For more
-  information about permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html).
+  information about permissions, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html).
   """
   def update_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateGroup", input, options)
@@ -2283,8 +2729,11 @@ defmodule AWS.IAM do
   @doc """
   Changes the password for the specified IAM user.
 
-  IAM users can change their own passwords by calling `ChangePassword`. For more
-  information about modifying passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
+  You can use the AWS CLI, the AWS API, or the **Users** page in the IAM console
+  to change the password for any IAM user. Use `ChangePassword` to change your own
+  password in the **My Security Credentials** page in the AWS Management Console.
+
+  For more information about modifying passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
   """
   def update_login_profile(%Client{} = client, input, options \\ []) do
@@ -2347,13 +2796,13 @@ defmodule AWS.IAM do
   Updates the name and/or the path of the specified server certificate stored in
   IAM.
 
-  For more information about working with server certificates, see [Working with Server
-  Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  For more information about working with server certificates, see [Working with server
+  certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*. This topic also includes a list of AWS services that
   can use the server certificates that you manage with IAM.
 
   You should understand the implications of changing a server certificate's path
-  or name. For more information, see [Renaming a Server Certificate](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts)
+  or name. For more information, see [Renaming a server certificate](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts)
   in the *IAM User Guide*.
 
   The person making the request (the principal), must have permission to change
@@ -2362,7 +2811,7 @@ defmodule AWS.IAM do
   have a policy that allows them to update both certificates. If the principal has
   permission to update the `ProductionCert` group, but not the `ProdCert`
   certificate, then the update fails. For more information about permissions, see
-  [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
   *IAM User Guide*.
   """
   def update_server_certificate(%Client{} = client, input, options \\ []) do
@@ -2407,7 +2856,7 @@ defmodule AWS.IAM do
   The SSH public key affected by this operation is used only for authenticating
   the associated IAM user to an AWS CodeCommit repository. For more information
   about using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
   """
   def update_ssh_public_key(%Client{} = client, input, options \\ []) do
@@ -2418,15 +2867,15 @@ defmodule AWS.IAM do
   Updates the name and/or the path of the specified IAM user.
 
   You should understand the implications of changing an IAM user's path or name.
-  For more information, see [Renaming an IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming)
-  and [Renaming an IAM Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html)
+  For more information, see [Renaming an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming)
+  and [Renaming an IAM group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html)
   in the *IAM User Guide*.
 
   To change a user name, the requester must have appropriate permissions on both
   the source object and the target object. For example, to change Bob to Robert,
   the entity making the request must have permission on Bob and Robert, or must
   have permission on all (*). For more information about permissions, see
-  [Permissions and Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html).
+  [Permissions and policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html).
   """
   def update_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateUser", input, options)
@@ -2444,21 +2893,21 @@ defmodule AWS.IAM do
   provided by ACM are free. For more information about using ACM, see the [AWS Certificate Manager User
   Guide](https://docs.aws.amazon.com/acm/latest/userguide/).
 
-  For more information about working with server certificates, see [Working with Server
-  Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  For more information about working with server certificates, see [Working with server
+  certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*. This topic includes a list of AWS services that can use
   the server certificates that you manage with IAM.
 
-  For information about the number of server certificates you can upload, see
-  [Limitations on IAM Entities and Objects](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html)
+  For information about the number of server certificates you can upload, see [IAM and STS
+  quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
   Because the body of the public key certificate, private key, and the certificate
   chain can be large, you should use POST rather than GET when calling
   `UploadServerCertificate`. For information about setting up signatures and
-  authorization through the API, go to [Signing AWS API Requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
+  authorization through the API, see [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
   in the *AWS General Reference*. For general information about using the Query
-  API with IAM, go to [Calling the API by Making HTTP Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html) in
+  API with IAM, see [Calling the API by making HTTP query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html) in
   the *IAM User Guide*.
   """
   def upload_server_certificate(%Client{} = client, input, options \\ []) do
@@ -2469,9 +2918,13 @@ defmodule AWS.IAM do
   Uploads an X.509 signing certificate and associates it with the specified IAM
   user.
 
-  Some AWS services use X.509 signing certificates to validate requests that are
+  Some AWS services require you to use certificates to validate requests that are
   signed with a corresponding private key. When you upload the certificate, its
   default status is `Active`.
+
+  For information about when you would use an X.509 signing certificate, see
+  [Managing server certificates in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
+  in the *IAM User Guide*.
 
   If the `UserName` is not specified, the IAM user name is determined implicitly
   based on the AWS access key ID used to sign the request. This operation works
@@ -2481,9 +2934,9 @@ defmodule AWS.IAM do
 
   Because the body of an X.509 certificate can be large, you should use POST
   rather than GET when calling `UploadSigningCertificate`. For information about
-  setting up signatures and authorization through the API, go to [Signing AWS API Requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
+  setting up signatures and authorization through the API, see [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
   in the *AWS General Reference*. For general information about using the Query
-  API with IAM, go to [Making Query Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
+  API with IAM, see [Making query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
   def upload_signing_certificate(%Client{} = client, input, options \\ []) do
@@ -2496,7 +2949,7 @@ defmodule AWS.IAM do
   The SSH public key uploaded by this operation can be used only for
   authenticating the associated IAM user to an AWS CodeCommit repository. For more
   information about using SSH keys to authenticate to an AWS CodeCommit
-  repository, see [Set up AWS CodeCommit for SSH Connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  repository, see [Set up AWS CodeCommit for SSH connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *AWS CodeCommit User Guide*.
   """
   def upload_ssh_public_key(%Client{} = client, input, options \\ []) do

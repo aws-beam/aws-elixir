@@ -4,8 +4,8 @@
 defmodule AWS.Codeartifact do
   @moduledoc """
   AWS CodeArtifact is a fully managed artifact repository compatible with
-  language-native package managers and build tools such as npm, Apache Maven,
-  NuGet, and pip.
+  language-native package managers and build tools such as npm, Apache Maven, and
+  pip.
 
   You can use CodeArtifact to share packages with development teams and pull
   packages. Packages can be pulled from both public and CodeArtifact repositories.
@@ -23,8 +23,7 @@ defmodule AWS.Codeartifact do
   each of which maps to a set of assets, or files. Repositories are polyglot, so a
   single repository can contain packages of any supported type. Each repository
   exposes endpoints for fetching and publishing packages using tools like the 
-  `npm` ** CLI, the ** `NuGet` ** CLI, the Maven CLI (** `mvn` **), and ** `pip`
-  **.
+  `npm` ** CLI, the Maven CLI (** `mvn` **), and ** `pip` **.
 
     * **Domain**: Repositories are aggregated into a higher-level entity
   known as a *domain*. All package assets and metadata are stored in the domain,
@@ -47,8 +46,7 @@ defmodule AWS.Codeartifact do
     * **Package**: A *package* is a bundle of software and the metadata
   required to resolve dependencies and install the software. CodeArtifact supports
   [npm](https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html), [PyPI](https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html),
-  [Maven](https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven), and [NuGet](https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget) package
-  formats.
+  and [Maven](https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven) package formats.
 
   In CodeArtifact, a package consists of:
 
@@ -65,7 +63,8 @@ defmodule AWS.Codeartifact do
 
     * **Package version**: A version of a package, such as `@types/node
   12.6.9`. The version number format and semantics vary for different package
-  formats. For example, npm package versions must conform to the [Semantic Versioning specification](https://semver.org/). In CodeArtifact, a package
+  formats. For example, npm package versions must conform to the [Semantic
+  Versioning specification](https://semver.org/). In CodeArtifact, a package
   version consists of the version identifier, metadata at the package version
   level, and a set of assets.
 
@@ -108,9 +107,9 @@ defmodule AWS.Codeartifact do
     * `DescribeDomain`: Returns a `DomainDescription` object that
   contains information about the requested domain.
 
-    * `DescribePackageVersion`: Returns a `
+    * `DescribePackageVersion`: Returns a
   [PackageVersionDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
-  ` object that contains details about a package version.
+  object that contains details about a package version.
 
     * `DescribeRepository`: Returns a `RepositoryDescription` object
   that contains detailed information about the requested repository.
@@ -146,8 +145,6 @@ defmodule AWS.Codeartifact do
 
       * `maven`
 
-      * `nuget`
-
     * `GetRepositoryPermissionsPolicy`: Returns the resource policy that
   is set on a repository.
 
@@ -171,18 +168,11 @@ defmodule AWS.Codeartifact do
     * `ListRepositoriesInDomain`: Returns a list of the repositories in
   a domain.
 
-    * `ListTagsForResource`: Returns a list of the tags associated with
-  a resource.
-
     * `PutDomainPermissionsPolicy`: Attaches a resource policy to a
   domain.
 
     * `PutRepositoryPermissionsPolicy`: Sets the resource policy on a
   repository that specifies permissions to access it.
-
-    * `TagResource`: Adds or updates tags for a resource.
-
-    * `UntagResource`: Removes a tag from a resource.
 
     * `UpdatePackageVersionsStatus`: Updates the status of one or more
   versions of a package.
@@ -406,10 +396,9 @@ defmodule AWS.Codeartifact do
   A deleted package version cannot be restored in your repository. If you want to
   remove a package version from your repository and be able to restore it later,
   set its status to `Archived`. Archived packages cannot be downloaded from a
-  repository and don't show up with list package APIs (for example, `
-  [ListackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html) `), but you can restore them using `
-  [UpdatePackageVersionsStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html)
-  `.
+  repository and don't show up with list package APIs (for example,
+  [ListackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)), but you can restore them using
+  [UpdatePackageVersionsStatus](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html).
   """
   def delete_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/delete"
@@ -1049,8 +1038,6 @@ defmodule AWS.Codeartifact do
     * `pypi`
 
     * `maven`
-
-    * `nuget`
   """
   def get_repository_endpoint(
         %Client{} = client,
@@ -1154,9 +1141,9 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Returns a list of `
+  Returns a list of
   [DomainSummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
-  ` objects for all domains owned by the AWS account that makes this call.
+  objects for all domains owned by the AWS account that makes this call.
 
   Each returned `DomainSummary` object contains information about a domain.
   """

@@ -92,6 +92,13 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Creates a prepared statement for use with SQL queries in Athena.
+  """
+  def create_prepared_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreatePreparedStatement", input, options)
+  end
+
+  @doc """
   Creates a workgroup with the specified name.
   """
   def create_work_group(%Client{} = client, input, options \\ []) do
@@ -114,6 +121,14 @@ defmodule AWS.Athena do
   """
   def delete_named_query(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteNamedQuery", input, options)
+  end
+
+  @doc """
+  Deletes the prepared statement with the specified name from the specified
+  workgroup.
+  """
+  def delete_prepared_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePreparedStatement", input, options)
   end
 
   @doc """
@@ -146,6 +161,14 @@ defmodule AWS.Athena do
   """
   def get_named_query(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetNamedQuery", input, options)
+  end
+
+  @doc """
+  Retrieves the prepared statement with the specified name from the specified
+  workgroup.
+  """
+  def get_prepared_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPreparedStatement", input, options)
   end
 
   @doc """
@@ -229,6 +252,13 @@ defmodule AWS.Athena do
   """
   def list_named_queries(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListNamedQueries", input, options)
+  end
+
+  @doc """
+  Lists the prepared statements in the specfied workgroup.
+  """
+  def list_prepared_statements(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListPreparedStatements", input, options)
   end
 
   @doc """
@@ -322,6 +352,13 @@ defmodule AWS.Athena do
   """
   def update_data_catalog(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDataCatalog", input, options)
+  end
+
+  @doc """
+  Updates a prepared statement.
+  """
+  def update_prepared_statement(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePreparedStatement", input, options)
   end
 
   @doc """

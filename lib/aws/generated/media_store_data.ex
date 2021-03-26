@@ -117,6 +117,13 @@ defmodule AWS.MediaStoreData do
         ]
       )
 
+    options =
+      Keyword.put(
+        options,
+        :receive_body_as_binary?,
+        true
+      )
+
     Request.request_rest(
       client,
       metadata(),

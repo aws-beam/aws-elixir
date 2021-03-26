@@ -429,6 +429,18 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Creates a `DBProxyEndpoint`.
+
+  Only applies to proxies that are associated with Aurora DB clusters. You can use
+  DB proxy endpoints to specify read/write or read-only access to the DB cluster.
+  You can also use DB proxy endpoints to access a DB proxy through a different VPC
+  than the proxy's default VPC.
+  """
+  def create_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDBProxyEndpoint", input, options)
+  end
+
+  @doc """
   Creates a new DB security group.
 
   DB security groups control access to a DB instance.
@@ -637,10 +649,22 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Deletes an existing proxy.
+  Deletes an existing DB proxy.
   """
   def delete_db_proxy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDBProxy", input, options)
+  end
+
+  @doc """
+  Deletes a `DBProxyEndpoint`.
+
+  Doing so removes the ability to access the DB proxy using the endpoint that you
+  defined. The endpoint that you delete might have provided capabilities such as
+  read/write or read-only operations, or using a different VPC than the DB proxy's
+  default VPC.
+  """
+  def delete_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteDBProxyEndpoint", input, options)
   end
 
   @doc """
@@ -915,6 +939,13 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Returns information about DB proxy endpoints.
+  """
+  def describe_db_proxy_endpoints(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDBProxyEndpoints", input, options)
+  end
+
+  @doc """
   Returns information about DB proxy target groups, represented by
   `DBProxyTargetGroup` data structures.
   """
@@ -1181,6 +1212,29 @@ defmodule AWS.RDS do
   end
 
   @doc """
+  Initiates the failover process for an Aurora global database (`GlobalCluster`).
+
+  A failover for an Aurora global database promotes one of secondary read-only DB
+  clusters to be the primary DB cluster and demotes the primary DB cluster to
+  being a secondary (read-only) DB cluster. In other words, the role of the
+  current primary DB cluster and the selected (target) DB cluster are switched.
+  The selected secondary DB cluster assumes full read/write capabilities for the
+  Aurora global database.
+
+  For more information about failing over an Amazon Aurora global database, see
+  [Managed planned failover for Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.managed-failover)
+  in the *Amazon Aurora User Guide.*
+
+  This action applies to `GlobalCluster` (Aurora global databases) only. Use this
+  action only on healthy Aurora global databases with running Aurora DB clusters
+  and no Region-wide outages, to test disaster recovery scenarios or to
+  reconfigure your Aurora global database topology.
+  """
+  def failover_global_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "FailoverGlobalCluster", input, options)
+  end
+
+  @doc """
   Imports the installation media for a DB engine that requires an on-premises
   customer provided license, such as SQL Server.
   """
@@ -1388,6 +1442,13 @@ defmodule AWS.RDS do
   """
   def modify_db_proxy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDBProxy", input, options)
+  end
+
+  @doc """
+  Changes the settings for an existing DB proxy endpoint.
+  """
+  def modify_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyDBProxyEndpoint", input, options)
   end
 
   @doc """

@@ -334,6 +334,28 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
+  Provides scheduled Auto-Tune action details for the Elasticsearch domain, such
+  as Auto-Tune action type, description, severity, and scheduled date.
+  """
+  def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/2015-01-01/es/domain/#{URI.encode(domain_name)}/autoTunes"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns domain configuration information about the specified Elasticsearch
   domain, including the domain ID, domain endpoint, and domain ARN.
   """

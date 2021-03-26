@@ -10,7 +10,7 @@ defmodule AWS.Macie2 do
   Macie automates the discovery of sensitive data, such as PII and intellectual
   property, to provide you with insight into the data that your organization
   stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which
-  it continually monitors for you. If Macie detects sensitive data or potential
+  it continually monitors foryou. If Macie detects sensitive data or potential
   data access issues, it generates detailed findings for you to review and act
   upon as necessary.
   """
@@ -163,7 +163,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Associates an account with an Amazon Macie master account.
+  Associates an account with an Amazon Macie administrator account.
   """
   def create_member(%Client{} = client, input, options \\ []) do
     url_path = "/members"
@@ -291,7 +291,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Deletes the association between an Amazon Macie master account and an account.
+  Deletes the association between an Amazon Macie administrator account and an
+  account.
   """
   def delete_member(%Client{} = client, id, input, options \\ []) do
     url_path = "/members/#{URI.encode(id)}"
@@ -424,7 +425,32 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Disassociates a member account from its Amazon Macie master account.
+  Disassociates a member account from its Amazon Macie administrator account.
+  """
+  def disassociate_from_administrator_account(%Client{} = client, input, options \\ []) do
+    url_path = "/administrator/disassociate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  (Deprecated) Disassociates a member account from its Amazon Macie administrator
+  account.
+
+  This operation has been replaced by the DisassociateFromAdministratorAccount
+  operation.
   """
   def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
     url_path = "/master/disassociate"
@@ -445,7 +471,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Disassociates an Amazon Macie master account from a member account.
+  Disassociates an Amazon Macie administrator account from a member account.
   """
   def disassociate_member(%Client{} = client, id, input, options \\ []) do
     url_path = "/members/disassociate/#{URI.encode(id)}"
@@ -504,6 +530,28 @@ defmodule AWS.Macie2 do
       query_params,
       headers,
       input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about the Amazon Macie administrator account for an
+  account.
+  """
+  def get_administrator_account(%Client{} = client, options \\ []) do
+    url_path = "/administrator"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       200
     )
@@ -637,6 +685,28 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Retrieves the configuration settings for publishing findings to AWS Security
+  Hub.
+  """
+  def get_findings_publication_configuration(%Client{} = client, options \\ []) do
+    url_path = "/findings-publication-configuration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the count of Amazon Macie membership invitations that were received by
   an account.
   """
@@ -681,7 +751,10 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about the Amazon Macie master account for an account.
+  (Deprecated) Retrieves information about the Amazon Macie administrator account
+  for an account.
+
+  This operation has been replaced by the GetAdministratorAccount operation.
   """
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
@@ -702,8 +775,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about a member account that's associated with an Amazon
-  Macie master account.
+  Retrieves information about an account that's associated with an Amazon Macie
+  administrator account.
   """
   def get_member(%Client{} = client, id, options \\ []) do
     url_path = "/members/#{URI.encode(id)}"
@@ -914,7 +987,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves information about the accounts that are associated with an Amazon
-  Macie master account.
+  Macie administrator account.
   """
   def list_members(
         %Client{} = client,
@@ -1030,6 +1103,27 @@ defmodule AWS.Macie2 do
   """
   def put_classification_export_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/classification-export-configuration"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the configuration settings for publishing findings to AWS Security Hub.
+  """
+  def put_findings_publication_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/findings-publication-configuration"
     headers = []
     query_params = []
 
@@ -1181,7 +1275,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Enables an Amazon Macie master account to suspend or re-enable a member account.
+  Enables an Amazon Macie administrator to suspend or re-enable a member account.
   """
   def update_member_session(%Client{} = client, id, input, options \\ []) do
     url_path = "/macie/members/#{URI.encode(id)}"

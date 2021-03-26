@@ -402,6 +402,13 @@ defmodule AWS.Schemas do
         query_params
       end
 
+    options =
+      Keyword.put(
+        options,
+        :receive_body_as_binary?,
+        true
+      )
+
     Request.request_rest(
       client,
       metadata(),

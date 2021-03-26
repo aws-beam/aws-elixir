@@ -109,9 +109,6 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
-
   Creates a new Amazon EMR Studio.
   """
   def create_studio(%Client{} = client, input, options \\ []) do
@@ -119,9 +116,6 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
-
   Maps a user or group to the Amazon EMR Studio specified by `StudioId`, and
   applies a session policy to refine Studio permissions for that user or group.
   """
@@ -137,9 +131,6 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
-
   Removes an Amazon EMR Studio from the Studio metadata store.
   """
   def delete_studio(%Client{} = client, input, options \\ []) do
@@ -147,9 +138,6 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
-
   Removes a user or group from an Amazon EMR Studio.
   """
   def delete_studio_session_mapping(%Client{} = client, input, options \\ []) do
@@ -214,9 +202,6 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
-
   Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
   Studio access URL, and so on.
   """
@@ -243,9 +228,6 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
-
   Fetches mapping details for the specified Amazon EMR Studio and identity (user
   or group).
   """
@@ -328,17 +310,14 @@ defmodule AWS.EMR do
   Provides a list of steps for the cluster in reverse order unless you specify
   `stepIds` with the request of filter by `StepStates`.
 
-  You can specify a maximum of ten `stepIDs`.
+  You can specify a maximum of 10 `stepIDs`.
   """
   def list_steps(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSteps", input, options)
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
-
-  Returns a list of all user or group session mappings for the EMR Studio
+  Returns a list of all user or group session mappings for the Amazon EMR Studio
   specified by `StudioId`.
   """
   def list_studio_session_mappings(%Client{} = client, input, options \\ []) do
@@ -346,12 +325,10 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
+  Returns a list of all Amazon EMR Studios associated with the AWS account.
 
-  Returns a list of all Amazon EMR Studios associated with the AWS account. The
-  list includes details such as ID, Studio Access URL, and creation time for each
-  Studio.
+  The list includes details such as ID, Studio Access URL, and creation time for
+  each Studio.
   """
   def list_studios(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListStudios", input, options)
@@ -560,9 +537,14 @@ defmodule AWS.EMR do
   end
 
   @doc """
-  The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject
-  to change.
+  Updates an Amazon EMR Studio configuration, including attributes such as name,
+  description, and subnets.
+  """
+  def update_studio(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateStudio", input, options)
+  end
 
+  @doc """
   Updates the session policy attached to the user or group for the specified
   Amazon EMR Studio.
   """

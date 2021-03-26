@@ -6,7 +6,7 @@ defmodule AWS.CodeGuruProfiler do
   This section provides documentation for the Amazon CodeGuru Profiler API
   operations.
 
-  ` Amazon CodeGuru Profiler collects runtime performance data from your live
+  Amazon CodeGuru Profiler collects runtime performance data from your live
   applications, and provides recommendations that can help you fine-tune your
   application performance. Using machine learning algorithms, CodeGuru Profiler
   can help you find your most expensive lines of code and suggest ways you can
@@ -17,15 +17,13 @@ defmodule AWS.CodeGuruProfiler do
   consumed, and suggest ways to reduce CPU utilization.
 
   Amazon CodeGuru Profiler currently supports applications written in all Java
-  virtual machine (JVM) languages. While CodeGuru Profiler supports both
-  visualizations and recommendations for applications written in Java, it can also
-  generate visualizations and a subset of recommendations for applications written
-  in other JVM languages.
+  virtual machine (JVM) languages and Python. While CodeGuru Profiler supports
+  both visualizations and recommendations for applications written in Java, it can
+  also generate visualizations and a subset of recommendations for applications
+  written in other JVM languages and Python.
 
   For more information, see [What is Amazon CodeGuru Profiler](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/what-is-codeguru-profiler.html)
   in the *Amazon CodeGuru Profiler User Guide*.
-
-  `
   """
 
   alias AWS.Client
@@ -102,8 +100,8 @@ defmodule AWS.CodeGuruProfiler do
   Used by profiler agents to report their current state and to receive remote
   configuration updates.
 
-  For example, `ConfigureAgent` can be used to tell and agent whether to profile
-  or not and for how long to return profiling data.
+  For example, `ConfigureAgent` can be used to tell an agent whether to profile or
+  not and for how long to return profiling data.
   """
   def configure_agent(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{URI.encode(profiling_group_name)}/configureAgent"

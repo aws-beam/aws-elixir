@@ -26,6 +26,27 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
+  Changes the packaging group's properities to configure log subscription
+  """
+  def configure_logs(%Client{} = client, id, input, options \\ []) do
+    url_path = "/packaging_groups/#{URI.encode(id)}/configure_logs"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new MediaPackage VOD Asset resource.
   """
   def create_asset(%Client{} = client, input, options \\ []) do

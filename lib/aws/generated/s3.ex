@@ -22,7 +22,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This operation aborts a multipart upload.
+  This action aborts a multipart upload.
 
   After a multipart upload is aborted, no additional parts can be uploaded using
   that upload ID. The storage consumed by any previously uploaded parts will be
@@ -33,10 +33,10 @@ defmodule AWS.S3 do
 
   To verify that all parts have been removed, so you don't get charged for the
   part storage, you should call the
-  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html) operation and ensure that the parts list is empty.
+  [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html) action and ensure that the parts list is empty.
 
-  For information about permissions required to use the multipart upload API, see
-  [Multipart Upload API and
+  For information about permissions required to use the multipart upload, see
+  [Multipart Upload and
   Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
 
   The following operations are related to `AbortMultipartUpload`:
@@ -93,13 +93,13 @@ defmodule AWS.S3 do
 
   You first initiate the multipart upload and then upload all parts using the
   [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html) operation. After successfully uploading all relevant parts of an upload, you
-  call this operation to complete the upload. Upon receiving this request, Amazon
-  S3 concatenates all the parts in ascending order by part number to create a new
+  call this action to complete the upload. Upon receiving this request, Amazon S3
+  concatenates all the parts in ascending order by part number to create a new
   object. In the Complete Multipart Upload request, you must provide the parts
-  list. You must ensure that the parts list is complete. This operation
-  concatenates the parts that you provide in the list. For each part in the list,
-  you must provide the part number and the `ETag` value, returned after that part
-  was uploaded.
+  list. You must ensure that the parts list is complete. This action concatenates
+  the parts that you provide in the list. For each part in the list, you must
+  provide the part number and the `ETag` value, returned after that part was
+  uploaded.
 
   Processing of a Complete Multipart Upload request could take several minutes to
   complete. After Amazon S3 begins processing the request, it sends an HTTP
@@ -117,7 +117,7 @@ defmodule AWS.S3 do
   Upload](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html).
 
   For information about permissions required to use the multipart upload API, see
-  [Multipart Upload API and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
+  [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
 
   `CompleteMultipartUpload` has the following special errors:
 
@@ -212,7 +212,7 @@ defmodule AWS.S3 do
   Creates a copy of an object that is already stored in Amazon S3.
 
   You can store individual objects of up to 5 TB in Amazon S3. You create a copy
-  of your object up to 5 GB in size in a single atomic operation using this API.
+  of your object up to 5 GB in size in a single atomic action using this API.
   However, to copy an object greater than 5 GB, you must use the multipart upload
   Upload Part - Copy API. For more information, see [Copy Object Using the REST Multipart Upload
   API](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html).
@@ -224,12 +224,12 @@ defmodule AWS.S3 do
   want to copy the object to must be enabled for your account.
 
   A copy request might return an error when Amazon S3 receives the copy request or
-  while Amazon S3 is copying the files. If the error occurs before the copy
-  operation starts, you receive a standard Amazon S3 error. If the error occurs
-  during the copy operation, the error response is embedded in the `200 OK`
-  response. This means that a `200 OK` response can contain either a success or an
-  error. Design your application to parse the contents of the response and handle
-  it appropriately.
+  while Amazon S3 is copying the files. If the error occurs before the copy action
+  starts, you receive a standard Amazon S3 error. If the error occurs during the
+  copy operation, the error response is embedded in the `200 OK` response. This
+  means that a `200 OK` response can contain either a success or an error. Design
+  your application to parse the contents of the response and handle it
+  appropriately.
 
   If the copy is successful, you receive a response with information about the
   copied object.
@@ -239,7 +239,7 @@ defmodule AWS.S3 do
   entire body.
 
   The copy request charge is based on the storage class and Region that you
-  specify for the destination object. For pricing information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/).
+  specify for the destination object. For pricing information, see [Amazon S3 pricing](http://aws.amazon.com/s3/pricing/).
 
   Amazon S3 transfer acceleration does not support cross-Region copies. If you
   request a cross-Region copy using a transfer acceleration endpoint, you get a
@@ -306,7 +306,7 @@ defmodule AWS.S3 do
 
   If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the object.
   For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon S3 User Guide*.
 
   ## Access Control List (ACL)-Specific Request Headers
 
@@ -320,7 +320,7 @@ defmodule AWS.S3 do
 
   ## Storage Class Options
 
-  You can use the `CopyObject` operation to change the storage class of an object
+  You can use the `CopyObject` action to change the storage class of an object
   that is already stored in Amazon S3 using the `StorageClass` parameter. For more
   information, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
   in the *Amazon S3 Service Developer Guide*.
@@ -564,7 +564,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This operation initiates a multipart upload and returns an upload ID.
+  This action initiates a multipart upload and returns an upload ID.
 
   This upload ID is used to associate all of the parts in the specific multipart
   upload. You specify this upload ID in each of your subsequent upload part
@@ -578,12 +578,11 @@ defmodule AWS.S3 do
   If you have configured a lifecycle rule to abort incomplete multipart uploads,
   the upload must complete within the number of days specified in the bucket
   lifecycle configuration. Otherwise, the incomplete multipart upload becomes
-  eligible for an abort operation and Amazon S3 aborts the multipart upload. For
-  more information, see [Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle
-  Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config).
+  eligible for an abort action and Amazon S3 aborts the multipart upload. For more
+  information, see [Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config).
 
   For information about the permissions required to use the multipart upload API,
-  see [Multipart Upload API and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
+  see [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
 
   For request signing, multipart upload is just a series of regular requests. You
   initiate a multipart upload, send one or more requests to upload parts, and then
@@ -603,7 +602,8 @@ defmodule AWS.S3 do
   AWS Key Management Service (AWS KMS) customer master keys (CMKs) or Amazon
   S3-managed encryption keys. If you choose to provide your own encryption key,
   the request headers you provide in
-  [UploadPart](AmazonS3/latest/API/API_UploadPart.html) and [UploadPartCopy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html)
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html) and
+  [UploadPartCopy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html)
   requests must match the headers you used in the request to initiate the upload
   by using `CreateMultipartUpload`.
 
@@ -877,8 +877,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:PutAnalyticsConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For information about the Amazon S3 analytics feature, see [Amazon S3 Analytics – Storage Class
   Analysis](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html).
@@ -928,7 +928,7 @@ defmodule AWS.S3 do
   can grant this permission to others.
 
   For information about `cors`, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon S3 User Guide*.
 
   ## Related Resources:
 
@@ -961,19 +961,19 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This implementation of the DELETE operation removes default encryption from the
+  This implementation of the DELETE action removes default encryption from the
   bucket.
 
   For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Bucket
   Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   To use this operation, you must have permissions to perform the
   `s3:PutEncryptionConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
+  in the *Amazon S3 User Guide*.
 
   ## Related Resources
 
@@ -1068,8 +1068,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:PutInventoryConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For information about the Amazon S3 inventory feature, see [Amazon S3 Inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html).
 
@@ -1167,8 +1167,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:PutMetricsConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For information about CloudWatch request metrics for Amazon S3, see [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html).
@@ -1251,8 +1251,8 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This implementation of the DELETE operation uses the policy subresource to
-  delete the policy of a specified bucket.
+  This implementation of the DELETE action uses the policy subresource to delete
+  the policy of a specified bucket.
 
   If you are using an identity other than the root user of the AWS account that
   owns the bucket, the calling identity must have the `DeleteBucketPolicy`
@@ -1268,8 +1268,7 @@ defmodule AWS.S3 do
   can always use this operation, even if the policy explicitly denies the root
   user the ability to perform this action.
 
-  For more information about bucket policies, see [Using Bucket Policies and UserPolicies](
-  https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
+  For more information about bucket policies, see [Using Bucket Policies and UserPolicies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
   The following operations are related to `DeleteBucketPolicy`
 
@@ -1307,14 +1306,14 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:PutReplicationConfiguration` action. The bucket owner has these permissions
   by default and can grant it to others. For more information about permissions,
-  see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   It can take a while for the deletion of a replication configuration to fully
   propagate.
 
-  For information about replication configuration, see [Replication]( https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon
-  S3 Developer Guide*.
+  For information about replication configuration, see
+  [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 Developer Guide*.
 
   The following operations are related to `DeleteBucketReplication`:
 
@@ -1386,7 +1385,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This operation removes the website configuration for a bucket.
+  This action removes the website configuration for a bucket.
 
   Amazon S3 returns a `200 OK` response upon successfully deleting a website
   configuration on the specified bucket. You will get a `200 OK` response if the
@@ -1394,10 +1393,10 @@ defmodule AWS.S3 do
   Amazon S3 returns a `404` response if the bucket specified in the request does
   not exist.
 
-  This DELETE operation requires the `S3:DeleteBucketWebsite` permission. By
-  default, only the bucket owner can delete the website configuration attached to
-  a bucket. However, bucket owners can grant other users permission to delete the
-  website configuration by writing a bucket policy granting them the
+  This DELETE action requires the `S3:DeleteBucketWebsite` permission. By default,
+  only the bucket owner can delete the website configuration attached to a bucket.
+  However, bucket owners can grant other users permission to delete the website
+  configuration by writing a bucket policy granting them the
   `S3:DeleteBucketWebsite` permission.
 
   For more information about hosting websites, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
@@ -1436,7 +1435,8 @@ defmodule AWS.S3 do
   Removes the null version (if there is one) of an object and inserts a delete
   marker, which becomes the latest version of the object.
 
-  If there isn't a null version, Amazon S3 does not remove any objects.
+  If there isn't a null version, Amazon S3 does not remove any objects but will
+  still respond that the command was successful.
 
   To remove a specific version, you must be the bucket owner and you must use the
   version Id subresource. Using this subresource permanently deletes the version.
@@ -1451,14 +1451,14 @@ defmodule AWS.S3 do
   For more information about MFA Delete, see [Using MFA Delete](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html). To
   see sample requests that use versioning, see [Sample Request](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete).
 
-  You can delete objects by explicitly calling the DELETE Object API or configure
-  its lifecycle
+  You can delete objects by explicitly calling DELETE Object or configure its
+  lifecycle
   ([PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html)) to enable Amazon S3 to remove them for you. If you want to block users or
   accounts from removing or deleting objects from your bucket, you must deny them
   the `s3:DeleteObject`, `s3:DeleteObjectVersion`, and
   `s3:PutLifeCycleConfiguration` actions.
 
-  The following operation is related to `DeleteObject`:
+  The following action is related to `DeleteObject`:
 
     *
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
@@ -1559,28 +1559,28 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This operation enables you to delete multiple objects from a bucket using a
-  single HTTP request.
+  This action enables you to delete multiple objects from a bucket using a single
+  HTTP request.
 
-  If you know the object keys that you want to delete, then this operation
-  provides a suitable alternative to sending individual delete requests, reducing
-  per-request overhead.
+  If you know the object keys that you want to delete, then this action provides a
+  suitable alternative to sending individual delete requests, reducing per-request
+  overhead.
 
   The request contains a list of up to 1000 keys that you want to delete. In the
   XML, you provide the object key names, and optionally, version IDs if you want
   to delete a specific version of the object from a versioning-enabled bucket. For
-  each key, Amazon S3 performs a delete operation and returns the result of that
+  each key, Amazon S3 performs a delete action and returns the result of that
   delete, success, or failure, in the response. Note that if the object specified
   in the request is not found, Amazon S3 returns the result as deleted.
 
-  The operation supports two modes for the response: verbose and quiet. By
-  default, the operation uses verbose mode in which the response includes the
-  result of deletion of each key in your request. In quiet mode the response
-  includes only keys where the delete operation encountered an error. For a
-  successful deletion, the operation does not return any information about the
-  delete in the response body.
+  The action supports two modes for the response: verbose and quiet. By default,
+  the action uses verbose mode in which the response includes the result of
+  deletion of each key in your request. In quiet mode the response includes only
+  keys where the delete action encountered an error. For a successful deletion,
+  the action does not return any information about the delete in the response
+  body.
 
-  When performing this operation on an MFA Delete enabled bucket, that attempts to
+  When performing this action on an MFA Delete enabled bucket, that attempts to
   delete any versioned objects, you must include an MFA token. If you do not
   provide one, the entire request will fail, even if there are non-versioned
   objects you are trying to delete. If you provide an invalid token, whether there
@@ -1643,8 +1643,8 @@ defmodule AWS.S3 do
 
   To use this operation, you must have the `s3:PutBucketPublicAccessBlock`
   permission. For more information about permissions, see [Permissions Related to Bucket Subresource
-  Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   The following operations are related to `DeletePublicAccessBlock`:
 
@@ -1682,7 +1682,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This implementation of the GET operation uses the `accelerate` subresource to
+  This implementation of the GET action uses the `accelerate` subresource to
   return the Transfer Acceleration state of a bucket, which is either `Enabled` or
   `Suspended`.
 
@@ -1692,9 +1692,9 @@ defmodule AWS.S3 do
   To use this operation, you must have permission to perform the
   `s3:GetAccelerateConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
+  in the *Amazon S3 User Guide*.
 
   You set the Transfer Acceleration state of an existing bucket to `Enabled` or
   `Suspended` by using the
@@ -1706,7 +1706,7 @@ defmodule AWS.S3 do
 
   For more information about transfer acceleration, see [Transfer
   Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html)
-  in the Amazon Simple Storage Service Developer Guide.
+  in the Amazon S3 User Guide.
 
   ## Related Resources
 
@@ -1745,8 +1745,8 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This implementation of the `GET` operation uses the `acl` subresource to return
-  the access control list (ACL) of a bucket.
+  This implementation of the `GET` action uses the `acl` subresource to return the
+  access control list (ACL) of a bucket.
 
   To use `GET` to return the ACL of the bucket, you must have `READ_ACP` access to
   the bucket. If `READ_ACP` permission is granted to the anonymous user, you can
@@ -1784,19 +1784,19 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This implementation of the GET operation returns an analytics configuration
+  This implementation of the GET action returns an analytics configuration
   (identified by the analytics configuration ID) from the bucket.
 
   To use this operation, you must have permissions to perform the
   `s3:GetAnalyticsConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [ Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  information about permissions, see [ Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
+  in the *Amazon S3 User Guide*.
 
   For information about Amazon S3 analytics feature, see [Amazon S3 Analytics – Storage Class
   Analysis](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   ## Related Resources
 
@@ -1890,14 +1890,17 @@ defmodule AWS.S3 do
   @doc """
   Returns the default encryption configuration for an Amazon S3 bucket.
 
+  If the bucket does not have a default encryption configuration,
+  GetBucketEncryption returns `ServerSideEncryptionConfigurationNotFoundError`.
+
   For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Bucket
   Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html).
 
   To use this operation, you must have permission to perform the
   `s3:GetEncryptionConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   The following operations are related to `GetBucketEncryption`:
 
@@ -1996,8 +1999,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:GetInventoryConfiguration` action. The bucket owner has this permission by
   default and can grant this permission to others. For more information about
-  permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For information about the Amazon S3 inventory feature, see [Amazon S3 Inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html).
 
@@ -2062,8 +2065,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permission to perform the
   `s3:GetLifecycleConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   `GetBucketLifecycle` has the following special error:
 
@@ -2123,7 +2126,7 @@ defmodule AWS.S3 do
   Accordingly, this section describes the latest API. The response describes the
   new filter element that you can use to specify a filter to select a subset of
   objects to which the rule applies. If you are using a previous version of the
-  lifecycle configuration, it still works. For the earlier API description, see
+  lifecycle configuration, it still works. For the earlier action, see
   [GetBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html). 
   Returns the lifecycle configuration information set on the bucket. For
   information about lifecycle configuration, see [Object Lifecycle
@@ -2132,8 +2135,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permission to perform the
   `s3:GetLifecycleConfiguration` action. The bucket owner has this permission, by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   `GetBucketLifecycleConfiguration` has the following special error:
 
@@ -2274,8 +2277,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:GetMetricsConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For information about CloudWatch request metrics for Amazon S3, see [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html).
@@ -2367,7 +2370,7 @@ defmodule AWS.S3 do
   @doc """
   Returns the notification configuration of a bucket.
 
-  If notifications are not enabled on the bucket, the operation returns an empty
+  If notifications are not enabled on the bucket, the action returns an empty
   `NotificationConfiguration` element.
 
   By default, you must be the bucket owner to read the notification configuration
@@ -2379,7 +2382,7 @@ defmodule AWS.S3 do
   a bucket, see [Setting Up Notification of Bucket Events](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
   For more information about bucket policies, see [Using Bucket Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
-  The following operation is related to `GetBucketNotification`:
+  The following action is related to `GetBucketNotification`:
 
     *
   [PutBucketNotification](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html)
@@ -2480,7 +2483,7 @@ defmodule AWS.S3 do
 
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
-  The following operation is related to `GetBucketPolicy`:
+  The following action is related to `GetBucketPolicy`:
 
     *
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
@@ -2572,9 +2575,9 @@ defmodule AWS.S3 do
   return a wrong result.
 
   For information about replication configuration, see
-  [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon Simple Storage Service Developer Guide*.
+  [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
 
-  This operation requires permissions for the `s3:GetReplicationConfiguration`
+  This action requires permissions for the `s3:GetReplicationConfiguration`
   action. For more information about permissions, see [Using Bucket Policies and
   User
   Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
@@ -2767,8 +2770,8 @@ defmodule AWS.S3 do
   website configuration. For more information about hosting websites, see [Hosting Websites on Amazon
   S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 
-  This GET operation requires the `S3:GetBucketWebsite` permission. By default,
-  only the bucket owner can read the bucket website configuration. However, bucket
+  This GET action requires the `S3:GetBucketWebsite` permission. By default, only
+  the bucket owner can read the bucket website configuration. However, bucket
   owners can allow other users to read the website configuration by writing a
   bucket policy granting them the `S3:GetBucketWebsite` permission.
 
@@ -2834,7 +2837,7 @@ defmodule AWS.S3 do
   Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you
   must first restore a copy using
   [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html).
-  Otherwise, this operation returns an `InvalidObjectStateError` error. For
+  Otherwise, this action returns an `InvalidObjectStateError` error. For
   information about restoring archived objects, see [Restoring Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html).
 
   Encryption request headers, like `x-amz-server-side-encryption`, should not be
@@ -2878,8 +2881,8 @@ defmodule AWS.S3 do
 
   ## Versioning
 
-  By default, the GET operation returns the current version of an object. To
-  return a different version, use the `versionId` subresource.
+  By default, the GET action returns the current version of an object. To return a
+  different version, use the `versionId` subresource.
 
   If the current version of the object is a delete marker, Amazon S3 behaves as if
   the object was deleted and includes `x-amz-delete-marker: true` in the response.
@@ -3131,6 +3134,13 @@ defmodule AWS.S3 do
         ]
       )
 
+    options =
+      Keyword.put(
+        options,
+        :receive_body_as_binary?,
+        true
+      )
+
     Request.request_rest(
       client,
       metadata(),
@@ -3376,7 +3386,7 @@ defmodule AWS.S3 do
   object.
 
   To use this operation, you must have permission to perform the
-  `s3:GetObjectTagging` action. By default, the GET operation returns information
+  `s3:GetObjectTagging` action. By default, the GET action returns information
   about current version of an object. For a versioned bucket, you can have
   multiple versions of an object in your bucket. To retrieve tags of any other
   version, use the versionId query parameter. You also need permission for the
@@ -3387,10 +3397,11 @@ defmodule AWS.S3 do
 
   For information about the Amazon S3 object tagging feature, see [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html).
 
-  The following operation is related to `GetObjectTagging`:
+  The following action is related to `GetObjectTagging`:
 
     *
-  [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)
+  [PutObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html)     *
+  [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
   """
   def get_object_tagging(
         %Client{} = client,
@@ -3398,6 +3409,7 @@ defmodule AWS.S3 do
         key,
         version_id \\ nil,
         expected_bucket_owner \\ nil,
+        request_payer \\ nil,
         options \\ []
       ) do
     url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
@@ -3406,6 +3418,13 @@ defmodule AWS.S3 do
     headers =
       if !is_nil(expected_bucket_owner) do
         [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
       else
         headers
       end
@@ -3453,7 +3472,7 @@ defmodule AWS.S3 do
 
   This action is not supported by Amazon S3 on Outposts.
 
-  The following operation is related to `GetObjectTorrent`:
+  The following action is related to `GetObjectTorrent`:
 
     *
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
@@ -3490,6 +3509,13 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [{"x-amz-request-charged", "RequestCharged"}]
+      )
+
+    options =
+      Keyword.put(
+        options,
+        :receive_body_as_binary?,
+        true
       )
 
     Request.request_rest(
@@ -3565,18 +3591,22 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This operation is useful to determine if a bucket exists and you have permission
-  to access it.
+  This action is useful to determine if a bucket exists and you have permission to
+  access it.
 
-  The operation returns a `200 OK` if the bucket exists and you have permission to
-  access it. Otherwise, the operation might return responses such as `404 Not
-  Found` and `403 Forbidden`.
+  The action returns a `200 OK` if the bucket exists and you have permission to
+  access it.
+
+  If the bucket does not exist or you do not have permission to access it, the
+  `HEAD` request returns a generic `404 Not Found` or `403 Forbidden` code. A
+  message body is not included, so you cannot determine the exception beyond these
+  error codes.
 
   To use this operation, you must have permissions to perform the `s3:ListBucket`
   action. The bucket owner has this permission by default and can grant this
   permission to others. For more information about permissions, see [Permissions Related to Bucket Subresource
-  Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
   """
   def head_bucket(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{URI.encode(bucket)}"
@@ -3603,15 +3633,17 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  The HEAD operation retrieves metadata from an object without returning the
-  object itself.
+  The HEAD action retrieves metadata from an object without returning the object
+  itself.
 
-  This operation is useful if you're only interested in an object's metadata. To
-  use HEAD, you must have READ access to the object.
+  This action is useful if you're only interested in an object's metadata. To use
+  HEAD, you must have READ access to the object.
 
-  A `HEAD` request has the same options as a `GET` operation on an object. The
+  A `HEAD` request has the same options as a `GET` action on an object. The
   response is identical to the `GET` response except that there is no response
-  body.
+  body. Because of this, if the `HEAD` request generates an error, it returns a
+  generic `404 Not Found` or `403 Forbidden` code. It is not possible to retrieve
+  the exact exception beyond these error codes.
 
   If you encrypt an object by using server-side encryption with customer-provided
   encryption keys (SSE-C) when you store the object in Amazon S3, then when you
@@ -3626,11 +3658,14 @@ defmodule AWS.S3 do
   For more information about SSE-C, see [Server-Side Encryption (Using Customer-Provided Encryption
   Keys)](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html).
 
-  Encryption request headers, like `x-amz-server-side-encryption`, should not be
-  sent for GET requests if your object uses server-side encryption with CMKs
-  stored in AWS KMS (SSE-KMS) or server-side encryption with Amazon S3–managed
-  encryption keys (SSE-S3). If your object does use these types of keys, you’ll
-  get an HTTP 400 BadRequest error.
+     Encryption request headers, like `x-amz-server-side-encryption`,
+  should not be sent for GET requests if your object uses server-side encryption
+  with CMKs stored in AWS KMS (SSE-KMS) or server-side encryption with Amazon
+  S3–managed encryption keys (SSE-S3). If your object does use these types of
+  keys, you’ll get an HTTP 400 BadRequest error.
+
+     The last modified property in this case is the creation date of the
+  object.
 
   Request headers are limited to 8 KB in size. For more information, see [Common Request
   Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html).
@@ -3670,7 +3705,7 @@ defmodule AWS.S3 do
     * If you don’t have the `s3:ListBucket` permission, Amazon S3
   returns an HTTP status code 403 ("access denied") error.
 
-  The following operation is related to `HeadObject`:
+  The following action is related to `HeadObject`:
 
     *
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
@@ -3755,7 +3790,7 @@ defmodule AWS.S3 do
 
   You can have up to 1,000 analytics configurations per bucket.
 
-  This operation supports list pagination and does not return more than 100
+  This action supports list pagination and does not return more than 100
   configurations at a time. You should always check the `IsTruncated` element in
   the response. If there are no more configurations to list, `IsTruncated` is set
   to false. If there are more configurations to list, `IsTruncated` is set to
@@ -3766,8 +3801,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:GetAnalyticsConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For information about Amazon S3 analytics feature, see [Amazon S3 Analytics – Storage Class
   Analysis](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html).
@@ -3883,7 +3918,7 @@ defmodule AWS.S3 do
 
   You can have up to 1,000 analytics configurations per bucket.
 
-  This operation supports list pagination and does not return more than 100
+  This action supports list pagination and does not return more than 100
   configurations at a time. Always check the `IsTruncated` element in the
   response. If there are no more configurations to list, `IsTruncated` is set to
   false. If there are more configurations to list, `IsTruncated` is set to true,
@@ -3894,8 +3929,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:GetInventoryConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For information about the Amazon S3 inventory feature, see [Amazon S3 Inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html)
 
@@ -3954,7 +3989,7 @@ defmodule AWS.S3 do
   not provide information on daily storage metrics. You can have up to 1,000
   configurations per bucket.
 
-  This operation supports list pagination and does not return more than 100
+  This action supports list pagination and does not return more than 100
   configurations at a time. Always check the `IsTruncated` element in the
   response. If there are no more configurations to list, `IsTruncated` is set to
   false. If there are more configurations to list, `IsTruncated` is set to true,
@@ -3965,8 +4000,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:GetMetricsConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For more information about metrics configurations and CloudWatch request
   metrics, see [Monitoring Metrics with Amazon CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html).
@@ -4041,13 +4076,13 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This operation lists in-progress multipart uploads.
+  This action lists in-progress multipart uploads.
 
   An in-progress multipart upload is a multipart upload that has been initiated
   using the Initiate Multipart Upload request, but has not yet been completed or
   aborted.
 
-  This operation returns at most 1,000 multipart uploads in the response. 1,000
+  This action returns at most 1,000 multipart uploads in the response. 1,000
   multipart uploads is the maximum number of uploads a response can include, which
   is also the default value. You can further limit the number of uploads in a
   response by specifying the `max-uploads` parameter in the response. If
@@ -4065,7 +4100,7 @@ defmodule AWS.S3 do
   Upload](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html).
 
   For information on permissions required to use the multipart upload API, see
-  [Multipart Upload API and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
+  [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
 
   The following operations are related to `ListMultipartUploads`:
 
@@ -4164,6 +4199,9 @@ defmodule AWS.S3 do
 
   You can also use request parameters as selection criteria to return metadata
   about a subset of all the object versions.
+
+  To use this operation, you must have permissions to perform the
+  `s3:ListBucketVersions` action. Be aware of the name difference.
 
   A 200 OK response can contain valid or invalid XML. Make sure to design your
   application to parse the contents of the response and handle it appropriately.
@@ -4269,7 +4307,7 @@ defmodule AWS.S3 do
   sure to design your application to parse the contents of the response and handle
   it appropriately.
 
-  This API has been revised. We recommend that you use the newer version,
+  This action has been revised. We recommend that you use the newer version,
   [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html), when developing applications. For backward compatibility, Amazon S3 continues to
   support `ListObjects`.
 
@@ -4371,19 +4409,20 @@ defmodule AWS.S3 do
   You can use the request parameters as selection criteria to return a subset of
   the objects in a bucket. A `200 OK` response can contain valid or invalid XML.
   Make sure to design your application to parse the contents of the response and
-  handle it appropriately.
+  handle it appropriately. Objects are returned sorted in an ascending order of
+  the respective key names in the list.
 
   To use this operation, you must have READ access to the bucket.
 
-  To use this operation in an AWS Identity and Access Management (IAM) policy, you
+  To use this action in an AWS Identity and Access Management (IAM) policy, you
   must have permissions to perform the `s3:ListBucket` action. The bucket owner
   has this permission by default and can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
-  This section describes the latest revision of the API. We recommend that you use
-  this revised API for application development. For backward compatibility, Amazon
-  S3 continues to support the prior version of this API,
+  This section describes the latest revision of this action. We recommend that you
+  use this revised API for application development. For backward compatibility,
+  Amazon S3 continues to support the prior version of this API,
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html). 
   To get a list of your buckets, see
   [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html).
@@ -4510,7 +4549,7 @@ defmodule AWS.S3 do
   Upload](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html).
 
   For information on permissions required to use the multipart upload API, see
-  [Multipart Upload API and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
+  [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html).
 
   The following operations are related to `ListParts`:
 
@@ -4609,8 +4648,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permission to perform the
   s3:PutAccelerateConfiguration action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   The Transfer Acceleration state of a bucket can be set to one of the following
   two values:
@@ -4620,7 +4659,7 @@ defmodule AWS.S3 do
     * Suspended – Disables accelerated data transfers to the bucket.
 
   The
-  [GetBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html) operation returns the transfer acceleration state of a bucket.
+  [GetBucketAccelerateConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html) action returns the transfer acceleration state of a bucket.
 
   After setting the Transfer Acceleration state of a bucket to Enabled, it might
   take up to thirty minutes before the data transfer rates to the bucket increase.
@@ -4856,8 +4895,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:PutAnalyticsConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   ## Special Errors
 
@@ -4953,7 +4992,7 @@ defmodule AWS.S3 do
   request header of a pre-flight request must match an `AllowedHeader` element.
 
   For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon S3 User Guide*.
 
   ## Related Resources
 
@@ -4990,7 +5029,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This operation uses the `encryption` subresource to configure default encryption
+  This action uses the `encryption` subresource to configure default encryption
   and Amazon S3 Bucket Key for an existing bucket.
 
   Default encryption for a bucket can use server-side encryption with Amazon
@@ -4998,20 +5037,20 @@ defmodule AWS.S3 do
   specify default encryption using SSE-KMS, you can also configure Amazon S3
   Bucket Key. For information about default encryption, see [Amazon S3 default bucket
   encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)
-  in the *Amazon Simple Storage Service Developer Guide*. For more information
-  about S3 Bucket Keys, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*. For more information about S3 Bucket Keys, see
+  [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
+  *Amazon S3 User Guide*.
 
-  This operation requires AWS Signature Version 4. For more information, see [
+  This action requires AWS Signature Version 4. For more information, see [
   Authenticating Requests (AWS Signature Version
-  4)](sig-v4-authenticating-requests.html).
+  4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
 
   To use this operation, you must have permissions to perform the
   `s3:PutEncryptionConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
-  in the Amazon Simple Storage Service Developer Guide.
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
+  in the Amazon S3 User Guide.
 
   ## Related Resources
 
@@ -5047,6 +5086,8 @@ defmodule AWS.S3 do
   @doc """
   Puts a S3 Intelligent-Tiering configuration to the specified bucket.
 
+  You can have up to 1,000 S3 Intelligent-Tiering configurations per bucket.
+
   The S3 Intelligent-Tiering storage class is designed to optimize storage costs
   by automatically moving data to the most cost-effective storage access tier,
   without additional operational overhead. S3 Intelligent-Tiering delivers
@@ -5071,6 +5112,33 @@ defmodule AWS.S3 do
 
     *
   [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
+
+  You only need S3 Intelligent-Tiering enabled on a bucket if you want to
+  automatically move objects stored in the S3 Intelligent-Tiering storage class to
+  the Archive Access or Deep Archive Access tier.
+
+  ## Special Errors
+
+    * ## HTTP 400 Bad Request Error
+
+      * *Code:* InvalidArgument
+
+      * *Cause:* Invalid Argument
+
+    * ## HTTP 400 Bad Request Error
+
+      * *Code:* TooManyConfigurations
+
+      * *Cause:* You are attempting to create a new
+  configuration but have already reached the 1,000-configuration limit.
+
+    * ## HTTP 403 Forbidden Error
+
+      * *Code:* AccessDenied
+
+      * *Cause:* You are not the owner of the specified
+  bucket, or you do not have the `s3:PutIntelligentTieringConfiguration` bucket
+  permission to set the configuration on the bucket.
   """
   def put_bucket_intelligent_tiering_configuration(
         %Client{} = client,
@@ -5101,7 +5169,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This implementation of the `PUT` operation adds an inventory configuration
+  This implementation of the `PUT` action adds an inventory configuration
   (identified by the inventory ID) to the bucket.
 
   You can have up to 1,000 inventory configurations per bucket.
@@ -5117,7 +5185,7 @@ defmodule AWS.S3 do
   generate the inventory daily or weekly. You can also configure what object
   metadata to include and whether to inventory all object versions or only current
   versions. For more information, see [Amazon S3 Inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html)
-  in the Amazon Simple Storage Service Developer Guide.
+  in the Amazon S3 User Guide.
 
   You must create a bucket policy on the *destination* bucket to grant permissions
   to Amazon S3 to write objects to the bucket in the defined location. For an
@@ -5127,9 +5195,9 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:PutInventoryConfiguration` action. The bucket owner has this permission by
   default and can grant this permission to others. For more information about
-  permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
-  in the Amazon Simple Storage Service Developer Guide.
+  permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
+  in the Amazon S3 User Guide.
 
   ## Special Errors
 
@@ -5200,7 +5268,7 @@ defmodule AWS.S3 do
   lifecycle configuration. For information about lifecycle configuration, see
   [Object Lifecycle
   Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   By default, all Amazon S3 resources, including buckets, objects, and related
   subresources (for example, lifecycle configuration and website configuration)
@@ -5221,8 +5289,8 @@ defmodule AWS.S3 do
     * `s3:PutLifecycleConfiguration`
 
   For more information about permissions, see [Managing Access Permissions to your Amazon S3
-  Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
+  in the *Amazon S3 User Guide*.
 
   For more examples of transitioning objects to storage classes such as
   STANDARD_IA or ONEZONE_IA, see [Examples of Lifecycle Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#lifecycle-configuration-examples).
@@ -5237,13 +5305,12 @@ defmodule AWS.S3 do
   [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html)     * By default, a resource owner—in this case, a bucket owner, which
   is the AWS account that created the bucket—can perform any of the operations. A
   resource owner can also grant others permission to perform the operation. For
-  more information, see the following topics in the Amazon Simple Storage Service
-  Developer Guide:
+  more information, see the following topics in the Amazon S3 User Guide:
 
       * [Specifying Permissions in a
   Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)
 
-      * [Managing Access Permissions to your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
+      * [Managing Access Permissions to your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
   """
   def put_bucket_lifecycle(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{URI.encode(bucket)}?lifecycle"
@@ -5275,7 +5342,7 @@ defmodule AWS.S3 do
   lifecycle configuration.
 
   For information about lifecycle configuration, see [Managing Access Permissions to Your Amazon S3
-  Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   Bucket lifecycle configuration now supports specifying a lifecycle rule using an
   object key name prefix, one or more object tags, or a combination of both.
@@ -5327,7 +5394,7 @@ defmodule AWS.S3 do
     * s3:PutLifecycleConfiguration
 
   For more information about permissions, see [Managing Access Permissions to Your Amazon S3
-  Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   The following are related to `PutBucketLifecycleConfiguration`:
 
@@ -5456,8 +5523,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:PutMetricsConfiguration` action. The bucket owner has this permission by
   default. The bucket owner can grant this permission to others. For more
-  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   For information about CloudWatch request metrics for Amazon S3, see [Monitoring Metrics with Amazon
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html).
@@ -5555,7 +5622,7 @@ defmodule AWS.S3 do
 
   `</NotificationConfiguration>`
 
-  This operation replaces the existing notification configuration with the
+  This action replaces the existing notification configuration with the
   configuration you include in the request body.
 
   After Amazon S3 receives this request, it first verifies that any Amazon Simple
@@ -5577,8 +5644,7 @@ defmodule AWS.S3 do
   notification configuration includes SNS topic, SQS queue, and Lambda function
   configurations. When you send a PUT request with this configuration, Amazon S3
   sends test messages to your SNS topic. If the message fails, the entire PUT
-  operation will fail, and Amazon S3 will not add the configuration to your
-  bucket.
+  action will fail, and Amazon S3 will not add the configuration to your bucket.
 
   ## Responses
 
@@ -5587,7 +5653,7 @@ defmodule AWS.S3 do
   will also include the `x-amz-sns-test-message-id` header containing the message
   ID of the test notification sent to the topic.
 
-  The following operation is related to `PutBucketNotificationConfiguration`:
+  The following action is related to `PutBucketNotificationConfiguration`:
 
     *
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
@@ -5713,8 +5779,7 @@ defmodule AWS.S3 do
   For more information, see
   [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 Developer Guide*.
 
-  To perform this operation, the user or role performing the operation must have
-  the
+  To perform this operation, the user or role performing the action must have the
   [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)
   permission.
 
@@ -5744,7 +5809,7 @@ defmodule AWS.S3 do
   bucket, can perform this operation. The resource owner can also grant others
   permissions to perform the operation. For more information about permissions,
   see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   ## Handling Replication of Encrypted Objects
 
@@ -5847,8 +5912,8 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:PutBucketTagging` action. The bucket owner has this permission by default
   and can grant this permission to others. For more information about permissions,
-  see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   `PutBucketTagging` has the following special errors:
 
@@ -5866,7 +5931,7 @@ defmodule AWS.S3 do
 
     * Error code: `OperationAbortedError `
 
-      * Description: A conflicting conditional operation is
+      * Description: A conflicting conditional action is
   currently in progress against this resource. Please try again.
 
     * Error code: `InternalError`
@@ -5979,10 +6044,10 @@ defmodule AWS.S3 do
   with website configuration information such as the file name of the index
   document and any redirect rules. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 
-  This PUT operation requires the `S3:PutBucketWebsite` permission. By default,
-  only the bucket owner can configure the website attached to a bucket; however,
-  bucket owners can allow other users to set the website configuration by writing
-  a bucket policy that grants them the `S3:PutBucketWebsite` permission.
+  This PUT action requires the `S3:PutBucketWebsite` permission. By default, only
+  the bucket owner can configure the website attached to a bucket; however, bucket
+  owners can allow other users to set the website configuration by writing a
+  bucket policy that grants them the `S3:PutBucketWebsite` permission.
 
   To redirect all website requests sent to the bucket's website endpoint, you add
   a website configuration with the following elements. Because all requests are
@@ -6038,7 +6103,7 @@ defmodule AWS.S3 do
   Amazon S3 has a limitation of 50 routing rules per website configuration. If you
   require more than 50 routing rules, you can use object redirect. For more
   information, see [Configuring an Object Redirect](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
   """
   def put_bucket_website(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{URI.encode(bucket)}?website"
@@ -6087,7 +6152,7 @@ defmodule AWS.S3 do
   The `Content-MD5` header is required for any request to upload an object with a
   retention period configured using Amazon S3 Object Lock. For more information
   about Amazon S3 Object Lock, see [Amazon S3 Object Lock Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   ## Server-side Encryption
 
@@ -6100,7 +6165,7 @@ defmodule AWS.S3 do
   If you request server-side encryption using AWS Key Management Service
   (SSE-KMS), you can enable an S3 Bucket Key at the object-level. For more
   information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon S3 User Guide*.
 
   ## Access Control List (ACL)-Specific Request Headers
 
@@ -6220,7 +6285,7 @@ defmodule AWS.S3 do
 
   You must have `WRITE_ACP` permission to set the ACL of an object. For more
   information, see [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   This action is not supported by Amazon S3 on Outposts.
 
@@ -6400,11 +6465,9 @@ defmodule AWS.S3 do
   @doc """
   Applies a Legal Hold configuration to the specified object.
 
+  For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+
   This action is not supported by Amazon S3 on Outposts.
-
-  ## Related Resources
-
-    * [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html)
   """
   def put_object_legal_hold(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
@@ -6447,14 +6510,16 @@ defmodule AWS.S3 do
   Places an Object Lock configuration on the specified bucket.
 
   The rule specified in the Object Lock configuration will be applied by default
-  to every new object placed in the specified bucket.
+  to every new object placed in the specified bucket. For more information, see
+  [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 
-  `DefaultRetention` requires either Days or Years. You can't specify both at the
-  same time.
+     The `DefaultRetention` settings require both a mode and a period.
 
-  ## Related Resources
+     The `DefaultRetention` period can be either `Days` or `Years` but
+  you must select one. You cannot specify `Days` and `Years` at the same time.
 
-    * [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html)
+     You can only enable Object Lock for new buckets. If you want to
+  turn on Object Lock for an existing bucket, contact AWS Support.
   """
   def put_object_lock_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{URI.encode(bucket)}?object-lock"
@@ -6493,11 +6558,9 @@ defmodule AWS.S3 do
   @doc """
   Places an Object Retention configuration on an object.
 
+  For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+
   This action is not supported by Amazon S3 on Outposts.
-
-  ## Related Resources
-
-    * [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html)
   """
   def put_object_retention(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
@@ -6570,8 +6633,8 @@ defmodule AWS.S3 do
 
     *     * *Code: OperationAbortedError *
 
-      * *Cause: A conflicting conditional operation is
-  currently in progress against this resource. Please try again.*
+      * *Cause: A conflicting conditional action is currently
+  in progress against this resource. Please try again.*
 
     *     * *Code: InternalError*
 
@@ -6581,7 +6644,8 @@ defmodule AWS.S3 do
   ## Related Resources
 
     *
-  [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
+  [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)     *
+  [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
   """
   def put_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
@@ -6589,7 +6653,8 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ContentMD5", "Content-MD5"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"RequestPayer", "x-amz-request-payer"}
       ]
       |> Request.build_params(input)
 
@@ -6686,9 +6751,9 @@ defmodule AWS.S3 do
   To use this operation, you must have permissions to perform the
   `s3:RestoreObject` action. The bucket owner has this permission by default and
   can grant this permission to others. For more information about permissions, see
-  [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
+  in the *Amazon S3 User Guide*.
 
   ## Querying Archives with Select Requests
 
@@ -6698,7 +6763,7 @@ defmodule AWS.S3 do
   custom analytics on your archived data without having to restore your data to a
   hotter Amazon S3 tier. For an overview about select requests, see [Querying Archived
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   When making a select request, do the following:
 
@@ -6708,7 +6773,7 @@ defmodule AWS.S3 do
   must have permissions to write to the S3 bucket. You can specify the storage
   class and encryption for the output objects stored in the bucket. For more
   information about output, see [Querying Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   For more information about the `S3` structure in the request body, see the
   following:
@@ -6716,10 +6781,10 @@ defmodule AWS.S3 do
       *
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)       * [Managing Access with
   ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html) in
-  the *Amazon Simple Storage Service Developer Guide*
+  the *Amazon S3 User Guide*
 
       * [Protecting Data Using Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)
-  in the *Amazon Simple Storage Service Developer Guide*
+  in the *Amazon S3 User Guide*
 
     * Define the SQL expression for the `SELECT` type of restoration for
   your query in the request body's `SelectParameters` structure. You can use
@@ -6745,7 +6810,7 @@ defmodule AWS.S3 do
 
   For more information about using SQL with S3 Glacier Select restore, see [SQL Reference for Amazon S3 Select and S3 Glacier
   Select](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   When making a select request, you can also do the following:
 
@@ -6817,19 +6882,19 @@ defmodule AWS.S3 do
 
   For more information about archive retrieval options and provisioned capacity
   for `Expedited` data access, see [Restoring Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   You can use Amazon S3 restore speed upgrade to change the restore speed to a
   faster speed while it is in progress. For more information, see [ Upgrading the speed of an in-progress
   restore](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html#restoring-objects-upgrade-tier.title.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   To get the status of object restoration, you can send a `HEAD` request.
   Operations return the `x-amz-restore` header, which provides information about
   the restoration status, in the response. You can use Amazon S3 event
   notifications to notify you when a restore is initiated or completed. For more
   information, see [Configuring Amazon S3 Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   After restoring an archived object, you can update the restoration period by
   reissuing the request with a new period. Amazon S3 updates the restoration
@@ -6844,12 +6909,11 @@ defmodule AWS.S3 do
   object in 3 days. For more information about lifecycle configuration, see
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html) and [Object Lifecycle
   Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
-  in *Amazon Simple Storage Service Developer Guide*.
+  in *Amazon S3 User Guide*.
 
   ## Responses
 
-  A successful operation returns either the `200 OK` or `202 Accepted` status
-  code.
+  A successful action returns either the `200 OK` or `202 Accepted` status code.
 
     * If the object is not previously restored, then Amazon S3 returns
   `202 Accepted` in the response.
@@ -6888,7 +6952,7 @@ defmodule AWS.S3 do
 
     * [SQL Reference for Amazon S3 Select and S3 Glacier Select
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html)
-  in the *Amazon Simple Storage Service Developer Guide*
+  in the *Amazon S3 User Guide*
   """
   def restore_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?restore"
@@ -6930,7 +6994,7 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  This operation filters the contents of an Amazon S3 object based on a simple
+  This action filters the contents of an Amazon S3 object based on a simple
   structured query language (SQL) statement.
 
   In the request, along with the SQL expression, you must also specify a data
@@ -6942,18 +7006,18 @@ defmodule AWS.S3 do
   This action is not supported by Amazon S3 on Outposts.
 
   For more information about Amazon S3 Select, see [Selecting Content from Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   For more information about using SQL with Amazon S3 Select, see [ SQL Reference for Amazon S3 Select and S3 Glacier
   Select](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   ## Permissions
 
   You must have `s3:GetObject` permission for this operation. Amazon S3 Select
   does not support anonymous access. For more information about permissions, see
   [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   *Object Data Formats*
 
@@ -6980,14 +7044,14 @@ defmodule AWS.S3 do
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html). For more information about SSE-C, see [Server-Side Encryption (Using
   Customer-Provided Encryption
   Keys)](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   For objects that are encrypted with Amazon S3 managed encryption keys (SSE-S3)
   and customer master keys (CMKs) stored in AWS Key Management Service (SSE-KMS),
   server-side encryption is handled transparently, so you don't need to specify
   anything. For more information about server-side encryption, including SSE-S3
   and SSE-KMS, see [Protecting Data Using Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   ## Working with the Response Body
 
@@ -6999,7 +7063,7 @@ defmodule AWS.S3 do
 
   ## GetObject Support
 
-  The `SelectObjectContent` operation does not support the following `GetObject`
+  The `SelectObjectContent` action does not support the following `GetObject`
   functionality. For more information, see
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html).    * `Range`: Although you can specify a scan range for an Amazon S3
   Select request (see [SelectObjectContentRequest -
@@ -7010,7 +7074,7 @@ defmodule AWS.S3 do
     * GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You
   cannot specify the GLACIER, DEEP_ARCHIVE, or `REDUCED_REDUNDANCY` storage
   classes. For more information, about storage classes see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   ## Special Errors
 
@@ -7091,11 +7155,11 @@ defmodule AWS.S3 do
   for the parts storage.
 
   For more information on multipart uploads, go to [Multipart Upload Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html) in
-  the *Amazon Simple Storage Service Developer Guide *.
+  the *Amazon S3 User Guide *.
 
   For information on the permissions required to use the multipart upload API, go
-  to [Multipart Upload API and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  to [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
+  in the *Amazon S3 User Guide*.
 
   You can optionally request server-side encryption where Amazon S3 encrypts your
   data as it writes it to disks in its data centers and decrypts it for you when
@@ -7105,7 +7169,7 @@ defmodule AWS.S3 do
   headers you used in the request to initiate the upload by using
   [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html). For more information, go to [Using Server-Side
   Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   Server-side encryption is supported by the S3 Multipart Upload actions. Unless
   you are using a customer-provided encryption key, you don't need to specify the
@@ -7213,10 +7277,10 @@ defmodule AWS.S3 do
 
   The minimum allowable part size for a multipart upload is 5 MB. For more
   information about multipart upload limits, go to [Quick Facts](https://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon S3 User Guide*.
 
   Instead of using an existing object as part data, you might use the
-  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html) operation and provide data in your request.
+  [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html) action and provide data in your request.
 
   You must initiate a multipart upload before you can upload any part. In response
   to your initiate request. Amazon S3 returns a unique identifier, the upload ID,
@@ -7228,15 +7292,15 @@ defmodule AWS.S3 do
     * For conceptual information about multipart uploads, see [Uploading
   Objects Using Multipart
   Upload](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
     * For information about permissions required to use the multipart
-  upload API, see [Multipart Upload API and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  upload API, see [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
+  in the *Amazon S3 User Guide*.
 
-    * For information about copying objects using a single atomic
-  operation vs. the multipart upload, see [Operations on Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+    * For information about copying objects using a single atomic action
+  vs. the multipart upload, see [Operations on Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html)
+  in the *Amazon S3 User Guide*.
 
     * For information about using server-side encryption with
   customer-provided encryption keys with the UploadPartCopy operation, see
@@ -7366,6 +7430,115 @@ defmodule AWS.S3 do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Passes transformed objects to a `GetObject` operation when using Object Lambda
+  Access Points.
+
+  For information about Object Lambda Access Points, see [Transforming objects with Object Lambda Access
+  Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html)
+  in the *Amazon S3 User Guide*.
+
+  This operation supports metadata that can be returned by
+  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html), in addition to `RequestRoute`, `RequestToken`, `StatusCode`, `ErrorCode`, and
+  `ErrorMessage`. The `GetObject` response metadata is supported so that the
+  `WriteGetObjectResponse` caller, typically an AWS Lambda function, can provide
+  the same metadata when it internally invokes `GetObject`. When
+  `WriteGetObjectResponse` is called by a customer-owned Lambda function, the
+  metadata returned to the end user `GetObject` call might differ from what Amazon
+  S3 would normally return.
+
+  AWS provides some prebuilt Lambda functions that you can use with S3 Object
+  Lambda to detect and redact personally identifiable information (PII) and
+  decompress S3 objects. These Lambda functions are available in the AWS
+  Serverless Application Repository, and can be selected through the AWS
+  Management Console when you create your Object Lambda Access Point.
+
+  Example 1: PII Access Control - This Lambda function uses Amazon Comprehend, a
+  natural language processing (NLP) service using machine learning to find
+  insights and relationships in text. It automatically detects personally
+  identifiable information (PII) such as names, addresses, dates, credit card
+  numbers, and social security numbers from documents in your Amazon S3 bucket.
+
+  Example 2: PII Redaction - This Lambda function uses Amazon Comprehend, a
+  natural language processing (NLP) service using machine learning to find
+  insights and relationships in text. It automatically redacts personally
+  identifiable information (PII) such as names, addresses, dates, credit card
+  numbers, and social security numbers from documents in your Amazon S3 bucket.
+
+  Example 3: Decompression - The Lambda function S3ObjectLambdaDecompression, is
+  equipped to decompress objects stored in S3 in one of six compressed file
+  formats including bzip2, gzip, snappy, zlib, zstandard and ZIP.
+
+  For information on how to view and use these functions, see [Using AWS built
+  Lambda
+  functions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html)
+  in the *Amazon S3 User Guide*.
+  """
+  def write_get_object_response(%Client{} = client, input, options \\ []) do
+    url_path = "/WriteGetObjectResponse"
+
+    {headers, input} =
+      [
+        {"ETag", "x-amz-fwd-header-ETag"},
+        {"ContentLanguage", "x-amz-fwd-header-Content-Language"},
+        {"Expires", "x-amz-fwd-header-Expires"},
+        {"ObjectLockLegalHoldStatus", "x-amz-fwd-header-x-amz-object-lock-legal-hold"},
+        {"RequestRoute", "x-amz-request-route"},
+        {"Expiration", "x-amz-fwd-header-x-amz-expiration"},
+        {"BucketKeyEnabled", "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"},
+        {"Restore", "x-amz-fwd-header-x-amz-restore"},
+        {"SSECustomerKeyMD5", "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"},
+        {"ObjectLockRetainUntilDate", "x-amz-fwd-header-x-amz-object-lock-retain-until-date"},
+        {"ContentLength", "Content-Length"},
+        {"ContentDisposition", "x-amz-fwd-header-Content-Disposition"},
+        {"ContentEncoding", "x-amz-fwd-header-Content-Encoding"},
+        {"ServerSideEncryption", "x-amz-fwd-header-x-amz-server-side-encryption"},
+        {"AcceptRanges", "x-amz-fwd-header-accept-ranges"},
+        {"StorageClass", "x-amz-fwd-header-x-amz-storage-class"},
+        {"VersionId", "x-amz-fwd-header-x-amz-version-id"},
+        {"ContentType", "x-amz-fwd-header-Content-Type"},
+        {"ObjectLockMode", "x-amz-fwd-header-x-amz-object-lock-mode"},
+        {"SSECustomerAlgorithm",
+         "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"},
+        {"StatusCode", "x-amz-fwd-status"},
+        {"DeleteMarker", "x-amz-fwd-header-x-amz-delete-marker"},
+        {"ErrorCode", "x-amz-fwd-error-code"},
+        {"SSEKMSKeyId", "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"},
+        {"CacheControl", "x-amz-fwd-header-Cache-Control"},
+        {"PartsCount", "x-amz-fwd-header-x-amz-mp-parts-count"},
+        {"RequestCharged", "x-amz-fwd-header-x-amz-request-charged"},
+        {"LastModified", "x-amz-fwd-header-Last-Modified"},
+        {"MissingMeta", "x-amz-fwd-header-x-amz-missing-meta"},
+        {"ErrorMessage", "x-amz-fwd-error-message"},
+        {"ReplicationStatus", "x-amz-fwd-header-x-amz-replication-status"},
+        {"RequestToken", "x-amz-request-token"},
+        {"TagCount", "x-amz-fwd-header-x-amz-tagging-count"},
+        {"ContentRange", "x-amz-fwd-header-Content-Range"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :send_body_as_binary?,
+        true
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,

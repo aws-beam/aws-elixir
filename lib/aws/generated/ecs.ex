@@ -10,14 +10,13 @@ defmodule AWS.ECS do
   containers on a cluster.
 
   You can host your cluster on a serverless infrastructure that is managed by
-  Amazon ECS by launching your services or tasks using the Fargate launch type.
-  For more control, you can host your tasks on a cluster of Amazon Elastic Compute
-  Cloud (Amazon EC2) instances that you manage by using the EC2 launch type. For
-  more information about launch types, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html).
+  Amazon ECS by launching your services or tasks on AWS Fargate. For more control,
+  you can host your tasks on a cluster of Amazon Elastic Compute Cloud (Amazon
+  EC2) instances that you manage.
 
-  Amazon ECS lets you launch and stop container-based applications with simple API
-  calls, allows you to get the state of your cluster from a centralized service,
-  and gives you access to many familiar Amazon EC2 features.
+  Amazon ECS makes it easy to launch and stop container-based applications with
+  simple API calls, allows you to get the state of your cluster from a centralized
+  service, and gives you access to many familiar Amazon EC2 features.
 
   You can use Amazon ECS to schedule the placement of containers across your
   cluster based on your resource needs, isolation policies, and availability
@@ -406,6 +405,13 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Runs a command remotely on a container within a task.
+  """
+  def execute_command(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExecuteCommand", input, options)
+  end
+
+  @doc """
   Lists the account settings for a specified principal.
   """
   def list_account_settings(%Client{} = client, input, options \\ []) do
@@ -741,6 +747,13 @@ defmodule AWS.ECS do
   """
   def update_capacity_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateCapacityProvider", input, options)
+  end
+
+  @doc """
+  Updates the cluster.
+  """
+  def update_cluster(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateCluster", input, options)
   end
 
   @doc """

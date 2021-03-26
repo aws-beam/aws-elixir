@@ -350,6 +350,28 @@ defmodule AWS.Shield do
   end
 
   @doc """
+  Gets information about AWS tags for a specified Amazon Resource Name (ARN) in
+  AWS Shield.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Adds or updates tags for a resource in AWS Shield.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
+  end
+
+  @doc """
+  Removes tags from a resource in AWS Shield.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
   Updates the details of the list of email addresses and phone numbers that the
   DDoS Response Team (DRT) can use to contact you if you have proactive engagement
   enabled, for escalations to the DRT and to initiate proactive customer support.

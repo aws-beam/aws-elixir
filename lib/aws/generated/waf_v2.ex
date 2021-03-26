@@ -83,15 +83,11 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Associates a Web ACL with a regional application resource, to protect the
-  resource. A regional application can be an Application Load Balancer (ALB), an
-  API Gateway REST API, or an AppSync GraphQL API.
+  resource.
+
+  A regional application can be an Application Load Balancer (ALB), an API Gateway
+  REST API, or an AppSync GraphQL API.
 
   For AWS CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To associate a Web ACL, in the CloudFront call
@@ -104,15 +100,11 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Returns the web ACL capacity unit (WCU) requirements for a specified scope and
-  set of rules. You can use this to check the capacity requirements for the rules
-  you want to use in a `RuleGroup` or `WebACL`.
+  set of rules.
+
+  You can use this to check the capacity requirements for the rules you want to
+  use in a `RuleGroup` or `WebACL`.
 
   AWS WAF uses WCUs to calculate and control the operating resources that are used
   to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity
@@ -127,28 +119,18 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Creates an `IPSet`, which you use to identify web requests that originate from
-  specific IP addresses or ranges of IP addresses. For example, if you're
-  receiving a lot of requests from a ranges of IP addresses, you can configure AWS
-  WAF to block them using an IPSet that lists those IP addresses.
+  specific IP addresses or ranges of IP addresses.
+
+  For example, if you're receiving a lot of requests from a ranges of IP
+  addresses, you can configure AWS WAF to block them using an IPSet that lists
+  those IP addresses.
   """
   def create_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateIPSet", input, options)
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Creates a `RegexPatternSet`, which you reference in a
   `RegexPatternSetReferenceStatement`, to have AWS WAF inspect a web request
   component for the specified patterns.
@@ -158,12 +140,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Creates a `RuleGroup` per the specifications provided.
 
   A rule group defines a collection of rules to inspect and control web requests
@@ -177,12 +153,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Creates a `WebACL` per the specifications provided.
 
   A Web ACL defines a collection of rules to use to inspect and control web
@@ -211,12 +181,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Deletes the specified `IPSet`.
   """
   def delete_ip_set(%Client{} = client, input, options \\ []) do
@@ -224,12 +188,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Deletes the `LoggingConfiguration` from the specified web ACL.
   """
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
@@ -246,12 +204,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Deletes the specified `RegexPatternSet`.
   """
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
@@ -259,12 +211,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Deletes the specified `RuleGroup`.
   """
   def delete_rule_group(%Client{} = client, input, options \\ []) do
@@ -272,12 +218,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Deletes the specified `WebACL`.
 
   You can only use this if `ManagedByFirewallManager` is false in the specified
@@ -288,12 +228,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Provides high-level information for a managed rule group, including descriptions
   of the rules.
   """
@@ -302,15 +236,10 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
+  Disassociates a Web ACL from a regional application resource.
 
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
-  Disassociates a Web ACL from a regional application resource. A regional
-  application can be an Application Load Balancer (ALB), an API Gateway REST API,
-  or an AppSync GraphQL API.
+  A regional application can be an Application Load Balancer (ALB), an API Gateway
+  REST API, or an AppSync GraphQL API.
 
   For AWS CloudFront, don't use this call. Instead, use your CloudFront
   distribution configuration. To disassociate a Web ACL, provide an empty web ACL
@@ -322,12 +251,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves the specified `IPSet`.
   """
   def get_ip_set(%Client{} = client, input, options \\ []) do
@@ -335,12 +258,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Returns the `LoggingConfiguration` for the specified web ACL.
   """
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
@@ -357,28 +274,17 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
+  Retrieves the keys that are currently blocked by a rate-based rule.
 
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
-  Retrieves the keys that are currently blocked by a rate-based rule. The maximum
-  number of managed keys that can be blocked for a single rate-based rule is
-  10,000. If more than 10,000 addresses exceed the rate limit, those with the
-  highest rates are blocked.
+  The maximum number of managed keys that can be blocked for a single rate-based
+  rule is 10,000. If more than 10,000 addresses exceed the rate limit, those with
+  the highest rates are blocked.
   """
   def get_rate_based_statement_managed_keys(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetRateBasedStatementManagedKeys", input, options)
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves the specified `RegexPatternSet`.
   """
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
@@ -386,12 +292,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves the specified `RuleGroup`.
   """
   def get_rule_group(%Client{} = client, input, options \\ []) do
@@ -399,17 +299,12 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Gets detailed information about a specified number of requests--a sample--that
   AWS WAF randomly selects from among the first 5,000 requests that your AWS
-  resource received during a time range that you choose. You can specify a sample
-  size of up to 500 requests, and you can specify any time range in the previous
-  three hours.
+  resource received during a time range that you choose.
+
+  You can specify a sample size of up to 500 requests, and you can specify any
+  time range in the previous three hours.
 
   `GetSampledRequests` returns a time range, which is usually the time range that
   you specified. However, if your resource (such as a CloudFront distribution)
@@ -423,12 +318,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves the specified `WebACL`.
   """
   def get_web_acl(%Client{} = client, input, options \\ []) do
@@ -436,12 +325,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves the `WebACL` for the specified resource.
   """
   def get_web_acl_for_resource(%Client{} = client, input, options \\ []) do
@@ -449,13 +332,8 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves an array of managed rule groups that are available for you to use.
+
   This list includes all AWS Managed Rules rule groups and the AWS Marketplace
   managed rule groups that you're subscribed to.
   """
@@ -464,12 +342,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves an array of `IPSetSummary` objects for the IP sets that you manage.
   """
   def list_ip_sets(%Client{} = client, input, options \\ []) do
@@ -477,12 +349,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves an array of your `LoggingConfiguration` objects.
   """
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
@@ -490,12 +356,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves an array of `RegexPatternSetSummary` objects for the regex pattern
   sets that you manage.
   """
@@ -504,15 +364,10 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves an array of the Amazon Resource Names (ARNs) for the regional
-  resources that are associated with the specified web ACL. If you want the list
-  of AWS CloudFront resources, use the AWS CloudFront call
+  resources that are associated with the specified web ACL.
+
+  If you want the list of AWS CloudFront resources, use the AWS CloudFront call
   `ListDistributionsByWebACLId`.
   """
   def list_resources_for_web_acl(%Client{} = client, input, options \\ []) do
@@ -520,12 +375,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves an array of `RuleGroupSummary` objects for the rule groups that you
   manage.
   """
@@ -534,17 +383,12 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
+  Retrieves the `TagInfoForResource` for the specified resource.
 
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
-  Retrieves the `TagInfoForResource` for the specified resource. Tags are
-  key:value pairs that you can use to categorize and manage your resources, for
-  purposes like billing. For example, you might set the tag key to "customer" and
-  the value to the customer name or ID. You can specify one or more tags to add to
-  each AWS resource, up to 50 tags for a resource.
+  Tags are key:value pairs that you can use to categorize and manage your
+  resources, for purposes like billing. For example, you might set the tag key to
+  "customer" and the value to the customer name or ID. You can specify one or more
+  tags to add to each AWS resource, up to 50 tags for a resource.
 
   You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule
   groups, IP sets, and regex pattern sets. You can't manage or view tags through
@@ -555,12 +399,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Retrieves an array of `WebACLSummary` objects for the web ACLs that you manage.
   """
   def list_web_acls(%Client{} = client, input, options \\ []) do
@@ -568,12 +406,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Enables the specified `LoggingConfiguration`, to start logging from a web ACL,
   according to the configuration provided.
 
@@ -626,17 +458,12 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
+  Associates tags with the specified AWS resource.
 
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
-  Associates tags with the specified AWS resource. Tags are key:value pairs that
-  you can use to categorize and manage your resources, for purposes like billing.
-  For example, you might set the tag key to "customer" and the value to the
-  customer name or ID. You can specify one or more tags to add to each AWS
-  resource, up to 50 tags for a resource.
+  Tags are key:value pairs that you can use to categorize and manage your
+  resources, for purposes like billing. For example, you might set the tag key to
+  "customer" and the value to the customer name or ID. You can specify one or more
+  tags to add to each AWS resource, up to 50 tags for a resource.
 
   You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule
   groups, IP sets, and regex pattern sets. You can't manage or view tags through
@@ -647,41 +474,31 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
+  Disassociates tags from an AWS resource.
 
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
-  Disassociates tags from an AWS resource. Tags are key:value pairs that you can
-  associate with AWS resources. For example, the tag key might be "customer" and
-  the tag value might be "companyA." You can specify one or more tags to add to
-  each container. You can add up to 50 tags to each AWS resource.
+  Tags are key:value pairs that you can associate with AWS resources. For example,
+  the tag key might be "customer" and the tag value might be "companyA." You can
+  specify one or more tags to add to each container. You can add up to 50 tags to
+  each AWS resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Updates the specified `IPSet`.
+
+  This operation completely replaces any IP address specifications that you
+  already have in the IP set with the ones that you provide to this call. If you
+  want to add to or modify the addresses that are already in the IP set, retrieve
+  those by calling `GetIPSet`, update them, and provide the complete updated array
+  of IP addresses to this call.
   """
   def update_ip_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateIPSet", input, options)
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Updates the specified `RegexPatternSet`.
   """
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
@@ -689,12 +506,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Updates the specified `RuleGroup`.
 
   A rule group defines a collection of rules to inspect and control web requests
@@ -708,12 +519,6 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  This is the latest version of **AWS WAF**, named AWS WAFV2, released in
-  November, 2019.
-
-  For information, including how to migrate your AWS WAF resources from the prior
-  release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
-
   Updates the specified `WebACL`.
 
   A Web ACL defines a collection of rules to use to inspect and control web

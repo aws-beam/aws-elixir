@@ -3,7 +3,7 @@
 
 defmodule AWS.S3Control do
   @moduledoc """
-  AWS S3 Control provides access to Amazon S3 control plane operations.
+  AWS S3 Control provides access to Amazon S3 control plane actions.
   """
 
   alias AWS.Client
@@ -28,24 +28,14 @@ defmodule AWS.S3Control do
   @doc """
   Creates an access point and associates it with the specified bucket.
 
-  For more information, see [Managing Data Access with Amazon S3 Access Points](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html) in
-  the *Amazon Simple Storage Service Developer Guide*.
+  For more information, see [Managing Data Access with Amazon S3 Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
-  ## Using this action with Amazon S3 on Outposts
+  S3 on Outposts only supports VPC-style Access Points.
 
-  This action:
-
-    * Requires a virtual private cloud (VPC) configuration as S3 on
-  Outposts only supports VPC style access points.
-
-    * Does not support ACL on S3 on Outposts buckets.
-
-    * Does not support Public Access on S3 on Outposts buckets.
-
-    * Does not support object lock for S3 on Outposts buckets.
-
-  For more information, see [Using Amazon S3 on Outposts](AmazonS3/latest/dev/S3onOutposts.html) in the *Amazon Simple Storage
-  Service Developer Guide *.
+  For more information, see [ Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only Access
+  Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request and an
@@ -89,29 +79,66 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  This API operation creates an Amazon S3 on Outposts bucket.
+  Creates an Object Lambda Access Point.
+
+  For more information, see [Transforming objects with Object Lambda Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  The following actions are related to `CreateAccessPointForObjectLambda`:
+
+    *
+  [DeleteAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html)     *
+  [GetAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html)
+
+    *
+  [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
+  """
+  def create_access_point_for_object_lambda(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This action creates an Amazon S3 on Outposts bucket.
 
   To create an S3 bucket, see [Create Bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   in the *Amazon Simple Storage Service API*.
 
   Creates a new Outposts bucket. By creating the bucket, you become the bucket
   owner. To create an Outposts bucket, you must have S3 on Outposts. For more
-  information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  *Amazon Simple Storage Service Developer Guide*.
+  information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in *Amazon Simple Storage Service User Guide*.
 
   Not every string is an acceptable bucket name. For information on bucket naming
-  restrictions, see [Working with Amazon S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules).
+  restrictions, see [Working with Amazon S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules).
 
-  S3 on Outposts buckets do not support
+  S3 on Outposts buckets support:
 
-    * ACLs. Instead, configure access point policies to manage access to
-  buckets.
+    * Tags
 
-    * Public access.
+    * LifecycleConfigurations for deleting expired objects
 
-    * Object Lock
-
-    * Bucket Location constraint
+  For a complete list of restrictions and Amazon S3 feature limitations on S3 on
+  Outposts, see [ Amazon S3 on Outposts Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html).
 
   For an example of the request syntax for Amazon S3 on Outposts that uses the S3
   on Outposts endpoint hostname prefix and `x-amz-outpost-id` in your API request,
@@ -170,14 +197,14 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  You can use S3 Batch Operations to perform large-scale batch operations on
-  Amazon S3 objects.
+  You can use S3 Batch Operations to perform large-scale batch actions on Amazon
+  S3 objects.
 
-  Batch Operations can run a single operation on lists of Amazon S3 objects that
-  you specify. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  Batch Operations can run a single action on lists of Amazon S3 objects that you
+  specify. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
-  This operation creates a S3 Batch Operations job.
+  This action creates a S3 Batch Operations job.
 
   Related actions include:
 
@@ -261,6 +288,42 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Deletes the specified Object Lambda Access Point.
+
+  The following actions are related to `DeleteAccessPointForObjectLambda`:
+
+    *
+  [CreateAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html)     *
+  [GetAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html)
+
+    *
+  [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
+  """
+  def delete_access_point_for_object_lambda(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes the access point policy for the specified access point.
 
   All Amazon S3 on Outposts REST API requests for this action require an
@@ -304,7 +367,40 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  This API operation deletes an Amazon S3 on Outposts bucket.
+  Removes the resource policy for an Object Lambda Access Point.
+
+  The following actions are related to `DeleteAccessPointPolicyForObjectLambda`:
+
+    *
+  [GetAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicyForObjectLambda.html)     *
+  [PutAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html)
+  """
+  def delete_access_point_policy_for_object_lambda(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/policy"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This action deletes an Amazon S3 on Outposts bucket.
 
   To delete an S3 bucket, see
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html) in the *Amazon Simple Storage Service API*.
@@ -312,8 +408,8 @@ defmodule AWS.S3Control do
   Deletes the Amazon S3 on Outposts bucket. All objects (including all object
   versions and delete markers) in the bucket must be deleted before the bucket
   itself can be deleted. For more information, see [Using Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  *Amazon Simple Storage Service Developer Guide*.
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in *Amazon Simple Storage Service User Guide*.
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request and an
@@ -357,8 +453,7 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  This API action deletes an Amazon S3 on Outposts bucket's lifecycle
-  configuration.
+  This action deletes an Amazon S3 on Outposts bucket's lifecycle configuration.
 
   To delete an S3 bucket's lifecycle configuration, see
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html) in the *Amazon Simple Storage Service API*.
@@ -369,10 +464,10 @@ defmodule AWS.S3Control do
   on Outposts no longer automatically deletes any objects on the basis of rules
   contained in the deleted lifecycle configuration. For more information, see
   [Using Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  *Amazon Simple Storage Service Developer Guide*.
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in *Amazon Simple Storage Service User Guide*.
 
-  To use this operation, you must have permission to perform the
+  To use this action, you must have permission to perform the
   `s3-outposts:DeleteLifecycleConfiguration` action. By default, the bucket owner
   has this permission and the Outposts bucket owner can grant this permission to
   others.
@@ -420,19 +515,19 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  This API operation deletes an Amazon S3 on Outposts bucket policy.
+  This action deletes an Amazon S3 on Outposts bucket policy.
 
   To delete an S3 bucket policy, see
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html) in the *Amazon Simple Storage Service API*.
 
-  This implementation of the DELETE operation uses the policy subresource to
-  delete the policy of a specified Amazon S3 on Outposts bucket. If you are using
-  an identity other than the root user of the AWS account that owns the bucket,
-  the calling identity must have the `s3-outposts:DeleteBucketPolicy` permissions
-  on the specified Outposts bucket and belong to the bucket owner's account to use
-  this operation. For more information, see [Using Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  *Amazon Simple Storage Service Developer Guide*.
+  This implementation of the DELETE action uses the policy subresource to delete
+  the policy of a specified Amazon S3 on Outposts bucket. If you are using an
+  identity other than the root user of the AWS account that owns the bucket, the
+  calling identity must have the `s3-outposts:DeleteBucketPolicy` permissions on
+  the specified Outposts bucket and belong to the bucket owner's account to use
+  this action. For more information, see [Using Amazon S3 on
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in *Amazon Simple Storage Service User Guide*.
 
   If you don't have `DeleteBucketPolicy` permissions, Amazon S3 returns a `403
   Access Denied` error. If you have the correct permissions, but you're not using
@@ -440,8 +535,8 @@ defmodule AWS.S3Control do
   Method Not Allowed` error.
 
   As a security precaution, the root user of the AWS account that owns a bucket
-  can always use this operation, even if the policy explicitly denies the root
-  user the ability to perform this action.
+  can always use this action, even if the policy explicitly denies the root user
+  the ability to perform this action.
 
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
@@ -486,19 +581,19 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  This operation deletes an Amazon S3 on Outposts bucket's tags.
+  This action deletes an Amazon S3 on Outposts bucket's tags.
 
   To delete an S3 bucket tags, see
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html) in the *Amazon Simple Storage Service API*.
 
   Deletes the tags from the Outposts bucket. For more information, see [Using
   Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  *Amazon Simple Storage Service Developer Guide*.
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in *Amazon Simple Storage Service User Guide*.
 
-  To use this operation, you must have permission to perform the
-  `PutBucketTagging` action. By default, the bucket owner has this permission and
-  can grant this permission to others.
+  To use this action, you must have permission to perform the `PutBucketTagging`
+  action. By default, the bucket owner has this permission and can grant this
+  permission to others.
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request and an
@@ -546,7 +641,7 @@ defmodule AWS.S3Control do
   To use this operation, you must have permission to perform the
   `s3:DeleteJobTagging` action. For more information, see [Controlling access and labeling jobs using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
 
   Related actions include:
 
@@ -621,12 +716,12 @@ defmodule AWS.S3Control do
 
   For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon Simple Storage Service User Guide*.
 
   To use this action, you must have permission to perform the
   `s3:DeleteStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
   """
   def delete_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
     url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
@@ -657,12 +752,12 @@ defmodule AWS.S3Control do
 
   For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon Simple Storage Service User Guide*.
 
   To use this action, you must have permission to perform the
   `s3:DeleteStorageLensConfigurationTagging` action. For more information, see
   [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
   """
   def delete_storage_lens_configuration_tagging(
         %Client{} = client,
@@ -697,7 +792,7 @@ defmodule AWS.S3Control do
   Retrieves the configuration parameters and status for a Batch Operations job.
 
   For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
 
   Related actions include:
 
@@ -782,6 +877,84 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Returns configuration for an Object Lambda Access Point.
+
+  The following actions are related to
+  `GetAccessPointConfigurationForObjectLambda`:
+
+    *
+  [PutAccessPointConfigurationForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointConfigurationForObjectLambda.html)
+  """
+  def get_access_point_configuration_for_object_lambda(
+        %Client{} = client,
+        name,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/configuration"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns configuration information about the specified Object Lambda Access Point
+
+  The following actions are related to `GetAccessPointForObjectLambda`:
+
+    *
+  [CreateAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html)     *
+  [DeleteAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html)
+
+    *
+  [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
+  """
+  def get_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ []) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the access point policy associated with the specified access point.
 
   The following actions are related to `GetAccessPointPolicy`:
@@ -817,12 +990,52 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Returns the resource policy for an Object Lambda Access Point.
+
+  The following actions are related to `GetAccessPointPolicyForObjectLambda`:
+
+    *
+  [DeleteAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicyForObjectLambda.html)     *
+  [PutAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html)
+  """
+  def get_access_point_policy_for_object_lambda(
+        %Client{} = client,
+        name,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/policy"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Indicates whether the specified access point currently has a policy that allows
   public access.
 
   For more information about public access through access points, see [Managing Data Access with Amazon S3 Access
-  Points](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html) in
-  the *Amazon Simple Storage Service Developer Guide*.
+  Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
+  in the *Amazon Simple Storage Service Developer Guide*.
   """
   def get_access_point_policy_status(%Client{} = client, name, account_id, options \\ []) do
     url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policyStatus"
@@ -851,16 +1064,52 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Returns the status of the resource policy associated with an Object Lambda
+  Access Point.
+  """
+  def get_access_point_policy_status_for_object_lambda(
+        %Client{} = client,
+        name,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/policyStatus"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Gets an Amazon S3 on Outposts bucket.
 
-  For more information, see [ Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  the *Amazon Simple Storage Service Developer Guide*.
+  For more information, see [ Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
   If you are using an identity other than the root user of the AWS account that
-  owns the bucket, the calling identity must have the `s3-outposts:GetBucket`
-  permissions on the specified bucket and belong to the bucket owner's account in
-  order to use this operation. Only users from Outposts bucket owner account with
-  the right permissions can perform actions on an Outposts bucket.
+  owns the Outposts bucket, the calling identity must have the
+  `s3-outposts:GetBucket` permissions on the specified Outposts bucket and belong
+  to the Outposts bucket owner's account in order to use this action. Only users
+  from Outposts bucket owner account with the right permissions can perform
+  actions on an Outposts bucket.
 
   If you don't have `s3-outposts:GetBucket` permissions or you're not using an
   identity that belongs to the bucket owner's account, Amazon S3 returns a `403
@@ -910,23 +1159,23 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  This operation gets an Amazon S3 on Outposts bucket's lifecycle configuration.
+  This action gets an Amazon S3 on Outposts bucket's lifecycle configuration.
 
   To get an S3 bucket's lifecycle configuration, see
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html) in the *Amazon Simple Storage Service API*.
 
   Returns the lifecycle configuration information set on the Outposts bucket. For
   more information, see [Using Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) and
-  for information about lifecycle configuration, see [ Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
-  in *Amazon Simple Storage Service Developer Guide*.
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  and for information about lifecycle configuration, see [ Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
+  in *Amazon Simple Storage Service User Guide*.
 
-  To use this operation, you must have permission to perform the
+  To use this action, you must have permission to perform the
   `s3-outposts:GetLifecycleConfiguration` action. The Outposts bucket owner has
   this permission, by default. The bucket owner can grant this permission to
   others. For more information about permissions, see [Permissions Related to Bucket Subresource
-  Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request and an
@@ -989,13 +1238,13 @@ defmodule AWS.S3Control do
 
   Returns the policy of a specified Outposts bucket. For more information, see
   [Using Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  the *Amazon Simple Storage Service Developer Guide*.
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
   If you are using an identity other than the root user of the AWS account that
   owns the bucket, the calling identity must have the `GetBucketPolicy`
   permissions on the specified bucket and belong to the bucket owner's account in
-  order to use this operation.
+  order to use this action.
 
   Only users from Outposts bucket owner account with the right permissions can
   perform actions on an Outposts bucket. If you don't have
@@ -1004,8 +1253,8 @@ defmodule AWS.S3Control do
   error.
 
   As a security precaution, the root user of the AWS account that owns a bucket
-  can always use this operation, even if the policy explicitly denies the root
-  user the ability to perform this action.
+  can always use this action, even if the policy explicitly denies the root user
+  the ability to perform this action.
 
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
@@ -1053,19 +1302,19 @@ defmodule AWS.S3Control do
   end
 
   @doc """
-  This operation gets an Amazon S3 on Outposts bucket's tags.
+  This action gets an Amazon S3 on Outposts bucket's tags.
 
   To get an S3 bucket tags, see
   [GetBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html) in the *Amazon Simple Storage Service API*.
 
   Returns the tag set associated with the Outposts bucket. For more information,
   see [Using Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  the *Amazon Simple Storage Service Developer Guide*.
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
-  To use this operation, you must have permission to perform the
-  `GetBucketTagging` action. By default, the bucket owner has this permission and
-  can grant this permission to others.
+  To use this action, you must have permission to perform the `GetBucketTagging`
+  action. By default, the bucket owner has this permission and can grant this
+  permission to others.
 
   `GetBucketTagging` has the following special error:
 
@@ -1122,7 +1371,7 @@ defmodule AWS.S3Control do
   To use this operation, you must have permission to perform the
   `s3:GetJobTagging` action. For more information, see [Controlling access and labeling jobs using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
 
   Related actions include:
 
@@ -1201,12 +1450,12 @@ defmodule AWS.S3Control do
 
   For more information, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon Simple Storage Service User Guide*.
 
   To use this action, you must have permission to perform the
   `s3:GetStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
   """
   def get_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ []) do
     url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
@@ -1239,12 +1488,12 @@ defmodule AWS.S3Control do
 
   For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon Simple Storage Service User Guide*.
 
   To use this action, you must have permission to perform the
   `s3:GetStorageLensConfigurationTagging` action. For more information, see
   [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
   """
   def get_storage_lens_configuration_tagging(
         %Client{} = client,
@@ -1358,11 +1607,75 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Returns a list of the access points associated with the Object Lambda Access
+  Point.
+
+  You can retrieve up to 1000 access points per call. If there are more than 1,000
+  access points (or the number specified in `maxResults`, whichever is less), the
+  response will include a continuation token that you can use to list the
+  additional access points.
+
+  The following actions are related to `ListAccessPointsForObjectLambda`:
+
+    *
+  [CreateAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html)     *
+  [DeleteAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html)
+
+    *
+  [GetAccessPointForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html)
+  """
+  def list_access_points_for_object_lambda(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accesspointforobjectlambda"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists current S3 Batch Operations jobs and jobs that have ended within the last
   30 days for the AWS account making the request.
 
   For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
 
   Related actions include:
 
@@ -1432,8 +1745,8 @@ defmodule AWS.S3Control do
   Returns a list of all Outposts buckets in an Outpost that are owned by the
   authenticated sender of the request.
 
-  For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  the *Amazon Simple Storage Service Developer Guide*.
+  For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
   For an example of the request syntax for Amazon S3 on Outposts that uses the S3
   on Outposts endpoint hostname prefix and `x-amz-outpost-id` in your request, see
@@ -1500,12 +1813,12 @@ defmodule AWS.S3Control do
 
   For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon Simple Storage Service User Guide*.
 
   To use this action, you must have permission to perform the
   `s3:ListStorageLensConfigurations` action. For more information, see [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
   """
   def list_storage_lens_configurations(
         %Client{} = client,
@@ -1540,6 +1853,44 @@ defmodule AWS.S3Control do
       query_params,
       headers,
       nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Replaces configuration for an Object Lambda Access Point.
+
+  The following actions are related to
+  `PutAccessPointConfigurationForObjectLambda`:
+
+    *
+  [GetAccessPointConfigurationForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointConfigurationForObjectLambda.html)
+  """
+  def put_access_point_configuration_for_object_lambda(
+        %Client{} = client,
+        name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/configuration"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       nil
     )
@@ -1592,17 +1943,51 @@ defmodule AWS.S3Control do
   end
 
   @doc """
+  Creates or replaces resource policy for an Object Lambda Access Point.
+
+  For an example policy, see [Creating Object Lambda Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  The following actions are related to `PutAccessPointPolicyForObjectLambda`:
+
+    *
+  [DeleteAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicyForObjectLambda.html)     *
+  [GetAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicyForObjectLambda.html)
+  """
+  def put_access_point_policy_for_object_lambda(%Client{} = client, name, input, options \\ []) do
+    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/policy"
+
+    {headers, input} =
+      [
+        {"AccountId", "x-amz-account-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket.
 
   To put a lifecycle configuration to an S3 bucket, see
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html) in the *Amazon Simple Storage Service API*.
 
-  Creates a new lifecycle configuration for the Outposts bucket or replaces an
-  existing lifecycle configuration. Outposts buckets only support lifecycle
+  Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces
+  an existing lifecycle configuration. Outposts buckets only support lifecycle
   configurations that delete/expire objects after a certain period of time and
-  abort incomplete multipart uploads. For more information, see [Managing
-  Lifecycle Permissions for Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html).
+  abort incomplete multipart uploads.
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request and an
@@ -1610,14 +1995,13 @@ defmodule AWS.S3Control do
   of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
   endpoint hostname prefix and the `x-amz-outpost-id` derived using the access
   point ARN, see the
-  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples) section.
+  [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples)
+  section.
 
   The following actions are related to `PutBucketLifecycleConfiguration`:
 
     *
-  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
-
-    *
+  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)     *
   [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
   """
   def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
@@ -1652,13 +2036,13 @@ defmodule AWS.S3Control do
 
   Applies an Amazon S3 bucket policy to an Outposts bucket. For more information,
   see [Using Amazon S3 on
-  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html) in
-  the *Amazon Simple Storage Service Developer Guide*.
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
   If you are using an identity other than the root user of the AWS account that
   owns the Outposts bucket, the calling identity must have the `PutBucketPolicy`
   permissions on the specified Outposts bucket and belong to the bucket owner's
-  account in order to use this operation.
+  account in order to use this action.
 
   If you don't have `PutBucketPolicy` permissions, Amazon S3 returns a `403 Access
   Denied` error. If you have the correct permissions, but you're not using an
@@ -1666,8 +2050,8 @@ defmodule AWS.S3Control do
   Method Not Allowed` error.
 
   As a security precaution, the root user of the AWS account that owns a bucket
-  can always use this operation, even if the policy explicitly denies the root
-  user the ability to perform this action.
+  can always use this action, even if the policy explicitly denies the root user
+  the ability to perform this action.
 
   For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
 
@@ -1718,9 +2102,10 @@ defmodule AWS.S3Control do
   To put tags on an S3 bucket, see
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html) in the *Amazon Simple Storage Service API*.
 
-  Sets the tags for an Outposts bucket. For more information, see [Using Amazon S3
-  on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  Sets the tags for an S3 on Outposts bucket. For more information, see [Using
+  Amazon S3 on
+  Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
   Use tags to organize your AWS bill to reflect your own cost structure. To do
   this, sign up to get your AWS account bill with tag key values included. Then,
@@ -1728,17 +2113,17 @@ defmodule AWS.S3Control do
   according to resources with the same tag key values. For example, you can tag
   several resources with a specific application name, and then organize your
   billing information to see the total cost of that application across several
-  services. For more information, see [Cost Allocation and Tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
+  services. For more information, see [Cost allocation and tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
 
   Within a bucket, if you add a tag that has the same key as an existing tag, the
-  new value overwrites the old value. For more information, see [ Using Cost Allocation in Amazon S3 Bucket
-  Tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html).
+  new value overwrites the old value. For more information, see [ Using cost allocation in Amazon S3 bucket
+  tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html).
 
-  To use this operation, you must have permissions to perform the
+  To use this action, you must have permissions to perform the
   `s3-outposts:PutBucketTagging` action. The Outposts bucket owner has this
   permission by default and can grant this permission to others. For more
-  information about permissions, see [ Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
-  and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).
+  information about permissions, see [ Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources)
+  and [Managing access permissions to your Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
 
   `PutBucketTagging` has the following special errors:
 
@@ -1756,7 +2141,7 @@ defmodule AWS.S3Control do
 
     * Error code: `OperationAbortedError `
 
-      * Description: A conflicting conditional operation is
+      * Description: A conflicting conditional action is
   currently in progress against this resource. Try again.
 
     * Error code: `InternalError`
@@ -1815,7 +2200,7 @@ defmodule AWS.S3Control do
   [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html), modify that tag set, and use this action to replace the tag set with the one you
   modified. For more information, see [Controlling access and labeling jobs using
   tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
 
     * If you send this request with an empty tag set, Amazon S3 deletes
   the existing tag set on the Batch Operations job. If you use this method, you
@@ -1843,8 +2228,8 @@ defmodule AWS.S3Control do
   Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
   in the *AWS Billing and Cost Management User Guide*.
 
-  To use this operation, you must have permission to perform the
-  `s3:PutJobTagging` action.
+  To use this action, you must have permission to perform the `s3:PutJobTagging`
+  action.
 
   Related actions include:
 
@@ -1918,12 +2303,12 @@ defmodule AWS.S3Control do
   Puts an Amazon S3 Storage Lens configuration.
 
   For more information about S3 Storage Lens, see [Working with Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon Simple Storage Service User Guide*.
 
   To use this action, you must have permission to perform the
   `s3:PutStorageLensConfiguration` action. For more information, see [Setting permissions to use Amazon S3 Storage
   Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
   """
   def put_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
     url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
@@ -1954,12 +2339,12 @@ defmodule AWS.S3Control do
 
   For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens
   ](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the
-  *Amazon Simple Storage Service Developer Guide*.
+  *Amazon Simple Storage Service User Guide*.
 
   To use this action, you must have permission to perform the
   `s3:PutStorageLensConfigurationTagging` action. For more information, see
   [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
   """
   def put_storage_lens_configuration_tagging(%Client{} = client, config_id, input, options \\ []) do
     url_path = "/v20180820/storagelens/#{URI.encode(config_id)}/tagging"
@@ -1989,7 +2374,7 @@ defmodule AWS.S3Control do
   Updates an existing S3 Batch Operations job's priority.
 
   For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  in the *Amazon Simple Storage Service User Guide*.
 
   Related actions include:
 
@@ -2032,9 +2417,9 @@ defmodule AWS.S3Control do
   @doc """
   Updates the status for the specified job.
 
-  Use this operation to confirm that you want to run a job or to cancel an
-  existing job. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
-  in the *Amazon Simple Storage Service Developer Guide*.
+  Use this action to confirm that you want to run a job or to cancel an existing
+  job. For more information, see [S3 Batch Operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html)
+  in the *Amazon Simple Storage Service User Guide*.
 
   Related actions include:
 

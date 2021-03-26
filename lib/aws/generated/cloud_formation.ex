@@ -184,18 +184,24 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Removes a type or type version from active use in the CloudFormation registry.
+  Marks an extension or extension version as `DEPRECATED` in the CloudFormation
+  registry, removing it from active use.
 
-  If a type or type version is deregistered, it cannot be used in CloudFormation
+  Deprecated extensions or extension versions cannot be used in CloudFormation
   operations.
 
-  To deregister a type, you must individually deregister all registered versions
-  of that type. If a type has only a single registered version, deregistering that
-  version results in the type itself being deregistered.
+  To deregister an entire extension, you must individually deregister all active
+  versions of that extension. If an extension has only a single active version,
+  deregistering that version results in the extension itself being deregistered
+  and marked as deprecated in the registry.
 
-  You cannot deregister the default version of a type, unless it is the only
-  registered version of that type, in which case the type itself is deregistered
-  as well.
+  You cannot deregister the default version of an extension if there are other
+  active version of that extension. If you do deregister the default version of an
+  extension, the textensionype itself is deregistered as well and marked as
+  deprecated.
+
+  To view the deprecation status of an extension or extension version, use
+  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).
   """
   def deregister_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeregisterType", input, options)
@@ -349,26 +355,26 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns detailed information about a type that has been registered.
+  Returns detailed information about an extension that has been registered.
 
   If you specify a `VersionId`, `DescribeType` returns information about that
-  specific type version. Otherwise, it returns information about the default type
-  version.
+  specific extension version. Otherwise, it returns information about the default
+  extension version.
   """
   def describe_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeType", input, options)
   end
 
   @doc """
-  Returns information about a type's registration, including its current status
-  and type and version identifiers.
+  Returns information about an extension's registration, including its current
+  status and type and version identifiers.
 
   When you initiate a registration request using ` `RegisterType` `, you can then
   use ` `DescribeTypeRegistration` ` to monitor the progress of that registration
   request.
 
   Once the registration request has completed, use ` `DescribeType` ` to return
-  detailed informaiton about a type.
+  detailed information about an extension.
   """
   def describe_type_registration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTypeRegistration", input, options)
@@ -445,7 +451,7 @@ defmodule AWS.CloudFormation do
   Once the operation has completed, use the following actions to return drift
   information:
 
-    * Use ` `DescribeStackSet` ` to return detailed informaiton about
+    * Use ` `DescribeStackSet` ` to return detailed information about
   the stack set, including detailed information about the last *completed* drift
   operation performed on the stack set. (Information about drift operations that
   are in progress is not included.)
@@ -620,6 +626,18 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about stack sets that are associated with the user.
+
+    * [Self-managed permissions] If you set the `CallAs` parameter to `SELF` while signed in to your AWS account, `ListStackSets` returns all
+  self-managed stack sets in your AWS account.
+
+    * [Service-managed permissions] If you set the `CallAs` parameter to
+  `SELF` while signed in to the organization's management account, `ListStackSets`
+  returns all stack sets in the management account.
+
+    * [Service-managed permissions] If you set the `CallAs` parameter to
+  `DELEGATED_ADMIN` while signed in to your member account, `ListStackSets`
+  returns all stack sets with service-managed permissions in the management
+  account.
   """
   def list_stack_sets(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListStackSets", input, options)
@@ -639,21 +657,21 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns a list of registration tokens for the specified type(s).
+  Returns a list of registration tokens for the specified extension(s).
   """
   def list_type_registrations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTypeRegistrations", input, options)
   end
 
   @doc """
-  Returns summary information about the versions of a type.
+  Returns summary information about the versions of an extension.
   """
   def list_type_versions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTypeVersions", input, options)
   end
 
   @doc """
-  Returns summary information about types that have been registered with
+  Returns summary information about extension that have been registered with
   CloudFormation.
   """
   def list_types(%Client{} = client, input, options \\ []) do
@@ -671,25 +689,26 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Registers a type with the CloudFormation service.
+  Registers an extension with the CloudFormation service.
 
-  Registering a type makes it available for use in CloudFormation templates in
-  your AWS account, and includes:
+  Registering an extension makes it available for use in CloudFormation templates
+  in your AWS account, and includes:
 
-    * Validating the resource schema
+    * Validating the extension schema
 
-    * Determining which handlers have been specified for the resource
+    * Determining which handlers, if any, have been specified for the
+  extension
 
-    * Making the resource type available for use in your account
+    * Making the extension available for use in your account
 
-  For more information on how to develop types and ready them for registeration,
-  see [Creating Resource Providers](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html)
+  For more information on how to develop extensions and ready them for
+  registeration, see [Creating Resource Providers](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html)
   in the *CloudFormation CLI User Guide*.
 
-  You can have a maximum of 50 resource type versions registered at a time. This
-  maximum is per account and per region. Use
+  You can have a maximum of 50 resource extension versions registered at a time.
+  This maximum is per account and per region. Use
   [DeregisterType](AWSCloudFormation/latest/APIReference/API_DeregisterType.html)
-  to deregister specific resource type versions if necessary.
+  to deregister specific extension versions if necessary.
 
   Once you have initiated a registration request using ` `RegisterType` `, you can
   use ` `DescribeTypeRegistration` ` to monitor the progress of the registration
@@ -707,9 +726,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Specify the default version of a type.
+  Specify the default version of an extension.
 
-  The default version of a type will be used in CloudFormation operations.
+  The default version of an extension will be used in CloudFormation operations.
   """
   def set_type_default_version(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetTypeDefaultVersion", input, options)

@@ -683,6 +683,27 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  List the tags for a resource.
+  """
+  def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(workload_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   List the workload shares associated with the workload.
   """
   def list_workload_shares(
@@ -755,7 +776,54 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Update the answer.
+  Adds one or more tags to the specified resource.
+  """
+  def tag_resource(%Client{} = client, workload_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(workload_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes specified tags from a resource.
+  """
+  def untag_resource(%Client{} = client, workload_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(workload_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Update the answer to a specific question in a workload review.
   """
   def update_answer(
         %Client{} = client,

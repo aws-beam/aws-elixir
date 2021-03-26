@@ -109,9 +109,6 @@ defmodule AWS.AutoScaling do
   @doc """
   Creates or updates one or more scheduled scaling actions for an Auto Scaling
   group.
-
-  If you leave a parameter unspecified when updating a scheduled scaling action,
-  the corresponding value remains unchanged.
   """
   def batch_put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchPutScheduledUpdateGroupAction", input, options)
@@ -123,7 +120,8 @@ defmodule AWS.AutoScaling do
   Cancellation does not roll back any replacements that have already been
   completed, but it prevents new replacements from being started.
 
-  For more information, see [Replacing Auto Scaling Instances Based on an Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html).
+  For more information, see [Replacing Auto Scaling instances based on an instance refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelInstanceRefresh", input, options)
@@ -373,7 +371,8 @@ defmodule AWS.AutoScaling do
 
     * `Cancelled` - The operation is cancelled.
 
-  For more information, see [Replacing Auto Scaling Instances Based on an Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html).
+  For more information, see [Replacing Auto Scaling instances based on an instance refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInstanceRefreshes", input, options)
@@ -451,6 +450,12 @@ defmodule AWS.AutoScaling do
 
   @doc """
   Describes one or more scaling activities for the specified Auto Scaling group.
+
+  To view the scaling activities from the Amazon EC2 Auto Scaling console, choose
+  the **Activity** tab of the Auto Scaling group. When scaling events occur, you
+  see scaling activity messages in the **Activity history**. For more information,
+  see [Verifying a scaling activity for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeScalingActivities", input, options)
@@ -686,9 +691,6 @@ defmodule AWS.AutoScaling do
   @doc """
   Creates or updates a scheduled scaling action for an Auto Scaling group.
 
-  If you leave a parameter unspecified when updating a scheduled scaling action,
-  the corresponding value remains unchanged.
-
   For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
@@ -790,7 +792,8 @@ defmodule AWS.AutoScaling do
   already run, call the `DescribeInstanceRefreshes` API. To cancel an instance
   refresh operation in progress, use the `CancelInstanceRefresh` API.
 
-  For more information, see [Replacing Auto Scaling Instances Based on an Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html).
+  For more information, see [Replacing Auto Scaling instances based on an instance refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def start_instance_refresh(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartInstanceRefresh", input, options)

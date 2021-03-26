@@ -143,6 +143,28 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
+  Returns the most recent feedback submitted in the current AWS account and
+  Region.
+  """
+  def describe_feedback(%Client{} = client, input, options \\ []) do
+    url_path = "/feedback"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns details about an insight that you specify using its ID.
   """
   def describe_insight(%Client{} = client, id, options \\ []) do

@@ -142,8 +142,8 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Imports security findings generated from an integrated third-party product into
-  Security Hub.
+  Imports security findings generated from an integrated product into Security
+  Hub.
 
   This action is requested by the integrated product to import its findings into
   Security Hub.
@@ -163,10 +163,8 @@ defmodule AWS.SecurityHub do
 
     * `Workflow`
 
-  `BatchImportFindings` can be used to update the following finding fields and
-  objects only if they have not been updated using `BatchUpdateFindings`. After
-  they are updated using `BatchUpdateFindings`, these fields cannot be updated
-  using `BatchImportFindings`.
+  Finding providers also should not use `BatchImportFindings` to update the
+  following attributes.
 
     * `Confidence`
 
@@ -177,6 +175,9 @@ defmodule AWS.SecurityHub do
     * `Severity`
 
     * `Types`
+
+  Instead, finding providers use `FindingProviderFields` to provide values for
+  these attributes.
   """
   def batch_import_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/import"

@@ -41,7 +41,7 @@ defmodule AWS.EFS do
   group override any identity information provided by the NFS client. The file
   system path is exposed as the access point's root directory. Applications using
   the access point can only access data in its own directory and below. To learn
-  more, see [Mounting a File System Using EFS Access Points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
+  more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
 
   This operation requires permissions for the
   `elasticfilesystem:CreateAccessPoint` action.
@@ -92,18 +92,24 @@ defmodule AWS.EFS do
   initial call had succeeded in creating a file system, the client can learn of
   its existence from the `FileSystemAlreadyExists` error.
 
+  For more information, see [Creating a file system](https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html#creating-using-create-fs-part1)
+  in the *Amazon EFS User Guide*.
+
   The `CreateFileSystem` call returns while the file system's lifecycle state is
   still `creating`. You can check the file system creation status by calling the
   `DescribeFileSystems` operation, which among other things returns the file
   system state.
 
-  This operation also takes an optional `PerformanceMode` parameter that you
-  choose for your file system. We recommend `generalPurpose` performance mode for
-  most file systems. File systems using the `maxIO` performance mode can scale to
+  This operation accepts an optional `PerformanceMode` parameter that you choose
+  for your file system. We recommend `generalPurpose` performance mode for most
+  file systems. File systems using the `maxIO` performance mode can scale to
   higher levels of aggregate throughput and operations per second with a tradeoff
   of slightly higher latencies for most file operations. The performance mode
   can't be changed after the file system has been created. For more information,
-  see [Amazon EFS: Performance Modes](https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html).
+  see [Amazon EFS performance modes](https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html).
+
+  You can set the throughput mode for the file system using the `ThroughputMode`
+  parameter.
 
   After the file system is fully created, Amazon EFS sets its lifecycle state to
   `available`, at which point you can create one or more mount targets for the
@@ -141,21 +147,34 @@ defmodule AWS.EFS do
   instances in a VPC within a given Availability Zone share a single mount target
   for a given file system. If you have multiple subnets in an Availability Zone,
   you create a mount target in one of the subnets. EC2 instances do not need to be
-  in the same subnet as the mount target in order to access their file system. For
-  more information, see [Amazon EFS: How it Works](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
+  in the same subnet as the mount target in order to access their file system.
 
-  In the request, you also specify a file system ID for which you are creating the
-  mount target and the file system's lifecycle state must be `available`. For more
-  information, see `DescribeFileSystems`.
+  You can create only one mount target for an EFS file system using One Zone
+  storage classes. You must create that mount target in the same Availability Zone
+  in which the file system is located. Use the `AvailabilityZoneName` and
+  `AvailabiltyZoneId` properties in the `DescribeFileSystems` response object to
+  get this information. Use the `subnetId` associated with the file system's
+  Availability Zone when creating the mount target.
 
-  In the request, you also provide a subnet ID, which determines the following:
+  For more information, see [Amazon EFS: How it Works](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
 
-    * VPC in which Amazon EFS creates the mount target
+  To create a mount target for a file system, the file system's lifecycle state
+  must be `available`. For more information, see `DescribeFileSystems`.
 
-    * Availability Zone in which Amazon EFS creates the mount target
+  In the request, provide the following:
 
-    * IP address range from which Amazon EFS selects the IP address of
-  the mount target (if you don't specify an IP address in the request)
+    * The file system ID for which you are creating the mount target.
+
+    * A subnet ID, which determines the following:
+
+      * The VPC in which Amazon EFS creates the mount target
+
+      * The Availability Zone in which Amazon EFS creates the
+  mount target
+
+      * The IP address range from which Amazon EFS selects the
+  IP address of the mount target (if you don't specify an IP address in the
+  request)
 
   After creating the mount target, Amazon EFS returns a response that includes, a
   `MountTargetId` and an `IpAddress`. You use this IP address when mounting the
@@ -932,9 +951,11 @@ defmodule AWS.EFS do
   A file system policy is an IAM resource-based policy and can contain multiple
   policy statements. A file system always has exactly one file system policy,
   which can be the default policy or an explicit policy set or updated using this
-  API operation. When an explicit policy is set, it overrides the default policy.
-  For more information about the default file system policy, see [Default EFS File System
-  Policy](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy).
+  API operation. EFS file system policies have a 20,000 character limit. When an
+  explicit policy is set, it overrides the default policy. For more information
+  about the default file system policy, see [Default EFS File System Policy](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy).
+
+  EFS file system policies have a 20,000 character limit.
 
   This operation requires permissions for the
   `elasticfilesystem:PutFileSystemPolicy` action.

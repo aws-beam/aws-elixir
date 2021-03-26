@@ -5,11 +5,10 @@ defmodule AWS.ACM do
   @moduledoc """
   AWS Certificate Manager
 
-  Welcome to the AWS Certificate Manager (ACM) API documentation.
+  You can use AWS Certificate Manager (ACM) to manage SSL/TLS certificates for
+  your AWS-based websites and applications.
 
-  You can use ACM to manage SSL/TLS certificates for your AWS-based websites and
-  applications. For general information about using ACM, see the [ *AWS Certificate Manager User Guide*
-  ](https://docs.aws.amazon.com/acm/latest/userguide/).
+  For more information about using ACM, see the [AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/).
   """
 
   alias AWS.Client
@@ -96,6 +95,13 @@ defmodule AWS.ACM do
   end
 
   @doc """
+  Returns the account configuration options associated with an AWS account.
+  """
+  def get_account_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetAccountConfiguration", input, options)
+  end
+
+  @doc """
   Retrieves an Amazon-issued certificate and its certificate chain.
 
   The chain consists of the certificate of the issuing CA and the intermediate
@@ -131,6 +137,8 @@ defmodule AWS.ACM do
     * The private key must be unencrypted. You cannot import a private
   key that is protected by a password or a passphrase.
 
+    * The private key must be no larger than 5 KB (5,120 bytes).
+
     * If the certificate you are importing is not self-signed, you must
   enter its certificate chain.
 
@@ -150,12 +158,12 @@ defmodule AWS.ACM do
 
     * To import a new certificate, omit the `CertificateArn` argument.
   Include this argument only when you want to replace a previously imported
-  certifica
+  certificate.
 
     * When you import a certificate by using the CLI, you must specify
   the certificate, the certificate chain, and the private key by their file names
-  preceded by `file://`. For example, you can specify a certificate saved in the
-  `C:\temp` folder as `file://C:\temp\certificate_to_import.pem`. If you are
+  preceded by `fileb://`. For example, you can specify a certificate saved in the
+  `C:\temp` folder as `fileb://C:\temp\certificate_to_import.pem`. If you are
   making an HTTP or HTTPS Query request, include these arguments as BLOBs.
 
     * When you import a certificate by using an SDK, you must specify
@@ -196,6 +204,19 @@ defmodule AWS.ACM do
   end
 
   @doc """
+  Adds or modifies account-level configurations in ACM.
+
+  The supported configuration option is `DaysBeforeExpiry`. This option specifies
+  the number of days prior to certificate expiration when ACM starts generating
+  `EventBridge` events. ACM sends one event per day per certificate until the
+  certificate expires. By default, accounts receive events starting 45 days before
+  certificate expiration.
+  """
+  def put_account_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutAccountConfiguration", input, options)
+  end
+
+  @doc """
   Remove one or more tags from an ACM certificate.
 
   A tag consists of a key-value pair. If you do not specify the value portion of
@@ -212,7 +233,7 @@ defmodule AWS.ACM do
   end
 
   @doc """
-  Renews an eligable ACM certificate.
+  Renews an eligible ACM certificate.
 
   At this time, only exported private certificates can be renewed with this
   operation. In order to renew your ACM PCA certificates with ACM, you must first

@@ -39,11 +39,11 @@ defmodule AWS.DataBrew do
 
     * There is an invalid version identifier in the list of versions.
 
-    * The verision list is empty.
+    * The version list is empty.
 
     * The version list size exceeds 50.
 
-    * The verison list contains duplicate entries.
+    * The version list contains duplicate entries.
 
   The request will complete successfully, but with partial failures, if:
 

@@ -838,6 +838,28 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
+  List the Packages that are associated with an Image Build Version, as determined
+  by AWS Systems Manager Inventory at build time.
+  """
+  def list_image_packages(%Client{} = client, input, options \\ []) do
+    url_path = "/ListImagePackages"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of images created by the specified pipeline.
   """
   def list_image_pipeline_images(%Client{} = client, input, options \\ []) do

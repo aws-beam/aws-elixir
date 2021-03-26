@@ -592,6 +592,29 @@ defmodule AWS.Forecast do
   end
 
   @doc """
+  Stops a resource.
+
+  The resource undergoes the following states: `CREATE_STOPPING` and
+  `CREATE_STOPPED`. You cannot resume a resource once it has been stopped.
+
+  This operation can be applied to the following resources (and their
+  corresponding child resources):
+
+    * Dataset Import Job
+
+    * Predictor Job
+
+    * Forecast Job
+
+    * Forecast Export Job
+
+    * Predictor Backtest Export Job
+  """
+  def stop_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopResource", input, options)
+  end
+
+  @doc """
   Associates the specified tags to a resource with the specified `resourceArn`.
 
   If existing tags on a resource are not specified in the request parameters, they

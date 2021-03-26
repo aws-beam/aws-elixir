@@ -84,6 +84,15 @@ defmodule AWS.Comprehend do
   end
 
   @doc """
+  Analyzes input text for the presence of personally identifiable information
+  (PII) and returns the labels of identified PII entity types such as name,
+  address, bank account number, or phone number.
+  """
+  def contains_pii_entities(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ContainsPiiEntities", input, options)
+  end
+
+  @doc """
   Creates a new document classifier that you can use to categorize documents.
 
   To create a classifier, you provide a set of training documents that labeled

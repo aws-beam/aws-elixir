@@ -8,6 +8,10 @@ defmodule AWS.RedshiftData do
 
   You can run individual SQL statements, which are committed if the statement
   succeeds.
+
+  For more information about the Amazon Redshift Data API, see [Using the Amazon Redshift Data
+  API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Cluster Management Guide*.
   """
 
   alias AWS.Client

@@ -58,6 +58,7 @@ defmodule AWS.SageMakerRuntime do
         {"ContentType", "Content-Type"},
         {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
         {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
+        {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
         {"TargetModel", "X-Amzn-SageMaker-Target-Model"},
         {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
       ]
@@ -80,6 +81,13 @@ defmodule AWS.SageMakerRuntime do
       Keyword.put(
         options,
         :send_body_as_binary?,
+        true
+      )
+
+    options =
+      Keyword.put(
+        options,
+        :receive_body_as_binary?,
         true
       )
 

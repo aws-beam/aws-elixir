@@ -152,6 +152,27 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
+  Retrieves execution information about a detector model analysis
+  """
+  def describe_detector_model_analysis(%Client{} = client, analysis_id, options \\ []) do
+    url_path = "/analysis/detector-models/#{URI.encode(analysis_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Describes an input.
   """
   def describe_input(%Client{} = client, input_name, options \\ []) do
@@ -179,6 +200,47 @@ defmodule AWS.IoTEvents do
     url_path = "/logging"
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves one or more analysis results of the detector model.
+  """
+  def get_detector_model_analysis_results(
+        %Client{} = client,
+        analysis_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/analysis/detector-models/#{URI.encode(analysis_id)}/results"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -358,6 +420,30 @@ defmodule AWS.IoTEvents do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Performs an analysis of your detector model.
+
+  For more information, see [Running detector model analyses](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html)
+  in the *AWS IoT Events Developer Guide*.
+  """
+  def start_detector_model_analysis(%Client{} = client, input, options \\ []) do
+    url_path = "/analysis/detector-models/"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,

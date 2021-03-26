@@ -167,9 +167,6 @@ defmodule AWS.LookoutVision do
     * If you delete the training dataset, you must create a training
   dataset before you can create a model.
 
-  It might take a while to delete the dataset. To check the current status, check
-  the `Status` field in the response from a call to `DescribeDataset`.
-
   This operation requires permissions to perform the `lookoutvision:DeleteDataset`
   operation.
   """
@@ -203,6 +200,10 @@ defmodule AWS.LookoutVision do
 
   You can't delete a running model. To stop a running model, use the `StopModel`
   operation.
+
+  It might take a few seconds to delete a model. To determine if a model has been
+  deleted, call `ListProjects` and check if the version of the model
+  (`ModelVersion`) is in the `Models` array.
 
   This operation requires permissions to perform the `lookoutvision:DeleteModel`
   operation.
@@ -365,7 +366,7 @@ defmodule AWS.LookoutVision do
 
     {headers, input} =
       [
-        {"ContentType", "content-type"}
+        {"ContentType", "Content-Type"}
       ]
       |> Request.build_params(input)
 
@@ -594,6 +595,8 @@ defmodule AWS.LookoutVision do
   Starting a model takes a while to complete. To check the current state of the
   model, use `DescribeModel`.
 
+  A model is ready to use when its status is `HOSTED`.
+
   Once the model is running, you can detect custom labels in new images by calling
   `DetectAnomalies`.
 
@@ -629,10 +632,12 @@ defmodule AWS.LookoutVision do
   end
 
   @doc """
-  Stops a running model.
+  Stops the hosting of a running model.
 
   The operation might take a while to complete. To check the current status, call
   `DescribeModel`.
+
+  After the model hosting stops, the `Status` of the model is `TRAINED`.
 
   This operation requires permissions to perform the `lookoutvision:StopModel`
   operation.

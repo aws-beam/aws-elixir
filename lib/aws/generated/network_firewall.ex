@@ -42,8 +42,6 @@ defmodule AWS.NetworkFirewall do
     * Perform deep packet inspection on traffic entering or leaving your
   VPC.
 
-    * Rate limit traffic going from AWS to on-premises IP destinations.
-
     * Use stateful protocol detection to filter protocols like HTTPS,
   regardless of the port used.
 

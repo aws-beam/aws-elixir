@@ -13,8 +13,7 @@ defmodule AWS.ManagedBlockchain do
   trusted, central authority.
 
   Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source
-  frameworks. Ethereum on Managed Blockchain is in preview release and is subject
-  to change. Because of fundamental differences between the frameworks, some API
+  frameworks. Because of fundamental differences between the frameworks, some API
   actions or data types may only apply in the context of one framework and not the
   other. For example, actions related to Hyperledger Fabric network members such
   as `CreateMember` and `DeleteMember` do not apply to Ethereum.
@@ -93,8 +92,6 @@ defmodule AWS.ManagedBlockchain do
   Creates a node on the specified blockchain network.
 
   Applies to Hyperledger Fabric and Ethereum.
-
-  Ethereum on Managed Blockchain is in preview release and is subject to change.
   """
   def create_node(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{URI.encode(network_id)}/nodes"

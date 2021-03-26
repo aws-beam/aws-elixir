@@ -7,7 +7,7 @@ defmodule AWS.PersonalizeEvents do
   *click* data, and use it for model training either alone or combined with
   historical data.
 
-  For more information see `recording-events`.
+  For more information see [Recording Events](https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html).
   """
 
   alias AWS.Client
@@ -32,7 +32,7 @@ defmodule AWS.PersonalizeEvents do
   @doc """
   Records user interaction event data.
 
-  For more information see `event-record-api`.
+  For more information see [Recording Events](https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html).
   """
   def put_events(%Client{} = client, input, options \\ []) do
     url_path = "/events"
@@ -55,7 +55,7 @@ defmodule AWS.PersonalizeEvents do
   @doc """
   Adds one or more items to an Items dataset.
 
-  For more information see `importing-items`.
+  For more information see [Importing Items Incrementally](https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html).
   """
   def put_items(%Client{} = client, input, options \\ []) do
     url_path = "/items"
@@ -78,7 +78,7 @@ defmodule AWS.PersonalizeEvents do
   @doc """
   Adds one or more users to a Users dataset.
 
-  For more information see `importing-users`.
+  For more information see [Importing Users Incrementally](https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html).
   """
   def put_users(%Client{} = client, input, options \\ []) do
     url_path = "/users"

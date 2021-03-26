@@ -1227,7 +1227,11 @@ defmodule AWS.Lambda do
   Lambda returns up to 50 functions per call.
 
   Set `FunctionVersion` to `ALL` to include all published versions of each
-  function in addition to the unpublished version. To get more information about a
+  function in addition to the unpublished version.
+
+  The `ListFunctions` action returns a subset of the `FunctionConfiguration`
+  fields. To get the additional fields (State, StateReasonCode, StateReason,
+  LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode) for a
   function or version, use `GetFunction`.
   """
   def list_functions(

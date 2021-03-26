@@ -235,7 +235,7 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Deletes the stored query for an AWS account in an AWS Region.
+  Deletes the stored query for a single AWS account and a single AWS Region.
   """
   def delete_stored_query(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteStoredQuery", input, options)
@@ -879,7 +879,7 @@ defmodule AWS.Config do
   end
 
   @doc """
-  List the stored queries for an AWS account in an AWS Region.
+  Lists the stored queries for a single AWS account and a single AWS Region.
 
   The default is 100.
   """
@@ -948,13 +948,23 @@ defmodule AWS.Config do
 
   The source account can be individual account(s) or an organization.
 
+  `accountIds` that are passed will be replaced with existing accounts. If you
+  want to add additional accounts into the aggregator, call `DescribeAggregator`
+  to get the previous accounts and then append new ones.
+
   AWS Config should be enabled in source accounts and regions you want to
   aggregate.
 
-  If your source type is an organization, you must be signed in to the master
-  account and all features must be enabled in your organization. AWS Config calls
-  `EnableAwsServiceAccess` API to enable integration between AWS Config and AWS
-  Organizations.
+  If your source type is an organization, you must be signed in to the management
+  account or a registered delegated administrator and all the features must be
+  enabled in your organization. If the caller is a management account, AWS Config
+  calls `EnableAwsServiceAccess` API to enable integration between AWS Config and
+  AWS Organizations. If the caller is a registered delegated administrator, AWS
+  Config calls `ListDelegatedAdministrators` API to verify whether the caller is a
+  valid delegated administrator.
+
+  To register a delegated administrator, see [Register a Delegated Administrator](https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli)
+  in the AWS Config developer guide.
   """
   def put_configuration_aggregator(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutConfigurationAggregator", input, options)
@@ -1026,6 +1036,12 @@ defmodule AWS.Config do
     Request.request_post(client, metadata(), "PutEvaluations", input, options)
   end
 
+  @doc """
+  Add or updates the evaluations for process checks.
+
+  This API checks if the rule is a process check when the name of the AWS Config
+  rule is provided.
+  """
   def put_external_evaluation(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutExternalEvaluation", input, options)
   end
@@ -1131,7 +1147,7 @@ defmodule AWS.Config do
   A remediation exception is when a specific resource is no longer considered for
   auto-remediation.
 
-  This API adds a new exception or updates an exisiting exception for a specific
+  This API adds a new exception or updates an existing exception for a specific
   resource with a specific AWS Config rule.
 
   AWS Config generates a remediation exception when a problem occurs executing a
@@ -1182,8 +1198,8 @@ defmodule AWS.Config do
   @doc """
   Saves a new query or updates an existing saved query.
 
-  The `QueryName` must be unique for an AWS account in an AWS Region. You can
-  create upto 300 queries in an AWS account in an AWS Region.
+  The `QueryName` must be unique for a single AWS account and a single AWS Region.
+  You can create upto 300 queries in a single AWS account and a single AWS Region.
   """
   def put_stored_query(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutStoredQuery", input, options)

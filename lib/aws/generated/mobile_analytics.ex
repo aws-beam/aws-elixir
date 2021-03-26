@@ -1,7 +1,7 @@
 # WARNING: DO NOT EDIT, AUTO-GENERATED CODE!
 # See https://github.com/aws-beam/aws-codegen for more details.
 
-defmodule AWS.Mobileanalytics do
+defmodule AWS.MobileAnalytics do
   @moduledoc """
   Amazon Mobile Analytics is a service for collecting, visualizing, and
   understanding app usage data at scale.

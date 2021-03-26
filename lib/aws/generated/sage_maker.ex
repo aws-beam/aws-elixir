@@ -741,9 +741,10 @@ defmodule AWS.SageMaker do
   associated with the Domain's Amazon Elastic File System (EFS) volume. This
   operation can only be called when the authentication mode equals IAM.
 
-  The URL that you get from a call to `CreatePresignedDomainUrl` is valid only for
-  5 minutes. If you try to use the URL after the 5-minute limit expires, you are
-  directed to the AWS console sign-in page.
+  The URL that you get from a call to `CreatePresignedDomainUrl` has a default
+  timeout of 5 minutes. You can configure this value using `ExpiresInSeconds`. If
+  you try to use the URL after the timeout limit expires, you are directed to the
+  AWS console sign-in page.
   """
   def create_presigned_domain_url(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreatePresignedDomainUrl", input, options)
@@ -837,6 +838,9 @@ defmodule AWS.SageMaker do
   `MaxRuntimeInSeconds` to set a time limit for training. Use
   `MaxWaitTimeInSeconds` to specify how long you are willing to wait for a managed
   spot training job to complete.
+
+    * `Environment` - The environment variables to set in the Docker
+  container.
 
   For more information about Amazon SageMaker, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
   """
@@ -1657,6 +1661,12 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about a training job.
+
+  Some of the attributes below only appear if the training job successfully
+  starts. If the training job fails, `TrainingJobStatus` is `Failed` and,
+  depending on the `FailureReason`, attributes like `TrainingStartTime`,
+  `TrainingTimeInSeconds`, `TrainingEndTime`, and `BillableTimeInSeconds` may not
+  be present in the response.
   """
   def describe_training_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTrainingJob", input, options)
@@ -2157,6 +2167,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists training jobs.
+
+  When `StatusEquals` and `MaxResults` are set at the same time, the `MaxResults`
+  number of training jobs are first retrieved ignoring the `StatusEquals`
+  parameter and then they are filtered by the `StatusEquals` parameter, which is
+  returned as a response. For example, if `ListTrainingJobs` is invoked with the
+  following parameters:
+
+  `{ ... MaxResults: 100, StatusEquals: InProgress ... }`
+
+  Then, 100 trainings jobs with any status including those other than `InProgress`
+  are selected first (sorted according the creation time, from the latest to the
+  oldest) and those with status `InProgress` are returned.
+
+  You can quickly test the API using the following AWS CLI code.
+
+  `aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress`
   """
   def list_training_jobs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTrainingJobs", input, options)

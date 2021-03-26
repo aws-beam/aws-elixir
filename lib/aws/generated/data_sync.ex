@@ -81,7 +81,7 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates an endpoint for an Amazon FSx for Windows file system.
+  Creates an endpoint for an Amazon FSx for Windows File Server file system.
   """
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLocationFsxWindows", input, options)
@@ -127,22 +127,23 @@ defmodule AWS.DataSync do
   @doc """
   Creates a task.
 
-  A task is a set of two locations (source and destination) and a set of Options
-  that you use to control the behavior of a task. If you don't specify Options
-  when you create a task, AWS DataSync populates them with service defaults.
+  A task includes a source location and a destination location, and a
+  configuration that specifies how data is transferred. A task always transfers
+  data from the source location to the destination location. The configuration
+  specifies options such as task scheduling, bandwidth limits, etc. A task is the
+  complete definition of a data transfer.
 
-  When you create a task, it first enters the CREATING state. During CREATING AWS
-  DataSync attempts to mount the on-premises Network File System (NFS) location.
-  The task transitions to the AVAILABLE state without waiting for the AWS location
-  to become mounted. If required, AWS DataSync mounts the AWS location before each
-  task execution.
+  When you create a task that transfers data between AWS services in different AWS
+  Regions, one of the two locations that you specify must reside in the Region
+  where DataSync is being used. The other location must be specified in a
+  different Region.
 
-  If an agent that is associated with a source (NFS) location goes offline, the
-  task transitions to the UNAVAILABLE status. If the status of the task remains in
-  the CREATING status for more than a few minutes, it means that your agent might
-  be having trouble mounting the source NFS file system. Check the task's
-  ErrorCode and ErrorDetail. Mount issues are often caused by either a
-  misconfigured firewall or a mistyped NFS server hostname.
+  You can transfer data between commercial AWS Regions except for China, or
+  between AWS GovCloud (US-East and US-West) Regions.
+
+  When you use DataSync to copy files or objects between AWS Regions, you pay for
+  data transfer between Regions. This is billed as data transfer OUT from your
+  source Region to your destination Region. For more information, see [Data Transfer pricing](http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer).
   """
   def create_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateTask", input, options)
@@ -194,7 +195,7 @@ defmodule AWS.DataSync do
 
   @doc """
   Returns metadata, such as the path information about an Amazon FSx for Windows
-  location.
+  File Server location.
   """
   def describe_location_fsx_windows(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLocationFsxWindows", input, options)
@@ -334,6 +335,37 @@ defmodule AWS.DataSync do
   end
 
   @doc """
+  Updates some of the parameters of a previously created location for Network File
+  System (NFS) access.
+
+  For information about creating an NFS location, see `create-nfs-location`.
+  """
+  def update_location_nfs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLocationNfs", input, options)
+  end
+
+  @doc """
+  Updates some of the parameters of a previously created location for self-managed
+  object storage server access.
+
+  For information about creating a self-managed object storage location, see
+  `create-object-location`.
+  """
+  def update_location_object_storage(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLocationObjectStorage", input, options)
+  end
+
+  @doc """
+  Updates some of the parameters of a previously created location for Server
+  Message Block (SMB) file system access.
+
+  For information about creating an SMB location, see `create-smb-location`.
+  """
+  def update_location_smb(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLocationSmb", input, options)
+  end
+
+  @doc """
   Updates the metadata associated with a task.
   """
   def update_task(%Client{} = client, input, options \\ []) do
@@ -344,7 +376,7 @@ defmodule AWS.DataSync do
   Updates execution of a task.
 
   You can modify bandwidth throttling for a task execution that is running or
-  queued. For more information, see [Adjusting Bandwidth Throttling for a Task Execution](https://docs.aws.amazon.com/datasync/latest/working-with-task-executions.html#adjust-bandwidth-throttling).
+  queued. For more information, see [Adjusting Bandwidth Throttling for a Task Execution](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling).
 
   The only `Option` that can be modified by `UpdateTaskExecution` is `
   [BytesPerSecond](https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond)

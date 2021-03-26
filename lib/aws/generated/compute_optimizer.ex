@@ -166,21 +166,40 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns the optimization findings for an account.
 
-  For example, it returns the number of Amazon EC2 instances in an account that
-  are under-provisioned, over-provisioned, or optimized. It also returns the
-  number of Auto Scaling groups in an account that are not optimized, or
-  optimized.
+  It returns the number of:
+
+    * Amazon EC2 instances in an account that are `Underprovisioned`,
+  `Overprovisioned`, or `Optimized`.
+
+    * Auto Scaling groups in an account that are `NotOptimized`, or
+  `Optimized`.
+
+    * Amazon EBS volumes in an account that are `NotOptimized`, or
+  `Optimized`.
+
+    * Lambda functions in an account that are `NotOptimized`, or
+  `Optimized`.
   """
   def get_recommendation_summaries(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetRecommendationSummaries", input, options)
   end
 
   @doc """
-  Updates the enrollment (opt in) status of an account to the AWS Compute
-  Optimizer service.
+  Updates the enrollment (opt in and opt out) status of an account to the AWS
+  Compute Optimizer service.
 
   If the account is a management account of an organization, this action can also
   be used to enroll member accounts within the organization.
+
+  You must have the appropriate permissions to opt in to Compute Optimizer, to
+  view its recommendations, and to opt out. For more information, see [Controlling access with AWS Identity and Access
+  Management](https://docs.aws.amazon.com/compute-optimizer/ug/security-iam.html)
+  in the *Compute Optimizer User Guide*.
+
+  When you opt in, Compute Optimizer automatically creates a Service-Linked Role
+  in your account to access its data. For more information, see [Using Service-Linked Roles for AWS Compute
+  Optimizer](https://docs.aws.amazon.com/compute-optimizer/ug/using-service-linked-roles.html)
+  in the *Compute Optimizer User Guide*.
   """
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEnrollmentStatus", input, options)

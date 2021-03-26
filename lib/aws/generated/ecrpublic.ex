@@ -197,6 +197,13 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
+  List the tags for an Amazon ECR Public resource.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Creates or updates the image manifest and tags associated with an image.
 
   When an image is pushed and all new image layers have been uploaded, the
@@ -234,6 +241,24 @@ defmodule AWS.ECRPUBLIC do
   """
   def set_repository_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetRepositoryPolicy", input, options)
+  end
+
+  @doc """
+  Associates the specified tags to a resource with the specified `resourceArn`.
+
+  If existing tags on a resource are not specified in the request parameters, they
+  are not changed. When a resource is deleted, the tags associated with that
+  resource are deleted as well.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
+  end
+
+  @doc """
+  Deletes specified tags from a resource.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """

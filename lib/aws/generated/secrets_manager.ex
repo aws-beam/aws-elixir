@@ -225,7 +225,7 @@ defmodule AWS.SecretsManager do
 
     * To attach a resource policy to a secret, use `PutResourcePolicy`.
 
-    * To retrieve the current resource-based policy that's attached to a
+    * To retrieve the current resource-based policy attached to a
   secret, use `GetResourcePolicy`.
 
     * To list all of the currently available secrets, use `ListSecrets`.
@@ -235,7 +235,7 @@ defmodule AWS.SecretsManager do
   end
 
   @doc """
-  Deletes an entire secret and all of its versions.
+  Deletes an entire secret and all of the versions.
 
   You can optionally include a recovery window during which you can restore the
   secret. If you don't specify a recovery window value, the operation defaults to
@@ -246,14 +246,14 @@ defmodule AWS.SecretsManager do
   At any time before recovery window ends, you can use `RestoreSecret` to remove
   the `DeletionDate` and cancel the deletion of the secret.
 
-  You cannot access the encrypted secret information in any secret that is
-  scheduled for deletion. If you need to access that information, you must cancel
-  the deletion with `RestoreSecret` and then retrieve the information.
+  You cannot access the encrypted secret information in any secret scheduled for
+  deletion. If you need to access that information, you must cancel the deletion
+  with `RestoreSecret` and then retrieve the information.
 
      There is no explicit operation to delete a version of a secret.
   Instead, remove all staging labels from the `VersionStage` field of a version.
   That marks the version as deprecated and allows Secrets Manager to delete it as
-  needed. Versions that do not have any staging labels do not show up in
+  needed. Versions without any staging labels do not show up in
   `ListSecretVersionIds` unless you specify `IncludeDeprecated`.
 
      The permanent secret deletion at the end of the waiting period is
@@ -456,8 +456,8 @@ defmodule AWS.SecretsManager do
     * To retrieve the resource policy attached to a secret, use
   `GetResourcePolicy`.
 
-    * To delete the resource-based policy that's attached to a secret,
-  use `DeleteResourcePolicy`.
+    * To delete the resource-based policy attached to a secret, use
+  `DeleteResourcePolicy`.
 
     * To list all of the currently available secrets, use `ListSecrets`.
   """
@@ -481,14 +481,13 @@ defmodule AWS.SecretsManager do
   Secrets Manager automatically attaches the staging label `AWSCURRENT` to the new
   version.
 
-    * If another version of this secret already exists, then this
-  operation does not automatically move any staging labels other than those that
-  you explicitly specify in the `VersionStages` parameter.
+    * If you do not specify a value for VersionStages then Secrets
+  Manager automatically moves the staging label `AWSCURRENT` to this new version.
 
     * If this operation moves the staging label `AWSCURRENT` from
-  another version to this version (because you included it in the `StagingLabels`
-  parameter) then Secrets Manager also automatically moves the staging label
-  `AWSPREVIOUS` to the version that `AWSCURRENT` was removed from.
+  another version to this version, then Secrets Manager also automatically moves
+  the staging label `AWSPREVIOUS` to the version that `AWSCURRENT` was removed
+  from.
 
     * This operation is idempotent. If a version with a `VersionId` with
   the same value as the `ClientRequestToken` parameter already exists and you
@@ -541,6 +540,21 @@ defmodule AWS.SecretsManager do
   """
   def put_secret_value(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutSecretValue", input, options)
+  end
+
+  @doc """
+  Remove regions from replication.
+  """
+  def remove_regions_from_replication(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveRegionsFromReplication", input, options)
+  end
+
+  @doc """
+  Converts an existing secret to a multi-Region secret and begins replication the
+  secret to a list of new regions.
+  """
+  def replicate_secret_to_regions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ReplicateSecretToRegions", input, options)
   end
 
   @doc """
@@ -625,6 +639,14 @@ defmodule AWS.SecretsManager do
   """
   def rotate_secret(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RotateSecret", input, options)
+  end
+
+  @doc """
+  Removes the secret from replication and promotes the secret to a regional secret
+  in the replica Region.
+  """
+  def stop_replication_to_replica(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopReplicationToReplica", input, options)
   end
 
   @doc """
@@ -818,12 +840,31 @@ defmodule AWS.SecretsManager do
   end
 
   @doc """
-  Validates the JSON text of the resource-based policy document attached to the
-  specified secret.
+  Validates that the resource policy does not grant a wide range of IAM principals
+  access to your secret.
 
   The JSON request string input and response output displays formatted code with
   white space and line breaks for better readability. Submit your input as a
-  single line JSON string. A resource-based policy is optional.
+  single line JSON string. A resource-based policy is optional for secrets.
+
+  The API performs three checks when validating the secret:
+
+    * Sends a call to
+  [Zelkova](https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova/),
+  an automated reasoning engine, to ensure your Resource Policy does not allow
+  broad access to your secret.
+
+    * Checks for correct syntax in a policy.
+
+    * Verifies the policy does not lock out a caller.
+
+  ## Minimum Permissions
+
+  You must have the permissions required to access the following APIs:
+
+    * `secretsmanager:PutResourcePolicy`
+
+    * `secretsmanager:ValidateResourcePolicy`
   """
   def validate_resource_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ValidateResourcePolicy", input, options)

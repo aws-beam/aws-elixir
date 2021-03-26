@@ -61,6 +61,14 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+  Creates an API destination, which is an HTTP invocation endpoint configured as a
+  target for events.
+  """
+  def create_api_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateApiDestination", input, options)
+  end
+
+  @doc """
   Creates an archive of events with the specified settings.
 
   When you create an archive, incoming events might not immediately start being
@@ -71,6 +79,16 @@ defmodule AWS.CloudWatchEvents do
   """
   def create_archive(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateArchive", input, options)
+  end
+
+  @doc """
+  Creates a connection.
+
+  A connection defines the authorization type and credentials to use for
+  authorization with an API destination HTTP endpoint.
+  """
+  def create_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateConnection", input, options)
   end
 
   @doc """
@@ -132,10 +150,34 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+  Removes all authorization parameters from the connection.
+
+  This lets you remove the secret from the connection so you can reuse it without
+  having to create a new connection.
+  """
+  def deauthorize_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeauthorizeConnection", input, options)
+  end
+
+  @doc """
+  Deletes the specified API destination.
+  """
+  def delete_api_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteApiDestination", input, options)
+  end
+
+  @doc """
   Deletes the specified archive.
   """
   def delete_archive(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteArchive", input, options)
+  end
+
+  @doc """
+  Deletes a connection.
+  """
+  def delete_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteConnection", input, options)
   end
 
   @doc """
@@ -180,10 +222,24 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+  Retrieves details about an API destination.
+  """
+  def describe_api_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeApiDestination", input, options)
+  end
+
+  @doc """
   Retrieves details about an archive.
   """
   def describe_archive(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeArchive", input, options)
+  end
+
+  @doc """
+  Retrieves details about a connection.
+  """
+  def describe_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeConnection", input, options)
   end
 
   @doc """
@@ -276,6 +332,13 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+  Retrieves a list of API destination in the account in the current Region.
+  """
+  def list_api_destinations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListApiDestinations", input, options)
+  end
+
+  @doc """
   Lists your archives.
 
   You can either list all the archives or you can provide a prefix to match to the
@@ -283,6 +346,13 @@ defmodule AWS.CloudWatchEvents do
   """
   def list_archives(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListArchives", input, options)
+  end
+
+  @doc """
+  Retrieves a list of connections from the account.
+  """
+  def list_connections(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListConnections", input, options)
   end
 
   @doc """
@@ -519,6 +589,10 @@ defmodule AWS.CloudWatchEvents do
 
     * Redshift Clusters to invoke Data API ExecuteStatement on
 
+    * Custom/SaaS HTTPS APIs via EventBridge API Destinations
+
+    * Amazon SageMaker Model Building Pipelines
+
   Creating rules with built-in targets is supported only in the AWS Management
   Console. The built-in targets are `EC2 CreateSnapshot API call`, `EC2
   RebootInstances API call`, `EC2 StopInstances API call`, and `EC2
@@ -687,9 +761,23 @@ defmodule AWS.CloudWatchEvents do
   end
 
   @doc """
+  Updates an API destination.
+  """
+  def update_api_destination(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateApiDestination", input, options)
+  end
+
+  @doc """
   Updates the specified archive.
   """
   def update_archive(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateArchive", input, options)
+  end
+
+  @doc """
+  Updates settings for a connection.
+  """
+  def update_connection(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateConnection", input, options)
   end
 end

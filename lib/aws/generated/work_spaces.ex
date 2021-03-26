@@ -116,6 +116,16 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Creates the specified WorkSpace bundle.
+
+  For more information about creating WorkSpace bundles, see [ Create a Custom WorkSpaces Image and
+  Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html).
+  """
+  def create_workspace_bundle(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateWorkspaceBundle", input, options)
+  end
+
+  @doc """
   Creates one or more WorkSpaces.
 
   This operation is asynchronous and returns before the WorkSpaces are created.
@@ -159,6 +169,16 @@ defmodule AWS.WorkSpaces do
   """
   def delete_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteTags", input, options)
+  end
+
+  @doc """
+  Deletes the specified WorkSpace bundle.
+
+  For more information about deleting WorkSpace bundles, see [ Delete a Custom WorkSpaces Bundle or
+  Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html).
+  """
+  def delete_workspace_bundle(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWorkspaceBundle", input, options)
   end
 
   @doc """
@@ -586,6 +606,21 @@ defmodule AWS.WorkSpaces do
   """
   def update_rules_of_ip_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateRulesOfIpGroup", input, options)
+  end
+
+  @doc """
+  Updates a WorkSpace bundle with a new image.
+
+  For more information about updating WorkSpace bundles, see [ Update a Custom WorkSpaces
+  Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html).
+
+  Existing WorkSpaces aren't automatically updated when you update the bundle that
+  they're based on. To update existing WorkSpaces that are based on a bundle that
+  you've updated, you must either rebuild the WorkSpaces or delete and recreate
+  them.
+  """
+  def update_workspace_bundle(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateWorkspaceBundle", input, options)
   end
 
   @doc """

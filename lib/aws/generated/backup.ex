@@ -268,6 +268,9 @@ defmodule AWS.Backup do
 
   @doc """
   Deletes the recovery point specified by a recovery point ID.
+
+  If the recovery point ID belongs to a continuous backup, calling this endpoint
+  deletes the existing continuous backup and stops future continuous backup.
   """
   def delete_recovery_point(
         %Client{} = client,
@@ -485,6 +488,44 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  Deletes the specified continuous backup recovery point from AWS Backup and
+  releases control of that continuous backup to the source service, such as Amazon
+  RDS.
+
+  The source service will continue to create and retain continuous backups using
+  the lifecycle that you specified in your original backup plan.
+
+  Does not support snapshot backup recovery points.
+  """
+  def disassociate_recovery_point(
+        %Client{} = client,
+        backup_vault_name,
+        recovery_point_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{
+        URI.encode(recovery_point_arn)
+      }/disassociate"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns the backup plan that is specified by the plan ID as a backup template.
   """
   def export_backup_plan_template(%Client{} = client, backup_plan_id, options \\ []) do
@@ -508,7 +549,8 @@ defmodule AWS.Backup do
   @doc """
   Returns `BackupPlan` details for the specified `BackupPlanId`.
 
-  Returns the body of a backup plan in JSON format, in addition to plan metadata.
+  The details are the body of a backup plan in JSON format, in addition to plan
+  metadata.
   """
   def get_backup_plan(%Client{} = client, backup_plan_id, version_id \\ nil, options \\ []) do
     url_path = "/backup/plans/#{URI.encode(backup_plan_id)}/"
@@ -696,7 +738,10 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of existing backup jobs for an authenticated account.
+  Returns a list of existing backup jobs for an authenticated account for the last
+  30 days.
+
+  For a longer period of time, consider using these [monitoring tools](https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html).
   """
   def list_backup_jobs(
         %Client{} = client,
@@ -1451,6 +1496,8 @@ defmodule AWS.Backup do
 
   @doc """
   Starts a job to create a one-time copy of the specified resource.
+
+  Does not support continuous backups.
   """
   def start_copy_job(%Client{} = client, input, options \\ []) do
     url_path = "/copy-jobs"
@@ -1617,6 +1664,8 @@ defmodule AWS.Backup do
   to cold.
 
   Only Amazon EFS file system backups can be transitioned to cold storage.
+
+  Does not support continuous backups.
   """
   def update_recovery_point_lifecycle(
         %Client{} = client,

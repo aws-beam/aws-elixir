@@ -97,8 +97,8 @@ defmodule AWS.Request do
 
     case Client.request(client, method, url, payload, headers, options) do
       {:ok, %{status_code: status_code, body: body} = response}
-      when is_nil(success_status_code) and status_code in [200, 202, 204]
-      when status_code == success_status_code ->
+      when (is_nil(success_status_code) and status_code in 200..299) or
+             status_code == success_status_code ->
         body =
           if body != "" do
             {receive_body_as_binary?, _options} = Keyword.pop(options, :receive_body_as_binary?)

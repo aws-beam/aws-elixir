@@ -65,7 +65,9 @@ defmodule AWS.RequestTest do
       def request(method, url, body, headers, options) do
         send(self(), {:request, method, url, body, headers, options})
 
-        {:ok, %{status_code: 200, headers: [], body: "{\"Response\":\"foo\"}"}}
+        {status, _opts} = Keyword.pop(options, :return_status_code, 200)
+
+        {:ok, %{status_code: status, headers: [], body: "{\"Response\":\"foo\"}"}}
       end
     end
 
@@ -168,6 +170,57 @@ defmodule AWS.RequestTest do
       assert_receive {:request, :post, _url, _body, _headers, options}
 
       assert options == []
+    end
+
+    test "accept success code other than 200", %{client: client, metadata: metadata} do
+      {http_client, _opts} = client.http_client
+      client = %{client | http_client: {http_client, [return_status_code: 206]}}
+
+      assert {:ok, response, http_response} =
+               Request.request_rest(
+                 client,
+                 metadata,
+                 :post,
+                 "/foo/bar",
+                 [],
+                 [],
+                 %{"Body" => "data"},
+                 [],
+                 nil
+               )
+
+      assert response == %{"Response" => "foo"}
+      assert http_response == %{body: "{\"Response\":\"foo\"}", headers: [], status_code: 206}
+
+      assert {:ok, _response, _http_response} =
+               Request.request_rest(
+                 client,
+                 metadata,
+                 :post,
+                 "/foo/bar",
+                 [],
+                 [],
+                 %{"Body" => "data"},
+                 [],
+                 206
+               )
+
+      # Does not accept only if explicitly tells the expected code.
+      assert {:error, error} =
+               Request.request_rest(
+                 client,
+                 metadata,
+                 :post,
+                 "/foo/bar",
+                 [],
+                 [],
+                 %{"Body" => "data"},
+                 [],
+                 200
+               )
+
+      assert {:unexpected_response,
+              %{body: "{\"Response\":\"foo\"}", headers: [], status_code: 206}} = error
     end
   end
 end

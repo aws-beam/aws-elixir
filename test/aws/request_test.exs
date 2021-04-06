@@ -31,6 +31,39 @@ defmodule AWS.RequestTest do
     assert expected == actual
   end
 
+  test "sign_v4 generate signature with similar headers correctly (sorting problem)" do
+    client = AWS.Client.create("my-access-key-id", "my-secret-access-key", "us-east-1")
+    client = %{client | service: "s3"}
+
+    host = "https://aws-beam-projects-test.s3.amazonaws.com"
+    path = "/foo/my_important_file.txt.enc"
+
+    {:ok, now, _} = DateTime.from_iso8601("2021-04-05T15:10:53Z")
+
+    result =
+      AWS.Request.sign_v4(
+        client,
+        now,
+        :put,
+        host <> path,
+        [
+          {"User-Agent", "aws-sdk-ruby3/3.113.1 ruby/2.7.2 x86_64-linux aws-sdk-s3/1.93.0"},
+          {"X-Amz-Server-Side-Encryption-Customer-Algorithm", "AES256"},
+          {"X-Amz-Server-Side-Encryption-Customer-Key",
+           "TIjv09mJiv+331Evgfq8eONO2y/G4aztRqEeAwx9y2U="},
+          {"X-Amz-Server-Side-Encryption-Customer-Key-Md5", "BaUscNABVnd0nRlQecUFPA=="},
+          {"Content-Md5", "VDMfSlWzfS823+nFvkpWzg=="},
+          {"Host", "aws-beam-projects-test.s3.amazonaws.com"}
+        ],
+        "My important file..."
+      )
+
+    {_name, auth_header} = List.keyfind(result, "Authorization", 0)
+
+    assert auth_header ==
+             "AWS4-HMAC-SHA256 Credential=my-access-key-id/20210405/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;user-agent;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption-customer-algorithm;x-amz-server-side-encryption-customer-key;x-amz-server-side-encryption-customer-key-md5, Signature=90865b5a1fb55c2766e0aff1d6ae1a8c72ab7e58471aa02204f31aecfacfaf58"
+  end
+
   test "sign_v4_query returns a map with header/value pairs suitable for use in a query string" do
     client = %Client{
       access_key_id: "access-key-id",
@@ -247,16 +280,6 @@ defmodule AWS.Request.InternalTest do
                [{"Host", "example.com"}],
                "20150326T221217Z"
              )
-  end
-
-  test "canonical_header/1 lowercases and colon-joins a header name and value and adds a trailing newline" do
-    expected = "host:example.com\n"
-    assert expected == Internal.canonical_header({"host", "example.com"})
-  end
-
-  test "canonical_header/1 strips leading and trailing whitespace from the header name and value" do
-    expected = "host:example.com\n"
-    assert expected == Internal.canonical_header({" host ", " example.com "})
   end
 
   test "canonical_headers/1 returns a newline-delimited list of trimmed and lowecase headers, sorted in alphabetical order, and with a trailing newline" do

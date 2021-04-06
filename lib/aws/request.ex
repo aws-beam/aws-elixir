@@ -372,23 +372,21 @@ defmodule AWS.Request.Internal do
   end
 
   @doc """
-  Strip leading and trailing whitespace around `name` and `value`, convert
-  `name` to lowercase, and add a trailing newline.
-  """
-  def canonical_header({name, value}) do
-    name = String.downcase(name) |> String.trim()
-    value = String.trim(value)
-    name <> ":" <> value <> "\n"
-  end
-
-  @doc """
   Convert a list of headers to canonical header format.  Leading and trailing
   whitespace around header names and values is stripped, header names are
   lowercased, and headers are newline-joined in alphabetical order (with a
   trailing newline).
   """
   def canonical_headers(headers) do
-    Enum.map(headers, &canonical_header/1) |> Enum.sort |> Enum.join
+    headers
+    |> Enum.map(fn {name, value} ->
+      name = String.downcase(name) |> String.trim()
+      value = String.trim(value)
+      {name, value}
+    end)
+    |> Enum.sort(fn {a, _}, {b, _} -> a <= b end)
+    |> Enum.map(fn {name, value} -> [name, ":", value, "\n"] end)
+    |> Enum.join()
   end
 
   @doc """

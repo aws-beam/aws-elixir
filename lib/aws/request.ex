@@ -15,7 +15,11 @@ defmodule AWS.Request do
     client = prepare_client(client, metadata)
 
     host = build_host(client, metadata)
-    url = build_url(client, host)
+
+    url =
+      client
+      |> build_uri(host)
+      |> to_string()
 
     headers = [
       {"Host", host},
@@ -76,8 +80,9 @@ defmodule AWS.Request do
 
     url =
       client
-      |> build_url(host, path)
+      |> build_uri(host, path)
       |> add_query(query, client)
+      |> to_string()
 
     additional_headers = [{"Host", host}, {"Content-Type", metadata.content_type}]
     headers = add_headers(additional_headers, headers)
@@ -168,17 +173,22 @@ defmodule AWS.Request do
     end
   end
 
-  defp build_url(%Client{} = client, host, path \\ "/") do
-    "#{client.proto}://#{host}:#{client.port}#{path}"
+  defp build_uri(%Client{} = client, host, path \\ "/") do
+    URI.merge("#{client.proto}://#{host}:#{client.port}", path)
   end
 
-  defp add_query(url, [], _client) do
-    url
+  defp add_query(uri = %URI{}, [], _client) do
+    uri
   end
 
-  defp add_query(url, query, client) do
+  defp add_query(uri = %URI{}, query, client) do
     querystring = Client.encode!(client, query, :query)
-    "#{url}?#{querystring}"
+
+    if is_binary(uri.query) do
+      %{uri | query: uri.query <> "&" <> querystring}
+    else
+      %{uri | query: querystring}
+    end
   end
 
   defp encode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols and is_map(payload) do

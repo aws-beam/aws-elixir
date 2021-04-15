@@ -178,7 +178,8 @@ defmodule AWS.Request do
 
   defp add_query(url, query, client) do
     querystring = Client.encode!(client, query, :query)
-    "#{url}?#{querystring}"
+    joiner = if String.contains?(url, "?"), do: "&", else: "?"
+    "#{url}#{joiner}#{querystring}"
   end
 
   defp encode!(%Client{} = client, protocol, payload) when protocol in @valid_protocols and is_map(payload) do

@@ -122,6 +122,45 @@ defmodule AWS.RequestTest do
       [client: client, metadata: metadata]
     end
 
+    test "send get request with params", %{client: client, metadata: metadata} do
+      assert {:ok, _response, _http_response} =
+               Request.request_rest(
+                 client,
+                 metadata,
+                 :get,
+                 "/foo/bar",
+                 [{"q", "x&y="}, {"size", 5}],
+                 [],
+                 nil,
+                 [],
+                 nil
+               )
+
+      assert_receive {:request, :get, url, _body, _headers, _options}
+
+      assert url == "https://mobileanalytics.us-east1.amazonaws.com:443/foo/bar?q=x%26y%3D&size=5"
+    end
+
+    test "send get request to url_path with params", %{client: client, metadata: metadata} do
+      assert {:ok, _response, _http_response} =
+               Request.request_rest(
+                 client,
+                 metadata,
+                 :get,
+                 "/foo/bar?format=sdk&pretty=true",
+                 [{"q", "x&y="}, {"size", 5}],
+                 [],
+                 nil,
+                 [],
+                 nil
+               )
+
+      assert_receive {:request, :get, url, _body, _headers, _options}
+
+      assert url ==
+               "https://mobileanalytics.us-east1.amazonaws.com:443/foo/bar?format=sdk&pretty=true&q=x%26y%3D&size=5"
+    end
+
     test "send post request", %{client: client, metadata: metadata} do
       assert {:ok, response, http_response} =
                Request.request_rest(

@@ -30,9 +30,9 @@ defmodule AWS.XML do
 
   def encode_to_iodata!(map, _opts \\ []) do
     map
-    |> Map.to_list
+    |> Map.to_list()
     |> Enum.map(&encode_xml_key_value/1)
-    |> :erlang.iolist_to_binary
+    |> :erlang.iolist_to_binary()
   end
 
   def decode!(xml, _opts \\ []) do
@@ -45,40 +45,55 @@ defmodule AWS.XML do
   defp encode_xml_key_value({k, v}) when is_binary(k) and is_binary(v) do
     ["<", k, ">", v, "</", k, ">"]
   end
+
   defp encode_xml_key_value({k, values}) when is_binary(k) and is_list(values) do
     for v <- values do
       encode_xml_key_value({k, v})
     end
   end
+
   defp encode_xml_key_value({k, v}) when is_binary(k) and is_integer(v) do
     ["<", k, ">", Integer.to_charlist(v), "</", k, ">"]
   end
+
   defp encode_xml_key_value({k, v}) when is_binary(k) and is_float(v) do
     ["<", k, ">", Float.to_charlist(v), "</", k, ">"]
   end
+
   defp encode_xml_key_value({k, v}) when is_binary(k) and is_map(v) do
-    [ "<", k, ">",
+    [
+      "<",
+      k,
+      ">",
       v
-      |> Map.to_list
+      |> Map.to_list()
       |> Enum.map(&encode_xml_key_value/1),
-      "</", k, ">"
+      "</",
+      k,
+      ">"
     ]
   end
 
   _ = """
   Callback hook_fun for xmerl parser
   """
+
   defp hook_fun(element, global_state) when Record.is_record(element, :xmlElement) do
     tag = xmlElement(element, :name)
     content = xmlElement(element, :content)
-    value = case List.foldr(content, :none, &content_to_map/2) do
-              v = %{@text => text} ->
-                case String.trim(text) do
-                  ""    -> Map.delete(v, @text)
-                  trimmed -> Map.put(v, @text, trimmed)
-                end
-              v -> v
-            end
+
+    value =
+      case List.foldr(content, :none, &content_to_map/2) do
+        v = %{@text => text} ->
+          case String.trim(text) do
+            "" -> Map.delete(v, @text)
+            trimmed -> Map.put(v, @text, trimmed)
+          end
+
+        v ->
+          v
+      end
+
     {%{Atom.to_string(tag) => value}, global_state}
   end
 
@@ -99,20 +114,25 @@ defmodule AWS.XML do
   elements are processed as described above and all the text parts
   are merged under the `__text' key.
   """
+
   defp content_to_map(x, :none) do
     x
   end
 
   defp content_to_map(x, acc) when is_map(x) and is_map(acc) do
     [{tag, value}] = Map.to_list(x)
+
     case Map.has_key?(acc, tag) do
       true ->
         update_fun = fn
           l when is_list(l) -> [value | l]
           v -> [value, v]
         end
+
         Map.update!(acc, tag, update_fun)
-      false -> Map.put(acc, tag, value)
+
+      false ->
+        Map.put(acc, tag, value)
     end
   end
 
@@ -131,5 +151,4 @@ defmodule AWS.XML do
   defp content_to_map(x, acc) when is_map(x) and is_binary(acc) do
     Map.put(x, @text, acc)
   end
-
 end

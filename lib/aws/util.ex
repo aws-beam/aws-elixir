@@ -37,7 +37,6 @@ defmodule AWS.Util do
   def encode_query(value) do
     value
     |> Enum.map(fn {k, v} -> {k, to_string(v)} end)
-    |> :uri_string.compose_query
+    |> :uri_string.compose_query()
   end
-
 end

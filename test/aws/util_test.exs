@@ -3,10 +3,10 @@ defmodule AWS.UtilTest do
   alias AWS.Util
 
   test "hmac_sha256/2 returns a SHA256 HMAC for a message" do
-    expected = <<110, 158, 242, 155, 117, 255, 252,  91,
-                 122, 186, 229,  39, 213, 143, 218, 219,
-                  47, 228,  46, 114,  25,   1,  25, 118,
-                 145, 115,  67,   6,  95,  88, 237,  74>>
+    expected =
+      <<110, 158, 242, 155, 117, 255, 252, 91, 122, 186, 229, 39, 213, 143, 218, 219, 47, 228, 46,
+        114, 25, 1, 25, 118, 145, 115, 67, 6, 95, 88, 237, 74>>
+
     assert ^expected = Util.hmac_sha256("key", "message")
   end
 

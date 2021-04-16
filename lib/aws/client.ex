@@ -40,7 +40,7 @@ defmodule AWS.Client do
             service: nil,
             endpoint: "amazonaws.com",
             proto: "https",
-            port: "443",
+            port: 443,
             http_client: {AWS.HTTPClient, []},
             json_module: {AWS.JSON, []},
             xml_module: {AWS.XML, []}

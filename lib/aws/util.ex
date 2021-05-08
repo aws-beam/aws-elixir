@@ -5,7 +5,7 @@ defmodule AWS.Util do
   Create an HMAC-SHA256 for `key` and `message`.
   """
   def hmac_sha256(key, message) do
-    :crypto.hmac(:sha256, key, message)
+    :crypto.mac(:hmac, :sha256, key, message)
   end
 
   @doc """

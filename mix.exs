@@ -23,14 +23,14 @@ defmodule AWS.Mixfile do
   end
 
   def application do
-    [extra_applications: [:logger, :crypto, :xmerl, :eex]]
+    [extra_applications: [:logger, :crypto, :xmerl]]
   end
 
   defp deps do
     [
-      {:dialyxir, "~> 0.5.0", only: [:dev]},
+      {:dialyxir, "~> 1.1.0", only: [:dev], runtime: false},
       {:earmark, "~> 1.4", only: [:dev]},
-      {:ex_doc, "~> 0.21", only: [:dev]},
+      {:ex_doc, "~> 0.24", only: [:dev]},
       {:bypass, "~> 2.1", only: [:test]},
       {:jason, "~> 1.2"},
       {:hackney, "~> 1.16", optional: true}

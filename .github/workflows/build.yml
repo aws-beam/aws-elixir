@@ -17,7 +17,7 @@ jobs:
         include:
           - pair:
               elixir: 1.7.4
-              otp: 21.3.8.17
+              otp: "21.3.8.17"
           - pair:
               elixir: 1.11.4
               otp: "24.0"
@@ -37,7 +37,7 @@ jobs:
             _build
           key: mix-${{ runner.os }}-${{matrix.pair.elixir}}-${{matrix.pair.otp}}-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
-            mix-${{ runner.os }}-
+            mix-${{ runner.os }}-${{matrix.pair.elixir}}-${{matrix.pair.otp}}-
 
       - run: mix deps.get
 

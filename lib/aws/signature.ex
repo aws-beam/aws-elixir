@@ -7,6 +7,9 @@ defmodule AWS.Signature do
   alias AWS.Client
   alias AWS.Util
 
+  # https://docs.aws.amazon.com/general/latest/gr/sigv4_changes.html
+  @default_region_for_global_services "us-east-1"
+
   @doc """
   Generate headers with an AWS signature version 4 for the specified request
   using the specified time.
@@ -14,6 +17,7 @@ defmodule AWS.Signature do
   def sign_v4(client, now, method, url, headers, body) do
     long_date = NaiveDateTime.to_iso8601(now, :basic) <> "Z"
     short_date = Date.to_iso8601(now, :basic)
+    region = client.region || @default_region_for_global_services
 
     headers =
       headers
@@ -23,7 +27,7 @@ defmodule AWS.Signature do
 
     canonical_request = canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
-    credential_scope = credential_scope(short_date, client.region, client.service)
+    credential_scope = credential_scope(short_date, region, client.service)
 
     signing_key = signing_key(client, short_date)
 
@@ -47,7 +51,9 @@ defmodule AWS.Signature do
     headers = add_date_header(headers, long_date)
     canonical_request = canonical_request(method, url, headers, body)
     hashed_canonical_request = Util.sha256_hexdigest(canonical_request)
-    credential_scope = credential_scope(short_date, client.region, client.service)
+    region = client.region || @default_region_for_global_services
+
+    credential_scope = credential_scope(short_date, region, client.service)
 
     signing_key = signing_key(client, short_date)
 
@@ -58,7 +64,7 @@ defmodule AWS.Signature do
 
     credential =
       Enum.join(
-        [client.access_key_id, short_date, client.region, client.service, "aws4_request"],
+        [client.access_key_id, short_date, region, client.service, "aws4_request"],
         "/"
       )
 
@@ -183,7 +189,7 @@ defmodule AWS.Signature do
   defp signing_key(%Client{} = client, short_date) do
     ("AWS4" <> client.secret_access_key)
     |> AWS.Util.hmac_sha256(short_date)
-    |> AWS.Util.hmac_sha256(client.region)
+    |> AWS.Util.hmac_sha256(client.region || @default_region_for_global_services)
     |> AWS.Util.hmac_sha256(client.service)
     |> AWS.Util.hmac_sha256("aws4_request")
   end

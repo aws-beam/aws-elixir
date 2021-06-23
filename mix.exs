@@ -8,22 +8,21 @@ defmodule AWS.Mixfile do
   def project do
     [
       app: :aws,
-      description: "AWS clients for Elixir",
-      package: package(),
       version: @version,
       name: "aws-elixir",
-      source_url: @repo_url,
-      homepage_url: @repo_url,
       elixir: "~> 1.7",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
+      package: package(),
       docs: docs(),
       deps: deps()
     ]
   end
 
   def application do
-    [extra_applications: [:logger, :crypto, :xmerl]]
+    [
+      extra_applications: [:logger, :crypto, :xmerl]
+    ]
   end
 
   defp deps do
@@ -39,20 +38,31 @@ defmodule AWS.Mixfile do
 
   defp package do
     [
+      description: "AWS clients for Elixir",
       maintainers: ["Jamu Kakar"],
-      licenses: ["Apache 2.0"],
-      links: %{"GitHub" => @repo_url, "Changelog" => @repo_url <> "/blob/master/CHANGELOG.md"}
+      licenses: ["Apache-2.0"],
+      links: %{
+        "Changelog" => "https://hexdocs.pm/aws/changelog.html",
+        "GitHub" => @repo_url
+      }
     ]
   end
 
   defp docs do
     [
-      main: "AWS",
+      extras: [
+        "CHANGELOG.md": [title: "Changelog"],
+        LICENSE: [title: "License"],
+        "README.md": [title: "Overview"]
+      ],
+      main: "readme",
+      source_ref: "v#{@version}",
+      source_url: @repo_url,
+      homepage_url: @repo_url,
+      formatters: ["html"],
       groups_for_modules: [
         "Web Services": &String.starts_with?(&1.source_path, @auto_generated_files_dir)
-      ],
-      source_ref: "v#{@version}",
-      source_url: @repo_url
+      ]
     ]
   end
 end

@@ -43,6 +43,12 @@ iex> AWS.S3.put_object(client, "your-bucket-name", "foo/your-file-on-s3.txt",
   %{"Body" => file, "ContentMD5" => md5})
 ```
 
+Note that you may need to specify the `ContentType` attribute when calling `AWS.S3.put_object/4`.
+This is because S3 will use that to store the MIME type of the file.
+
+Remember to check the operation documentation for details:
+[https://docs.aws.amazon.com/](https://docs.aws.amazon.com/)
+
 ## Installation
 
 Add `:aws` to your list of dependencies in `mix.exs`. It also requires

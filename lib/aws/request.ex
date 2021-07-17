@@ -83,10 +83,19 @@ defmodule AWS.Request do
       |> add_query(query, client)
       |> to_string()
 
-    additional_headers = [{"Host", host}, {"Content-Type", metadata.content_type}]
-    headers = add_headers(additional_headers, headers)
-
     {send_body_as_binary?, options} = Keyword.pop(options, :send_body_as_binary?)
+
+    # It will assume the default as "application/octet-stream" if is sending body
+    # as binary and the input does not specify the `Content-type`.
+    default_content_type =
+      if send_body_as_binary? do
+        "application/octet-stream"
+      else
+        metadata.content_type
+      end
+
+    additional_headers = [{"Host", host}, {"Content-Type", default_content_type}]
+    headers = add_headers(additional_headers, headers)
 
     payload =
       if send_body_as_binary? do
@@ -267,7 +276,7 @@ defmodule AWS.Request do
     end
   end
 
-  defp now() do
+  defp now do
     NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second)
   end
 end

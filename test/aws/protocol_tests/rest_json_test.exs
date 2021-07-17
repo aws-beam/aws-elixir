@@ -108,7 +108,7 @@ defmodule AWS.ProtocolTests.RestJSONTest do
 
       Bypass.expect(bypass, fn conn ->
         [content_type] = Plug.Conn.get_req_header(conn, "content-type")
-        assert content_type == metadata.content_type
+        assert content_type == "application/octet-stream"
 
         {:ok, body, conn} = Plug.Conn.read_body(conn)
 

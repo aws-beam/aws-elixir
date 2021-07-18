@@ -39,7 +39,7 @@ defmodule AWS.CognitoSync do
       endpoint_prefix: "cognito-sync",
       global?: false,
       protocol: "rest-json",
-      service_id: nil,
+      service_id: "Cognito Sync",
       signature_version: "v4",
       signing_name: "cognito-sync",
       target_prefix: nil
@@ -94,9 +94,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
-        URI.encode(dataset_name)
-      }"
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
 
     headers = []
     query_params = []
@@ -133,9 +131,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
-        URI.encode(dataset_name)
-      }"
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
 
     headers = []
     query_params = []
@@ -397,9 +393,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
-        URI.encode(dataset_name)
-      }/records"
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/records"
 
     headers = []
     query_params = []
@@ -540,9 +534,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
-        URI.encode(dataset_name)
-      }/subscriptions/#{URI.encode(device_id)}"
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
 
     headers = []
     query_params = []
@@ -577,9 +569,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
-        URI.encode(dataset_name)
-      }/subscriptions/#{URI.encode(device_id)}"
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
 
     headers = []
     query_params = []
@@ -624,9 +614,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{
-        URI.encode(dataset_name)
-      }"
+      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
 
     {headers, input} =
       [

@@ -3,7 +3,8 @@
 
 defmodule AWS.Location do
   @moduledoc """
-  Suite of geospatial services including Maps, Places, Tracking, and Geofencing
+  Suite of geospatial services including Maps, Places, Routes, Tracking, and
+  Geofencing
   """
 
   alias AWS.Client
@@ -30,6 +31,10 @@ defmodule AWS.Location do
 
   This allows the tracker resource to communicate location data to the linked
   geofence collection.
+
+  Currently not supported — Cross-account configurations, such as creating
+  associations between a tracker resource in one account and a geofence collection
+  in another account.
   """
   def associate_tracker_consumer(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/consumers"
@@ -50,9 +55,30 @@ defmodule AWS.Location do
   end
 
   @doc """
+  Deletes the position history of one or more devices from a tracker resource.
+  """
+  def batch_delete_device_position_history(%Client{} = client, tracker_name, input, options \\ []) do
+    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/delete-positions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a batch of geofences from a geofence collection.
 
-  This action deletes the resource permanently. You can't undo this action.
+  This operation deletes the resource permanently.
   """
   def batch_delete_geofence(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}/delete-geofences"
@@ -73,10 +99,14 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Used in geofence monitoring.
-
-  Evaluates device positions against the position of geofences in a given geofence
+  Evaluates device positions against the geofence geometries from a given geofence
   collection.
+
+  The evaluation determines if the device has entered or exited a geofenced area,
+  which publishes ENTER or EXIT geofence events to Amazon EventBridge.
+
+  The last geofence that a device was observed within, if any, is tracked for 30
+  days after the most recent device position update
   """
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}/positions"
@@ -97,9 +127,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  A batch request to retrieve device positions.
-
-  The response will return the device positions from the last 24 hours.
+  A batch request to retrieve all device positions.
   """
   def batch_get_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/get-positions"
@@ -120,7 +148,9 @@ defmodule AWS.Location do
   end
 
   @doc """
-  A batch request for storing geofences into a given geofence collection.
+  A batch request for storing geofence geometries into a given geofence
+  collection, or updates the geometry of an existing geofence if a geofence ID is
+  included in the request.
   """
   def batch_put_geofence(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}/put-geofences"
@@ -141,16 +171,59 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Uploads a position update for one or more devices to a tracker resource.
+  Uploads position update data for one or more devices to a tracker resource.
 
-  The data is used for API queries requesting the device position and position
-  history.
+  Amazon Location uses the data when reporting the last known device position and
+  position history.
 
-  Limitation — Location data is sampled at a fixed rate of 1 position per 30
-  second interval, and retained for 1 year before it is deleted.
+  Only one position update is stored per sample time. Location data is sampled at
+  a fixed rate of one position per 30-second interval and retained for 30 days
+  before it's deleted.
   """
   def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/positions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  [Calculates a route](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html)
+  given the following required parameters: `DeparturePostiton` and
+  `DestinationPosition`.
+
+  Requires that you first [create aroute calculator resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html)
+
+  By default, a request that doesn't specify a departure time uses the best time
+  of day to travel with the best traffic conditions when calculating the route.
+
+  Additional options include:
+
+    * [Specifying a departure time](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time)
+  using either `DepartureTime` or `DepartureNow`. This calculates a route based on
+  predictive traffic data at the given time.
+
+  You can't specify both `DepartureTime` and `DepartureNow` in a single request.
+  Specifying both parameters returns an error message.
+
+    * [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode)
+  using TravelMode. This lets you specify additional route preference such as
+  `CarModeOptions` if traveling by `Car`, or `TruckModeOptions` if traveling by
+  `Truck`.
+  """
+  def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
+    url_path = "/routes/v0/calculators/#{URI.encode(calculator_name)}/calculate/route"
     headers = []
     query_params = []
 
@@ -191,10 +264,6 @@ defmodule AWS.Location do
   @doc """
   Creates a map resource in your AWS account, which provides map tiles of
   different styles sourced from global location data providers.
-
-  By using Maps, you agree that AWS may transmit your API queries to your selected
-  third party provider for processing, which may be outside the AWS region you are
-  currently using. For more information, see the [AWS Service Terms](https://aws.amazon.com/service-terms/) for Amazon Location Service.
   """
   def create_map(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/maps"
@@ -215,18 +284,36 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Creates a Place index resource in your AWS account, which supports Places
-  functions with geospatial data sourced from your chosen data provider.
-
-  By using Places, you agree that AWS may transmit your API queries to your
-  selected third party provider for processing, which may be outside the AWS
-  region you are currently using.
-
-  Because of licensing limitations, you may not use HERE to store results for
-  locations in Japan. For more information, see the [AWS Service Terms](https://aws.amazon.com/service-terms/) for Amazon Location Service.
+  Creates a place index resource in your AWS account, which supports functions
+  with geospatial data sourced from your chosen data provider.
   """
   def create_place_index(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/indexes"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a route calculator resource in your AWS account.
+
+  You can send requests to a route calculator resource to estimate travel time,
+  distance, and get directions. A route calculator sources traffic and road
+  network data from your chosen data provider.
+  """
+  def create_route_calculator(%Client{} = client, input, options \\ []) do
+    url_path = "/routes/v0/calculators"
     headers = []
     query_params = []
 
@@ -268,9 +355,8 @@ defmodule AWS.Location do
   @doc """
   Deletes a geofence collection from your AWS account.
 
-  This action deletes the resource permanently. You can't undo this action. If the
-  geofence collection is the target of a tracker resource, the devices will no
-  longer be monitored.
+  This operation deletes the resource permanently. If the geofence collection is
+  the target of a tracker resource, the devices will no longer be monitored.
   """
   def delete_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{URI.encode(collection_name)}"
@@ -293,8 +379,8 @@ defmodule AWS.Location do
   @doc """
   Deletes a map resource from your AWS account.
 
-  This action deletes the resource permanently. You cannot undo this action. If
-  the map is being used in an application, the map may not render.
+  This operation deletes the resource permanently. If the map is being used in an
+  application, the map may not render.
   """
   def delete_map(%Client{} = client, map_name, input, options \\ []) do
     url_path = "/maps/v0/maps/#{URI.encode(map_name)}"
@@ -315,9 +401,9 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Deletes a Place index resource from your AWS account.
+  Deletes a place index resource from your AWS account.
 
-  This action deletes the resource permanently. You cannot undo this action.
+  This operation deletes the resource permanently.
   """
   def delete_place_index(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{URI.encode(index_name)}"
@@ -338,11 +424,34 @@ defmodule AWS.Location do
   end
 
   @doc """
+  Deletes a route calculator resource from your AWS account.
+
+  This operation deletes the resource permanently.
+  """
+  def delete_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
+    url_path = "/routes/v0/calculators/#{URI.encode(calculator_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a tracker resource from your AWS account.
 
-  This action deletes the resource permanently. You can't undo this action. If the
-  tracker resource is in use, you may encounter an error. Make sure that the
-  target resource is not a dependency for your applications.
+  This operation deletes the resource permanently. If the tracker resource is in
+  use, you may encounter an error. Make sure that the target resource isn't a
+  dependency for your applications.
   """
   def delete_tracker(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}"
@@ -405,10 +514,31 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Retrieves the Place index resource details.
+  Retrieves the place index resource details.
   """
   def describe_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{URI.encode(index_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the route calculator resource details.
+  """
+  def describe_route_calculator(%Client{} = client, calculator_name, options \\ []) do
+    url_path = "/routes/v0/calculators/#{URI.encode(calculator_name)}"
     headers = []
     query_params = []
 
@@ -447,7 +577,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Removes the association bewteen a tracker resource and a geofence collection.
+  Removes the association between a tracker resource and a geofence collection.
 
   Once you unlink a tracker resource from a geofence collection, the tracker
   positions will no longer be automatically evaluated against geofences.
@@ -479,9 +609,9 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Retrieves the latest device position.
+  Retrieves a device's most recent position according to its sample time.
 
-  Limitation — Device positions are deleted after one year.
+  Device positions are deleted after 30 days.
   """
   def get_device_position(%Client{} = client, device_id, tracker_name, options \\ []) do
     url_path =
@@ -507,7 +637,7 @@ defmodule AWS.Location do
   Retrieves the device position history from a tracker resource within a specified
   range of time.
 
-  Limitation — Device positions are deleted after one year.
+  Device positions are deleted after 30 days.
   """
   def get_device_position_history(
         %Client{} = client,
@@ -540,9 +670,7 @@ defmodule AWS.Location do
   """
   def get_geofence(%Client{} = client, collection_name, geofence_id, options \\ []) do
     url_path =
-      "/geofencing/v0/collections/#{URI.encode(collection_name)}/geofences/#{
-        URI.encode(geofence_id)
-      }"
+      "/geofencing/v0/collections/#{URI.encode(collection_name)}/geofences/#{URI.encode(geofence_id)}"
 
     headers = []
     query_params = []
@@ -565,9 +693,7 @@ defmodule AWS.Location do
   """
   def get_map_glyphs(%Client{} = client, font_stack, font_unicode_range, map_name, options \\ []) do
     url_path =
-      "/maps/v0/maps/#{URI.encode(map_name)}/glyphs/#{URI.encode(font_stack)}/#{
-        URI.encode(font_unicode_range)
-      }"
+      "/maps/v0/maps/#{URI.encode(map_name)}/glyphs/#{URI.encode(font_stack)}/#{URI.encode(font_unicode_range)}"
 
     headers = []
     query_params = []
@@ -658,7 +784,7 @@ defmodule AWS.Location do
   @doc """
   Retrieves a vector data tile from the map resource.
 
-  Map tiles are used by clients to render a map. They are addressed using a grid
+  Map tiles are used by clients to render a map. they're addressed using a grid
   arrangement with an X coordinate, Y coordinate, and Z (zoom) level.
 
   The origin (0, 0) is the top left of the map. Increasing the zoom level by 1
@@ -668,9 +794,7 @@ defmodule AWS.Location do
   """
   def get_map_tile(%Client{} = client, map_name, x, y, z, options \\ []) do
     url_path =
-      "/maps/v0/maps/#{URI.encode(map_name)}/tiles/#{URI.encode(z)}/#{URI.encode(x)}/#{
-        URI.encode(y)
-      }"
+      "/maps/v0/maps/#{URI.encode(map_name)}/tiles/#{URI.encode(z)}/#{URI.encode(x)}/#{URI.encode(y)}"
 
     headers = []
     query_params = []
@@ -690,6 +814,27 @@ defmodule AWS.Location do
       query_params,
       headers,
       nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the latest device positions for requested devices.
+  """
+  def list_device_positions(%Client{} = client, tracker_name, input, options \\ []) do
+    url_path = "/tracking/v0/trackers/#{URI.encode(tracker_name)}/list-positions"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       200
     )
@@ -759,7 +904,7 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Lists Place index resources in your AWS account.
+  Lists place index resources in your AWS account.
   """
   def list_place_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/list-indexes"
@@ -774,6 +919,48 @@ defmodule AWS.Location do
       query_params,
       headers,
       input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists route calculator resources in your AWS account.
+  """
+  def list_route_calculators(%Client{} = client, input, options \\ []) do
+    url_path = "/routes/v0/list-calculators"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the tags for the specified Amazon Location Service resource.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       200
     )
@@ -822,14 +1009,12 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Stores a geofence to a given geofence collection, or updates the geometry of an
-  existing geofence if a geofence ID is included in the request.
+  Stores a geofence geometry in a given geofence collection, or updates the
+  geometry of an existing geofence if a geofence ID is included in the request.
   """
   def put_geofence(%Client{} = client, collection_name, geofence_id, input, options \\ []) do
     url_path =
-      "/geofencing/v0/collections/#{URI.encode(collection_name)}/geofences/#{
-        URI.encode(geofence_id)
-      }"
+      "/geofencing/v0/collections/#{URI.encode(collection_name)}/geofences/#{URI.encode(geofence_id)}"
 
     headers = []
     query_params = []
@@ -851,13 +1036,6 @@ defmodule AWS.Location do
   Reverse geocodes a given coordinate and returns a legible address.
 
   Allows you to search for Places or points of interest near a given position.
-
-  By using Places, you agree that AWS may transmit your API queries to your
-  selected third party provider for processing, which may be outside the AWS
-  region you are currently using.
-
-  Because of licensing limitations, you may not use HERE to store results for
-  locations in Japan. For more information, see the [AWS Service Terms](https://aws.amazon.com/service-terms/) for Amazon Location Service.
   """
   def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{URI.encode(index_name)}/search/position"
@@ -887,15 +1065,6 @@ defmodule AWS.Location do
   You can search for places near a given position using `BiasPosition`, or filter
   results within a bounding box using `FilterBBox`. Providing both parameters
   simultaneously returns an error.
-
-  By using Places, you agree that AWS may transmit your API queries to your
-  selected third party provider for processing, which may be outside the AWS
-  region you are currently using.
-
-  Also, when using HERE as your data provider, you may not (a) use HERE Places for
-  Asset Management, or (b) select the `Storage` option for the `IntendedUse`
-  parameter when requesting Places in Japan. For more information, see the [AWS Service Terms](https://aws.amazon.com/service-terms/) for Amazon Location
-  Service.
   """
   def search_place_index_for_text(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{URI.encode(index_name)}/search/text"
@@ -906,6 +1075,71 @@ defmodule AWS.Location do
       client,
       metadata(),
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Assigns one or more tags (key-value pairs) to the specified Amazon Location
+  Service resource.
+
+  ` Tags can help you organize and categorize your resources. You can also use
+  them to scope user permissions, by granting a user permission to access or
+  change only resources with certain tag values.
+
+  Tags don't have any semantic meaning to AWS and are interpreted strictly as
+  strings of characters.
+
+  You can use the `TagResource` action with an Amazon Location Service resource
+  that already has tags. If you specify a new tag key for the resource, this tag
+  is appended to the tags already associated with the resource. If you specify a
+  tag key that is already associated with the resource, the new tag value that you
+  specify replaces the previous value for that tag.
+
+  You can associate as many as 50 tags with a resource.
+
+  `
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes one or more tags from the specified Amazon Location Service resource.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
       url_path,
       query_params,
       headers,

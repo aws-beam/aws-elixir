@@ -22,9 +22,9 @@ defmodule AWS.SecurityHub do
 
   For example, if your Region is set to `us-west-2`, when you use `
   `CreateMembers` ` to add a member account to Security Hub, the association of
-  the member account with the master account is created only in the `us-west-2`
-  Region. Security Hub must be enabled for the member account in the same Region
-  that the invitation was sent from.
+  the member account with the administrator account is created only in the
+  `us-west-2` Region. Security Hub must be enabled for the member account in the
+  same Region that the invitation was sent from.
 
   The following throttling limits apply to using Security Hub API operations.
 
@@ -65,13 +65,52 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Accepts the invitation to be a member account and be monitored by the Security
-  Hub master account that the invitation was sent from.
+  Hub administrator account that the invitation was sent from.
 
   This operation is only used by member accounts that are not added through
   Organizations.
 
   When the member account accepts the invitation, permission is granted to the
-  master account to view findings generated in the member account.
+  administrator account to view findings generated in the member account.
+  """
+  def accept_administrator_invitation(%Client{} = client, input, options \\ []) do
+    url_path = "/administrator"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This method is deprecated.
+
+  Instead, use `AcceptAdministratorInvitation`.
+
+  The Security Hub console continues to use `AcceptInvitation`. It will eventually
+  change to use `AcceptAdministratorInvitation`. Any IAM policies that
+  specifically control access to this function must continue to use
+  `AcceptInvitation`. You should also add `AcceptAdministratorInvitation` to your
+  policies to ensure that the correct permissions are in place after the console
+  begins to use `AcceptAdministratorInvitation`.
+
+  Accepts the invitation to be a member account and be monitored by the Security
+  Hub administrator account that the invitation was sent from.
+
+  This operation is only used by member accounts that are not added through
+  Organizations.
+
+  When the member account accepts the invitation, permission is granted to the
+  administrator account to view findings generated in the member account.
   """
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/master"
@@ -201,15 +240,15 @@ defmodule AWS.SecurityHub do
   Used by Security Hub customers to update information about their investigation
   into a finding.
 
-  Requested by master accounts or member accounts. Master accounts can update
-  findings for their account and their member accounts. Member accounts can update
-  findings for their account.
+  Requested by administrator accounts or member accounts. Administrator accounts
+  can update findings for their account and their member accounts. Member accounts
+  can update findings for their account.
 
   Updates from `BatchUpdateFindings` do not affect the value of `UpdatedAt` for a
   finding.
 
-  Master and member accounts can use `BatchUpdateFindings` to update the following
-  finding fields and objects.
+  Administrator and member accounts can use `BatchUpdateFindings` to update the
+  following finding fields and objects.
 
     * `Confidence`
 
@@ -304,11 +343,10 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Creates a member association in Security Hub between the specified accounts and
-  the account used to make the request, which is the master account.
+  the account used to make the request, which is the administrator account.
 
-  If you are integrated with Organizations, then the master account is the
-  Security Hub administrator account that is designated by the organization
-  management account.
+  If you are integrated with Organizations, then the administrator account is
+  designated by the organization management account.
 
   `CreateMembers` is always used to add accounts that are not organization
   members.
@@ -332,12 +370,13 @@ defmodule AWS.SecurityHub do
   Accounts that are part of an organization do not receive an invitation. They
   automatically become a member account in Security Hub.
 
-  A permissions policy is added that permits the master account to view the
+  A permissions policy is added that permits the administrator account to view the
   findings generated in the member account. When Security Hub is enabled in a
-  member account, findings are sent to both the member and master accounts.
+  member account, the member account findings are also visible to the
+  administrator account.
 
-  To remove the association between the master and member accounts, use the `
-  `DisassociateFromMasterAccount` ` or ` `DisassociateMembers` ` operation.
+  To remove the association between the administrator and member accounts, use the
+  ` `DisassociateFromMasterAccount` ` or ` `DisassociateMembers` ` operation.
   """
   def create_members(%Client{} = client, input, options \\ []) do
     url_path = "/members"
@@ -741,13 +780,13 @@ defmodule AWS.SecurityHub do
   To disable Security Hub in all Regions, you must submit one request per Region
   where you have enabled Security Hub.
 
-  When you disable Security Hub for a master account, it doesn't disable Security
-  Hub for any associated member accounts.
+  When you disable Security Hub for an administrator account, it doesn't disable
+  Security Hub for any associated member accounts.
 
   When you disable Security Hub, your existing findings and insights and any
   Security Hub configuration settings are deleted after 90 days and cannot be
-  recovered. Any standards that were enabled are disabled, and your master and
-  member account associations are removed.
+  recovered. Any standards that were enabled are disabled, and your administrator
+  and member account associations are removed.
 
   If you want to save your existing findings, you must export them before you
   disable Security Hub.
@@ -771,12 +810,50 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disassociates the current Security Hub member account from the associated master
-  account.
+  Disassociates the current Security Hub member account from the associated
+  administrator account.
 
   This operation is only used by accounts that are not part of an organization.
-  For organization accounts, only the master account (the designated Security Hub
-  administrator) can disassociate a member account.
+  For organization accounts, only the administrator account can disassociate a
+  member account.
+  """
+  def disassociate_from_administrator_account(%Client{} = client, input, options \\ []) do
+    url_path = "/administrator/disassociate"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This method is deprecated.
+
+  Instead, use `DisassociateFromAdministratorAccount`.
+
+  The Security Hub console continues to use `DisassociateFromMasterAccount`. It
+  will eventually change to use `DisassociateFromAdministratorAccount`. Any IAM
+  policies that specifically control access to this function must continue to use
+  `DisassociateFromMasterAccount`. You should also add
+  `DisassociateFromAdministratorAccount` to your policies to ensure that the
+  correct permissions are in place after the console begins to use
+  `DisassociateFromAdministratorAccount`.
+
+  Disassociates the current Security Hub member account from the associated
+  administrator account.
+
+  This operation is only used by accounts that are not part of an organization.
+  For organization accounts, only the administrator account can disassociate a
+  member account.
   """
   def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
     url_path = "/master/disassociate"
@@ -797,10 +874,11 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disassociates the specified member accounts from the associated master account.
+  Disassociates the specified member accounts from the associated administrator
+  account.
 
-  Can be used to disassociate both accounts that are in an organization and
-  accounts that were invited manually.
+  Can be used to disassociate both accounts that are managed using Organizations
+  and accounts that were invited manually.
   """
   def disassociate_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/disassociate"
@@ -916,6 +994,31 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Provides the details for the Security Hub administrator account for the current
+  member account.
+
+  Can be used by both member accounts that are managed using Organizations and
+  accounts that were invited manually.
+  """
+  def get_administrator_account(%Client{} = client, options \\ []) do
+    url_path = "/administrator"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns a list of the standards that are currently enabled.
   """
   def get_enabled_standards(%Client{} = client, input, options \\ []) do
@@ -1022,11 +1125,22 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Provides the details for the Security Hub master account for the current member
-  account.
+  This method is deprecated.
 
-  Can be used by both member accounts that are in an organization and accounts
-  that were invited manually.
+  Instead, use `GetAdministratorAccount`.
+
+  The Security Hub console continues to use `GetMasterAccount`. It will eventually
+  change to use `GetAdministratorAccount`. Any IAM policies that specifically
+  control access to this function must continue to use `GetMasterAccount`. You
+  should also add `GetAdministratorAccount` to your policies to ensure that the
+  correct permissions are in place after the console begins to use
+  `GetAdministratorAccount`.
+
+  Provides the details for the Security Hub administrator account for the current
+  member account.
+
+  Can be used by both member accounts that are managed using Organizations and
+  accounts that were invited manually.
   """
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
@@ -1050,11 +1164,12 @@ defmodule AWS.SecurityHub do
   Returns the details for the Security Hub member accounts for the specified
   account IDs.
 
-  A master account can be either a delegated Security Hub administrator account
-  for an organization or a master account that enabled Security Hub manually.
+  An administrator account can be either the delegated Security Hub administrator
+  account for an organization or an administrator account that enabled Security
+  Hub manually.
 
-  The results include both member accounts that are in an organization and
-  accounts that were invited manually.
+  The results include both member accounts that are managed using Organizations
+  and accounts that were invited manually.
   """
   def get_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/get"
@@ -1075,8 +1190,8 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Invites other AWS accounts to become member accounts for the Security Hub master
-  account that the invitation is sent from.
+  Invites other AWS accounts to become member accounts for the Security Hub
+  administrator account that the invitation is sent from.
 
   This operation is only used to invite accounts that do not belong to an
   organization. Organization accounts do not receive invitations.
@@ -1085,8 +1200,8 @@ defmodule AWS.SecurityHub do
   `CreateMembers` ` action to create the member account in Security Hub.
 
   When the account owner enables Security Hub and accepts the invitation to become
-  a member account, the master account can view the findings generated from the
-  member account.
+  a member account, the administrator account can view the findings generated from
+  the member account.
   """
   def invite_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/invite"
@@ -1151,8 +1266,9 @@ defmodule AWS.SecurityHub do
   Lists all Security Hub membership invitations that were sent to the current AWS
   account.
 
-  This operation is only used by accounts that do not belong to an organization.
-  Organization accounts do not receive invitations.
+  This operation is only used by accounts that are managed by invitation. Accounts
+  that are managed using the integration with AWS Organizations do not receive
+  invitations.
   """
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitations"
@@ -1187,8 +1303,8 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Lists details about all member accounts for the current Security Hub master
-  account.
+  Lists details about all member accounts for the current Security Hub
+  administrator account.
 
   The results include both member accounts that belong to an organization and
   member accounts that were invited manually.

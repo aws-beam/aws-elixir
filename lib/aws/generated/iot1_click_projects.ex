@@ -37,9 +37,7 @@ defmodule AWS.IoT1ClickProjects do
         options \\ []
       ) do
     url_path =
-      "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}/devices/#{
-        URI.encode(device_template_name)
-      }"
+      "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}/devices/#{URI.encode(device_template_name)}"
 
     headers = []
     query_params = []
@@ -206,9 +204,7 @@ defmodule AWS.IoT1ClickProjects do
         options \\ []
       ) do
     url_path =
-      "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}/devices/#{
-        URI.encode(device_template_name)
-      }"
+      "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}/devices/#{URI.encode(device_template_name)}"
 
     headers = []
     query_params = []

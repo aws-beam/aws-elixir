@@ -205,7 +205,7 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Get lens review.
+  Get the answer to a specific question in a workload review.
   """
   def get_answer(
         %Client{} = client,
@@ -216,9 +216,7 @@ defmodule AWS.WellArchitected do
         options \\ []
       ) do
     url_path =
-      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/answers/#{
-        URI.encode(question_id)
-      }"
+      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/answers/#{URI.encode(question_id)}"
 
     headers = []
     query_params = []
@@ -798,6 +796,10 @@ defmodule AWS.WellArchitected do
 
   @doc """
   Deletes specified tags from a resource.
+
+  To specify multiple tags, use separate **tagKeys** parameters, for example:
+
+  `DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2`
   """
   def untag_resource(%Client{} = client, workload_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(workload_arn)}"
@@ -834,9 +836,7 @@ defmodule AWS.WellArchitected do
         options \\ []
       ) do
     url_path =
-      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/answers/#{
-        URI.encode(question_id)
-      }"
+      "/workloads/#{URI.encode(workload_id)}/lensReviews/#{URI.encode(lens_alias)}/answers/#{URI.encode(question_id)}"
 
     headers = []
     query_params = []

@@ -138,6 +138,18 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Creates a new image with the latest Windows operating system updates, driver
+  updates, and AppStream 2.0 agent software.
+
+  For more information, see the "Update an Image by Using Managed AppStream 2.0
+  Image Updates" section in [Administer Your AppStream 2.0 Images](https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html),
+  in the *Amazon AppStream 2.0 Administration Guide*.
+  """
+  def create_updated_image(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateUpdatedImage", input, options)
+  end
+
+  @doc """
   Creates a usage report subscription.
 
   Usage reports are generated daily.

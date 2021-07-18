@@ -32,6 +32,45 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Associates an alias (also known as a CNAME or an alternate domain name) with a
+  CloudFront distribution.
+
+  With this operation you can move an alias that’s already in use on a CloudFront
+  distribution to a different distribution in one step. This prevents the downtime
+  that could occur if you first remove the alias from one distribution and then
+  separately add the alias to another distribution.
+
+  To use this operation to associate an alias with a distribution, you provide the
+  alias and the ID of the target distribution for the alias. For more information,
+  including how to set up the target distribution, prerequisites that you must
+  complete, and other restrictions, see [Moving an alternate domain name to a different
+  distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move)
+  in the *Amazon CloudFront Developer Guide*.
+  """
+  def associate_alias(%Client{} = client, target_distribution_id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{URI.encode(target_distribution_id)}/associate-alias"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"Alias", "Alias"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a cache policy.
 
   After you create a cache policy, you can attach it to one or more cache
@@ -216,6 +255,46 @@ defmodule AWS.CloudFront do
   """
   def create_field_level_encryption_profile(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a CloudFront function.
+
+  To create a function, you provide the function code and some configuration
+  information about the function. The response contains an Amazon Resource Name
+  (ARN) that uniquely identifies the function.
+
+  When you create a function, it’s in the `DEVELOPMENT` stage. In this stage, you
+  can test the function with `TestFunction`, and update it with `UpdateFunction`.
+
+  When you’re ready to use your function with a CloudFront distribution, use
+  `PublishFunction` to copy the function from the `DEVELOPMENT` stage to `LIVE`.
+  When it’s live, you can attach the function to a distribution’s cache behavior,
+  using the function’s ARN.
+  """
+  def create_function(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/function"
     headers = []
     query_params = []
 
@@ -647,6 +726,40 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Deletes a CloudFront function.
+
+  You cannot delete a function if it’s associated with a cache behavior. First,
+  update your distributions to remove the function association from all cache
+  behaviors, then delete the function.
+
+  To delete a function, you must provide the function’s name and version (`ETag`
+  value). To get these values, you can use `ListFunctions` and `DescribeFunction`.
+  """
+  def delete_function(%Client{} = client, name, input, options \\ []) do
+    url_path = "/2020-05-31/function/#{URI.encode(name)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a key group.
 
   You cannot delete a key group that is referenced in a cache behavior. First
@@ -859,6 +972,47 @@ defmodule AWS.CloudFront do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Gets configuration information and metadata about a CloudFront function, but not
+  the function’s code.
+
+  To get a function’s code, use `GetFunction`.
+
+  To get configuration information and metadata about a function, you must provide
+  the function’s name and stage. To get these values, you can use `ListFunctions`.
+  """
+  def describe_function(%Client{} = client, name, stage \\ nil, options \\ []) do
+    url_path = "/2020-05-31/function/#{URI.encode(name)}/describe"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(stage) do
+        [{"Stage", stage} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
     )
   end
 
@@ -1143,6 +1297,47 @@ defmodule AWS.CloudFront do
         options,
         :response_header_parameters,
         [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Gets the code of a CloudFront function.
+
+  To get configuration information and metadata about a function, use
+  `DescribeFunction`.
+
+  To get a function’s code, you must provide the function’s name and stage. To get
+  these values, you can use `ListFunctions`.
+  """
+  def get_function(%Client{} = client, name, stage \\ nil, options \\ []) do
+    url_path = "/2020-05-31/function/#{URI.encode(name)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(stage) do
+        [{"Stage", stage} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Content-Type", "ContentType"}, {"ETag", "ETag"}]
       )
 
     Request.request_rest(
@@ -1487,7 +1682,7 @@ defmodule AWS.CloudFront do
   Gets a list of cache policies.
 
   You can optionally apply a filter to return only the managed policies created by
-  AWS, or only the custom policies created in your AWS account.
+  Amazon Web Services, or only the custom policies created in your account.
 
   You can optionally specify the maximum number of items to receive in the
   response. If the total number of items in the list exceeds the maximum that you
@@ -1577,6 +1772,90 @@ defmodule AWS.CloudFront do
       nil,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Gets a list of aliases (also called CNAMEs or alternate domain names) that
+  conflict or overlap with the provided alias, and the associated CloudFront
+  distributions and Amazon Web Services accounts for each conflicting alias.
+
+  In the returned list, the distribution and account IDs are partially hidden,
+  which allows you to identify the distributions and accounts that you own, but
+  helps to protect the information of ones that you don’t own.
+
+  Use this operation to find aliases that are in use in CloudFront that conflict
+  or overlap with the provided alias. For example, if you provide
+  `www.example.com` as input, the returned list can include `www.example.com` and
+  the overlapping wildcard alternate domain name (`*.example.com`), if they exist.
+  If you provide `*.example.com` as input, the returned list can include
+  `*.example.com` and any alternate domain names covered by that wildcard (for
+  example, `www.example.com`, `test.example.com`, `dev.example.com`, and so on),
+  if they exist.
+
+  To list conflicting aliases, you provide the alias to search and the ID of a
+  distribution in your account that has an attached SSL/TLS certificate that
+  includes the provided alias. For more information, including how to set up the
+  distribution and certificate, see [Moving an alternate domain name to a different
+  distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move)
+  in the *Amazon CloudFront Developer Guide*.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that you
+  specify, or the default maximum, the response is paginated. To get the next page
+  of items, send a subsequent request that specifies the `NextMarker` value from
+  the current response as the `Marker` value in the subsequent request.
+  """
+  def list_conflicting_aliases(
+        %Client{} = client,
+        alias,
+        distribution_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/conflicting-alias"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(distribution_id) do
+        [{"DistributionId", distribution_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(alias) do
+        [{"Alias", alias} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
     )
   end
 
@@ -1795,7 +2074,7 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  List the distributions that are associated with a specified AWS WAF web ACL.
+  List the distributions that are associated with a specified WAF web ACL.
   """
   def list_distributions_by_web_acl_id(
         %Client{} = client,
@@ -1918,6 +2197,63 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets a list of all CloudFront functions in your account.
+
+  You can optionally apply a filter to return only the functions that are in the
+  specified stage, either `DEVELOPMENT` or `LIVE`.
+
+  You can optionally specify the maximum number of items to receive in the
+  response. If the total number of items in the list exceeds the maximum that you
+  specify, or the default maximum, the response is paginated. To get the next page
+  of items, send a subsequent request that specifies the `NextMarker` value from
+  the current response as the `Marker` value in the subsequent request.
+  """
+  def list_functions(
+        %Client{} = client,
+        marker \\ nil,
+        max_items \\ nil,
+        stage \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/function"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(stage) do
+        [{"Stage", stage} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists invalidation batches.
   """
   def list_invalidations(
@@ -2003,7 +2339,7 @@ defmodule AWS.CloudFront do
   Gets a list of origin request policies.
 
   You can optionally apply a filter to return only the managed policies created by
-  AWS, or only the custom policies created in your AWS account.
+  Amazon Web Services, or only the custom policies created in your account.
 
   You can optionally specify the maximum number of items to receive in the
   response. If the total number of items in the list exceeds the maximum that you
@@ -2206,6 +2542,44 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Publishes a CloudFront function by copying the function code from the
+  `DEVELOPMENT` stage to `LIVE`.
+
+  This automatically updates all cache behaviors that are using this function to
+  use the newly published copy in the `LIVE` stage.
+
+  When a function is published to the `LIVE` stage, you can attach the function to
+  a distribution’s cache behavior, using the function’s Amazon Resource Name
+  (ARN).
+
+  To publish a function, you must provide the function’s name and version (`ETag`
+  value). To get these values, you can use `ListFunctions` and `DescribeFunction`.
+  """
+  def publish_function(%Client{} = client, name, input, options \\ []) do
+    url_path = "/2020-05-31/function/#{URI.encode(name)}/publish"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Add tags to a CloudFront resource.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
@@ -2228,6 +2602,45 @@ defmodule AWS.CloudFront do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Tests a CloudFront function.
+
+  To test a function, you provide an *event object* that represents an HTTP
+  request or response that your CloudFront distribution could receive in
+  production. CloudFront runs the function, passing it the event object that you
+  provided, and returns the function’s result (the modified event object) in the
+  response. The response also contains function logs and error messages, if any
+  exist. For more information about testing functions, see [Testing functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function)
+  in the *Amazon CloudFront Developer Guide*.
+
+  To test a function, you provide the function’s name and version (`ETag` value)
+  along with the event object. To get the function’s name and version, you can use
+  `ListFunctions` and `DescribeFunction`.
+  """
+  def test_function(%Client{} = client, name, input, options \\ []) do
+    url_path = "/2020-05-31/function/#{URI.encode(name)}/test"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
     )
   end
 
@@ -2488,6 +2901,47 @@ defmodule AWS.CloudFront do
         options,
         :response_header_parameters,
         [{"ETag", "ETag"}]
+      )
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates a CloudFront function.
+
+  You can update a function’s code or the comment that describes the function. You
+  cannot update a function’s name.
+
+  To update a function, you provide the function’s name and version (`ETag` value)
+  along with the updated function code. To get the name and version, you can use
+  `ListFunctions` and `DescribeFunction`.
+  """
+  def update_function(%Client{} = client, name, input, options \\ []) do
+    url_path = "/2020-05-31/function/#{URI.encode(name)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETtag", "ETag"}]
       )
 
     Request.request_rest(

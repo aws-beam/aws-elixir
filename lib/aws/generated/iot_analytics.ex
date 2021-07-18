@@ -174,6 +174,9 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Creates a data store, which is a repository for messages.
+
+  Only data stores that are used to save pipeline data can be configured with
+  `ParquetConfiguration`.
   """
   def create_datastore(%Client{} = client, input, options \\ []) do
     url_path = "/datastores"

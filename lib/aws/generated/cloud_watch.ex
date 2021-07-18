@@ -97,6 +97,13 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Permanently deletes the metric stream that you specify.
+  """
+  def delete_metric_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMetricStream", input, options)
+  end
+
+  @doc """
   Retrieves the history for the specified alarm.
 
   You can filter the results by date range or item type. If an alarm name is not
@@ -343,6 +350,13 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Returns information about the metric stream that you specify.
+  """
+  def get_metric_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMetricStream", input, options)
+  end
+
+  @doc """
   You can use the `GetMetricWidgetImage` API to retrieve a snapshot graph of one
   or more Amazon CloudWatch metrics as a bitmap image.
 
@@ -377,6 +391,13 @@ defmodule AWS.CloudWatch do
   """
   def list_dashboards(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDashboards", input, options)
+  end
+
+  @doc """
+  Returns a list of metric streams in this account.
+  """
+  def list_metric_streams(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMetricStreams", input, options)
   end
 
   @doc """
@@ -538,7 +559,7 @@ defmodule AWS.CloudWatch do
 
   The first time you create an alarm in the AWS Management Console, the CLI, or by
   using the PutMetricAlarm API, CloudWatch creates the necessary service-linked
-  rolea for you. The service-linked roles are called
+  role for you. The service-linked roles are called
   `AWSServiceRoleForCloudWatchEvents` and
   `AWSServiceRoleForCloudWatchAlarms_ActionSSM`. For more information, see [AWS service-linked
   role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role).
@@ -604,6 +625,36 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Creates or updates a metric stream.
+
+  Metric streams can automatically stream CloudWatch metrics to AWS destinations
+  including Amazon S3 and to many third-party solutions.
+
+  For more information, see [ Using Metric Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html).
+
+  To create a metric stream, you must be logged on to an account that has the
+  `iam:PassRole` permission and either the `CloudWatchFullAccess` policy or the
+  `cloudwatch:PutMetricStream` permission.
+
+  When you create or update a metric stream, you choose one of the following:
+
+    * Stream metrics from all metric namespaces in the account.
+
+    * Stream metrics from all metric namespaces in the account, except
+  for the namespaces that you list in `ExcludeFilters`.
+
+    * Stream metrics from only the metric namespaces that you list in
+  `IncludeFilters`.
+
+  When you use `PutMetricStream` to create a new metric stream, the stream is
+  created in the `running` state. If you use it to update an existing stream, the
+  state of the stream is not changed.
+  """
+  def put_metric_stream(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutMetricStream", input, options)
+  end
+
+  @doc """
   Temporarily sets the state of an alarm for testing purposes.
 
   When the updated state differs from the previous value, the action configured
@@ -628,6 +679,20 @@ defmodule AWS.CloudWatch do
   """
   def set_alarm_state(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetAlarmState", input, options)
+  end
+
+  @doc """
+  Starts the streaming of metrics for one or more of your metric streams.
+  """
+  def start_metric_streams(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StartMetricStreams", input, options)
+  end
+
+  @doc """
+  Stops the streaming of metrics for one or more of your metric streams.
+  """
+  def stop_metric_streams(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopMetricStreams", input, options)
   end
 
   @doc """

@@ -11,12 +11,17 @@ defmodule AWS.Health do
   You can use the API operations to get information about AWS Health events that
   affect your AWS services and resources.
 
-  You must have a Business or Enterprise support plan from [AWS Support](http://aws.amazon.com/premiumsupport/) to use the AWS Health API. If
+     You must have a Business or Enterprise Support plan from [AWS Support](http://aws.amazon.com/premiumsupport/) to use the AWS Health API. If
   you call the AWS Health API from an AWS account that doesn't have a Business or
-  Enterprise support plan, you receive a `SubscriptionRequiredException` error.
+  Enterprise Support plan, you receive a `SubscriptionRequiredException` error.
 
-  AWS Health has a single endpoint: health.us-east-1.amazonaws.com (HTTPS). Use
-  this endpoint to call the AWS Health API operations.
+     You can use the AWS Health endpoint health.us-east-1.amazonaws.com
+  (HTTPS) to call the AWS Health API operations. AWS Health supports a
+  multi-Region application architecture and has two regional endpoints in an
+  active-passive configuration. You can use the high availability endpoint example
+  to determine which AWS Region is active, so that you can get the latest
+  information from the API. For more information, see [Accessing the AWS Health API](https://docs.aws.amazon.com/health/latest/ug/health-api.html) in the *AWS
+  Health User Guide*.
 
   For authentication of requests, AWS Health uses the [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
@@ -174,12 +179,12 @@ defmodule AWS.Health do
   Information includes standard event data (AWS Region, service, and so on, as
   returned by
   [DescribeEvents](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html)), a detailed event description, and possible additional metadata that depends upon
-  the nature of the event. Affected entities are not included. To retrieve those,
-  use the
+  the nature of the event. Affected entities are not included. To retrieve the
+  entities, use the
   [DescribeAffectedEntities](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html)
   operation.
 
-  If a specified event cannot be retrieved, an error message is returned for that
+  If a specified event can't be retrieved, an error message is returned for that
   event.
 
   This operation supports resource-level permissions. You can use this operation
@@ -193,40 +198,38 @@ defmodule AWS.Health do
 
   @doc """
   Returns detailed information about one or more specified events for one or more
-  accounts in your organization.
+  AWS accounts in your organization.
 
-  Information includes standard event data (AWS Region, service, and so on, as
-  returned by
-  [DescribeEventsForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html)), a detailed event description, and possible additional metadata that depends upon
-  the nature of the event. Affected entities are not included; to retrieve those,
-  use the
-  [DescribeAffectedEntitiesForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html)
-  operation.
+  This information includes standard event data (such as the AWS Region and
+  service), an event description, and (depending on the event) possible metadata.
+  This operation doesn't return affected entities, such as the resources related
+  to the event. To return affected entities, use the
+  [DescribeAffectedEntitiesForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html) operation.
 
   Before you can call this operation, you must first enable AWS Health to work
   with AWS Organizations. To do this, call the
-  [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) operation from your organization's management account.
+  [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html)
+  operation from your organization's management account.
 
-  When you call the `DescribeEventDetailsForOrganization` operation, you specify
-  the `organizationEventDetailFilters` object in the request. Depending on the AWS
+  When you call the `DescribeEventDetailsForOrganization` operation, specify the
+  `organizationEventDetailFilters` object in the request. Depending on the AWS
   Health event type, note the following differences:
 
-    * If the event is public, the `awsAccountId` parameter must be
-  empty. If you specify an account ID for a public event, then an error message is
-  returned. That's because the event might apply to all AWS accounts and isn't
-  specific to an account in your organization.
+    * To return event details for a public event, you must specify a
+  null value for the `awsAccountId` parameter. If you specify an account ID for a
+  public event, AWS Health returns an error message because public events aren't
+  specific to an account.
 
-    * If the event is specific to an account, then you must specify the
-  `awsAccountId` parameter in the request. If you don't specify an account ID, an
-  error message returns because the event is specific to an AWS account in your
-  organization.
+    * To return event details for an event that is specific to an
+  account in your organization, you must specify the `awsAccountId` parameter in
+  the request. If you don't specify an account ID, AWS Health returns an error
+  message because the event is specific to an account in your organization.
 
   For more information, see
-  [Event](https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html).
-
-  This operation doesn't support resource-level permissions. You can't use this
+  [Event](https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html).  This operation doesn't support resource-level permissions. You can't use this
   operation to allow or deny access to specific AWS Health events. For more
-  information, see [Resource- and action-based conditions](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions)
+  information, see [Resource- and action-based
+  conditions](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions)
   in the *AWS Health User Guide*.
   """
   def describe_event_details_for_organization(%Client{} = client, input, options \\ []) do
@@ -383,9 +386,9 @@ defmodule AWS.Health do
 
   To call this operation, you must meet the following requirements:
 
-     You must have a Business or Enterprise support plan from [AWS Support](http://aws.amazon.com/premiumsupport/) to use the AWS Health API. If
+     You must have a Business or Enterprise Support plan from [AWS Support](http://aws.amazon.com/premiumsupport/) to use the AWS Health API. If
   you call the AWS Health API from an AWS account that doesn't have a Business or
-  Enterprise support plan, you receive a `SubscriptionRequiredException` error.
+  Enterprise Support plan, you receive a `SubscriptionRequiredException` error.
 
      You must have permission to call this operation from the
   organization's management account. For example IAM policies, see [AWS Health identity-based policy

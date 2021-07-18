@@ -4,8 +4,8 @@
 defmodule AWS.EKS do
   @moduledoc """
   Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes
-  it easy for you to run Kubernetes on AWS without needing to stand up or maintain
-  your own Kubernetes control plane.
+  it easy for you to run Kubernetes on Amazon Web Services without needing to
+  stand up or maintain your own Kubernetes control plane.
 
   Kubernetes is an open-source system for automating the deployment, scaling, and
   management of containerized applications.
@@ -43,7 +43,7 @@ defmodule AWS.EKS do
 
   You can use this API to enable encryption on existing clusters which do not have
   encryption already enabled. This allows you to implement a defense-in-depth
-  security strategy without migrating applications to new EKS clusters.
+  security strategy without migrating applications to new Amazon EKS clusters.
   """
   def associate_encryption_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{URI.encode(cluster_name)}/encryption-config/associate"
@@ -124,9 +124,9 @@ defmodule AWS.EKS do
 
   The Amazon EKS control plane consists of control plane instances that run the
   Kubernetes software, such as `etcd` and the API server. The control plane runs
-  in an account managed by AWS, and the Kubernetes API is exposed via the Amazon
-  EKS API server endpoint. Each Amazon EKS cluster control plane is single-tenant
-  and unique and runs on its own set of Amazon EC2 instances.
+  in an account managed by Amazon Web Services, and the Kubernetes API is exposed
+  via the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is
+  single-tenant and unique and runs on its own set of Amazon EC2 instances.
 
   The cluster control plane is provisioned across multiple Availability Zones and
   fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also
@@ -134,9 +134,9 @@ defmodule AWS.EKS do
   connectivity from the control plane instances to the nodes (for example, to
   support `kubectl exec`, `logs`, and `proxy` data flows).
 
-  Amazon EKS nodes run in your AWS account and connect to your cluster's control
-  plane via the Kubernetes API server endpoint and a certificate file that is
-  created for your cluster.
+  Amazon EKS nodes run in your Amazon Web Services account and connect to your
+  cluster's control plane via the Kubernetes API server endpoint and a certificate
+  file that is created for your cluster.
 
   Cluster creation typically takes several minutes. After you create an Amazon EKS
   cluster, you must configure your Kubernetes tooling to communicate with the API
@@ -164,7 +164,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Creates an AWS Fargate profile for your Amazon EKS cluster.
+  Creates an Fargate profile for your Amazon EKS cluster.
 
   You must have at least one Fargate profile in a cluster to be able to run pods
   on Fargate.
@@ -195,7 +195,7 @@ defmodule AWS.EKS do
   for that Fargate profile to finish deleting before you can create any other
   profiles in that cluster.
 
-  For more information, see [AWS Fargate Profile](https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html)
+  For more information, see [Fargate Profile](https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html)
   in the *Amazon EKS User Guide*.
   """
   def create_fargate_profile(%Client{} = client, cluster_name, input, options \\ []) do
@@ -226,9 +226,9 @@ defmodule AWS.EKS do
   about using launch templates, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
 
   An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and
-  associated Amazon EC2 instances that are managed by AWS for an Amazon EKS
-  cluster. Each node group uses a version of the Amazon EKS optimized Amazon Linux
-  2 AMI. For more information, see [Managed Node Groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
+  associated Amazon EC2 instances that are managed by Amazon Web Services for an
+  Amazon EKS cluster. Each node group uses a version of the Amazon EKS optimized
+  Amazon Linux 2 AMI. For more information, see [Managed Node Groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
   in the *Amazon EKS User Guide*.
   """
   def create_nodegroup(%Client{} = client, cluster_name, input, options \\ []) do
@@ -306,7 +306,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Deletes an AWS Fargate profile.
+  Deletes an Fargate profile.
 
   When you delete a Fargate profile, any pods running on Fargate that were created
   with the profile are deleted. If those pods match another Fargate profile, then
@@ -471,7 +471,7 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Returns descriptive information about an AWS Fargate profile.
+  Returns descriptive information about an Fargate profile.
   """
   def describe_fargate_profile(
         %Client{} = client,
@@ -592,7 +592,7 @@ defmodule AWS.EKS do
 
   If you disassociate an identity provider from your cluster, users included in
   the provider can no longer access the cluster. However, you can still access the
-  cluster with AWS IAM users.
+  cluster with Amazon Web Services IAM users.
   """
   def disassociate_identity_provider_config(
         %Client{} = client,
@@ -659,7 +659,8 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Lists the Amazon EKS clusters in your AWS account in the specified Region.
+  Lists the Amazon EKS clusters in your Amazon Web Services account in the
+  specified Region.
   """
   def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/clusters"
@@ -694,8 +695,8 @@ defmodule AWS.EKS do
   end
 
   @doc """
-  Lists the AWS Fargate profiles associated with the specified cluster in your AWS
-  account in the specified Region.
+  Lists the Fargate profiles associated with the specified cluster in your Amazon
+  Web Services account in the specified Region.
   """
   def list_fargate_profiles(
         %Client{} = client,
@@ -778,7 +779,7 @@ defmodule AWS.EKS do
 
   @doc """
   Lists the Amazon EKS managed node groups associated with the specified cluster
-  in your AWS account in the specified Region.
+  in your Amazon Web Services account in the specified Region.
 
   Self-managed node groups are not listed.
   """
@@ -843,7 +844,7 @@ defmodule AWS.EKS do
 
   @doc """
   Lists the updates associated with an Amazon EKS cluster or managed node group in
-  your AWS account, in the specified Region.
+  your Amazon Web Services account, in the specified Region.
   """
   def list_updates(
         %Client{} = client,
@@ -988,16 +989,15 @@ defmodule AWS.EKS do
   in the * *Amazon EKS User Guide* *.
 
   CloudWatch Logs ingestion, archive storage, and data scanning rates apply to
-  exported control plane logs. For more information, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing/).
+  exported control plane logs. For more information, see [CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing/).
 
   You can also use this API operation to enable or disable public and private
   access to your cluster's Kubernetes API server endpoint. By default, public
   access is enabled, and private access is disabled. For more information, see
-  [Amazon EKS Cluster Endpoint Access Control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
+  [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
   in the * *Amazon EKS User Guide* *.
 
-  At this time, you can not update the subnets or security group IDs for an
-  existing cluster.
+  You can't update the subnets or security group IDs for an existing cluster.
 
   Cluster updates are asynchronous, and they should finish within a few minutes.
   During an update, the cluster status moves to `UPDATING` (this status transition

@@ -193,9 +193,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
-        URI.encode(configuration_profile_id)
-      }/hostedconfigurationversions"
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions"
 
     {headers, input} =
       [
@@ -269,9 +267,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
-        URI.encode(configuration_profile_id)
-      }"
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
 
     headers = []
     query_params = []
@@ -349,9 +345,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
-        URI.encode(configuration_profile_id)
-      }/hostedconfigurationversions/#{URI.encode(version_number)}"
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions/#{URI.encode(version_number)}"
 
     headers = []
     query_params = []
@@ -414,9 +408,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application)}/environments/#{URI.encode(environment)}/configurations/#{
-        URI.encode(configuration)
-      }"
+      "/applications/#{URI.encode(application)}/environments/#{URI.encode(environment)}/configurations/#{URI.encode(configuration)}"
 
     headers = []
     query_params = []
@@ -468,9 +460,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
-        URI.encode(configuration_profile_id)
-      }"
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
 
     headers = []
     query_params = []
@@ -499,9 +489,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{
-        URI.encode(deployment_number)
-      }"
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{URI.encode(deployment_number)}"
 
     headers = []
     query_params = []
@@ -586,9 +574,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
-        URI.encode(configuration_profile_id)
-      }/hostedconfigurationversions/#{URI.encode(version_number)}"
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions/#{URI.encode(version_number)}"
 
     headers = []
     query_params = []
@@ -833,9 +819,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
-        URI.encode(configuration_profile_id)
-      }/hostedconfigurationversions"
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/hostedconfigurationversions"
 
     headers = []
     query_params = []
@@ -926,9 +910,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{
-        URI.encode(deployment_number)
-      }"
+      "/applications/#{URI.encode(application_id)}/environments/#{URI.encode(environment_id)}/deployments/#{URI.encode(deployment_number)}"
 
     headers = []
     query_params = []
@@ -1029,9 +1011,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
-        URI.encode(configuration_profile_id)
-      }"
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}"
 
     headers = []
     query_params = []
@@ -1104,9 +1084,7 @@ defmodule AWS.AppConfig do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{
-        URI.encode(configuration_profile_id)
-      }/validators"
+      "/applications/#{URI.encode(application_id)}/configurationprofiles/#{URI.encode(configuration_profile_id)}/validators"
 
     headers = []
 

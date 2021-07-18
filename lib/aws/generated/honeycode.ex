@@ -165,9 +165,7 @@ defmodule AWS.Honeycode do
         options \\ []
       ) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/import/#{
-        URI.encode(job_id)
-      }"
+      "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/import/#{URI.encode(job_id)}"
 
     headers = []
     query_params = []
@@ -227,9 +225,7 @@ defmodule AWS.Honeycode do
         options \\ []
       ) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/apps/#{URI.encode(app_id)}/screens/#{
-        URI.encode(screen_id)
-      }/automations/#{URI.encode(screen_automation_id)}"
+      "/workbooks/#{URI.encode(workbook_id)}/apps/#{URI.encode(app_id)}/screens/#{URI.encode(screen_id)}/automations/#{URI.encode(screen_automation_id)}"
 
     headers = []
     query_params = []

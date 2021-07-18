@@ -361,9 +361,7 @@ defmodule AWS.WorkDocs do
         options \\ []
       ) do
     url_path =
-      "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comment/#{
-        URI.encode(comment_id)
-      }"
+      "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comment/#{URI.encode(comment_id)}"
 
     {headers, input} =
       [
@@ -543,9 +541,7 @@ defmodule AWS.WorkDocs do
         options \\ []
       ) do
     url_path =
-      "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions/#{
-        URI.encode(subscription_id)
-      }"
+      "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions/#{URI.encode(subscription_id)}"
 
     headers = []
     query_params = []

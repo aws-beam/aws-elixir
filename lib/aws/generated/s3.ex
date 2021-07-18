@@ -257,7 +257,7 @@ defmodule AWS.S3 do
   `x-amz-metadata-directive` header. When you grant permissions, you can use the
   `s3:x-amz-metadata-directive` condition key to enforce certain metadata behavior
   when objects are uploaded. For more information, see [Specifying Conditions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html)
-  in the *Amazon S3 Developer Guide*. For a complete list of Amazon S3-specific
+  in the *Amazon S3 User Guide*. For a complete list of Amazon S3-specific
   condition keys, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html).
 
   ##  `x-amz-copy-source-if` Headers
@@ -323,7 +323,7 @@ defmodule AWS.S3 do
   You can use the `CopyObject` action to change the storage class of an object
   that is already stored in Amazon S3 using the `StorageClass` parameter. For more
   information, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-  in the *Amazon S3 Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   ## Versioning
 
@@ -359,45 +359,45 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
-        {"CopySourceIfModifiedSince", "x-amz-copy-source-if-modified-since"},
-        {"ContentLanguage", "Content-Language"},
-        {"Expires", "Expires"},
-        {"CopySourceSSECustomerKeyMD5",
-         "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
-        {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
-        {"CopySourceSSECustomerKey", "x-amz-copy-source-server-side-encryption-customer-key"},
-        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
-        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
-        {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
-        {"RequestPayer", "x-amz-request-payer"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
-        {"ContentDisposition", "Content-Disposition"},
-        {"ContentEncoding", "Content-Encoding"},
-        {"ServerSideEncryption", "x-amz-server-side-encryption"},
-        {"Tagging", "x-amz-tagging"},
-        {"StorageClass", "x-amz-storage-class"},
-        {"CopySourceIfUnmodifiedSince", "x-amz-copy-source-if-unmodified-since"},
-        {"ACL", "x-amz-acl"},
-        {"ContentType", "Content-Type"},
-        {"CopySource", "x-amz-copy-source"},
-        {"ObjectLockMode", "x-amz-object-lock-mode"},
-        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
-        {"GrantWriteACP", "x-amz-grant-write-acp"},
-        {"GrantReadACP", "x-amz-grant-read-acp"},
-        {"GrantFullControl", "x-amz-grant-full-control"},
-        {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
-        {"CacheControl", "Cache-Control"},
-        {"TaggingDirective", "x-amz-tagging-directive"},
-        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
-        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
-        {"GrantRead", "x-amz-grant-read"},
         {"CopySourceSSECustomerAlgorithm",
          "x-amz-copy-source-server-side-encryption-customer-algorithm"},
+        {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
+        {"CopySource", "x-amz-copy-source"},
+        {"GrantFullControl", "x-amz-grant-full-control"},
+        {"ACL", "x-amz-acl"},
+        {"ObjectLockRetainUntilDate", "x-amz-object-lock-retain-until-date"},
+        {"RequestPayer", "x-amz-request-payer"},
+        {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
+        {"ContentType", "Content-Type"},
+        {"SSECustomerKeyMD5", "x-amz-server-side-encryption-customer-key-MD5"},
+        {"ObjectLockLegalHoldStatus", "x-amz-object-lock-legal-hold"},
+        {"Tagging", "x-amz-tagging"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"CopySourceSSECustomerKey", "x-amz-copy-source-server-side-encryption-customer-key"},
+        {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
+        {"ContentLanguage", "Content-Language"},
+        {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
+        {"ContentEncoding", "Content-Encoding"},
+        {"CopySourceSSECustomerKeyMD5",
+         "x-amz-copy-source-server-side-encryption-customer-key-MD5"},
         {"CopySourceIfMatch", "x-amz-copy-source-if-match"},
-        {"MetadataDirective", "x-amz-metadata-directive"},
-        {"CopySourceIfNoneMatch", "x-amz-copy-source-if-none-match"},
+        {"CopySourceIfUnmodifiedSince", "x-amz-copy-source-if-unmodified-since"},
+        {"Expires", "Expires"},
+        {"GrantWriteACP", "x-amz-grant-write-acp"},
         {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
-        {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"}
+        {"CacheControl", "Cache-Control"},
+        {"ExpectedSourceBucketOwner", "x-amz-source-expected-bucket-owner"},
+        {"MetadataDirective", "x-amz-metadata-directive"},
+        {"StorageClass", "x-amz-storage-class"},
+        {"CopySourceIfModifiedSince", "x-amz-copy-source-if-modified-since"},
+        {"GrantRead", "x-amz-grant-read"},
+        {"TaggingDirective", "x-amz-tagging-directive"},
+        {"ObjectLockMode", "x-amz-object-lock-mode"},
+        {"ContentDisposition", "Content-Disposition"},
+        {"ServerSideEncryption", "x-amz-server-side-encryption"},
+        {"CopySourceIfNoneMatch", "x-amz-copy-source-if-none-match"},
+        {"SSEKMSKeyId", "x-amz-server-side-encryption-aws-kms-key-id"},
+        {"GrantReadACP", "x-amz-grant-read-acp"}
       ]
       |> Request.build_params(input)
 
@@ -442,7 +442,7 @@ defmodule AWS.S3 do
   buckets. By creating the bucket, you become the bucket owner.
 
   Not every string is an acceptable bucket name. For information about bucket
-  naming restrictions, see [Working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html).
+  naming restrictions, see [Bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 
   If you want to create an Amazon S3 on Outposts bucket, see [Create Bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html).
 
@@ -608,10 +608,11 @@ defmodule AWS.S3 do
   by using `CreateMultipartUpload`.
 
   To perform a multipart upload with encryption using an AWS KMS CMK, the
-  requester must have permission to the `kms:Encrypt`, `kms:Decrypt`,
-  `kms:ReEncrypt*`, `kms:GenerateDataKey*`, and `kms:DescribeKey` actions on the
-  key. These permissions are required because Amazon S3 must decrypt and read data
-  from the encrypted file parts before it completes the multipart upload.
+  requester must have permission to the `kms:Decrypt` and `kms:GenerateDataKey*`
+  actions on the key. These permissions are required because Amazon S3 must
+  decrypt and read data from the encrypted file parts before it completes the
+  multipart upload. For more information, see [Multipart upload API and permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions)
+  in the *Amazon S3 User Guide*.
 
   If your AWS Identity and Access Management (IAM) user or role is in the same AWS
   account as the AWS KMS CMK, then you must have these permissions on the key
@@ -1313,7 +1314,7 @@ defmodule AWS.S3 do
   propagate.
 
   For information about replication configuration, see
-  [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 Developer Guide*.
+  [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
 
   The following operations are related to `DeleteBucketReplication`:
 
@@ -4404,13 +4405,14 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Returns some or all (up to 1,000) of the objects in a bucket.
+  Returns some or all (up to 1,000) of the objects in a bucket with each request.
 
   You can use the request parameters as selection criteria to return a subset of
   the objects in a bucket. A `200 OK` response can contain valid or invalid XML.
   Make sure to design your application to parse the contents of the response and
   handle it appropriately. Objects are returned sorted in an ascending order of
-  the respective key names in the list.
+  the respective key names in the list. For more information about listing
+  objects, see [Listing object keys programmatically](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html)
 
   To use this operation, you must have READ access to the bucket.
 
@@ -5341,8 +5343,7 @@ defmodule AWS.S3 do
   Creates a new lifecycle configuration for the bucket or replaces an existing
   lifecycle configuration.
 
-  For information about lifecycle configuration, see [Managing Access Permissions to Your Amazon S3
-  Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+  For information about lifecycle configuration, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
 
   Bucket lifecycle configuration now supports specifying a lifecycle rule using an
   object key name prefix, one or more object tags, or a combination of both.
@@ -5777,7 +5778,7 @@ defmodule AWS.S3 do
   Creates a replication configuration or replaces an existing one.
 
   For more information, see
-  [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 Developer Guide*.
+  [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
 
   To perform this operation, the user or role performing the action must have the
   [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)
@@ -5903,11 +5904,12 @@ defmodule AWS.S3 do
   according to resources with the same tag key values. For example, you can tag
   several resources with a specific application name, and then organize your
   billing information to see the total cost of that application across several
-  services. For more information, see [Cost Allocation and Tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
+  services. For more information, see [Cost Allocation and Tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  and [Using Cost Allocation in Amazon S3 Bucket Tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html).
 
-  Within a bucket, if you add a tag that has the same key as an existing tag, the
-  new value overwrites the old value. For more information, see [Using Cost Allocation in Amazon S3 Bucket
-  Tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html).
+  When this operation sets the tags for a bucket, it will overwrite any current
+  tags the bucket already has. You cannot use this operation to add tags to an
+  existing list of tags.
 
   To use this operation, you must have permissions to perform the
   `s3:PutBucketTagging` action. The bucket owner has this permission by default
@@ -6183,7 +6185,7 @@ defmodule AWS.S3 do
   availability. Depending on performance needs, you can specify a different
   Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For
   more information, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-  in the *Amazon S3 Service Developer Guide*.
+  in the *Amazon S3 User Guide*.
 
   ## Versioning
 
@@ -6294,7 +6296,7 @@ defmodule AWS.S3 do
   existing application that updates a bucket ACL using the request body, you can
   continue to use that approach. For more information, see [Access Control List (ACL)
   Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html) in
-  the *Amazon S3 Developer Guide*.
+  the *Amazon S3 User Guide*.
 
   ## Access Permissions
 
@@ -7488,41 +7490,41 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
-        {"ETag", "x-amz-fwd-header-ETag"},
-        {"ContentLanguage", "x-amz-fwd-header-Content-Language"},
-        {"Expires", "x-amz-fwd-header-Expires"},
-        {"ObjectLockLegalHoldStatus", "x-amz-fwd-header-x-amz-object-lock-legal-hold"},
-        {"RequestRoute", "x-amz-request-route"},
-        {"Expiration", "x-amz-fwd-header-x-amz-expiration"},
-        {"BucketKeyEnabled", "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"},
-        {"Restore", "x-amz-fwd-header-x-amz-restore"},
-        {"SSECustomerKeyMD5", "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"},
+        {"ErrorMessage", "x-amz-fwd-error-message"},
+        {"DeleteMarker", "x-amz-fwd-header-x-amz-delete-marker"},
         {"ObjectLockRetainUntilDate", "x-amz-fwd-header-x-amz-object-lock-retain-until-date"},
-        {"ContentLength", "Content-Length"},
-        {"ContentDisposition", "x-amz-fwd-header-Content-Disposition"},
-        {"ContentEncoding", "x-amz-fwd-header-Content-Encoding"},
-        {"ServerSideEncryption", "x-amz-fwd-header-x-amz-server-side-encryption"},
-        {"AcceptRanges", "x-amz-fwd-header-accept-ranges"},
-        {"StorageClass", "x-amz-fwd-header-x-amz-storage-class"},
-        {"VersionId", "x-amz-fwd-header-x-amz-version-id"},
+        {"RequestToken", "x-amz-request-token"},
+        {"Restore", "x-amz-fwd-header-x-amz-restore"},
+        {"RequestRoute", "x-amz-request-route"},
+        {"StatusCode", "x-amz-fwd-status"},
+        {"BucketKeyEnabled", "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"},
         {"ContentType", "x-amz-fwd-header-Content-Type"},
-        {"ObjectLockMode", "x-amz-fwd-header-x-amz-object-lock-mode"},
+        {"SSECustomerKeyMD5", "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"},
+        {"ObjectLockLegalHoldStatus", "x-amz-fwd-header-x-amz-object-lock-legal-hold"},
+        {"VersionId", "x-amz-fwd-header-x-amz-version-id"},
+        {"AcceptRanges", "x-amz-fwd-header-accept-ranges"},
+        {"ContentLanguage", "x-amz-fwd-header-Content-Language"},
         {"SSECustomerAlgorithm",
          "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"},
-        {"StatusCode", "x-amz-fwd-status"},
-        {"DeleteMarker", "x-amz-fwd-header-x-amz-delete-marker"},
-        {"ErrorCode", "x-amz-fwd-error-code"},
-        {"SSEKMSKeyId", "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"},
-        {"CacheControl", "x-amz-fwd-header-Cache-Control"},
-        {"PartsCount", "x-amz-fwd-header-x-amz-mp-parts-count"},
-        {"RequestCharged", "x-amz-fwd-header-x-amz-request-charged"},
+        {"ContentEncoding", "x-amz-fwd-header-Content-Encoding"},
+        {"ETag", "x-amz-fwd-header-ETag"},
         {"LastModified", "x-amz-fwd-header-Last-Modified"},
-        {"MissingMeta", "x-amz-fwd-header-x-amz-missing-meta"},
-        {"ErrorMessage", "x-amz-fwd-error-message"},
-        {"ReplicationStatus", "x-amz-fwd-header-x-amz-replication-status"},
-        {"RequestToken", "x-amz-request-token"},
+        {"ErrorCode", "x-amz-fwd-error-code"},
+        {"ContentRange", "x-amz-fwd-header-Content-Range"},
+        {"Expires", "x-amz-fwd-header-Expires"},
         {"TagCount", "x-amz-fwd-header-x-amz-tagging-count"},
-        {"ContentRange", "x-amz-fwd-header-Content-Range"}
+        {"Expiration", "x-amz-fwd-header-x-amz-expiration"},
+        {"ReplicationStatus", "x-amz-fwd-header-x-amz-replication-status"},
+        {"CacheControl", "x-amz-fwd-header-Cache-Control"},
+        {"StorageClass", "x-amz-fwd-header-x-amz-storage-class"},
+        {"MissingMeta", "x-amz-fwd-header-x-amz-missing-meta"},
+        {"ContentLength", "Content-Length"},
+        {"ObjectLockMode", "x-amz-fwd-header-x-amz-object-lock-mode"},
+        {"ContentDisposition", "x-amz-fwd-header-Content-Disposition"},
+        {"RequestCharged", "x-amz-fwd-header-x-amz-request-charged"},
+        {"ServerSideEncryption", "x-amz-fwd-header-x-amz-server-side-encryption"},
+        {"PartsCount", "x-amz-fwd-header-x-amz-mp-parts-count"},
+        {"SSEKMSKeyId", "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"}
       ]
       |> Request.build_params(input)
 

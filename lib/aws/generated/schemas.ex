@@ -195,9 +195,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/version/#{
-        URI.encode(schema_version)
-      }"
+      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/version/#{URI.encode(schema_version)}"
 
     headers = []
     query_params = []
@@ -227,9 +225,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{
-        URI.encode(language)
-      }"
+      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{URI.encode(language)}"
 
     headers = []
     query_params = []
@@ -388,9 +384,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{
-        URI.encode(language)
-      }/source"
+      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{URI.encode(language)}/source"
 
     headers = []
     query_params = []
@@ -709,9 +703,7 @@ defmodule AWS.Schemas do
         options \\ []
       ) do
     url_path =
-      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{
-        URI.encode(language)
-      }"
+      "/v1/registries/name/#{URI.encode(registry_name)}/schemas/name/#{URI.encode(schema_name)}/language/#{URI.encode(language)}"
 
     headers = []
 

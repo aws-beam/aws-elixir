@@ -71,6 +71,21 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+  Exports optimization recommendations for Amazon EBS volumes.
+
+  Recommendations are exported in a comma-separated values (.csv) file, and its
+  metadata in a JavaScript Object Notation (.json) file, to an existing Amazon
+  Simple Storage Service (Amazon S3) bucket that you specify. For more
+  information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
+
+  You can have only one Amazon EBS volume export job in progress per AWS Region.
+  """
+  def export_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ExportEBSVolumeRecommendations", input, options)
+  end
+
+  @doc """
   Exports optimization recommendations for Amazon EC2 instances.
 
   Recommendations are exported in a comma-separated values (.csv) file, and its
@@ -83,6 +98,27 @@ defmodule AWS.ComputeOptimizer do
   """
   def export_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ExportEC2InstanceRecommendations", input, options)
+  end
+
+  @doc """
+  Exports optimization recommendations for AWS Lambda functions.
+
+  Recommendations are exported in a comma-separated values (.csv) file, and its
+  metadata in a JavaScript Object Notation (.json) file, to an existing Amazon
+  Simple Storage Service (Amazon S3) bucket that you specify. For more
+  information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
+
+  You can have only one Lambda function export job in progress per AWS Region.
+  """
+  def export_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "ExportLambdaFunctionRecommendations",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -193,13 +229,13 @@ defmodule AWS.ComputeOptimizer do
 
   You must have the appropriate permissions to opt in to Compute Optimizer, to
   view its recommendations, and to opt out. For more information, see [Controlling access with AWS Identity and Access
-  Management](https://docs.aws.amazon.com/compute-optimizer/ug/security-iam.html)
-  in the *Compute Optimizer User Guide*.
+  Management](https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html)
+  in the *AWS Compute Optimizer User Guide*.
 
   When you opt in, Compute Optimizer automatically creates a Service-Linked Role
   in your account to access its data. For more information, see [Using Service-Linked Roles for AWS Compute
-  Optimizer](https://docs.aws.amazon.com/compute-optimizer/ug/using-service-linked-roles.html)
-  in the *Compute Optimizer User Guide*.
+  Optimizer](https://docs.aws.amazon.com/compute-optimizer/latest/ug/using-service-linked-roles.html)
+  in the *AWS Compute Optimizer User Guide*.
   """
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEnrollmentStatus", input, options)

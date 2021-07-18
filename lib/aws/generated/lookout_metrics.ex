@@ -180,6 +180,10 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Describes an alert.
+
+  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
+  read operation on a resource immediately after creating or modifying it, use
+  retries to allow time for the write operation to complete.
   """
   def describe_alert(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAlert"
@@ -222,6 +226,10 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Describes a detector.
+
+  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
+  read operation on a resource immediately after creating or modifying it, use
+  retries to allow time for the write operation to complete.
   """
   def describe_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAnomalyDetector"
@@ -243,6 +251,10 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Describes a dataset.
+
+  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
+  read operation on a resource immediately after creating or modifying it, use
+  retries to allow time for the write operation to complete.
   """
   def describe_metric_set(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeMetricSet"
@@ -327,6 +339,10 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Lists the alerts attached to a detector.
+
+  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
+  read operation on a resource immediately after creating or modifying it, use
+  retries to allow time for the write operation to complete.
   """
   def list_alerts(%Client{} = client, input, options \\ []) do
     url_path = "/ListAlerts"
@@ -348,6 +364,10 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Lists the detectors in the current AWS Region.
+
+  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
+  read operation on a resource immediately after creating or modifying it, use
+  retries to allow time for the write operation to complete.
   """
   def list_anomaly_detectors(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyDetectors"
@@ -411,6 +431,10 @@ defmodule AWS.LookoutMetrics do
 
   @doc """
   Lists the datasets in the current AWS Region.
+
+  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
+  read operation on a resource immediately after creating or modifying it, use
+  retries to allow time for the write operation to complete.
   """
   def list_metric_sets(%Client{} = client, input, options \\ []) do
     url_path = "/ListMetricSets"

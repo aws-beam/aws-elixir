@@ -3,7 +3,7 @@
 
 defmodule AWS.DataBrew do
   @moduledoc """
-  AWS Glue DataBrew is a visual, cloud-scale data-preparation service.
+  Glue DataBrew is a visual, cloud-scale data-preparation service.
 
   DataBrew simplifies data preparation tasks, targeting data issues that are hard
   to spot and time-consuming to fix. DataBrew empowers users of all technical
@@ -164,7 +164,7 @@ defmodule AWS.DataBrew do
 
   @doc """
   Creates a new job to transform input data, using steps defined in an existing
-  AWS Glue DataBrew recipe
+  Glue DataBrew recipe
   """
   def create_recipe_job(%Client{} = client, input, options \\ []) do
     url_path = "/recipeJobs"

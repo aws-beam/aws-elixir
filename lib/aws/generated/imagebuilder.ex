@@ -3,10 +3,10 @@
 
 defmodule AWS.Imagebuilder do
   @moduledoc """
-  EC2 Image Builder is a fully managed AWS service that makes it easier to
-  automate the creation, management, and deployment of customized, secure, and
-  up-to-date "golden" server images that are pre-installed and pre-configured with
-  software and settings to meet specific IT standards.
+  EC2 Image Builder is a fully managed Amazon Web Services service that makes it
+  easier to automate the creation, management, and deployment of customized,
+  secure, and up-to-date "golden" server images that are pre-installed and
+  pre-configured with software and settings to meet specific IT standards.
   """
 
   alias AWS.Client
@@ -123,7 +123,9 @@ defmodule AWS.Imagebuilder do
   Creates a new image.
 
   This request will create a new image along with all of the configured output
-  resources defined in the distribution configuration.
+  resources defined in the distribution configuration. You must specify exactly
+  one recipe for your image, using either a ContainerRecipeArn or an
+  ImageRecipeArn.
   """
   def create_image(%Client{} = client, input, options \\ []) do
     url_path = "/CreateImage"
@@ -839,7 +841,7 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   List the Packages that are associated with an Image Build Version, as determined
-  by AWS Systems Manager Inventory at build time.
+  by Amazon EC2 Systems Manager Inventory at build time.
   """
   def list_image_packages(%Client{} = client, input, options \\ []) do
     url_path = "/ListImagePackages"
@@ -1190,9 +1192,13 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new image pipeline.
+  Updates an image pipeline.
 
   Image pipelines enable you to automate the creation and distribution of images.
+
+  UpdateImagePipeline does not support selective updates for the pipeline. You
+  must specify all of the required properties in the update request, not just the
+  properties that have changed.
   """
   def update_image_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateImagePipeline"

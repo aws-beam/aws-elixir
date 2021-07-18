@@ -3,16 +3,16 @@
 
 defmodule AWS.Lambda do
   @moduledoc """
-  AWS Lambda
+  Lambda
 
   ## Overview
 
-  This is the *AWS Lambda API Reference*.
+  This is the *Lambda API Reference*.
 
-  The AWS Lambda Developer Guide provides additional information. For the service
-  overview, see [What is AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), and for
-  information about how the service works, see [AWS Lambda: How it Works](https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html) in
-  the **AWS Lambda Developer Guide**.
+  The Lambda Developer Guide provides additional information. For the service
+  overview, see [What is Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), and for
+  information about how the service works, see [Lambda: How it Works](https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html) in
+  the **Lambda Developer Guide**.
   """
 
   alias AWS.Client
@@ -35,11 +35,11 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Adds permissions to the resource-based policy of a version of an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Adds permissions to the resource-based policy of a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
   Use this action to grant layer usage permission to other accounts. You can grant
-  permission to a single account, all AWS accounts, or all accounts in an
-  organization.
+  permission to a single account, all accounts in an organization, or all Amazon
+  Web Services accounts.
 
   To revoke permission, call `RemoveLayerVersionPermission` with the statement ID
   that you specified when you added it.
@@ -76,7 +76,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Grants an AWS service or another account permission to use a function.
+  Grants an Amazon Web Services service or another account permission to use a
+  function.
 
   You can apply the policy at the function level, or specify a qualifier to
   restrict access to a single version or alias. If you use a qualifier, the
@@ -84,12 +85,12 @@ defmodule AWS.Lambda do
   invoke the function.
 
   To grant permission to another account, specify the account ID as the
-  `Principal`. For AWS services, the principal is a domain-style identifier
-  defined by the service, like `s3.amazonaws.com` or `sns.amazonaws.com`. For AWS
-  services, you can also specify the ARN of the associated resource as the
-  `SourceArn`. If you grant permission to a service principal without specifying
-  the source, other accounts could potentially configure resources in their
-  account to invoke your Lambda function.
+  `Principal`. For Amazon Web Services services, the principal is a domain-style
+  identifier defined by the service, like `s3.amazonaws.com` or
+  `sns.amazonaws.com`. For Amazon Web Services services, you can also specify the
+  ARN of the associated resource as the `SourceArn`. If you grant permission to a
+  service principal without specifying the source, other accounts could
+  potentially configure resources in their account to invoke your Lambda function.
 
   This action adds a statement to a resource-based permissions policy for the
   function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
@@ -173,23 +174,25 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates a mapping between an event source and an AWS Lambda function.
+  Creates a mapping between an event source and an Lambda function.
 
   Lambda reads items from the event source and triggers the function.
 
-  For details about each event source type, see the following topics.
+  For details about each event source type, see the following topics. In
+  particular, each of the topics describes the required and optional parameters
+  for the specific event source.
 
-    * [Using AWS Lambda with Amazon DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html)
+    * [ Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
 
-    * [Using AWS Lambda with Amazon Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)
+    * [ Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
 
-    * [Using AWS Lambda with Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html)
+    * [ Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
 
-    * [Using AWS Lambda with Amazon MQ](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html)
+    * [ Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
 
-    * [Using AWS Lambda with Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+    * [ Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
 
-    * [Using AWS Lambda with Self-Managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+    * [ Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
 
   The following error handling options are only available for stream sources
   (DynamoDB and Kinesis):
@@ -235,9 +238,18 @@ defmodule AWS.Lambda do
   To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html)
   and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role).
   The deployment package is a .zip file archive or container image that contains
-  your function code. The execution role grants the function permission to use AWS
-  services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for
-  request tracing.
+  your function code. The execution role grants the function permission to use
+  Amazon Web Services services, such as Amazon CloudWatch Logs for log streaming
+  and X-Ray for request tracing.
+
+  You set the package type to `Image` if the deployment package is a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html). For a
+  container image, the code property must include the URI of a container image in
+  the Amazon ECR registry. You do not need to specify the handler and runtime
+  properties.
+
+  You set the package type to `Zip` if the deployment package is a [.zip file archive](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip).
+  For a .zip file archive, the code property specifies the location of the .zip
+  file. You must also specify the handler and runtime properties.
 
   When you create a function, Lambda provisions an instance of the function and
   its supporting resources. If your function connects to a VPC, this process can
@@ -266,14 +278,14 @@ defmodule AWS.Lambda do
   from a trusted publisher. The code-signing configuration includes set set of
   signing profiles, which define the trusted publishers for this function.
 
-  If another account or an AWS service invokes your function, use `AddPermission`
-  to grant permission by creating a resource-based IAM policy. You can grant
-  permissions at the function level, on a version, or on an alias.
+  If another account or an Amazon Web Services service invokes your function, use
+  `AddPermission` to grant permission by creating a resource-based IAM policy. You
+  can grant permissions at the function level, on a version, or on an alias.
 
   To invoke your function directly, use `Invoke`. To invoke your function in
-  response to events in other AWS services, create an event source mapping
-  (`CreateEventSourceMapping`), or configure a function trigger in the other
-  service. For more information, see [Invoking Functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
+  response to events in other Amazon Web Services services, create an event source
+  mapping (`CreateEventSourceMapping`), or configure a function trigger in the
+  other service. For more information, see [Invoking Functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
   """
   def create_function(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/functions"
@@ -377,9 +389,9 @@ defmodule AWS.Lambda do
   all versions and aliases are deleted.
 
   To delete Lambda event source mappings that invoke a function, use
-  `DeleteEventSourceMapping`. For AWS services and resources that invoke your
-  function directly, delete the trigger in the service where you originally
-  configured it.
+  `DeleteEventSourceMapping`. For Amazon Web Services services and resources that
+  invoke your function directly, delete the trigger in the service where you
+  originally configured it.
   """
   def delete_function(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{URI.encode(function_name)}"
@@ -477,7 +489,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Deletes a version of an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Deletes a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
   Deleted versions can no longer be viewed or added to functions. To avoid
   breaking functions, a copy of the version remains in Lambda until no functions
@@ -537,7 +549,7 @@ defmodule AWS.Lambda do
   @doc """
   Retrieves details about your account's
   [limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) and usage in
-  an AWS Region.
+  an Amazon Web Services Region.
   """
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/2016-08-19/account-settings/"
@@ -777,7 +789,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns information about a version of an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
+  Returns information about a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
   with a link to download the layer archive that's valid for 10 minutes.
   """
   def get_layer_version(%Client{} = client, layer_name, version_number, options \\ []) do
@@ -801,7 +813,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns information about a version of an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
+  Returns information about a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html),
   with a link to download the layer archive that's valid for 10 minutes.
   """
   def get_layer_version_by_arn(%Client{} = client, arn, options \\ []) do
@@ -830,7 +842,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns the permission policy for a version of an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Returns the permission policy for a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
   For more information, see `AddLayerVersionPermission`.
   """
@@ -1332,7 +1344,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Lists the versions of an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Lists the versions of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
   Versions that have been deleted aren't listed. Specify a [runtime identifier](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
   to list only versions that indicate that they're compatible with that runtime.
@@ -1384,7 +1396,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Lists [AWS Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+  Lists [Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
   and shows information about the latest version of each.
 
   Specify a [runtime identifier](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)
@@ -1548,7 +1560,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Creates an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+  Creates an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
   from a ZIP archive.
 
   Each time you call `PublishLayerVersion` with the same layer name, a new version
@@ -1583,7 +1595,7 @@ defmodule AWS.Lambda do
   Use versions to create a snapshot of your function code and configuration that
   doesn't change.
 
-  AWS Lambda doesn't publish a version if the function's configuration and code
+  Lambda doesn't publish a version if the function's configuration and code
   haven't changed since the last version. Use `UpdateFunctionCode` or
   `UpdateFunctionConfiguration` to update the function before publishing a
   version.
@@ -1738,7 +1750,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Removes a statement from the permissions policy for a version of an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+  Removes a statement from the permissions policy for a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
   For more information, see `AddLayerVersionPermission`.
   """
@@ -1751,9 +1763,7 @@ defmodule AWS.Lambda do
         options \\ []
       ) do
     url_path =
-      "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy/#{
-        URI.encode(statement_id)
-      }"
+      "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy/#{URI.encode(statement_id)}"
 
     headers = []
 
@@ -1777,7 +1787,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Revokes function-use permission from an AWS service or another account.
+  Revokes function-use permission from an Amazon Web Services service or another
+  account.
 
   You can get the ID of the statement from the output of `GetPolicy`.
   """
@@ -1910,8 +1921,8 @@ defmodule AWS.Lambda do
   @doc """
   Updates an event source mapping.
 
-  You can change the function that AWS Lambda invokes, or pause invocation and
-  resume later from the same location.
+  You can change the function that Lambda invokes, or pause invocation and resume
+  later from the same location.
 
   The following error handling options are only available for stream sources
   (DynamoDB and Kinesis):
@@ -1999,7 +2010,7 @@ defmodule AWS.Lambda do
   only the unpublished version.
 
   To configure function concurrency, use `PutFunctionConcurrency`. To grant invoke
-  permissions to an account or AWS service, use `AddPermission`.
+  permissions to an account or Amazon Web Services service, use `AddPermission`.
   """
   def update_function_configuration(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"

@@ -26,6 +26,30 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Adds media streams to an existing flow.
+
+  After you add a media stream to a flow, you can associate it with a source
+  and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
+  """
+  def add_flow_media_streams(%Client{} = client, flow_arn, input, options \\ []) do
+    url_path = "/v1/flows/#{URI.encode(flow_arn)}/mediaStreams"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Adds outputs to an existing flow.
 
   You can create up to 50 outputs per flow.
@@ -428,6 +452,36 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Removes a media stream from a flow.
+
+  This action is only available if the media stream is not associated with a
+  source or output.
+  """
+  def remove_flow_media_stream(
+        %Client{} = client,
+        flow_arn,
+        media_stream_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v1/flows/#{URI.encode(flow_arn)}/mediaStreams/#{URI.encode(media_stream_name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Removes an output from an existing flow.
 
   This request can be made only on an output that does not have an entitlement
@@ -654,6 +708,33 @@ defmodule AWS.MediaConnect do
   """
   def update_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{URI.encode(flow_arn)}/entitlements/#{URI.encode(entitlement_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates an existing media stream.
+  """
+  def update_flow_media_stream(
+        %Client{} = client,
+        flow_arn,
+        media_stream_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v1/flows/#{URI.encode(flow_arn)}/mediaStreams/#{URI.encode(media_stream_name)}"
     headers = []
     query_params = []
 

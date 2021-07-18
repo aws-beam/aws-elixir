@@ -278,58 +278,33 @@ defmodule AWS.IotDeviceAdvisor do
   end
 
   @doc """
-  Lists all the test cases in the test suite.
+  Starts a Device Advisor test suite run.
   """
-  def list_test_cases(
-        %Client{} = client,
-        intended_for_qualification \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
-    url_path = "/testCases"
+  def start_suite_run(%Client{} = client, suite_definition_id, input, options \\ []) do
+    url_path = "/suiteDefinitions/#{URI.encode(suite_definition_id)}/suiteRuns"
     headers = []
     query_params = []
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(intended_for_qualification) do
-        [{"intendedForQualification", intended_for_qualification} | query_params]
-      else
-        query_params
-      end
 
     Request.request_rest(
       client,
       metadata(),
-      :get,
+      :post,
       url_path,
       query_params,
       headers,
-      nil,
+      input,
       options,
       nil
     )
   end
 
   @doc """
-  Starts a Device Advisor test suite run.
+  Stops a Device Advisor test suite run that is currently running.
   """
-  def start_suite_run(%Client{} = client, suite_definition_id, input, options \\ []) do
-    url_path = "/suiteDefinitions/#{URI.encode(suite_definition_id)}/suiteRuns"
+  def stop_suite_run(%Client{} = client, suite_definition_id, suite_run_id, input, options \\ []) do
+    url_path =
+      "/suiteDefinitions/#{URI.encode(suite_definition_id)}/suiteRuns/#{URI.encode(suite_run_id)}/stop"
+
     headers = []
     query_params = []
 

@@ -85,9 +85,85 @@ defmodule AWS.Snowball do
   create a job for a Snow device. If you're creating a job for a node in a
   cluster, you only need to provide the `clusterId` value; the other job
   attributes are inherited from the cluster.
+
+  Only the Snowball; Edge device type is supported when ordering clustered jobs.
+
+  The device capacity is optional.
+
+  Availability of device types differ by AWS Region. For more information about
+  Region availability, see [AWS Regional Services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4).
+
+  ## AWS Snow Family device types and their capacities.
+
+    * Snow Family device type: ## SNC1_SSD
+
+      * Capacity: T14
+
+      * Description: Snowcone
+
+    * Snow Family device type: ## SNC1_HDD
+
+      * Capacity: T8
+
+      * Description: Snowcone
+
+    * Device type: ## EDGE_S
+
+      * Capacity: T98
+
+      * Description: Snowball Edge Storage Optimized for data
+  transfer only
+
+    * Device type: ## EDGE_CG
+
+      * Capacity: T42
+
+      * Description: Snowball Edge Compute Optimized with GPU
+
+    * Device type: ## EDGE_C
+
+      * Capacity: T42
+
+      * Description: Snowball Edge Compute Optimized without
+  GPU
+
+    * Device type: ## EDGE
+
+      * Capacity: T100
+
+      * Description: Snowball Edge Storage Optimized with EC2
+  Compute
+
+    * Device type: ## STANDARD
+
+      * Capacity: T50
+
+      * Description: Original Snowball device
+
+  This device is only available in the Ningxia, Beijing, and Singapore AWS
+  Regions.
+
+    * Device type: ## STANDARD
+
+      * Capacity: T80
+
+      * Description: Original Snowball device
+
+  This device is only available in the Ningxia, Beijing, and Singapore AWS
+  Regions.
   """
   def create_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateJob", input, options)
+  end
+
+  @doc """
+  Creates a job with the long-term usage option for a device.
+
+  The long-term usage is a 1-year or 3-year long-term pricing type for the device.
+  You are billed upfront, and AWS provides discounts for long-term pricing.
+  """
+  def create_long_term_pricing(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLongTermPricing", input, options)
   end
 
   @doc """
@@ -158,7 +234,7 @@ defmodule AWS.Snowball do
   device associated with that job.
 
   The credentials of a given job, including its manifest file and unlock code,
-  expire 90 days after the job is created.
+  expire 360 days after the job is created.
   """
   def get_job_manifest(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetJobManifest", input, options)
@@ -167,7 +243,7 @@ defmodule AWS.Snowball do
   @doc """
   Returns the `UnlockCode` code value for the specified job.
 
-  A particular `UnlockCode` value can be accessed for up to 90 days after the
+  A particular `UnlockCode` value can be accessed for up to 360 days after the
   associated job has been created.
 
   The `UnlockCode` value is a 29-character code with 25 alphanumeric characters
@@ -249,6 +325,13 @@ defmodule AWS.Snowball do
   end
 
   @doc """
+  Lists all long-term pricing types.
+  """
+  def list_long_term_pricing(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLongTermPricing", input, options)
+  end
+
+  @doc """
   While a cluster's `ClusterState` value is in the `AwaitingQuorum` state, you can
   update some of the information associated with a cluster.
 
@@ -271,9 +354,16 @@ defmodule AWS.Snowball do
   end
 
   @doc """
-  Updates the state when a the shipment states changes to a different state.
+  Updates the state when a shipment state changes to a different state.
   """
   def update_job_shipment_state(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateJobShipmentState", input, options)
+  end
+
+  @doc """
+  Updates the long-term pricing type.
+  """
+  def update_long_term_pricing(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLongTermPricing", input, options)
   end
 end

@@ -7,8 +7,9 @@ defmodule AWS.Route53Resolver do
   within the VPC from Route 53 Resolver.
 
   By default, Resolver answers DNS queries for VPC domain names such as domain
-  names for EC2 instances or ELB load balancers. Resolver performs recursive
-  lookups against public name servers for all other domain names.
+  names for EC2 instances or Elastic Load Balancing load balancers. Resolver
+  performs recursive lookups against public name servers for all other domain
+  names.
 
   You can also configure DNS resolution between your VPC and your network over a
   Direct Connect or VPN connection:
@@ -35,7 +36,7 @@ defmodule AWS.Route53Resolver do
   [How Route 53 Resolver Forwards DNS Queries from Your VPCs to Your Network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network)
   in the *Amazon Route 53 Developer Guide*.
 
-  Like Amazon VPC, Resolver is regional. In each region where you have VPCs, you
+  Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you
   can choose whether to forward queries from your VPCs to your network (outbound
   queries), from your network to your VPCs (inbound queries), or both.
   """
@@ -57,6 +58,14 @@ defmodule AWS.Route53Resolver do
       signing_name: "route53resolver",
       target_prefix: "Route53Resolver"
     }
+  end
+
+  @doc """
+  Associates a `FirewallRuleGroup` with a VPC, to provide DNS filtering for the
+  VPC.
+  """
+  def associate_firewall_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateFirewallRuleGroup", input, options)
   end
 
   @doc """
@@ -104,6 +113,34 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Creates an empty firewall domain list for use in DNS Firewall rules.
+
+  You can populate the domains for the new list with a file, using
+  `ImportFirewallDomains`, or with domain strings, using `UpdateFirewallDomains`.
+  """
+  def create_firewall_domain_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFirewallDomainList", input, options)
+  end
+
+  @doc """
+  Creates a single DNS Firewall rule in the specified rule group, using the
+  specified domain list.
+  """
+  def create_firewall_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFirewallRule", input, options)
+  end
+
+  @doc """
+  Creates an empty DNS Firewall rule group for filtering DNS network traffic in a
+  VPC.
+
+  You can add rules to the new rule group by calling `CreateFirewallRule`.
+  """
+  def create_firewall_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateFirewallRuleGroup", input, options)
+  end
+
+  @doc """
   Creates a Resolver endpoint.
 
   There are two types of Resolver endpoints, inbound and outbound:
@@ -146,6 +183,27 @@ defmodule AWS.Route53Resolver do
   """
   def create_resolver_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateResolverRule", input, options)
+  end
+
+  @doc """
+  Deletes the specified domain list.
+  """
+  def delete_firewall_domain_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFirewallDomainList", input, options)
+  end
+
+  @doc """
+  Deletes the specified firewall rule.
+  """
+  def delete_firewall_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFirewallRule", input, options)
+  end
+
+  @doc """
+  Deletes the specified firewall rule group.
+  """
+  def delete_firewall_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteFirewallRuleGroup", input, options)
   end
 
   @doc """
@@ -199,6 +257,14 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Disassociates a `FirewallRuleGroup` from a VPC, to remove DNS filtering from the
+  VPC.
+  """
+  def disassociate_firewall_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateFirewallRuleGroup", input, options)
+  end
+
+  @doc """
   Removes IP addresses from an inbound or an outbound Resolver endpoint.
 
   If you want to remove more than one IP address, submit one
@@ -221,8 +287,8 @@ defmodule AWS.Route53Resolver do
   Disassociates a VPC from a query logging configuration.
 
   Before you can delete a query logging configuration, you must first disassociate
-  all VPCs from the configuration. If you used Resource Access Manager (RAM) to
-  share a query logging configuration with other accounts, VPCs can be
+  all VPCs from the configuration. If you used AWS Resource Access Manager (AWS
+  RAM) to share a query logging configuration with other accounts, VPCs can be
   disassociated from the configuration in the following ways:
 
      The accounts that you shared the configuration with can
@@ -242,6 +308,50 @@ defmodule AWS.Route53Resolver do
   """
   def disassociate_resolver_rule(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisassociateResolverRule", input, options)
+  end
+
+  @doc """
+  Retrieves the configuration of the firewall behavior provided by DNS Firewall
+  for a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
+  """
+  def get_firewall_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFirewallConfig", input, options)
+  end
+
+  @doc """
+  Retrieves the specified firewall domain list.
+  """
+  def get_firewall_domain_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFirewallDomainList", input, options)
+  end
+
+  @doc """
+  Retrieves the specified firewall rule group.
+  """
+  def get_firewall_rule_group(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFirewallRuleGroup", input, options)
+  end
+
+  @doc """
+  Retrieves a firewall rule group association, which enables DNS filtering for a
+  VPC with one rule group.
+
+  A VPC can have more than one firewall rule group association, and a rule group
+  can be associated with more than one VPC.
+  """
+  def get_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFirewallRuleGroupAssociation", input, options)
+  end
+
+  @doc """
+  Returns the AWS Identity and Access Management (AWS IAM) policy for sharing the
+  specified rule group.
+
+  You can use the policy to share the rule group using AWS Resource Access Manager
+  (AWS RAM).
+  """
+  def get_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetFirewallRuleGroupPolicy", input, options)
   end
 
   @doc """
@@ -328,6 +438,97 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Imports domain names from a file into a domain list, for use in a DNS firewall
+  rule group.
+
+  Each domain specification in your domain list must satisfy the following
+  requirements:
+
+    * It can optionally start with `*` (asterisk).
+
+    * With the exception of the optional starting asterisk, it must only
+  contain the following characters: `A-Z`, `a-z`, `0-9`, `-` (hyphen).
+
+    * It must be from 1-255 characters in length.
+  """
+  def import_firewall_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ImportFirewallDomains", input, options)
+  end
+
+  @doc """
+  Retrieves the firewall configurations that you have defined.
+
+  DNS Firewall uses the configurations to manage firewall behavior for your VPCs.
+
+  A single call might return only a partial list of the configurations. For
+  information, see `MaxResults`.
+  """
+  def list_firewall_configs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFirewallConfigs", input, options)
+  end
+
+  @doc """
+  Retrieves the firewall domain lists that you have defined.
+
+  For each firewall domain list, you can retrieve the domains that are defined for
+  a list by calling `ListFirewallDomains`.
+
+  A single call to this list operation might return only a partial list of the
+  domain lists. For information, see `MaxResults`.
+  """
+  def list_firewall_domain_lists(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFirewallDomainLists", input, options)
+  end
+
+  @doc """
+  Retrieves the domains that you have defined for the specified firewall domain
+  list.
+
+  A single call might return only a partial list of the domains. For information,
+  see `MaxResults`.
+  """
+  def list_firewall_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFirewallDomains", input, options)
+  end
+
+  @doc """
+  Retrieves the firewall rule group associations that you have defined.
+
+  Each association enables DNS filtering for a VPC with one rule group.
+
+  A single call might return only a partial list of the associations. For
+  information, see `MaxResults`.
+  """
+  def list_firewall_rule_group_associations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFirewallRuleGroupAssociations", input, options)
+  end
+
+  @doc """
+  Retrieves the minimal high-level information for the rule groups that you have
+  defined.
+
+  A single call might return only a partial list of the rule groups. For
+  information, see `MaxResults`.
+  """
+  def list_firewall_rule_groups(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFirewallRuleGroups", input, options)
+  end
+
+  @doc """
+  Retrieves the firewall rules that you have defined for the specified firewall
+  rule group.
+
+  DNS Firewall uses the rules in a rule group to filter DNS network traffic for a
+  VPC.
+
+  A single call might return only a partial list of the rules. For information,
+  see `MaxResults`.
+  """
+  def list_firewall_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFirewallRules", input, options)
+  end
+
+  @doc """
   Lists the configurations for DNSSEC validation that are associated with the
   current AWS account.
   """
@@ -397,6 +598,17 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Attaches an AWS Identity and Access Management (AWS IAM) policy for sharing the
+  rule group.
+
+  You can use the policy to share the rule group using AWS Resource Access Manager
+  (AWS RAM).
+  """
+  def put_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutFirewallRuleGroupPolicy", input, options)
+  end
+
+  @doc """
   Specifies an AWS account that you want to share a query logging configuration
   with, the query logging configuration that you want to share, and the operations
   that you want the account to be able to perform on the configuration.
@@ -426,6 +638,37 @@ defmodule AWS.Route53Resolver do
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates the configuration of the firewall behavior provided by DNS Firewall for
+  a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
+  """
+  def update_firewall_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFirewallConfig", input, options)
+  end
+
+  @doc """
+  Updates the firewall domain list from an array of domain specifications.
+  """
+  def update_firewall_domains(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFirewallDomains", input, options)
+  end
+
+  @doc """
+  Updates the specified firewall rule.
+  """
+  def update_firewall_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFirewallRule", input, options)
+  end
+
+  @doc """
+  Changes the association of a `FirewallRuleGroup` with a VPC.
+
+  The association enables DNS filtering for the VPC.
+  """
+  def update_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFirewallRuleGroupAssociation", input, options)
   end
 
   @doc """

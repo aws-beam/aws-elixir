@@ -765,9 +765,7 @@ defmodule AWS.CodeGuruProfiler do
         options \\ []
       ) do
     url_path =
-      "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration/#{
-        URI.encode(channel_id)
-      }"
+      "/profilingGroups/#{URI.encode(profiling_group_name)}/notificationConfiguration/#{URI.encode(channel_id)}"
 
     headers = []
     query_params = []
@@ -840,9 +838,7 @@ defmodule AWS.CodeGuruProfiler do
         options \\ []
       ) do
     url_path =
-      "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/anomalies/#{
-        URI.encode(anomaly_instance_id)
-      }/feedback"
+      "/internal/profilingGroups/#{URI.encode(profiling_group_name)}/anomalies/#{URI.encode(anomaly_instance_id)}/feedback"
 
     headers = []
     query_params = []

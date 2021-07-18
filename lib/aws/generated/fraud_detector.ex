@@ -44,6 +44,20 @@ defmodule AWS.FraudDetector do
   end
 
   @doc """
+  Cancels the specified batch prediction job.
+  """
+  def cancel_batch_prediction_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CancelBatchPredictionJob", input, options)
+  end
+
+  @doc """
+  Creates a batch prediction job.
+  """
+  def create_batch_prediction_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBatchPredictionJob", input, options)
+  end
+
+  @doc """
   Creates a detector version.
 
   The detector version starts in a `DRAFT` status.
@@ -78,6 +92,13 @@ defmodule AWS.FraudDetector do
   """
   def create_variable(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateVariable", input, options)
+  end
+
+  @doc """
+  Deletes a batch prediction job.
+  """
+  def delete_batch_prediction_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBatchPredictionJob", input, options)
   end
 
   @doc """
@@ -249,6 +270,19 @@ defmodule AWS.FraudDetector do
   """
   def describe_model_versions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeModelVersions", input, options)
+  end
+
+  @doc """
+  Gets all batch prediction jobs or a specific job if you specify a job ID.
+
+  This is a paginated API. If you provide a null maxResults, this action retrieves
+  a maximum of 50 records per page. If you provide a maxResults, the value must be
+  between 1 and 50. To get the next page results, provide the pagination token
+  from the GetBatchPredictionJobsResponse as part of your request. A null
+  pagination token fetches the records from the beginning.
+  """
+  def get_batch_prediction_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBatchPredictionJobs", input, options)
   end
 
   @doc """

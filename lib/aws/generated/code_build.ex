@@ -3,18 +3,16 @@
 
 defmodule AWS.CodeBuild do
   @moduledoc """
-  AWS CodeBuild
+  CodeBuild is a fully managed build service in the cloud.
 
-  AWS CodeBuild is a fully managed build service in the cloud.
-
-  AWS CodeBuild compiles your source code, runs unit tests, and produces artifacts
-  that are ready to deploy. AWS CodeBuild eliminates the need to provision,
-  manage, and scale your own build servers. It provides prepackaged build
-  environments for the most popular programming languages and build tools, such as
-  Apache Maven, Gradle, and more. You can also fully customize build environments
-  in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically
-  to meet peak build requests. You pay only for the build time you consume. For
-  more information about AWS CodeBuild, see the * [AWS CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html).*
+  CodeBuild compiles your source code, runs unit tests, and produces artifacts
+  that are ready to deploy. CodeBuild eliminates the need to provision, manage,
+  and scale your own build servers. It provides prepackaged build environments for
+  the most popular programming languages and build tools, such as Apache Maven,
+  Gradle, and more. You can also fully customize build environments in CodeBuild
+  to use your own build tools. CodeBuild scales automatically to meet peak build
+  requests. You pay only for the build time you consume. For more information
+  about CodeBuild, see the * [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html).*
   """
 
   alias AWS.Client
@@ -95,17 +93,17 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  For an existing AWS CodeBuild build project that has its source code stored in a
-  GitHub or Bitbucket repository, enables AWS CodeBuild to start rebuilding the
-  source code every time a code change is pushed to the repository.
+  For an existing CodeBuild build project that has its source code stored in a
+  GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the source
+  code every time a code change is pushed to the repository.
 
-  If you enable webhooks for an AWS CodeBuild project, and the project is used as
-  a build step in AWS CodePipeline, then two identical builds are created for each
-  commit. One build is triggered through webhooks, and one through AWS
-  CodePipeline. Because billing is on a per-build basis, you are billed for both
-  builds. Therefore, if you are using AWS CodePipeline, we recommend that you
-  disable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the
-  Webhook box. For more information, see step 5 in [Change a Build Project's Settings](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console).
+  If you enable webhooks for an CodeBuild project, and the project is used as a
+  build step in CodePipeline, then two identical builds are created for each
+  commit. One build is triggered through webhooks, and one through CodePipeline.
+  Because billing is on a per-build basis, you are billed for both builds.
+  Therefore, if you are using CodePipeline, we recommend that you disable webhooks
+  in CodeBuild. In the CodeBuild console, clear the Webhook box. For more
+  information, see step 5 in [Change a Build Project's Settings](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console).
   """
   def create_webhook(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateWebhook", input, options)
@@ -158,9 +156,9 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  For an existing AWS CodeBuild build project that has its source code stored in a
-  GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding the source
-  code every time a code change is pushed to the repository.
+  For an existing CodeBuild build project that has its source code stored in a
+  GitHub or Bitbucket repository, stops CodeBuild from rebuilding the source code
+  every time a code change is pushed to the repository.
   """
   def delete_webhook(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteWebhook", input, options)
@@ -195,8 +193,8 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  Imports the source repository credentials for an AWS CodeBuild project that has
-  its source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
+  Imports the source repository credentials for an CodeBuild project that has its
+  source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
   """
   def import_source_credentials(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ImportSourceCredentials", input, options)
@@ -239,7 +237,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  Gets information about Docker images that are managed by AWS CodeBuild.
+  Gets information about Docker images that are managed by CodeBuild.
   """
   def list_curated_environment_images(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCuratedEnvironmentImages", input, options)
@@ -254,14 +252,16 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  Gets a list ARNs for the report groups in the current AWS account.
+  Gets a list ARNs for the report groups in the current Amazon Web Services
+  account.
   """
   def list_report_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListReportGroups", input, options)
   end
 
   @doc """
-  Returns a list of ARNs for the reports in the current AWS account.
+  Returns a list of ARNs for the reports in the current Amazon Web Services
+  account.
   """
   def list_reports(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListReports", input, options)
@@ -275,14 +275,16 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  Gets a list of projects that are shared with other AWS accounts or users.
+  Gets a list of projects that are shared with other Amazon Web Services accounts
+  or users.
   """
   def list_shared_projects(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSharedProjects", input, options)
   end
 
   @doc """
-  Gets a list of report groups that are shared with other AWS accounts or users.
+  Gets a list of report groups that are shared with other Amazon Web Services
+  accounts or users.
   """
   def list_shared_report_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSharedReportGroups", input, options)
@@ -361,7 +363,7 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
-  Updates the webhook associated with an AWS CodeBuild build project.
+  Updates the webhook associated with an CodeBuild build project.
 
   If you use Bitbucket for your repository, `rotateSecret` is ignored.
   """

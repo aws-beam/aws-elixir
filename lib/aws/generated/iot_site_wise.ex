@@ -3,14 +3,15 @@
 
 defmodule AWS.IoTSiteWise do
   @moduledoc """
-  Welcome to the AWS IoT SiteWise API Reference.
+  Welcome to the IoT SiteWise API Reference.
 
-  AWS IoT SiteWise is an AWS service that connects [Industrial Internet of Things (IIoT)](https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications)
-  devices to the power of the AWS Cloud. For more information, see the [AWS IoT SiteWise User
-  Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For
-  information about AWS IoT SiteWise quotas, see
+  IoT SiteWise is an Amazon Web Services service that connects [Industrial Internet of Things
+  (IIoT)](https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications)
+  devices to the power of the Amazon Web Services Cloud. For more information, see
+  the [IoT SiteWise User Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For
+  information about IoT SiteWise quotas, see
   [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
 
   alias AWS.Client
@@ -37,7 +38,7 @@ defmodule AWS.IoTSiteWise do
   in the parent asset's model.
 
   For more information, see [Associating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def associate_assets(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{URI.encode(asset_id)}/associate"
@@ -58,7 +59,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Associates a group (batch) of assets with an AWS IoT SiteWise Monitor project.
+  Associates a group (batch) of assets with an IoT SiteWise Monitor project.
   """
   def batch_associate_project_assets(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{URI.encode(project_id)}/assets/associate"
@@ -79,8 +80,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Disassociates a group (batch) of assets from an AWS IoT SiteWise Monitor
-  project.
+  Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.
   """
   def batch_disassociate_project_assets(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{URI.encode(project_id)}/assets/disassociate"
@@ -101,11 +101,11 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Sends a list of asset property values to AWS IoT SiteWise.
+  Sends a list of asset property values to IoT SiteWise.
 
   Each value is a timestamp-quality-value (TQV) data point. For more information,
   see [Ingesting data using the API](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
 
   To identify an asset property, you must specify one of the following:
 
@@ -116,19 +116,18 @@ defmodule AWS.IoTSiteWise do
   alias, see
   [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html). 
 
-  With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a
-  timestamp of no more than 7 days in the past and no more than 5 minutes in the
-  future. AWS IoT SiteWise rejects timestamps outside of the inclusive range of
-  [-7 days, +5 minutes] and returns a `TimestampOutOfRangeException` error.
+  With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a
+  timestamp of no more than 7 days in the past and no more than 10 minutes in the
+  future. IoT SiteWise rejects timestamps outside of the inclusive range of [-7
+  days, +10 minutes] and returns a `TimestampOutOfRangeException` error.
 
-  For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate
-  timestamps unless the newer TQV has a different quality. For example, if you
-  store a TQV `{T1, GOOD, V1}`, then storing `{T1, GOOD, V2}` replaces the
-  existing TQV.
+  For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps
+  unless the newer TQV has a different quality. For example, if you store a TQV
+  `{T1, GOOD, V1}`, then storing `{T1, GOOD, V2}` replaces the existing TQV.
 
-  AWS IoT SiteWise authorizes access to each `BatchPutAssetPropertyValue` entry
+  IoT SiteWise authorizes access to each `BatchPutAssetPropertyValue` entry
   individually. For more information, see [BatchPutAssetPropertyValue authorization](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def batch_put_asset_property_value(%Client{} = client, input, options \\ []) do
     url_path = "/properties"
@@ -149,9 +148,9 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates an access policy that grants the specified identity (AWS SSO user, AWS
-  SSO group, or IAM user) access to the specified AWS IoT SiteWise Monitor portal
-  or project resource.
+  Creates an access policy that grants the specified identity (Amazon Web Services
+  SSO user, Amazon Web Services SSO group, or IAM user) access to the specified
+  IoT SiteWise Monitor portal or project resource.
   """
   def create_access_policy(%Client{} = client, input, options \\ []) do
     url_path = "/access-policies"
@@ -175,7 +174,7 @@ defmodule AWS.IoTSiteWise do
   Creates an asset from an existing asset model.
 
   For more information, see [Creating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def create_asset(%Client{} = client, input, options \\ []) do
     url_path = "/assets"
@@ -202,7 +201,7 @@ defmodule AWS.IoTSiteWise do
   assets of the same type that have standardized definitions. Each asset created
   from a model inherits the asset model's property and hierarchy definitions. For
   more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def create_asset_model(%Client{} = client, input, options \\ []) do
     url_path = "/asset-models"
@@ -223,7 +222,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates a dashboard in an AWS IoT SiteWise Monitor project.
+  Creates a dashboard in an IoT SiteWise Monitor project.
   """
   def create_dashboard(%Client{} = client, input, options \\ []) do
     url_path = "/dashboards"
@@ -245,10 +244,10 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates a gateway, which is a virtual or edge device that delivers industrial
-  data streams from local servers to AWS IoT SiteWise.
+  data streams from local servers to IoT SiteWise.
 
   For more information, see [Ingesting data using a gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def create_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/20200301/gateways"
@@ -271,12 +270,12 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Creates a portal, which can contain projects and dashboards.
 
-  AWS IoT SiteWise Monitor uses AWS SSO or IAM to authenticate portal users and
-  manage user permissions.
+  IoT SiteWise Monitor uses Amazon Web Services SSO or IAM to authenticate portal
+  users and manage user permissions.
 
   Before you can sign in to a new portal, you must add at least one identity to
   that portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def create_portal(%Client{} = client, input, options \\ []) do
     url_path = "/portals"
@@ -319,10 +318,9 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Deletes an access policy that grants the specified identity access to the
-  specified AWS IoT SiteWise Monitor resource.
+  specified IoT SiteWise Monitor resource.
 
-  You can use this operation to revoke access to an AWS IoT SiteWise Monitor
-  resource.
+  You can use this operation to revoke access to an IoT SiteWise Monitor resource.
   """
   def delete_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
     url_path = "/access-policies/#{URI.encode(access_policy_id)}"
@@ -351,7 +349,7 @@ defmodule AWS.IoTSiteWise do
   Deletes an asset.
 
   This action can't be undone. For more information, see [Deleting assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
 
   You can't delete an asset that's associated to another asset. For more
   information, see
@@ -388,7 +386,7 @@ defmodule AWS.IoTSiteWise do
   a parent asset model exists that contains a property formula expression that
   depends on the asset model that you want to delete. For more information, see
   [Deleting assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def delete_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{URI.encode(asset_model_id)}"
@@ -414,7 +412,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a dashboard from AWS IoT SiteWise Monitor.
+  Deletes a dashboard from IoT SiteWise Monitor.
   """
   def delete_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
     url_path = "/dashboards/#{URI.encode(dashboard_id)}"
@@ -440,7 +438,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a gateway from AWS IoT SiteWise.
+  Deletes a gateway from IoT SiteWise.
 
   When you delete a gateway, some of the gateway's files remain in your gateway's
   file system.
@@ -464,7 +462,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a portal from AWS IoT SiteWise Monitor.
+  Deletes a portal from IoT SiteWise Monitor.
   """
   def delete_portal(%Client{} = client, portal_id, input, options \\ []) do
     url_path = "/portals/#{URI.encode(portal_id)}"
@@ -490,7 +488,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a project from AWS IoT SiteWise Monitor.
+  Deletes a project from IoT SiteWise Monitor.
   """
   def delete_project(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{URI.encode(project_id)}"
@@ -516,7 +514,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Describes an access policy, which specifies an identity's access to an AWS IoT
+  Describes an access policy, which specifies an identity's access to an IoT
   SiteWise Monitor portal or project.
   """
   def describe_access_policy(%Client{} = client, access_policy_id, options \\ []) do
@@ -631,11 +629,11 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves information about the default encryption configuration for the AWS
-  account in the default or specified region.
+  Retrieves information about the default encryption configuration for the Amazon
+  Web Services account in the default or specified Region.
 
   For more information, see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def describe_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
@@ -681,7 +679,7 @@ defmodule AWS.IoTSiteWise do
 
   Each gateway capability defines data sources for a gateway. A capability
   configuration can contain multiple data source configurations. If you define
-  OPC-UA sources for a gateway in the AWS IoT SiteWise console, all of your OPC-UA
+  OPC-UA sources for a gateway in the IoT SiteWise console, all of your OPC-UA
   sources are stored in one capability configuration. To list all capability
   configurations for a gateway, use
   [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
@@ -712,7 +710,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves the current AWS IoT SiteWise logging options.
+  Retrieves the current IoT SiteWise logging options.
   """
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
@@ -775,6 +773,27 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves information about the storage configuration for IoT SiteWise.
+  """
+  def describe_storage_configuration(%Client{} = client, options \\ []) do
+    url_path = "/configuration/account/storage"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Disassociates a child asset from the given parent asset through a hierarchy
   defined in the parent asset's model.
   """
@@ -800,7 +819,7 @@ defmodule AWS.IoTSiteWise do
   Gets aggregated values for an asset property.
 
   For more information, see [Querying aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
 
   To identify an asset property, you must specify one of the following:
 
@@ -924,7 +943,7 @@ defmodule AWS.IoTSiteWise do
   Gets an asset property's current value.
 
   For more information, see [Querying current values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
 
   To identify an asset property, you must specify one of the following:
 
@@ -984,7 +1003,7 @@ defmodule AWS.IoTSiteWise do
   Gets the history of an asset property's values.
 
   For more information, see [Querying historical values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
 
   To identify an asset property, you must specify one of the following:
 
@@ -1089,9 +1108,142 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of access policies for an identity (an AWS SSO user,
-  an AWS SSO group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a
-  portal or project).
+  Get interpolated values for an asset property for a specified time interval,
+  during a period of time.
+
+  For example, you can use the this operation to return the interpolated
+  temperature values for a wind turbine every 24 hours over a duration of 7 days.
+
+  To identify an asset property, you must specify one of the following:
+
+    * The `assetId` and `propertyId` of an asset property.
+
+    * A `propertyAlias`, which is a data stream alias (for example,
+  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
+  alias, see
+  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
+  """
+  def get_interpolated_asset_property_values(
+        %Client{} = client,
+        asset_id \\ nil,
+        end_time_in_seconds,
+        end_time_offset_in_nanos \\ nil,
+        interval_in_seconds,
+        max_results \\ nil,
+        next_token \\ nil,
+        property_alias \\ nil,
+        property_id \\ nil,
+        quality,
+        start_time_in_seconds,
+        start_time_offset_in_nanos \\ nil,
+        type,
+        options \\ []
+      ) do
+    url_path = "/properties/interpolated"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time_offset_in_nanos) do
+        [{"startTimeOffsetInNanos", start_time_offset_in_nanos} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_time_in_seconds) do
+        [{"startTimeInSeconds", start_time_in_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(quality) do
+        [{"quality", quality} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(property_id) do
+        [{"propertyId", property_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(property_alias) do
+        [{"propertyAlias", property_alias} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(interval_in_seconds) do
+        [{"intervalInSeconds", interval_in_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time_offset_in_nanos) do
+        [{"endTimeOffsetInNanos", end_time_offset_in_nanos} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time_in_seconds) do
+        [{"endTimeInSeconds", end_time_in_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_id) do
+        [{"assetId", asset_id} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Retrieves a paginated list of access policies for an identity (an Amazon Web
+  Services SSO user, an Amazon Web Services SSO group, or an IAM user) or an IoT
+  SiteWise Monitor resource (a portal or project).
   """
   def list_access_policies(
         %Client{} = client,
@@ -1390,8 +1542,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of dashboards for an AWS IoT SiteWise Monitor
-  project.
+  Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.
   """
   def list_dashboards(
         %Client{} = client,
@@ -1474,7 +1625,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of AWS IoT SiteWise Monitor portals.
+  Retrieves a paginated list of IoT SiteWise Monitor portals.
   """
   def list_portals(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/portals"
@@ -1509,7 +1660,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of assets associated with an AWS IoT SiteWise Monitor
+  Retrieves a paginated list of assets associated with an IoT SiteWise Monitor
   project.
   """
   def list_project_assets(
@@ -1551,7 +1702,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of projects for an AWS IoT SiteWise Monitor portal.
+  Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.
   """
   def list_projects(
         %Client{} = client,
@@ -1599,7 +1750,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves the list of tags for an AWS IoT SiteWise resource.
+  Retrieves the list of tags for an IoT SiteWise resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -1627,10 +1778,10 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Sets the default encryption configuration for the AWS account.
+  Sets the default encryption configuration for the Amazon Web Services account.
 
   For more information, see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def put_default_encryption_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/account/encryption"
@@ -1651,7 +1802,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Sets logging options for AWS IoT SiteWise.
+  Sets logging options for IoT SiteWise.
   """
   def put_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/logging"
@@ -1672,7 +1823,28 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Adds tags to an AWS IoT SiteWise resource.
+  Configures storage settings for IoT SiteWise.
+  """
+  def put_storage_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/configuration/account/storage"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Adds tags to an IoT SiteWise resource.
 
   If a tag already exists for the resource, this operation updates the tag's
   value.
@@ -1701,7 +1873,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Removes a tag from an AWS IoT SiteWise resource.
+  Removes a tag from an IoT SiteWise resource.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -1728,8 +1900,8 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Updates an existing access policy that specifies an identity's access to an AWS
-  IoT SiteWise Monitor portal or project resource.
+  Updates an existing access policy that specifies an identity's access to an IoT
+  SiteWise Monitor portal or project resource.
   """
   def update_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
     url_path = "/access-policies/#{URI.encode(access_policy_id)}"
@@ -1753,7 +1925,7 @@ defmodule AWS.IoTSiteWise do
   Updates an asset's name.
 
   For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   def update_asset(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{URI.encode(asset_id)}"
@@ -1778,7 +1950,7 @@ defmodule AWS.IoTSiteWise do
 
   Each asset created from the model inherits the updated asset model's property
   and hierarchy definitions. For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the *AWS IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
 
   This operation overwrites the existing model with the provided model. To avoid
   deleting your asset model's properties or hierarchies, you must include their
@@ -1786,10 +1958,10 @@ defmodule AWS.IoTSiteWise do
   see
   [DescribeAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html).
 
-  If you remove a property from an asset model, AWS IoT SiteWise deletes all
-  previous data for that property. If you remove a hierarchy definition from an
-  asset model, AWS IoT SiteWise disassociates every asset associated with that
-  hierarchy. You can't change the type or data type of an existing property.
+  If you remove a property from an asset model, IoT SiteWise deletes all previous
+  data for that property. If you remove a hierarchy definition from an asset
+  model, IoT SiteWise disassociates every asset associated with that hierarchy.
+  You can't change the type or data type of an existing property.
   """
   def update_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{URI.encode(asset_model_id)}"
@@ -1837,7 +2009,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Updates an AWS IoT SiteWise Monitor dashboard.
+  Updates an IoT SiteWise Monitor dashboard.
   """
   def update_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
     url_path = "/dashboards/#{URI.encode(dashboard_id)}"
@@ -1884,7 +2056,7 @@ defmodule AWS.IoTSiteWise do
 
   Each gateway capability defines data sources for a gateway. A capability
   configuration can contain multiple data source configurations. If you define
-  OPC-UA sources for a gateway in the AWS IoT SiteWise console, all of your OPC-UA
+  OPC-UA sources for a gateway in the IoT SiteWise console, all of your OPC-UA
   sources are stored in one capability configuration. To list all capability
   configurations for a gateway, use
   [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
@@ -1913,7 +2085,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Updates an AWS IoT SiteWise Monitor portal.
+  Updates an IoT SiteWise Monitor portal.
   """
   def update_portal(%Client{} = client, portal_id, input, options \\ []) do
     url_path = "/portals/#{URI.encode(portal_id)}"
@@ -1934,7 +2106,7 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Updates an AWS IoT SiteWise Monitor project.
+  Updates an IoT SiteWise Monitor project.
   """
   def update_project(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{URI.encode(project_id)}"

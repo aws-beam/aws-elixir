@@ -3,18 +3,18 @@
 
 defmodule AWS.Transfer do
   @moduledoc """
-  AWS Transfer Family is a fully managed service that enables the transfer of
-  files over the File Transfer Protocol (FTP), File Transfer Protocol over SSL
-  (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly into and
-  out of Amazon Simple Storage Service (Amazon S3).
+  Amazon Web Services Transfer Family is a fully managed service that enables the
+  transfer of files over the File Transfer Protocol (FTP), File Transfer Protocol
+  over SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly
+  into and out of Amazon Simple Storage Service (Amazon S3).
 
-  AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer
-  Family by integrating with existing authentication systems, and providing DNS
-  routing with Amazon Route 53 so nothing changes for your customers and partners,
-  or their applications. With your data in Amazon S3, you can use it with AWS
-  services for processing, analytics, machine learning, and archiving. Getting
-  started with AWS Transfer Family is easy since there is no infrastructure to buy
-  and set up.
+  Amazon Web Services helps you seamlessly migrate your file transfer workflows to
+  Amazon Web Services Transfer Family by integrating with existing authentication
+  systems, and providing DNS routing with Amazon Route 53 so nothing changes for
+  your customers and partners, or their applications. With your data in Amazon S3,
+  you can use it with Amazon Web Services services for processing, analytics,
+  machine learning, and archiving. Getting started with Amazon Web Services
+  Transfer Family is easy since there is no infrastructure to buy and set up.
   """
 
   alias AWS.Client
@@ -37,8 +37,22 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Instantiates an autoscaling virtual server based on the selected file transfer
-  protocol in AWS.
+  Used by administrators to choose which groups in the directory should have
+  access to upload and download files over the enabled protocols using Amazon Web
+  Services Transfer Family.
+
+  For example, a Microsoft Active Directory might contain 50,000 users, but only a
+  small fraction might need the ability to transfer files to the server. An
+  administrator can use `CreateAccess` to limit the access to the correct set of
+  users who need this ability.
+  """
+  def create_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAccess", input, options)
+  end
+
+  @doc """
+  Instantiates an auto-scaling virtual server based on the selected file transfer
+  protocol in Amazon Web Services.
 
   When you make updates to your file transfer protocol-enabled server or when you
   work with users, use the service-generated `ServerId` property that is assigned
@@ -55,12 +69,20 @@ defmodule AWS.Transfer do
   You can only create and associate users with servers that have the
   `IdentityProviderType` set to `SERVICE_MANAGED`. Using parameters for
   `CreateUser`, you can specify the user name, set the home directory, store the
-  user's public key, and assign the user's AWS Identity and Access Management
-  (IAM) role. You can also optionally add a scope-down policy, and assign metadata
-  with tags that can be used to group and search for users.
+  user's public key, and assign the user's Amazon Web Services Identity and Access
+  Management (IAM) role. You can also optionally add a scope-down policy, and
+  assign metadata with tags that can be used to group and search for users.
   """
   def create_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateUser", input, options)
+  end
+
+  @doc """
+  Allows you to delete the access specified in the `ServerID` and `ExternalID`
+  parameters.
+  """
+  def delete_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAccess", input, options)
   end
 
   @doc """
@@ -91,6 +113,18 @@ defmodule AWS.Transfer do
   """
   def delete_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteUser", input, options)
+  end
+
+  @doc """
+  Describes the access that is assigned to the specific file transfer
+  protocol-enabled server, as identified by its `ServerId` property and its
+  `ExternalID`.
+
+  The response from this call returns the properties of the access that is
+  associated with the `ServerId` value that was specified.
+  """
+  def describe_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAccess", input, options)
   end
 
   @doc """
@@ -139,6 +173,13 @@ defmodule AWS.Transfer do
   end
 
   @doc """
+  Lists the details for all the accesses you have on your server.
+  """
+  def list_accesses(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListAccesses", input, options)
+  end
+
+  @doc """
   Lists the security policies that are attached to your file transfer
   protocol-enabled servers.
   """
@@ -148,14 +189,14 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists the file transfer protocol-enabled servers that are associated with your
-  AWS account.
+  Amazon Web Services account.
   """
   def list_servers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServers", input, options)
   end
 
   @doc """
-  Lists all of the tags associated with the Amazon Resource Number (ARN) you
+  Lists all of the tags associated with the Amazon Resource Name (ARN) that you
   specify.
 
   The resource can be a user, server, or role.
@@ -224,11 +265,12 @@ defmodule AWS.Transfer do
 
   @doc """
   If the `IdentityProviderType` of a file transfer protocol-enabled server is
-  `API_Gateway`, tests whether your API Gateway is set up successfully.
+  `AWS_DIRECTORY_SERVICE` or `API_Gateway`, tests whether your identity provider
+  is set up successfully.
 
   We highly recommend that you call this operation to test your authentication
   method as soon as you create your server. By doing so, you can troubleshoot
-  issues with the API Gateway integration to ensure that your users can
+  issues with the identity provider integration to ensure that your users can
   successfully use the service.
   """
   def test_identity_provider(%Client{} = client, input, options \\ []) do
@@ -245,6 +287,14 @@ defmodule AWS.Transfer do
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Allows you to update parameters for the access specified in the `ServerID` and
+  `ExternalID` parameters.
+  """
+  def update_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateAccess", input, options)
   end
 
   @doc """

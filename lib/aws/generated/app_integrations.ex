@@ -3,9 +3,6 @@
 
 defmodule AWS.AppIntegrations do
   @moduledoc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   The Amazon AppIntegrations service enables you to configure and reuse
   connections to external applications.
 
@@ -34,13 +31,12 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   Creates an EventIntegration, given a specified name, description, and a
-  reference to an Amazon Eventbridge bus in your account and a partner event
-  source that will push events to that bus. No objects are created in the your
-  account, only metadata that is persisted on the EventIntegration control plane.
+  reference to an Amazon EventBridge bus in your account and a partner event
+  source that pushes events to that bus.
+
+  No objects are created in the your account, only metadata that is persisted on
+  the EventIntegration control plane.
   """
   def create_event_integration(%Client{} = client, input, options \\ []) do
     url_path = "/eventIntegrations"
@@ -61,11 +57,9 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
+  Deletes the specified existing event integration.
 
-  Deletes the specified existing event integration. If the event integration is
-  associated with clients, the request is rejected.
+  If the event integration is associated with clients, the request is rejected.
   """
   def delete_event_integration(%Client{} = client, name, input, options \\ []) do
     url_path = "/eventIntegrations/#{URI.encode(name)}"
@@ -86,9 +80,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   Return information about the event integration.
   """
   def get_event_integration(%Client{} = client, name, options \\ []) do
@@ -110,9 +101,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   Returns a paginated list of event integration associations in the account.
   """
   def list_event_integration_associations(
@@ -154,9 +142,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   Returns a paginated list of event integrations in the account.
   """
   def list_event_integrations(
@@ -197,9 +182,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   Lists the tags for the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -221,9 +203,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   Adds the specified tags to the specified resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -245,9 +224,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   Removes the specified tags from the specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
@@ -274,9 +250,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  The Amazon AppIntegrations APIs are in preview release and are subject to
-  change.
-
   Updates the description of an event integration.
   """
   def update_event_integration(%Client{} = client, name, input, options \\ []) do

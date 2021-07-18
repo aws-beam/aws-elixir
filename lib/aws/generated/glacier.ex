@@ -86,9 +86,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{
-        URI.encode(upload_id)
-      }"
+      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
 
     headers = []
     query_params = []
@@ -227,9 +225,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{
-        URI.encode(upload_id)
-      }"
+      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
 
     {headers, input} =
       [
@@ -291,9 +287,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy/#{
-        URI.encode(lock_id)
-      }"
+      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy/#{URI.encode(lock_id)}"
 
     headers = []
     query_params = []
@@ -395,9 +389,7 @@ defmodule AWS.Glacier do
   """
   def delete_archive(%Client{} = client, account_id, archive_id, vault_name, input, options \\ []) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives/#{
-        URI.encode(archive_id)
-      }"
+      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives/#{URI.encode(archive_id)}"
 
     headers = []
     query_params = []
@@ -1210,9 +1202,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{
-        URI.encode(upload_id)
-      }"
+      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
 
     headers = []
     query_params = []
@@ -1648,9 +1638,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{
-        URI.encode(upload_id)
-      }"
+      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
 
     {headers, input} =
       [

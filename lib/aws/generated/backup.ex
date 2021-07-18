@@ -280,9 +280,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{
-        URI.encode(recovery_point_arn)
-      }"
+      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}"
 
     headers = []
     query_params = []
@@ -419,9 +417,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{
-        URI.encode(recovery_point_arn)
-      }"
+      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}"
 
     headers = []
     query_params = []
@@ -505,9 +501,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{
-        URI.encode(recovery_point_arn)
-      }/disassociate"
+      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}/disassociate"
 
     headers = []
     query_params = []
@@ -696,9 +690,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{
-        URI.encode(recovery_point_arn)
-      }/restore-metadata"
+      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}/restore-metadata"
 
     headers = []
     query_params = []
@@ -1675,9 +1667,7 @@ defmodule AWS.Backup do
         options \\ []
       ) do
     url_path =
-      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{
-        URI.encode(recovery_point_arn)
-      }"
+      "/backup-vaults/#{URI.encode(backup_vault_name)}/recovery-points/#{URI.encode(recovery_point_arn)}"
 
     headers = []
     query_params = []

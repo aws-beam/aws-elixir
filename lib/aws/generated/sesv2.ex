@@ -424,9 +424,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{
-        URI.encode(event_destination_name)
-      }"
+      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
 
     headers = []
     query_params = []
@@ -449,9 +447,7 @@ defmodule AWS.SESv2 do
   """
   def delete_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
-      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{
-        URI.encode(email_address)
-      }"
+      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{URI.encode(email_address)}"
 
     headers = []
     query_params = []
@@ -770,9 +766,7 @@ defmodule AWS.SESv2 do
   """
   def get_contact(%Client{} = client, contact_list_name, email_address, options \\ []) do
     url_path =
-      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{
-        URI.encode(email_address)
-      }"
+      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{URI.encode(email_address)}"
 
     headers = []
     query_params = []
@@ -2352,9 +2346,7 @@ defmodule AWS.SESv2 do
         options \\ []
       ) do
     url_path =
-      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{
-        URI.encode(event_destination_name)
-      }"
+      "/v2/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
 
     headers = []
     query_params = []
@@ -2380,9 +2372,7 @@ defmodule AWS.SESv2 do
   """
   def update_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
-      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{
-        URI.encode(email_address)
-      }"
+      "/v2/email/contact-lists/#{URI.encode(contact_list_name)}/contacts/#{URI.encode(email_address)}"
 
     headers = []
     query_params = []

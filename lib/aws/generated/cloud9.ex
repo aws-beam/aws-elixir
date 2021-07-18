@@ -3,18 +3,18 @@
 
 defmodule AWS.Cloud9 do
   @moduledoc """
-  AWS Cloud9
+  Cloud9
 
-  AWS Cloud9 is a collection of tools that you can use to code, build, run, test,
+  Cloud9 is a collection of tools that you can use to code, build, run, test,
   debug, and release software in the cloud.
 
-  For more information about AWS Cloud9, see the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide).
+  For more information about Cloud9, see the [Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide).
 
-  AWS Cloud9 supports these operations:
+  Cloud9 supports these operations:
 
-    * `CreateEnvironmentEC2`: Creates an AWS Cloud9 development
-  environment, launches an Amazon EC2 instance, and then connects from the
-  instance to the environment.
+    * `CreateEnvironmentEC2`: Creates an Cloud9 development environment,
+  launches an Amazon EC2 instance, and then connects from the instance to the
+  environment.
 
     * `CreateEnvironmentMembership`: Adds an environment member to an
   environment.
@@ -68,8 +68,8 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
-  Creates an AWS Cloud9 development environment, launches an Amazon Elastic
-  Compute Cloud (Amazon EC2) instance, and then connects from the instance to the
+  Creates an Cloud9 development environment, launches an Amazon Elastic Compute
+  Cloud (Amazon EC2) instance, and then connects from the instance to the
   environment.
   """
   def create_environment_ec2(%Client{} = client, input, options \\ []) do
@@ -77,14 +77,14 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
-  Adds an environment member to an AWS Cloud9 development environment.
+  Adds an environment member to an Cloud9 development environment.
   """
   def create_environment_membership(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEnvironmentMembership", input, options)
   end
 
   @doc """
-  Deletes an AWS Cloud9 development environment.
+  Deletes an Cloud9 development environment.
 
   If an Amazon EC2 instance is connected to the environment, also terminates the
   instance.
@@ -94,14 +94,14 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
-  Deletes an environment member from an AWS Cloud9 development environment.
+  Deletes an environment member from an Cloud9 development environment.
   """
   def delete_environment_membership(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEnvironmentMembership", input, options)
   end
 
   @doc """
-  Gets information about environment members for an AWS Cloud9 development
+  Gets information about environment members for an Cloud9 development
   environment.
   """
   def describe_environment_memberships(%Client{} = client, input, options \\ []) do
@@ -109,37 +109,37 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
-  Gets status information for an AWS Cloud9 development environment.
+  Gets status information for an Cloud9 development environment.
   """
   def describe_environment_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEnvironmentStatus", input, options)
   end
 
   @doc """
-  Gets information about AWS Cloud9 development environments.
+  Gets information about Cloud9 development environments.
   """
   def describe_environments(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEnvironments", input, options)
   end
 
   @doc """
-  Gets a list of AWS Cloud9 development environment identifiers.
+  Gets a list of Cloud9 development environment identifiers.
   """
   def list_environments(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListEnvironments", input, options)
   end
 
   @doc """
-  Gets a list of the tags associated with an AWS Cloud9 development environment.
+  Gets a list of the tags associated with an Cloud9 development environment.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
-  Adds tags to an AWS Cloud9 development environment.
+  Adds tags to an Cloud9 development environment.
 
-  Tags that you add to an AWS Cloud9 environment by using this method will NOT be
+  Tags that you add to an Cloud9 environment by using this method will NOT be
   automatically propagated to underlying resources.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
@@ -147,22 +147,22 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
-  Removes tags from an AWS Cloud9 development environment.
+  Removes tags from an Cloud9 development environment.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 
   @doc """
-  Changes the settings of an existing AWS Cloud9 development environment.
+  Changes the settings of an existing Cloud9 development environment.
   """
   def update_environment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEnvironment", input, options)
   end
 
   @doc """
-  Changes the settings of an existing environment member for an AWS Cloud9
-  development environment.
+  Changes the settings of an existing environment member for an Cloud9 development
+  environment.
   """
   def update_environment_membership(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateEnvironmentMembership", input, options)

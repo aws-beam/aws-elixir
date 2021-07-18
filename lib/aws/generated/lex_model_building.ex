@@ -1050,6 +1050,103 @@ defmodule AWS.LexModelBuilding do
   end
 
   @doc """
+  Provides details about an ongoing or complete migration from an Amazon Lex V1
+  bot to an Amazon Lex V2 bot.
+
+  Use this operation to view the migration alerts and warnings related to the
+  migration.
+  """
+  def get_migration(%Client{} = client, migration_id, options \\ []) do
+    url_path = "/migrations/#{URI.encode(migration_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.
+  """
+  def get_migrations(
+        %Client{} = client,
+        max_results \\ nil,
+        migration_status_equals \\ nil,
+        next_token \\ nil,
+        sort_by_attribute \\ nil,
+        sort_by_order \\ nil,
+        v1_bot_name_contains \\ nil,
+        options \\ []
+      ) do
+    url_path = "/migrations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(v1_bot_name_contains) do
+        [{"v1BotNameContains", v1_bot_name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by_order) do
+        [{"sortByOrder", sort_by_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by_attribute) do
+        [{"sortByAttribute", sort_by_attribute} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(migration_status_equals) do
+        [{"migrationStatusEquals", migration_status_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns information about a specific version of a slot type.
 
   In addition to specifying the slot type name, you must specify the slot type
@@ -1205,9 +1302,9 @@ defmodule AWS.LexModelBuilding do
   the last 15 days. The response contains information about a maximum of 100
   utterances for each version.
 
-  If you set `childDirected` field to true when you created your bot, or if you
-  opted out of participating in improving Amazon Lex, utterances are not
-  available.
+  If you set `childDirected` field to true when you created your bot, if you are
+  using slot obfuscation with one or more slots, or if you opted out of
+  participating in improving Amazon Lex, utterances are not available.
 
   This operation requires permissions for the `lex:GetUtterancesView` action.
   """
@@ -1454,6 +1551,33 @@ defmodule AWS.LexModelBuilding do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2.
+
+  Migrate your bot when you want to take advantage of the new features of Amazon
+  Lex V2.
+
+  For more information, see [Migrating a bot](https://docs.aws.amazon.com/lex/latest/dg/migrate.html) in the *Amazon Lex
+  developer guide*.
+  """
+  def start_migration(%Client{} = client, input, options \\ []) do
+    url_path = "/migrations"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 

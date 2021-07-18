@@ -206,6 +206,33 @@ defmodule AWS.Chime do
   end
 
   @doc """
+  Adds a specified number of users to a channel.
+  """
+  def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
+    url_path = "/channels/#{URI.encode(channel_arn)}/memberships?operation=batch-create"
+
+    {headers, input} =
+      [
+        {"ChimeBearer", "x-amz-chime-bearer"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Adds up to 50 members to a chat room in an Amazon Chime Enterprise account.
 
   Members can be users or bots. The member role designates whether the member is a
@@ -299,8 +326,9 @@ defmodule AWS.Chime do
   specified Amazon Chime `EnterpriseLWA` account.
 
   Only users on `EnterpriseLWA` accounts can be unsuspended using this action. For
-  more information about different account types, see [Managing Your Amazon Chime Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html)
-  in the *Amazon Chime Administration Guide*.
+  more information about different account types, see [ Managing Your Amazon Chime Accounts
+  ](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html) in the
+  account types, in the *Amazon Chime Administration Guide*.
 
   Previously suspended users who are unsuspended using this action are returned to
   `Registered` status. Users who are not previously suspended are ignored.
@@ -326,12 +354,12 @@ defmodule AWS.Chime do
   @doc """
   Updates phone number product types or calling names.
 
-  You can update one attribute at a time for each `UpdatePhoneNumberRequestItem` .
-  For example, you can update either the product type or the calling name.
+  You can update one attribute at a time for each `UpdatePhoneNumberRequestItem`.
+  For example, you can update the product type or the calling name.
 
-  For product types, choose from Amazon Chime Business Calling and Amazon Chime
-  Voice Connector. For toll-free numbers, you must use the Amazon Chime Voice
-  Connector product type.
+  For toll-free numbers, you cannot use the Amazon Chime Business Calling product
+  type. For numbers outside the U.S., you must use the Amazon Chime SIP Media
+  Application Dial-In product type.
 
   Updates to outbound calling names can take up to 72 hours to complete. Pending
   updates to outbound calling names must be complete before you can request
@@ -692,6 +720,27 @@ defmodule AWS.Chime do
   end
 
   @doc """
+  Creates a media capture pipeline.
+  """
+  def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
+    url_path = "/media-capture-pipelines"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new Amazon Chime SDK meeting in the specified media Region with no
   initial attendees.
 
@@ -777,9 +826,9 @@ defmodule AWS.Chime do
   @doc """
   Creates an order for phone numbers to be provisioned.
 
-  Choose from Amazon Chime Business Calling and Amazon Chime Voice Connector
-  product types. For toll-free numbers, you must use the Amazon Chime Voice
-  Connector product type.
+  For toll-free numbers, you cannot use the Amazon Chime Business Calling product
+  type. For numbers outside the U.S., you must use the Amazon Chime SIP Media
+  Application Dial-In product type.
   """
   def create_phone_number_order(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number-orders"
@@ -1152,11 +1201,11 @@ defmodule AWS.Chime do
 
   @doc """
   Deletes an attendee from the specified Amazon Chime SDK meeting and deletes
-  their `JoinToken` .
+  their `JoinToken`.
 
   Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted.
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide* .
+  *Amazon Chime Developer Guide*.
   """
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{URI.encode(meeting_id)}/attendees/#{URI.encode(attendee_id)}"
@@ -1369,11 +1418,32 @@ defmodule AWS.Chime do
   end
 
   @doc """
+  Deletes the media capture pipeline.
+  """
+  def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
+    url_path = "/media-capture-pipelines/#{URI.encode(media_pipeline_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes the specified Amazon Chime SDK meeting.
 
-  When a meeting is deleted, its attendees are also deleted, clients connected to
-  the meeting are disconnected, and clients can no longer join the meeting. For
-  more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
+  The operation deletes all attendees, disconnects all clients, and prevents new
+  clients from joining the meeting. For more information about the Amazon Chime
+  SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
   """
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
@@ -1395,7 +1465,7 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Moves the specified phone number into the **Deletionqueue**.
+  Moves the specified phone number into the **Deletion queue**.
 
   A phone number must be disassociated from any users or Amazon Chime Voice
   Connectors before it can be deleted.
@@ -1433,9 +1503,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{
-        URI.encode(proxy_session_id)
-      }"
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
 
     headers = []
     query_params = []
@@ -1486,9 +1554,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{
-        URI.encode(member_id)
-      }"
+      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{URI.encode(member_id)}"
 
     headers = []
     query_params = []
@@ -2428,6 +2494,27 @@ defmodule AWS.Chime do
   end
 
   @doc """
+  Gets an existing media capture pipeline.
+  """
+  def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
+    url_path = "/media-capture-pipelines/#{URI.encode(media_pipeline_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets the Amazon Chime SDK meeting details for the specified meeting ID.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
@@ -2545,9 +2632,7 @@ defmodule AWS.Chime do
   """
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{
-        URI.encode(proxy_session_id)
-      }"
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
 
     headers = []
     query_params = []
@@ -2569,7 +2654,7 @@ defmodule AWS.Chime do
   Gets the retention settings for the specified Amazon Chime Enterprise account.
 
   For more information about retention settings, see [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
-  the *Amazon Chime Administration Guide* .
+  the *Amazon Chime Administration Guide*.
   """
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{URI.encode(account_id)}/retention-settings"
@@ -2781,7 +2866,7 @@ defmodule AWS.Chime do
 
   @doc """
   Retrieves details for the specified Amazon Chime Voice Connector group, such as
-  timestamps,name, and associated `VoiceConnectorItems` .
+  timestamps,name, and associated `VoiceConnectorItems`.
   """
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{URI.encode(voice_connector_group_id)}"
@@ -2979,7 +3064,7 @@ defmodule AWS.Chime do
   Lists the Amazon Chime accounts under the administrator's AWS account.
 
   You can filter accounts by account name prefix. To find out which Amazon Chime
-  account a user belongs to, toucan filter by the user's email address, which
+  account a user belongs to, you can filter by the user's email address, which
   returns one account result.
   """
   def list_accounts(
@@ -3184,7 +3269,7 @@ defmodule AWS.Chime do
   Lists the attendees for the specified Amazon Chime SDK meeting.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide* .
+  *Amazon Chime Developer Guide*.
   """
   def list_attendees(
         %Client{} = client,
@@ -3450,7 +3535,7 @@ defmodule AWS.Chime do
   List all the messages in a channel.
 
   Returns a paginated list of `ChannelMessages`. By default, sorted by creation
-  timestamp in descending order .
+  timestamp in descending order.
 
   Redacted messages appear in the results as empty, since they are only redacted,
   not deleted. Deleted messages do not appear in the results. This action always
@@ -3593,7 +3678,7 @@ defmodule AWS.Chime do
   ## Functionality & restrictions
 
     * Use privacy = `PUBLIC` to retrieve all public channels in the
-  account
+  account.
 
     * Only an `AppInstanceAdmin` can set privacy = `PRIVATE` to list the
   private channels in an account.
@@ -3726,6 +3811,46 @@ defmodule AWS.Chime do
   end
 
   @doc """
+  Returns a list of media capture pipelines.
+  """
+  def list_media_capture_pipelines(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/media-capture-pipelines"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the tags applied to an Amazon Chime SDK meeting resource.
   """
   def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
@@ -3750,7 +3875,7 @@ defmodule AWS.Chime do
   Lists up to 100 active Amazon Chime SDK meetings.
 
   For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
-  *Amazon Chime Developer Guide* .
+  *Amazon Chime Developer Guide*.
   """
   def list_meetings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/meetings"
@@ -4130,6 +4255,34 @@ defmodule AWS.Chime do
   end
 
   @doc """
+  Lists supported phone number countries.
+  """
+  def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
+    url_path = "/phone-number-countries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(product_type) do
+        [{"product-type", product_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the tags applied to an Amazon Chime SDK meeting resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
@@ -4429,12 +4582,12 @@ defmodule AWS.Chime do
 
   We recommend using AWS CloudTrail to monitor usage of this API for your account.
   For more information, see [Logging Amazon Chime API Calls with AWS CloudTrail](https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html) in the
-  *Amazon Chime Administration Guide* .
+  *Amazon Chime Administration Guide*.
 
   To turn off existing retention settings, remove the number of days from the
   corresponding **RetentionDays** field in the **RetentionSettings** object. For
   more information about retention settings, see [Managing Chat Retention Policies](https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html) in
-  the *Amazon Chime Administration Guide* .
+  the *Amazon Chime Administration Guide*.
   """
   def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{URI.encode(account_id)}/retention-settings"
@@ -4728,9 +4881,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/conversations/#{URI.encode(conversation_id)}/messages/#{
-        URI.encode(message_id)
-      }?operation=redact"
+      "/accounts/#{URI.encode(account_id)}/conversations/#{URI.encode(conversation_id)}/messages/#{URI.encode(message_id)}?operation=redact"
 
     headers = []
     query_params = []
@@ -4760,9 +4911,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/messages/#{
-        URI.encode(message_id)
-      }?operation=redact"
+      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/messages/#{URI.encode(message_id)}?operation=redact"
 
     headers = []
     query_params = []
@@ -4852,7 +5001,12 @@ defmodule AWS.Chime do
   end
 
   @doc """
-  Searches phone numbers that can be ordered.
+  Searches for phone numbers that can be ordered.
+
+  For US numbers, provide at least one of the following search filters:
+  `AreaCode`, `City`, `State`, or `TollFreePrefix`. If you provide `City`, you
+  must also provide `State`. Numbers outside the US only support the
+  `PhoneNumberType` filter, which you must use.
   """
   def search_available_phone_numbers(
         %Client{} = client,
@@ -4861,6 +5015,7 @@ defmodule AWS.Chime do
         country \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        phone_number_type \\ nil,
         state \\ nil,
         toll_free_prefix \\ nil,
         options \\ []
@@ -4879,6 +5034,13 @@ defmodule AWS.Chime do
     query_params =
       if !is_nil(state) do
         [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(phone_number_type) do
+        [{"phone-number-type", phone_number_type} | query_params]
       else
         query_params
       end
@@ -5098,7 +5260,8 @@ defmodule AWS.Chime do
   @doc """
   Updates account details for the specified Amazon Chime account.
 
-  Currently, only account name updates are supported for this action.
+  Currently, only account name and default license updates are supported for this
+  action.
   """
   def update_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{URI.encode(account_id)}"
@@ -5333,12 +5496,13 @@ defmodule AWS.Chime do
   You can update one phone number detail at a time. For example, you can update
   either the product type or the calling name in one action.
 
-  For toll-free numbers, you must use the Amazon Chime Voice Connector product
-  type.
+  For toll-free numbers, you cannot use the Amazon Chime Business Calling product
+  type. For numbers outside the U.S., you must use the Amazon Chime SIP Media
+  Application Dial-In product type.
 
-  Updates to outbound calling names can take up to 72 hours to complete. Pending
-  updates to outbound calling names must be complete before you can request
-  another update.
+  Updates to outbound calling names can take 72 hours to complete. Pending updates
+  to outbound calling names must be complete before you can request another
+  update.
   """
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{URI.encode(phone_number_id)}"
@@ -5394,9 +5558,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{
-        URI.encode(proxy_session_id)
-      }"
+      "/voice-connectors/#{URI.encode(voice_connector_id)}/proxy-sessions/#{URI.encode(proxy_session_id)}"
 
     headers = []
     query_params = []
@@ -5452,9 +5614,7 @@ defmodule AWS.Chime do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{
-        URI.encode(member_id)
-      }"
+      "/accounts/#{URI.encode(account_id)}/rooms/#{URI.encode(room_id)}/memberships/#{URI.encode(member_id)}"
 
     headers = []
     query_params = []
@@ -5495,6 +5655,36 @@ defmodule AWS.Chime do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Allows you to trigger a Lambda function at any time while a call is active, and
+  replace the current actions with new actions returned by the invocation.
+  """
+  def update_sip_media_application_call(
+        %Client{} = client,
+        sip_media_application_id,
+        transaction_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sip-media-applications/#{URI.encode(sip_media_application_id)}/calls/#{URI.encode(transaction_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 

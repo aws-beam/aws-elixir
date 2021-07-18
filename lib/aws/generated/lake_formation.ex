@@ -28,6 +28,13 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Attaches one or more tags to an existing resource.
+  """
+  def add_l_f_tags_to_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddLFTagsToResource", input, options)
+  end
+
+  @doc """
   Batch operation to grant permissions to the principal.
   """
   def batch_grant_permissions(%Client{} = client, input, options \\ []) do
@@ -39,6 +46,27 @@ defmodule AWS.LakeFormation do
   """
   def batch_revoke_permissions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchRevokePermissions", input, options)
+  end
+
+  @doc """
+  Creates a tag with the specified name and values.
+  """
+  def create_l_f_tag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateLFTag", input, options)
+  end
+
+  @doc """
+  Deletes the specified tag key name.
+
+  If the attribute key does not exist or the tag does not exist, then the
+  operation will not do anything. If the attribute key exists, then the operation
+  checks if any resources are tagged with this attribute key, if yes, the API
+  throws a 400 Exception with the message "Delete not allowed" as the tag key is
+  still attached with resources. You can consider untagging resources with this
+  tag key.
+  """
+  def delete_l_f_tag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteLFTag", input, options)
   end
 
   @doc """
@@ -79,6 +107,20 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Returns a tag definition.
+  """
+  def get_l_f_tag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLFTag", input, options)
+  end
+
+  @doc """
+  Returns the tags applied to a resource.
+  """
+  def get_resource_l_f_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetResourceLFTags", input, options)
+  end
+
+  @doc """
   Grants permissions to the principal to access metadata in the Data Catalog and
   data organized in underlying data storage such as Amazon S3.
 
@@ -87,6 +129,13 @@ defmodule AWS.LakeFormation do
   """
   def grant_permissions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GrantPermissions", input, options)
+  end
+
+  @doc """
+  Lists tags that the requester has permission to view.
+  """
+  def list_l_f_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLFTags", input, options)
   end
 
   @doc """
@@ -152,11 +201,58 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Removes a tag from the resource.
+
+  Only database, table, or tableWithColumns resource are allowed. To tag columns,
+  use the column inclusion list in `tableWithColumns` to specify column input.
+  """
+  def remove_l_f_tags_from_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RemoveLFTagsFromResource", input, options)
+  end
+
+  @doc """
   Revokes permissions to the principal to access metadata in the Data Catalog and
   data organized in underlying data storage such as Amazon S3.
   """
   def revoke_permissions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RevokePermissions", input, options)
+  end
+
+  @doc """
+  This operation allows a search on `DATABASE` resources by `TagCondition`.
+
+  This operation is used by admins who want to grant user permissions on certain
+  `TagConditions`. Before making a grant, the admin can use
+  `SearchDatabasesByTags` to find all resources where the given `TagConditions`
+  are valid to verify whether the returned resources can be shared.
+  """
+  def search_databases_by_l_f_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchDatabasesByLFTags", input, options)
+  end
+
+  @doc """
+  This operation allows a search on `TABLE` resources by `LFTag`s.
+
+  This will be used by admins who want to grant user permissions on certain
+  LFTags. Before making a grant, the admin can use `SearchTablesByLFTags` to find
+  all resources where the given `LFTag`s are valid to verify whether the returned
+  resources can be shared.
+  """
+  def search_tables_by_l_f_tags(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SearchTablesByLFTags", input, options)
+  end
+
+  @doc """
+  Updates the list of possible values for the specified tag key.
+
+  If the tag does not exist, the operation throws an EntityNotFoundException. The
+  values in the delete key values will be deleted from list of possible values. If
+  any value in the delete key values is attached to a resource, then API errors
+  out with a 400 Exception - "Update not allowed". Untag the attribute before
+  deleting the tag key's value.
+  """
+  def update_l_f_tag(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateLFTag", input, options)
   end
 
   @doc """

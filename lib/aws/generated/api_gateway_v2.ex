@@ -469,9 +469,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{
-        URI.encode(integration_response_id)
-      }"
+      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
 
     headers = []
     query_params = []
@@ -543,9 +541,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/requestparameters/#{
-        URI.encode(request_parameter_key)
-      }"
+      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/requestparameters/#{URI.encode(request_parameter_key)}"
 
     headers = []
     query_params = []
@@ -575,9 +571,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{
-        URI.encode(route_response_id)
-      }"
+      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
 
     headers = []
     query_params = []
@@ -607,9 +601,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/routesettings/#{
-        URI.encode(route_key)
-      }"
+      "/v2/apis/#{URI.encode(api_id)}/stages/#{URI.encode(stage_name)}/routesettings/#{URI.encode(route_key)}"
 
     headers = []
     query_params = []
@@ -1059,9 +1051,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{
-        URI.encode(integration_response_id)
-      }"
+      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
 
     headers = []
     query_params = []
@@ -1267,9 +1257,7 @@ defmodule AWS.ApiGatewayV2 do
   """
   def get_route_response(%Client{} = client, api_id, route_id, route_response_id, options \\ []) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{
-        URI.encode(route_response_id)
-      }"
+      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
 
     headers = []
     query_params = []
@@ -1775,9 +1763,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{
-        URI.encode(integration_response_id)
-      }"
+      "/v2/apis/#{URI.encode(api_id)}/integrations/#{URI.encode(integration_id)}/integrationresponses/#{URI.encode(integration_response_id)}"
 
     headers = []
     query_params = []
@@ -1849,9 +1835,7 @@ defmodule AWS.ApiGatewayV2 do
         options \\ []
       ) do
     url_path =
-      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{
-        URI.encode(route_response_id)
-      }"
+      "/v2/apis/#{URI.encode(api_id)}/routes/#{URI.encode(route_id)}/routeresponses/#{URI.encode(route_response_id)}"
 
     headers = []
     query_params = []

@@ -546,6 +546,28 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Returns current default log-levels, or log levels by resource types, could be
+  for wireless device log options or wireless gateway log options.
+  """
+  def get_log_levels_by_resource_types(%Client{} = client, options \\ []) do
+    url_path = "/log-levels"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets information about a partner account.
 
   If `PartnerAccountId` and `PartnerType` are `null`, returns all partner
@@ -573,6 +595,40 @@ defmodule AWS.IoTWireless do
       nil,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Fetches the log-level override if any for a given resource-ID and resource-type,
+  coulde be a wireless device or a wireless gateway.
+  """
+  def get_resource_log_level(
+        %Client{} = client,
+        resource_identifier,
+        resource_type,
+        options \\ []
+      ) do
+    url_path = "/log-levels/#{URI.encode(resource_identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
     )
   end
 
@@ -1153,6 +1209,82 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
+  Sets the log-level override for a resource-ID and resource-type, could be a
+  wireless gateway or a wireless device.
+  """
+  def put_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
+    url_path = "/log-levels/#{URI.encode(resource_identifier)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ResourceType", "resourceType"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Remove log-level overrides if any for all resources (both wireless devices and
+  wireless gateways).
+  """
+  def reset_all_resource_log_levels(%Client{} = client, input, options \\ []) do
+    url_path = "/log-levels"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Remove log-level override if any for a specific resource-ID and resource-type,
+  could be a wireless device or a wireless gateway.
+  """
+  def reset_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
+    url_path = "/log-levels/#{URI.encode(resource_identifier)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"ResourceType", "resourceType"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Sends a decrypted application data frame to a device.
   """
   def send_data_to_wireless_device(%Client{} = client, id, input, options \\ []) do
@@ -1265,6 +1397,30 @@ defmodule AWS.IoTWireless do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Set default log level, or log levels by resource types, could be for wireless
+  device log options or wireless gateways log options.
+
+  This is to control the log messages that will be displayed in CloudWatch.
+  """
+  def update_log_levels_by_resource_types(%Client{} = client, input, options \\ []) do
+    url_path = "/log-levels"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 

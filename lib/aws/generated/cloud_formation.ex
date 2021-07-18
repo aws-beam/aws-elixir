@@ -46,6 +46,35 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Activates a public third-party extension, making it available for use in stack
+  templates.
+
+  For more information, see [Using public extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html)
+  in the *CloudFormation User Guide*.
+
+  Once you have activated a public third-party extension in your account and
+  region, use
+  [SetTypeConfiguration](AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see
+  [Configuring extensions at the account
+  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  in the *CloudFormation User Guide*.
+  """
+  def activate_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ActivateType", input, options)
+  end
+
+  @doc """
+  Returns configuration data for the specified CloudFormation extensions, from the
+  CloudFormation registry for the account and region.
+
+  For more information, see [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  in the *CloudFormation User Guide*.
+  """
+  def batch_describe_type_configurations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchDescribeTypeConfigurations", input, options)
+  end
+
+  @doc """
   Cancels an update on the specified stack.
 
   If the call completes successfully, the stack rolls back the update and reverts
@@ -139,6 +168,20 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Deactivates a public extension that was previously activated in this account and
+  region.
+
+  Once deactivated, an extension cannot be used in any CloudFormation operation.
+  This includes stack update operations where the stack template includes the
+  extension, even if no updates are being made to the extension. In addition,
+  deactivated extensions are not automatically updated if a new version of the
+  extension is released.
+  """
+  def deactivate_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeactivateType", input, options)
+  end
+
+  @doc """
   Deletes the specified change set.
 
   Deleting change sets ensures that no one executes the wrong change set.
@@ -227,6 +270,24 @@ defmodule AWS.CloudFormation do
   """
   def describe_change_set(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeChangeSet", input, options)
+  end
+
+  @doc """
+  Returns information about a CloudFormation extension publisher.
+
+  If you do not supply a `PublisherId`, and you have registered as an extension
+  publisher, `DescribePublisher` returns information about your own publisher
+  account.
+
+  For more information on registering as a publisher, see:
+
+    *
+  [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html)     * [Publishing extensions to make them available for public
+  use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html)
+  in the *CloudFormation CLI User Guide*
+  """
+  def describe_publisher(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePublisher", input, options)
   end
 
   @doc """
@@ -679,6 +740,23 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Publishes the specified extension to the CloudFormation registry as a public
+  extension in this region.
+
+  Public extensions are available for use by all CloudFormation users. For more
+  information on publishing extensions, see [Publishing extensions to make them available for public
+  use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html)
+  in the *CloudFormation CLI User Guide*.
+
+  To publish an extension, you must be registered as a publisher with
+  CloudFormation. For more information, see
+  [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html).
+  """
+  def publish_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PublishType", input, options)
+  end
+
+  @doc """
   Reports progress of a resource handler to CloudFormation.
 
   Reserved for use by the [CloudFormation CLI](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html).
@@ -686,6 +764,21 @@ defmodule AWS.CloudFormation do
   """
   def record_handler_progress(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RecordHandlerProgress", input, options)
+  end
+
+  @doc """
+  Registers your account as a publisher of public extensions in the CloudFormation
+  registry.
+
+  Public extensions are available for use by all CloudFormation users. This
+  publisher ID applies to your account in all AWS regions.
+
+  For information on requirements for registering as a public extension publisher,
+  see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs)
+  in the *CloudFormation CLI User Guide*.
+  """
+  def register_publisher(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RegisterPublisher", input, options)
   end
 
   @doc """
@@ -707,12 +800,17 @@ defmodule AWS.CloudFormation do
 
   You can have a maximum of 50 resource extension versions registered at a time.
   This maximum is per account and per region. Use
-  [DeregisterType](AWSCloudFormation/latest/APIReference/API_DeregisterType.html)
-  to deregister specific extension versions if necessary.
+  [DeregisterType](AWSCloudFormation/latest/APIReference/API_DeregisterType.html) to deregister specific extension versions if necessary.
 
   Once you have initiated a registration request using ` `RegisterType` `, you can
   use ` `DescribeTypeRegistration` ` to monitor the progress of the registration
   request.
+
+  Once you have registered a private extension in your account and region, use
+  [SetTypeConfiguration](AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
+  to specify configuration properties for the extension. For more information, see
+  [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  in the *CloudFormation User Guide*.
   """
   def register_type(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RegisterType", input, options)
@@ -723,6 +821,24 @@ defmodule AWS.CloudFormation do
   """
   def set_stack_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetStackPolicy", input, options)
+  end
+
+  @doc """
+  Specifies the configuration data for a registered CloudFormation extension, in
+  the given account and region.
+
+  To view the current configuration data for an extension, refer to the
+  `ConfigurationSchema` element of
+  [DescribeType](AWSCloudFormation/latest/APIReference/API_DescribeType.html). For more information, see [Configuring extensions at the account
+  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  in the *CloudFormation User Guide*.
+
+  It is strongly recommended that you use dynamic references to restrict sensitive
+  configuration definitions, such as third-party credentials. For more details on
+  dynamic references, see [Using dynamic references to specify template values](https://docs.aws.amazon.com/) in the *AWS CloudFormation User Guide*.
+  """
+  def set_type_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetTypeConfiguration", input, options)
   end
 
   @doc """
@@ -753,6 +869,37 @@ defmodule AWS.CloudFormation do
   """
   def stop_stack_set_operation(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopStackSetOperation", input, options)
+  end
+
+  @doc """
+  Tests a registered extension to make sure it meets all necessary requirements
+  for being published in the CloudFormation registry.
+
+    * For resource types, this includes passing all contracts tests
+  defined for the type.
+
+    * For modules, this includes determining if the module's model meets
+  all necessary requirements.
+
+  For more information, see [Testing your public extension prior to publishing](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing)
+  in the *CloudFormation CLI User Guide*.
+
+  If you do not specify a version, CloudFormation uses the default version of the
+  extension in your account and region for testing.
+
+  To perform testing, CloudFormation assumes the execution role specified when the
+  test was registered. For more information, see
+  [RegisterType](AWSCloudFormation/latest/APIReference/API_RegisterType.html).  Once you've initiated testing on an extension using `TestType`, you can use
+  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html)
+  to monitor the current test status and test status description for the
+  extension.
+
+  An extension must have a test status of `PASSED` before it can be published. For
+  more information, see [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html)
+  in the *CloudFormation CLI User Guide*.
+  """
+  def test_type(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TestType", input, options)
   end
 
   @doc """

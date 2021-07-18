@@ -104,10 +104,13 @@ defmodule AWS.TranscribeStreaming do
     {headers, input} =
       [
         {"EnableChannelIdentification", "x-amzn-transcribe-enable-channel-identification"},
+        {"EnablePartialResultsStabilization",
+         "x-amzn-transcribe-enable-partial-results-stabilization"},
         {"LanguageCode", "x-amzn-transcribe-language-code"},
         {"MediaEncoding", "x-amzn-transcribe-media-encoding"},
         {"MediaSampleRateHertz", "x-amzn-transcribe-sample-rate"},
         {"NumberOfChannels", "x-amzn-transcribe-number-of-channels"},
+        {"PartialResultsStability", "x-amzn-transcribe-partial-results-stability"},
         {"SessionId", "x-amzn-transcribe-session-id"},
         {"ShowSpeakerLabel", "x-amzn-transcribe-show-speaker-label"},
         {"VocabularyFilterMethod", "x-amzn-transcribe-vocabulary-filter-method"},
@@ -124,10 +127,13 @@ defmodule AWS.TranscribeStreaming do
         :response_header_parameters,
         [
           {"x-amzn-transcribe-enable-channel-identification", "EnableChannelIdentification"},
+          {"x-amzn-transcribe-enable-partial-results-stabilization",
+           "EnablePartialResultsStabilization"},
           {"x-amzn-transcribe-language-code", "LanguageCode"},
           {"x-amzn-transcribe-media-encoding", "MediaEncoding"},
           {"x-amzn-transcribe-sample-rate", "MediaSampleRateHertz"},
           {"x-amzn-transcribe-number-of-channels", "NumberOfChannels"},
+          {"x-amzn-transcribe-partial-results-stability", "PartialResultsStability"},
           {"x-amzn-request-id", "RequestId"},
           {"x-amzn-transcribe-session-id", "SessionId"},
           {"x-amzn-transcribe-show-speaker-label", "ShowSpeakerLabel"},

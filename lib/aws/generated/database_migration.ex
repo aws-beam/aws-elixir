@@ -3,19 +3,19 @@
 
 defmodule AWS.DatabaseMigration do
   @moduledoc """
-  AWS Database Migration Service
+  Database Migration Service
 
-  AWS Database Migration Service (AWS DMS) can migrate your data to and from the
-  most widely used commercial and open-source databases such as Oracle,
-  PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora,
-  MySQL, and SAP Adaptive Server Enterprise (ASE).
+  Database Migration Service (DMS) can migrate your data to and from the most
+  widely used commercial and open-source databases such as Oracle, PostgreSQL,
+  Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP
+  Adaptive Server Enterprise (ASE).
 
   The service supports homogeneous migrations such as Oracle to Oracle, as well as
   heterogeneous migrations between different database platforms, such as Oracle to
   MySQL or SQL Server to PostgreSQL.
 
-  For more information about AWS DMS, see [What Is AWS Database Migration Service?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html) in the
-  *AWS Database Migration User Guide.*
+  For more information about DMS, see [What Is Database Migration Service?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html) in the
+  *Database Migration Service User Guide.*
   """
 
   alias AWS.Client
@@ -38,8 +38,8 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Adds metadata tags to an AWS DMS resource, including replication instance,
-  endpoint, security group, and migration task.
+  Adds metadata tags to an DMS resource, including replication instance, endpoint,
+  security group, and migration task.
 
   These tags can also be used with cost allocation reporting to track cost
   associated with DMS resources, or used in a Condition statement in an IAM policy
@@ -72,28 +72,35 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Creates an endpoint using the provided settings.
+
+  For a MySQL source or target endpoint, don't explicitly specify the database
+  using the `DatabaseName` request parameter on the `CreateEndpoint` API call.
+  Specifying `DatabaseName` when you create a MySQL endpoint replicates all the
+  task tables to this single database. For MySQL endpoints, you specify the
+  database only when you specify the schema in the table-mapping rules of the DMS
+  task.
   """
   def create_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEndpoint", input, options)
   end
 
   @doc """
-  Creates an AWS DMS event notification subscription.
+  Creates an DMS event notification subscription.
 
   You can specify the type of source (`SourceType`) you want to be notified of,
-  provide a list of AWS DMS source IDs (`SourceIds`) that triggers the events, and
+  provide a list of DMS source IDs (`SourceIds`) that triggers the events, and
   provide a list of event categories (`EventCategories`) for events you want to be
   notified of. If you specify both the `SourceType` and `SourceIds`, such as
   `SourceType = replication-instance` and `SourceIdentifier = my-replinstance`,
   you will be notified of all the replication instance events for the specified
   source. If you specify a `SourceType` but don't specify a `SourceIdentifier`,
-  you receive notice of the events for that source type for all your AWS DMS
-  sources. If you don't specify either `SourceType` nor `SourceIdentifier`, you
-  will be notified of events generated from all AWS DMS sources belonging to your
-  customer account.
+  you receive notice of the events for that source type for all your DMS sources.
+  If you don't specify either `SourceType` nor `SourceIdentifier`, you will be
+  notified of events generated from all DMS sources belonging to your customer
+  account.
 
-  For more information about AWS DMS events, see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *AWS Database Migration Service User Guide.*
+  For more information about DMS events, see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
+  in the *Database Migration Service User Guide.*
   """
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEventSubscription", input, options)
@@ -102,11 +109,10 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates the replication instance using the specified parameters.
 
-  AWS DMS requires that your account have certain roles with appropriate
-  permissions before you can create a replication instance. For information on the
-  required roles, see [Creating the IAM Roles to Use With the AWS CLI and AWS DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole).
-  For information on the required permissions, see [IAM Permissions Needed to Use AWS
-  DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
+  DMS requires that your account have certain roles with appropriate permissions
+  before you can create a replication instance. For information on the required
+  roles, see [Creating the IAM Roles to Use With the CLI and DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole).
+  For information on the required permissions, see [IAM Permissions Needed to Use DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
   """
   def create_replication_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateReplicationInstance", input, options)
@@ -151,7 +157,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Deletes an AWS DMS event subscription.
+  Deletes an DMS event subscription.
   """
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteEventSubscription", input, options)
@@ -184,7 +190,7 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes the record of a single premigration assessment run.
 
-  This operation removes all metadata that AWS DMS maintains about this assessment
+  This operation removes all metadata that DMS maintains about this assessment
   run. However, the operation leaves untouched all information about this
   assessment run that is stored in your Amazon S3 bucket.
   """
@@ -193,9 +199,9 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Lists all of the AWS DMS attributes for a customer account.
+  Lists all of the DMS attributes for a customer account.
 
-  These attributes include AWS DMS quotas for the account and a unique account
+  These attributes include DMS quotas for the account and a unique account
   identifier in a particular DMS region. DMS quotas include a list of resource
   quotas supported by the account, such as the number of replication instances
   allowed. The description for each resource quota, includes the quota name,
@@ -259,6 +265,14 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Returns information about the possible endpoint settings available when you
+  create an endpoint for a specific database engine.
+  """
+  def describe_endpoint_settings(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpointSettings", input, options)
+  end
+
+  @doc """
   Returns information about the type of endpoints available.
   """
   def describe_endpoint_types(%Client{} = client, input, options \\ []) do
@@ -278,7 +292,7 @@ defmodule AWS.DatabaseMigration do
 
   You can see a list of the event categories and source types in [Working with Events and
   Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *AWS Database Migration Service User Guide.*
+  in the *Database Migration Service User Guide.*
   """
   def describe_event_categories(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEventCategories", input, options)
@@ -300,9 +314,9 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Lists events for a given source identifier and source type.
 
-  You can also specify a start and end time. For more information on AWS DMS
-  events, see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *AWS Database Migration User Guide.*
+  You can also specify a start and end time. For more information on DMS events,
+  see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
+  in the *Database Migration Service User Guide.*
   """
   def describe_events(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeEvents", input, options)
@@ -365,9 +379,13 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Returns the task assessment results from Amazon S3.
+  Returns the task assessment results from the Amazon S3 bucket that DMS creates
+  in your account.
 
   This action always returns the latest results.
+
+  For more information about DMS task assessments, see [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
+  in the [ Database Migration Service User Guide](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/Welcome.html).
   """
   def describe_replication_task_assessment_results(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -435,8 +453,8 @@ defmodule AWS.DatabaseMigration do
   rows inserted, rows updated, and rows deleted.
 
   Note that the "last updated" column the DMS console only indicates the time that
-  AWS DMS last updated the table statistics record for a table. It does not
-  indicate the time of the last update to the table.
+  DMS last updated the table statistics record for a table. It does not indicate
+  the time of the last update to the table.
   """
   def describe_table_statistics(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTableStatistics", input, options)
@@ -450,7 +468,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Lists all metadata tags attached to an AWS DMS resource, including replication
+  Lists all metadata tags attached to an DMS resource, including replication
   instance, endpoint, security group, and migration task.
 
   For more information, see [ `Tag`
@@ -463,13 +481,20 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Modifies the specified endpoint.
+
+  For a MySQL source or target endpoint, don't explicitly specify the database
+  using the `DatabaseName` request parameter on the `ModifyEndpoint` API call.
+  Specifying `DatabaseName` when you modify a MySQL endpoint replicates all the
+  task tables to this single database. For MySQL endpoints, you specify the
+  database only when you specify the schema in the table-mapping rules of the DMS
+  task.
   """
   def modify_endpoint(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyEndpoint", input, options)
   end
 
   @doc """
-  Modifies an existing AWS DMS event notification subscription.
+  Modifies an existing DMS event notification subscription.
   """
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyEventSubscription", input, options)
@@ -500,8 +525,8 @@ defmodule AWS.DatabaseMigration do
   You can't modify the task endpoints. The task must be stopped before you can
   modify it.
 
-  For more information about AWS DMS tasks, see [Working with Migration Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
-  *AWS Database Migration Service User Guide*.
+  For more information about DMS tasks, see [Working with Migration Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
+  *Database Migration Service User Guide*.
   """
   def modify_replication_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyReplicationTask", input, options)
@@ -511,7 +536,7 @@ defmodule AWS.DatabaseMigration do
   Moves a replication task from its current replication instance to a different
   target replication instance using the specified parameters.
 
-  The target replication instance must be created with the same or later AWS DMS
+  The target replication instance must be created with the same or later DMS
   version as the current replication instance.
   """
   def move_replication_task(%Client{} = client, input, options \\ []) do
@@ -547,7 +572,7 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Removes metadata tags from an AWS DMS resource, including replication instance,
+  Removes metadata tags from an DMS resource, including replication instance,
   endpoint, security group, and migration task.
 
   For more information, see [ `Tag`
@@ -561,9 +586,9 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Starts the replication task.
 
-  For more information about AWS DMS tasks, see [Working with Migration Tasks
-  ](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the *AWS
-  Database Migration Service User Guide.*
+  For more information about DMS tasks, see [Working with Migration Tasks
+  ](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html) in the
+  *Database Migration Service User Guide.*
   """
   def start_replication_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartReplicationTask", input, options)

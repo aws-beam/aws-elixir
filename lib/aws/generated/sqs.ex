@@ -3,19 +3,18 @@
 
 defmodule AWS.SQS do
   @moduledoc """
-  Welcome to the *Amazon Simple Queue Service API Reference*.
+  Welcome to the *Amazon SQS API Reference*.
 
-  Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted
-  queue for storing messages as they travel between applications or microservices.
-  Amazon SQS moves data between distributed application components and helps you
-  decouple these components.
+  Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as
+  they travel between applications or microservices. Amazon SQS moves data between
+  distributed application components and helps you decouple these components.
 
   For information on the permissions you need to use this API, see [Identity and access
   management](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html)
-  in the *Amazon Simple Queue Service Developer Guide.*
+  in the *Amazon SQS Developer Guide.*
 
-  You can use [AWS SDKs](http://aws.amazon.com/tools/#sdk) to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the
-  following automatically:
+  You can use [Amazon Web Services SDKs](http://aws.amazon.com/tools/#sdk) to access Amazon SQS using your favorite programming language. The SDKs perform
+  tasks such as the following automatically:
 
     * Cryptographically sign your service requests
 
@@ -27,7 +26,7 @@ defmodule AWS.SQS do
 
     * [Amazon SQS Product Page](http://aws.amazon.com/sqs/)
 
-    * *Amazon Simple Queue Service Developer Guide*
+    * *Amazon SQS Developer Guide*
 
       * [Making API Requests](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html)
 
@@ -35,7 +34,7 @@ defmodule AWS.SQS do
 
       * [Amazon SQS Dead-Letter Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html)
 
-    * [Amazon SQS in the *AWS CLI Command Reference*
+    * [Amazon SQS in the *Command Line Interface*
   ](http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html)
 
     * *Amazon Web Services General Reference*
@@ -71,12 +70,12 @@ defmodule AWS.SQS do
   more information about these permissions, see [Allow Developers to Write
   Messages to a Shared
   Queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
      `AddPermission` generates a policy for you. You can use `
   `SetQueueAttributes` ` to upload your policy. For more information, see [Using Custom Policies with the Amazon SQS Access Policy
   Language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
      An Amazon SQS policy can have a maximum of 7 actions.
 
@@ -94,7 +93,7 @@ defmodule AWS.SQS do
 
   Cross-account permissions don't apply to this action. For more information, see
   [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def add_permission(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddPermission", input, options)
@@ -105,7 +104,7 @@ defmodule AWS.SQS do
 
   The default visibility timeout for a message is 30 seconds. The minimum is 0
   seconds. The maximum is 12 hours. For more information, see [Visibility Timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
   For example, you have a message with a visibility timeout of 5 minutes. After 3
   minutes, you call `ChangeMessageVisibility` with a timeout of 10 minutes. You
@@ -195,7 +194,7 @@ defmodule AWS.SQS do
   queue for your application or delete your existing standard queue and recreate
   it as a FIFO queue. For more information, see [Moving From a Standard Queue to a FIFO
   Queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
     * If you don't provide a value for an attribute, the queue is
   created with the default value for the attribute.
@@ -230,7 +229,7 @@ defmodule AWS.SQS do
 
   Cross-account permissions don't apply to this action. For more information, see
   [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def create_queue(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateQueue", input, options)
@@ -302,7 +301,7 @@ defmodule AWS.SQS do
 
   Cross-account permissions don't apply to this action. For more information, see
   [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def delete_queue(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteQueue", input, options)
@@ -327,7 +326,7 @@ defmodule AWS.SQS do
   owner. The queue's owner must grant you permission to access the queue. For more
   information about shared queue access, see ` `AddPermission` ` or see [Allow Developers to Write Messages to a Shared
   Queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def get_queue_url(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetQueueUrl", input, options)
@@ -347,7 +346,7 @@ defmodule AWS.SQS do
 
   For more information about using dead-letter queues, see [Using Amazon SQS Dead-Letter
   Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def list_dead_letter_source_queues(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListDeadLetterSourceQueues", input, options)
@@ -357,11 +356,11 @@ defmodule AWS.SQS do
   List all cost allocation tags added to the specified Amazon SQS queue.
 
   For an overview, see [Tagging Your Amazon SQS Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
   [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def list_queue_tags(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListQueueTags", input, options)
@@ -383,7 +382,7 @@ defmodule AWS.SQS do
 
   Cross-account permissions don't apply to this action. For more information, see
   [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def list_queues(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListQueues", input, options)
@@ -413,7 +412,7 @@ defmodule AWS.SQS do
 
   Using the `WaitTimeSeconds` parameter enables long-poll support. For more
   information, see [Amazon SQS Long Polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
   Short poll is the default behavior where a weighted random set of machines is
   sampled on a `ReceiveMessage` call. Thus, only the messages on the sampled
@@ -440,13 +439,13 @@ defmodule AWS.SQS do
   The receipt handle is the identifier you must provide when deleting the message.
   For more information, see [Queue and Message
   Identifiers](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
   You can provide the `VisibilityTimeout` parameter in your request. The parameter
   is applied to the messages that Amazon SQS returns in the response. If you don't
   include the parameter, the overall visibility timeout for the queue is used for
   the returned messages. For more information, see [Visibility Timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
   A message that isn't deleted or a message whose visibility isn't extended before
   the visibility timeout expires counts as a failed receive. Depending on the
@@ -468,7 +467,7 @@ defmodule AWS.SQS do
 
      Cross-account permissions don't apply to this action. For more
   information, see [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
      To remove the ability to change queue permissions, you must deny
   permission to the `AddPermission`, `RemovePermission`, and `SetQueueAttributes`
@@ -546,7 +545,7 @@ defmodule AWS.SQS do
 
      Cross-account permissions don't apply to this action. For more
   information, see [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
      To remove the ability to change queue permissions, you must deny
   permission to the `AddPermission`, `RemovePermission`, and `SetQueueAttributes`
@@ -560,7 +559,7 @@ defmodule AWS.SQS do
   Add cost allocation tags to the specified Amazon SQS queue.
 
   For an overview, see [Tagging Your Amazon SQS Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
   When you use queue tags, keep the following guidelines in mind:
 
@@ -574,12 +573,12 @@ defmodule AWS.SQS do
     * A new tag with a key identical to that of an existing tag
   overwrites the existing tag.
 
-  For a full list of tag restrictions, see [Limits Related to Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  For a full list of tag restrictions, see [Quotas related to queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues)
+  in the *Amazon SQS Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
   [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def tag_queue(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagQueue", input, options)
@@ -589,11 +588,11 @@ defmodule AWS.SQS do
   Remove cost allocation tags from the specified Amazon SQS queue.
 
   For an overview, see [Tagging Your Amazon SQS Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
 
   Cross-account permissions don't apply to this action. For more information, see
   [Grant cross-account permissions to a role and a user name](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the *Amazon Simple Queue Service Developer Guide*.
+  in the *Amazon SQS Developer Guide*.
   """
   def untag_queue(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagQueue", input, options)

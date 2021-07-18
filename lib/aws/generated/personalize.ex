@@ -130,6 +130,31 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Creates a job that exports data from your dataset to an Amazon S3 bucket.
+
+  To allow Amazon Personalize to export the training data, you must specify an
+  service-linked AWS Identity and Access Management (IAM) role that gives Amazon
+  Personalize `PutObject` permissions for your Amazon S3 bucket. For information,
+  see [Exporting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html) in
+  the Amazon Personalize developer guide.
+
+  ## Status
+
+  A dataset export job can be in one of the following states:
+
+    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+
+  To get the status of the export job, call `DescribeDatasetExportJob`, and
+  specify the Amazon Resource Name (ARN) of the dataset export job. The dataset
+  export is complete when the status shows as ACTIVE. If the status shows as
+  CREATE FAILED, the response includes a `failureReason` key, which describes why
+  the job failed.
+  """
+  def create_dataset_export_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateDatasetExportJob", input, options)
+  end
+
+  @doc """
   Creates an empty dataset group.
 
   A dataset group contains related datasets that supply data for training a model.
@@ -188,9 +213,10 @@ defmodule AWS.Personalize do
   bucket) to an Amazon Personalize dataset.
 
   To allow Amazon Personalize to import the training data, you must specify an AWS
-  Identity and Access Management (IAM) role that has permission to read from the
-  data source, as Amazon Personalize makes a copy of your data and processes it in
-  an internal AWS system.
+  Identity and Access Management (IAM) service role that has permission to read
+  from the data source, as Amazon Personalize makes a copy of your data and
+  processes it in an internal AWS system. For information on granting access to
+  your Amazon S3 bucket, see [Giving Amazon Personalize Access to Amazon S3 Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html).
 
   The dataset import job replaces any existing data in the dataset that you
   imported in bulk.
@@ -351,7 +377,17 @@ defmodule AWS.Personalize do
 
   A solution version can be in one of the following states:
 
-    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+    * CREATE PENDING
+
+    * CREATE IN_PROGRESS
+
+    * ACTIVE
+
+    * CREATE FAILED
+
+    * CREATE STOPPING
+
+    * CREATE STOPPED
 
   To get the status of the version, call `DescribeSolutionVersion`. Wait until the
   status shows as ACTIVE before calling `CreateCampaign`.
@@ -499,6 +535,14 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Describes the dataset export job created by `CreateDatasetExportJob`, including
+  the export job status.
+  """
+  def describe_dataset_export_job(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeDatasetExportJob", input, options)
+  end
+
+  @doc """
   Describes the given dataset group.
 
   For more information on dataset groups, see `CreateDatasetGroup`.
@@ -618,6 +662,19 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Returns a list of dataset export jobs that use the given dataset.
+
+  When a dataset is not specified, all the dataset export jobs associated with the
+  account are listed. The response provides the properties for each dataset export
+  job, including the Amazon Resource Name (ARN). For more information on dataset
+  export jobs, see `CreateDatasetExportJob`. For more information on datasets, see
+  `CreateDataset`.
+  """
+  def list_dataset_export_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListDatasetExportJobs", input, options)
+  end
+
+  @doc """
   Returns a list of dataset groups.
 
   The response provides the properties for each dataset group, including the
@@ -711,6 +768,27 @@ defmodule AWS.Personalize do
   """
   def list_solutions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListSolutions", input, options)
+  end
+
+  @doc """
+  Stops creating a solution version that is in a state of CREATE_PENDING or CREATE
+  IN_PROGRESS.
+
+  Depending on the current state of the solution version, the solution version
+  state changes as follows:
+
+    * CREATE_PENDING > CREATE_STOPPED
+
+  or
+
+    * CREATE_IN_PROGRESS > CREATE_STOPPING > CREATE_STOPPED
+
+  You are billed for all of the training completed up until you stop the solution
+  version creation. You cannot resume creating a solution version once it has been
+  stopped.
+  """
+  def stop_solution_version_creation(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "StopSolutionVersionCreation", input, options)
   end
 
   @doc """

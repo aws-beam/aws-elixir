@@ -8,7 +8,7 @@ defmodule AWS.CodeGuruReviewer do
 
   CodeGuru Reviewer is a service that uses program analysis and machine learning
   to detect potential defects that are difficult for developers to find and
-  recommends fixes in your Java code.
+  recommends fixes in your Java and Python code.
 
   By proactively detecting and providing recommendations for addressing code
   defects and implementing best practices, CodeGuru Reviewer improves the overall
@@ -52,12 +52,12 @@ defmodule AWS.CodeGuruReviewer do
   information, see [Recommendations in Amazon CodeGuru Reviewer](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html)
   in the *Amazon CodeGuru Reviewer User Guide.*
 
-  If you associate a CodeCommit repository, it must be in the same AWS Region and
-  AWS account where its CodeGuru Reviewer code reviews are configured.
+  If you associate a CodeCommit or S3 repository, it must be in the same AWS
+  Region and AWS account where its CodeGuru Reviewer code reviews are configured.
 
   Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
-  Connections to connect to CodeGuru Reviewer. For more information, see [Connect to a repository source
-  provider](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider)
+  Connections to connect to CodeGuru Reviewer. For more information, see
+  [Associate a repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html)
   in the *Amazon CodeGuru Reviewer User Guide.*
 
   You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate a GitHub
@@ -90,7 +90,7 @@ defmodule AWS.CodeGuruReviewer do
 
   This type of code review analyzes all code under a specified branch in an
   associated repository. `PullRequest` code reviews are automatically triggered by
-  a pull request so cannot be created using this method.
+  a pull request.
   """
   def create_code_review(%Client{} = client, input, options \\ []) do
     url_path = "/codereviews"

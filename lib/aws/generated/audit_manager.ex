@@ -3,30 +3,30 @@
 
 defmodule AWS.AuditManager do
   @moduledoc """
-  Welcome to the AWS Audit Manager API reference.
+  Welcome to the Audit Manager API reference.
 
-  This guide is for developers who need detailed information about the AWS Audit
+  This guide is for developers who need detailed information about the Audit
   Manager API operations, data types, and errors.
 
-  AWS Audit Manager is a service that provides automated evidence collection so
-  that you can continuously audit your AWS usage, and assess the effectiveness of
-  your controls to better manage risk and simplify compliance.
+  Audit Manager is a service that provides automated evidence collection so that
+  you can continuously audit your Amazon Web Services usage, and assess the
+  effectiveness of your controls to better manage risk and simplify compliance.
 
-  AWS Audit Manager provides pre-built frameworks that structure and automate
+  Audit Manager provides pre-built frameworks that structure and automate
   assessments for a given compliance standard. Frameworks include a pre-built
   collection of controls with descriptions and testing procedures, which are
   grouped according to the requirements of the specified compliance standard or
   regulation. You can also customize frameworks and controls to support internal
   audits with unique requirements.
 
-  Use the following links to get started with the AWS Audit Manager API:
+  Use the following links to get started with the Audit Manager API:
 
     *
-  [Actions](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html): An alphabetical list of all AWS Audit Manager API operations.
+  [Actions](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html): An alphabetical list of all Audit Manager API operations.
 
     * [Data
   types](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html):
-  An alphabetical list of all AWS Audit Manager data types.
+  An alphabetical list of all Audit Manager data types.
 
     * [Common parameters](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html):
   Parameters that all Query operations can use.
@@ -34,7 +34,7 @@ defmodule AWS.AuditManager do
     * [Common errors](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html):
   Client and server errors that all operations can return.
 
-  If you're new to AWS Audit Manager, we recommend that you review the [ AWS Audit Manager User
+  If you're new to Audit Manager, we recommend that you review the [ Audit Manager User
   Guide](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html).
   """
 
@@ -58,7 +58,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Associates an evidence folder to the specified assessment report in AWS Audit
+  Associates an evidence folder to the specified assessment report in Audit
   Manager.
   """
   def associate_assessment_report_evidence_folder(
@@ -85,7 +85,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Associates a list of evidence to an assessment report in an AWS Audit Manager
+  Associates a list of evidence to an assessment report in an Audit Manager
   assessment.
   """
   def batch_associate_assessment_report_evidence(
@@ -112,7 +112,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Create a batch of delegations for a specified assessment in AWS Audit Manager.
+  Create a batch of delegations for a specified assessment in Audit Manager.
   """
   def batch_create_delegation_by_assessment(
         %Client{} = client,
@@ -138,7 +138,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deletes the delegations in the specified AWS Audit Manager assessment.
+  Deletes the delegations in the specified Audit Manager assessment.
   """
   def batch_delete_delegation_by_assessment(
         %Client{} = client,
@@ -164,8 +164,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Disassociates a list of evidence from the specified assessment report in AWS
-  Audit Manager.
+  Disassociates a list of evidence from the specified assessment report in Audit
+  Manager.
   """
   def batch_disassociate_assessment_report_evidence(
         %Client{} = client,
@@ -192,7 +192,7 @@ defmodule AWS.AuditManager do
 
   @doc """
   Uploads one or more pieces of evidence to the specified control in the
-  assessment in AWS Audit Manager.
+  assessment in Audit Manager.
   """
   def batch_import_evidence_to_assessment_control(
         %Client{} = client,
@@ -203,9 +203,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/controls/#{
-        URI.encode(control_id)
-      }/evidence"
+      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/controls/#{URI.encode(control_id)}/evidence"
 
     headers = []
     query_params = []
@@ -224,7 +222,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Creates an assessment in AWS Audit Manager.
+  Creates an assessment in Audit Manager.
   """
   def create_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/assessments"
@@ -245,7 +243,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Creates a custom framework in AWS Audit Manager.
+  Creates a custom framework in Audit Manager.
   """
   def create_assessment_framework(%Client{} = client, input, options \\ []) do
     url_path = "/assessmentFrameworks"
@@ -287,7 +285,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Creates a new custom control in AWS Audit Manager.
+  Creates a new custom control in Audit Manager.
   """
   def create_control(%Client{} = client, input, options \\ []) do
     url_path = "/controls"
@@ -308,7 +306,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deletes an assessment in AWS Audit Manager.
+  Deletes an assessment in Audit Manager.
   """
   def delete_assessment(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{URI.encode(assessment_id)}"
@@ -329,7 +327,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deletes a custom framework in AWS Audit Manager.
+  Deletes a custom framework in Audit Manager.
   """
   def delete_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{URI.encode(framework_id)}"
@@ -350,7 +348,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deletes an assessment report from an assessment in AWS Audit Manager.
+  Deletes an assessment report from an assessment in Audit Manager.
   """
   def delete_assessment_report(
         %Client{} = client,
@@ -379,7 +377,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deletes a custom control in AWS Audit Manager.
+  Deletes a custom control in Audit Manager.
   """
   def delete_control(%Client{} = client, control_id, input, options \\ []) do
     url_path = "/controls/#{URI.encode(control_id)}"
@@ -400,7 +398,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deregisters an account in AWS Audit Manager.
+  Deregisters an account in Audit Manager.
   """
   def deregister_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/deregisterAccount"
@@ -421,7 +419,14 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deregisters the delegated AWS administrator account from the AWS organization.
+  Removes the specified member account as a delegated administrator for Audit
+  Manager.
+
+  When you remove a delegated administrator from your Audit Manager settings, or
+  when you deregister a delegated administrator from Organizations, you continue
+  to have access to the evidence that you previously collected under that account.
+  However, Audit Manager will stop collecting and attaching evidence to that
+  delegated administrator account moving forward.
   """
   def deregister_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/deregisterOrganizationAdminAccount"
@@ -442,8 +447,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Disassociates an evidence folder from the specified assessment report in AWS
-  Audit Manager.
+  Disassociates an evidence folder from the specified assessment report in Audit
+  Manager.
   """
   def disassociate_assessment_report_evidence_folder(
         %Client{} = client,
@@ -469,7 +474,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the registration status of an account in AWS Audit Manager.
+  Returns the registration status of an account in Audit Manager.
   """
   def get_account_status(%Client{} = client, options \\ []) do
     url_path = "/account/status"
@@ -490,7 +495,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns an assessment from AWS Audit Manager.
+  Returns an assessment from Audit Manager.
   """
   def get_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{URI.encode(assessment_id)}"
@@ -511,7 +516,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a framework from AWS Audit Manager.
+  Returns a framework from Audit Manager.
   """
   def get_assessment_framework(%Client{} = client, framework_id, options \\ []) do
     url_path = "/assessmentFrameworks/#{URI.encode(framework_id)}"
@@ -532,7 +537,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the URL of a specified assessment report in AWS Audit Manager.
+  Returns the URL of a specified assessment report in Audit Manager.
   """
   def get_assessment_report_url(
         %Client{} = client,
@@ -560,7 +565,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of changelogs from AWS Audit Manager.
+  Returns a list of changelogs from Audit Manager.
   """
   def get_change_logs(
         %Client{} = client,
@@ -617,7 +622,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a control from AWS Audit Manager.
+  Returns a control from Audit Manager.
   """
   def get_control(%Client{} = client, control_id, options \\ []) do
     url_path = "/controls/#{URI.encode(control_id)}"
@@ -673,7 +678,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns evidence from AWS Audit Manager.
+  Returns evidence from Audit Manager.
   """
   def get_evidence(
         %Client{} = client,
@@ -684,9 +689,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{
-        URI.encode(evidence_folder_id)
-      }/evidence/#{URI.encode(evidence_id)}"
+      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{URI.encode(evidence_folder_id)}/evidence/#{URI.encode(evidence_id)}"
 
     headers = []
     query_params = []
@@ -705,7 +708,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns all evidence from a specified evidence folder in AWS Audit Manager.
+  Returns all evidence from a specified evidence folder in Audit Manager.
   """
   def get_evidence_by_evidence_folder(
         %Client{} = client,
@@ -717,9 +720,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{
-        URI.encode(evidence_folder_id)
-      }/evidence"
+      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{URI.encode(evidence_folder_id)}/evidence"
 
     headers = []
     query_params = []
@@ -752,7 +753,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns an evidence folder from the specified assessment in AWS Audit Manager.
+  Returns an evidence folder from the specified assessment in Audit Manager.
   """
   def get_evidence_folder(
         %Client{} = client,
@@ -762,9 +763,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{
-        URI.encode(evidence_folder_id)
-      }"
+      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{URI.encode(evidence_folder_id)}"
 
     headers = []
     query_params = []
@@ -783,7 +782,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the evidence folders from a specified assessment in AWS Audit Manager.
+  Returns the evidence folders from a specified assessment in Audit Manager.
   """
   def get_evidence_folders_by_assessment(
         %Client{} = client,
@@ -825,7 +824,7 @@ defmodule AWS.AuditManager do
 
   @doc """
   Returns a list of evidence folders associated with a specified control of an
-  assessment in AWS Audit Manager.
+  assessment in Audit Manager.
   """
   def get_evidence_folders_by_assessment_control(
         %Client{} = client,
@@ -837,9 +836,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/evidenceFolders-by-assessment-control/#{
-        URI.encode(control_set_id)
-      }/#{URI.encode(control_id)}"
+      "/assessments/#{URI.encode(assessment_id)}/evidenceFolders-by-assessment-control/#{URI.encode(control_set_id)}/#{URI.encode(control_id)}"
 
     headers = []
     query_params = []
@@ -872,8 +869,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the name of the delegated AWS administrator account for the AWS
-  organization.
+  Returns the name of the delegated Amazon Web Services administrator account for
+  the organization.
   """
   def get_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/account/organizationAdminAccount"
@@ -894,7 +891,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of the in-scope AWS services for the specified assessment.
+  Returns a list of the in-scope Amazon Web Services services for the specified
+  assessment.
   """
   def get_services_in_scope(%Client{} = client, options \\ []) do
     url_path = "/services"
@@ -915,7 +913,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns the settings for the specified AWS account.
+  Returns the settings for the specified account.
   """
   def get_settings(%Client{} = client, attribute, options \\ []) do
     url_path = "/settings/#{URI.encode(attribute)}"
@@ -936,7 +934,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of the frameworks available in the AWS Audit Manager framework
+  Returns a list of the frameworks available in the Audit Manager framework
   library.
   """
   def list_assessment_frameworks(
@@ -985,7 +983,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of assessment reports created in AWS Audit Manager.
+  Returns a list of assessment reports created in Audit Manager.
   """
   def list_assessment_reports(
         %Client{} = client,
@@ -1025,7 +1023,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of current and past assessments from AWS Audit Manager.
+  Returns a list of current and past assessments from Audit Manager.
   """
   def list_assessments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/assessments"
@@ -1060,7 +1058,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of controls from AWS Audit Manager.
+  Returns a list of controls from Audit Manager.
   """
   def list_controls(
         %Client{} = client,
@@ -1156,7 +1154,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of all AWS Audit Manager notifications.
+  Returns a list of all Audit Manager notifications.
   """
   def list_notifications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/notifications"
@@ -1191,7 +1189,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Returns a list of tags for the specified resource in AWS Audit Manager.
+  Returns a list of tags for the specified resource in Audit Manager.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -1212,7 +1210,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Enables AWS Audit Manager for the specified AWS account.
+  Enables Audit Manager for the specified account.
   """
   def register_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/registerAccount"
@@ -1233,8 +1231,8 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Enables an AWS account within the organization as the delegated administrator
-  for AWS Audit Manager.
+  Enables an account within the organization as the delegated administrator for
+  Audit Manager.
   """
   def register_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/registerOrganizationAdminAccount"
@@ -1255,7 +1253,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Tags the specified resource in AWS Audit Manager.
+  Tags the specified resource in Audit Manager.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -1276,7 +1274,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Removes a tag from a resource in AWS Audit Manager.
+  Removes a tag from a resource in Audit Manager.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -1302,7 +1300,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Edits an AWS Audit Manager assessment.
+  Edits an Audit Manager assessment.
   """
   def update_assessment(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{URI.encode(assessment_id)}"
@@ -1323,7 +1321,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Updates a control within an assessment in AWS Audit Manager.
+  Updates a control within an assessment in Audit Manager.
   """
   def update_assessment_control(
         %Client{} = client,
@@ -1334,9 +1332,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/controls/#{
-        URI.encode(control_id)
-      }"
+      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/controls/#{URI.encode(control_id)}"
 
     headers = []
     query_params = []
@@ -1355,7 +1351,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Updates the status of a control set in an AWS Audit Manager assessment.
+  Updates the status of a control set in an Audit Manager assessment.
   """
   def update_assessment_control_set_status(
         %Client{} = client,
@@ -1384,7 +1380,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Updates a custom framework in AWS Audit Manager.
+  Updates a custom framework in Audit Manager.
   """
   def update_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{URI.encode(framework_id)}"
@@ -1405,7 +1401,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Updates the status of an assessment in AWS Audit Manager.
+  Updates the status of an assessment in Audit Manager.
   """
   def update_assessment_status(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{URI.encode(assessment_id)}/status"
@@ -1426,7 +1422,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Updates a custom control in AWS Audit Manager.
+  Updates a custom control in Audit Manager.
   """
   def update_control(%Client{} = client, control_id, input, options \\ []) do
     url_path = "/controls/#{URI.encode(control_id)}"
@@ -1447,7 +1443,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Updates AWS Audit Manager settings for the current user account.
+  Updates Audit Manager settings for the current user account.
   """
   def update_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
@@ -1468,7 +1464,7 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Validates the integrity of an assessment report in AWS Audit Manager.
+  Validates the integrity of an assessment report in Audit Manager.
   """
   def validate_assessment_report_integrity(%Client{} = client, input, options \\ []) do
     url_path = "/assessmentReports/integrity"

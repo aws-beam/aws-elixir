@@ -990,9 +990,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}/versions/#{
-        URI.encode(connector_definition_version_id)
-      }"
+      "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}/versions/#{URI.encode(connector_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1048,9 +1046,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/cores/#{URI.encode(core_definition_id)}/versions/#{
-        URI.encode(core_definition_version_id)
-      }"
+      "/greengrass/definition/cores/#{URI.encode(core_definition_id)}/versions/#{URI.encode(core_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1123,9 +1119,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/devices/#{URI.encode(device_definition_id)}/versions/#{
-        URI.encode(device_definition_version_id)
-      }"
+      "/greengrass/definition/devices/#{URI.encode(device_definition_id)}/versions/#{URI.encode(device_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1184,9 +1178,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/functions/#{URI.encode(function_definition_id)}/versions/#{
-        URI.encode(function_definition_version_id)
-      }"
+      "/greengrass/definition/functions/#{URI.encode(function_definition_id)}/versions/#{URI.encode(function_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1244,9 +1236,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities/#{
-        URI.encode(certificate_authority_id)
-      }"
+      "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities/#{URI.encode(certificate_authority_id)}"
 
     headers = []
     query_params = []
@@ -1342,9 +1332,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/loggers/#{URI.encode(logger_definition_id)}/versions/#{
-        URI.encode(logger_definition_version_id)
-      }"
+      "/greengrass/definition/loggers/#{URI.encode(logger_definition_id)}/versions/#{URI.encode(logger_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1402,9 +1390,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}/versions/#{
-        URI.encode(resource_definition_version_id)
-      }"
+      "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}/versions/#{URI.encode(resource_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1475,9 +1461,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}/versions/#{
-        URI.encode(subscription_definition_version_id)
-      }"
+      "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}/versions/#{URI.encode(subscription_definition_version_id)}"
 
     headers = []
     query_params = []

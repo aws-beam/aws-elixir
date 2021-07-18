@@ -4,7 +4,7 @@
 defmodule AWS.CloudWatchLogs do
   @moduledoc """
   You can use Amazon CloudWatch Logs to monitor, store, and access your log files
-  from EC2 instances, AWS CloudTrail, or other sources.
+  from EC2 instances, AWS CloudTrail, and other sources.
 
   You can then retrieve the associated log data from CloudWatch Logs using the
   CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs
@@ -473,6 +473,11 @@ defmodule AWS.CloudWatchLogs do
   An access policy is an [IAM policy document](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html)
   that is used to authorize claims to register a subscription filter against a
   given destination.
+
+  If multiple AWS accounts are sending logs to this destination, each sender
+  account must be listed separately in the policy. The policy does not support
+  specifying `*` as the Principal or the use of the `aws:PrincipalOrgId` global
+  key.
   """
   def put_destination_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutDestinationPolicy", input, options)
@@ -526,10 +531,26 @@ defmodule AWS.CloudWatchLogs do
 
   Metric filters allow you to configure rules to extract metric data from log
   events ingested through
-  [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html).
-
-  The maximum number of metric filters that can be associated with a log group is
+  [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html).  The maximum number of metric filters that can be associated with a log group is
   100.
+
+  When you create a metric filter, you can also optionally assign a unit and
+  dimensions to the metric that is created.
+
+  Metrics extracted from log events are charged as custom metrics. To prevent
+  unexpected high charges, do not specify high-cardinality fields such as
+  `IPAddress` or `requestID` as dimensions. Each different value found for a
+  dimension is treated as a separate metric and accrues charges as a separate
+  custom metric.
+
+  To help prevent accidental high charges, Amazon disables a metric filter if it
+  generates 1000 different name/value pairs for the dimensions that you have
+  specified within a certain amount of time.
+
+  You can also set up a billing alarm to alert you if your charges are higher than
+  expected. For more information, see [ Creating a Billing Alarm to Monitor Your
+  Estimated AWS
+  Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
   """
   def put_metric_filter(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutMetricFilter", input, options)
@@ -600,10 +621,9 @@ defmodule AWS.CloudWatchLogs do
     * An AWS Lambda function that belongs to the same account as the
   subscription filter, for same-account delivery.
 
-  There can only be one subscription filter associated with a log group. If you
-  are updating an existing filter, you must specify the correct name in
-  `filterName`. Otherwise, the call fails because you cannot associate a second
-  filter with a log group.
+  Each log group can have up to two subscription filters associated with it. If
+  you are updating an existing filter, you must specify the correct name in
+  `filterName`.
 
   To perform a `PutSubscriptionFilter` operation, you must also have the
   `iam:PassRole` permission.

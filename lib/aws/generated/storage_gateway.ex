@@ -3,41 +3,41 @@
 
 defmodule AWS.StorageGateway do
   @moduledoc """
-  AWS Storage Gateway Service
+  Storage Gateway Service
 
-  AWS Storage Gateway is the service that connects an on-premises software
-  appliance with cloud-based storage to provide seamless and secure integration
-  between an organization's on-premises IT environment and the AWS storage
+  Storage Gateway is the service that connects an on-premises software appliance
+  with cloud-based storage to provide seamless and secure integration between an
+  organization's on-premises IT environment and the Amazon Web Services storage
   infrastructure.
 
-  The service enables you to securely upload data to the AWS Cloud for cost
-  effective backup and rapid disaster recovery.
+  The service enables you to securely upload data to the Cloud for cost effective
+  backup and rapid disaster recovery.
 
-  Use the following links to get started using the *AWS Storage Gateway Service
-  API Reference*:
+  Use the following links to get started using the *Storage Gateway Service API
+  Reference*:
 
-    * [AWS Storage Gateway required request headers](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders):
-  Describes the required headers that you must send with every POST request to AWS
+    * [Storage Gateway required request headers](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders):
+  Describes the required headers that you must send with every POST request to
   Storage Gateway.
 
     * [Signing requests](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests):
-  AWS Storage Gateway requires that you authenticate every request you send; this
+  Storage Gateway requires that you authenticate every request you send; this
   topic describes how sign such a request.
 
     * [Error responses](https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses):
-  Provides reference information about AWS Storage Gateway errors.
+  Provides reference information about Storage Gateway errors.
 
-    * [Operations in AWS Storage Gateway](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html):
-  Contains detailed descriptions of all AWS Storage Gateway operations, their
-  request parameters, response elements, possible errors, and examples of requests
-  and responses.
+    * [Operations in Storage Gateway](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html):
+  Contains detailed descriptions of all Storage Gateway operations, their request
+  parameters, response elements, possible errors, and examples of requests and
+  responses.
 
-    * [AWS Storage Gateway endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html): Provides a list
-  of each AWS Region and the endpoints available for use with AWS Storage Gateway.
+    * [Storage Gateway endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html): Provides a list
+  of each Region and the endpoints available for use with Storage Gateway.
 
-  AWS Storage Gateway resource IDs are in uppercase. When you use these resource
-  IDs with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must
-  change your resource ID to lowercase to use it with the EC2 API. For example, in
+  Storage Gateway resource IDs are in uppercase. When you use these resource IDs
+  with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must change
+  your resource ID to lowercase to use it with the EC2 API. For example, in
   Storage Gateway the ID for a volume might be `vol-AA22BB012345DAF670`. When you
   use this ID with the EC2 API, you must change it to `vol-aa22bb012345daf670`.
   Otherwise, the EC2 API might not behave as expected.
@@ -56,7 +56,7 @@ defmodule AWS.StorageGateway do
   A snapshot ID with the longer ID format looks like the following:
   `snap-78e226633445566ee`.
 
-  For more information, see [Announcement: Heads-up – Longer AWS Storage Gateway volume and snapshot IDs coming in
+  For more information, see [Announcement: Heads-up – Longer Storage Gateway volume and snapshot IDs coming in
   2016](http://forums.aws.amazon.com/ann.jspa?annID=3557).
   """
 
@@ -82,8 +82,8 @@ defmodule AWS.StorageGateway do
   @doc """
   Activates the gateway you previously deployed on your host.
 
-  In the activation process, you specify information such as the AWS Region that
-  you want to use for storing snapshots or tapes, the time zone for scheduled
+  In the activation process, you specify information such as the Region that you
+  want to use for storing snapshots or tapes, the time zone for scheduled
   snapshots the gateway snapshot schedule window, an activation key, and a name
   for your gateway. The activation process also associates your gateway with your
   account. For more information, see `UpdateGatewayInformation`.
@@ -98,7 +98,7 @@ defmodule AWS.StorageGateway do
   Configures one or more gateway local disks as cache for a gateway.
 
   This operation is only supported in the cached volume, tape, and file gateway
-  type (see [How AWS Storage Gateway works (architecture)](https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html).
+  type (see [How Storage Gateway works (architecture)](https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html).
 
   In the request, you specify the gateway Amazon Resource Name (ARN) to which you
   want to add cache, and one or more disk IDs that you want to configure as cache.
@@ -113,7 +113,7 @@ defmodule AWS.StorageGateway do
   You use tags to add metadata to resources, which you can use to categorize these
   resources. For example, you can categorize resources by purpose, owner,
   environment, or team. Each tag consists of a key and a value, which you define.
-  You can add tags to the following AWS Storage Gateway resources:
+  You can add tags to the following Storage Gateway resources:
 
     * Storage gateways of all types
 
@@ -122,6 +122,8 @@ defmodule AWS.StorageGateway do
     * Virtual tapes
 
     * NFS and SMB file shares
+
+    * File System associations
 
   You can create a maximum of 50 tags for each resource. Virtual tapes and storage
   volumes that are recovered to a new gateway maintain their tags.
@@ -134,7 +136,7 @@ defmodule AWS.StorageGateway do
   Configures one or more gateway local disks as upload buffer for a specified
   gateway.
 
-  This operation is supported for the stored volume, cached volume and tape
+  This operation is supported for the stored volume, cached volume, and tape
   gateway types.
 
   In the request, you specify the gateway Amazon Resource Name (ARN) to which you
@@ -175,6 +177,17 @@ defmodule AWS.StorageGateway do
   """
   def assign_tape_pool(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AssignTapePool", input, options)
+  end
+
+  @doc """
+  Associate an Amazon FSx file system with the FSx File Gateway.
+
+  After the association process is complete, the file shares on the Amazon FSx
+  file system are available for access through the gateway. This operation only
+  supports the FSx File Gateway type.
+  """
+  def associate_file_system(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateFileSystem", input, options)
   end
 
   @doc """
@@ -236,38 +249,38 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Creates a Network File System (NFS) file share on an existing file gateway.
+  Creates a Network File System (NFS) file share on an existing S3 File Gateway.
 
   In Storage Gateway, a file share is a file system mount point backed by Amazon
   S3 cloud storage. Storage Gateway exposes file shares using an NFS interface.
-  This operation is only supported for file gateways.
+  This operation is only supported for S3 File Gateways.
 
-  File gateway requires AWS Security Token Service (AWS STS) to be activated to
-  enable you to create a file share. Make sure AWS STS is activated in the AWS
-  Region you are creating your file gateway in. If AWS STS is not activated in the
-  AWS Region, activate it. For information about how to activate AWS STS, see
-  [Activating and deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
-  in the *AWS Identity and Access Management User Guide*.
+  S3 File gateway requires Security Token Service (STS) to be activated to enable
+  you to create a file share. Make sure STS is activated in the Region you are
+  creating your S3 File Gateway in. If STS is not activated in the Region,
+  activate it. For information about how to activate STS, see [Activating and deactivating STS in an
+  Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
+  in the *Identity and Access Management User Guide*.
 
-  File gateway does not support creating hard or symbolic links on a file share.
+  S3 File Gateways do not support creating hard or symbolic links on a file share.
   """
   def create_nfs_file_share(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateNFSFileShare", input, options)
   end
 
   @doc """
-  Creates a Server Message Block (SMB) file share on an existing file gateway.
+  Creates a Server Message Block (SMB) file share on an existing S3 File Gateway.
 
   In Storage Gateway, a file share is a file system mount point backed by Amazon
   S3 cloud storage. Storage Gateway exposes file shares using an SMB interface.
-  This operation is only supported for file gateways.
+  This operation is only supported for S3 File Gateways.
 
-  File gateways require AWS Security Token Service (AWS STS) to be activated to
-  enable you to create a file share. Make sure that AWS STS is activated in the
-  AWS Region you are creating your file gateway in. If AWS STS is not activated in
-  this AWS Region, activate it. For information about how to activate AWS STS, see
-  [Activating and deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
-  in the *AWS Identity and Access Management User Guide*.
+  S3 File Gateways require Security Token Service (STS) to be activated to enable
+  you to create a file share. Make sure that STS is activated in the Region you
+  are creating your S3 File Gateway in. If STS is not activated in this Region,
+  activate it. For information about how to activate STS, see [Activating and deactivating STS in an
+  Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
+  in the *Identity and Access Management User Guide*.
 
   File gateways don't support creating hard or symbolic links on a file share.
   """
@@ -278,21 +291,20 @@ defmodule AWS.StorageGateway do
   @doc """
   Initiates a snapshot of a volume.
 
-  AWS Storage Gateway provides the ability to back up point-in-time snapshots of
-  your data to Amazon Simple Storage (Amazon S3) for durable off-site recovery, as
-  well as import the data to an Amazon Elastic Block Store (EBS) volume in Amazon
+  Storage Gateway provides the ability to back up point-in-time snapshots of your
+  data to Amazon Simple Storage (Amazon S3) for durable off-site recovery, and
+  also import the data to an Amazon Elastic Block Store (EBS) volume in Amazon
   Elastic Compute Cloud (EC2). You can take snapshots of your gateway volume on a
   scheduled or ad hoc basis. This API enables you to take an ad hoc snapshot. For
   more information, see [Editing a snapshot schedule](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot).
 
   In the `CreateSnapshot` request, you identify the volume by providing its Amazon
   Resource Name (ARN). You must also provide description for the snapshot. When
-  AWS Storage Gateway takes the snapshot of specified volume, the snapshot and
-  description appears in the AWS Storage Gateway console. In response, AWS Storage
-  Gateway returns you a snapshot ID. You can use this snapshot ID to check the
-  snapshot progress or later use it when you want to create a volume from a
-  snapshot. This operation is only supported in stored and cached volume gateway
-  type.
+  Storage Gateway takes the snapshot of specified volume, the snapshot and
+  description appears in the Storage Gateway console. In response, Storage Gateway
+  returns you a snapshot ID. You can use this snapshot ID to check the snapshot
+  progress or later use it when you want to create a volume from a snapshot. This
+  operation is only supported in stored and cached volume gateway type.
 
   To list or delete a snapshot, you must use the Amazon EC2 API. For more
   information, see
@@ -321,10 +333,10 @@ defmodule AWS.StorageGateway do
   In the `CreateSnapshotFromVolumeRecoveryPoint` request, you identify the volume
   by providing its Amazon Resource Name (ARN). You must also provide a description
   for the snapshot. When the gateway takes a snapshot of the specified volume, the
-  snapshot and its description appear in the AWS Storage Gateway console. In
-  response, the gateway returns you a snapshot ID. You can use this snapshot ID to
-  check the snapshot progress or later use it when you want to create a volume
-  from a snapshot.
+  snapshot and its description appear in the Storage Gateway console. In response,
+  the gateway returns you a snapshot ID. You can use this snapshot ID to check the
+  snapshot progress or later use it when you want to create a volume from a
+  snapshot.
 
   To list or delete a snapshot, you must use the Amazon EC2 API. For more
   information, see
@@ -434,9 +446,9 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Deletes a file share from a file gateway.
+  Deletes a file share from an S3 File Gateway.
 
-  This operation is only supported for file gateways.
+  This operation is only supported for S3 File Gateways.
   """
   def delete_file_share(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteFileShare", input, options)
@@ -459,7 +471,7 @@ defmodule AWS.StorageGateway do
   these snapshots. You can choose to remove all remaining Amazon EBS snapshots by
   canceling your Amazon EC2 subscription.  If you prefer not to cancel your Amazon
   EC2 subscription, you can delete your snapshots using the Amazon EC2 console.
-  For more information, see the [AWS Storage Gateway detail page](http://aws.amazon.com/storagegateway).
+  For more information, see the [Storage Gateway detail page](http://aws.amazon.com/storagegateway).
   """
   def delete_gateway(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteGateway", input, options)
@@ -538,7 +550,7 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Returns information about the most recent High Availability monitoring test that
+  Returns information about the most recent high availability monitoring test that
   was performed on the host in a cluster.
 
   If a test isn't performed, the status and start time in the response would be
@@ -608,7 +620,7 @@ defmodule AWS.StorageGateway do
   This operation is only supported in the cached volume gateway types.
 
   The list of gateway volumes in the request must be from one gateway. In the
-  response, AWS Storage Gateway returns volume information sorted by volume Amazon
+  response, Storage Gateway returns volume information sorted by volume Amazon
   Resource Name (ARN).
   """
   def describe_cached_iscsi_volumes(%Client{} = client, input, options \\ []) do
@@ -624,6 +636,15 @@ defmodule AWS.StorageGateway do
   """
   def describe_chap_credentials(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeChapCredentials", input, options)
+  end
+
+  @doc """
+  Gets the file system association information.
+
+  This operation is only supported for FSx File Gateways.
+  """
+  def describe_file_system_associations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeFileSystemAssociations", input, options)
   end
 
   @doc """
@@ -648,10 +669,10 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Gets a description for one or more Network File System (NFS) file shares from a
-  file gateway.
+  Gets a description for one or more Network File System (NFS) file shares from an
+  S3 File Gateway.
 
-  This operation is only supported for file gateways.
+  This operation is only supported for S3 File Gateways.
   """
   def describe_nfs_file_shares(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeNFSFileShares", input, options)
@@ -659,9 +680,9 @@ defmodule AWS.StorageGateway do
 
   @doc """
   Gets a description for one or more Server Message Block (SMB) file shares from a
-  file gateway.
+  S3 File Gateway.
 
-  This operation is only supported for file gateways.
+  This operation is only supported for S3 File Gateways.
   """
   def describe_smb_file_shares(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeSMBFileShares", input, options)
@@ -692,8 +713,8 @@ defmodule AWS.StorageGateway do
   Returns the description of the gateway volumes specified in the request.
 
   The list of gateway volumes in the request must be from one gateway. In the
-  response, AWS Storage Gateway returns volume information sorted by volume ARNs.
-  This operation is only supported in stored volume gateway type.
+  response, Storage Gateway returns volume information sorted by volume ARNs. This
+  operation is only supported in stored volume gateway type.
   """
   def describe_stored_iscsi_volumes(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeStorediSCSIVolumes", input, options)
@@ -705,8 +726,8 @@ defmodule AWS.StorageGateway do
 
   This operation is only supported in the tape gateway type.
 
-  If a specific `TapeARN` is not specified, AWS Storage Gateway returns a
-  description of all virtual tapes found in the VTS associated with your account.
+  If a specific `TapeARN` is not specified, Storage Gateway returns a description
+  of all virtual tapes found in the VTS associated with your account.
   """
   def describe_tape_archives(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTapeArchives", input, options)
@@ -754,7 +775,7 @@ defmodule AWS.StorageGateway do
   Returns a description of virtual tape library (VTL) devices for the specified
   tape gateway.
 
-  In the response, AWS Storage Gateway returns VTL device information.
+  In the response, Storage Gateway returns VTL device information.
 
   This operation is only supported in the tape gateway type.
   """
@@ -809,6 +830,17 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Disassociates an Amazon FSx file system from the specified gateway.
+
+  After the disassociation process finishes, the gateway can no longer access the
+  Amazon FSx file system. This operation is only supported in the FSx File Gateway
+  type.
+  """
+  def disassociate_file_system(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateFileSystem", input, options)
+  end
+
+  @doc """
   Adds a file gateway to an Active Directory domain.
 
   This operation is only supported for file gateways that support the SMB file
@@ -831,18 +863,27 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Gets a list of the file shares for a specific file gateway, or the list of file
-  shares that belong to the calling user account.
+  Gets a list of the file shares for a specific S3 File Gateway, or the list of
+  file shares that belong to the calling user account.
 
-  This operation is only supported for file gateways.
+  This operation is only supported for S3 File Gateways.
   """
   def list_file_shares(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListFileShares", input, options)
   end
 
   @doc """
-  Lists gateways owned by an AWS account in an AWS Region specified in the
-  request.
+  Gets a list of `FileSystemAssociationSummary` objects.
+
+  Each object contains a summary of a file system association. This operation is
+  only supported for FSx File Gateways.
+  """
+  def list_file_system_associations(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFileSystemAssociations", input, options)
+  end
+
+  @doc """
+  Lists gateways owned by an account in an Region specified in the request.
 
   The returned list is ordered by gateway Amazon Resource Name (ARN).
 
@@ -969,52 +1010,57 @@ defmodule AWS.StorageGateway do
   Sends you notification through CloudWatch Events when all files written to your
   file share have been uploaded to Amazon S3.
 
-  AWS Storage Gateway can send a notification through Amazon CloudWatch Events
-  when all files written to your file share up to that point in time have been
-  uploaded to Amazon S3. These files include files written to the file share up to
-  the time that you make a request for notification. When the upload is done,
-  Storage Gateway sends you notification through an Amazon CloudWatch Event. You
-  can configure CloudWatch Events to send the notification through event targets
-  such as Amazon SNS or AWS Lambda function. This operation is only supported for
-  file gateways.
+  Storage Gateway can send a notification through Amazon CloudWatch Events when
+  all files written to your file share up to that point in time have been uploaded
+  to Amazon S3. These files include files written to the file share up to the time
+  that you make a request for notification. When the upload is done, Storage
+  Gateway sends you notification through an Amazon CloudWatch Event. You can
+  configure CloudWatch Events to send the notification through event targets such
+  as Amazon SNS or Lambda function. This operation is only supported for S3 File
+  Gateways.
 
   For more information, see [Getting file upload notification](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification)
-  in the *AWS Storage Gateway User Guide*.
+  in the *Storage Gateway User Guide*.
   """
   def notify_when_uploaded(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "NotifyWhenUploaded", input, options)
   end
 
   @doc """
-  Refreshes the cache for the specified file share.
+  Refreshes the cached inventory of objects for the specified file share.
 
   This operation finds objects in the Amazon S3 bucket that were added, removed,
   or replaced since the gateway last listed the bucket's contents and cached the
-  results. This operation is only supported in the file gateway type. You can
-  subscribe to be notified through an Amazon CloudWatch event when your
-  RefreshCache operation completes. For more information, see [Getting notified about file
+  results. This operation does not import files into the S3 File Gateway cache
+  storage. It only updates the cached inventory to reflect changes in the
+  inventory of the objects in the S3 bucket. This operation is only supported in
+  the S3 File Gateway types.
+
+  You can subscribe to be notified through an Amazon CloudWatch event when your
+  `RefreshCache` operation completes. For more information, see [Getting notified about file
   operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
-  in the *AWS Storage Gateway User Guide*.
+  in the *Storage Gateway User Guide*. This operation is Only supported for S3
+  File Gateways.
 
   When this API is called, it only initiates the refresh operation. When the API
   call completes and returns a success code, it doesn't necessarily mean that the
   file refresh has completed. You should use the refresh-complete notification to
   determine that the operation has completed before you check for new files on the
-  gateway file share. You can subscribe to be notified through an CloudWatch event
+  gateway file share. You can subscribe to be notified through a CloudWatch event
   when your `RefreshCache` operation completes.
 
-  Throttle limit: This API is asynchronous so the gateway will accept no more than
-  two refreshes at any time. We recommend using the refresh-complete CloudWatch
-  event notification before issuing additional requests. For more information, see
-  [Getting notified about file operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
-  in the *AWS Storage Gateway User Guide*.
+  Throttle limit: This API is asynchronous, so the gateway will accept no more
+  than two refreshes at any time. We recommend using the refresh-complete
+  CloudWatch event notification before issuing additional requests. For more
+  information, see [Getting notified about file operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
+  in the *Storage Gateway User Guide*.
 
   If you invoke the RefreshCache API when two requests are already being
   processed, any new request will cause an `InvalidGatewayRequestException` error
   because too many requests were sent to the server.
 
   For more information, see [Getting notified about file operations](https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification)
-  in the *AWS Storage Gateway User Guide*.
+  in the *Storage Gateway User Guide*.
   """
   def refresh_cache(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RefreshCache", input, options)
@@ -1098,7 +1144,8 @@ defmodule AWS.StorageGateway do
   Sets the password for the guest user `smbguest`.
 
   The `smbguest` user is the user when the authentication method for the file
-  share is set to `GuestAccess`.
+  share is set to `GuestAccess`. This operation only supported for S3 File
+  Gateways
   """
   def set_smb_guest_password(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "SetSMBGuestPassword", input, options)
@@ -1227,6 +1274,15 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Updates a file system association.
+
+  This operation is only supported in the FSx File Gateways.
+  """
+  def update_file_system_association(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateFileSystemAssociation", input, options)
+  end
+
+  @doc """
   Updates a gateway's metadata, which includes the gateway's name and time zone.
 
   To specify which gateway to update, use the Amazon Resource Name (ARN) of the
@@ -1274,7 +1330,7 @@ defmodule AWS.StorageGateway do
   @doc """
   Updates a Network File System (NFS) file share.
 
-  This operation is only supported in the file gateway type.
+  This operation is only supported in S3 File Gateways.
 
   To leave a file share field unchanged, set the corresponding input field to
   null.
@@ -1298,17 +1354,17 @@ defmodule AWS.StorageGateway do
   @doc """
   Updates a Server Message Block (SMB) file share.
 
-  This operation is only supported for file gateways.
+  This operation is only supported for S3 File Gateways.
 
   To leave a file share field unchanged, set the corresponding input field to
   null.
 
-  File gateways require AWS Security Token Service (AWS STS) to be activated to
-  enable you to create a file share. Make sure that AWS STS is activated in the
-  AWS Region you are creating your file gateway in. If AWS STS is not activated in
-  this AWS Region, activate it. For information about how to activate AWS STS, see
-  [Activating and deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
-  in the *AWS Identity and Access Management User Guide*.
+  File gateways require Security Token Service (STS) to be activated to enable you
+  to create a file share. Make sure that STS is activated in the Region you are
+  creating your file gateway in. If STS is not activated in this Region, activate
+  it. For information about how to activate STS, see [Activating and deactivating STS in an
+  Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
+  in the *Identity and Access Management User Guide*.
 
   File gateways don't support creating hard or symbolic links on a file share.
   """
@@ -1317,8 +1373,10 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Controls whether the shares on a gateway are visible in a net view or browse
-  list.
+  Controls whether the shares on an S3 File Gateway are visible in a net view or
+  browse list.
+
+  The operation is only supported for S3 File Gateways.
   """
   def update_smb_file_share_visibility(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSMBFileShareVisibility", input, options)

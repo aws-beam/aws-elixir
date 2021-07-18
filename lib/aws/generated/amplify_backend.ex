@@ -359,7 +359,7 @@ defmodule AWS.AmplifyBackend do
   end
 
   @doc """
-  Gets backend auth details.
+  Gets a backend auth details.
   """
   def get_backend_auth(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
@@ -386,9 +386,7 @@ defmodule AWS.AmplifyBackend do
   """
   def get_backend_job(%Client{} = client, app_id, backend_environment_name, job_id, options \\ []) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/job/#{URI.encode(backend_environment_name)}/#{
-        URI.encode(job_id)
-      }"
+      "/backend/#{URI.encode(app_id)}/job/#{URI.encode(backend_environment_name)}/#{URI.encode(job_id)}"
 
     headers = []
     query_params = []
@@ -422,6 +420,35 @@ defmodule AWS.AmplifyBackend do
       query_params,
       headers,
       nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Imports an existing backend authentication resource.
+  """
+  def import_backend_auth(
+        %Client{} = client,
+        app_id,
+        backend_environment_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/backend/#{URI.encode(app_id)}/auth/#{URI.encode(backend_environment_name)}/import"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
       options,
       200
     )
@@ -476,7 +503,7 @@ defmodule AWS.AmplifyBackend do
   end
 
   @doc """
-  Removes the AWS resources that are required to access the Amplify Admin UI.
+  Removes the AWS resources required to access the Amplify Admin UI.
   """
   def remove_backend_config(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{URI.encode(app_id)}/config/remove"
@@ -551,7 +578,7 @@ defmodule AWS.AmplifyBackend do
   end
 
   @doc """
-  Updates the AWS resources that are required to access the Amplify Admin UI.
+  Updates the AWS resources required to access the Amplify Admin UI.
   """
   def update_backend_config(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{URI.encode(app_id)}/config/update"
@@ -583,9 +610,7 @@ defmodule AWS.AmplifyBackend do
         options \\ []
       ) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/job/#{URI.encode(backend_environment_name)}/#{
-        URI.encode(job_id)
-      }"
+      "/backend/#{URI.encode(app_id)}/job/#{URI.encode(backend_environment_name)}/#{URI.encode(job_id)}"
 
     headers = []
     query_params = []

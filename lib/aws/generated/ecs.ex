@@ -10,9 +10,9 @@ defmodule AWS.ECS do
   containers on a cluster.
 
   You can host your cluster on a serverless infrastructure that is managed by
-  Amazon ECS by launching your services or tasks on AWS Fargate. For more control,
-  you can host your tasks on a cluster of Amazon Elastic Compute Cloud (Amazon
-  EC2) instances that you manage.
+  Amazon ECS by launching your services or tasks on Fargate. For more control, you
+  can host your tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2)
+  instances that you manage.
 
   Amazon ECS makes it easy to launch and stop container-based applications with
   simple API calls, allows you to get the state of your cluster from a centralized
@@ -51,9 +51,9 @@ defmodule AWS.ECS do
   capacity provider strategies to facilitate cluster auto scaling.
 
   Only capacity providers using an Auto Scaling group can be created. Amazon ECS
-  tasks on AWS Fargate use the `FARGATE` and `FARGATE_SPOT` capacity providers
-  which are already created and available to all accounts in Regions supported by
-  AWS Fargate.
+  tasks on Fargate use the `FARGATE` and `FARGATE_SPOT` capacity providers which
+  are already created and available to all accounts in Regions supported by
+  Fargate.
   """
   def create_capacity_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateCapacityProvider", input, options)
@@ -68,9 +68,9 @@ defmodule AWS.ECS do
 
   When you call the `CreateCluster` API operation, Amazon ECS attempts to create
   the Amazon ECS service-linked role for your account so that required resources
-  in other AWS services can be managed on your behalf. However, if the IAM user
-  that makes the call does not have permissions to create the service-linked role,
-  it is not created. For more information, see [Using Service-Linked Roles for Amazon
+  in other Amazon Web Services services can be managed on your behalf. However, if
+  the IAM user that makes the call does not have permissions to create the
+  service-linked role, it is not created. For more information, see [Using Service-Linked Roles for Amazon
   ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
@@ -346,10 +346,9 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Describes Amazon Elastic Container Service container instances.
+  Describes one or more container instances.
 
-  Returns metadata about registered and remaining resources on each container
-  instance requested.
+  Returns metadata about each container instance requested.
   """
   def describe_container_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeContainerInstances", input, options)
@@ -453,7 +452,9 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Lists the services that are running in a specified cluster.
+  Returns a list of services.
+
+  You can filter the results by cluster, launch type, and scheduling strategy.
   """
   def list_services(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServices", input, options)
@@ -490,11 +491,11 @@ defmodule AWS.ECS do
   end
 
   @doc """
-  Returns a list of tasks for a specified cluster.
+  Returns a list of tasks.
 
-  You can filter the results by family name, by a particular container instance,
-  or by the desired status of the task with the `family`, `containerInstance`, and
-  `desiredStatus` parameters.
+  You can filter the results by cluster, task definition family, container
+  instance, launch type, what IAM principal started the task, or by the desired
+  status of the task.
 
   Recently stopped tasks might appear in the returned results. Currently, stopped
   tasks appear in the returned results for at least one hour.
@@ -608,9 +609,9 @@ defmodule AWS.ECS do
 
   You can specify an IAM role for your task with the `taskRoleArn` parameter. When
   you specify an IAM role for a task, its containers can then use the latest
-  versions of the AWS CLI or SDKs to make API requests to the AWS services that
-  are specified in the IAM policy associated with the role. For more information,
-  see [IAM Roles for Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
+  versions of the CLI or SDKs to make API requests to the Amazon Web Services
+  services that are specified in the IAM policy associated with the role. For more
+  information, see [IAM Roles for Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   You can specify a Docker networking mode for the containers in your task
@@ -771,10 +772,16 @@ defmodule AWS.ECS do
   depending on whether your container instance was launched with the Amazon
   ECS-optimized AMI or another operating system.
 
-  `UpdateContainerAgent` requires the Amazon ECS-optimized AMI or Amazon Linux
-  with the `ecs-init` service installed and running. For help updating the Amazon
-  ECS container agent on other operating systems, see [Manually Updating the Amazon ECS Container
-  Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent)
+  The `UpdateContainerAgent` API isn't supported for container instances using the
+  Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container agent,
+  you can update the `ecs-init` package which will update the agent. For more
+  information, see [Updating the Amazon ECS container agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  The `UpdateContainerAgent` API requires an Amazon ECS-optimized AMI or Amazon
+  Linux AMI with the `ecs-init` service installed and running. For help updating
+  the Amazon ECS container agent on other operating systems, see [Manually updating the Amazon ECS container
+  agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   def update_container_agent(%Client{} = client, input, options \\ []) do
@@ -854,9 +861,9 @@ defmodule AWS.ECS do
   the desired count, deployment configuration, task placement constraints and
   strategies, and health check grace period can be updated using this API. If the
   network configuration, platform version, or task definition need to be updated,
-  a new AWS CodeDeploy deployment should be created. For more information, see
+  a new CodeDeploy deployment should be created. For more information, see
   [CreateDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html)
-  in the *AWS CodeDeploy API Reference*.
+  in the *CodeDeploy API Reference*.
 
   For services using an external deployment controller, you can update only the
   desired count, task placement constraints and strategies, and health check grace

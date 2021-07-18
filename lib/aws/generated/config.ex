@@ -277,6 +277,27 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Returns a list of the conformance packs and their associated compliance status
+  with the count of compliant and noncompliant AWS Config rules within each
+  conformance pack.
+
+  Also returns the total rule count which includes compliant rules, noncompliant
+  rules, and rules that cannot be evaluated due to insufficient data.
+
+  The results can return an empty result page, but if you have a `nextToken`, the
+  results are displayed on the next page.
+  """
+  def describe_aggregate_compliance_by_conformance_packs(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DescribeAggregateComplianceByConformancePacks",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Returns a list of authorizations granted to various aggregator accounts and
   regions.
   """
@@ -637,6 +658,25 @@ defmodule AWS.Config do
       client,
       metadata(),
       "GetAggregateConfigRuleComplianceSummary",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Returns the count of compliant and noncompliant conformance packs across all AWS
+  Accounts and AWS Regions in an aggregator.
+
+  You can filter based on AWS Account ID or AWS Region.
+
+  The results can return an empty result page, but if you have a nextToken, the
+  results are displayed on the next page.
+  """
+  def get_aggregate_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "GetAggregateConformancePackComplianceSummary",
       input,
       options
     )
@@ -1116,7 +1156,7 @@ defmodule AWS.Config do
   UPDATE_IN_PROGRESS until the conformance pack is created or updated. You cannot
   update a conformance pack while it is in this state.
 
-  You can create 6 conformance packs with 25 AWS Config rules in each pack and 3
+  You can create 50 conformance packs with 25 AWS Config rules in each pack and 3
   delegated administrator per organization.
   """
   def put_organization_conformance_pack(%Client{} = client, input, options \\ []) do

@@ -9,12 +9,12 @@ defmodule AWS.AutoScaling do
   instances based on user-defined scaling policies, scheduled actions, and health
   checks.
 
-  Use this service with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load
-  Balancing.
-
-  For more information, including information about granting IAM users required
-  permissions for Amazon EC2 Auto Scaling actions, see the [Amazon EC2 Auto Scaling User
+  For more information about Amazon EC2 Auto Scaling, see the [Amazon EC2 Auto Scaling User
   Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html).
+  For information about granting IAM users required permissions for calls to
+  Amazon EC2 Auto Scaling, see [Granting IAM users required permissions for Amazon EC2 Auto Scaling
+  resources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-permissions.html)
+  in the *Amazon EC2 Auto Scaling API Reference*.
   """
 
   alias AWS.Client
@@ -120,8 +120,9 @@ defmodule AWS.AutoScaling do
   Cancellation does not roll back any replacements that have already been
   completed, but it prevents new replacements from being started.
 
-  For more information, see [Replacing Auto Scaling instances based on an instance refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-  in the *Amazon EC2 Auto Scaling User Guide*.
+  This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+  in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
+  Scaling group after you make configuration changes.
   """
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelInstanceRefresh", input, options)
@@ -292,11 +293,21 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS
-  account.
+  Deletes the warm pool for the specified Auto Scaling group.
 
-  For information about requesting an increase, see [Amazon EC2 Auto Scaling service
-  quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
+  For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
+  """
+  def delete_warm_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteWarmPool", input, options)
+  end
+
+  @doc """
+  Describes the current Amazon EC2 Auto Scaling resource quotas for your account.
+
+  When you establish an account, the account has initial quotas on the maximum
+  number of Auto Scaling groups and launch configurations that you can create in a
+  given Region. For more information, see [Amazon EC2 Auto Scaling service quotas](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_account_limits(%Client{} = client, input, options \\ []) do
@@ -304,33 +315,34 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Describes the available adjustment types for Amazon EC2 Auto Scaling scaling
+  Describes the available adjustment types for step scaling and simple scaling
   policies.
-
-  These settings apply to step scaling policies and simple scaling policies; they
-  do not apply to target tracking scaling policies.
 
   The following adjustment types are supported:
 
-    * ChangeInCapacity
+    * `ChangeInCapacity`
 
-    * ExactCapacity
+    * `ExactCapacity`
 
-    * PercentChangeInCapacity
+    * `PercentChangeInCapacity`
   """
   def describe_adjustment_types(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAdjustmentTypes", input, options)
   end
 
   @doc """
-  Describes one or more Auto Scaling groups.
+  Gets information about the Auto Scaling groups in the account and Region.
+
+  This operation returns information about instances in Auto Scaling groups. To
+  retrieve information about the instances in a warm pool, you must call the
+  `DescribeWarmPool` API.
   """
   def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAutoScalingGroups", input, options)
   end
 
   @doc """
-  Describes one or more Auto Scaling instances.
+  Gets information about the Auto Scaling instances in the account and Region.
   """
   def describe_auto_scaling_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAutoScalingInstances", input, options)
@@ -350,9 +362,19 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Describes one or more instance refreshes.
+  Gets information about the instance refreshes for the specified Auto Scaling
+  group.
 
-  You can determine the status of a request by looking at the `Status` parameter.
+  This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+  in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
+  Scaling group after you make configuration changes.
+
+  To help you determine the status of an instance refresh, this operation returns
+  information about the instance refreshes you previously initiated, including
+  their status, end time, the percentage of the instance refresh that is complete,
+  and the number of instances remaining to update before the instance refresh is
+  complete.
+
   The following are the possible statuses:
 
     * `Pending` - The request was created, but the operation has not
@@ -370,16 +392,13 @@ defmodule AWS.AutoScaling do
   completed, but it prevents new replacements from being started.
 
     * `Cancelled` - The operation is cancelled.
-
-  For more information, see [Replacing Auto Scaling instances based on an instance refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInstanceRefreshes", input, options)
   end
 
   @doc """
-  Describes one or more launch configurations.
+  Gets information about the launch configurations in the account and Region.
   """
   def describe_launch_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLaunchConfigurations", input, options)
@@ -390,34 +409,79 @@ defmodule AWS.AutoScaling do
 
   The following hook types are supported:
 
-    * autoscaling:EC2_INSTANCE_LAUNCHING
+    * `autoscaling:EC2_INSTANCE_LAUNCHING`
 
-    * autoscaling:EC2_INSTANCE_TERMINATING
+    * `autoscaling:EC2_INSTANCE_TERMINATING`
   """
   def describe_lifecycle_hook_types(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLifecycleHookTypes", input, options)
   end
 
   @doc """
-  Describes the lifecycle hooks for the specified Auto Scaling group.
+  Gets information about the lifecycle hooks for the specified Auto Scaling group.
   """
   def describe_lifecycle_hooks(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLifecycleHooks", input, options)
   end
 
   @doc """
-  Describes the target groups for the specified Auto Scaling group.
+  Gets information about the load balancer target groups for the specified Auto
+  Scaling group.
+
+  To determine the availability of registered instances, use the `State` element
+  in the response. When you attach a target group to an Auto Scaling group, the
+  initial `State` value is `Adding`. The state transitions to `Added` after all
+  Auto Scaling instances are registered with the target group. If Elastic Load
+  Balancing health checks are enabled for the Auto Scaling group, the state
+  transitions to `InService` after at least one Auto Scaling instance passes the
+  health check. When the target group is in the `InService` state, Amazon EC2 Auto
+  Scaling can terminate and replace any instances that are reported as unhealthy.
+  If no registered instances pass the health checks, the target group doesn't
+  enter the `InService` state.
+
+  Target groups also have an `InService` state if you attach them in the
+  `CreateAutoScalingGroup` API call. If your target group state is `InService`,
+  but it is not working properly, check the scaling activities by calling
+  `DescribeScalingActivities` and take any corrective actions necessary.
+
+  For help with failed health checks, see [Troubleshooting Amazon EC2 Auto Scaling: Health
+  checks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html)
+  in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Elastic Load Balancing and Amazon EC2 Auto
+  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLoadBalancerTargetGroups", input, options)
   end
 
   @doc """
-  Describes the load balancers for the specified Auto Scaling group.
+  Gets information about the load balancers for the specified Auto Scaling group.
 
   This operation describes only Classic Load Balancers. If you have Application
   Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
   `DescribeLoadBalancerTargetGroups` API instead.
+
+  To determine the availability of registered instances, use the `State` element
+  in the response. When you attach a load balancer to an Auto Scaling group, the
+  initial `State` value is `Adding`. The state transitions to `Added` after all
+  Auto Scaling instances are registered with the load balancer. If Elastic Load
+  Balancing health checks are enabled for the Auto Scaling group, the state
+  transitions to `InService` after at least one Auto Scaling instance passes the
+  health check. When the load balancer is in the `InService` state, Amazon EC2
+  Auto Scaling can terminate and replace any instances that are reported as
+  unhealthy. If no registered instances pass the health checks, the load balancer
+  doesn't enter the `InService` state.
+
+  Load balancers also have an `InService` state if you attach them in the
+  `CreateAutoScalingGroup` API call. If your load balancer state is `InService`,
+  but it is not working properly, check the scaling activities by calling
+  `DescribeScalingActivities` and take any corrective actions necessary.
+
+  For help with failed health checks, see [Troubleshooting Amazon EC2 Auto Scaling: Health
+  checks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html)
+  in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Elastic Load Balancing and Amazon EC2 Auto
+  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLoadBalancers", input, options)
@@ -434,27 +498,33 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Describes the notification actions associated with the specified Auto Scaling
-  group.
+  Gets information about the Amazon SNS notifications that are configured for one
+  or more Auto Scaling groups.
   """
   def describe_notification_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeNotificationConfigurations", input, options)
   end
 
   @doc """
-  Describes the policies for the specified Auto Scaling group.
+  Gets information about the scaling policies in the account and Region.
   """
   def describe_policies(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePolicies", input, options)
   end
 
   @doc """
-  Describes one or more scaling activities for the specified Auto Scaling group.
+  Gets information about the scaling activities in the account and Region.
 
-  To view the scaling activities from the Amazon EC2 Auto Scaling console, choose
-  the **Activity** tab of the Auto Scaling group. When scaling events occur, you
-  see scaling activity messages in the **Activity history**. For more information,
-  see [Verifying a scaling activity for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html)
+  When scaling events occur, you see a record of the scaling activity in the
+  scaling activities. For more information, see [Verifying a scaling activity for an Auto Scaling
+  group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
+
+  If the scaling event succeeds, the value of the `StatusCode` element in the
+  response is `Successful`. If an attempt to launch instances failed, the
+  `StatusCode` value is `Failed` or `Cancelled` and the `StatusMessage` element in
+  the response indicates the cause of the failure. For help interpreting the
+  `StatusMessage`, see [Troubleshooting Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
@@ -470,11 +540,11 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
-  Describes the actions scheduled for your Auto Scaling group that haven't run or
-  that have not reached their end time.
+  Gets information about the scheduled actions that haven't run or that have not
+  reached their end time.
 
-  To describe the actions that have already run, call the
-  `DescribeScalingActivities` API.
+  To describe the scaling activities for scheduled actions that have already run,
+  call the `DescribeScalingActivities` API.
   """
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeScheduledActions", input, options)
@@ -508,6 +578,16 @@ defmodule AWS.AutoScaling do
   """
   def describe_termination_policy_types(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTerminationPolicyTypes", input, options)
+  end
+
+  @doc """
+  Gets information about a warm pool and its instances.
+
+  For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
+  """
+  def describe_warm_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeWarmPool", input, options)
   end
 
   @doc """
@@ -615,6 +695,25 @@ defmodule AWS.AutoScaling do
   end
 
   @doc """
+  Retrieves the forecast data for a predictive scaling policy.
+
+  Load forecasts are predictions of the hourly load values using historical load
+  data from CloudWatch and an analysis of historical trends. Capacity forecasts
+  are represented as predicted values for the minimum capacity that is needed on
+  an hourly basis, based on the hourly load forecast.
+
+  A minimum of 24 hours of data is required to create the initial forecasts.
+  However, having a full 14 days of historical data results in more accurate
+  forecasts.
+
+  For more information, see [Predictive scaling for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
+  """
+  def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetPredictiveScalingForecast", input, options)
+  end
+
+  @doc """
   Creates or updates a lifecycle hook for the specified Auto Scaling group.
 
   A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an
@@ -679,10 +778,21 @@ defmodule AWS.AutoScaling do
   @doc """
   Creates or updates a scaling policy for an Auto Scaling group.
 
-  For more information about using scaling policies to scale your Auto Scaling
-  group, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html)
+  Scaling policies are used to scale an Auto Scaling group based on configurable
+  metrics. If no policies are defined, the dynamic scaling and predictive scaling
+  features are not used.
+
+  For more information about using dynamic scaling, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html)
   and [Step and simple scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
+
+  For more information about using predictive scaling, see [Predictive scaling for Amazon EC2 Auto
+  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
+
+  You can view the scaling policies for an Auto Scaling group using the
+  `DescribePolicies` API call. If you are no longer using a scaling policy, you
+  can delete it by calling the `DeletePolicy` API.
   """
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutScalingPolicy", input, options)
@@ -693,9 +803,35 @@ defmodule AWS.AutoScaling do
 
   For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
+
+  You can view the scheduled actions for an Auto Scaling group using the
+  `DescribeScheduledActions` API call. If you are no longer using a scheduled
+  action, you can delete it by calling the `DeleteScheduledAction` API.
   """
   def put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutScheduledUpdateGroupAction", input, options)
+  end
+
+  @doc """
+  Creates or updates a warm pool for the specified Auto Scaling group.
+
+  A warm pool is a pool of pre-initialized EC2 instances that sits alongside the
+  Auto Scaling group. Whenever your application needs to scale out, the Auto
+  Scaling group can draw on the warm pool to meet its new desired capacity. For
+  more information and example configurations, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
+
+  This operation must be called from the Region in which the Auto Scaling group
+  was created. This operation cannot be called on an Auto Scaling group that has a
+  mixed instances policy or a launch template or launch configuration that
+  requests Spot Instances.
+
+  You can view the instances in the warm pool using the `DescribeWarmPool` API
+  call. If you are no longer using a warm pool, you can delete it by calling the
+  `DeleteWarmPool` API.
+  """
+  def put_warm_pool(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutWarmPool", input, options)
   end
 
   @doc """
@@ -725,7 +861,7 @@ defmodule AWS.AutoScaling do
     5. If you finish before the timeout period ends, complete the
   lifecycle action.
 
-  For more information, see [Auto Scaling lifecycle](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html)
+  For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def record_lifecycle_action_heartbeat(%Client{} = client, input, options \\ []) do
@@ -770,6 +906,8 @@ defmodule AWS.AutoScaling do
   @doc """
   Updates the instance protection settings of the specified instances.
 
+  This operation cannot be called on instances in a warm pool.
+
   For more information about preventing instances that are part of an Auto Scaling
   group from terminating on scale in, see [Instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection)
   in the *Amazon EC2 Auto Scaling User Guide*.
@@ -783,17 +921,18 @@ defmodule AWS.AutoScaling do
 
   @doc """
   Starts a new instance refresh operation, which triggers a rolling replacement of
-  all previously launched instances in the Auto Scaling group with a new group of
+  previously launched instances in the Auto Scaling group with a new group of
   instances.
 
-  If successful, this call creates a new instance refresh request with a unique ID
+  This operation is part of the [instance refresh feature](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+  in Amazon EC2 Auto Scaling, which helps you update instances in your Auto
+  Scaling group after you make configuration changes.
+
+  If the call succeeds, it creates a new instance refresh request with a unique ID
   that you can use to track its progress. To query its status, call the
   `DescribeInstanceRefreshes` API. To describe the instance refreshes that have
   already run, call the `DescribeInstanceRefreshes` API. To cancel an instance
   refresh operation in progress, use the `CancelInstanceRefresh` API.
-
-  For more information, see [Replacing Auto Scaling instances based on an instance refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   def start_instance_refresh(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartInstanceRefresh", input, options)
@@ -816,6 +955,8 @@ defmodule AWS.AutoScaling do
 
   @doc """
   Terminates the specified instance and optionally adjusts the desired group size.
+
+  This operation cannot be called on instances in a warm pool.
 
   This call simply makes a termination request. The instance is not terminated
   immediately. When an instance is terminated, the instance status changes to

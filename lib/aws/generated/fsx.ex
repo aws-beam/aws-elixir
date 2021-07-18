@@ -64,6 +64,37 @@ defmodule AWS.FSx do
   end
 
   @doc """
+  Copies an existing backup within the same AWS account to another Region
+  (cross-Region copy) or within the same Region (in-Region copy).
+
+  You can have up to five backup copy requests in progress to a single destination
+  Region per account.
+
+  You can use cross-Region backup copies for cross-region disaster recovery. You
+  periodically take backups and copy them to another Region so that in the event
+  of a disaster in the primary Region, you can restore from backup and recover
+  availability quickly in the other Region. You can make cross-Region copies only
+  within your AWS partition.
+
+  You can also use backup copies to clone your file data set to another Region or
+  within the same Region.
+
+  You can use the `SourceRegion` parameter to specify the AWS Region from which
+  the backup will be copied. For example, if you make the call from the
+  `us-west-1` Region and want to copy a backup from the `us-east-2` Region, you
+  specify `us-east-2` in the `SourceRegion` parameter to make a cross-Region copy.
+  If you don't specify a Region, the backup copy is created in the same Region
+  where the request is sent from (in-Region copy).
+
+  For more information on creating backup copies, see [ Copying backups](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#copy-backups)
+  in the *Amazon FSx for Windows User Guide* and [Copying backups](https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html#copy-backups)
+  in the *Amazon FSx for Lustre User Guide*.
+  """
+  def copy_backup(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CopyBackup", input, options)
+  end
+
+  @doc """
   Creates a backup of an existing Amazon FSx file system.
 
   Creating regular backups for your file system is a best practice, enabling you
@@ -402,6 +433,8 @@ defmodule AWS.FSx do
   For Amazon FSx for Windows File Server file systems, you can update the
   following properties:
 
+    * AuditLogConfiguration
+
     * AutomaticBackupRetentionDays
 
     * DailyAutomaticBackupStartTime
@@ -421,6 +454,8 @@ defmodule AWS.FSx do
     * AutomaticBackupRetentionDays
 
     * DailyAutomaticBackupStartTime
+
+    * DataCompressionType
 
     * StorageCapacity
 

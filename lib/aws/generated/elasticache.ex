@@ -38,18 +38,20 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Adds up to 50 cost allocation tags to the named resource.
+  A tag is a key-value pair where the key and value are case-sensitive.
 
-  A cost allocation tag is a key-value pair where the key and value are
-  case-sensitive. You can use cost allocation tags to categorize and track your
-  AWS costs.
+  You can use tags to categorize and track all your ElastiCache resources, with
+  the exception of global replication group. When you add or remove tags on
+  replication groups, those actions will be replicated to all nodes in the
+  replication group. For more information, see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
 
-  When you apply tags to your ElastiCache resources, AWS generates a cost
-  allocation report as a comma-separated value (CSV) file with your usage and
-  costs aggregated by your tags. You can apply tags that represent business
-  categories (such as cost centers, application names, or owners) to organize your
-  costs across multiple services. For more information, see [Using Cost Allocation Tags in Amazon
-  ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html)
+  For example, you can use cost-allocation tags to your ElastiCache resources, AWS
+  generates a cost allocation report as a comma-separated value (CSV) file with
+  your usage and costs aggregated by your tags. You can apply tags that represent
+  business categories (such as cost centers, application names, or owners) to
+  organize your costs across multiple services.
+
+  For more information, see [Using Cost Allocation Tags in Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html)
   in the *ElastiCache User Guide*.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
@@ -235,7 +237,7 @@ defmodule AWS.ElastiCache do
   Datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
 
     * The **GlobalReplicationGroupIdSuffix** is the name of the Global
-  Datastore.
+  datastore.
 
     * The **PrimaryReplicationGroupId** represents the name of the
   primary cluster that accepts writes and will replicate updates to the secondary
@@ -250,7 +252,7 @@ defmodule AWS.ElastiCache do
   replication group.
 
   This API can be used to create a standalone regional replication group or a
-  secondary replication group associated with a Global Datastore.
+  secondary replication group associated with a Global datastore.
 
   A Redis (cluster mode disabled) replication group is a collection of clusters,
   where one of the clusters is a read/write primary and the others are read-only
@@ -316,7 +318,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Decreases the number of node groups in a Global Datastore
+  Decreases the number of node groups in a Global datastore
   """
   def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -397,17 +399,21 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Deleting a Global Datastore is a two-step process:
+  Deleting a Global datastore is a two-step process:
 
     * First, you must `DisassociateGlobalReplicationGroup` to remove the
-  secondary clusters in the Global Datastore.
+  secondary clusters in the Global datastore.
 
-    * Once the Global Datastore contains only the primary cluster, you
-  can use DeleteGlobalReplicationGroup API to delete the Global Datastore while
-  retainining the primary cluster using Retain…= true.
+    * Once the Global datastore contains only the primary cluster, you
+  can use the `DeleteGlobalReplicationGroup` API to delete the Global datastore
+  while retainining the primary cluster using
+  `RetainPrimaryReplicationGroup=true`.
 
   Since the Global Datastore has only a primary cluster, you can delete the Global
-  Datastore while retaining the primary by setting `RetainPrimaryCluster=true`.
+  Datastore while retaining the primary by setting
+  `RetainPrimaryReplicationGroup=true`. The primary cluster is never deleted when
+  deleting a Global Datastore. It can only be deleted when it no longer is
+  associated with any Global Datastore.
 
   When you receive a successful response from this operation, Amazon ElastiCache
   immediately begins deleting the selected resources; you cannot cancel or revert
@@ -567,7 +573,7 @@ defmodule AWS.ElastiCache do
   @doc """
   Returns information about a particular global replication group.
 
-  If no identifier is specified, returns information about all Global Datastores.
+  If no identifier is specified, returns information about all Global datastores.
   """
   def describe_global_replication_groups(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeGlobalReplicationGroups", input, options)
@@ -648,7 +654,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Remove a secondary cluster from the Global Datastore using the Global Datastore
+  Remove a secondary cluster from the Global datastore using the Global datastore
   name.
 
   The secondary cluster will no longer receive updates from the primary cluster,
@@ -669,7 +675,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Increase the number of node groups in the Global Datastore
+  Increase the number of node groups in the Global datastore
   """
   def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -705,17 +711,16 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Lists all cost allocation tags currently on the named resource.
+  Lists all tags currently on a named resource.
 
-  A `cost allocation tag` is a key-value pair where the key is case-sensitive and
-  the value is optional. You can use cost allocation tags to categorize and track
-  your AWS costs.
+  A tag is a key-value pair where the key and value are case-sensitive. You can
+  use tags to categorize and track all your ElastiCache resources, with the
+  exception of global replication group. When you add or remove tags on
+  replication groups, those actions will be replicated to all nodes in the
+  replication group. For more information, see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
 
   If the cluster is not in the *available* state, `ListTagsForResource` returns an
   error.
-
-  You can have a maximum of 50 cost allocation tags on an ElastiCache resource.
-  For more information, see [Monitoring Costs with Tags](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html).
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
@@ -749,7 +754,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Modifies the settings for a Global Datastore.
+  Modifies the settings for a Global datastore.
   """
   def modify_global_replication_group(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyGlobalReplicationGroup", input, options)
@@ -852,6 +857,12 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Removes the tags identified by the `TagKeys` list from the named resource.
+
+  A tag is a key-value pair where the key and value are case-sensitive. You can
+  use tags to categorize and track all your ElastiCache resources, with the
+  exception of global replication group. When you add or remove tags on
+  replication groups, those actions will be replicated to all nodes in the
+  replication group. For more information, see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
   """
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RemoveTagsFromResource", input, options)

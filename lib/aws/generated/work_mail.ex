@@ -92,6 +92,14 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Creates a new mobile device access rule for the specified Amazon WorkMail
+  organization.
+  """
+  def create_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateMobileDeviceAccessRule", input, options)
+  end
+
+  @doc """
   Creates a new Amazon WorkMail organization.
 
   Optionally, you can choose to associate an existing AWS Directory Service
@@ -158,6 +166,14 @@ defmodule AWS.WorkMail do
   """
   def delete_mailbox_permissions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteMailboxPermissions", input, options)
+  end
+
+  @doc """
+  Deletes a mobile device access rule for the specified Amazon WorkMail
+  organization.
+  """
+  def delete_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteMobileDeviceAccessRule", input, options)
   end
 
   @doc """
@@ -283,6 +299,17 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+  Simulates the effect of the mobile device access rules for the given attributes
+  of a sample access event.
+
+  Use this method to test the effects of the current set of mobile device access
+  rules for the Amazon WorkMail organization for a particular user's attributes.
+  """
+  def get_mobile_device_access_effect(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetMobileDeviceAccessEffect", input, options)
+  end
+
+  @doc """
   Lists the access control rules for the specified organization.
   """
   def list_access_control_rules(%Client{} = client, input, options \\ []) do
@@ -326,6 +353,14 @@ defmodule AWS.WorkMail do
   """
   def list_mailbox_permissions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListMailboxPermissions", input, options)
+  end
+
+  @doc """
+  Lists the mobile device access rules for the specified Amazon WorkMail
+  organization.
+  """
+  def list_mobile_device_access_rules(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListMobileDeviceAccessRules", input, options)
   end
 
   @doc """
@@ -451,6 +486,14 @@ defmodule AWS.WorkMail do
   """
   def update_mailbox_quota(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateMailboxQuota", input, options)
+  end
+
+  @doc """
+  Updates a mobile device access rule for the specified Amazon WorkMail
+  organization.
+  """
+  def update_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateMobileDeviceAccessRule", input, options)
   end
 
   @doc """

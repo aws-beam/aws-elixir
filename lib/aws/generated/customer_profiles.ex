@@ -16,7 +16,7 @@ defmodule AWS.CustomerProfiles do
   (CRM), ServiceNow (ITSM), and your enterprise resource planning (ERP), with
   contact history from your Amazon Connect contact center.
 
-  If you're new to Amazon Connect, you might find it helpful to also review the
+  If you're new to Amazon Connect , you might find it helpful to also review the
   [Amazon Connect Administrator Guide](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html).
   """
 
@@ -291,6 +291,79 @@ defmodule AWS.CustomerProfiles do
       query_params,
       headers,
       input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and subject to change.
+
+  Before calling this API, use
+  [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) or
+  [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html)
+  to enable identity resolution: set `Matching` to true.
+
+  GetMatches returns potentially matching profiles, based on the results of the
+  latest run of a machine learning process.
+
+  Amazon Connect runs a batch process every Saturday at 12AM UTC to identify
+  matching profiles. The results are returned up to seven days after the Saturday
+  run.
+
+  Amazon Connect uses the following profile attributes to identify matches:
+
+    * PhoneNumber
+
+    * HomePhoneNumber
+
+    * BusinessPhoneNumber
+
+    * MobilePhoneNumber
+
+    * EmailAddress
+
+    * PersonalEmailAddress
+
+    * BusinessEmailAddress
+
+    * FullName
+
+    * BusinessName
+  """
+  def get_matches(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{URI.encode(domain_name)}/matches"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
       options,
       nil
     )
@@ -580,6 +653,59 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  This API is in preview release for Amazon Connect and subject to change.
+
+  Runs an AWS Lambda job that does the following:
+
+    1. All the profileKeys in the `ProfileToBeMerged` will be moved to
+  the main profile.
+
+    2. All the objects in the `ProfileToBeMerged` will be moved to the
+  main profile.
+
+    3. All the `ProfileToBeMerged` will be deleted at the end.
+
+    4. All the profileKeys in the `ProfileIdsToBeMerged` will be moved
+  to the main profile.
+
+    5. Standard fields are merged as follows:
+
+      1. Fields are always "union"-ed if there are no
+  conflicts in standard fields or attributeKeys.
+
+      2. When there are conflicting fields:
+
+        1. If no `SourceProfileIds` entry is
+  specified, the main Profile value is always taken.
+
+        2. If a `SourceProfileIds` entry is
+  specified, the specified profileId is always taken, even if it is a NULL value.
+
+  You can use MergeProfiles together with
+  [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html),
+  which returns potentially matching profiles, or use it with the results of
+  another matching system. After profiles have been merged, they cannot be
+  separated (unmerged).
+  """
+  def merge_profiles(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{URI.encode(domain_name)}/profiles/objects/merge"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Adds an integration between the service and a third-party service, which
   includes Amazon AppFlow and Amazon Connect.
 
@@ -764,7 +890,7 @@ defmodule AWS.CustomerProfiles do
   Updates the properties of a domain, including creating or selecting a dead
   letter queue or an encryption key.
 
-  Once a domain is created, the name can’t be changed.
+  After a domain is created, the name can’t be changed.
   """
   def update_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{URI.encode(domain_name)}"

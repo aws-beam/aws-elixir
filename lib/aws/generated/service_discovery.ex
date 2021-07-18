@@ -3,15 +3,16 @@
 
 defmodule AWS.ServiceDiscovery do
   @moduledoc """
-  AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces
+  Cloud Map
+
+  With Cloud Map, you can configure public DNS, private DNS, or HTTP namespaces
   that your microservice applications run in.
 
-  When an instance of the service becomes available, you can call the AWS Cloud
-  Map API to register the instance with AWS Cloud Map. For public or private DNS
-  namespaces, AWS Cloud Map automatically creates DNS records and an optional
-  health check. Clients that submit public or private DNS queries, or HTTP
-  requests, for the service receive an answer that contains up to eight healthy
-  records.
+  When an instance becomes available, you can call the Cloud Map API to register
+  the instance with Cloud Map. For public or private DNS namespaces, Cloud Map
+  automatically creates DNS records and an optional health check. Clients that
+  submit public or private DNS queries, or HTTP requests, for the service receive
+  an answer that contains up to eight healthy records.
   """
 
   alias AWS.Client
@@ -36,51 +37,55 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Creates an HTTP namespace.
 
-  Service instances that you register using an HTTP namespace can be discovered
-  using a `DiscoverInstances` request but can't be discovered using DNS.
+  Service instances registered using an HTTP namespace can be discovered using a
+  `DiscoverInstances` request but can't be discovered using DNS.
 
   For the current quota on the number of namespaces that you can create using the
-  same AWS account, see [AWS Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the *AWS Cloud Map Developer Guide*.
+  same account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  in the *Cloud Map Developer Guide*.
   """
   def create_http_namespace(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateHttpNamespace", input, options)
   end
 
   @doc """
-  Creates a private namespace based on DNS, which will be visible only inside a
+  Creates a private namespace based on DNS, which is visible only inside a
   specified Amazon VPC.
 
   The namespace defines your service naming scheme. For example, if you name your
   namespace `example.com` and name your service `backend`, the resulting DNS name
-  for the service will be `backend.example.com`. For the current quota on the
-  number of namespaces that you can create using the same AWS account, see [AWS Cloud Map
-  Limits](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the *AWS Cloud Map Developer Guide*.
+  for the service is `backend.example.com`. Service instances that are registered
+  using a private DNS namespace can be discovered using either a
+  `DiscoverInstances` request or using DNS. For the current quota on the number of
+  namespaces that you can create using the same account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  in the *Cloud Map Developer Guide*.
   """
   def create_private_dns_namespace(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreatePrivateDnsNamespace", input, options)
   end
 
   @doc """
-  Creates a public namespace based on DNS, which will be visible on the internet.
+  Creates a public namespace based on DNS, which is visible on the internet.
 
   The namespace defines your service naming scheme. For example, if you name your
   namespace `example.com` and name your service `backend`, the resulting DNS name
-  for the service will be `backend.example.com`. For the current quota on the
-  number of namespaces that you can create using the same AWS account, see [AWS Cloud Map
-  Limits](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the *AWS Cloud Map Developer Guide*.
+  for the service is `backend.example.com`. You can discover instances that were
+  registered with a public DNS namespace by using either a `DiscoverInstances`
+  request or using DNS. For the current quota on the number of namespaces that you
+  can create using the same account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  in the *Cloud Map Developer Guide*.
   """
   def create_public_dns_namespace(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreatePublicDnsNamespace", input, options)
   end
 
   @doc """
-  Creates a service, which defines the configuration for the following entities:
+  Creates a service.
+
+  This action defines the configuration for the following entities:
 
     * For public and private DNS namespaces, one of the following
-  combinations of DNS records in Amazon Route 53:
+  combinations of DNS records in Amazon Route 53:
 
       * `A`
 
@@ -95,13 +100,13 @@ defmodule AWS.ServiceDiscovery do
     * Optionally, a health check
 
   After you create the service, you can submit a
-  [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, and AWS Cloud Map uses the values in the configuration to create the
+  [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, and Cloud Map uses the values in the configuration to create the
   specified entities.
 
   For the current quota on the number of instances that you can register using the
-  same namespace and using the same service, see [AWS Cloud Map
-  Limits](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the *AWS Cloud Map Developer Guide*.
+  same namespace and using the same service, see [Cloud Map
+  quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  in the *Cloud Map Developer Guide*.
   """
   def create_service(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateService", input, options)
@@ -127,8 +132,8 @@ defmodule AWS.ServiceDiscovery do
   end
 
   @doc """
-  Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud
-  Map created for the specified instance.
+  Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map
+  created for the specified instance.
   """
   def deregister_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeregisterInstance", input, options)
@@ -156,7 +161,7 @@ defmodule AWS.ServiceDiscovery do
   Gets the current health status (`Healthy`, `Unhealthy`, or `Unknown`) of one or
   more instances that are associated with a specified service.
 
-  There is a brief delay between when you register an instance and when the health
+  There's a brief delay between when you register an instance and when the health
   status for the instance is available.
   """
   def get_instances_health_status(%Client{} = client, input, options \\ []) do
@@ -198,7 +203,7 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Lists summary information about the namespaces that were created by the current
-  AWS account.
+  account.
   """
   def list_namespaces(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListNamespaces", input, options)
@@ -232,9 +237,9 @@ defmodule AWS.ServiceDiscovery do
 
   When you submit a `RegisterInstance` request, the following occurs:
 
-    * For each DNS record that you define in the service that is
-  specified by `ServiceId`, a record is created or updated in the hosted zone that
-  is associated with the corresponding namespace.
+    * For each DNS record that you define in the service that's
+  specified by `ServiceId`, a record is created or updated in the hosted zone
+  that's associated with the corresponding namespace.
 
     * If the service includes `HealthCheckConfig`, a health check is
   created based on the settings in the health check configuration.
@@ -246,8 +251,8 @@ defmodule AWS.ServiceDiscovery do
   request and specify the same service ID and instance ID.
 
   For more information, see
-  [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html).  When AWS Cloud Map receives a DNS query for the specified DNS name, it returns
-  the applicable value:
+  [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html).  When Cloud Map receives a DNS query for the specified DNS name, it returns the
+  applicable value:
 
     * **If the health check is healthy**: returns all the records
 
@@ -258,9 +263,9 @@ defmodule AWS.ServiceDiscovery do
   all the records
 
   For the current quota on the number of instances that you can register using the
-  same namespace and using the same service, see [AWS Cloud Map
-  Limits](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
-  in the *AWS Cloud Map Developer Guide*.
+  same namespace and using the same service, see [Cloud Map
+  quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
+  in the *Cloud Map Developer Guide*.
   """
   def register_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RegisterInstance", input, options)
@@ -281,12 +286,19 @@ defmodule AWS.ServiceDiscovery do
   end
 
   @doc """
+  Updates an HTTP namespace.
+  """
+  def update_http_namespace(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateHttpNamespace", input, options)
+  end
+
+  @doc """
   Submits a request to change the health status of a custom health check to
   healthy or unhealthy.
 
   You can use `UpdateInstanceCustomHealthStatus` to change the status only for
   custom health checks, which you define using `HealthCheckCustomConfig` when you
-  create a service. You can't use it to change the status for Route 53 health
+  create a service. You can't use it to change the status for Route 53 health
   checks, which you define using `HealthCheckConfig`.
 
   For more information, see
@@ -294,6 +306,20 @@ defmodule AWS.ServiceDiscovery do
   """
   def update_instance_custom_health_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateInstanceCustomHealthStatus", input, options)
+  end
+
+  @doc """
+  Updates a private DNS namespace.
+  """
+  def update_private_dns_namespace(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePrivateDnsNamespace", input, options)
+  end
+
+  @doc """
+  Updates a public DNS namespace.
+  """
+  def update_public_dns_namespace(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePublicDnsNamespace", input, options)
   end
 
   @doc """
@@ -312,12 +338,12 @@ defmodule AWS.ServiceDiscovery do
   from the service.
 
     * If you omit an existing `HealthCheckCustomConfig` configuration
-  from an `UpdateService` request, the configuration is not deleted from the
+  from an `UpdateService` request, the configuration isn't deleted from the
   service.
 
-  When you update settings for a service, AWS Cloud Map also updates the
-  corresponding settings in all the records and health checks that were created by
-  using the specified service.
+  When you update settings for a service, Cloud Map also updates the corresponding
+  settings in all the records and health checks that were created by using the
+  specified service.
   """
   def update_service(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateService", input, options)

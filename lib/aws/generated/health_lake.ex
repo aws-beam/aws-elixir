@@ -75,6 +75,27 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
+  Lists all FHIR export jobs associated with an account and their statuses.
+  """
+  def list_fhir_export_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFHIRExportJobs", input, options)
+  end
+
+  @doc """
+  Lists all FHIR import jobs associated with an account and their statuses.
+  """
+  def list_fhir_import_jobs(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListFHIRImportJobs", input, options)
+  end
+
+  @doc """
+  Returns a list of all existing tags associated with a Data Store.
+  """
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Begins a FHIR export job.
   """
   def start_fhir_export_job(%Client{} = client, input, options \\ []) do
@@ -86,5 +107,19 @@ defmodule AWS.HealthLake do
   """
   def start_fhir_import_job(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartFHIRImportJob", input, options)
+  end
+
+  @doc """
+  Adds a user specifed key and value tag to a Data Store.
+  """
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "TagResource", input, options)
+  end
+
+  @doc """
+  Removes tags from a Data Store.
+  """
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UntagResource", input, options)
   end
 end

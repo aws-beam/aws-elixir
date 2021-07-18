@@ -10,7 +10,7 @@ defmodule AWS.Macie2 do
   Macie automates the discovery of sensitive data, such as PII and intellectual
   property, to provide you with insight into the data that your organization
   stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which
-  it continually monitors foryou. If Macie detects sensitive data or potential
+  it continually monitors for you. If Macie detects sensitive data or potential
   data access issues, it generates detailed findings for you to review and act
   upon as necessary.
   """
@@ -356,7 +356,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the Amazon Macie configuration settings for an AWS organization.
+  Retrieves the Amazon Macie configuration settings for an Amazon Web Services
+  organization.
   """
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/admin/configuration"
@@ -399,7 +400,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Disables an account as the delegated Amazon Macie administrator account for an
-  AWS organization.
+  Amazon Web Services organization.
   """
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin"
@@ -515,7 +516,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Designates an account as the delegated Amazon Macie administrator account for an
-  AWS organization.
+  Amazon Web Services organization.
   """
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin"
@@ -685,8 +686,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves the configuration settings for publishing findings to AWS Security
-  Hub.
+  Retrieves the configuration settings for publishing findings to Security Hub.
   """
   def get_findings_publication_configuration(%Client{} = client, options \\ []) do
     url_path = "/findings-publication-configuration"
@@ -1036,7 +1036,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves information about the delegated Amazon Macie administrator account for
-  an AWS organization.
+  an Amazon Web Services organization.
   """
   def list_organization_admin_accounts(
         %Client{} = client,
@@ -1120,7 +1120,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Updates the configuration settings for publishing findings to AWS Security Hub.
+  Updates the configuration settings for publishing findings to Security Hub.
   """
   def put_findings_publication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/findings-publication-configuration"
@@ -1131,6 +1131,28 @@ defmodule AWS.Macie2 do
       client,
       metadata(),
       :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves (queries) statistical data and other information about Amazon Web
+  Services resources that Amazon Macie monitors and analyzes.
+  """
+  def search_resources(%Client{} = client, input, options \\ []) do
+    url_path = "/datasources/search-resources"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -1296,7 +1318,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Updates the Amazon Macie configuration settings for an AWS organization.
+  Updates the Amazon Macie configuration settings for an Amazon Web Services
+  organization.
   """
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/admin/configuration"

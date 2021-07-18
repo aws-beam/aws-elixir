@@ -10,7 +10,9 @@ defmodule AWS.EFS do
 
   With Amazon EFS, storage capacity is elastic, growing and shrinking
   automatically as you add and remove files, so your applications have the storage
-  they need, when they need it. For more information, see the [User Guide](https://docs.aws.amazon.com/efs/latest/ug/api-reference.html).
+  they need, when they need it. For more information, see the [Amazon Elastic File System API
+  Reference](https://docs.aws.amazon.com/efs/latest/ug/api-reference.html) and the
+  [Amazon Elastic File System User Guide](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html).
   """
 
   alias AWS.Client
@@ -269,12 +271,15 @@ defmodule AWS.EFS do
   end
 
   @doc """
-  Creates or overwrites tags associated with a file system.
+  DEPRECATED - CreateTags is deprecated and not maintained.
 
-  Each tag is a key-value pair. If a tag key specified in the request already
-  exists on the file system, this operation overwrites its value with the value
-  provided in the request. If you add the `Name` tag to your file system, Amazon
-  EFS returns it in the response to the `DescribeFileSystems` operation.
+  Please use the API action to create tags for EFS resources.
+
+  Creates or overwrites tags associated with a file system. Each tag is a
+  key-value pair. If a tag key specified in the request already exists on the file
+  system, this operation overwrites its value with the value provided in the
+  request. If you add the `Name` tag to your file system, Amazon EFS returns it in
+  the response to the `DescribeFileSystems` operation.
 
   This operation requires permission for the `elasticfilesystem:CreateTags`
   action.
@@ -435,11 +440,13 @@ defmodule AWS.EFS do
   end
 
   @doc """
-  Deletes the specified tags from a file system.
+  DEPRECATED - DeleteTags is deprecated and not maintained.
 
-  If the `DeleteTags` request includes a tag key that doesn't exist, Amazon EFS
-  ignores it and doesn't cause an error. For more information about tags and
-  related restrictions, see [Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+  Please use the API action to remove tags from EFS resources.
+
+  Deletes the specified tags from a file system. If the `DeleteTags` request
+  includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause
+  an error. For more information about tags and related restrictions, see [Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *AWS Billing and Cost Management User Guide*.
 
   This operation requires permissions for the `elasticfilesystem:DeleteTags`
@@ -513,6 +520,24 @@ defmodule AWS.EFS do
       else
         query_params
       end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  def describe_account_preferences(%Client{} = client, options \\ []) do
+    url_path = "/2015-02-01/account-preferences"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -788,11 +813,14 @@ defmodule AWS.EFS do
   end
 
   @doc """
-  Returns the tags associated with a file system.
+  DEPRECATED - The DeleteTags action is deprecated and not maintained.
 
-  The order of tags returned in the response of one `DescribeTags` call and the
-  order of tags returned across the responses of a multiple-call iteration (when
-  using pagination) is unspecified.
+  Please use the API action to remove tags from EFS resources.
+
+  Returns the tags associated with a file system. The order of tags returned in
+  the response of one `DescribeTags` call and the order of tags returned across
+  the responses of a multiple-call iteration (when using pagination) is
+  unspecified.
 
   This operation requires permissions for the `elasticfilesystem:DescribeTags`
   action.
@@ -919,6 +947,24 @@ defmodule AWS.EFS do
       input,
       options,
       204
+    )
+  end
+
+  def put_account_preferences(%Client{} = client, input, options \\ []) do
+    url_path = "/2015-02-01/account-preferences"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 

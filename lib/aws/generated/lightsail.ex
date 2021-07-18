@@ -7,14 +7,14 @@ defmodule AWS.Lightsail do
   (AWS) for developers who need to build websites or web applications.
 
   It includes everything you need to launch your project quickly - instances
-  (virtual private servers), container services, managed databases, SSD-based
-  block storage, static IP addresses, load balancers, content delivery network
-  (CDN) distributions, DNS management of registered domains, and resource
-  snapshots (backups) - for a low, predictable monthly price.
+  (virtual private servers), container services, storage buckets, managed
+  databases, SSD-based block storage, static IP addresses, load balancers, content
+  delivery network (CDN) distributions, DNS management of registered domains, and
+  resource snapshots (backups) - for a low, predictable monthly price.
 
   You can manage your Lightsail resources using the Lightsail console, Lightsail
   API, AWS Command Line Interface (AWS CLI), or SDKs. For more information about
-  Lightsail concepts and tasks, see the [Lightsail Dev Guide](http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).
+  Lightsail concepts and tasks, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).
 
   This API Reference provides detailed information about the actions, data types,
   parameters, and errors of the Lightsail service. For more information about the
@@ -74,7 +74,7 @@ defmodule AWS.Lightsail do
 
   The `attach disk` operation supports tag-based access control via resource tags
   applied to the resource identified by `disk name`. For more information, see the
-  [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def attach_disk(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AttachDisk", input, options)
@@ -88,7 +88,7 @@ defmodule AWS.Lightsail do
 
   The `attach instances to load balancer` operation supports tag-based access
   control via resource tags applied to the resource identified by `load balancer
-  name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  name`. For more information, see the [Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def attach_instances_to_load_balancer(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AttachInstancesToLoadBalancer", input, options)
@@ -107,7 +107,7 @@ defmodule AWS.Lightsail do
 
   The `AttachLoadBalancerTlsCertificate` operation supports tag-based access
   control via resource tags applied to the resource identified by `load balancer
-  name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  name`. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def attach_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AttachLoadBalancerTlsCertificate", input, options)
@@ -125,7 +125,7 @@ defmodule AWS.Lightsail do
 
   The `CloseInstancePublicPorts` action supports tag-based access control via
   resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def close_instance_public_ports(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CloseInstancePublicPorts", input, options)
@@ -147,6 +147,39 @@ defmodule AWS.Lightsail do
   """
   def copy_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopySnapshot", input, options)
+  end
+
+  @doc """
+  Creates an Amazon Lightsail bucket.
+
+  A bucket is a cloud storage resource available in the Lightsail object storage
+  service. Use buckets to store objects such as data and its descriptive metadata.
+  For more information about buckets, see [Buckets in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail)
+  in the *Amazon Lightsail Developer Guide*.
+  """
+  def create_bucket(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBucket", input, options)
+  end
+
+  @doc """
+  Creates a new access key for the specified Amazon Lightsail bucket.
+
+  Access keys consist of an access key ID and corresponding secret access key.
+
+  Access keys grant full programmatic access to the specified bucket and its
+  objects. You can have a maximum of two access keys per bucket. Use the
+  `GetBucketAccessKeys` action to get a list of current access keys for a specific
+  bucket. For more information about access keys, see [Creating access keys for a bucket in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys)
+  in the *Amazon Lightsail Developer Guide*.
+
+  The `secretAccessKey` value is returned only in response to the
+  `CreateBucketAccessKey` action. You can get a secret access key only when you
+  first create an access key; you cannot get the secret access key later. If you
+  lose the secret access key, you must create a new access key.
+  """
+  def create_bucket_access_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateBucketAccessKey", input, options)
   end
 
   @doc """
@@ -219,7 +252,7 @@ defmodule AWS.Lightsail do
   You can deploy containers to your container service using container images from
   a public registry like Docker Hub, or from your local machine. For more
   information, see [Creating container images for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images)
-  in the *Lightsail Dev Guide*.
+  in the *Amazon Lightsail Developer Guide*.
   """
   def create_container_service_deployment(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateContainerServiceDeployment", input, options)
@@ -247,7 +280,7 @@ defmodule AWS.Lightsail do
   (lightsailctl) plugin to push container images to your Lightsail container
   service. For more information, see [Pushing and managing container images on your Amazon Lightsail container
   services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
-  in the *Lightsail Dev Guide*.
+  in the *Amazon Lightsail Developer Guide*.
   """
   def create_container_service_registry_login(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -264,7 +297,7 @@ defmodule AWS.Lightsail do
   instance in the same Availability Zone (e.g., `us-east-2a`).
 
   The `create disk` operation supports tag-based access control via request tags.
-  For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_disk(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDisk", input, options)
@@ -278,7 +311,7 @@ defmodule AWS.Lightsail do
 
   The `create disk from snapshot` operation supports tag-based access control via
   request tags and resource tags applied to the resource identified by `disk
-  snapshot name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  snapshot name`. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_disk_from_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDiskFromSnapshot", input, options)
@@ -311,7 +344,7 @@ defmodule AWS.Lightsail do
   attach it to a running instance to access the data on the disk.
 
   The `create disk snapshot` operation supports tag-based access control via
-  request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_disk_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDiskSnapshot", input, options)
@@ -332,7 +365,7 @@ defmodule AWS.Lightsail do
   Creates a domain resource for the specified domain (e.g., example.com).
 
   The `create domain` operation supports tag-based access control via request
-  tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_domain(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDomain", input, options)
@@ -345,7 +378,7 @@ defmodule AWS.Lightsail do
 
   The `create domain entry` operation supports tag-based access control via
   resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_domain_entry(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDomainEntry", input, options)
@@ -357,7 +390,7 @@ defmodule AWS.Lightsail do
   You can use a snapshot to create a new instance that is based on that snapshot.
 
   The `create instance snapshot` operation supports tag-based access control via
-  request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_instance_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateInstanceSnapshot", input, options)
@@ -367,7 +400,7 @@ defmodule AWS.Lightsail do
   Creates one or more Amazon Lightsail instances.
 
   The `create instances` operation supports tag-based access control via request
-  tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  tags. For more information, see the [Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_instances(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateInstances", input, options)
@@ -379,7 +412,8 @@ defmodule AWS.Lightsail do
 
   The `create instances from snapshot` operation supports tag-based access control
   via request tags and resource tags applied to the resource identified by
-  `instance snapshot name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  `instance snapshot name`. For more information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_instances_from_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateInstancesFromSnapshot", input, options)
@@ -389,7 +423,7 @@ defmodule AWS.Lightsail do
   Creates an SSH key pair.
 
   The `create key pair` operation supports tag-based access control via request
-  tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_key_pair(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateKeyPair", input, options)
@@ -399,7 +433,7 @@ defmodule AWS.Lightsail do
   Creates a Lightsail load balancer.
 
   To learn more about deciding whether to load balance your application, see
-  [Configure your Lightsail instances for load balancing](https://lightsail.aws.amazon.com/ls/docs/how-to/article/configure-lightsail-instances-for-load-balancing).
+  [Configure your Lightsail instances for load balancing](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing).
   You can create up to 5 load balancers per AWS Region in your account.
 
   When you create a load balancer, you can specify a unique name and port
@@ -407,7 +441,7 @@ defmodule AWS.Lightsail do
   `UpdateLoadBalancerAttribute` operation.
 
   The `create load balancer` operation supports tag-based access control via
-  request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_load_balancer(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLoadBalancer", input, options)
@@ -420,7 +454,7 @@ defmodule AWS.Lightsail do
 
   The `CreateLoadBalancerTlsCertificate` operation supports tag-based access
   control via resource tags applied to the resource identified by `load balancer
-  name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  name`. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLoadBalancerTlsCertificate", input, options)
@@ -430,7 +464,7 @@ defmodule AWS.Lightsail do
   Creates a new database in Amazon Lightsail.
 
   The `create relational database` operation supports tag-based access control via
-  request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_relational_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateRelationalDatabase", input, options)
@@ -446,7 +480,7 @@ defmodule AWS.Lightsail do
   The `create relational database from snapshot` operation supports tag-based
   access control via request tags and resource tags applied to the resource
   identified by relationalDatabaseSnapshotName. For more information, see the
-  [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_relational_database_from_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -465,7 +499,8 @@ defmodule AWS.Lightsail do
   data before deleting a database.
 
   The `create relational database snapshot` operation supports tag-based access
-  control via request tags. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  control via request tags. For more information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def create_relational_database_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateRelationalDatabaseSnapshot", input, options)
@@ -486,10 +521,34 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes an automatic snapshot of an instance or disk.
 
-  For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   def delete_auto_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteAutoSnapshot", input, options)
+  end
+
+  @doc """
+  Deletes a Amazon Lightsail bucket.
+
+  When you delete your bucket, the bucket name is released and can be reused for a
+  new bucket in your account or another AWS account.
+  """
+  def delete_bucket(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBucket", input, options)
+  end
+
+  @doc """
+  Deletes an access key for the specified Amazon Lightsail bucket.
+
+  We recommend that you delete an access key if the secret access key is
+  compromised.
+
+  For more information about access keys, see [Creating access keys for a bucket in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys)
+  in the *Amazon Lightsail Developer Guide*.
+  """
+  def delete_bucket_access_key(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteBucketAccessKey", input, options)
   end
 
   @doc """
@@ -542,7 +601,7 @@ defmodule AWS.Lightsail do
 
   The `delete disk` operation supports tag-based access control via resource tags
   applied to the resource identified by `disk name`. For more information, see the
-  [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_disk(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDisk", input, options)
@@ -560,7 +619,7 @@ defmodule AWS.Lightsail do
 
   The `delete disk snapshot` operation supports tag-based access control via
   resource tags applied to the resource identified by `disk snapshot name`. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_disk_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDiskSnapshot", input, options)
@@ -578,7 +637,7 @@ defmodule AWS.Lightsail do
 
   The `delete domain` operation supports tag-based access control via resource
   tags applied to the resource identified by `domain name`. For more information,
-  see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_domain(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDomain", input, options)
@@ -589,7 +648,7 @@ defmodule AWS.Lightsail do
 
   The `delete domain entry` operation supports tag-based access control via
   resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_domain_entry(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDomainEntry", input, options)
@@ -600,7 +659,7 @@ defmodule AWS.Lightsail do
 
   The `delete instance` operation supports tag-based access control via resource
   tags applied to the resource identified by `instance name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteInstance", input, options)
@@ -611,7 +670,7 @@ defmodule AWS.Lightsail do
 
   The `delete instance snapshot` operation supports tag-based access control via
   resource tags applied to the resource identified by `instance snapshot name`.
-  For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_instance_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteInstanceSnapshot", input, options)
@@ -622,7 +681,7 @@ defmodule AWS.Lightsail do
 
   The `delete key pair` operation supports tag-based access control via resource
   tags applied to the resource identified by `key pair name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_key_pair(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteKeyPair", input, options)
@@ -638,7 +697,7 @@ defmodule AWS.Lightsail do
   Perform this operation only if you were expecting the host key or certificate
   mismatch or if you are familiar with the new host key or certificate on the
   instance. For more information, see [Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
-  client](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection).
+  client](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection).
   """
   def delete_known_host_keys(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteKnownHostKeys", input, options)
@@ -652,7 +711,7 @@ defmodule AWS.Lightsail do
 
   The `delete load balancer` operation supports tag-based access control via
   resource tags applied to the resource identified by `load balancer name`. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteLoadBalancer", input, options)
@@ -663,7 +722,7 @@ defmodule AWS.Lightsail do
 
   The `DeleteLoadBalancerTlsCertificate` operation supports tag-based access
   control via resource tags applied to the resource identified by `load balancer
-  name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  name`. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteLoadBalancerTlsCertificate", input, options)
@@ -674,7 +733,7 @@ defmodule AWS.Lightsail do
 
   The `delete relational database` operation supports tag-based access control via
   resource tags applied to the resource identified by relationalDatabaseName. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_relational_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteRelationalDatabase", input, options)
@@ -685,7 +744,8 @@ defmodule AWS.Lightsail do
 
   The `delete relational database snapshot` operation supports tag-based access
   control via resource tags applied to the resource identified by
-  relationalDatabaseName. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  relationalDatabaseName. For more information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def delete_relational_database_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteRelationalDatabaseSnapshot", input, options)
@@ -710,7 +770,7 @@ defmodule AWS.Lightsail do
 
   The `detach disk` operation supports tag-based access control via resource tags
   applied to the resource identified by `disk name`. For more information, see the
-  [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def detach_disk(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DetachDisk", input, options)
@@ -724,7 +784,7 @@ defmodule AWS.Lightsail do
 
   The `detach instances from load balancer` operation supports tag-based access
   control via resource tags applied to the resource identified by `load balancer
-  name`. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  name`. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def detach_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DetachInstancesFromLoadBalancer", input, options)
@@ -740,7 +800,7 @@ defmodule AWS.Lightsail do
   @doc """
   Disables an add-on for an Amazon Lightsail resource.
 
-  For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   def disable_add_on(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableAddOn", input, options)
@@ -756,7 +816,7 @@ defmodule AWS.Lightsail do
   @doc """
   Enables or modifies an add-on for an Amazon Lightsail resource.
 
-  For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   def enable_add_on(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "EnableAddOn", input, options)
@@ -777,7 +837,7 @@ defmodule AWS.Lightsail do
 
   The `export snapshot` operation supports tag-based access control via resource
   tags applied to the resource identified by `source snapshot name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
 
   Use the `get instance snapshots` or `get disk snapshots` operations to get a
   list of snapshots that you can export to Amazon EC2.
@@ -812,7 +872,7 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the available automatic snapshots for an instance or disk.
 
-  For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   def get_auto_snapshots(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetAutoSnapshots", input, options)
@@ -832,6 +892,51 @@ defmodule AWS.Lightsail do
   """
   def get_blueprints(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetBlueprints", input, options)
+  end
+
+  @doc """
+  Returns the existing access key IDs for the specified Amazon Lightsail bucket.
+
+  This action does not return the secret access key value of an access key. You
+  can get a secret access key only when you create it from the response of the
+  `CreateBucketAccessKey` action. If you lose the secret access key, you must
+  create a new access key.
+  """
+  def get_bucket_access_keys(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBucketAccessKeys", input, options)
+  end
+
+  @doc """
+  Returns the bundles that you can apply to a Amazon Lightsail bucket.
+
+  The bucket bundle specifies the monthly cost, storage quota, and data transfer
+  quota for a bucket.
+
+  Use the `UpdateBucketBundle` action to update the bundle for a bucket.
+  """
+  def get_bucket_bundles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBucketBundles", input, options)
+  end
+
+  @doc """
+  Returns the data points of a specific metric for an Amazon Lightsail bucket.
+
+  Metrics report the utilization of a bucket. View and collect metric data
+  regularly to monitor the number of objects stored in a bucket (including object
+  versions) and the storage space used by those objects.
+  """
+  def get_bucket_metric_data(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBucketMetricData", input, options)
+  end
+
+  @doc """
+  Returns information about one or more Amazon Lightsail buckets.
+
+  For more information about buckets, see [Buckets in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail)
+  in the *Amazon Lightsail Developer Guide*..
+  """
+  def get_buckets(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetBuckets", input, options)
   end
 
   @doc """
@@ -997,7 +1102,7 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the list bundles that can be applied to you Amazon Lightsail content
+  Returns the bundles that can be applied to your Amazon Lightsail content
   delivery network (CDN) distributions.
 
   A distribution bundle specifies the monthly network transfer quota and monthly
@@ -1050,11 +1155,11 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the export snapshot record created as a result of the `export snapshot`
+  Returns all export snapshot records created as a result of the `export snapshot`
   operation.
 
   An export snapshot record can be used to create a new Amazon EC2 instance and
-  its related resources with the `create cloud formation stack` operation.
+  its related resources with the `CreateCloudFormationStack` action.
   """
   def get_export_snapshot_records(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetExportSnapshotRecords", input, options)
@@ -1074,7 +1179,7 @@ defmodule AWS.Lightsail do
 
   The `get instance access details` operation supports tag-based access control
   via resource tags applied to the resource identified by `instance name`. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def get_instance_access_details(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetInstanceAccessDetails", input, options)
@@ -1340,7 +1445,7 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns information about a specific static IP.
+  Returns information about an Amazon Lightsail static IP.
   """
   def get_static_ip(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetStaticIp", input, options)
@@ -1374,14 +1479,14 @@ defmodule AWS.Lightsail do
 
   The `OpenInstancePublicPorts` action supports tag-based access control via
   resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def open_instance_public_ports(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "OpenInstancePublicPorts", input, options)
   end
 
   @doc """
-  Tries to peer the Lightsail VPC with the user's default VPC.
+  Peers the Lightsail VPC with the user's default VPC.
   """
   def peer_vpc(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PeerVpc", input, options)
@@ -1419,7 +1524,7 @@ defmodule AWS.Lightsail do
 
   The `PutInstancePublicPorts` action supports tag-based access control via
   resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def put_instance_public_ports(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "PutInstancePublicPorts", input, options)
@@ -1430,7 +1535,7 @@ defmodule AWS.Lightsail do
 
   The `reboot instance` operation supports tag-based access control via resource
   tags applied to the resource identified by `instance name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def reboot_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RebootInstance", input, options)
@@ -1441,7 +1546,7 @@ defmodule AWS.Lightsail do
 
   The `reboot relational database` operation supports tag-based access control via
   resource tags applied to the resource identified by relationalDatabaseName. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def reboot_relational_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RebootRelationalDatabase", input, options)
@@ -1454,7 +1559,7 @@ defmodule AWS.Lightsail do
   (lightsailctl) plugin to push container images to your Lightsail container
   service. For more information, see [Pushing and managing container images on your Amazon Lightsail container
   services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
-  in the *Lightsail Dev Guide*.
+  in the *Amazon Lightsail Developer Guide*.
   """
   def register_container_image(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RegisterContainerImage", input, options)
@@ -1513,6 +1618,17 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
+  Sets the Amazon Lightsail resources that can access the specified Lightsail
+  bucket.
+
+  Lightsail buckets currently support setting access for Lightsail instances in
+  the same AWS Region.
+  """
+  def set_resource_access_for_bucket(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "SetResourceAccessForBucket", input, options)
+  end
+
+  @doc """
   Starts a specific Amazon Lightsail instance from a stopped state.
 
   To restart an instance, use the `reboot instance` operation.
@@ -1520,11 +1636,11 @@ defmodule AWS.Lightsail do
   When you start a stopped instance, Lightsail assigns a new public IP address to
   the instance. To use the same IP address after stopping and starting an
   instance, create a static IP address and attach it to the instance. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip).
 
   The `start instance` operation supports tag-based access control via resource
   tags applied to the resource identified by `instance name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def start_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartInstance", input, options)
@@ -1537,7 +1653,7 @@ defmodule AWS.Lightsail do
 
   The `start relational database` operation supports tag-based access control via
   resource tags applied to the resource identified by relationalDatabaseName. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def start_relational_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartRelationalDatabase", input, options)
@@ -1549,11 +1665,11 @@ defmodule AWS.Lightsail do
   When you start a stopped instance, Lightsail assigns a new public IP address to
   the instance. To use the same IP address after stopping and starting an
   instance, create a static IP address and attach it to the instance. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip).
 
   The `stop instance` operation supports tag-based access control via resource
   tags applied to the resource identified by `instance name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def stop_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopInstance", input, options)
@@ -1564,7 +1680,7 @@ defmodule AWS.Lightsail do
 
   The `stop relational database` operation supports tag-based access control via
   resource tags applied to the resource identified by relationalDatabaseName. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def stop_relational_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StopRelationalDatabase", input, options)
@@ -1575,11 +1691,11 @@ defmodule AWS.Lightsail do
 
   Each resource can have a maximum of 50 tags. Each tag consists of a key and an
   optional value. Tag keys must be unique per resource. For more information about
-  tags, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
+  tags, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags).
 
   The `tag resource` operation supports tag-based access control via request tags
   and resource tags applied to the resource identified by `resource name`. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagResource", input, options)
@@ -1602,7 +1718,7 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Attempts to unpeer the Lightsail VPC from the user's default VPC.
+  Unpeers the Lightsail VPC from the user's default VPC.
   """
   def unpeer_vpc(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UnpeerVpc", input, options)
@@ -1614,10 +1730,43 @@ defmodule AWS.Lightsail do
 
   The `untag resource` operation supports tag-based access control via request
   tags and resource tags applied to the resource identified by `resource name`.
-  For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an existing Amazon Lightsail bucket.
+
+  Use this action to update the configuration of an existing bucket, such as
+  versioning, public accessibility, and the AWS accounts that can access the
+  bucket.
+  """
+  def update_bucket(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateBucket", input, options)
+  end
+
+  @doc """
+  Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.
+
+  A bucket bundle specifies the monthly cost, storage space, and data transfer
+  quota for a bucket. You can update a bucket's bundle only one time within a
+  monthly AWS billing cycle. To determine if you can update a bucket's bundle, use
+  the `GetBuckets` action. The `ableToUpdateBundle` parameter in the response will
+  indicate whether you can currently update a bucket's bundle.
+
+  Update a bucket's bundle if it's consistently going over its storage space or
+  data transfer quota, or if a bucket's usage is consistently in the lower range
+  of its storage space or data transfer quota. Due to the unpredictable usage
+  fluctuations that a bucket might experience, we strongly recommend that you
+  update a bucket's bundle only as a long-term strategy, instead of as a
+  short-term, monthly cost-cutting measure. Choose a bucket bundle that will
+  provide the bucket with ample storage space and data transfer for a long time to
+  come.
+  """
+  def update_bucket_bundle(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateBucketBundle", input, options)
   end
 
   @doc """
@@ -1632,7 +1781,7 @@ defmodule AWS.Lightsail do
   Updates an existing Amazon Lightsail content delivery network (CDN)
   distribution.
 
-  Use this action to update the configuration of your existing distribution
+  Use this action to update the configuration of your existing distribution.
   """
   def update_distribution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDistribution", input, options)
@@ -1662,7 +1811,7 @@ defmodule AWS.Lightsail do
 
   The `update domain entry` operation supports tag-based access control via
   resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def update_domain_entry(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateDomainEntry", input, options)
@@ -1675,7 +1824,7 @@ defmodule AWS.Lightsail do
 
   The `update load balancer attribute` operation supports tag-based access control
   via resource tags applied to the resource identified by `load balancer name`.
-  For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def update_load_balancer_attribute(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateLoadBalancerAttribute", input, options)
@@ -1689,7 +1838,7 @@ defmodule AWS.Lightsail do
 
   The `update relational database` operation supports tag-based access control via
   resource tags applied to the resource identified by relationalDatabaseName. For
-  more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def update_relational_database(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateRelationalDatabase", input, options)
@@ -1707,7 +1856,8 @@ defmodule AWS.Lightsail do
 
   The `update relational database parameters` operation supports tag-based access
   control via resource tags applied to the resource identified by
-  relationalDatabaseName. For more information, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags).
+  relationalDatabaseName. For more information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   def update_relational_database_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateRelationalDatabaseParameters", input, options)

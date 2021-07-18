@@ -3,15 +3,16 @@
 
 defmodule AWS.AppMesh do
   @moduledoc """
-  AWS App Mesh is a service mesh based on the Envoy proxy that makes it easy to
+  App Mesh is a service mesh based on the Envoy proxy that makes it easy to
   monitor and control microservices.
 
   App Mesh standardizes how your microservices communicate, giving you end-to-end
   visibility and helping to ensure high availability for your applications.
 
   App Mesh gives you consistent visibility and network traffic controls for every
-  microservice in an application. You can use App Mesh with AWS Fargate, Amazon
-  ECS, Amazon EKS, Kubernetes on AWS, and Amazon EC2.
+  microservice in an application. You can use App Mesh with Amazon Web Services
+  Fargate, Amazon ECS, Amazon EKS, Kubernetes on Amazon Web Services, and Amazon
+  EC2.
 
   App Mesh supports microservice applications that use service discovery naming
   for their components. For more information about service discovery on Amazon
@@ -57,9 +58,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{
-        URI.encode(virtual_gateway_name)
-      }/gatewayRoutes"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{URI.encode(virtual_gateway_name)}/gatewayRoutes"
 
     headers = []
 
@@ -203,11 +202,9 @@ defmodule AWS.AppMesh do
   You can override this behavior by setting the `APPMESH_RESOURCE_CLUSTER`
   environment variable with your own name.
 
-  AWS Cloud Map is not available in the eu-south-1 Region.
-
   For more information about virtual nodes, see [Virtual nodes](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html).
   You must be using `1.15.0` or later of the Envoy image when setting these
-  variables. For more information about App Mesh Envoy variables, see [Envoy image](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html) in the
+  variables. For more information aboutApp Mesh Envoy variables, see [Envoy image](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html) in the
   AWS App Mesh User Guide.
   """
   def create_virtual_node(%Client{} = client, mesh_name, input, options \\ []) do
@@ -313,9 +310,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{
-        URI.encode(virtual_gateway_name)
-      }/gatewayRoutes/#{URI.encode(gateway_route_name)}"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{URI.encode(virtual_gateway_name)}/gatewayRoutes/#{URI.encode(gateway_route_name)}"
 
     headers = []
 
@@ -374,9 +369,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouter/#{URI.encode(virtual_router_name)}/routes/#{
-        URI.encode(route_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouter/#{URI.encode(virtual_router_name)}/routes/#{URI.encode(route_name)}"
 
     headers = []
 
@@ -412,9 +405,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateways/#{
-        URI.encode(virtual_gateway_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateways/#{URI.encode(virtual_gateway_name)}"
 
     headers = []
 
@@ -482,9 +473,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouters/#{
-        URI.encode(virtual_router_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouters/#{URI.encode(virtual_router_name)}"
 
     headers = []
 
@@ -518,9 +507,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualServices/#{
-        URI.encode(virtual_service_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualServices/#{URI.encode(virtual_service_name)}"
 
     headers = []
 
@@ -555,9 +542,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{
-        URI.encode(virtual_gateway_name)
-      }/gatewayRoutes/#{URI.encode(gateway_route_name)}"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{URI.encode(virtual_gateway_name)}/gatewayRoutes/#{URI.encode(gateway_route_name)}"
 
     headers = []
     query_params = []
@@ -622,9 +607,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouter/#{URI.encode(virtual_router_name)}/routes/#{
-        URI.encode(route_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouter/#{URI.encode(virtual_router_name)}/routes/#{URI.encode(route_name)}"
 
     headers = []
     query_params = []
@@ -660,9 +643,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateways/#{
-        URI.encode(virtual_gateway_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateways/#{URI.encode(virtual_gateway_name)}"
 
     headers = []
     query_params = []
@@ -734,9 +715,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouters/#{
-        URI.encode(virtual_router_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouters/#{URI.encode(virtual_router_name)}"
 
     headers = []
     query_params = []
@@ -772,9 +751,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualServices/#{
-        URI.encode(virtual_service_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualServices/#{URI.encode(virtual_service_name)}"
 
     headers = []
     query_params = []
@@ -813,9 +790,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{
-        URI.encode(virtual_gateway_name)
-      }/gatewayRoutes"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{URI.encode(virtual_gateway_name)}/gatewayRoutes"
 
     headers = []
     query_params = []
@@ -1254,9 +1229,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{
-        URI.encode(virtual_gateway_name)
-      }/gatewayRoutes/#{URI.encode(gateway_route_name)}"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateway/#{URI.encode(virtual_gateway_name)}/gatewayRoutes/#{URI.encode(gateway_route_name)}"
 
     headers = []
 
@@ -1312,9 +1285,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouter/#{URI.encode(virtual_router_name)}/routes/#{
-        URI.encode(route_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouter/#{URI.encode(virtual_router_name)}/routes/#{URI.encode(route_name)}"
 
     headers = []
 
@@ -1348,9 +1319,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateways/#{
-        URI.encode(virtual_gateway_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualGateways/#{URI.encode(virtual_gateway_name)}"
 
     headers = []
 
@@ -1412,9 +1381,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouters/#{
-        URI.encode(virtual_router_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualRouters/#{URI.encode(virtual_router_name)}"
 
     headers = []
 
@@ -1448,9 +1415,7 @@ defmodule AWS.AppMesh do
         options \\ []
       ) do
     url_path =
-      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualServices/#{
-        URI.encode(virtual_service_name)
-      }"
+      "/v20190125/meshes/#{URI.encode(mesh_name)}/virtualServices/#{URI.encode(virtual_service_name)}"
 
     headers = []
 

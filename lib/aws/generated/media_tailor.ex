@@ -111,9 +111,7 @@ defmodule AWS.MediaTailor do
         options \\ []
       ) do
     url_path =
-      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{
-        URI.encode(vod_source_name)
-      }"
+      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{URI.encode(vod_source_name)}"
 
     headers = []
     query_params = []
@@ -249,9 +247,7 @@ defmodule AWS.MediaTailor do
         options \\ []
       ) do
     url_path =
-      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{
-        URI.encode(vod_source_name)
-      }"
+      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{URI.encode(vod_source_name)}"
 
     headers = []
     query_params = []
@@ -342,9 +338,7 @@ defmodule AWS.MediaTailor do
         options \\ []
       ) do
     url_path =
-      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{
-        URI.encode(vod_source_name)
-      }"
+      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{URI.encode(vod_source_name)}"
 
     headers = []
     query_params = []
@@ -439,6 +433,54 @@ defmodule AWS.MediaTailor do
     url_path = "/playbackConfiguration/#{URI.encode(name)}"
     headers = []
     query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of alerts for the given resource.
+  """
+  def list_alerts(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_arn,
+        options \\ []
+      ) do
+    url_path = "/alerts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     Request.request_rest(
       client,
@@ -825,9 +867,7 @@ defmodule AWS.MediaTailor do
         options \\ []
       ) do
     url_path =
-      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{
-        URI.encode(vod_source_name)
-      }"
+      "/sourceLocation/#{URI.encode(source_location_name)}/vodSource/#{URI.encode(vod_source_name)}"
 
     headers = []
     query_params = []

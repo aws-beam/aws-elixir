@@ -470,9 +470,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{
-        URI.encode(documentation_part_id)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
 
     headers = []
     query_params = []
@@ -498,9 +496,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{
-        URI.encode(documentation_version)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
 
     headers = []
     query_params = []
@@ -581,9 +577,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/integration"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
 
     headers = []
     query_params = []
@@ -614,9 +608,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/integration/responses/#{URI.encode(status_code)}"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
 
     headers = []
     query_params = []
@@ -646,9 +638,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
 
     headers = []
     query_params = []
@@ -679,9 +669,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/responses/#{URI.encode(status_code)}"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
 
     headers = []
     query_params = []
@@ -1320,9 +1308,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{
-        URI.encode(documentation_part_id)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
 
     headers = []
     query_params = []
@@ -1417,9 +1403,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{
-        URI.encode(documentation_version)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
 
     headers = []
     query_params = []
@@ -1545,9 +1529,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/exports/#{
-        URI.encode(export_type)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/exports/#{URI.encode(export_type)}"
 
     headers = []
 
@@ -1660,9 +1642,7 @@ defmodule AWS.APIGateway do
   """
   def get_integration(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/integration"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
 
     headers = []
     query_params = []
@@ -1692,9 +1672,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/integration/responses/#{URI.encode(status_code)}"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
 
     headers = []
     query_params = []
@@ -1717,9 +1695,7 @@ defmodule AWS.APIGateway do
   """
   def get_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
 
     headers = []
     query_params = []
@@ -1749,9 +1725,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/responses/#{URI.encode(status_code)}"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
 
     headers = []
     query_params = []
@@ -2065,9 +2039,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/sdks/#{
-        URI.encode(sdk_type)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/stages/#{URI.encode(stage_name)}/sdks/#{URI.encode(sdk_type)}"
 
     headers = []
     query_params = []
@@ -2609,9 +2581,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/integration"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
 
     headers = []
     query_params = []
@@ -2642,9 +2612,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/integration/responses/#{URI.encode(status_code)}"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
 
     headers = []
     query_params = []
@@ -2667,9 +2635,7 @@ defmodule AWS.APIGateway do
   """
   def put_method(%Client{} = client, http_method, resource_id, rest_api_id, input, options \\ []) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
 
     headers = []
     query_params = []
@@ -2700,9 +2666,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/responses/#{URI.encode(status_code)}"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
 
     headers = []
     query_params = []
@@ -2811,9 +2775,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
 
     headers = []
     query_params = []
@@ -2993,9 +2955,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{
-        URI.encode(documentation_part_id)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/documentation/parts/#{URI.encode(documentation_part_id)}"
 
     headers = []
     query_params = []
@@ -3021,9 +2981,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{
-        URI.encode(documentation_version)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/documentation/versions/#{URI.encode(documentation_version)}"
 
     headers = []
     query_params = []
@@ -3103,9 +3061,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/integration"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration"
 
     headers = []
     query_params = []
@@ -3136,9 +3092,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/integration/responses/#{URI.encode(status_code)}"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/integration/responses/#{URI.encode(status_code)}"
 
     headers = []
     query_params = []
@@ -3168,9 +3122,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}"
 
     headers = []
     query_params = []
@@ -3201,9 +3153,7 @@ defmodule AWS.APIGateway do
         options \\ []
       ) do
     url_path =
-      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{
-        URI.encode(http_method)
-      }/responses/#{URI.encode(status_code)}"
+      "/restapis/#{URI.encode(rest_api_id)}/resources/#{URI.encode(resource_id)}/methods/#{URI.encode(http_method)}/responses/#{URI.encode(status_code)}"
 
     headers = []
     query_params = []

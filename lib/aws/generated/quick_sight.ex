@@ -44,9 +44,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{
-        URI.encode(ingestion_id)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{URI.encode(ingestion_id)}"
 
     headers = []
     query_params = []
@@ -203,6 +201,58 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Creates an empty shared folder.
+  """
+  def create_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Adds an asset, such as a dashboard, analysis, or dataset into a folder.
+  """
+  def create_folder_membership(
+        %Client{} = client,
+        aws_account_id,
+        folder_id,
+        member_id,
+        member_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/members/#{URI.encode(member_type)}/#{URI.encode(member_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Creates an Amazon QuickSight group.
 
   The permissions resource is
@@ -244,9 +294,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{
-        URI.encode(group_name)
-      }/members/#{URI.encode(member_name)}"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}/members/#{URI.encode(member_name)}"
 
     headers = []
     query_params = []
@@ -318,9 +366,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{
-        URI.encode(ingestion_id)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{URI.encode(ingestion_id)}"
 
     headers = []
     query_params = []
@@ -410,9 +456,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{
-        URI.encode(alias_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{URI.encode(alias_name)}"
 
     headers = []
     query_params = []
@@ -467,9 +511,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{
-        URI.encode(alias_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{URI.encode(alias_name)}"
 
     headers = []
     query_params = []
@@ -629,6 +671,58 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes an empty folder.
+  """
+  def delete_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Removes an asset, such as a dashboard, analysis, or dataset, from a folder.
+  """
+  def delete_folder_membership(
+        %Client{} = client,
+        aws_account_id,
+        folder_id,
+        member_id,
+        member_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/members/#{URI.encode(member_type)}/#{URI.encode(member_id)}"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Removes a user group from Amazon QuickSight.
   """
   def delete_group(
@@ -640,9 +734,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{
-        URI.encode(group_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}"
 
     headers = []
     query_params = []
@@ -673,9 +765,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{
-        URI.encode(group_name)
-      }/members/#{URI.encode(member_name)}"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}/members/#{URI.encode(member_name)}"
 
     headers = []
     query_params = []
@@ -705,9 +795,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespace/#{URI.encode(namespace)}/iam-policy-assignments/#{
-        URI.encode(assignment_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespace/#{URI.encode(namespace)}/iam-policy-assignments/#{URI.encode(assignment_name)}"
 
     headers = []
     query_params = []
@@ -792,9 +880,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{
-        URI.encode(alias_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{URI.encode(alias_name)}"
 
     headers = []
     query_params = []
@@ -853,9 +939,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{
-        URI.encode(alias_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{URI.encode(alias_name)}"
 
     headers = []
     query_params = []
@@ -881,9 +965,7 @@ defmodule AWS.QuickSight do
   """
   def delete_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{
-        URI.encode(user_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}"
 
     headers = []
     query_params = []
@@ -913,9 +995,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/user-principals/#{
-        URI.encode(principal_id)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/user-principals/#{URI.encode(principal_id)}"
 
     headers = []
     query_params = []
@@ -1263,13 +1343,86 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes a folder.
+  """
+  def describe_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
+    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Describes permissions for a folder.
+  """
+  def describe_folder_permissions(%Client{} = client, aws_account_id, folder_id, options \\ []) do
+    url_path =
+      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Describes the folder resolved permissions.
+
+  Permissions consists of both folder direct permissions and the inherited
+  permissions from the ancestor folders.
+  """
+  def describe_folder_resolved_permissions(
+        %Client{} = client,
+        aws_account_id,
+        folder_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/resolved-permissions"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN).
   """
   def describe_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{
-        URI.encode(group_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}"
 
     headers = []
     query_params = []
@@ -1299,9 +1452,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/iam-policy-assignments/#{
-        URI.encode(assignment_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/iam-policy-assignments/#{URI.encode(assignment_name)}"
 
     headers = []
     query_params = []
@@ -1330,9 +1481,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{
-        URI.encode(ingestion_id)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/data-sets/#{URI.encode(data_set_id)}/ingestions/#{URI.encode(ingestion_id)}"
 
     headers = []
     query_params = []
@@ -1424,9 +1573,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{
-        URI.encode(alias_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{URI.encode(alias_name)}"
 
     headers = []
     query_params = []
@@ -1525,9 +1672,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{
-        URI.encode(alias_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{URI.encode(alias_name)}"
 
     headers = []
     query_params = []
@@ -1573,9 +1718,7 @@ defmodule AWS.QuickSight do
   """
   def describe_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{
-        URI.encode(user_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}"
 
     headers = []
     query_params = []
@@ -1979,6 +2122,89 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  List all assets (`DASHBOARD`, `ANALYSIS`, and `DATASET`) in a folder.
+  """
+  def list_folder_members(
+        %Client{} = client,
+        aws_account_id,
+        folder_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/members"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Lists all folders in an account.
+  """
+  def list_folders(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Lists member users in a group.
   """
   def list_group_memberships(
@@ -1991,9 +2217,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{
-        URI.encode(group_name)
-      }/members"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}/members"
 
     headers = []
     query_params = []
@@ -2128,9 +2352,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{
-        URI.encode(user_name)
-      }/iam-policy-assignments"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}/iam-policy-assignments"
 
     headers = []
     query_params = []
@@ -2545,9 +2767,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{
-        URI.encode(user_name)
-      }/groups"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}/groups"
 
     headers = []
     query_params = []
@@ -2692,6 +2912,27 @@ defmodule AWS.QuickSight do
   """
   def search_dashboards(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{URI.encode(aws_account_id)}/search/dashboards"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Searches the subfolders in a folder.
+  """
+  def search_folders(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(aws_account_id)}/search/folders"
     headers = []
     query_params = []
 
@@ -2942,9 +3183,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}/versions/#{
-        URI.encode(version_number)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/dashboards/#{URI.encode(dashboard_id)}/versions/#{URI.encode(version_number)}"
 
     headers = []
     query_params = []
@@ -3068,6 +3307,56 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates the name of a folder.
+  """
+  def update_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
+    url_path = "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates permissions of a folder.
+  """
+  def update_folder_permissions(
+        %Client{} = client,
+        aws_account_id,
+        folder_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{URI.encode(aws_account_id)}/folders/#{URI.encode(folder_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Changes a group description.
   """
   def update_group(
@@ -3079,9 +3368,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{
-        URI.encode(group_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/groups/#{URI.encode(group_name)}"
 
     headers = []
     query_params = []
@@ -3115,9 +3402,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/iam-policy-assignments/#{
-        URI.encode(assignment_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/iam-policy-assignments/#{URI.encode(assignment_name)}"
 
     headers = []
     query_params = []
@@ -3169,9 +3454,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{
-        URI.encode(alias_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/templates/#{URI.encode(template_id)}/aliases/#{URI.encode(alias_name)}"
 
     headers = []
     query_params = []
@@ -3251,9 +3534,7 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{
-        URI.encode(alias_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/themes/#{URI.encode(theme_id)}/aliases/#{URI.encode(alias_name)}"
 
     headers = []
     query_params = []
@@ -3341,9 +3622,7 @@ defmodule AWS.QuickSight do
   """
   def update_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
-      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{
-        URI.encode(user_name)
-      }"
+      "/accounts/#{URI.encode(aws_account_id)}/namespaces/#{URI.encode(namespace)}/users/#{URI.encode(user_name)}"
 
     headers = []
     query_params = []

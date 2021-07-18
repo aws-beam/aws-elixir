@@ -31,11 +31,31 @@ defmodule AWS.Kendra do
   The documents must have been added with the `BatchPutDocument` operation.
 
   The documents are deleted asynchronously. You can see the progress of the
-  deletion by using AWS CloudWatch. Any error messages releated to the processing
-  of the batch are sent to you CloudWatch log.
+  deletion by using Amazon Web Services CloudWatch. Any error messages related to
+  the processing of the batch are sent to you CloudWatch log.
   """
   def batch_delete_document(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchDeleteDocument", input, options)
+  end
+
+  @doc """
+  Returns the indexing status for one or more documents submitted with the [
+  BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html)
+  operation.
+
+  When you use the `BatchPutDocument` operation, documents are indexed
+  asynchronously. You can use the `BatchGetDocumentStatus` operation to get the
+  current status of a list of documents so that you can determine if they have
+  been successfully indexed.
+
+  You can also use the `BatchGetDocumentStatus` operation to check the status of
+  the [
+  BatchDeleteDocument](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html)
+  operation. When a document is deleted from the index, Amazon Kendra returns
+  `NOT_FOUND` as the status.
+  """
+  def batch_get_document_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "BatchGetDocumentStatus", input, options)
   end
 
   @doc """
@@ -48,11 +68,24 @@ defmodule AWS.Kendra do
   index.
 
   The documents are indexed asynchronously. You can see the progress of the batch
-  using AWS CloudWatch. Any error messages related to processing the batch are
-  sent to your AWS CloudWatch log.
+  using Amazon Web Services CloudWatch. Any error messages related to processing
+  the batch are sent to your Amazon Web Services CloudWatch log.
   """
   def batch_put_document(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "BatchPutDocument", input, options)
+  end
+
+  @doc """
+  Clears existing query suggestions from an index.
+
+  This deletes existing suggestions only, not the queries in the query log. After
+  you clear suggestions, Amazon Kendra learns new suggestions based on new queries
+  added to the query log from the time you cleared suggestions. If you do not see
+  any new suggestions, then please allow Amazon Kendra to collect enough queries
+  to learn new suggestions.
+  """
+  def clear_query_suggestions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ClearQuerySuggestions", input, options)
   end
 
   @doc """
@@ -80,14 +113,29 @@ defmodule AWS.Kendra do
   Creates a new Amazon Kendra index.
 
   Index creation is an asynchronous operation. To determine if index creation has
-  completed, check the `Status` field returned from a call to . The `Status` field
-  is set to `ACTIVE` when the index is ready to use.
+  completed, check the `Status` field returned from a call to `DescribeIndex`. The
+  `Status` field is set to `ACTIVE` when the index is ready to use.
 
-  Once the index is active you can index your documents using the operation or
-  using one of the supported data sources.
+  Once the index is active you can index your documents using the
+  `BatchPutDocument` operation or using one of the supported data sources.
   """
   def create_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateIndex", input, options)
+  end
+
+  @doc """
+  Creates a block list to exlcude certain queries from suggestions.
+
+  Any query that contains words or phrases specified in the block list is blocked
+  or filtered out from being shown as a suggestion.
+
+  You need to provide the file location of your block list text file in your S3
+  bucket. In your text file, enter each block word or phrase on a separate line.
+
+  For information on the current quota limits for block lists, see [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
+  """
+  def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
@@ -104,7 +152,8 @@ defmodule AWS.Kendra do
 
   An exception is not thrown if the data source is already being deleted. While
   the data source is being deleted, the `Status` field returned by a call to the
-  operation is set to `DELETING`. For more information, see [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
+  `DescribeDataSource` operation is set to `DELETING`. For more information, see
+  [Deleting Data Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
   """
   def delete_data_source(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteDataSource", input, options)
@@ -126,6 +175,36 @@ defmodule AWS.Kendra do
   """
   def delete_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteIndex", input, options)
+  end
+
+  @doc """
+  Deletes a group so that all users and sub groups that belong to the group can no
+  longer access documents only available to that group.
+
+  For example, after deleting the group "Summer Interns", all interns who belonged
+  to that group no longer see intern-only documents in their search results.
+
+  If you want to delete or replace users or sub groups of a group, you need to use
+  the `PutPrincipalMapping` operation. For example, if a user in the group
+  "Engineering" leaves the engineering team and another user takes their place,
+  you provide an updated list of users or sub groups that belong to the
+  "Engineering" group when calling `PutPrincipalMapping`. You can update your
+  internal list of users or sub groups and input this list when calling
+  `PutPrincipalMapping`.
+  """
+  def delete_principal_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePrincipalMapping", input, options)
+  end
+
+  @doc """
+  Deletes a block list used for query suggestions for an index.
+
+  A deleted block list might not take effect right away. Amazon Kendra needs to
+  refresh the entire suggestions list to add back the queries that were previously
+  blocked.
+  """
+  def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteQuerySuggestionsBlockList", input, options)
   end
 
   @doc """
@@ -157,10 +236,48 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Describes the processing of `PUT` and `DELETE` actions for mapping users to
+  their groups.
+
+  This includes information on the status of actions currently processing or yet
+  to be processed, when actions were last updated, when actions were received by
+  Amazon Kendra, the latest action that should process and apply after other
+  actions, and useful error messages if an action could not be processed.
+  """
+  def describe_principal_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePrincipalMapping", input, options)
+  end
+
+  @doc """
+  Describes a block list used for query suggestions for an index.
+
+  This is used to check the current settings that are applied to a block list.
+  """
+  def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeQuerySuggestionsBlockList", input, options)
+  end
+
+  @doc """
+  Describes the settings of query suggestions for an index.
+
+  This is used to check the current settings applied to query suggestions.
+  """
+  def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeQuerySuggestionsConfig", input, options)
+  end
+
+  @doc """
   Describes an existing Amazon Kendra thesaurus.
   """
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeThesaurus", input, options)
+  end
+
+  @doc """
+  Fetches the queries that are suggested to your users.
+  """
+  def get_query_suggestions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetQuerySuggestions", input, options)
   end
 
   @doc """
@@ -185,10 +302,27 @@ defmodule AWS.Kendra do
   end
 
   @doc """
+  Provides a list of groups that are mapped to users before a given ordering or
+  timestamp identifier.
+  """
+  def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListGroupsOlderThanOrderingId", input, options)
+  end
+
+  @doc """
   Lists the Amazon Kendra indexes that you have created.
   """
   def list_indices(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListIndices", input, options)
+  end
+
+  @doc """
+  Lists the block lists used for query suggestions for an index.
+
+  For information on the current quota limits for block lists, see [Quotas for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
+  """
+  def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListQuerySuggestionsBlockLists", input, options)
   end
 
   @doc """
@@ -205,6 +339,27 @@ defmodule AWS.Kendra do
   """
   def list_thesauri(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListThesauri", input, options)
+  end
+
+  @doc """
+  Maps users to their groups.
+
+  You can also map sub groups to groups. For example, the group "Company
+  Intellectual Property Teams" includes sub groups "Research" and "Engineering".
+  These sub groups include their own list of users or people who work in these
+  teams. Only users who work in research and engineering, and therefore belong in
+  the intellectual property group, can see top-secret company documents in their
+  search results.
+
+  You map users to their groups when you want to filter search results for
+  different users based on their group’s access to documents. For more information
+  on filtering search results for different users, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html).
+
+  If more than five `PUT` actions for a group are currently processing, a
+  validation exception is thrown.
+  """
+  def put_principal_mapping(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "PutPrincipalMapping", input, options)
   end
 
   @doc """
@@ -289,6 +444,42 @@ defmodule AWS.Kendra do
   """
   def update_index(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateIndex", input, options)
+  end
+
+  @doc """
+  Updates a block list used for query suggestions for an index.
+
+  Updates to a block list might not take effect right away. Amazon Kendra needs to
+  refresh the entire suggestions list to apply any updates to the block list.
+  Other changes not related to the block list apply immediately.
+
+  If a block list is updating, then you need to wait for the first update to
+  finish before submitting another update.
+
+  Amazon Kendra supports partial updates, so you only need to provide the fields
+  you want to update.
+  """
+  def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateQuerySuggestionsBlockList", input, options)
+  end
+
+  @doc """
+  Updates the settings of query suggestions for an index.
+
+  Amazon Kendra supports partial updates, so you only need to provide the fields
+  you want to update.
+
+  If an update is currently processing (i.e. 'happening'), you need to wait for
+  the update to finish before making another update.
+
+  Updates to query suggestions settings might not take effect right away. The time
+  for your updated settings to take effect depends on the updates made and the
+  number of search queries in your index.
+
+  You can still enable/disable query suggestions at any time.
+  """
+  def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdateQuerySuggestionsConfig", input, options)
   end
 
   @doc """

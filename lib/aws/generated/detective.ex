@@ -362,6 +362,27 @@ defmodule AWS.Detective do
   end
 
   @doc """
+  Returns the tag values that are assigned to a behavior graph.
+  """
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Rejects an invitation to contribute the account data to a behavior graph.
 
   This operation must be called by a member account that has the `INVITED` status.
@@ -411,6 +432,53 @@ defmodule AWS.Detective do
       input,
       options,
       nil
+    )
+  end
+
+  @doc """
+  Applies tag values to a behavior graph.
+  """
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Removes tags from a behavior graph.
+  """
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{URI.encode(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 end

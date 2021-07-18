@@ -40,6 +40,27 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   end
 
   @doc """
+  Retrieves a batch of `Records` from a `FeatureGroup`.
+  """
+  def batch_get_record(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchGetRecord"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
   Deletes a `Record` from a `FeatureGroup`.
 
   A new record will show up in the `OfflineStore` when the `DeleteRecord` API is

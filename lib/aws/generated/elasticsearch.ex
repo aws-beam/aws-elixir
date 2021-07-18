@@ -436,9 +436,7 @@ defmodule AWS.Elasticsearch do
         options \\ []
       ) do
     url_path =
-      "/2015-01-01/es/instanceTypeLimits/#{URI.encode(elasticsearch_version)}/#{
-        URI.encode(instance_type)
-      }"
+      "/2015-01-01/es/instanceTypeLimits/#{URI.encode(elasticsearch_version)}/#{URI.encode(instance_type)}"
 
     headers = []
     query_params = []

@@ -376,9 +376,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-registrations/#{
-        URI.encode(transit_gateway_arn)
-      }"
+      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-registrations/#{URI.encode(transit_gateway_arn)}"
 
     headers = []
     query_params = []
@@ -460,9 +458,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/customer-gateway-associations/#{
-        URI.encode(customer_gateway_arn)
-      }"
+      "/global-networks/#{URI.encode(global_network_id)}/customer-gateway-associations/#{URI.encode(customer_gateway_arn)}"
 
     headers = []
     query_params = []
@@ -521,9 +517,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-connect-peer-associations/#{
-        URI.encode(transit_gateway_connect_peer_arn)
-      }"
+      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-connect-peer-associations/#{URI.encode(transit_gateway_connect_peer_arn)}"
 
     headers = []
     query_params = []

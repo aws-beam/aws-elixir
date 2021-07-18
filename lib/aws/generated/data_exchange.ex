@@ -116,9 +116,7 @@ defmodule AWS.DataExchange do
   """
   def delete_asset(%Client{} = client, asset_id, data_set_id, revision_id, input, options \\ []) do
     url_path =
-      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{
-        URI.encode(asset_id)
-      }"
+      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{URI.encode(asset_id)}"
 
     headers = []
     query_params = []
@@ -183,9 +181,7 @@ defmodule AWS.DataExchange do
   """
   def get_asset(%Client{} = client, asset_id, data_set_id, revision_id, options \\ []) do
     url_path =
-      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{
-        URI.encode(asset_id)
-      }"
+      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{URI.encode(asset_id)}"
 
     headers = []
     query_params = []
@@ -555,9 +551,7 @@ defmodule AWS.DataExchange do
   """
   def update_asset(%Client{} = client, asset_id, data_set_id, revision_id, input, options \\ []) do
     url_path =
-      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{
-        URI.encode(asset_id)
-      }"
+      "/v1/data-sets/#{URI.encode(data_set_id)}/revisions/#{URI.encode(revision_id)}/assets/#{URI.encode(asset_id)}"
 
     headers = []
     query_params = []

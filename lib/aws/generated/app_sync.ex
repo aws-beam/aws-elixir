@@ -290,9 +290,7 @@ defmodule AWS.AppSync do
   """
   def delete_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
     url_path =
-      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{
-        URI.encode(field_name)
-      }"
+      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{URI.encode(field_name)}"
 
     headers = []
     query_params = []
@@ -482,9 +480,7 @@ defmodule AWS.AppSync do
   """
   def get_resolver(%Client{} = client, api_id, field_name, type_name, options \\ []) do
     url_path =
-      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{
-        URI.encode(field_name)
-      }"
+      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{URI.encode(field_name)}"
 
     headers = []
     query_params = []
@@ -1050,9 +1046,7 @@ defmodule AWS.AppSync do
   """
   def update_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
     url_path =
-      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{
-        URI.encode(field_name)
-      }"
+      "/v1/apis/#{URI.encode(api_id)}/types/#{URI.encode(type_name)}/resolvers/#{URI.encode(field_name)}"
 
     headers = []
     query_params = []

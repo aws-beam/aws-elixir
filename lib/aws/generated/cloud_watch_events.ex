@@ -211,6 +211,10 @@ defmodule AWS.CloudWatchEvents do
   When you delete a rule, incoming events might continue to match to the deleted
   rule. Allow a short period of time for changes to take effect.
 
+  If you call delete rule multiple times for the same rule, all calls will
+  succeed. When you call delete rule for a non-existent custom eventbus,
+  `ResourceNotFoundException` is returned.
+
   Managed rules are rules created and managed by another AWS service on your
   behalf. These rules are created by those other AWS services to support
   functionality in those services. You can delete these rules using the `Force`
@@ -555,43 +559,57 @@ defmodule AWS.CloudWatchEvents do
 
   You can configure the following as targets for Events:
 
-    * EC2 instances
+    * [API destination](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html)
 
-    * SSM Run Command
+    * Amazon API Gateway REST API endpoints
 
-    * SSM Automation
+    * API Gateway
 
-    * AWS Lambda functions
+    * AWS Batch job queue
 
-    * Data streams in Amazon Kinesis Data Streams
+    * CloudWatch Logs group
 
-    * Data delivery streams in Amazon Kinesis Data Firehose
+    * CodeBuild project
+
+    * CodePineline
+
+    * Amazon EC2 `CreateSnapshot` API call
+
+    * Amazon EC2 `RebootInstances` API call
+
+    * Amazon EC2 `StopInstances` API call
+
+    * Amazon EC2 `TerminateInstances` API call
 
     * Amazon ECS tasks
 
-    * AWS Step Functions state machines
+    * Event bus in a different AWS account or Region.
 
-    * AWS Batch jobs
+  You can use an event bus in the US East (N. Virginia) us-east-1, US West
+  (Oregon) us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a
+  rule.
 
-    * AWS CodeBuild projects
+    * Firehose delivery stream (Kinesis Data Firehose)
 
-    * Pipelines in AWS CodePipeline
+    * Inspector assessment template (Amazon Inspector)
 
-    * Amazon Inspector assessment templates
+    * Kinesis stream (Kinesis Data Stream)
 
-    * Amazon SNS topics
+    * AWS Lambda function
 
-    * Amazon SQS queues, including FIFO queues
+    * Redshift clusters (Data API statement execution)
 
-    * The default event bus of another AWS account
+    * Amazon SNS topic
 
-    * Amazon API Gateway REST APIs
+    * Amazon SQS queues (includes FIFO queues
 
-    * Redshift Clusters to invoke Data API ExecuteStatement on
+    * SSM Automation
 
-    * Custom/SaaS HTTPS APIs via EventBridge API Destinations
+    * SSM OpsItem
 
-    * Amazon SageMaker Model Building Pipelines
+    * SSM Run Command
+
+    * Step Functions state machines
 
   Creating rules with built-in targets is supported only in the AWS Management
   Console. The built-in targets are `EC2 CreateSnapshot API call`, `EC2
@@ -754,7 +772,7 @@ defmodule AWS.CloudWatchEvents do
   @doc """
   Removes one or more tags from the specified EventBridge resource.
 
-  In Amazon EventBridge (CloudWatch Events, rules and event buses can be tagged.
+  In Amazon EventBridge (CloudWatch Events), rules and event buses can be tagged.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)

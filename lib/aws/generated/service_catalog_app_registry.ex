@@ -76,9 +76,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application)}/resources/#{URI.encode(resource_type)}/#{
-        URI.encode(resource)
-      }"
+      "/applications/#{URI.encode(application)}/resources/#{URI.encode(resource_type)}/#{URI.encode(resource)}"
 
     headers = []
     query_params = []
@@ -234,9 +232,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application)}/resources/#{URI.encode(resource_type)}/#{
-        URI.encode(resource)
-      }"
+      "/applications/#{URI.encode(application)}/resources/#{URI.encode(resource_type)}/#{URI.encode(resource)}"
 
     headers = []
     query_params = []

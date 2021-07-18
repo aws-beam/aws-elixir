@@ -3,14 +3,15 @@
 
 defmodule AWS.IAM do
   @moduledoc """
-  AWS Identity and Access Management
+  Identity and Access Management
 
-  AWS Identity and Access Management (IAM) is a web service for securely
-  controlling access to AWS services.
+  Identity and Access Management (IAM) is a web service for securely controlling
+  access to Amazon Web Services services.
 
   With IAM, you can centrally manage users, security credentials such as access
-  keys, and permissions that control which AWS resources users and applications
-  can access. For more information about IAM, see [AWS Identity and Access Management (IAM)](http://aws.amazon.com/iam/) and the [AWS Identity and Access Management User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
+  keys, and permissions that control which Amazon Web Services resources users and
+  applications can access. For more information about IAM, see [Identity and Access Management (IAM)](http://aws.amazon.com/iam/) and the [Identity and Access Management User
+  Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
   """
 
   alias AWS.Client
@@ -48,8 +49,8 @@ defmodule AWS.IAM do
 
   An instance profile can contain only one role, and this quota cannot be
   increased. You can remove the existing role and then add a different role to an
-  instance profile. You must then wait for the change to appear across all of AWS
-  because of [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency). To force the
+  instance profile. You must then wait for the change to appear across all of
+  Amazon Web Services because of [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency). To force the
   change, you must [disassociate the instance profile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html)
   and then [associate the instance profile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html),
   or you can stop your instance and then restart it.
@@ -131,13 +132,13 @@ defmodule AWS.IAM do
   @doc """
   Changes the password of the IAM user who is calling this operation.
 
-  This operation can be performed using the AWS CLI, the AWS API, or the **My
-  Security Credentials** page in the AWS Management Console. The AWS account root
+  This operation can be performed using the CLI, the Amazon Web Services API, or
+  the **My Security Credentials** page in the Management Console. The account root
   user password is not affected by this operation.
 
-  Use `UpdateLoginProfile` to use the AWS CLI, the AWS API, or the **Users** page
-  in the IAM console to change the password for any IAM user. For more information
-  about modifying passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
+  Use `UpdateLoginProfile` to use the CLI, the Amazon Web Services API, or the
+  **Users** page in the IAM console to change the password for any IAM user. For
+  more information about modifying passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
   """
   def change_password(%Client{} = client, input, options \\ []) do
@@ -145,23 +146,23 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new AWS secret access key and corresponding AWS access key ID for the
-  specified user.
+  Creates a new Amazon Web Services secret access key and corresponding Amazon Web
+  Services access key ID for the specified user.
 
   The default status for new keys is `Active`.
 
   If you do not specify a user name, IAM determines the user name implicitly based
-  on the AWS access key ID signing the request. This operation works for access
-  keys under the AWS account. Consequently, you can use this operation to manage
-  AWS account root user credentials. This is true even if the AWS account has no
-  associated users.
+  on the Amazon Web Services access key ID signing the request. This operation
+  works for access keys under the account. Consequently, you can use this
+  operation to manage account root user credentials. This is true even if the
+  account has no associated users.
 
   For information about quotas on the number of keys you can create, see [IAM and STS
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
 
-  To ensure the security of your AWS account, the secret access key is accessible
-  only during key and user creation. You must save the key (for example, in a text
+  To ensure the security of your account, the secret access key is accessible only
+  during key and user creation. You must save the key (for example, in a text
   file) if you want to be able to access it again. If a secret key is lost, you
   can delete the access keys for the associated user and then create new keys.
   """
@@ -170,11 +171,10 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates an alias for your AWS account.
+  Creates an alias for your account.
 
-  For information about using an AWS account alias, see [Using an alias for your AWS account
-  ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
-  *IAM User Guide*.
+  For information about using an account alias, see [Using an alias for your account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html)
+  in the *IAM User Guide*.
   """
   def create_account_alias(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateAccountAlias", input, options)
@@ -209,13 +209,13 @@ defmodule AWS.IAM do
   @doc """
   Creates a password for the specified IAM user.
 
-  A password allows an IAM user to access AWS services through the AWS Management
-  Console.
+  A password allows an IAM user to access Amazon Web Services services through the
+  Management Console.
 
-  You can use the AWS CLI, the AWS API, or the **Users** page in the IAM console
-  to create a password for any IAM user. Use `ChangePassword` to update your own
-  existing password in the **My Security Credentials** page in the AWS Management
-  Console.
+  You can use the CLI, the Amazon Web Services API, or the **Users** page in the
+  IAM console to create a password for any IAM user. Use `ChangePassword` to
+  update your own existing password in the **My Security Credentials** page in the
+  Management Console.
 
   For more information about managing passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
@@ -226,25 +226,31 @@ defmodule AWS.IAM do
 
   @doc """
   Creates an IAM entity to describe an identity provider (IdP) that supports
-  [OpenID Connect (OIDC)](http://openid.net/connect/).
-
-  The OIDC provider that you create with this operation can be used as a principal
+  [OpenID Connect (OIDC)](http://openid.net/connect/).   The OIDC provider that you create with this operation can be used as a principal
   in a role's trust policy. Such a policy establishes a trust relationship between
-  AWS and the OIDC provider.
+  Amazon Web Services and the OIDC provider.
+
+  If you are using an OIDC identity provider from Google, Facebook, or Amazon
+  Cognito, you don't need to create a separate IAM identity provider. These OIDC
+  identity providers are already built-in to Amazon Web Services and are available
+  for your use. Instead, you can move directly to creating new roles using your
+  identity provider. To learn more, see [Creating a role for web identity or
+  OpenID connect
+  federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)
+  in the *IAM User Guide*.
 
   When you create the IAM OIDC provider, you specify the following:
 
     * The URL of the OIDC identity provider (IdP) to trust
 
     * A list of client IDs (also known as audiences) that identify the
-  application or applications that are allowed to authenticate using the OIDC
-  provider
+  application or applications allowed to authenticate using the OIDC provider
 
     * A list of thumbprints of one or more server certificates that the
   IdP uses
 
   You get all of this information from the OIDC IdP that you want to use to access
-  AWS.
+  Amazon Web Services.
 
   The trust for the OIDC provider is derived from the IAM provider that this
   operation creates. Therefore, it is best to limit access to the
@@ -255,7 +261,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new managed policy for your AWS account.
+  Creates a new managed policy for your account.
 
   This operation creates a policy version with a version identifier of `v1` and
   sets v1 as the policy's default version. For more information about policy
@@ -293,7 +299,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new role for your AWS account.
+  Creates a new role for your account.
 
   For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
   For information about quotas for role names and the number of roles you can
@@ -311,8 +317,8 @@ defmodule AWS.IAM do
   The SAML provider resource that you create with this operation can be used as a
   principal in an IAM role's trust policy. Such a policy can enable federated
   users who sign in using the SAML IdP to assume the role. You can create an IAM
-  role that supports Web-based single sign-on (SSO) to the AWS Management Console
-  or one that supports API access to AWS.
+  role that supports Web-based single sign-on (SSO) to the Management Console or
+  one that supports API access to Amazon Web Services.
 
   When you create the SAML provider resource, you upload a SAML metadata document
   that you get from your IdP. That document includes the issuer's name, expiration
@@ -323,7 +329,7 @@ defmodule AWS.IAM do
 
   This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
-  For more information, see [Enabling SAML 2.0 federated users to access the AWS Management
+  For more information, see [Enabling SAML 2.0 federated users to access the Management
   Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html)
   and [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)
   in the *IAM User Guide*.
@@ -333,18 +339,18 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates an IAM role that is linked to a specific AWS service.
+  Creates an IAM role that is linked to a specific Amazon Web Services service.
 
   The service controls the attached policies and when the role can be deleted.
   This helps ensure that the service is not broken by an unexpectedly changed or
-  deleted role, which could put your AWS resources into an unknown state. Allowing
-  the service to control the role helps improve service stability and proper
-  cleanup when a service and its role are no longer needed. For more information,
-  see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
+  deleted role, which could put your Amazon Web Services resources into an unknown
+  state. Allowing the service to control the role helps improve service stability
+  and proper cleanup when a service and its role are no longer needed. For more
+  information, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
   in the *IAM User Guide*.
 
   To attach a policy to this service-linked role, you must make the request using
-  the AWS service that depends on this role.
+  the Amazon Web Services service that depends on this role.
   """
   def create_service_linked_role(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateServiceLinkedRole", input, options)
@@ -360,13 +366,13 @@ defmodule AWS.IAM do
   You can have a maximum of two sets of service-specific credentials for each
   supported service per user.
 
-  You can create service-specific credentials for AWS CodeCommit and Amazon
-  Keyspaces (for Apache Cassandra).
+  You can create service-specific credentials for CodeCommit and Amazon Keyspaces
+  (for Apache Cassandra).
 
   You can reset the password to a new service-generated value by calling
   `ResetServiceSpecificCredential`.
 
-  For more information about service-specific credentials, see [Using IAM with AWS CodeCommit: Git credentials, SSH keys, and AWS access
+  For more information about service-specific credentials, see [Using IAM with CodeCommit: Git credentials, SSH keys, and Amazon Web Services access
   keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html)
   in the *IAM User Guide*.
   """
@@ -375,7 +381,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new IAM user for your AWS account.
+  Creates a new IAM user for your account.
 
   For information about quotas for the number of IAM users you can create, see
   [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
@@ -386,7 +392,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Creates a new virtual MFA device for the AWS account.
+  Creates a new virtual MFA device for the account.
 
   After creating the virtual MFA, use `EnableMFADevice` to attach the MFA device
   to an IAM user. For more information about creating and working with virtual MFA
@@ -399,9 +405,9 @@ defmodule AWS.IAM do
 
   The seed information contained in the QR code and the Base32 string should be
   treated like any other secret access information. In other words, protect the
-  seed information as you would your AWS access keys or your passwords. After you
-  provision your virtual device, you should ensure that the information is
-  destroyed following secure procedures.
+  seed information as you would your Amazon Web Services access keys or your
+  passwords. After you provision your virtual device, you should ensure that the
+  information is destroyed following secure procedures.
   """
   def create_virtual_mfa_device(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateVirtualMFADevice", input, options)
@@ -423,19 +429,19 @@ defmodule AWS.IAM do
   Deletes the access key pair associated with the specified IAM user.
 
   If you do not specify a user name, IAM determines the user name implicitly based
-  on the AWS access key ID signing the request. This operation works for access
-  keys under the AWS account. Consequently, you can use this operation to manage
-  AWS account root user credentials even if the AWS account has no associated
-  users.
+  on the Amazon Web Services access key ID signing the request. This operation
+  works for access keys under the account. Consequently, you can use this
+  operation to manage account root user credentials even if the account has no
+  associated users.
   """
   def delete_access_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteAccessKey", input, options)
   end
 
   @doc """
-  Deletes the specified AWS account alias.
+  Deletes the specified account alias.
 
-  For information about using an AWS account alias, see [Using an alias for your AWS account
+  For information about using an Amazon Web Services account alias, see [Using an alias for your account
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
   *IAM User Guide*.
   """
@@ -444,7 +450,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Deletes the password policy for the AWS account.
+  Deletes the password policy for the account.
 
   There are no parameters.
   """
@@ -491,18 +497,18 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the password for the specified IAM user, which terminates the user's
-  ability to access AWS services through the AWS Management Console.
+  ability to access Amazon Web Services services through the Management Console.
 
-  You can use the AWS CLI, the AWS API, or the **Users** page in the IAM console
-  to delete a password for any IAM user. You can use `ChangePassword` to update,
-  but not delete, your own password in the **My Security Credentials** page in the
-  AWS Management Console.
+  You can use the CLI, the Amazon Web Services API, or the **Users** page in the
+  IAM console to delete a password for any IAM user. You can use `ChangePassword`
+  to update, but not delete, your own password in the ## My Security Credentials
+  page in the Management Console.
 
-  Deleting a user's password does not prevent a user from accessing AWS through
-  the command line interface or the API. To prevent all user access, you must also
-  either make any access keys inactive or delete them. For more information about
-  making keys inactive or deleting them, see `UpdateAccessKey` and
-  `DeleteAccessKey`.
+  Deleting a user's password does not prevent a user from accessing Amazon Web
+  Services through the command line interface or the API. To prevent all user
+  access, you must also either make any access keys inactive or delete them. For
+  more information about making keys inactive or deleting them, see
+  `UpdateAccessKey` and `DeleteAccessKey`.
   """
   def delete_login_profile(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteLoginProfile", input, options)
@@ -621,8 +627,8 @@ defmodule AWS.IAM do
 
   For more information about working with server certificates, see [Working with server
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
-  in the *IAM User Guide*. This topic also includes a list of AWS services that
-  can use the server certificates that you manage with IAM.
+  in the *IAM User Guide*. This topic also includes a list of Amazon Web Services
+  services that can use the server certificates that you manage with IAM.
 
   If you are using a server certificate with Elastic Load Balancing, deleting the
   certificate could have implications for your application. If Elastic Load
@@ -655,9 +661,9 @@ defmodule AWS.IAM do
   service-linked role, you must first remove those resources from the linked
   service and then submit the deletion request again. Resources are specific to
   the service that is linked to the role. For more information about removing
-  resources from a service, see the [AWS documentation](http://docs.aws.amazon.com/) for your service.
+  resources from a service, see the [Amazon Web Services documentation](http://docs.aws.amazon.com/) for your service.
 
-  For more information about service-linked roles, see [Roles terms and concepts: AWS service-linked
+  For more information about service-linked roles, see [Roles terms and concepts: Amazon Web Services service-linked
   role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)
   in the *IAM User Guide*.
   """
@@ -676,10 +682,10 @@ defmodule AWS.IAM do
   Deletes a signing certificate associated with the specified IAM user.
 
   If you do not specify a user name, IAM determines the user name implicitly based
-  on the AWS access key ID signing the request. This operation works for access
-  keys under the AWS account. Consequently, you can use this operation to manage
-  AWS account root user credentials even if the AWS account has no associated IAM
-  users.
+  on the Amazon Web Services access key ID signing the request. This operation
+  works for access keys under the account. Consequently, you can use this
+  operation to manage account root user credentials even if the account has no
+  associated IAM users.
   """
   def delete_signing_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSigningCertificate", input, options)
@@ -689,10 +695,10 @@ defmodule AWS.IAM do
   Deletes the specified SSH public key.
 
   The SSH public key deleted by this operation is used only for authenticating the
-  associated IAM user to an AWS CodeCommit repository. For more information about
-  using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
+  associated IAM user to an CodeCommit repository. For more information about
+  using SSH keys to authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH
   connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
+  in the *CodeCommit User Guide*.
   """
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteSSHPublicKey", input, options)
@@ -701,9 +707,9 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified IAM user.
 
-  Unlike the AWS Management Console, when you delete a user programmatically, you
-  must delete the items attached to the user manually, or the deletion fails. For
-  more information, see [Deleting an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli).
+  Unlike the Management Console, when you delete a user programmatically, you must
+  delete the items attached to the user manually, or the deletion fails. For more
+  information, see [Deleting an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli).
   Before attempting to delete a user, remove the following items:
 
     * Password (`DeleteLoginProfile`)
@@ -809,7 +815,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Generates a credential report for the AWS account.
+  Generates a credential report for the account.
 
   For more information about the credential report, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
@@ -819,15 +825,15 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Generates a report for service last accessed data for AWS Organizations.
+  Generates a report for service last accessed data for Organizations.
 
   You can generate a report for any entities (organization root, organizational
   unit, or account) or policies in your organization.
 
-  To call this operation, you must be signed in using your AWS Organizations
+  To call this operation, you must be signed in using your Organizations
   management account credentials. You can use your long-term IAM user or root user
   credentials, or temporary credentials from assuming an IAM role. SCPs must be
-  enabled for your organization root. You must have the required IAM and AWS
+  enabled for your organization root. You must have the required IAM and
   Organizations permissions. For more information, see [Refining permissions using service last accessed
   data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
@@ -837,8 +843,8 @@ defmodule AWS.IAM do
   by any service control policies (SCPs) that apply to the entity.
 
   You can generate a service last accessed data report for a policy by specifying
-  an entity's path and an optional AWS Organizations policy ID. This data includes
-  a list of services that are allowed by the specified SCP.
+  an entity's path and an optional Organizations policy ID. This data includes a
+  list of services that are allowed by the specified SCP.
 
   For each service in both report types, the data includes the most recent account
   activity that the policy allows to account principals in the entity or the
@@ -847,14 +853,14 @@ defmodule AWS.IAM do
   data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)
   in the *IAM User Guide*.
 
-  The data includes all attempts to access AWS, not just the successful ones. This
-  includes all attempts that were made using the AWS Management Console, the AWS
-  API through any of the SDKs, or any of the command line tools. An unexpected
-  entry in the service last accessed data does not mean that an account has been
-  compromised, because the request might have been denied. Refer to your
-  CloudTrail logs as the authoritative source for information about all API calls
-  and whether they were successful or denied access. For more information,
-  see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  The data includes all attempts to access Amazon Web Services, not just the
+  successful ones. This includes all attempts that were made using the Management
+  Console, the Amazon Web Services API through any of the SDKs, or any of the
+  command line tools. An unexpected entry in the service last accessed data does
+  not mean that an account has been compromised, because the request might have
+  been denied. Refer to your CloudTrail logs as the authoritative source for
+  information about all API calls and whether they were successful or denied
+  access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the *IAM User Guide*.
 
   This operation returns a `JobId`. Use this parameter in the `
@@ -864,8 +870,8 @@ defmodule AWS.IAM do
   response parameter. When the job is complete, you can retrieve the report.
 
   To generate a service last accessed data report for entities, specify an entity
-  path without specifying the optional AWS Organizations policy ID. The type of
-  entity that you specify determines the data returned in the report.
+  path without specifying the optional Organizations policy ID. The type of entity
+  that you specify determines the data returned in the report.
 
     * **Root** – When you specify the organizations root as the entity,
   the resulting report lists all of the services allowed by SCPs that are attached
@@ -880,9 +886,9 @@ defmodule AWS.IAM do
   account, because the management account is not limited by SCPs.
 
     * **management account** – When you specify the management account,
-  the resulting report lists all AWS services, because the management account is
-  not limited by SCPs. For each service, the report includes data for only the
-  management account.
+  the resulting report lists all Amazon Web Services services, because the
+  management account is not limited by SCPs. For each service, the report includes
+  data for only the management account.
 
     * **Account** – When you specify another account as the entity, the
   resulting report lists all of the services allowed by SCPs that are attached to
@@ -890,7 +896,7 @@ defmodule AWS.IAM do
   the specified account.
 
   To generate a service last accessed data report for policies, specify an entity
-  path and the optional AWS Organizations policy ID. The type of entity that you
+  path and the optional Organizations policy ID. The type of entity that you
   specify determines the data returned for each service.
 
     * **Root** – When you specify the root entity and a policy ID, the
@@ -911,10 +917,10 @@ defmodule AWS.IAM do
   will return a list of services with no data.
 
     * **management account** – When you specify the management account,
-  the resulting report lists all AWS services, because the management account is
-  not limited by SCPs. If you specify a policy ID in the CLI or API, the policy is
-  ignored. For each service, the report includes data for only the management
-  account.
+  the resulting report lists all Amazon Web Services services, because the
+  management account is not limited by SCPs. If you specify a policy ID in the CLI
+  or API, the policy is ignored. For each service, the report includes data for
+  only the management account.
 
     * **Account** – When you specify another account entity and a policy
   ID, the resulting report lists all of the services that are allowed by the
@@ -940,20 +946,21 @@ defmodule AWS.IAM do
 
   @doc """
   Generates a report that includes details about when an IAM resource (user,
-  group, role, or policy) was last used in an attempt to access AWS services.
+  group, role, or policy) was last used in an attempt to access Amazon Web
+  Services services.
 
   Recent activity usually appears within four hours. IAM reports activity for the
   last 365 days, or less if your Region began supporting this feature within the
   last year. For more information, see [Regions where data is tracked](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period).
 
-  The service last accessed data includes all attempts to access an AWS API, not
-  just the successful ones. This includes all attempts that were made using the
-  AWS Management Console, the AWS API through any of the SDKs, or any of the
-  command line tools. An unexpected entry in the service last accessed data does
-  not mean that your account has been compromised, because the request might have
-  been denied. Refer to your CloudTrail logs as the authoritative source for
-  information about all API calls and whether they were successful or denied
-  access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
+  The service last accessed data includes all attempts to access an Amazon Web
+  Services API, not just the successful ones. This includes all attempts that were
+  made using the Management Console, the Amazon Web Services API through any of
+  the SDKs, or any of the command line tools. An unexpected entry in the service
+  last accessed data does not mean that your account has been compromised, because
+  the request might have been denied. Refer to your CloudTrail logs as the
+  authoritative source for information about all API calls and whether they were
+  successful or denied access. For more information, see [Logging IAM events with CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the *IAM User Guide*.
 
   The `GenerateServiceLastAccessedDetails` operation returns a `JobId`. Use this
@@ -961,9 +968,9 @@ defmodule AWS.IAM do
   your report:
 
     * `GetServiceLastAccessedDetails` – Use this operation for users,
-  groups, roles, or policies to list every AWS service that the resource could
-  access using permissions policies. For each service, the response includes
-  information about the most recent access attempt.
+  groups, roles, or policies to list every Amazon Web Services service that the
+  resource could access using permissions policies. For each service, the response
+  includes information about the most recent access attempt.
 
   The `JobId` returned by `GenerateServiceLastAccessedDetail` must be used by the
   same role within a session, or by the same user when used to call
@@ -971,7 +978,7 @@ defmodule AWS.IAM do
 
     * `GetServiceLastAccessedDetailsWithEntities` – Use this operation
   for groups and policies to list information about the associated entities (users
-  or roles) that attempted to access a specific AWS service.
+  or roles) that attempted to access a specific Amazon Web Services service.
 
   To check the status of the `GenerateServiceLastAccessedDetails` request, use the
   `JobId` parameter in the same operations and test the `JobStatus` response
@@ -983,8 +990,8 @@ defmodule AWS.IAM do
 
   Service last accessed data does not use other policy types when determining
   whether a resource could access a service. These other policy types include
-  resource-based policies, access control lists, AWS Organizations policies, IAM
-  permissions boundaries, and AWS STS assume role policies. It only applies
+  resource-based policies, access control lists, Organizations policies, IAM
+  permissions boundaries, and STS assume role policies. It only applies
   permissions policy logic. For more about the evaluation of policy types, see
   [Evaluating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*.
@@ -1000,8 +1007,9 @@ defmodule AWS.IAM do
   @doc """
   Retrieves information about when the specified access key was last used.
 
-  The information includes the date and time of last use, along with the AWS
-  service and Region that were specified in the last request made with that key.
+  The information includes the date and time of last use, along with the Amazon
+  Web Services service and Region that were specified in the last request made
+  with that key.
   """
   def get_access_key_last_used(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetAccessKeyLastUsed", input, options)
@@ -1009,7 +1017,7 @@ defmodule AWS.IAM do
 
   @doc """
   Retrieves information about all IAM users, groups, roles, and policies in your
-  AWS account, including their relationships to one another.
+  Amazon Web Services account, including their relationships to one another.
 
   Use this operation to obtain a snapshot of the configuration of IAM permissions
   (users, groups, roles, and policies) in your account.
@@ -1027,7 +1035,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Retrieves the password policy for the AWS account.
+  Retrieves the password policy for the account.
 
   This tells you the complexity requirements and mandatory rotation periods for
   the IAM user passwords in your account. For more information about using a
@@ -1038,7 +1046,8 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Retrieves information about IAM entity usage and IAM quotas in the AWS account.
+  Retrieves information about IAM entity usage and IAM quotas in the Amazon Web
+  Services account.
 
   For information about IAM quotas, see [IAM and STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
@@ -1054,9 +1063,9 @@ defmodule AWS.IAM do
   keys from policies associated with an IAM user, group, or role, use
   `GetContextKeysForPrincipalPolicy`.
 
-  Context keys are variables maintained by AWS and its services that provide
-  details about the context of an API query request. Context keys can be evaluated
-  by testing against a value specified in an IAM policy. Use
+  Context keys are variables maintained by Amazon Web Services and its services
+  that provide details about the context of an API query request. Context keys can
+  be evaluated by testing against a value specified in an IAM policy. Use
   `GetContextKeysForCustomPolicy` to understand what key names and values you must
   supply when you call `SimulateCustomPolicy`. Note that all parameters are shown
   in unencoded form here for clarity but must be URL encoded to be included as a
@@ -1082,9 +1091,9 @@ defmodule AWS.IAM do
   other users. If you do not want users to see other user's permissions, then
   consider allowing them to use `GetContextKeysForCustomPolicy` instead.
 
-  Context keys are variables maintained by AWS and its services that provide
-  details about the context of an API query request. Context keys can be evaluated
-  by testing against a value in an IAM policy. Use
+  Context keys are variables maintained by Amazon Web Services and its services
+  that provide details about the context of an API query request. Context keys can
+  be evaluated by testing against a value in an IAM policy. Use
   `GetContextKeysForPrincipalPolicy` to understand what key names and values you
   must supply when you call `SimulatePrincipalPolicy`.
   """
@@ -1093,7 +1102,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Retrieves a credential report for the AWS account.
+  Retrieves a credential report for the account.
 
   For more information about the credential report, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
@@ -1144,10 +1153,20 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Retrieves the user name and password creation date for the specified IAM user.
+  Retrieves the user name for the specified IAM user.
 
-  If the user has not been assigned a password, the operation returns a 404
-  (`NoSuchEntity`) error.
+  A login profile is created when you create a password for the user to access the
+  Management Console. If the user does not exist or does not have a password, the
+  operation returns a 404 (`NoSuchEntity`) error.
+
+  If you create an IAM user with access to the console, the `CreateDate` reflects
+  the date you created the initial password for the user.
+
+  If you create an IAM user with programmatic access, and then later add a
+  password for the user to access the Management Console, the `CreateDate`
+  reflects the initial password creation date. A user with programmatic access
+  does not have a login profile unless you create a password for the user to
+  access the Management Console.
   """
   def get_login_profile(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetLoginProfile", input, options)
@@ -1162,7 +1181,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Retrieves the service last accessed data report for AWS Organizations that was
+  Retrieves the service last accessed data report for Organizations that was
   previously generated using the ` `GenerateOrganizationsAccessReport` `
   operation.
 
@@ -1291,8 +1310,8 @@ defmodule AWS.IAM do
 
   For more information about working with server certificates, see [Working with server
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
-  in the *IAM User Guide*. This topic includes a list of AWS services that can use
-  the server certificates that you manage with IAM.
+  in the *IAM User Guide*. This topic includes a list of Amazon Web Services
+  services that can use the server certificates that you manage with IAM.
   """
   def get_server_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetServerCertificate", input, options)
@@ -1304,13 +1323,13 @@ defmodule AWS.IAM do
 
   You can use the `JobId` parameter in `GetServiceLastAccessedDetails` to retrieve
   the status of your report job. When the report is complete, you can retrieve the
-  generated report. The report includes a list of AWS services that the resource
-  (user, group, role, or managed policy) can access.
+  generated report. The report includes a list of Amazon Web Services services
+  that the resource (user, group, role, or managed policy) can access.
 
   Service last accessed data does not use other policy types when determining
   whether a resource could access a service. These other policy types include
-  resource-based policies, access control lists, AWS Organizations policies, IAM
-  permissions boundaries, and AWS STS assume role policies. It only applies
+  resource-based policies, access control lists, Organizations policies, IAM
+  permissions boundaries, and STS assume role policies. It only applies
   permissions policy logic. For more about the evaluation of policy types, see
   [Evaluating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*.
@@ -1407,10 +1426,10 @@ defmodule AWS.IAM do
   Retrieves the specified SSH public key, including metadata about the key.
 
   The SSH public key retrieved by this operation is used only for authenticating
-  the associated IAM user to an AWS CodeCommit repository. For more information
-  about using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
+  the associated IAM user to an CodeCommit repository. For more information about
+  using SSH keys to authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH
   connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
+  in the *CodeCommit User Guide*.
   """
   def get_ssh_public_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetSSHPublicKey", input, options)
@@ -1421,7 +1440,8 @@ defmodule AWS.IAM do
   creation date, path, unique ID, and ARN.
 
   If you do not specify a user name, IAM determines the user name implicitly based
-  on the AWS access key ID used to sign the request to this operation.
+  on the Amazon Web Services access key ID used to sign the request to this
+  operation.
   """
   def get_user(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetUser", input, options)
@@ -1458,25 +1478,24 @@ defmodule AWS.IAM do
   the results using the `MaxItems` and `Marker` parameters.
 
   If the `UserName` field is not specified, the user name is determined implicitly
-  based on the AWS access key ID used to sign the request. This operation works
-  for access keys under the AWS account. Consequently, you can use this operation
-  to manage AWS account root user credentials even if the AWS account has no
-  associated users.
+  based on the Amazon Web Services access key ID used to sign the request. This
+  operation works for access keys under the account. Consequently, you can use
+  this operation to manage account root user credentials even if the account has
+  no associated users.
 
-  To ensure the security of your AWS account, the secret access key is accessible
-  only during key and user creation.
+  To ensure the security of your account, the secret access key is accessible only
+  during key and user creation.
   """
   def list_access_keys(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAccessKeys", input, options)
   end
 
   @doc """
-  Lists the account alias associated with the AWS account (Note: you can have only
+  Lists the account alias associated with the account (Note: you can have only
   one).
 
-  For information about using an AWS account alias, see [Using an alias for your AWS account
-  ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the
-  *IAM User Guide*.
+  For information about using an account alias, see [Using an alias for your account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html)
+  in the *IAM User Guide*.
   """
   def list_account_aliases(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAccountAliases", input, options)
@@ -1643,8 +1662,8 @@ defmodule AWS.IAM do
 
   If the request includes a IAM user name, then this operation lists all the MFA
   devices associated with the specified user. If you do not specify a user name,
-  IAM determines the user name implicitly based on the AWS access key ID signing
-  the request for this operation.
+  IAM determines the user name implicitly based on the Amazon Web Services access
+  key ID signing the request for this operation.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
   """
@@ -1668,7 +1687,7 @@ defmodule AWS.IAM do
 
   @doc """
   Lists information about the IAM OpenID Connect (OIDC) provider resource objects
-  defined in the AWS account.
+  defined in the account.
 
   IAM resource-listing operations return a subset of the available attributes for
   the resource. For example, this operation does not return tags, even though they
@@ -1680,13 +1699,15 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Lists all the managed policies that are available in your AWS account, including
-  your own customer-defined managed policies and all AWS managed policies.
+  Lists all the managed policies that are available in your account, including
+  your own customer-defined managed policies and all Amazon Web Services managed
+  policies.
 
   You can filter the list of policies that is returned using the optional
   `OnlyAttached`, `Scope`, and `PathPrefix` parameters. For example, to list only
-  the customer managed policies in your AWS account, set `Scope` to `Local`. To
-  list only AWS managed policies, set `Scope` to `AWS`.
+  the customer managed policies in your Amazon Web Services account, set `Scope`
+  to `Local`. To list only Amazon Web Services managed policies, set `Scope` to
+  `AWS`.
 
   You can paginate the results using the `MaxItems` and `Marker` parameters.
 
@@ -1708,8 +1729,8 @@ defmodule AWS.IAM do
 
   This operation does not use other policy types when determining whether a
   resource could access a service. These other policy types include resource-based
-  policies, access control lists, AWS Organizations policies, IAM permissions
-  boundaries, and AWS STS assume role policies. It only applies permissions policy
+  policies, access control lists, Organizations policies, IAM permissions
+  boundaries, and STS assume role policies. It only applies permissions policy
   logic. For more about the evaluation of policy types, see [Evaluating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*.
 
@@ -1844,7 +1865,7 @@ defmodule AWS.IAM do
   tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-  For certificates in a Region supported by AWS Certificate Manager (ACM), we
+  For certificates in a Region supported by Certificate Manager (ACM), we
   recommend that you don't use IAM server certificates. Instead, use ACM to
   provision, manage, and deploy your server certificates. For more information
   about IAM server certificates, [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
@@ -1863,8 +1884,8 @@ defmodule AWS.IAM do
 
   For more information about working with server certificates, see [Working with server
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
-  in the *IAM User Guide*. This topic also includes a list of AWS services that
-  can use the server certificates that you manage with IAM.
+  in the *IAM User Guide*. This topic also includes a list of Amazon Web Services
+  services that can use the server certificates that you manage with IAM.
 
   IAM resource-listing operations return a subset of the available attributes for
   the resource. For example, this operation does not return tags, even though they
@@ -1882,8 +1903,9 @@ defmodule AWS.IAM do
   If none exists, the operation returns an empty list. The service-specific
   credentials returned by this operation are used only for authenticating the IAM
   user to a specific service. For more information about using service-specific
-  credentials to authenticate to an AWS service, see [Set up service-specific credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html)
-  in the AWS CodeCommit User Guide.
+  credentials to authenticate to an Amazon Web Services service, see [Set up service-specific
+  credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html)
+  in the CodeCommit User Guide.
   """
   def list_service_specific_credentials(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListServiceSpecificCredentials", input, options)
@@ -1899,9 +1921,9 @@ defmodule AWS.IAM do
   still paginate the results using the `MaxItems` and `Marker` parameters.
 
   If the `UserName` field is not specified, the user name is determined implicitly
-  based on the AWS access key ID used to sign the request for this operation. This
-  operation works for access keys under the AWS account. Consequently, you can use
-  this operation to manage AWS account root user credentials even if the AWS
+  based on the Amazon Web Services access key ID used to sign the request for this
+  operation. This operation works for access keys under the account. Consequently,
+  you can use this operation to manage account root user credentials even if the
   account has no associated users.
   """
   def list_signing_certificates(%Client{} = client, input, options \\ []) do
@@ -1915,10 +1937,9 @@ defmodule AWS.IAM do
   If none exists, the operation returns an empty list.
 
   The SSH public keys returned by this operation are used only for authenticating
-  the IAM user to an AWS CodeCommit repository. For more information about using
-  SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
-  connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
+  the IAM user to an CodeCommit repository. For more information about using SSH
+  keys to authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  in the *CodeCommit User Guide*.
 
   Although each user is limited to a small number of keys, you can still paginate
   the results using the `MaxItems` and `Marker` parameters.
@@ -1957,8 +1978,8 @@ defmodule AWS.IAM do
   @doc """
   Lists the IAM users that have the specified path prefix.
 
-  If no path prefix is specified, the operation returns all users in the AWS
-  account. If there are none, the operation returns an empty list.
+  If no path prefix is specified, the operation returns all users in the account.
+  If there are none, the operation returns an empty list.
 
   IAM resource-listing operations return a subset of the available attributes for
   the resource. For example, this operation does not return tags, even though they
@@ -1972,7 +1993,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Lists the virtual MFA devices defined in the AWS account by assignment status.
+  Lists the virtual MFA devices defined in the account by assignment status.
 
   If you do not specify an assignment status, the operation returns a list of all
   virtual MFA devices. Assignment status can be `Assigned`, `Unassigned`, or
@@ -2015,10 +2036,10 @@ defmodule AWS.IAM do
   Adds or updates the policy that is specified as the IAM role's permissions
   boundary.
 
-  You can use an AWS managed policy or a customer managed policy to set the
-  boundary for a role. Use the boundary to control the maximum permissions that
-  the role can have. Setting a permissions boundary is an advanced feature that
-  can affect the permissions for the role.
+  You can use an Amazon Web Services managed policy or a customer managed policy
+  to set the boundary for a role. Use the boundary to control the maximum
+  permissions that the role can have. Setting a permissions boundary is an
+  advanced feature that can affect the permissions for the role.
 
   You cannot set the boundary for a service-linked role.
 
@@ -2063,10 +2084,10 @@ defmodule AWS.IAM do
   Adds or updates the policy that is specified as the IAM user's permissions
   boundary.
 
-  You can use an AWS managed policy or a customer managed policy to set the
-  boundary for a user. Use the boundary to control the maximum permissions that
-  the user can have. Setting a permissions boundary is an advanced feature that
-  can affect the permissions for the user.
+  You can use an Amazon Web Services managed policy or a customer managed policy
+  to set the boundary for a user. Use the boundary to control the maximum
+  permissions that the user can have. Setting a permissions boundary is an
+  advanced feature that can affect the permissions for the user.
 
   Policies that are used as permissions boundaries do not provide permissions. You
   must also attach a permissions policy to the user. To learn how the effective
@@ -2142,17 +2163,17 @@ defmodule AWS.IAM do
   @doc """
   Resets the password for a service-specific credential.
 
-  The new password is AWS generated and cryptographically strong. It cannot be
-  configured by the user. Resetting the password immediately invalidates the
-  previous password associated with this user.
+  The new password is Amazon Web Services generated and cryptographically strong.
+  It cannot be configured by the user. Resetting the password immediately
+  invalidates the previous password associated with this user.
   """
   def reset_service_specific_credential(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetServiceSpecificCredential", input, options)
   end
 
   @doc """
-  Synchronizes the specified MFA device with its IAM resource object on the AWS
-  servers.
+  Synchronizes the specified MFA device with its IAM resource object on the Amazon
+  Web Services servers.
 
   For more information about creating and working with virtual MFA devices, see
   [Using a virtual MFA device](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html)
@@ -2179,22 +2200,22 @@ defmodule AWS.IAM do
 
   @doc """
   Sets the specified version of the global endpoint token as the token version
-  used for the AWS account.
+  used for the account.
 
-  By default, AWS Security Token Service (STS) is available as a global service,
-  and all STS requests go to a single endpoint at `https://sts.amazonaws.com`. AWS
-  recommends using Regional STS endpoints to reduce latency, build in redundancy,
-  and increase session token availability. For information about Regional
-  endpoints for STS, see [AWS AWS Security Token Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sts.html) in the *AWS
-  General Reference*.
+  By default, Security Token Service (STS) is available as a global service, and
+  all STS requests go to a single endpoint at `https://sts.amazonaws.com`. Amazon
+  Web Services recommends using Regional STS endpoints to reduce latency, build in
+  redundancy, and increase session token availability. For information about
+  Regional endpoints for STS, see [Security Token Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sts.html) in the *Amazon
+  Web Services General Reference*.
 
   If you make an STS call to the global endpoint, the resulting session tokens
   might be valid in some Regions but not others. It depends on the version that is
-  set in this operation. Version 1 tokens are valid only in AWS Regions that are
+  set in this operation. Version 1 tokens are valid only in Regions that are
   available by default. These tokens do not work in manually enabled Regions, such
   as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However,
   version 2 tokens are longer and might affect systems where you temporarily store
-  tokens. For information, see [Activating and deactivating STS in an AWS region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
+  tokens. For information, see [Activating and deactivating STS in an Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
   in the *IAM User Guide*.
 
   To view the current session token version, see the `GlobalEndpointTokenVersion`
@@ -2206,8 +2227,8 @@ defmodule AWS.IAM do
 
   @doc """
   Simulate how a set of IAM policies and optionally a resource-based policy works
-  with a list of API operations and AWS resources to determine the policies'
-  effective permissions.
+  with a list of API operations and Amazon Web Services resources to determine the
+  policies' effective permissions.
 
   The policies are provided as strings.
 
@@ -2218,11 +2239,11 @@ defmodule AWS.IAM do
   If you want to simulate existing policies that are attached to an IAM user,
   group, or role, use `SimulatePrincipalPolicy` instead.
 
-  Context keys are variables that are maintained by AWS and its services and which
-  provide details about the context of an API query request. You can use the
-  `Condition` element of an IAM policy to evaluate context keys. To get the list
-  of context keys that the policies require for correct simulation, use
-  `GetContextKeysForCustomPolicy`.
+  Context keys are variables that are maintained by Amazon Web Services and its
+  services and which provide details about the context of an API query request.
+  You can use the `Condition` element of an IAM policy to evaluate context keys.
+  To get the list of context keys that the policies require for correct
+  simulation, use `GetContextKeysForCustomPolicy`.
 
   If the output is long, you can use `MaxItems` and `Marker` parameters to
   paginate the results.
@@ -2237,8 +2258,8 @@ defmodule AWS.IAM do
 
   @doc """
   Simulate how a set of IAM policies attached to an IAM entity works with a list
-  of API operations and AWS resources to determine the policies' effective
-  permissions.
+  of API operations and Amazon Web Services resources to determine the policies'
+  effective permissions.
 
   The entity can be an IAM user, group, or role. If you specify a user, then the
   simulation also includes all of the policies that are attached to groups that
@@ -2260,10 +2281,10 @@ defmodule AWS.IAM do
   other users. If you do not want users to see other user's permissions, then
   consider allowing them to use `SimulateCustomPolicy` instead.
 
-  Context keys are variables maintained by AWS and its services that provide
-  details about the context of an API query request. You can use the `Condition`
-  element of an IAM policy to evaluate context keys. To get the list of context
-  keys that the policies require for correct simulation, use
+  Context keys are variables maintained by Amazon Web Services and its services
+  that provide details about the context of an API query request. You can use the
+  `Condition` element of an IAM policy to evaluate context keys. To get the list
+  of context keys that the policies require for correct simulation, use
   `GetContextKeysForPrincipalPolicy`.
 
   If the output is long, you can use the `MaxItems` and `Marker` parameters to
@@ -2302,9 +2323,9 @@ defmodule AWS.IAM do
   created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-     AWS always interprets the tag `Value` as a single string. If you
-  need to store an array, you can store comma-separated values in the string.
-  However, you must interpret the value in your code.
+     Amazon Web Services always interprets the tag `Value` as a single
+  string. If you need to store an array, you can store comma-separated values in
+  the string. However, you must interpret the value in your code.
   """
   def tag_instance_profile(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagInstanceProfile", input, options)
@@ -2336,9 +2357,9 @@ defmodule AWS.IAM do
   created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-     AWS always interprets the tag `Value` as a single string. If you
-  need to store an array, you can store comma-separated values in the string.
-  However, you must interpret the value in your code.
+     Amazon Web Services always interprets the tag `Value` as a single
+  string. If you need to store an array, you can store comma-separated values in
+  the string. However, you must interpret the value in your code.
   """
   def tag_mfa_device(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagMFADevice", input, options)
@@ -2370,9 +2391,9 @@ defmodule AWS.IAM do
   created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-     AWS always interprets the tag `Value` as a single string. If you
-  need to store an array, you can store comma-separated values in the string.
-  However, you must interpret the value in your code.
+     Amazon Web Services always interprets the tag `Value` as a single
+  string. If you need to store an array, you can store comma-separated values in
+  the string. However, you must interpret the value in your code.
   """
   def tag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagOpenIDConnectProvider", input, options)
@@ -2403,9 +2424,9 @@ defmodule AWS.IAM do
   created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-     AWS always interprets the tag `Value` as a single string. If you
-  need to store an array, you can store comma-separated values in the string.
-  However, you must interpret the value in your code.
+     Amazon Web Services always interprets the tag `Value` as a single
+  string. If you need to store an array, you can store comma-separated values in
+  the string. However, you must interpret the value in your code.
   """
   def tag_policy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagPolicy", input, options)
@@ -2433,16 +2454,16 @@ defmodule AWS.IAM do
   *IAM User Guide*.
 
     * **Cost allocation** - Use tags to help track which individuals and
-  teams are using which AWS resources.
+  teams are using which Amazon Web Services resources.
 
      If any one of the tags is invalid or if you exceed the allowed
   maximum number of tags, then the entire request fails and the resource is not
   created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-     AWS always interprets the tag `Value` as a single string. If you
-  need to store an array, you can store comma-separated values in the string.
-  However, you must interpret the value in your code.
+     Amazon Web Services always interprets the tag `Value` as a single
+  string. If you need to store an array, you can store comma-separated values in
+  the string. However, you must interpret the value in your code.
 
   For more information about tagging, see [Tagging IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
@@ -2479,9 +2500,9 @@ defmodule AWS.IAM do
   created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-     AWS always interprets the tag `Value` as a single string. If you
-  need to store an array, you can store comma-separated values in the string.
-  However, you must interpret the value in your code.
+     Amazon Web Services always interprets the tag `Value` as a single
+  string. If you need to store an array, you can store comma-separated values in
+  the string. However, you must interpret the value in your code.
   """
   def tag_saml_provider(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagSAMLProvider", input, options)
@@ -2493,7 +2514,7 @@ defmodule AWS.IAM do
   If a tag with the same key name already exists, then that tag is overwritten
   with the new value.
 
-  For certificates in a Region supported by AWS Certificate Manager (ACM), we
+  For certificates in a Region supported by Certificate Manager (ACM), we
   recommend that you don't use IAM server certificates. Instead, use ACM to
   provision, manage, and deploy your server certificates. For more information
   about IAM server certificates, [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
@@ -2514,16 +2535,16 @@ defmodule AWS.IAM do
   *IAM User Guide*.
 
     * **Cost allocation** - Use tags to help track which individuals and
-  teams are using which AWS resources.
+  teams are using which Amazon Web Services resources.
 
      If any one of the tags is invalid or if you exceed the allowed
   maximum number of tags, then the entire request fails and the resource is not
   created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-     AWS always interprets the tag `Value` as a single string. If you
-  need to store an array, you can store comma-separated values in the string.
-  However, you must interpret the value in your code.
+     Amazon Web Services always interprets the tag `Value` as a single
+  string. If you need to store an array, you can store comma-separated values in
+  the string. However, you must interpret the value in your code.
   """
   def tag_server_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagServerCertificate", input, options)
@@ -2551,16 +2572,16 @@ defmodule AWS.IAM do
   the *IAM User Guide*.
 
     * **Cost allocation** - Use tags to help track which individuals and
-  teams are using which AWS resources.
+  teams are using which Amazon Web Services resources.
 
      If any one of the tags is invalid or if you exceed the allowed
   maximum number of tags, then the entire request fails and the resource is not
   created. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-     AWS always interprets the tag `Value` as a single string. If you
-  need to store an array, you can store comma-separated values in the string.
-  However, you must interpret the value in your code.
+     Amazon Web Services always interprets the tag `Value` as a single
+  string. If you need to store an array, you can store comma-separated values in
+  the string. However, you must interpret the value in your code.
 
   For more information about tagging, see [Tagging IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
@@ -2640,7 +2661,7 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the
   *IAM User Guide*.
 
-  For certificates in a Region supported by AWS Certificate Manager (ACM), we
+  For certificates in a Region supported by Certificate Manager (ACM), we
   recommend that you don't use IAM server certificates. Instead, use ACM to
   provision, manage, and deploy your server certificates. For more information
   about IAM server certificates, [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
@@ -2668,10 +2689,10 @@ defmodule AWS.IAM do
   workflow.
 
   If the `UserName` is not specified, the user name is determined implicitly based
-  on the AWS access key ID used to sign the request. This operation works for
-  access keys under the AWS account. Consequently, you can use this operation to
-  manage AWS account root user credentials even if the AWS account has no
-  associated users.
+  on the Amazon Web Services access key ID used to sign the request. This
+  operation works for access keys under the account. Consequently, you can use
+  this operation to manage account root user credentials even if the account has
+  no associated users.
 
   For information about rotating keys, see [Managing keys and certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html)
   in the *IAM User Guide*.
@@ -2681,7 +2702,7 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Updates the password policy settings for the AWS account.
+  Updates the password policy settings for the account.
 
      This operation does not support partial updates. No parameters are
   required, but if you do not specify a parameter, that parameter's value reverts
@@ -2729,9 +2750,10 @@ defmodule AWS.IAM do
   @doc """
   Changes the password for the specified IAM user.
 
-  You can use the AWS CLI, the AWS API, or the **Users** page in the IAM console
-  to change the password for any IAM user. Use `ChangePassword` to change your own
-  password in the **My Security Credentials** page in the AWS Management Console.
+  You can use the CLI, the Amazon Web Services API, or the **Users** page in the
+  IAM console to change the password for any IAM user. Use `ChangePassword` to
+  change your own password in the **My Security Credentials** page in the
+  Management Console.
 
   For more information about modifying passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html)
   in the *IAM User Guide*.
@@ -2798,8 +2820,8 @@ defmodule AWS.IAM do
 
   For more information about working with server certificates, see [Working with server
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
-  in the *IAM User Guide*. This topic also includes a list of AWS services that
-  can use the server certificates that you manage with IAM.
+  in the *IAM User Guide*. This topic also includes a list of Amazon Web Services
+  services that can use the server certificates that you manage with IAM.
 
   You should understand the implications of changing a server certificate's path
   or name. For more information, see [Renaming a server certificate](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts)
@@ -2837,10 +2859,10 @@ defmodule AWS.IAM do
   of a certificate rotation work flow.
 
   If the `UserName` field is not specified, the user name is determined implicitly
-  based on the AWS access key ID used to sign the request. This operation works
-  for access keys under the AWS account. Consequently, you can use this operation
-  to manage AWS account root user credentials even if the AWS account has no
-  associated users.
+  based on the Amazon Web Services access key ID used to sign the request. This
+  operation works for access keys under the account. Consequently, you can use
+  this operation to manage account root user credentials even if the account has
+  no associated users.
   """
   def update_signing_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSigningCertificate", input, options)
@@ -2854,10 +2876,10 @@ defmodule AWS.IAM do
   rotation work flow.
 
   The SSH public key affected by this operation is used only for authenticating
-  the associated IAM user to an AWS CodeCommit repository. For more information
-  about using SSH keys to authenticate to an AWS CodeCommit repository, see [Set up AWS CodeCommit for SSH
+  the associated IAM user to an CodeCommit repository. For more information about
+  using SSH keys to authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH
   connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
+  in the *CodeCommit User Guide*.
   """
   def update_ssh_public_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateSSHPublicKey", input, options)
@@ -2882,21 +2904,21 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Uploads a server certificate entity for the AWS account.
+  Uploads a server certificate entity for the account.
 
   The server certificate entity includes a public key certificate, a private key,
   and an optional certificate chain, which should all be PEM-encoded.
 
-  We recommend that you use [AWS Certificate Manager](https://docs.aws.amazon.com/acm/) to provision, manage, and deploy your
-  server certificates. With ACM you can request a certificate, deploy it to AWS
-  resources, and let ACM handle certificate renewals for you. Certificates
-  provided by ACM are free. For more information about using ACM, see the [AWS Certificate Manager User
-  Guide](https://docs.aws.amazon.com/acm/latest/userguide/).
+  We recommend that you use [Certificate Manager](https://docs.aws.amazon.com/acm/) to provision, manage, and deploy your
+  server certificates. With ACM you can request a certificate, deploy it to Amazon
+  Web Services resources, and let ACM handle certificate renewals for you.
+  Certificates provided by ACM are free. For more information about using ACM, see
+  the [Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/).
 
   For more information about working with server certificates, see [Working with server
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
-  in the *IAM User Guide*. This topic includes a list of AWS services that can use
-  the server certificates that you manage with IAM.
+  in the *IAM User Guide*. This topic includes a list of Amazon Web Services
+  services that can use the server certificates that you manage with IAM.
 
   For information about the number of server certificates you can upload, see [IAM and STS
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
@@ -2905,9 +2927,9 @@ defmodule AWS.IAM do
   Because the body of the public key certificate, private key, and the certificate
   chain can be large, you should use POST rather than GET when calling
   `UploadServerCertificate`. For information about setting up signatures and
-  authorization through the API, see [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
-  in the *AWS General Reference*. For general information about using the Query
-  API with IAM, see [Calling the API by making HTTP query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html) in
+  authorization through the API, see [Signing Amazon Web Services API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
+  in the *Amazon Web Services General Reference*. For general information about
+  using the Query API with IAM, see [Calling the API by making HTTP query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html) in
   the *IAM User Guide*.
   """
   def upload_server_certificate(%Client{} = client, input, options \\ []) do
@@ -2918,25 +2940,26 @@ defmodule AWS.IAM do
   Uploads an X.509 signing certificate and associates it with the specified IAM
   user.
 
-  Some AWS services require you to use certificates to validate requests that are
-  signed with a corresponding private key. When you upload the certificate, its
-  default status is `Active`.
+  Some Amazon Web Services services require you to use certificates to validate
+  requests that are signed with a corresponding private key. When you upload the
+  certificate, its default status is `Active`.
 
   For information about when you would use an X.509 signing certificate, see
   [Managing server certificates in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*.
 
   If the `UserName` is not specified, the IAM user name is determined implicitly
-  based on the AWS access key ID used to sign the request. This operation works
-  for access keys under the AWS account. Consequently, you can use this operation
-  to manage AWS account root user credentials even if the AWS account has no
-  associated users.
+  based on the Amazon Web Services access key ID used to sign the request. This
+  operation works for access keys under the account. Consequently, you can use
+  this operation to manage account root user credentials even if the account has
+  no associated users.
 
   Because the body of an X.509 certificate can be large, you should use POST
   rather than GET when calling `UploadSigningCertificate`. For information about
-  setting up signatures and authorization through the API, see [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
-  in the *AWS General Reference*. For general information about using the Query
-  API with IAM, see [Making query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
+  setting up signatures and authorization through the API, see [Signing Amazon Web Services API
+  requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html)
+  in the *Amazon Web Services General Reference*. For general information about
+  using the Query API with IAM, see [Making query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html)
   in the *IAM User Guide*.
   """
   def upload_signing_certificate(%Client{} = client, input, options \\ []) do
@@ -2947,10 +2970,10 @@ defmodule AWS.IAM do
   Uploads an SSH public key and associates it with the specified IAM user.
 
   The SSH public key uploaded by this operation can be used only for
-  authenticating the associated IAM user to an AWS CodeCommit repository. For more
-  information about using SSH keys to authenticate to an AWS CodeCommit
-  repository, see [Set up AWS CodeCommit for SSH connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
-  in the *AWS CodeCommit User Guide*.
+  authenticating the associated IAM user to an CodeCommit repository. For more
+  information about using SSH keys to authenticate to an CodeCommit repository,
+  see [Set up CodeCommit for SSH connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
+  in the *CodeCommit User Guide*.
   """
   def upload_ssh_public_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UploadSSHPublicKey", input, options)

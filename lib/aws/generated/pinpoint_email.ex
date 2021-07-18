@@ -261,9 +261,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{
-        URI.encode(event_destination_name)
-      }"
+      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
 
     headers = []
     query_params = []
@@ -1358,9 +1356,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{
-        URI.encode(event_destination_name)
-      }"
+      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
 
     headers = []
     query_params = []

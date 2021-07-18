@@ -33,6 +33,8 @@ defmodule AWS.Outposts do
 
   @doc """
   Creates an Outpost.
+
+  You can specify `AvailabilityZone` or `AvailabilityZoneId`.
   """
   def create_outpost(%Client{} = client, input, options \\ []) do
     url_path = "/outposts"
@@ -157,9 +159,24 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  List the Outposts for your AWS account.
+  Create a list of the Outposts for your AWS account.
+
+  Add filters to your request to return a more specific list of results. Use
+  filters to match an Outpost lifecycle status, Availibility Zone (`us-east-1a`),
+  and AZ ID (`use1-az1`).
+
+  If you specify multiple filters, the filters are joined with an `AND`, and the
+  request returns only results that match all of the specified filters.
   """
-  def list_outposts(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_outposts(
+        %Client{} = client,
+        availability_zone_filter \\ nil,
+        availability_zone_id_filter \\ nil,
+        life_cycle_status_filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/outposts"
     headers = []
     query_params = []
@@ -174,6 +191,27 @@ defmodule AWS.Outposts do
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(life_cycle_status_filter) do
+        [{"LifeCycleStatusFilter", life_cycle_status_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(availability_zone_id_filter) do
+        [{"AvailabilityZoneIdFilter", availability_zone_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(availability_zone_filter) do
+        [{"AvailabilityZoneFilter", availability_zone_filter} | query_params]
       else
         query_params
       end

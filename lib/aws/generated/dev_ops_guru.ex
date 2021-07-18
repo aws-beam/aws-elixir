@@ -192,7 +192,8 @@ defmodule AWS.DevOpsGuru do
 
   You specify the type of AWS resources collection. The one type of AWS resource
   collection supported is AWS CloudFormation stacks. DevOps Guru can be configured
-  to analyze only the AWS resources that are defined in the stacks.
+  to analyze only the AWS resources that are defined in the stacks. You can
+  specify up to 500 AWS CloudFormation stacks.
   """
   def describe_resource_collection_health(
         %Client{} = client,
@@ -249,11 +250,43 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
+  Returns an estimate of the monthly cost for DevOps Guru to analyze your AWS
+  resources.
+
+  For more information, see [Estimate your Amazon DevOps Guru costs](https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html)
+  and [Amazon DevOps Guru pricing](http://aws.amazon.com/devops-guru/pricing/).
+  """
+  def get_cost_estimation(%Client{} = client, next_token \\ nil, options \\ []) do
+    url_path = "/cost-estimation"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns lists AWS resources that are of the specified resource collection type.
 
   The one type of AWS resource collection supported is AWS CloudFormation stacks.
   DevOps Guru can be configured to analyze only the AWS resources that are defined
-  in the stacks.
+  in the stacks. You can specify up to 500 AWS CloudFormation stacks.
   """
   def get_resource_collection(
         %Client{} = client,
@@ -479,12 +512,34 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
+  Starts the creation of an estimate of the monthly cost to analyze your AWS
+  resources.
+  """
+  def start_cost_estimation(%Client{} = client, input, options \\ []) do
+    url_path = "/cost-estimation"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the collection of resources that DevOps Guru analyzes.
 
   The one type of AWS resource collection supported is AWS CloudFormation stacks.
   DevOps Guru can be configured to analyze only the AWS resources that are defined
-  in the stacks. This method also creates the IAM role required for you to use
-  DevOps Guru.
+  in the stacks. You can specify up to 500 AWS CloudFormation stacks. This method
+  also creates the IAM role required for you to use DevOps Guru.
   """
   def update_resource_collection(%Client{} = client, input, options \\ []) do
     url_path = "/resource-collections"

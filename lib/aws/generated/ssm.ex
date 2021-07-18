@@ -3,27 +3,37 @@
 
 defmodule AWS.SSM do
   @moduledoc """
-  AWS Systems Manager
-
-  AWS Systems Manager is a collection of capabilities that helps you automate
-  management tasks such as collecting system inventory, applying operating system
-  (OS) patches, automating the creation of Amazon Machine Images (AMIs), and
-  configuring operating systems (OSs) and applications at scale.
+  Amazon Web Services Systems Manager is a collection of capabilities that helps
+  you automate management tasks such as collecting system inventory, applying
+  operating system (OS) patches, automating the creation of Amazon Machine Images
+  (AMIs), and configuring operating systems (OSs) and applications at scale.
 
   Systems Manager lets you remotely and securely manage the configuration of your
   managed instances. A *managed instance* is any Amazon Elastic Compute Cloud
   instance (EC2 instance), or any on-premises server or virtual machine (VM) in
   your hybrid environment that has been configured for Systems Manager.
 
-  This reference is intended to be used with the [AWS Systems Manager User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/).
+  This reference is intended to be used with the [Amazon Web Services Systems Manager User
+  Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/).
 
   To get started, verify prerequisites and configure managed instances. For more
-  information, see [Setting up AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)
-  in the *AWS Systems Manager User Guide*.
+  information, see [Setting up Amazon Web Services Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
-  For information about other API actions you can perform on EC2 instances, see
-  the [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/). For
-  information about how to use a Query API, see [Making API requests](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html).
+  ## Related resources
+
+    * For information about how to use a Query API, see [Making API requests](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html).
+
+    * For information about other API operations you can perform on EC2
+  instances, see the [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/).
+
+    * For information about AppConfig, a capability of Systems Manager,
+  see the [AppConfig User Guide](https://docs.aws.amazon.com/appconfig/latest/userguide/) and the
+  [AppConfig API Reference](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/).
+
+    * For information about Incident Manager, a capability of Systems
+  Manager, see the [Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide/) and the
+  [Incident Manager API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/).
   """
 
   alias AWS.Client
@@ -54,8 +64,19 @@ defmodule AWS.SSM do
   purpose, owner, or environment. Each tag consists of a key and an optional
   value, both of which you define. For example, you could define a set of tags for
   your account's managed instances that helps you track each instance's owner and
-  stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or
-  Key=Stack and Value=Production, Pre-Production, or Test.
+  stack level. For example:
+
+    * `Key=Owner,Value=DbAdmin`
+
+    * `Key=Owner,Value=SysAdmin`
+
+    * `Key=Owner,Value=Dev`
+
+    * `Key=Stack,Value=Production`
+
+    * `Key=Stack,Value=Pre-Production`
+
+    * `Key=Stack,Value=Test`
 
   Each resource can have a maximum of 50 tags.
 
@@ -65,12 +86,23 @@ defmodule AWS.SSM do
   you add. Tags don't have any semantic meaning to and are interpreted strictly as
   a string of characters.
 
-  For more information about using tags with EC2 instances, see [Tagging your Amazon EC2
-  resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
+  For more information about using tags with Amazon Elastic Compute Cloud (Amazon
+  EC2) instances, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
   in the *Amazon EC2 User Guide*.
   """
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "AddTagsToResource", input, options)
+  end
+
+  @doc """
+  Associates a related resource to a Systems Manager OpsCenter OpsItem.
+
+  For example, you can associate an Incident Manager incident or analysis with an
+  OpsItem. Incident Manager is a capability of Amazon Web Services Systems
+  Manager.
+  """
+  def associate_ops_item_related_item(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AssociateOpsItemRelatedItem", input, options)
   end
 
   @doc """
@@ -85,9 +117,9 @@ defmodule AWS.SSM do
 
   @doc """
   Stops a maintenance window execution that is already in progress and cancels any
-  tasks in the window that have not already starting running.
+  tasks in the window that haven't already starting running.
 
-  (Tasks already in progress will continue to completion.)
+  Tasks already in progress will continue to completion.
   """
   def cancel_maintenance_window_execution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CancelMaintenanceWindowExecution", input, options)
@@ -95,18 +127,19 @@ defmodule AWS.SSM do
 
   @doc """
   Generates an activation code and activation ID you can use to register your
-  on-premises server or virtual machine (VM) with Systems Manager.
+  on-premises server or virtual machine (VM) with Amazon Web Services Systems
+  Manager.
 
   Registering these machines with Systems Manager makes it possible to manage them
   using Systems Manager capabilities. You use the activation code and ID when
   installing SSM Agent on machines in your hybrid environment. For more
   information about requirements for managing on-premises instances and VMs using
-  Systems Manager, see [Setting up AWS Systems Manager for hybrid environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html)
-  in the *AWS Systems Manager User Guide*.
+  Systems Manager, see [Setting up Amazon Web Services Systems Manager for hybrid environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
-  On-premises servers or VMs that are registered with Systems Manager and EC2
-  instances that you manage with Systems Manager are all called *managed
-  instances*.
+  On-premises servers or VMs that are registered with Systems Manager and Amazon
+  Elastic Compute Cloud (Amazon EC2) instances that you manage with Systems
+  Manager are all called *managed instances*.
   """
   def create_activation(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateActivation", input, options)
@@ -119,12 +152,13 @@ defmodule AWS.SSM do
   For example, an association can specify that anti-virus software must be
   installed and running on your instances, or that certain ports must be closed.
   For static targets, the association specifies a schedule for when the
-  configuration is reapplied. For dynamic targets, such as an AWS Resource Group
-  or an AWS Autoscaling Group, State Manager applies the configuration when new
-  instances are added to the group. The association also specifies actions to take
-  when applying the configuration. For example, an association for anti-virus
-  software might run once a day. If the software is not installed, then State
-  Manager installs it. If the software is installed, but the service is not
+  configuration is reapplied. For dynamic targets, such as an Amazon Web Services
+  resource group or an Amazon Web Services autoscaling group, State Manager, a
+  capability of Amazon Web Services Systems Manager applies the configuration when
+  new instances are added to the group. The association also specifies actions to
+  take when applying the configuration. For example, an association for anti-virus
+  software might run once a day. If the software isn't installed, then State
+  Manager installs it. If the software is installed, but the service isn't
   running, then the association might instruct State Manager to start the service.
   """
   def create_association(%Client{} = client, input, options \\ []) do
@@ -132,12 +166,12 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Associates the specified Systems Manager document with the specified instances
-  or targets.
+  Associates the specified Amazon Web Services Systems Manager document (SSM
+  document) with the specified instances or targets.
 
   When you associate a document with one or more instances using instance IDs or
-  tags, SSM Agent running on the instance processes the document and configures
-  the instance as specified.
+  tags, Amazon Web Services Systems Manager Agent (SSM Agent) running on the
+  instance processes the document and configures the instance as specified.
 
   If you associate a document with an instance that already has an associated
   document, the system returns the AssociationAlreadyExists exception.
@@ -147,13 +181,13 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Creates a Systems Manager (SSM) document.
+  Creates a Amazon Web Services Systems Manager (SSM document).
 
   An SSM document defines the actions that Systems Manager performs on your
   managed instances. For more information about SSM documents, including
-  information about supported schemas, features, and syntax, see [AWS Systems Manager
+  information about supported schemas, features, and syntax, see [Amazon Web Services Systems Manager
   Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html)
-  in the *AWS Systems Manager User Guide*.
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   def create_document(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateDocument", input, options)
@@ -176,23 +210,24 @@ defmodule AWS.SSM do
   @doc """
   Creates a new OpsItem.
 
-  You must have permission in AWS Identity and Access Management (IAM) to create a
-  new OpsItem. For more information, see [Getting started with OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
-  in the *AWS Systems Manager User Guide*.
+  You must have permission in Identity and Access Management (IAM) to create a new
+  OpsItem. For more information, see [Getting started with OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
-  Operations engineers and IT professionals use OpsCenter to view, investigate,
-  and remediate operational issues impacting the performance and health of their
-  AWS resources. For more information, see [AWS Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
-  in the *AWS Systems Manager User Guide*.
+  Operations engineers and IT professionals use Amazon Web Services Systems
+  Manager OpsCenter to view, investigate, and remediate operational issues
+  impacting the performance and health of their Amazon Web Services resources. For
+  more information, see [Amazon Web Services Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   def create_ops_item(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateOpsItem", input, options)
   end
 
   @doc """
-  If you create a new application in Application Manager, Systems Manager calls
-  this API action to specify information about the new application, including the
-  application type.
+  If you create a new application in Application Manager, Amazon Web Services
+  Systems Manager calls this API operation to specify information about the new
+  application, including the application type.
   """
   def create_ops_metadata(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateOpsMetadata", input, options)
@@ -201,9 +236,8 @@ defmodule AWS.SSM do
   @doc """
   Creates a patch baseline.
 
-  For information about valid key and value pairs in `PatchFilters` for each
-  supported operating system type, see
-  [PatchFilter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+  For information about valid key-value pairs in `PatchFilters` for each supported
+  operating system type, see `PatchFilter`.
   """
   def create_patch_baseline(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreatePatchBaseline", input, options)
@@ -213,27 +247,28 @@ defmodule AWS.SSM do
   A resource data sync helps you view data from multiple sources in a single
   location.
 
-  Systems Manager offers two types of resource data sync: `SyncToDestination` and
-  `SyncFromSource`.
+  Amazon Web Services Systems Manager offers two types of resource data sync:
+  `SyncToDestination` and `SyncFromSource`.
 
   You can configure Systems Manager Inventory to use the `SyncToDestination` type
-  to synchronize Inventory data from multiple AWS Regions to a single S3 bucket.
-  For more information, see [Configuring Resource Data Sync for Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html)
-  in the *AWS Systems Manager User Guide*.
+  to synchronize Inventory data from multiple Regions to a single Amazon Simple
+  Storage Service (Amazon S3) bucket. For more information, see [Configuring resource data sync for
+  Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
   You can configure Systems Manager Explorer to use the `SyncFromSource` type to
   synchronize operational work items (OpsItems) and operational data (OpsData)
-  from multiple AWS Regions to a single S3 bucket. This type can synchronize
-  OpsItems and OpsData from multiple AWS accounts and Regions or
-  `EntireOrganization` by using AWS Organizations. For more information, see
-  [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html)
-  in the *AWS Systems Manager User Guide*.
+  from multiple Regions to a single Amazon S3 bucket. This type can synchronize
+  OpsItems and OpsData from multiple accounts and Regions or `EntireOrganization`
+  by using Organizations. For more information, see [Setting up Systems Manager Explorer to display data from multiple accounts and
+  Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
   A resource data sync is an asynchronous operation that returns immediately.
   After a successful initial sync is completed, the system continuously syncs
   data. To check the status of a sync, use the `ListResourceDataSync`.
 
-  By default, data is not encrypted in Amazon S3. We strongly recommend that you
+  By default, data isn't encrypted in Amazon S3. We strongly recommend that you
   enable encryption in Amazon S3 to ensure secure data storage. We also recommend
   that you secure access to the Amazon S3 bucket by creating a restrictive bucket
   policy.
@@ -245,9 +280,9 @@ defmodule AWS.SSM do
   @doc """
   Deletes an activation.
 
-  You are not required to delete an activation. If you delete an activation, you
+  You aren't required to delete an activation. If you delete an activation, you
   can no longer use it to register additional managed instances. Deleting an
-  activation does not de-register managed instances. You must manually de-register
+  activation doesn't de-register managed instances. You must manually de-register
   managed instances.
   """
   def delete_activation(%Client{} = client, input, options \\ []) do
@@ -255,10 +290,10 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Disassociates the specified Systems Manager document from the specified
-  instance.
+  Disassociates the specified Amazon Web Services Systems Manager document (SSM
+  document) from the specified instance.
 
-  When you disassociate a document from an instance, it does not change the
+  When you disassociate a document from an instance, it doesn't change the
   configuration of the instance. To change the configuration state of an instance
   after you disassociate a document, you must create a new document with the
   desired configuration and associate it with the instance.
@@ -268,8 +303,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Deletes the Systems Manager document and all instance associations to the
-  document.
+  Deletes the Amazon Web Services Systems Manager document (SSM document) and all
+  instance associations to the document.
 
   Before you delete the document, we recommend that you use `DeleteAssociation` to
   disassociate all instances that are associated with the document.
@@ -325,10 +360,10 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Deletes a Resource Data Sync configuration.
+  Deletes a resource data sync configuration.
 
   After the configuration is deleted, changes to data on managed instances are no
-  longer synced to or from the target. Deleting a sync configuration does not
+  longer synced to or from the target. Deleting a sync configuration doesn't
   delete data.
   """
   def delete_resource_data_sync(%Client{} = client, input, options \\ []) do
@@ -386,8 +421,9 @@ defmodule AWS.SSM do
 
   @doc """
   Describes details about the activation, such as the date and time the activation
-  was created, its expiration date, the IAM role assigned to the instances in the
-  activation, and the number of instances registered by using this activation.
+  was created, its expiration date, the Identity and Access Management (IAM) role
+  assigned to the instances in the activation, and the number of instances
+  registered by using this activation.
   """
   def describe_activations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeActivations", input, options)
@@ -398,17 +434,16 @@ defmodule AWS.SSM do
 
   If you created the association by using the `Targets` parameter, then you must
   retrieve the association by using the association ID. If you created the
-  association by specifying an instance ID and a Systems Manager document, then
-  you retrieve the association by specifying the document name and the instance
-  ID.
+  association by specifying an instance ID and an Amazon Web Services Systems
+  Manager document (SSM document), then you retrieve the association by specifying
+  the document name and the instance ID.
   """
   def describe_association(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAssociation", input, options)
   end
 
   @doc """
-  Use this API action to view information about a specific execution of a specific
-  association.
+  Views information about a specific execution of a specific association.
   """
   def describe_association_execution_targets(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -421,7 +456,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Use this API action to view all executions for a specific association ID.
+  Views all executions for a specific association ID.
   """
   def describe_association_executions(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAssociationExecutions", input, options)
@@ -450,17 +485,19 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Describes the specified Systems Manager document.
+  Describes the specified Amazon Web Services Systems Manager document (SSM
+  document).
   """
   def describe_document(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeDocument", input, options)
   end
 
   @doc """
-  Describes the permissions for a Systems Manager document.
+  Describes the permissions for a Amazon Web Services Systems Manager document
+  (SSM document).
 
   If you created the document, you are the owner. If a document is shared, it can
-  either be shared privately (by specifying a user's AWS account ID) or publicly
+  either be shared privately (by specifying a user's account ID) or publicly
   (*All*).
   """
   def describe_document_permission(%Client{} = client, input, options \\ []) do
@@ -484,7 +521,7 @@ defmodule AWS.SSM do
   Retrieves the current effective patches (the patch and the approval state) for
   the specified patch baseline.
 
-  Note that this API applies only to Windows patch baselines.
+  Applies to patch baselines for Windows only.
   """
   def describe_effective_patches_for_patch_baseline(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -509,13 +546,13 @@ defmodule AWS.SSM do
   instance status, and so on.
 
   If you specify one or more instance IDs, it returns information for those
-  instances. If you do not specify instance IDs, it returns information for all
-  your instances. If you specify an instance ID that is not valid or an instance
-  that you do not own, you receive an error.
+  instances. If you don't specify instance IDs, it returns information for all
+  your instances. If you specify an instance ID that isn't valid or an instance
+  that you don't own, you receive an error.
 
-  The IamRole field for this API action is the Amazon Identity and Access
-  Management (IAM) role assigned to on-premises instances. This call does not
-  return the IAM role for EC2 instances.
+  The `IamRole` field for this API operation is the Identity and Access Management
+  (IAM) role assigned to on-premises instances. This call doesn't return the IAM
+  role for EC2 instances.
   """
   def describe_instance_information(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeInstanceInformation", input, options)
@@ -622,17 +659,17 @@ defmodule AWS.SSM do
   @doc """
   Lists the tasks in a maintenance window.
 
-  For maintenance window tasks without a specified target, you cannot supply
-  values for `--max-errors` and `--max-concurrency`. Instead, the system inserts a
+  For maintenance window tasks without a specified target, you can't supply values
+  for `--max-errors` and `--max-concurrency`. Instead, the system inserts a
   placeholder value of `1`, which may be reported in the response to this command.
-  These values do not affect the running of your task and can be ignored.
+  These values don't affect the running of your task and can be ignored.
   """
   def describe_maintenance_window_tasks(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeMaintenanceWindowTasks", input, options)
   end
 
   @doc """
-  Retrieves the maintenance windows in an AWS account.
+  Retrieves the maintenance windows in an account.
   """
   def describe_maintenance_windows(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeMaintenanceWindows", input, options)
@@ -655,14 +692,16 @@ defmodule AWS.SSM do
   @doc """
   Query a set of OpsItems.
 
-  You must have permission in AWS Identity and Access Management (IAM) to query a
-  list of OpsItems. For more information, see [Getting started with OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
-  in the *AWS Systems Manager User Guide*.
+  You must have permission in Identity and Access Management (IAM) to query a list
+  of OpsItems. For more information, see [Getting started with OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
-  Operations engineers and IT professionals use OpsCenter to view, investigate,
-  and remediate operational issues impacting the performance and health of their
-  AWS resources. For more information, see [AWS Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
-  in the *AWS Systems Manager User Guide*.
+  Operations engineers and IT professionals use Amazon Web Services Systems
+  Manager OpsCenter to view, investigate, and remediate operational issues
+  impacting the performance and health of their Amazon Web Services resources. For
+  more information, see
+  [OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   def describe_ops_items(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeOpsItems", input, options)
@@ -684,14 +723,15 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Lists the patch baselines in your AWS account.
+  Lists the patch baselines in your account.
   """
   def describe_patch_baselines(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePatchBaselines", input, options)
   end
 
   @doc """
-  Returns high-level aggregated patch compliance state for a patch group.
+  Returns high-level aggregated patch compliance state information for a patch
+  group.
   """
   def describe_patch_group_state(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePatchGroupState", input, options)
@@ -709,7 +749,7 @@ defmodule AWS.SSM do
   classification, severity, and other properties of available patches.
 
   You can use the reported properties in the filters you specify in requests for
-  actions such as `CreatePatchBaseline`, `UpdatePatchBaseline`,
+  operations such as `CreatePatchBaseline`, `UpdatePatchBaseline`,
   `DescribeAvailablePatches`, and `DescribePatchBaselines`.
 
   The following section lists the properties that can be used in filters for each
@@ -719,43 +759,44 @@ defmodule AWS.SSM do
 
   ### AMAZON_LINUX
 
-  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+  Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
 
   ### AMAZON_LINUX_2
 
-  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+  Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
 
   ### CENTOS
 
-  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+  Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
 
   ### DEBIAN
 
-  Valid properties: PRODUCT, PRIORITY
+  Valid properties: `PRODUCT` | `PRIORITY`
 
   ### MACOS
 
-  Valid properties: PRODUCT, CLASSIFICATION
+  Valid properties: `PRODUCT` | `CLASSIFICATION`
 
   ### ORACLE_LINUX
 
-  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+  Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
 
   ### REDHAT_ENTERPRISE_LINUX
 
-  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+  Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
 
   ### SUSE
 
-  Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+  Valid properties: `PRODUCT` | `CLASSIFICATION` | `SEVERITY`
 
   ### UBUNTU
 
-  Valid properties: PRODUCT, PRIORITY
+  Valid properties: `PRODUCT` | `PRIORITY`
 
   ### WINDOWS
 
-  Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY
+  Valid properties: `PRODUCT` | `PRODUCT_FAMILY` | `CLASSIFICATION` |
+  `MSRC_SEVERITY`
   """
   def describe_patch_properties(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribePatchProperties", input, options)
@@ -770,6 +811,17 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Deletes the association between an OpsItem and a related resource.
+
+  For example, this API operation can delete an Incident Manager incident from an
+  OpsItem. Incident Manager is a capability of Amazon Web Services Systems
+  Manager.
+  """
+  def disassociate_ops_item_related_item(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DisassociateOpsItemRelatedItem", input, options)
+  end
+
+  @doc """
   Get detailed information about a particular Automation execution.
   """
   def get_automation_execution(%Client{} = client, input, options \\ []) do
@@ -777,21 +829,22 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Gets the state of the AWS Systems Manager Change Calendar at an optional,
-  specified time.
+  Gets the state of a Amazon Web Services Systems Manager change calendar at the
+  current time or a specified time.
 
-  If you specify a time, `GetCalendarState` returns the state of the calendar at a
-  specific time, and returns the next time that the Change Calendar state will
-  transition. If you do not specify a time, `GetCalendarState` assumes the current
-  time. Change Calendar entries have two possible states: `OPEN` or `CLOSED`.
+  If you specify a time, `GetCalendarState` returns the state of the calendar at
+  that specific time, and returns the next time that the change calendar state
+  will transition. If you don't specify a time, `GetCalendarState` uses the
+  current time. Change Calendar entries have two possible states: `OPEN` or
+  `CLOSED`.
 
   If you specify more than one calendar in a request, the command returns the
   status of `OPEN` only if all calendars in the request are open. If one or more
   calendars in the request are closed, the status returned is `CLOSED`.
 
-  For more information about Systems Manager Change Calendar, see [AWS Systems Manager Change
-  Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html)
-  in the *AWS Systems Manager User Guide*.
+  For more information about Change Calendar, a capability of Amazon Web Services
+  Systems Manager, see [Amazon Web Services Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   def get_calendar_state(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetCalendarState", input, options)
@@ -800,6 +853,11 @@ defmodule AWS.SSM do
   @doc """
   Returns detailed information about command execution for an invocation or
   plugin.
+
+  `GetCommandInvocation` only gives the execution status of a plugin in a
+  document. To get the command execution status on a specific instance, use
+  `ListCommandInvocations`. To get the command execution status across instances,
+  use `ListCommands`.
   """
   def get_command_invocation(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetCommandInvocation", input, options)
@@ -816,10 +874,11 @@ defmodule AWS.SSM do
   @doc """
   Retrieves the default patch baseline.
 
-  Note that Systems Manager supports creating multiple default patch baselines.
-  For example, you can create a default patch baseline for each operating system.
+  Amazon Web Services Systems Manager supports creating multiple default patch
+  baselines. For example, you can create a default patch baseline for each
+  operating system.
 
-  If you do not specify an operating system value, the default patch baseline for
+  If you don't specify an operating system value, the default patch baseline for
   Windows is returned.
   """
   def get_default_patch_baseline(%Client{} = client, input, options \\ []) do
@@ -829,7 +888,16 @@ defmodule AWS.SSM do
   @doc """
   Retrieves the current snapshot for the patch baseline the instance uses.
 
-  This API is primarily used by the AWS-RunPatchBaseline Systems Manager document.
+  This API is primarily used by the `AWS-RunPatchBaseline` Systems Manager
+  document (SSM document).
+
+  If you run the command locally, such as with the Command Line Interface (CLI),
+  the system attempts to use your local AWS credentials and the operation fails.
+  To avoid this, you can run the command in the Amazon Web Services Systems
+  Manager console. Use Run Command, a capability of Amazon Web Services Systems
+  Manager, with an SSM document that enables you to target an instance with a
+  script or command. For example, run the command using the `AWS-RunShellScript`
+  document or the `AWS-RunPowerShellScript` document.
   """
   def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ []) do
     Request.request_post(
@@ -842,7 +910,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Gets the contents of the specified Systems Manager document.
+  Gets the contents of the specified Amazon Web Services Systems Manager document
+  (SSM document).
   """
   def get_document(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetDocument", input, options)
@@ -901,10 +970,10 @@ defmodule AWS.SSM do
   @doc """
   Lists the tasks in a maintenance window.
 
-  For maintenance window tasks without a specified target, you cannot supply
-  values for `--max-errors` and `--max-concurrency`. Instead, the system inserts a
+  For maintenance window tasks without a specified target, you can't supply values
+  for `--max-errors` and `--max-concurrency`. Instead, the system inserts a
   placeholder value of `1`, which may be reported in the response to this command.
-  These values do not affect the running of your task and can be ignored.
+  These values don't affect the running of your task and can be ignored.
   """
   def get_maintenance_window_task(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetMaintenanceWindowTask", input, options)
@@ -913,14 +982,16 @@ defmodule AWS.SSM do
   @doc """
   Get information about an OpsItem by using the ID.
 
-  You must have permission in AWS Identity and Access Management (IAM) to view
+  You must have permission in Identity and Access Management (IAM) to view
   information about an OpsItem. For more information, see [Getting started with OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
-  in the *AWS Systems Manager User Guide*.
+  in the *Amazon Web Services Systems Manager User Guide*.
 
-  Operations engineers and IT professionals use OpsCenter to view, investigate,
-  and remediate operational issues impacting the performance and health of their
-  AWS resources. For more information, see [AWS Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
-  in the *AWS Systems Manager User Guide*.
+  Operations engineers and IT professionals use Amazon Web Services Systems
+  Manager OpsCenter to view, investigate, and remediate operational issues
+  impacting the performance and health of their Amazon Web Services resources. For
+  more information, see
+  [OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   def get_ops_item(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetOpsItem", input, options)
@@ -934,7 +1005,13 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  View a summary of OpsItems based on specified filters and aggregators.
+  View a summary of operations metadata (OpsData) based on specified filters and
+  aggregators.
+
+  OpsData can include information about Amazon Web Services Systems Manager
+  OpsCenter operational workitems (OpsItems) as well as information about any
+  Amazon Web Services resource or service configured to report OpsData to Amazon
+  Web Services Systems Manager Explorer.
   """
   def get_ops_summary(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetOpsSummary", input, options)
@@ -943,7 +1020,7 @@ defmodule AWS.SSM do
   @doc """
   Get information about a parameter by using the parameter name.
 
-  Don't confuse this API action with the `GetParameters` API action.
+  Don't confuse this API operation with the `GetParameters` API operation.
   """
   def get_parameter(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetParameter", input, options)
@@ -959,7 +1036,7 @@ defmodule AWS.SSM do
   @doc """
   Get details of a parameter.
 
-  Don't confuse this API action with the `GetParameter` API action.
+  Don't confuse this API operation with the `GetParameter` API operation.
   """
   def get_parameters(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetParameters", input, options)
@@ -995,20 +1072,22 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  `ServiceSetting` is an account-level setting for an AWS service.
+  `ServiceSetting` is an account-level setting for an Amazon Web Services service.
 
   This setting defines how a user interacts with or uses a service or a feature of
-  a service. For example, if an AWS service charges money to the account based on
-  feature or service usage, then the AWS service team might create a default
-  setting of "false". This means the user can't use this feature unless they
-  change the setting to "true" and intentionally opt in for a paid feature.
+  a service. For example, if an Amazon Web Services service charges money to the
+  account based on feature or service usage, then the Amazon Web Services service
+  team might create a default setting of `false`. This means the user can't use
+  this feature unless they change the setting to `true` and intentionally opt in
+  for a paid feature.
 
-  Services map a `SettingId` object to a setting value. AWS services teams define
-  the default value for a `SettingId`. You can't create a new `SettingId`, but you
-  can overwrite the default value if you have the `ssm:UpdateServiceSetting`
-  permission for the setting. Use the `UpdateServiceSetting` API action to change
-  the default setting. Or use the `ResetServiceSetting` to change the value back
-  to the original value defined by the AWS service team.
+  Services map a `SettingId` object to a setting value. Amazon Web Services
+  services teams define the default value for a `SettingId`. You can't create a
+  new `SettingId`, but you can overwrite the default value if you have the
+  `ssm:UpdateServiceSetting` permission for the setting. Use the
+  `UpdateServiceSetting` API operation to change the default setting. Or use the
+  `ResetServiceSetting` to change the value back to the original value defined by
+  the Amazon Web Services service team.
 
   Query the current service setting for the account.
   """
@@ -1020,9 +1099,9 @@ defmodule AWS.SSM do
   A parameter label is a user-defined alias to help you manage different versions
   of a parameter.
 
-  When you modify a parameter, Systems Manager automatically saves a new version
-  and increments the version number by one. A label can help you remember the
-  purpose of a parameter when there are multiple versions.
+  When you modify a parameter, Amazon Web Services Systems Manager automatically
+  saves a new version and increments the version number by one. A label can help
+  you remember the purpose of a parameter when there are multiple versions.
 
   Parameter labels have the following requirements and restrictions.
 
@@ -1037,16 +1116,16 @@ defmodule AWS.SSM do
     * You can't create a label when you create a new parameter. You must
   attach a label to a specific version of a parameter.
 
-    * You can't delete a parameter label. If you no longer want to use a
-  parameter label, then you must move it to a different version of a parameter.
+    * If you no longer want to use a parameter label, then you can
+  either delete it or move it to a different version of a parameter.
 
     * A label can have a maximum of 100 characters.
 
     * Labels can contain letters (case sensitive), numbers, periods (.),
   hyphens (-), or underscores (_).
 
-    * Labels can't begin with a number, "aws," or "ssm" (not case
-  sensitive). If a label fails to meet these requirements, then the label is not
+    * Labels can't begin with a number, "`aws`" or "`ssm`" (not case
+  sensitive). If a label fails to meet these requirements, then the label isn't
   associated with a parameter and the system displays it in the list of
   InvalidLabels.
   """
@@ -1062,10 +1141,11 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Returns all State Manager associations in the current AWS account and Region.
+  Returns all State Manager associations in the current account and Region.
 
   You can limit the results to a specific State Manager association document or
-  instance by specifying a filter.
+  instance by specifying a filter. State Manager is a capability of Amazon Web
+  Services Systems Manager.
   """
   def list_associations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListAssociations", input, options)
@@ -1075,23 +1155,23 @@ defmodule AWS.SSM do
   An invocation is copy of a command sent to a specific instance.
 
   A command can apply to one or more instances. A command invocation applies to
-  one instance. For example, if a user runs SendCommand against three instances,
+  one instance. For example, if a user runs `SendCommand` against three instances,
   then a command invocation is created for each requested instance ID.
-  ListCommandInvocations provide status about command execution.
+  `ListCommandInvocations` provide status about command execution.
   """
   def list_command_invocations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCommandInvocations", input, options)
   end
 
   @doc """
-  Lists the commands requested by users of the AWS account.
+  Lists the commands requested by users of the account.
   """
   def list_commands(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListCommands", input, options)
   end
 
   @doc """
-  For a specified resource ID, this API action returns a list of compliance
+  For a specified resource ID, this API operation returns a list of compliance
   statuses for different resource types.
 
   Currently, you can only specify one resource ID per call. List results depend on
@@ -1127,8 +1207,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Returns all Systems Manager (SSM) documents in the current AWS account and
-  Region.
+  Returns all Systems Manager (SSM) documents in the current account and Region.
 
   You can limit the results of this request by using a filter.
   """
@@ -1144,7 +1223,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Returns a list of all OpsItem events in the current AWS account and Region.
+  Returns a list of all OpsItem events in the current Region and account.
 
   You can limit the results to events associated with specific OpsItems by
   specifying a filter.
@@ -1154,8 +1233,15 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Systems Manager calls this API action when displaying all Application Manager
-  OpsMetadata objects or blobs.
+  Lists all related-item resources associated with an OpsItem.
+  """
+  def list_ops_item_related_items(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListOpsItemRelatedItems", input, options)
+  end
+
+  @doc """
+  Amazon Web Services Systems Manager calls this API operation when displaying all
+  Application Manager OpsMetadata objects or blobs.
   """
   def list_ops_metadata(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListOpsMetadata", input, options)
@@ -1192,17 +1278,21 @@ defmodule AWS.SSM do
 
   @doc """
   Returns a list of the tags assigned to the specified resource.
+
+  For information about the ID format for each supported resource type, see
+  `AddTagsToResource`.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
   end
 
   @doc """
-  Shares a Systems Manager document publicly or privately.
+  Shares a Amazon Web Services Systems Manager document (SSM document)publicly or
+  privately.
 
-  If you share a document privately, you must specify the AWS user account IDs for
-  those people who can use the document. If you share a document publicly, you
-  must specify *All* as the account ID.
+  If you share a document privately, you must specify the Amazon Web Services user
+  account IDs for those people who can use the document. If you share a document
+  publicly, you must specify *All* as the account ID.
   """
   def modify_document_permission(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ModifyDocumentPermission", input, options)
@@ -1212,7 +1302,7 @@ defmodule AWS.SSM do
   Registers a compliance type and other compliance details on a designated
   resource.
 
-  This action lets you register custom compliance details with a resource. This
+  This operation lets you register custom compliance details with a resource. This
   call overwrites existing compliance information on the resource, so you must
   provide a full list of compliance items each time that you send the request.
 
@@ -1235,8 +1325,8 @@ defmodule AWS.SSM do
 
     * Severity: A patch severity. For example, `critical`.
 
-    * DocumentName: A SSM document name. For example,
-  AWS-RunPatchBaseline.
+    * DocumentName: An SSM document name. For example,
+  `AWS-RunPatchBaseline`.
 
     * DocumentVersion: An SSM document version number. For example, 4.
 
@@ -1280,8 +1370,9 @@ defmodule AWS.SSM do
   @doc """
   Defines the default patch baseline for the relevant operating system.
 
-  To reset the AWS predefined patch baseline as the default, specify the full
-  patch baseline ARN as the baseline ID value. For example, for CentOS, specify
+  To reset the Amazon Web Services-predefined patch baseline as the default,
+  specify the full patch baseline Amazon Resource Name (ARN) as the baseline ID
+  value. For example, for CentOS, specify
   `arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed` instead
   of `pb-0574b43a65ea646ed`.
   """
@@ -1324,23 +1415,24 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  `ServiceSetting` is an account-level setting for an AWS service.
+  `ServiceSetting` is an account-level setting for an Amazon Web Services service.
 
   This setting defines how a user interacts with or uses a service or a feature of
-  a service. For example, if an AWS service charges money to the account based on
-  feature or service usage, then the AWS service team might create a default
-  setting of "false". This means the user can't use this feature unless they
-  change the setting to "true" and intentionally opt in for a paid feature.
+  a service. For example, if an Amazon Web Services service charges money to the
+  account based on feature or service usage, then the Amazon Web Services service
+  team might create a default setting of "false". This means the user can't use
+  this feature unless they change the setting to "true" and intentionally opt in
+  for a paid feature.
 
-  Services map a `SettingId` object to a setting value. AWS services teams define
-  the default value for a `SettingId`. You can't create a new `SettingId`, but you
-  can overwrite the default value if you have the `ssm:UpdateServiceSetting`
-  permission for the setting. Use the `GetServiceSetting` API action to view the
-  current value. Use the `UpdateServiceSetting` API action to change the default
-  setting.
+  Services map a `SettingId` object to a setting value. Amazon Web Services
+  services teams define the default value for a `SettingId`. You can't create a
+  new `SettingId`, but you can overwrite the default value if you have the
+  `ssm:UpdateServiceSetting` permission for the setting. Use the
+  `GetServiceSetting` API operation to view the current value. Use the
+  `UpdateServiceSetting` API operation to change the default setting.
 
   Reset the service setting for the account to the default value as provisioned by
-  the AWS service team.
+  the Amazon Web Services service team.
   """
   def reset_service_setting(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResetServiceSetting", input, options)
@@ -1353,7 +1445,7 @@ defmodule AWS.SSM do
   sessions.
 
   This command is primarily for use by client machines to automatically reconnect
-  during intermittent network issues. It is not intended for any other use.
+  during intermittent network issues. It isn't intended for any other use.
   """
   def resume_session(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ResumeSession", input, options)
@@ -1375,16 +1467,16 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Use this API action to run an association immediately and only one time.
+  Runs an association immediately and only one time.
 
-  This action can be helpful when troubleshooting associations.
+  This operation can be helpful when troubleshooting associations.
   """
   def start_associations_once(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartAssociationsOnce", input, options)
   end
 
   @doc """
-  Initiates execution of an Automation document.
+  Initiates execution of an Automation runbook.
   """
   def start_automation_execution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartAutomationExecution", input, options)
@@ -1393,8 +1485,8 @@ defmodule AWS.SSM do
   @doc """
   Creates a change request for Change Manager.
 
-  The runbooks (Automation documents) specified in the change request run only
-  after all required approvals for the change request have been received.
+  The Automation runbooks specified in the change request run only after all
+  required approvals for the change request have been received.
   """
   def start_change_request_execution(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartChangeRequestExecution", input, options)
@@ -1407,13 +1499,14 @@ defmodule AWS.SSM do
   Returns a URL and token that can be used to open a WebSocket connection for
   sending input and receiving outputs.
 
-  AWS CLI usage: `start-session` is an interactive command that requires the
-  Session Manager plugin to be installed on the client machine making the call.
-  For information, see [Install the Session Manager plugin for the AWS CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
-  in the *AWS Systems Manager User Guide*.
+  Amazon Web Services CLI usage: `start-session` is an interactive command that
+  requires the Session Manager plugin to be installed on the client machine making
+  the call. For information, see [Install the Session Manager plugin for the Amazon Web Services
+  CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
-  AWS Tools for PowerShell usage: Start-SSMSession is not currently supported by
-  AWS Tools for PowerShell on Windows local machines.
+  Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn't currently
+  supported by Amazon Web Services Tools for PowerShell on Windows local machines.
   """
   def start_session(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "StartSession", input, options)
@@ -1430,24 +1523,32 @@ defmodule AWS.SSM do
   Permanently ends a session and closes the data connection between the Session
   Manager client and SSM Agent on the instance.
 
-  A terminated session cannot be resumed.
+  A terminated session isn't be resumed.
   """
   def terminate_session(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TerminateSession", input, options)
   end
 
   @doc """
+  Remove a label or labels from a parameter.
+  """
+  def unlabel_parameter_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UnlabelParameterVersion", input, options)
+  end
+
+  @doc """
   Updates an association.
 
   You can update the association name and version, the document version, schedule,
-  parameters, and Amazon S3 output.
+  parameters, and Amazon Simple Storage Service (Amazon S3) output.
 
-  In order to call this API action, your IAM user account, group, or role must be
-  configured with permission to call the `DescribeAssociation` API action. If you
-  don't have permission to call DescribeAssociation, then you receive the
-  following error: `An error occurred (AccessDeniedException) when calling the
-  UpdateAssociation operation: User: <user_arn> is not authorized to perform:
-  ssm:DescribeAssociation on resource: <resource_arn>`
+  In order to call this API operation, your Identity and Access Management (IAM)
+  user account, group, or role must be configured with permission to call the
+  `DescribeAssociation` API operation. If you don't have permission to call
+  `DescribeAssociation`, then you receive the following error: `An error occurred
+  (AccessDeniedException) when calling the UpdateAssociation operation: User:
+  <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource:
+  <resource_arn>`
 
   When you update an association, the association immediately runs against the
   specified targets.
@@ -1457,8 +1558,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Updates the status of the Systems Manager document associated with the specified
-  instance.
+  Updates the status of the Amazon Web Services Systems Manager document (SSM
+  document) associated with the specified instance.
   """
   def update_association_status(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateAssociationStatus", input, options)
@@ -1521,7 +1622,7 @@ defmodule AWS.SSM do
   types are ID target, Tag target, and resource group. For more information, see
   `Target`.
 
-  If a parameter is null, then the corresponding field is not modified.
+  If a parameter is null, then the corresponding field isn't modified.
   """
   def update_maintenance_window_target(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateMaintenanceWindowTarget", input, options)
@@ -1532,34 +1633,35 @@ defmodule AWS.SSM do
 
   You can't change the task type, but you can change the following values:
 
-    * TaskARN. For example, you can change a RUN_COMMAND task from
-  AWS-RunPowerShellScript to AWS-RunShellScript.
+    * `TaskARN`. For example, you can change a `RUN_COMMAND` task from
+  `AWS-RunPowerShellScript` to `AWS-RunShellScript`.
 
-    * ServiceRoleArn
+    * `ServiceRoleArn`
 
-    * TaskInvocationParameters
+    * `TaskInvocationParameters`
 
-    * Priority
+    * `Priority`
 
-    * MaxConcurrency
+    * `MaxConcurrency`
 
-    * MaxErrors
+    * `MaxErrors`
 
   One or more targets must be specified for maintenance window Run Command-type
   tasks. Depending on the task, targets are optional for other maintenance window
-  task types (Automation, AWS Lambda, and AWS Step Functions). For more
-  information about running tasks that do not specify targets, see [Registering maintenance window tasks without
+  task types (Automation, Lambda, and Step Functions). For more information about
+  running tasks that don't specify targets, see [Registering maintenance window tasks without
   targets](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html)
-  in the *AWS Systems Manager User Guide*.
+  in the *Amazon Web Services Systems Manager User Guide*.
 
   If the value for a parameter in `UpdateMaintenanceWindowTask` is null, then the
-  corresponding field is not modified. If you set `Replace` to true, then all
-  fields required by the `RegisterTaskWithMaintenanceWindow` action are required
-  for this request. Optional fields that aren't specified are set to null.
+  corresponding field isn't modified. If you set `Replace` to true, then all
+  fields required by the `RegisterTaskWithMaintenanceWindow` operation are
+  required for this request. Optional fields that aren't specified are set to
+  null.
 
   When you update a maintenance window task that has options specified in
   `TaskInvocationParameters`, you must provide again all the
-  `TaskInvocationParameters` values that you want to retain. The values you do not
+  `TaskInvocationParameters` values that you want to retain. The values you don't
   specify again are removed. For example, suppose that when you registered a Run
   Command task, you specified `TaskInvocationParameters` values for `Comment`,
   `NotificationConfig`, and `OutputS3BucketName`. If you update the maintenance
@@ -1571,8 +1673,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Changes the Amazon Identity and Access Management (IAM) role that is assigned to
-  the on-premises instance or virtual machines (VM).
+  Changes the Identity and Access Management (IAM) role that is assigned to the
+  on-premises instance or virtual machines (VM).
 
   IAM roles are first assigned to these hybrid instances during the activation
   process. For more information, see `CreateActivation`.
@@ -1584,22 +1686,24 @@ defmodule AWS.SSM do
   @doc """
   Edit or change an OpsItem.
 
-  You must have permission in AWS Identity and Access Management (IAM) to update
-  an OpsItem. For more information, see [Getting started with OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
-  in the *AWS Systems Manager User Guide*.
+  You must have permission in Identity and Access Management (IAM) to update an
+  OpsItem. For more information, see [Getting started with OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
-  Operations engineers and IT professionals use OpsCenter to view, investigate,
-  and remediate operational issues impacting the performance and health of their
-  AWS resources. For more information, see [AWS Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
-  in the *AWS Systems Manager User Guide*.
+  Operations engineers and IT professionals use Amazon Web Services Systems
+  Manager OpsCenter to view, investigate, and remediate operational issues
+  impacting the performance and health of their Amazon Web Services resources. For
+  more information, see
+  [OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   def update_ops_item(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateOpsItem", input, options)
   end
 
   @doc """
-  Systems Manager calls this API action when you edit OpsMetadata in Application
-  Manager.
+  Amazon Web Services Systems Manager calls this API operation when you edit
+  OpsMetadata in Application Manager.
   """
   def update_ops_metadata(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateOpsMetadata", input, options)
@@ -1610,9 +1714,8 @@ defmodule AWS.SSM do
 
   Fields not specified in the request are left unchanged.
 
-  For information about valid key and value pairs in `PatchFilters` for each
-  supported operating system type, see
-  [PatchFilter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+  For information about valid key-value pairs in `PatchFilters` for each supported
+  operating system type, see `PatchFilter`.
   """
   def update_patch_baseline(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdatePatchBaseline", input, options)
@@ -1623,12 +1726,12 @@ defmodule AWS.SSM do
 
   After you create a resource data sync for a Region, you can't change the account
   options for that sync. For example, if you create a sync in the us-east-2 (Ohio)
-  Region and you choose the Include only the current account option, you can't
-  edit that sync later and choose the Include all accounts from my AWS
-  Organizations configuration option. Instead, you must delete the first resource
-  data sync, and create a new one.
+  Region and you choose the `Include only the current account` option, you can't
+  edit that sync later and choose the `Include all accounts from my Organizations
+  configuration` option. Instead, you must delete the first resource data sync,
+  and create a new one.
 
-  This API action only supports a resource data sync that was created with a
+  This API operation only supports a resource data sync that was created with a
   SyncFromSource `SyncType`.
   """
   def update_resource_data_sync(%Client{} = client, input, options \\ []) do
@@ -1636,20 +1739,22 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  `ServiceSetting` is an account-level setting for an AWS service.
+  `ServiceSetting` is an account-level setting for an Amazon Web Services service.
 
   This setting defines how a user interacts with or uses a service or a feature of
-  a service. For example, if an AWS service charges money to the account based on
-  feature or service usage, then the AWS service team might create a default
-  setting of "false". This means the user can't use this feature unless they
-  change the setting to "true" and intentionally opt in for a paid feature.
+  a service. For example, if an Amazon Web Services service charges money to the
+  account based on feature or service usage, then the Amazon Web Services service
+  team might create a default setting of "false". This means the user can't use
+  this feature unless they change the setting to "true" and intentionally opt in
+  for a paid feature.
 
-  Services map a `SettingId` object to a setting value. AWS services teams define
-  the default value for a `SettingId`. You can't create a new `SettingId`, but you
-  can overwrite the default value if you have the `ssm:UpdateServiceSetting`
-  permission for the setting. Use the `GetServiceSetting` API action to view the
-  current value. Or, use the `ResetServiceSetting` to change the value back to the
-  original value defined by the AWS service team.
+  Services map a `SettingId` object to a setting value. Amazon Web Services
+  services teams define the default value for a `SettingId`. You can't create a
+  new `SettingId`, but you can overwrite the default value if you have the
+  `ssm:UpdateServiceSetting` permission for the setting. Use the
+  `GetServiceSetting` API operation to view the current value. Or, use the
+  `ResetServiceSetting` to change the value back to the original value defined by
+  the Amazon Web Services service team.
 
   Update the service setting for the account.
   """

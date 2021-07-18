@@ -150,9 +150,13 @@ defmodule AWS.KinesisAnalyticsV2 do
   Currently, the only available extension is the Apache Flink dashboard.
 
   The IAM role or user used to call this API defines the permissions to access the
-  extension. Once the presigned URL is created, no additional permission is
+  extension. After the presigned URL is created, no additional permission is
   required to access this URL. IAM authorization policies for this API are also
   enforced for every HTTP request that attempts to connect to the extension.
+
+  You control the amount of time that the URL will be valid using the
+  `SessionExpirationDurationInSeconds` parameter. If you do not provide this
+  parameter, the returned URL is valid for twelve hours.
 
   The URL that you get from a call to CreateApplicationPresignedUrl must be used
   within 3 minutes to be valid. If you first try to use the URL after the 3-minute
@@ -266,6 +270,19 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
+  Provides a detailed description of a specified version of the application.
+
+  To see a list of all the versions of an application, invoke the
+  `ListApplicationVersions` operation.
+
+  This operation is supported only for Amazon Kinesis Data Analytics for Apache
+  Flink.
+  """
+  def describe_application_version(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeApplicationVersion", input, options)
+  end
+
+  @doc """
   Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating
   sample records on the specified streaming source (Kinesis data stream or Kinesis
   Data Firehose delivery stream) or Amazon S3 object.
@@ -290,6 +307,23 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
+  Lists all the versions for the specified application, including versions that
+  were rolled back.
+
+  The response also includes a summary of the configuration associated with each
+  version.
+
+  To get the complete description of a specific application version, invoke the
+  `DescribeApplicationVersion` operation.
+
+  This operation is supported only for Amazon Kinesis Data Analytics for Apache
+  Flink.
+  """
+  def list_application_versions(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListApplicationVersions", input, options)
+  end
+
+  @doc """
   Returns a list of Kinesis Data Analytics applications in your account.
 
   For each application, the response includes the application name, Amazon
@@ -309,6 +343,25 @@ defmodule AWS.KinesisAnalyticsV2 do
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Reverts the application to the previous running version.
+
+  You can roll back an application if you suspect it is stuck in a transient
+  status.
+
+  You can roll back an application only if it is in the `UPDATING` or
+  `AUTOSCALING` status.
+
+  When you rollback an application, it loads state data from the last successful
+  snapshot. If the application has no snapshots, Kinesis Data Analytics rejects
+  the rollback request.
+
+  This action is not supported for Kinesis Data Analytics for SQL applications.
+  """
+  def rollback_application(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RollbackApplication", input, options)
   end
 
   @doc """
@@ -371,5 +424,38 @@ defmodule AWS.KinesisAnalyticsV2 do
   """
   def update_application(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateApplication", input, options)
+  end
+
+  @doc """
+  Updates the maintenance configuration of the Kinesis Data Analytics application.
+
+  You can invoke this operation on an application that is in one of the two
+  following states: `READY` or `RUNNING`. If you invoke it when the application is
+  in a state other than these two states, it throws a `ResourceInUseException`.
+  The service makes use of the updated configuration the next time it schedules
+  maintenance for the application. If you invoke this operation after the service
+  schedules maintenance, the service will apply the configuration update the next
+  time it schedules maintenance for the application. This means that you might not
+  see the maintenance configuration update applied to the maintenance process that
+  follows a successful invocation of this operation, but to the following
+  maintenance process instead.
+
+  To see the current maintenance configuration of your application, invoke the
+  `DescribeApplication` operation.
+
+  For information about application maintenance, see [Kinesis Data Analytics for Apache Flink
+  Maintenance](https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html).
+
+  This operation is supported only for Amazon Kinesis Data Analytics for Apache
+  Flink.
+  """
+  def update_application_maintenance_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateApplicationMaintenanceConfiguration",
+      input,
+      options
+    )
   end
 end

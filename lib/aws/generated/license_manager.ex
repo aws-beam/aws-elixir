@@ -96,6 +96,19 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
+  Creates a new report generator.
+  """
+  def create_license_manager_report_generator(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "CreateLicenseManagerReportGenerator",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Creates a new version of the specified license.
   """
   def create_license_version(%Client{} = client, input, options \\ []) do
@@ -134,6 +147,23 @@ defmodule AWS.LicenseManager do
   """
   def delete_license_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteLicenseConfiguration", input, options)
+  end
+
+  @doc """
+  Delete an existing report generator.
+
+  This action deletes the report generator, which stops it from generating future
+  reports and cannot be reversed. However, the previous reports from this
+  generator will remain in your S3 bucket.
+  """
+  def delete_license_manager_report_generator(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "DeleteLicenseManagerReportGenerator",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -180,6 +210,13 @@ defmodule AWS.LicenseManager do
   """
   def get_license_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "GetLicenseConfiguration", input, options)
+  end
+
+  @doc """
+  Gets information on the specified report generator.
+  """
+  def get_license_manager_report_generator(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetLicenseManagerReportGenerator", input, options)
   end
 
   @doc """
@@ -238,6 +275,13 @@ defmodule AWS.LicenseManager do
   """
   def list_license_configurations(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListLicenseConfigurations", input, options)
+  end
+
+  @doc """
+  Lists the report generators for your account.
+  """
+  def list_license_manager_report_generators(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ListLicenseManagerReportGenerators", input, options)
   end
 
   @doc """
@@ -339,6 +383,22 @@ defmodule AWS.LicenseManager do
   """
   def update_license_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateLicenseConfiguration", input, options)
+  end
+
+  @doc """
+  Updates a report generator.
+
+  After you make changes to a report generator, it will start generating new
+  reports within 60 minutes of being updated.
+  """
+  def update_license_manager_report_generator(%Client{} = client, input, options \\ []) do
+    Request.request_post(
+      client,
+      metadata(),
+      "UpdateLicenseManagerReportGenerator",
+      input,
+      options
+    )
   end
 
   @doc """

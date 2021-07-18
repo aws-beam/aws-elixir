@@ -494,8 +494,8 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Returns a [ `DomainDescription`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html)
+  Returns a
+  [DomainDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html)
   object that contains information about the requested domain.
   """
   def describe_domain(%Client{} = client, domain, domain_owner \\ nil, options \\ []) do
@@ -531,8 +531,8 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Returns a [ `PackageVersionDescription`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
+  Returns a
+  [PackageVersionDescription](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html)
   object that contains information about the requested package version.
   """
   def describe_package_version(
@@ -697,16 +697,13 @@ defmodule AWS.Codeartifact do
   A disposed package version cannot be restored in your repository because its
   assets are deleted.
 
-  To view all disposed package versions in a repository, use [
-  `ListPackageVersions`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html)
-  and set the [ `status`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax)
+  To view all disposed package versions in a repository, use
+  [ListPackageVersions](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html) and set the
+  [status](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax)
   parameter to `Disposed`.
 
-  To view information about a disposed package version, use [
-  `DescribePackageVersion`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html)..
+  To view information about a disposed package version, use
+  [DescribePackageVersion](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html).
   """
   def dispose_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/dispose"
@@ -1166,8 +1163,8 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Returns a list of [ `AssetSummary`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html)
+  Returns a list of
+  [AssetSummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html)
   objects for assets in a package version.
   """
   def list_package_version_assets(%Client{} = client, input, options \\ []) do
@@ -1204,8 +1201,8 @@ defmodule AWS.Codeartifact do
   @doc """
   Returns the direct dependencies for a package version.
 
-  The dependencies are returned as [ `PackageDependency`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html)
+  The dependencies are returned as
+  [PackageDependency](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html)
   objects. CodeArtifact extracts the dependencies for a package version from the
   metadata file for the package format (for example, the `package.json` file for
   npm packages and the `pom.xml` file for Maven). Any package version dependencies
@@ -1242,8 +1239,8 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Returns a list of [ `PackageVersionSummary`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html)
+  Returns a list of
+  [PackageVersionSummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html)
   objects for package versions in a repository that match the request parameters.
   """
   def list_package_versions(%Client{} = client, input, options \\ []) do
@@ -1279,8 +1276,8 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Returns a list of [ `PackageSummary`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html)
+  Returns a list of
+  [PackageSummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html)
   objects for packages in a repository that match the request parameters.
   """
   def list_packages(%Client{} = client, input, options \\ []) do
@@ -1314,8 +1311,8 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Returns a list of [ `RepositorySummary`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html)
+  Returns a list of
+  [RepositorySummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html)
   objects.
 
   Each `RepositorySummary` contains information about a repository in the
@@ -1347,8 +1344,8 @@ defmodule AWS.Codeartifact do
   end
 
   @doc """
-  Returns a list of [ `RepositorySummary`
-  ](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html)
+  Returns a list of
+  [RepositorySummary](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html)
   objects.
 
   Each `RepositorySummary` contains information about a repository in the

@@ -67,6 +67,30 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
+  Allows the specified Amazon Connect instance to access the specified Amazon Lex
+  or Amazon Lex V2 bot.
+  """
+  def associate_bot(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/instance/#{URI.encode(instance_id)}/bot"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Associates a storage resource type for the first time. You can only associate
   one type of storage configuration in a single call. This means, for example,
   that you can't define an instance with multiple S3 buckets for storing chat
@@ -255,6 +279,12 @@ defmodule AWS.Connect do
   does not attach any storage, such as Amazon Simple Storage Service (Amazon S3)
   or Amazon Kinesis. It also does not allow for any configurations on features,
   such as Contact Lens for Amazon Connect.
+
+  Amazon Connect enforces a limit on the total number of instances that you can
+  create or delete in 30 days. If you exceed this limit, you will get an error
+  message indicating there has been an excessive number of attempts at creating or
+  deleting instances. You must wait 30 days before you can restart creating and
+  deleting instances in your account.
   """
   def create_instance(%Client{} = client, input, options \\ []) do
     url_path = "/instance"
@@ -275,8 +305,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Create an AppIntegration association with an Amazon Connect instance.
   """
   def create_integration_association(%Client{} = client, instance_id, input, options \\ []) do
@@ -321,8 +349,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Creates a quick connect for the specified Amazon Connect instance.
   """
   def create_quick_connect(%Client{} = client, instance_id, input, options \\ []) do
@@ -365,8 +391,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Creates a use case for an AppIntegration association.
   """
   def create_use_case(
@@ -377,9 +401,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/instance/#{URI.encode(instance_id)}/integration-associations/#{
-        URI.encode(integration_association_id)
-      }/use-cases"
+      "/instance/#{URI.encode(instance_id)}/integration-associations/#{URI.encode(integration_association_id)}/use-cases"
 
     headers = []
     query_params = []
@@ -447,6 +469,12 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   Deletes the Amazon Connect instance.
+
+  Amazon Connect enforces a limit on the total number of instances that you can
+  create or delete in 30 days. If you exceed this limit, you will get an error
+  message indicating there has been an excessive number of attempts at creating or
+  deleting instances. You must wait 30 days before you can restart creating and
+  deleting instances in your account.
   """
   def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{URI.encode(instance_id)}"
@@ -467,10 +495,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  Deletes an AppIntegration association from an Amazon Connect instance.
 
-  Deletes an AppIntegration association from an Amazon Connect instance. The
-  association must not have any use cases associated with it.
+  The association must not have any use cases associated with it.
   """
   def delete_integration_association(
         %Client{} = client,
@@ -480,9 +507,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/instance/#{URI.encode(instance_id)}/integration-associations/#{
-        URI.encode(integration_association_id)
-      }"
+      "/instance/#{URI.encode(instance_id)}/integration-associations/#{URI.encode(integration_association_id)}"
 
     headers = []
     query_params = []
@@ -501,8 +526,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Deletes a quick connect.
   """
   def delete_quick_connect(
@@ -530,8 +553,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Deletes a use case from an AppIntegration association.
   """
   def delete_use_case(
@@ -543,9 +564,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/instance/#{URI.encode(instance_id)}/integration-associations/#{
-        URI.encode(integration_association_id)
-      }/use-cases/#{URI.encode(use_case_id)}"
+      "/instance/#{URI.encode(instance_id)}/integration-associations/#{URI.encode(integration_association_id)}/use-cases/#{URI.encode(use_case_id)}"
 
     headers = []
     query_params = []
@@ -784,8 +803,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Describes the quick connect.
   """
   def describe_quick_connect(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
@@ -920,6 +937,30 @@ defmodule AWS.Connect do
       client,
       metadata(),
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  Revokes authorization from the specified instance to access the specified Amazon
+  Lex or Amazon Lex V2 bot.
+  """
+  def disassociate_bot(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/instance/#{URI.encode(instance_id)}/bot"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
       url_path,
       query_params,
       headers,
@@ -1159,6 +1200,12 @@ defmodule AWS.Connect do
 
   @doc """
   Retrieves a token for federation.
+
+  This API doesn't support root users. If you try to invoke GetFederationToken
+  with root credentials, an error message similar to the following one appears:
+
+  `Provided identity: Principal: .... User: .... cannot be used for federation
+  with Amazon Connect`
   """
   def get_federation_token(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user/federate/#{URI.encode(instance_id)}"
@@ -1228,6 +1275,58 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  For the specified version of Amazon Lex, returns a paginated list of all the
+  Amazon Lex bots currently associated with the instance.
+  """
+  def list_bots(
+        %Client{} = client,
+        instance_id,
+        lex_version,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/instance/#{URI.encode(instance_id)}/bots"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(lex_version) do
+        [{"lexVersion", lex_version} | query_params]
       else
         query_params
       end
@@ -1482,8 +1581,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Provides summary information about the AppIntegration associations for the
   specified Amazon Connect instance.
   """
@@ -1764,6 +1861,11 @@ defmodule AWS.Connect do
   @doc """
   Provides information about the queues for the specified Amazon Connect instance.
 
+  If you do not specify a `QueueTypes` parameter, both standard and agent queues
+  are returned. This might cause an unexpected truncation of results if you have
+  more than 1000 agents and you limit the number of results of the API call in
+  code.
+
   For more information about queues, see [Queues: Standard and Agent](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html)
   in the *Amazon Connect Administrator Guide*.
   """
@@ -1814,8 +1916,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Provides information about the quick connects for the specified Amazon Connect
   instance.
   """
@@ -2068,8 +2168,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Lists the use cases.
   """
   def list_use_cases(
@@ -2081,9 +2179,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/instance/#{URI.encode(instance_id)}/integration-associations/#{
-        URI.encode(integration_association_id)
-      }/use-cases"
+      "/instance/#{URI.encode(instance_id)}/integration-associations/#{URI.encode(integration_association_id)}/use-cases"
 
     headers = []
     query_params = []
@@ -2241,7 +2337,7 @@ defmodule AWS.Connect do
   A 429 error occurs in two situations:
 
     * API rate limit is exceeded. API TPS throttling returns a
-  `TooManyRequests` exception from the API Gateway.
+  `TooManyRequests` exception.
 
     * The [quota for concurrent active chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html)
   is exceeded. Active chat throttling returns a `LimitExceededException`.
@@ -2494,18 +2590,22 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Creates or updates the contact attributes associated with the specified contact.
+  Creates or updates user-defined contact attributes associated with the specified
+  contact.
 
-  You can add or update attributes for both ongoing and completed contacts. For
-  example, while the call is active, you can update the customer's name or the
-  reason the customer called. You can add notes about steps that the agent took
-  during the call that display to the next agent that takes the call. You can also
-  update attributes for a contact using data from your CRM application and save
-  the data with the contact in Amazon Connect. You could also flag calls for
-  additional analysis, such as legal review or to identify abusive callers.
+  You can create or update user-defined attributes for both ongoing and completed
+  contacts. For example, while the call is active, you can update the customer's
+  name or the reason the customer called. You can add notes about steps that the
+  agent took during the call that display to the next agent that takes the call.
+  You can also update attributes for a contact using data from your CRM
+  application and save the data with the contact in Amazon Connect. You could also
+  flag calls for additional analysis, such as legal review or to identify abusive
+  callers.
 
   Contact attributes are available in Amazon Connect for 24 months, and are then
-  deleted.
+  deleted. For information about CTR retention and the maximum size of the CTR
+  attributes section, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits)
+  in the *Amazon Connect Administrator Guide*.
 
   **Important:** You cannot use the operation to update attributes for contacts
   that occurred prior to the release of the API, which was September 12, 2018. You
@@ -2785,8 +2885,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates the configuration settings for the specified quick connect.
   """
   def update_quick_connect_config(
@@ -2814,11 +2912,10 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
+  Updates the name and description of a quick connect.
 
-  Updates the name and description of a quick connect. The request accepts the
-  following data in JSON format. At least `Name` or `Description` must be
-  provided.
+  The request accepts the following data in JSON format. At least `Name` or
+  `Description` must be provided.
   """
   def update_quick_connect_name(
         %Client{} = client,

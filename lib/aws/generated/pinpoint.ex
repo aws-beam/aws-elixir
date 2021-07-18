@@ -1106,9 +1106,7 @@ defmodule AWS.Pinpoint do
         options \\ []
       ) do
     url_path =
-      "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/kpis/daterange/#{
-        URI.encode(kpi_name)
-      }"
+      "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
 
     headers = []
     query_params = []
@@ -1166,9 +1164,7 @@ defmodule AWS.Pinpoint do
         options \\ []
       ) do
     url_path =
-      "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/versions/#{
-        URI.encode(version)
-      }"
+      "/v1/apps/#{URI.encode(application_id)}/campaigns/#{URI.encode(campaign_id)}/versions/#{URI.encode(version)}"
 
     headers = []
     query_params = []
@@ -1577,9 +1573,7 @@ defmodule AWS.Pinpoint do
         options \\ []
       ) do
     url_path =
-      "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/kpis/daterange/#{
-        URI.encode(kpi_name)
-      }"
+      "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/kpis/daterange/#{URI.encode(kpi_name)}"
 
     headers = []
     query_params = []
@@ -1639,9 +1633,7 @@ defmodule AWS.Pinpoint do
         options \\ []
       ) do
     url_path =
-      "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/activities/#{
-        URI.encode(journey_activity_id)
-      }/execution-metrics"
+      "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/activities/#{URI.encode(journey_activity_id)}/execution-metrics"
 
     headers = []
     query_params = []
@@ -1928,9 +1920,7 @@ defmodule AWS.Pinpoint do
   """
   def get_segment_version(%Client{} = client, application_id, segment_id, version, options \\ []) do
     url_path =
-      "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/versions/#{
-        URI.encode(version)
-      }"
+      "/v1/apps/#{URI.encode(application_id)}/segments/#{URI.encode(segment_id)}/versions/#{URI.encode(version)}"
 
     headers = []
     query_params = []
@@ -2820,7 +2810,7 @@ defmodule AWS.Pinpoint do
   end
 
   @doc """
-  Cancels (stops) an active journey.
+  Pause, resume or cancels (stops) a journey.
   """
   def update_journey_state(%Client{} = client, application_id, journey_id, input, options \\ []) do
     url_path = "/v1/apps/#{URI.encode(application_id)}/journeys/#{URI.encode(journey_id)}/state"

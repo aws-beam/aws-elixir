@@ -98,8 +98,8 @@ defmodule AWS.DataSync do
   @doc """
   Creates an endpoint for a self-managed object storage bucket.
 
-  For more information about self-managed object storage locations, see
-  `create-object-location`.
+  For more information about self-managed object storage locations, see [Creating a location for object
+  storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
   """
   def create_location_object_storage(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateLocationObjectStorage", input, options)
@@ -211,8 +211,8 @@ defmodule AWS.DataSync do
   @doc """
   Returns metadata about a self-managed object storage server location.
 
-  For more information about self-managed object storage locations, see
-  `create-object-location`.
+  For more information about self-managed object storage locations, see [Creating a location for object
+  storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
   """
   def describe_location_object_storage(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeLocationObjectStorage", input, options)
@@ -338,7 +338,7 @@ defmodule AWS.DataSync do
   Updates some of the parameters of a previously created location for Network File
   System (NFS) access.
 
-  For information about creating an NFS location, see `create-nfs-location`.
+  For information about creating an NFS location, see [Creating a location for NFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html).
   """
   def update_location_nfs(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateLocationNfs", input, options)
@@ -349,7 +349,7 @@ defmodule AWS.DataSync do
   object storage server access.
 
   For information about creating a self-managed object storage location, see
-  `create-object-location`.
+  [Creating a location for object storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
   """
   def update_location_object_storage(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateLocationObjectStorage", input, options)
@@ -359,7 +359,7 @@ defmodule AWS.DataSync do
   Updates some of the parameters of a previously created location for Server
   Message Block (SMB) file system access.
 
-  For information about creating an SMB location, see `create-smb-location`.
+  For information about creating an SMB location, see [Creating a location for SMB](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html).
   """
   def update_location_smb(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UpdateLocationSmb", input, options)

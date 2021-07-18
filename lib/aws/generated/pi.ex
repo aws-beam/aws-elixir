@@ -59,6 +59,19 @@ defmodule AWS.PI do
   end
 
   @doc """
+  Get the attributes of the specified dimension group for a DB instance or data
+  source.
+
+  For example, if you specify a SQL ID, `GetDimensionKeyDetails` retrieves the
+  full text of the dimension `db.sql.statement` associated with this ID. This
+  operation is useful because `GetResourceMetrics` and `DescribeDimensionKeys`
+  don't support retrieval of large SQL statement text.
+  """
+  def get_dimension_key_details(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "GetDimensionKeyDetails", input, options)
+  end
+
+  @doc """
   Retrieve Performance Insights metrics for a set of data sources, over a time
   period.
 

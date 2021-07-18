@@ -42,6 +42,79 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
+  Associate a list of client devices with a core device.
+
+  Use this API operation to specify which client devices can discover a core
+  device through cloud discovery. With cloud discovery, client devices connect to
+  AWS IoT Greengrass to retrieve associated core devices' connectivity information
+  and certificates. For more information, see [Configure cloud discovery](https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html)
+  in the *AWS IoT Greengrass V2 Developer Guide*.
+
+  Client devices are local IoT devices that connect to and communicate with an AWS
+  IoT Greengrass core device over MQTT. You can connect client devices to a core
+  device to sync MQTT messages and data to AWS IoT Core and interact with client
+  devices in AWS IoT Greengrass components. For more information, see [Interact with local IoT
+  devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html)
+  in the *AWS IoT Greengrass V2 Developer Guide*.
+  """
+  def batch_associate_client_device_with_core_device(
+        %Client{} = client,
+        core_device_thing_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}/associateClientDevices"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociate a list of client devices from a core device.
+
+  After you disassociate a client device from a core device, the client device
+  won't be able to use cloud discovery to retrieve the core device's connectivity
+  information and certificates.
+  """
+  def batch_disassociate_client_device_from_core_device(
+        %Client{} = client,
+        core_device_thing_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}/disassociateClientDevices"
+
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Cancels a deployment.
 
   This operation cancels the deployment for devices that haven't yet received it.
@@ -278,9 +351,7 @@ defmodule AWS.GreengrassV2 do
   """
   def get_component_version_artifact(%Client{} = client, arn, artifact_name, options \\ []) do
     url_path =
-      "/greengrass/v2/components/#{URI.encode(arn)}/artifacts/#{
-        AWS.Util.encode_uri(artifact_name, true)
-      }"
+      "/greengrass/v2/components/#{URI.encode(arn)}/artifacts/#{AWS.Util.encode_uri(artifact_name, true)}"
 
     headers = []
     query_params = []
@@ -343,7 +414,53 @@ defmodule AWS.GreengrassV2 do
   end
 
   @doc """
+  Retrieves a paginated list of client devices that are associated with a core
+  device.
+  """
+  def list_client_devices_associated_with_core_device(
+        %Client{} = client,
+        core_device_thing_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}/associatedClientDevices"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves a paginated list of all versions for a component.
+
+  Greater versions are listed first.
   """
   def list_component_versions(
         %Client{} = client,

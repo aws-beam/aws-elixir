@@ -195,9 +195,11 @@ defmodule AWS.MarketplaceCatalog do
   receive a `ResourceInUseException`.
 
   For example, you cannot start the ChangeSet described in the
-  [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples)
-  below because it contains two changes to execute the same change type
-  (`AddRevisions`) against the same entity (`entity-id@1)`.
+  [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples) later in this topic, because it contains two changes to execute the same change
+  type (`AddRevisions`) against the same entity (`entity-id@1)`.
+
+  For more information about working with change sets, see [ Working with change
+  sets](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets).
   """
   def start_change_set(%Client{} = client, input, options \\ []) do
     url_path = "/StartChangeSet"

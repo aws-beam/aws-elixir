@@ -5,17 +5,17 @@ defmodule AWS.Support do
   @moduledoc """
   AWS Support
 
-  The AWS Support API reference is intended for programmers who need detailed
+  The *AWS Support API Reference* is intended for programmers who need detailed
   information about the AWS Support operations and data types.
 
-  This service enables you to manage your AWS Support cases programmatically. It
-  uses HTTP methods that return results in JSON format.
+  You can use the API to manage your support cases programmatically. The AWS
+  Support API uses HTTP methods that return results in JSON format.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
 
   The AWS Support service also exposes a set of [AWS Trusted Advisor](http://aws.amazon.com/premiumsupport/trustedadvisor/) features. You can
@@ -24,17 +24,17 @@ defmodule AWS.Support do
 
   The following list describes the AWS Support case management operations:
 
-    * **Service names, issue categories, and available severity levels.
-  **The `DescribeServices` and `DescribeSeverityLevels` operations return AWS
+    * Service names, issue categories, and available severity levels -
+  The `DescribeServices` and `DescribeSeverityLevels` operations return AWS
   service names, service codes, service categories, and problem severity levels.
   You use these values when you call the `CreateCase` operation.
 
-    * **Case creation, case details, and case resolution.** The
+    * Case creation, case details, and case resolution - The
   `CreateCase`, `DescribeCases`, `DescribeAttachment`, and `ResolveCase`
   operations create AWS Support cases, retrieve information about cases, and
   resolve cases.
 
-    * **Case communication.** The `DescribeCommunications`,
+    * Case communication - The `DescribeCommunications`,
   `AddCommunicationToCase`, and `AddAttachmentsToSet` operations retrieve and add
   communications and attachments to AWS Support cases.
 
@@ -91,11 +91,11 @@ defmodule AWS.Support do
   case or case communication. The set is available for 1 hour after it's created.
   The `expiryTime` returned in the response is when the set expires.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def add_attachments_to_set(%Client{} = client, input, options \\ []) do
@@ -110,11 +110,11 @@ defmodule AWS.Support do
   `ccEmailAddresses` parameter. The `communicationBody` value contains the text of
   the communication.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def add_communication_to_case(%Client{} = client, input, options \\ []) do
@@ -143,11 +143,11 @@ defmodule AWS.Support do
   Center](https://console.aws.amazon.com/support). Use the `DescribeCases`
   operation to get the `displayId`.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def create_case(%Client{} = client, input, options \\ []) do
@@ -163,11 +163,11 @@ defmodule AWS.Support do
   in the `AttachmentDetails` objects that are returned by the
   `DescribeCommunications` operation.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_attachment(%Client{} = client, input, options \\ []) do
@@ -192,11 +192,11 @@ defmodule AWS.Support do
   Case data is available for 12 months after creation. If a case was created more
   than 12 months ago, a request might return an error.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS
   Support](http://aws.amazon.com/premiumsupport/).
   """
@@ -218,11 +218,11 @@ defmodule AWS.Support do
   to display on each page, and use `nextToken` to specify the resumption of
   pagination.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_communications(%Client{} = client, input, options \\ []) do
@@ -243,11 +243,11 @@ defmodule AWS.Support do
   categories that the `DescribeServices` operation returns, so that you have the
   most recent set of service and category codes.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_services(%Client{} = client, input, options \\ []) do
@@ -255,16 +255,16 @@ defmodule AWS.Support do
   end
 
   @doc """
-  Returns the list of severity levels that you can assign to an AWS Support case.
+  Returns the list of severity levels that you can assign to a support case.
 
   The severity level for a case is also a field in the `CaseDetails` data type
   that you include for a `CreateCase` request.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_severity_levels(%Client{} = client, input, options \\ []) do
@@ -283,11 +283,11 @@ defmodule AWS.Support do
   you call this operation for these checks, you might see an
   `InvalidParameterValue` error.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ []) do
@@ -318,18 +318,18 @@ defmodule AWS.Support do
 
   In addition, the response contains these fields:
 
-    * **status** - The alert status of the check: "ok" (green),
-  "warning" (yellow), "error" (red), or "not_available".
+    * **status** - The alert status of the check can be `ok` (green),
+  `warning` (yellow), `error` (red), or `not_available`.
 
     * **timestamp** - The time of the last refresh of the check.
 
     * **checkId** - The unique identifier for the check.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ []) do
@@ -345,11 +345,11 @@ defmodule AWS.Support do
 
   The response contains an array of `TrustedAdvisorCheckSummary` objects.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ []) do
@@ -371,12 +371,16 @@ defmodule AWS.Support do
   `TrustedAdvisorCheckDescription` object for each check. You must set the AWS
   Region to us-east-1.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
+
+     The names and descriptions for Trusted Advisor checks are subject
+  to change. We recommend that you specify the check ID in your code to uniquely
+  identify a check.
   """
   def describe_trusted_advisor_checks(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeTrustedAdvisorChecks", input, options)
@@ -394,11 +398,11 @@ defmodule AWS.Support do
 
   The response contains a `TrustedAdvisorCheckRefreshStatus` object.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def refresh_trusted_advisor_check(%Client{} = client, input, options \\ []) do
@@ -411,11 +415,11 @@ defmodule AWS.Support do
   This operation takes a `caseId` and returns the initial and final state of the
   case.
 
-     You must have a Business or Enterprise support plan to use the AWS
+     You must have a Business or Enterprise Support plan to use the AWS
   Support API.
 
      If you call the AWS Support API from an account that does not have
-  a Business or Enterprise support plan, the `SubscriptionRequiredException` error
+  a Business or Enterprise Support plan, the `SubscriptionRequiredException` error
   message appears. For information about changing your support plan, see [AWS Support](http://aws.amazon.com/premiumsupport/).
   """
   def resolve_case(%Client{} = client, input, options \\ []) do

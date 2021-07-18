@@ -641,8 +641,6 @@ defmodule AWS.IoT do
 
   @doc """
   Creates a domain configuration.
-
-  The domain configuration feature is in public preview and is subject to change.
   """
   def create_domain_configuration(
         %Client{} = client,
@@ -693,6 +691,27 @@ defmodule AWS.IoT do
   """
   def create_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{URI.encode(job_id)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :put,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Creates a job template.
+  """
+  def create_job_template(%Client{} = client, job_template_id, input, options \\ []) do
+    url_path = "/job-templates/#{URI.encode(job_template_id)}"
     headers = []
     query_params = []
 
@@ -1336,8 +1355,6 @@ defmodule AWS.IoT do
 
   @doc """
   Deletes the specified domain configuration.
-
-  The domain configuration feature is in public preview and is subject to change.
   """
   def delete_domain_configuration(
         %Client{} = client,
@@ -1436,9 +1453,7 @@ defmodule AWS.IoT do
         options \\ []
       ) do
     url_path =
-      "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/executionNumber/#{
-        URI.encode(execution_number)
-      }"
+      "/things/#{URI.encode(thing_name)}/jobs/#{URI.encode(job_id)}/executionNumber/#{URI.encode(execution_number)}"
 
     headers = []
 
@@ -1448,6 +1463,27 @@ defmodule AWS.IoT do
         {"namespaceId", "namespaceId"}
       ]
       |> Request.build_params(input)
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Deletes the specified job template.
+  """
+  def delete_job_template(%Client{} = client, job_template_id, input, options \\ []) do
+    url_path = "/job-templates/#{URI.encode(job_template_id)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -2191,8 +2227,6 @@ defmodule AWS.IoT do
 
   @doc """
   Gets summary information about a domain configuration.
-
-  The domain configuration feature is in public preview and is subject to change.
   """
   def describe_domain_configuration(%Client{} = client, domain_configuration_name, options \\ []) do
     url_path = "/domainConfigurations/#{URI.encode(domain_configuration_name)}"
@@ -2323,6 +2357,27 @@ defmodule AWS.IoT do
       else
         query_params
       end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns information about a job template.
+  """
+  def describe_job_template(%Client{} = client, job_template_id, options \\ []) do
+    url_path = "/job-templates/#{URI.encode(job_template_id)}"
+    headers = []
+    query_params = []
 
     Request.request_rest(
       client,
@@ -3925,8 +3980,6 @@ defmodule AWS.IoT do
   Gets a list of domain configurations for the user.
 
   This list is sorted alphabetically by domain configuration name.
-
-  The domain configuration feature is in public preview and is subject to change.
   """
   def list_domain_configurations(
         %Client{} = client,
@@ -4090,6 +4143,41 @@ defmodule AWS.IoT do
     query_params =
       if !is_nil(namespace_id) do
         [{"namespaceId", namespace_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :get,
+      url_path,
+      query_params,
+      headers,
+      nil,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Returns a list of job templates.
+  """
+  def list_job_templates(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/job-templates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5329,11 +5417,19 @@ defmodule AWS.IoT do
         max_results \\ nil,
         next_token \\ nil,
         thing_type_name \\ nil,
+        use_prefix_attribute_value \\ nil,
         options \\ []
       ) do
     url_path = "/things"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(use_prefix_attribute_value) do
+        [{"usePrefixAttributeValue", use_prefix_attribute_value} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(thing_type_name) do
@@ -6502,8 +6598,6 @@ defmodule AWS.IoT do
   Updates values stored in the domain configuration.
 
   Domain configurations for default endpoints can't be updated.
-
-  The domain configuration feature is in public preview and is subject to change.
   """
   def update_domain_configuration(
         %Client{} = client,

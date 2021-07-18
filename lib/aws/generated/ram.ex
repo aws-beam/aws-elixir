@@ -275,7 +275,7 @@ defmodule AWS.RAM do
   end
 
   @doc """
-  Gets the invitations for resource sharing that you've received.
+  Gets the invitations that you have received for resource shares.
   """
   def get_resource_share_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshareinvitations"

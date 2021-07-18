@@ -104,7 +104,8 @@ defmodule AWS.Rekognition do
   Collection names are case-sensitive.
 
   This operation requires permissions to perform the
-  `rekognition:CreateCollection` action.
+  `rekognition:CreateCollection` action. If you want to tag your collection, you
+  also require permission to perform the `rekognition:TagResource` operation.
   """
   def create_collection(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateCollection", input, options)
@@ -165,6 +166,11 @@ defmodule AWS.Rekognition do
   After you have finished analyzing a streaming video, use `StopStreamProcessor`
   to stop processing. You can delete the stream processor by calling
   `DeleteStreamProcessor`.
+
+  This operation requires permissions to perform the
+  `rekognition:CreateStreamProcessor` action. If you want to tag your stream
+  processor, you also require permission to perform the `rekognition:TagResource`
+  operation.
   """
   def create_stream_processor(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateStreamProcessor", input, options)
@@ -996,6 +1002,9 @@ defmodule AWS.Rekognition do
   @doc """
   Returns a list of tags in an Amazon Rekognition collection, stream processor, or
   Custom Labels model.
+
+  This operation requires permissions to perform the
+  `rekognition:ListTagsForResource` action.
   """
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "ListTagsForResource", input, options)
@@ -1093,6 +1102,9 @@ defmodule AWS.Rekognition do
   response, the operation also returns the bounding box (and a confidence level
   that the bounding box contains a face) of the face that Amazon Rekognition used
   for the input image.
+
+  If no faces are detected in the input image, `SearchFacesByImage` returns an
+  `InvalidParameterException` error.
 
   For an example, Searching for a Face Using an Image in the Amazon Rekognition
   Developer Guide.
@@ -1338,6 +1350,9 @@ defmodule AWS.Rekognition do
   processor, or Custom Labels model.
 
   For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
+
+  This operation requires permissions to perform the `rekognition:TagResource`
+  action.
   """
   def tag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "TagResource", input, options)
@@ -1346,6 +1361,9 @@ defmodule AWS.Rekognition do
   @doc """
   Removes one or more tags from an Amazon Rekognition collection, stream
   processor, or Custom Labels model.
+
+  This operation requires permissions to perform the `rekognition:UntagResource`
+  action.
   """
   def untag_resource(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "UntagResource", input, options)

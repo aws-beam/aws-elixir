@@ -52,7 +52,7 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  JSON blob that describes the environment to create.
+  Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
   def create_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{URI.encode(name)}"
@@ -95,7 +95,7 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Delete an existing environment.
+  Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
   def delete_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{URI.encode(name)}"
@@ -116,7 +116,8 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Get details of an existing environment.
+  Retrieves the details of an Amazon Managed Workflows for Apache Airflow (MWAA)
+  environment.
   """
   def get_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{URI.encode(name)}"
@@ -137,7 +138,7 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  List Amazon MWAA Environments.
+  Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.
   """
   def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/environments"
@@ -172,7 +173,10 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  List the tags for MWAA environments.
+  Lists the key-value tag pairs associated to the Amazon Managed Workflows for
+  Apache Airflow (MWAA) environment.
+
+  For example, `"Environment": "Staging"`.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -214,7 +218,8 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Add tag to the MWAA environments.
+  Associates key-value tag pairs to your Amazon Managed Workflows for Apache
+  Airflow (MWAA) environment.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -235,7 +240,10 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Remove a tag from the MWAA environments.
+  Removes key-value tag pairs associated to your Amazon Managed Workflows for
+  Apache Airflow (MWAA) environment.
+
+  For example, `"Environment": "Staging"`.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{URI.encode(resource_arn)}"
@@ -261,7 +269,7 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Update an MWAA environment.
+  Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
   def update_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{URI.encode(name)}"

@@ -274,6 +274,12 @@ defmodule AWS.ResourceGroups do
   To run this command, you must have the following permissions:
 
     * `resource-groups:ListGroupResources`
+
+    * `cloudformation:DescribeStacks`
+
+    * `cloudformation:ListStackResources`
+
+    * `tag:GetResources`
   """
   def list_group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-group-resources"
@@ -367,6 +373,12 @@ defmodule AWS.ResourceGroups do
   To run this command, you must have the following permissions:
 
     * `resource-groups:SearchResources`
+
+    * `cloudformation:DescribeStacks`
+
+    * `cloudformation:ListStackResources`
+
+    * `tag:GetResources`
   """
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resources/search"

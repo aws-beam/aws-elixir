@@ -51,7 +51,7 @@ defmodule AWS.ACMPCA do
   for the S3 bucket that is included in certificates issued by the CA. If
   successful, this action returns the Amazon Resource Name (ARN) of the CA.
 
-  ACM Private CAA assets that are stored in Amazon S3 can be protected with
+  ACM Private CA assets that are stored in Amazon S3 can be protected with
   encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption).
 
   Both PCA and the IAM principal must have permission to write to the S3 bucket
@@ -76,7 +76,7 @@ defmodule AWS.ACMPCA do
   to write to the bucket, then an exception is thrown. For more information, see
   [Configure Access to ACM Private CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html).
 
-  ACM Private CAA assets that are stored in Amazon S3 can be protected with
+  ACM Private CA assets that are stored in Amazon S3 can be protected with
   encryption. For more information, see [Encrypting Your Audit Reports](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption).
   """
   def create_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do

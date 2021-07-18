@@ -61,7 +61,7 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Creates a new ledger in your AWS account.
+  Creates a new ledger in your AWS account in the current Region.
   """
   def create_ledger(%Client{} = client, input, options \\ []) do
     url_path = "/ledgers"
@@ -87,10 +87,8 @@ defmodule AWS.QLDB do
   This action is irreversible.
 
   If deletion protection is enabled, you must first disable it before you can
-  delete the ledger using the QLDB API or the AWS Command Line Interface (AWS
-  CLI). You can disable it by calling the `UpdateLedger` operation to set the flag
-  to `false`. The QLDB console disables deletion protection for you when you use
-  it to delete a ledger.
+  delete the ledger. You can disable it by calling the `UpdateLedger` operation to
+  set the flag to `false`.
   """
   def delete_ledger(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{URI.encode(name)}"
@@ -114,7 +112,11 @@ defmodule AWS.QLDB do
   Returns detailed information about a given Amazon QLDB journal stream.
 
   The output includes the Amazon Resource Name (ARN), stream name, current status,
-  creation time, and the parameters of your original stream creation request.
+  creation time, and the parameters of the original stream creation request.
+
+  This action does not return any expired journal streams. For more information,
+  see [Expiration for terminal streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
+  in the *Amazon QLDB Developer Guide*.
   """
   def describe_journal_kinesis_stream(%Client{} = client, ledger_name, stream_id, options \\ []) do
     url_path =
@@ -138,11 +140,11 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns information about a journal export job, including the ledger name,
-  export ID, when it was created, current status, and its start and end time
-  export parameters.
+  export ID, creation time, current status, and the parameters of the original
+  export creation request.
 
   This action does not return any expired export jobs. For more information, see
-  [Export Job Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
+  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
   in the *Amazon QLDB Developer Guide*.
 
   If the export job with the given `ExportId` doesn't exist, then throws
@@ -313,6 +315,10 @@ defmodule AWS.QLDB do
   The output of each stream descriptor includes the same details that are returned
   by `DescribeJournalKinesisStream`.
 
+  This action does not return any expired journal streams. For more information,
+  see [Expiration for terminal streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
+  in the *Amazon QLDB Developer Guide*.
+
   This action returns a maximum of `MaxResults` items. It is paginated so that you
   can retrieve all the items by calling `ListJournalKinesisStreamsForLedger`
   multiple times.
@@ -363,7 +369,7 @@ defmodule AWS.QLDB do
   you can retrieve all the items by calling `ListJournalS3Exports` multiple times.
 
   This action does not return any expired export jobs. For more information, see
-  [Export Job Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
+  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
   in the *Amazon QLDB Developer Guide*.
   """
   def list_journal_s3_exports(
@@ -411,7 +417,7 @@ defmodule AWS.QLDB do
   multiple times.
 
   This action does not return any expired export jobs. For more information, see
-  [Export Job Expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
+  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
   in the *Amazon QLDB Developer Guide*.
   """
   def list_journal_s3_exports_for_ledger(
@@ -594,6 +600,32 @@ defmodule AWS.QLDB do
   """
   def update_ledger(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{URI.encode(name)}"
+    headers = []
+    query_params = []
+
+    Request.request_rest(
+      client,
+      metadata(),
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      nil
+    )
+  end
+
+  @doc """
+  Updates the permissions mode of a ledger.
+
+  Before you switch to the `STANDARD` permissions mode, you must first create all
+  required IAM policies and table tags to avoid disruption to your users. To learn
+  more, see [Migrating to the standard permissions mode](https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating)
+  in the *Amazon QLDB Developer Guide*.
+  """
+  def update_ledger_permissions_mode(%Client{} = client, name, input, options \\ []) do
+    url_path = "/ledgers/#{URI.encode(name)}/permissions-mode"
     headers = []
     query_params = []
 

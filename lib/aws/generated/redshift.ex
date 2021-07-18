@@ -59,6 +59,17 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Adds a partner integration to a cluster.
+
+  This operation authorizes a partner to push status updates for the specified
+  database. To complete the integration, you also set up the integration on the
+  partner website.
+  """
+  def add_partner(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AddPartner", input, options)
+  end
+
+  @doc """
   Adds an inbound (ingress) rule to an Amazon Redshift security group.
 
   Depending on whether the application accessing your cluster is running on the
@@ -69,7 +80,7 @@ defmodule AWS.Redshift do
 
   If you authorize access to an Amazon EC2 security group, specify
   *EC2SecurityGroupName* and *EC2SecurityGroupOwnerId*. The Amazon EC2 security
-  group and Amazon Redshift cluster must be in the same AWS Region.
+  group and Amazon Redshift cluster must be in the same Region.
 
   If you authorize access to a CIDR/IP address range, specify *CIDRIP*. For an
   overview of CIDR blocks, see the Wikipedia article on [Classless Inter-Domain Routing](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -91,7 +102,14 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Authorizes the specified AWS customer account to restore the specified snapshot.
+  Grants access to a cluster.
+  """
+  def authorize_endpoint_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "AuthorizeEndpointAccess", input, options)
+  end
+
+  @doc """
+  Authorizes the specified account to restore the specified snapshot.
 
   For more information about working with snapshots, go to [Amazon Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html)
   in the *Amazon Redshift Cluster Management Guide*.
@@ -138,6 +156,13 @@ defmodule AWS.Redshift do
   """
   def copy_cluster_snapshot(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CopyClusterSnapshot", input, options)
+  end
+
+  @doc """
+  Creates an authentication profile with the specified parameters.
+  """
+  def create_authentication_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateAuthenticationProfile", input, options)
   end
 
   @doc """
@@ -209,6 +234,13 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Creates a Redshift-managed VPC endpoint.
+  """
+  def create_endpoint_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "CreateEndpointAccess", input, options)
+  end
+
+  @doc """
   Creates an Amazon Redshift event notification subscription.
 
   This action requires an ARN (Amazon Resource Name) of an Amazon SNS topic
@@ -228,10 +260,10 @@ defmodule AWS.Redshift do
   cluster and source identifier = my-cluster-1, notifications will be sent for all
   the cluster events for my-cluster-1. If you specify a source type but do not
   specify a source identifier, you will receive notice of the events for the
-  objects of that type in your AWS account. If you do not specify either the
+  objects of that type in your account. If you do not specify either the
   SourceType nor the SourceIdentifier, you will be notified of events generated
-  from all Amazon Redshift sources belonging to your AWS account. You must specify
-  a source type if you specify a source ID.
+  from all Amazon Redshift sources belonging to your account. You must specify a
+  source type if you specify a source ID.
   """
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateEventSubscription", input, options)
@@ -245,8 +277,8 @@ defmodule AWS.Redshift do
   The command returns a public key, which you must store in the HSM. In addition
   to creating the HSM certificate, you must create an Amazon Redshift HSM
   configuration that provides a cluster the information needed to store and use
-  encryption keys in the HSM. For more information, go to [Hardware Security Modules](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html)
-  in the Amazon Redshift Cluster Management Guide.
+  encryption keys in the HSM. For more information, go to [Hardware Security Modules](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM)
+  in the *Amazon Redshift Cluster Management Guide*.
   """
   def create_hsm_client_certificate(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateHsmClientCertificate", input, options)
@@ -281,8 +313,8 @@ defmodule AWS.Redshift do
 
   @doc """
   Creates a snapshot copy grant that permits Amazon Redshift to use a customer
-  master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied
-  snapshots in a destination region.
+  master key (CMK) from Key Management Service (KMS) to encrypt copied snapshots
+  in a destination region.
 
   For more information about managing snapshot copy grants, go to [Amazon Redshift Database
   Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)
@@ -320,6 +352,13 @@ defmodule AWS.Redshift do
   """
   def create_usage_limit(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "CreateUsageLimit", input, options)
+  end
+
+  @doc """
+  Deletes an authentication profile.
+  """
+  def delete_authentication_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteAuthenticationProfile", input, options)
   end
 
   @doc """
@@ -393,6 +432,13 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Deletes a Redshift-managed VPC endpoint.
+  """
+  def delete_endpoint_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeleteEndpointAccess", input, options)
+  end
+
+  @doc """
   Deletes an Amazon Redshift event notification subscription.
   """
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
@@ -411,6 +457,16 @@ defmodule AWS.Redshift do
   """
   def delete_hsm_configuration(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DeleteHsmConfiguration", input, options)
+  end
+
+  @doc """
+  Deletes a partner integration from a cluster.
+
+  Data can still flow to the cluster until the integration is deleted at the
+  partner's website.
+  """
+  def delete_partner(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DeletePartner", input, options)
   end
 
   @doc """
@@ -456,6 +512,13 @@ defmodule AWS.Redshift do
   """
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeAccountAttributes", input, options)
+  end
+
+  @doc """
+  Describes an authentication profile.
+  """
+  def describe_authentication_profiles(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeAuthenticationProfiles", input, options)
   end
 
   @doc """
@@ -540,8 +603,8 @@ defmodule AWS.Redshift do
   snapshots.
 
   By default, this operation returns information about all snapshots of all
-  clusters that are owned by you AWS customer account. No information is returned
-  for snapshots owned by inactive AWS customer accounts.
+  clusters that are owned by your account. No information is returned for
+  snapshots owned by inactive accounts.
 
   If you specify both tag keys and tag values in the same request, Amazon Redshift
   returns all snapshots that match any combination of the specified keys and
@@ -563,7 +626,7 @@ defmodule AWS.Redshift do
   your cluster subnet groups.
 
   By default, this operation returns information about all cluster subnet groups
-  that are defined in you AWS account.
+  that are defined in your account.
 
   If you specify both tag keys and tag values in the same request, Amazon Redshift
   returns all subnet groups that match any combination of the specified keys and
@@ -632,6 +695,20 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Describes a Redshift-managed VPC endpoint.
+  """
+  def describe_endpoint_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpointAccess", input, options)
+  end
+
+  @doc """
+  Describes an endpoint authorization.
+  """
+  def describe_endpoint_authorization(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribeEndpointAuthorization", input, options)
+  end
+
+  @doc """
   Displays a list of event categories for all event source types, or for a
   specified source type.
 
@@ -678,7 +755,7 @@ defmodule AWS.Redshift do
   Returns information about the specified HSM client certificate.
 
   If no certificate ID is specified, returns information about all the HSM
-  certificates owned by your AWS customer account.
+  certificates owned by your account.
 
   If you specify both tag keys and tag values in the same request, Amazon Redshift
   returns all HSM client certificates that match any combination of the specified
@@ -698,7 +775,7 @@ defmodule AWS.Redshift do
   Returns information about the specified Amazon Redshift HSM configuration.
 
   If no configuration ID is specified, returns information about all the HSM
-  configurations owned by your AWS customer account.
+  configurations owned by your account.
 
   If you specify both tag keys and tag values in the same request, Amazon Redshift
   returns all HSM connections that match any combination of the specified keys and
@@ -734,16 +811,23 @@ defmodule AWS.Redshift do
   Returns a list of orderable cluster options.
 
   Before you create a new cluster you can use this operation to find what options
-  are available, such as the EC2 Availability Zones (AZ) in the specific AWS
-  Region that you can specify, and the node types you can request. The node types
-  differ by available storage, memory, CPU and price. With the cost involved you
-  might want to obtain a list of cluster options in the specific region and
-  specify values when creating a cluster. For more information about managing
-  clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html)
+  are available, such as the EC2 Availability Zones (AZ) in the specific Region
+  that you can specify, and the node types you can request. The node types differ
+  by available storage, memory, CPU and price. With the cost involved you might
+  want to obtain a list of cluster options in the specific region and specify
+  values when creating a cluster. For more information about managing clusters, go
+  to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html)
   in the *Amazon Redshift Cluster Management Guide*.
   """
   def describe_orderable_cluster_options(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DescribeOrderableClusterOptions", input, options)
+  end
+
+  @doc """
+  Returns information about the partner integrations defined for a cluster.
+  """
+  def describe_partners(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "DescribePartners", input, options)
   end
 
   @doc """
@@ -792,8 +876,8 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Returns a list of snapshot copy grants owned by the AWS account in the
-  destination region.
+  Returns a list of snapshot copy grants owned by the account in the destination
+  region.
 
   For more information about managing snapshot copy grants, go to [Amazon Redshift Database
   Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)
@@ -898,8 +982,9 @@ defmodule AWS.Redshift do
   for a specified cluster.
 
   If your cluster and its snapshots are encrypted using a customer master key
-  (CMK) from AWS KMS, use `DeleteSnapshotCopyGrant` to delete the grant that
-  grants Amazon Redshift permission to the CMK in the destination region.
+  (CMK) from Key Management Service, use `DeleteSnapshotCopyGrant` to delete the
+  grant that grants Amazon Redshift permission to the CMK in the destination
+  region.
   """
   def disable_snapshot_copy(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "DisableSnapshotCopy", input, options)
@@ -933,7 +1018,7 @@ defmodule AWS.Redshift do
   more information, see [Using IAM Authentication to Generate Database User Credentials](https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html)
   in the Amazon Redshift Cluster Management Guide.
 
-  The AWS Identity and Access Management (IAM)user or role that executes
+  The Identity and Access Management (IAM) user or role that runs
   GetClusterCredentials must have an IAM policy attached that allows access to all
   necessary actions and resources. For more information about permissions, see
   [Resource Policies for GetClusterCredentials](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources)
@@ -961,13 +1046,27 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Modifies whether a cluster can use AQUA (Advanced Query Accelerator).
+  """
+  def modify_aqua_configuration(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyAquaConfiguration", input, options)
+  end
+
+  @doc """
+  Modifies an authentication profile.
+  """
+  def modify_authentication_profile(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyAuthenticationProfile", input, options)
+  end
+
+  @doc """
   Modifies the settings for a cluster.
 
   You can also change node type and the number of nodes to scale up or down the
   cluster. When resizing a cluster, you must specify both the number of nodes and
   the node type even if one of the parameters does not change.
 
-  You can add another security or parameter group, or change the master user
+  You can add another security or parameter group, or change the admin user
   password. Resetting a cluster password or modifying the security groups
   associated with a cluster do not need a reboot. However, modifying a parameter
   group requires a reboot for parameters to take effect. For more information
@@ -988,8 +1087,8 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Modifies the list of AWS Identity and Access Management (IAM) roles that can be
-  used by the cluster to access other AWS services.
+  Modifies the list of Identity and Access Management (IAM) roles that can be used
+  by the cluster to access other Amazon Web Services services.
 
   A cluster can have up to 10 IAM roles associated at any time.
   """
@@ -1043,6 +1142,13 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Modifies a Redshift-managed VPC endpoint.
+  """
+  def modify_endpoint_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "ModifyEndpointAccess", input, options)
+  end
+
+  @doc """
   Modifies an existing Amazon Redshift event notification subscription.
   """
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
@@ -1057,8 +1163,8 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Modifies the number of days to retain snapshots in the destination AWS Region
-  after they are copied from the source AWS Region.
+  Modifies the number of days to retain snapshots in the destination Region after
+  they are copied from the source Region.
 
   By default, this operation only changes the retention period of copied automated
   snapshots. The retention periods for both new and existing copied automated
@@ -1237,8 +1343,14 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Removes the ability of the specified AWS customer account to restore the
-  specified snapshot.
+  Revokes access to a cluster.
+  """
+  def revoke_endpoint_access(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "RevokeEndpointAccess", input, options)
+  end
+
+  @doc """
+  Removes the ability of the specified account to restore the specified snapshot.
 
   If the account is currently restoring the snapshot, the restore will run to
   completion.
@@ -1255,5 +1367,12 @@ defmodule AWS.Redshift do
   """
   def rotate_encryption_key(%Client{} = client, input, options \\ []) do
     Request.request_post(client, metadata(), "RotateEncryptionKey", input, options)
+  end
+
+  @doc """
+  Updates the status of a partner integration.
+  """
+  def update_partner_status(%Client{} = client, input, options \\ []) do
+    Request.request_post(client, metadata(), "UpdatePartnerStatus", input, options)
   end
 end

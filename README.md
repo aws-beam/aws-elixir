@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/hexpm/l/aws.svg)](https://github.com/aws-beam/aws-elixir/blob/master/LICENSE.md)
 [![Last Updated](https://img.shields.io/github/last-commit/aws-beam/aws-elixir.svg)](https://github.com/aws-beam/aws-elixir/commits/master)
 
-:deciduous_tree: With this library you can talk to almost all AWS services without hassle. :zap:
+🌳 With this library you can have access to almost all AWS services without hassle. ⚡
 
 ## Features
 
@@ -58,7 +58,7 @@ Optionally, you can implement your own (Check `AWS.Client` docs).
 ```elixir
 def deps do
   [
-    {:aws, "~> 0.7.0"},
+    {:aws, "~> 0.8.0"},
     {:hackney, "~> 1.17"}
   ]
 end
@@ -93,7 +93,7 @@ Alternatively you can access the documentation for the service you want at [AWS 
 ## Tests
 
 ```
-mix test
+$ mix test
 ```
 
 ## Release

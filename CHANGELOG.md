@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## [v0.8.0] - 2021-07-18
+### Added
+- Add support for OTP 24 by updating the usage of `:crypto` functions to the new API.
+- Add support for more services - update to be in sync with [aws-sdk-go 1.40.2](https://github.com/aws/aws-sdk-go/releases/tag/v1.40.2).
+
+### Changed
+- Change `AWS.Client` port value to an integer instead of string.
+- Use "us-east-1" as default region for global services.
+- Improve ExDocs configuration for a better documentation.
+
+### Fixed
+- Skip decoding of "REST" responses when body is binary.
+- Fix HEAD requests for the default HTTP client.
+- Fix "content-type" for "REST" requests that have the body as binary. It uses
+"application/octet-stream" now.
+- Fix handle of HTTP status from requests - consider anything in the
+range of 2xx as successful, but check for exact status if the service requires one.
+- Fix two signature bugs: when the headers are similar and when the canonical URL
+has colons (:).
+
 ## [v0.7.0] - 2020-12-22
 ### Added
 - Add support for more AWS APIs. There are more than 170 new modules, which includes
@@ -394,7 +414,8 @@ is an example).
 - `AWS.StorageGateway` module for Storage Gateway Service
 - `AWS.Support` module for Support Service.
 
-[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.7.0...HEAD
+[unreleased]: https://github.com/aws-beam/aws-elixir/compare/v0.8.0...HEAD
+[v0.8.0]: https://github.com/aws-beam/aws-elixir/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/aws-beam/aws-elixir/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/aws-beam/aws-elixir/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/aws-beam/aws-elixir/compare/v0.4.0...v0.5.0

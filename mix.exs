@@ -1,7 +1,7 @@
 defmodule AWS.Mixfile do
   use Mix.Project
 
-  @version "0.7.0"
+  @version "0.8.0"
   @repo_url "https://github.com/aws-beam/aws-elixir"
   @auto_generated_files_dir "lib/aws/generated"
 

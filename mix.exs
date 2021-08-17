@@ -27,6 +27,7 @@ defmodule AWS.Mixfile do
 
   defp deps do
     [
+      {:aws_signature, git: "git@github.com:aws-beam/aws_signature", branch: "main"},
       {:dialyxir, "~> 1.1.0", only: [:dev], runtime: false},
       {:earmark, "~> 1.4", only: [:dev]},
       {:ex_doc, "~> 0.24", only: [:dev]},

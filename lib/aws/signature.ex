@@ -13,6 +13,8 @@ defmodule AWS.Signature do
   def sign_v4(%Client{} = client, now, method, url, headers, body) do
     region = client.region || @default_region_for_global_services
 
+    headers = maybe_add_security_token(client, headers)
+
     :aws_signature.sign_v4(
       client.access_key_id,
       client.secret_access_key,
@@ -25,4 +27,10 @@ defmodule AWS.Signature do
       body
     )
   end
+
+  defp maybe_add_security_token(%Client{session_token: token}, headers) when is_binary(token) do
+    [{"X-Amz-Security-Token", token} | headers]
+  end
+
+  defp maybe_add_security_token(_, headers), do: headers
 end

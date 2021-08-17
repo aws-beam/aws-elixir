@@ -322,7 +322,7 @@ defmodule AWS.Appflow do
   Retrieves the tags that are associated with a specified flow.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -392,7 +392,7 @@ defmodule AWS.Appflow do
   Applies a tag to the specified flow.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -413,7 +413,7 @@ defmodule AWS.Appflow do
   Removes a tag from the specified flow.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

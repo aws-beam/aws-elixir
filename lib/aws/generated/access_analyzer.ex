@@ -65,7 +65,7 @@ defmodule AWS.AccessAnalyzer do
   Cancels the requested policy generation.
   """
   def cancel_policy_generation(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/policy/generation/#{URI.encode(job_id)}"
+    url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -136,7 +136,7 @@ defmodule AWS.AccessAnalyzer do
   in the **IAM User Guide**.
   """
   def create_archive_rule(%Client{} = client, analyzer_name, input, options \\ []) do
-    url_path = "/analyzer/#{URI.encode(analyzer_name)}/archive-rule"
+    url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule"
     headers = []
     query_params = []
 
@@ -161,7 +161,7 @@ defmodule AWS.AccessAnalyzer do
   by the analyzer are deleted. You cannot undo this action.
   """
   def delete_analyzer(%Client{} = client, analyzer_name, input, options \\ []) do
-    url_path = "/analyzer/#{URI.encode(analyzer_name)}"
+    url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
     headers = []
 
     {query_params, input} =
@@ -187,7 +187,9 @@ defmodule AWS.AccessAnalyzer do
   Deletes the specified archive rule.
   """
   def delete_archive_rule(%Client{} = client, analyzer_name, rule_name, input, options \\ []) do
-    url_path = "/analyzer/#{URI.encode(analyzer_name)}/archive-rule/#{URI.encode(rule_name)}"
+    url_path =
+      "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
+
     headers = []
 
     {query_params, input} =
@@ -213,7 +215,7 @@ defmodule AWS.AccessAnalyzer do
   Retrieves information about an access preview for the specified analyzer.
   """
   def get_access_preview(%Client{} = client, access_preview_id, analyzer_arn, options \\ []) do
-    url_path = "/access-preview/#{URI.encode(access_preview_id)}"
+    url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
     headers = []
     query_params = []
 
@@ -276,7 +278,7 @@ defmodule AWS.AccessAnalyzer do
   Retrieves information about the specified analyzer.
   """
   def get_analyzer(%Client{} = client, analyzer_name, options \\ []) do
-    url_path = "/analyzer/#{URI.encode(analyzer_name)}"
+    url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
     headers = []
     query_params = []
 
@@ -301,7 +303,9 @@ defmodule AWS.AccessAnalyzer do
   in the **IAM User Guide**.
   """
   def get_archive_rule(%Client{} = client, analyzer_name, rule_name, options \\ []) do
-    url_path = "/analyzer/#{URI.encode(analyzer_name)}/archive-rule/#{URI.encode(rule_name)}"
+    url_path =
+      "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
+
     headers = []
     query_params = []
 
@@ -322,7 +326,7 @@ defmodule AWS.AccessAnalyzer do
   Retrieves information about the specified finding.
   """
   def get_finding(%Client{} = client, id, analyzer_arn, options \\ []) do
-    url_path = "/finding/#{URI.encode(id)}"
+    url_path = "/finding/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -356,7 +360,7 @@ defmodule AWS.AccessAnalyzer do
         include_service_level_template \\ nil,
         options \\ []
       ) do
-    url_path = "/policy/generation/#{URI.encode(job_id)}"
+    url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -392,7 +396,7 @@ defmodule AWS.AccessAnalyzer do
   preview.
   """
   def list_access_preview_findings(%Client{} = client, access_preview_id, input, options \\ []) do
-    url_path = "/access-preview/#{URI.encode(access_preview_id)}"
+    url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
     headers = []
     query_params = []
 
@@ -537,7 +541,7 @@ defmodule AWS.AccessAnalyzer do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/analyzer/#{URI.encode(analyzer_name)}/archive-rule"
+    url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule"
     headers = []
     query_params = []
 
@@ -645,7 +649,7 @@ defmodule AWS.AccessAnalyzer do
   Retrieves a list of tags applied to the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -708,7 +712,7 @@ defmodule AWS.AccessAnalyzer do
   Adds a tag to the specified resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -729,7 +733,7 @@ defmodule AWS.AccessAnalyzer do
   Removes a tag from the specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -755,7 +759,9 @@ defmodule AWS.AccessAnalyzer do
   Updates the criteria and values for the specified archive rule.
   """
   def update_archive_rule(%Client{} = client, analyzer_name, rule_name, input, options \\ []) do
-    url_path = "/analyzer/#{URI.encode(analyzer_name)}/archive-rule/#{URI.encode(rule_name)}"
+    url_path =
+      "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
+
     headers = []
     query_params = []
 

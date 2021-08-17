@@ -52,7 +52,7 @@ defmodule AWS.LookoutVision do
   operation.
   """
   def create_dataset(%Client{} = client, project_name, input, options \\ []) do
-    url_path = "/2020-11-20/projects/#{URI.encode(project_name)}/datasets"
+    url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets"
 
     {headers, input} =
       [
@@ -97,7 +97,7 @@ defmodule AWS.LookoutVision do
   `lookoutvision:TagResource` operation.
   """
   def create_model(%Client{} = client, project_name, input, options \\ []) do
-    url_path = "/2020-11-20/projects/#{URI.encode(project_name)}/models"
+    url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models"
 
     {headers, input} =
       [
@@ -172,7 +172,7 @@ defmodule AWS.LookoutVision do
   """
   def delete_dataset(%Client{} = client, dataset_type, project_name, input, options \\ []) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/datasets/#{URI.encode(dataset_type)}"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}"
 
     {headers, input} =
       [
@@ -210,7 +210,7 @@ defmodule AWS.LookoutVision do
   """
   def delete_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/models/#{URI.encode(model_version)}"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}"
 
     {headers, input} =
       [
@@ -247,7 +247,7 @@ defmodule AWS.LookoutVision do
   operation.
   """
   def delete_project(%Client{} = client, project_name, input, options \\ []) do
-    url_path = "/2020-11-20/projects/#{URI.encode(project_name)}"
+    url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}"
 
     {headers, input} =
       [
@@ -278,7 +278,7 @@ defmodule AWS.LookoutVision do
   """
   def describe_dataset(%Client{} = client, dataset_type, project_name, options \\ []) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/datasets/#{URI.encode(dataset_type)}"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}"
 
     headers = []
     query_params = []
@@ -304,7 +304,7 @@ defmodule AWS.LookoutVision do
   """
   def describe_model(%Client{} = client, model_version, project_name, options \\ []) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/models/#{URI.encode(model_version)}"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}"
 
     headers = []
     query_params = []
@@ -329,7 +329,7 @@ defmodule AWS.LookoutVision do
   `lookoutvision:DescribeProject` operation.
   """
   def describe_project(%Client{} = client, project_name, options \\ []) do
-    url_path = "/2020-11-20/projects/#{URI.encode(project_name)}"
+    url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}"
     headers = []
     query_params = []
 
@@ -362,7 +362,7 @@ defmodule AWS.LookoutVision do
   """
   def detect_anomalies(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/models/#{URI.encode(model_version)}/detect"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/detect"
 
     {headers, input} =
       [
@@ -415,7 +415,7 @@ defmodule AWS.LookoutVision do
         options \\ []
       ) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/datasets/#{URI.encode(dataset_type)}/entries"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}/entries"
 
     headers = []
     query_params = []
@@ -495,7 +495,7 @@ defmodule AWS.LookoutVision do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-11-20/projects/#{URI.encode(project_name)}/models"
+    url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models"
     headers = []
     query_params = []
 
@@ -572,7 +572,7 @@ defmodule AWS.LookoutVision do
   `lookoutvision:ListTagsForResource` operation.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/2020-11-20/tags/#{URI.encode(resource_arn)}"
+    url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -608,7 +608,7 @@ defmodule AWS.LookoutVision do
   """
   def start_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/models/#{URI.encode(model_version)}/start"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/start"
 
     {headers, input} =
       [
@@ -644,7 +644,7 @@ defmodule AWS.LookoutVision do
   """
   def stop_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/models/#{URI.encode(model_version)}/stop"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/stop"
 
     {headers, input} =
       [
@@ -677,7 +677,7 @@ defmodule AWS.LookoutVision do
   operation.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/2020-11-20/tags/#{URI.encode(resource_arn)}"
+    url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -704,7 +704,7 @@ defmodule AWS.LookoutVision do
   operation.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/2020-11-20/tags/#{URI.encode(resource_arn)}"
+    url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -740,7 +740,7 @@ defmodule AWS.LookoutVision do
   """
   def update_dataset_entries(%Client{} = client, dataset_type, project_name, input, options \\ []) do
     url_path =
-      "/2020-11-20/projects/#{URI.encode(project_name)}/datasets/#{URI.encode(dataset_type)}/entries"
+      "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}/entries"
 
     {headers, input} =
       [

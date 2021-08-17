@@ -29,7 +29,7 @@ defmodule AWS.MediaPackage do
   Changes the Channel's properities to configure log subscription
   """
   def configure_logs(%Client{} = client, id, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(id)}/configure_logs"
+    url_path = "/channels/#{AWS.Util.encode_uri(id)}/configure_logs"
     headers = []
     query_params = []
 
@@ -113,7 +113,7 @@ defmodule AWS.MediaPackage do
   Deletes an existing Channel.
   """
   def delete_channel(%Client{} = client, id, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(id)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -134,7 +134,7 @@ defmodule AWS.MediaPackage do
   Deletes an existing OriginEndpoint.
   """
   def delete_origin_endpoint(%Client{} = client, id, input, options \\ []) do
-    url_path = "/origin_endpoints/#{URI.encode(id)}"
+    url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -155,7 +155,7 @@ defmodule AWS.MediaPackage do
   Gets details about a Channel.
   """
   def describe_channel(%Client{} = client, id, options \\ []) do
-    url_path = "/channels/#{URI.encode(id)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -176,7 +176,7 @@ defmodule AWS.MediaPackage do
   Gets details about an existing HarvestJob.
   """
   def describe_harvest_job(%Client{} = client, id, options \\ []) do
-    url_path = "/harvest_jobs/#{URI.encode(id)}"
+    url_path = "/harvest_jobs/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -197,7 +197,7 @@ defmodule AWS.MediaPackage do
   Gets details about an existing OriginEndpoint.
   """
   def describe_origin_endpoint(%Client{} = client, id, options \\ []) do
-    url_path = "/origin_endpoints/#{URI.encode(id)}"
+    url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -354,7 +354,7 @@ defmodule AWS.MediaPackage do
   end
 
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -378,7 +378,7 @@ defmodule AWS.MediaPackage do
   instead
   """
   def rotate_channel_credentials(%Client{} = client, id, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(id)}/credentials"
+    url_path = "/channels/#{AWS.Util.encode_uri(id)}/credentials"
     headers = []
     query_params = []
 
@@ -407,7 +407,7 @@ defmodule AWS.MediaPackage do
         options \\ []
       ) do
     url_path =
-      "/channels/#{URI.encode(id)}/ingest_endpoints/#{URI.encode(ingest_endpoint_id)}/credentials"
+      "/channels/#{AWS.Util.encode_uri(id)}/ingest_endpoints/#{AWS.Util.encode_uri(ingest_endpoint_id)}/credentials"
 
     headers = []
     query_params = []
@@ -426,7 +426,7 @@ defmodule AWS.MediaPackage do
   end
 
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -444,7 +444,7 @@ defmodule AWS.MediaPackage do
   end
 
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -470,7 +470,7 @@ defmodule AWS.MediaPackage do
   Updates an existing Channel.
   """
   def update_channel(%Client{} = client, id, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(id)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -491,7 +491,7 @@ defmodule AWS.MediaPackage do
   Updates an existing OriginEndpoint.
   """
   def update_origin_endpoint(%Client{} = client, id, input, options \\ []) do
-    url_path = "/origin_endpoints/#{URI.encode(id)}"
+    url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

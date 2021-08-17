@@ -40,7 +40,7 @@ defmodule AWS.Greengrass do
   against the cloud.
   """
   def associate_role_to_group(%Client{} = client, group_id, input, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/role"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
     headers = []
     query_params = []
 
@@ -122,7 +122,8 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}/versions"
 
     {headers, input} =
       [
@@ -182,7 +183,7 @@ defmodule AWS.Greengrass do
   Greengrass groups must each contain exactly one Greengrass core.
   """
   def create_core_definition_version(%Client{} = client, core_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/cores/#{URI.encode(core_definition_id)}/versions"
+    url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions"
 
     {headers, input} =
       [
@@ -212,7 +213,7 @@ defmodule AWS.Greengrass do
   ''X-Amzn-Client-Token'' token and the request parameters.
   """
   def create_deployment(%Client{} = client, group_id, input, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/deployments"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments"
 
     {headers, input} =
       [
@@ -274,7 +275,8 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/devices/#{URI.encode(device_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}/versions"
 
     {headers, input} =
       [
@@ -338,7 +340,8 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/functions/#{URI.encode(function_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}/versions"
 
     {headers, input} =
       [
@@ -399,7 +402,7 @@ defmodule AWS.Greengrass do
   If a CA already exists, it will rotate the existing CA.
   """
   def create_group_certificate_authority(%Client{} = client, group_id, input, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities"
 
     {headers, input} =
       [
@@ -426,7 +429,7 @@ defmodule AWS.Greengrass do
   Creates a version of a group which has already been defined.
   """
   def create_group_version(%Client{} = client, group_id, input, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/versions"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions"
 
     {headers, input} =
       [
@@ -488,7 +491,8 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/loggers/#{URI.encode(logger_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}/versions"
 
     {headers, input} =
       [
@@ -551,7 +555,8 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}/versions"
 
     {headers, input} =
       [
@@ -646,7 +651,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}/versions"
+      "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}/versions"
 
     {headers, input} =
       [
@@ -678,7 +683,7 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}"
+    url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
     headers = []
     query_params = []
 
@@ -699,7 +704,7 @@ defmodule AWS.Greengrass do
   Deletes a core definition.
   """
   def delete_core_definition(%Client{} = client, core_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/cores/#{URI.encode(core_definition_id)}"
+    url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
     headers = []
     query_params = []
 
@@ -720,7 +725,7 @@ defmodule AWS.Greengrass do
   Deletes a device definition.
   """
   def delete_device_definition(%Client{} = client, device_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/devices/#{URI.encode(device_definition_id)}"
+    url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
     headers = []
     query_params = []
 
@@ -741,7 +746,7 @@ defmodule AWS.Greengrass do
   Deletes a Lambda function definition.
   """
   def delete_function_definition(%Client{} = client, function_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/functions/#{URI.encode(function_definition_id)}"
+    url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
     headers = []
     query_params = []
 
@@ -762,7 +767,7 @@ defmodule AWS.Greengrass do
   Deletes a group.
   """
   def delete_group(%Client{} = client, group_id, input, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
     headers = []
     query_params = []
 
@@ -783,7 +788,7 @@ defmodule AWS.Greengrass do
   Deletes a logger definition.
   """
   def delete_logger_definition(%Client{} = client, logger_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/loggers/#{URI.encode(logger_definition_id)}"
+    url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
     headers = []
     query_params = []
 
@@ -804,7 +809,7 @@ defmodule AWS.Greengrass do
   Deletes a resource definition.
   """
   def delete_resource_definition(%Client{} = client, resource_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}"
+    url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
     headers = []
     query_params = []
 
@@ -830,7 +835,9 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}"
+    url_path =
+      "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}"
+
     headers = []
     query_params = []
 
@@ -851,7 +858,7 @@ defmodule AWS.Greengrass do
   Disassociates the role from a group.
   """
   def disassociate_role_from_group(%Client{} = client, group_id, input, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/role"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
     headers = []
     query_params = []
 
@@ -895,7 +902,7 @@ defmodule AWS.Greengrass do
   Retrieves the role associated with a particular group.
   """
   def get_associated_role(%Client{} = client, group_id, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/role"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
     headers = []
     query_params = []
 
@@ -916,7 +923,7 @@ defmodule AWS.Greengrass do
   Returns the status of a bulk deployment.
   """
   def get_bulk_deployment_status(%Client{} = client, bulk_deployment_id, options \\ []) do
-    url_path = "/greengrass/bulk/deployments/#{URI.encode(bulk_deployment_id)}/status"
+    url_path = "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/status"
     headers = []
     query_params = []
 
@@ -937,7 +944,7 @@ defmodule AWS.Greengrass do
   Retrieves the connectivity information for a core.
   """
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
-    url_path = "/greengrass/things/#{URI.encode(thing_name)}/connectivityInfo"
+    url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
     headers = []
     query_params = []
 
@@ -958,7 +965,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a connector definition.
   """
   def get_connector_definition(%Client{} = client, connector_definition_id, options \\ []) do
-    url_path = "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}"
+    url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
     headers = []
     query_params = []
 
@@ -990,7 +997,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}/versions/#{URI.encode(connector_definition_version_id)}"
+      "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}/versions/#{AWS.Util.encode_uri(connector_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1019,7 +1026,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a core definition version.
   """
   def get_core_definition(%Client{} = client, core_definition_id, options \\ []) do
-    url_path = "/greengrass/definition/cores/#{URI.encode(core_definition_id)}"
+    url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
     headers = []
     query_params = []
 
@@ -1046,7 +1053,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/cores/#{URI.encode(core_definition_id)}/versions/#{URI.encode(core_definition_version_id)}"
+      "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions/#{AWS.Util.encode_uri(core_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1069,7 +1076,7 @@ defmodule AWS.Greengrass do
   """
   def get_deployment_status(%Client{} = client, deployment_id, group_id, options \\ []) do
     url_path =
-      "/greengrass/groups/#{URI.encode(group_id)}/deployments/#{URI.encode(deployment_id)}/status"
+      "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}/status"
 
     headers = []
     query_params = []
@@ -1091,7 +1098,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a device definition.
   """
   def get_device_definition(%Client{} = client, device_definition_id, options \\ []) do
-    url_path = "/greengrass/definition/devices/#{URI.encode(device_definition_id)}"
+    url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
     headers = []
     query_params = []
 
@@ -1119,7 +1126,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/devices/#{URI.encode(device_definition_id)}/versions/#{URI.encode(device_definition_version_id)}"
+      "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}/versions/#{AWS.Util.encode_uri(device_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1149,7 +1156,7 @@ defmodule AWS.Greengrass do
   time and latest version.
   """
   def get_function_definition(%Client{} = client, function_definition_id, options \\ []) do
-    url_path = "/greengrass/definition/functions/#{URI.encode(function_definition_id)}"
+    url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
     headers = []
     query_params = []
 
@@ -1178,7 +1185,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/functions/#{URI.encode(function_definition_id)}/versions/#{URI.encode(function_definition_version_id)}"
+      "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}/versions/#{AWS.Util.encode_uri(function_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1207,7 +1214,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a group.
   """
   def get_group(%Client{} = client, group_id, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
     headers = []
     query_params = []
 
@@ -1236,7 +1243,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities/#{URI.encode(certificate_authority_id)}"
+      "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities/#{AWS.Util.encode_uri(certificate_authority_id)}"
 
     headers = []
     query_params = []
@@ -1259,7 +1266,7 @@ defmodule AWS.Greengrass do
   """
   def get_group_certificate_configuration(%Client{} = client, group_id, options \\ []) do
     url_path =
-      "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities/configuration/expiry"
+      "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities/configuration/expiry"
 
     headers = []
     query_params = []
@@ -1282,7 +1289,7 @@ defmodule AWS.Greengrass do
   """
   def get_group_version(%Client{} = client, group_id, group_version_id, options \\ []) do
     url_path =
-      "/greengrass/groups/#{URI.encode(group_id)}/versions/#{URI.encode(group_version_id)}"
+      "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions/#{AWS.Util.encode_uri(group_version_id)}"
 
     headers = []
     query_params = []
@@ -1304,7 +1311,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a logger definition.
   """
   def get_logger_definition(%Client{} = client, logger_definition_id, options \\ []) do
-    url_path = "/greengrass/definition/loggers/#{URI.encode(logger_definition_id)}"
+    url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
     headers = []
     query_params = []
 
@@ -1332,7 +1339,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/loggers/#{URI.encode(logger_definition_id)}/versions/#{URI.encode(logger_definition_version_id)}"
+      "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}/versions/#{AWS.Util.encode_uri(logger_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1362,7 +1369,7 @@ defmodule AWS.Greengrass do
   and latest version.
   """
   def get_resource_definition(%Client{} = client, resource_definition_id, options \\ []) do
-    url_path = "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}"
+    url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
     headers = []
     query_params = []
 
@@ -1390,7 +1397,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}/versions/#{URI.encode(resource_definition_version_id)}"
+      "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}/versions/#{AWS.Util.encode_uri(resource_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1433,7 +1440,9 @@ defmodule AWS.Greengrass do
   Retrieves information about a subscription definition.
   """
   def get_subscription_definition(%Client{} = client, subscription_definition_id, options \\ []) do
-    url_path = "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}"
+    url_path =
+      "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}"
+
     headers = []
     query_params = []
 
@@ -1461,7 +1470,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}/versions/#{URI.encode(subscription_definition_version_id)}"
+      "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}/versions/#{AWS.Util.encode_uri(subscription_definition_version_id)}"
 
     headers = []
     query_params = []
@@ -1490,7 +1499,7 @@ defmodule AWS.Greengrass do
   Get the runtime configuration of a thing.
   """
   def get_thing_runtime_configuration(%Client{} = client, thing_name, options \\ []) do
-    url_path = "/greengrass/things/#{URI.encode(thing_name)}/runtimeconfig"
+    url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/runtimeconfig"
     headers = []
     query_params = []
 
@@ -1518,7 +1527,9 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/bulk/deployments/#{URI.encode(bulk_deployment_id)}/detailed-reports"
+    url_path =
+      "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/detailed-reports"
+
     headers = []
     query_params = []
 
@@ -1603,7 +1614,9 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}/versions"
+
     headers = []
     query_params = []
 
@@ -1684,7 +1697,7 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/cores/#{URI.encode(core_definition_id)}/versions"
+    url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions"
     headers = []
     query_params = []
 
@@ -1765,7 +1778,7 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/deployments"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments"
     headers = []
     query_params = []
 
@@ -1806,7 +1819,9 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/devices/#{URI.encode(device_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}/versions"
+
     headers = []
     query_params = []
 
@@ -1887,7 +1902,9 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/functions/#{URI.encode(function_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}/versions"
+
     headers = []
     query_params = []
 
@@ -1962,7 +1979,7 @@ defmodule AWS.Greengrass do
   Retrieves the current CAs for a group.
   """
   def list_group_certificate_authorities(%Client{} = client, group_id, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities"
     headers = []
     query_params = []
 
@@ -1989,7 +2006,7 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/versions"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions"
     headers = []
     query_params = []
 
@@ -2065,7 +2082,9 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/loggers/#{URI.encode(logger_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}/versions"
+
     headers = []
     query_params = []
 
@@ -2146,7 +2165,9 @@ defmodule AWS.Greengrass do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}/versions"
+    url_path =
+      "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}/versions"
+
     headers = []
     query_params = []
 
@@ -2228,7 +2249,7 @@ defmodule AWS.Greengrass do
         options \\ []
       ) do
     url_path =
-      "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}/versions"
+      "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}/versions"
 
     headers = []
     query_params = []
@@ -2304,7 +2325,7 @@ defmodule AWS.Greengrass do
   Retrieves a list of resource tags for a resource arn.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -2325,7 +2346,7 @@ defmodule AWS.Greengrass do
   Resets a group's deployments.
   """
   def reset_deployments(%Client{} = client, group_id, input, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}/deployments/$reset"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments/$reset"
 
     {headers, input} =
       [
@@ -2390,7 +2411,7 @@ defmodule AWS.Greengrass do
   pending deployments.
   """
   def stop_bulk_deployment(%Client{} = client, bulk_deployment_id, input, options \\ []) do
-    url_path = "/greengrass/bulk/deployments/#{URI.encode(bulk_deployment_id)}/$stop"
+    url_path = "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/$stop"
     headers = []
     query_params = []
 
@@ -2415,7 +2436,7 @@ defmodule AWS.Greengrass do
   'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -2436,7 +2457,7 @@ defmodule AWS.Greengrass do
   Remove resource tags from a Greengrass Resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -2465,7 +2486,7 @@ defmodule AWS.Greengrass do
   information in order to find the location of the core and connect to it.
   """
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/greengrass/things/#{URI.encode(thing_name)}/connectivityInfo"
+    url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
     headers = []
     query_params = []
 
@@ -2491,7 +2512,7 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/connectors/#{URI.encode(connector_definition_id)}"
+    url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
     headers = []
     query_params = []
 
@@ -2512,7 +2533,7 @@ defmodule AWS.Greengrass do
   Updates a core definition.
   """
   def update_core_definition(%Client{} = client, core_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/cores/#{URI.encode(core_definition_id)}"
+    url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
     headers = []
     query_params = []
 
@@ -2533,7 +2554,7 @@ defmodule AWS.Greengrass do
   Updates a device definition.
   """
   def update_device_definition(%Client{} = client, device_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/devices/#{URI.encode(device_definition_id)}"
+    url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
     headers = []
     query_params = []
 
@@ -2554,7 +2575,7 @@ defmodule AWS.Greengrass do
   Updates a Lambda function definition.
   """
   def update_function_definition(%Client{} = client, function_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/functions/#{URI.encode(function_definition_id)}"
+    url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
     headers = []
     query_params = []
 
@@ -2575,7 +2596,7 @@ defmodule AWS.Greengrass do
   Updates a group.
   """
   def update_group(%Client{} = client, group_id, input, options \\ []) do
-    url_path = "/greengrass/groups/#{URI.encode(group_id)}"
+    url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
     headers = []
     query_params = []
 
@@ -2597,7 +2618,7 @@ defmodule AWS.Greengrass do
   """
   def update_group_certificate_configuration(%Client{} = client, group_id, input, options \\ []) do
     url_path =
-      "/greengrass/groups/#{URI.encode(group_id)}/certificateauthorities/configuration/expiry"
+      "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities/configuration/expiry"
 
     headers = []
     query_params = []
@@ -2619,7 +2640,7 @@ defmodule AWS.Greengrass do
   Updates a logger definition.
   """
   def update_logger_definition(%Client{} = client, logger_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/loggers/#{URI.encode(logger_definition_id)}"
+    url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
     headers = []
     query_params = []
 
@@ -2640,7 +2661,7 @@ defmodule AWS.Greengrass do
   Updates a resource definition.
   """
   def update_resource_definition(%Client{} = client, resource_definition_id, input, options \\ []) do
-    url_path = "/greengrass/definition/resources/#{URI.encode(resource_definition_id)}"
+    url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
     headers = []
     query_params = []
 
@@ -2666,7 +2687,9 @@ defmodule AWS.Greengrass do
         input,
         options \\ []
       ) do
-    url_path = "/greengrass/definition/subscriptions/#{URI.encode(subscription_definition_id)}"
+    url_path =
+      "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}"
+
     headers = []
     query_params = []
 
@@ -2687,7 +2710,7 @@ defmodule AWS.Greengrass do
   Updates the runtime configuration of a thing.
   """
   def update_thing_runtime_configuration(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/greengrass/things/#{URI.encode(thing_name)}/runtimeconfig"
+    url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/runtimeconfig"
     headers = []
     query_params = []
 

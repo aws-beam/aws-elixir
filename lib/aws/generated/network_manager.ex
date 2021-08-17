@@ -47,7 +47,9 @@ defmodule AWS.NetworkManager do
   You cannot associate a customer gateway with more than one device and link.
   """
   def associate_customer_gateway(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/customer-gateway-associations"
+    url_path =
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/customer-gateway-associations"
+
     headers = []
     query_params = []
 
@@ -72,7 +74,7 @@ defmodule AWS.NetworkManager do
   same site.
   """
   def associate_link(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/link-associations"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
     headers = []
     query_params = []
 
@@ -108,7 +110,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-connect-peer-associations"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-connect-peer-associations"
 
     headers = []
     query_params = []
@@ -134,7 +136,7 @@ defmodule AWS.NetworkManager do
   physical appliance in an on-premises network.
   """
   def create_connection(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/connections"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections"
     headers = []
     query_params = []
 
@@ -158,7 +160,7 @@ defmodule AWS.NetworkManager do
   for visualization in the Network Manager console.
   """
   def create_device(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/devices"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
     headers = []
     query_params = []
 
@@ -200,7 +202,7 @@ defmodule AWS.NetworkManager do
   Creates a new link for a specified site.
   """
   def create_link(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/links"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links"
     headers = []
     query_params = []
 
@@ -221,7 +223,7 @@ defmodule AWS.NetworkManager do
   Creates a new site in a global network.
   """
   def create_site(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/sites"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites"
     headers = []
     query_params = []
 
@@ -249,7 +251,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/connections/#{URI.encode(connection_id)}"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections/#{AWS.Util.encode_uri(connection_id)}"
 
     headers = []
     query_params = []
@@ -274,7 +276,7 @@ defmodule AWS.NetworkManager do
   """
   def delete_device(%Client{} = client, device_id, global_network_id, input, options \\ []) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/devices/#{URI.encode(device_id)}"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices/#{AWS.Util.encode_uri(device_id)}"
 
     headers = []
     query_params = []
@@ -299,7 +301,7 @@ defmodule AWS.NetworkManager do
   deregister all transit gateways.
   """
   def delete_global_network(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
     headers = []
     query_params = []
 
@@ -322,7 +324,9 @@ defmodule AWS.NetworkManager do
   You must first disassociate the link from any devices and customer gateways.
   """
   def delete_link(%Client{} = client, global_network_id, link_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/links/#{URI.encode(link_id)}"
+    url_path =
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links/#{AWS.Util.encode_uri(link_id)}"
+
     headers = []
     query_params = []
 
@@ -345,7 +349,9 @@ defmodule AWS.NetworkManager do
   The site cannot be associated with any device or link.
   """
   def delete_site(%Client{} = client, global_network_id, site_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/sites/#{URI.encode(site_id)}"
+    url_path =
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites/#{AWS.Util.encode_uri(site_id)}"
+
     headers = []
     query_params = []
 
@@ -376,7 +382,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-registrations/#{URI.encode(transit_gateway_arn)}"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-registrations/#{AWS.Util.encode_uri(transit_gateway_arn)}"
 
     headers = []
     query_params = []
@@ -458,7 +464,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/customer-gateway-associations/#{URI.encode(customer_gateway_arn)}"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/customer-gateway-associations/#{AWS.Util.encode_uri(customer_gateway_arn)}"
 
     headers = []
     query_params = []
@@ -483,7 +489,7 @@ defmodule AWS.NetworkManager do
   link.
   """
   def disassociate_link(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/link-associations"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
     headers = []
 
     {query_params, input} =
@@ -517,7 +523,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-connect-peer-associations/#{URI.encode(transit_gateway_connect_peer_arn)}"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-connect-peer-associations/#{AWS.Util.encode_uri(transit_gateway_connect_peer_arn)}"
 
     headers = []
     query_params = []
@@ -547,7 +553,7 @@ defmodule AWS.NetworkManager do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/connections"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections"
     headers = []
     query_params = []
 
@@ -604,7 +610,9 @@ defmodule AWS.NetworkManager do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/customer-gateway-associations"
+    url_path =
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/customer-gateway-associations"
+
     headers = []
     query_params = []
 
@@ -654,7 +662,7 @@ defmodule AWS.NetworkManager do
         site_id \\ nil,
         options \\ []
       ) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/devices"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
     headers = []
     query_params = []
 
@@ -713,7 +721,7 @@ defmodule AWS.NetworkManager do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/link-associations"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
     headers = []
     query_params = []
 
@@ -775,7 +783,7 @@ defmodule AWS.NetworkManager do
         type \\ nil,
         options \\ []
       ) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/links"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links"
     headers = []
     query_params = []
 
@@ -845,7 +853,7 @@ defmodule AWS.NetworkManager do
         site_ids \\ nil,
         options \\ []
       ) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/sites"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites"
     headers = []
     query_params = []
 
@@ -896,7 +904,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-connect-peer-associations"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-connect-peer-associations"
 
     headers = []
     query_params = []
@@ -947,7 +955,9 @@ defmodule AWS.NetworkManager do
         transit_gateway_arns \\ nil,
         options \\ []
       ) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-registrations"
+    url_path =
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-registrations"
+
     headers = []
     query_params = []
 
@@ -989,7 +999,7 @@ defmodule AWS.NetworkManager do
   Lists the tags for a specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1014,7 +1024,9 @@ defmodule AWS.NetworkManager do
   in more than one global network.
   """
   def register_transit_gateway(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/transit-gateway-registrations"
+    url_path =
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-registrations"
+
     headers = []
     query_params = []
 
@@ -1035,7 +1047,7 @@ defmodule AWS.NetworkManager do
   Tags a specified resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1056,7 +1068,7 @@ defmodule AWS.NetworkManager do
   Removes tags from a specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -1091,7 +1103,7 @@ defmodule AWS.NetworkManager do
         options \\ []
       ) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/connections/#{URI.encode(connection_id)}"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections/#{AWS.Util.encode_uri(connection_id)}"
 
     headers = []
     query_params = []
@@ -1116,7 +1128,7 @@ defmodule AWS.NetworkManager do
   """
   def update_device(%Client{} = client, device_id, global_network_id, input, options \\ []) do
     url_path =
-      "/global-networks/#{URI.encode(global_network_id)}/devices/#{URI.encode(device_id)}"
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices/#{AWS.Util.encode_uri(device_id)}"
 
     headers = []
     query_params = []
@@ -1140,7 +1152,7 @@ defmodule AWS.NetworkManager do
   To remove information for any of the parameters, specify an empty string.
   """
   def update_global_network(%Client{} = client, global_network_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}"
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
     headers = []
     query_params = []
 
@@ -1163,7 +1175,9 @@ defmodule AWS.NetworkManager do
   To remove information for any of the parameters, specify an empty string.
   """
   def update_link(%Client{} = client, global_network_id, link_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/links/#{URI.encode(link_id)}"
+    url_path =
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links/#{AWS.Util.encode_uri(link_id)}"
+
     headers = []
     query_params = []
 
@@ -1186,7 +1200,9 @@ defmodule AWS.NetworkManager do
   To remove information for any of the parameters, specify an empty string.
   """
   def update_site(%Client{} = client, global_network_id, site_id, input, options \\ []) do
-    url_path = "/global-networks/#{URI.encode(global_network_id)}/sites/#{URI.encode(site_id)}"
+    url_path =
+      "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites/#{AWS.Util.encode_uri(site_id)}"
+
     headers = []
     query_params = []
 

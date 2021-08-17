@@ -48,7 +48,7 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def create_member(%Client{} = client, network_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/members"
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/members"
     headers = []
     query_params = []
 
@@ -94,7 +94,7 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
   """
   def create_node(%Client{} = client, network_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/nodes"
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/nodes"
     headers = []
     query_params = []
 
@@ -120,7 +120,7 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def create_proposal(%Client{} = client, network_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/proposals"
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/proposals"
     headers = []
     query_params = []
 
@@ -151,7 +151,9 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def delete_member(%Client{} = client, member_id, network_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
+
     headers = []
     query_params = []
 
@@ -176,7 +178,9 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
   """
   def delete_node(%Client{} = client, network_id, node_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/nodes/#{URI.encode(node_id)}"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
+
     headers = []
 
     {query_params, input} =
@@ -204,7 +208,9 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def get_member(%Client{} = client, member_id, network_id, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
+
     headers = []
     query_params = []
 
@@ -227,7 +233,7 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
   """
   def get_network(%Client{} = client, network_id, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}"
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}"
     headers = []
     query_params = []
 
@@ -250,7 +256,9 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
   """
   def get_node(%Client{} = client, network_id, node_id, member_id \\ nil, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/nodes/#{URI.encode(node_id)}"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
+
     headers = []
     query_params = []
 
@@ -280,7 +288,9 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def get_proposal(%Client{} = client, network_id, proposal_id, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/proposals/#{URI.encode(proposal_id)}"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}"
+
     headers = []
     query_params = []
 
@@ -350,7 +360,7 @@ defmodule AWS.ManagedBlockchain do
         status \\ nil,
         options \\ []
       ) do
-    url_path = "/networks/#{URI.encode(network_id)}/members"
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/members"
     headers = []
     query_params = []
 
@@ -483,7 +493,7 @@ defmodule AWS.ManagedBlockchain do
         status \\ nil,
         options \\ []
       ) do
-    url_path = "/networks/#{URI.encode(network_id)}/nodes"
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/nodes"
     headers = []
     query_params = []
 
@@ -542,7 +552,9 @@ defmodule AWS.ManagedBlockchain do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/networks/#{URI.encode(network_id)}/proposals/#{URI.encode(proposal_id)}/votes"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}/votes"
+
     headers = []
     query_params = []
 
@@ -585,7 +597,7 @@ defmodule AWS.ManagedBlockchain do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/networks/#{URI.encode(network_id)}/proposals"
+    url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/proposals"
     headers = []
     query_params = []
 
@@ -626,7 +638,7 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -652,7 +664,7 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def reject_invitation(%Client{} = client, invitation_id, input, options \\ []) do
-    url_path = "/invitations/#{URI.encode(invitation_id)}"
+    url_path = "/invitations/#{AWS.Util.encode_uri(invitation_id)}"
     headers = []
     query_params = []
 
@@ -686,7 +698,7 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -711,7 +723,7 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -739,7 +751,9 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def update_member(%Client{} = client, member_id, network_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/members/#{URI.encode(member_id)}"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
+
     headers = []
     query_params = []
 
@@ -762,7 +776,9 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def update_node(%Client{} = client, network_id, node_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/nodes/#{URI.encode(node_id)}"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
+
     headers = []
     query_params = []
 
@@ -788,7 +804,9 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
   """
   def vote_on_proposal(%Client{} = client, network_id, proposal_id, input, options \\ []) do
-    url_path = "/networks/#{URI.encode(network_id)}/proposals/#{URI.encode(proposal_id)}/votes"
+    url_path =
+      "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}/votes"
+
     headers = []
     query_params = []
 

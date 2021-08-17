@@ -34,7 +34,7 @@ defmodule AWS.MWAA do
   Create a CLI token to use Airflow CLI.
   """
   def create_cli_token(%Client{} = client, name, input, options \\ []) do
-    url_path = "/clitoken/#{URI.encode(name)}"
+    url_path = "/clitoken/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -55,7 +55,7 @@ defmodule AWS.MWAA do
   Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
   def create_environment(%Client{} = client, name, input, options \\ []) do
-    url_path = "/environments/#{URI.encode(name)}"
+    url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -77,7 +77,7 @@ defmodule AWS.MWAA do
   Authentication.
   """
   def create_web_login_token(%Client{} = client, name, input, options \\ []) do
-    url_path = "/webtoken/#{URI.encode(name)}"
+    url_path = "/webtoken/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -98,7 +98,7 @@ defmodule AWS.MWAA do
   Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
   def delete_environment(%Client{} = client, name, input, options \\ []) do
-    url_path = "/environments/#{URI.encode(name)}"
+    url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -120,7 +120,7 @@ defmodule AWS.MWAA do
   environment.
   """
   def get_environment(%Client{} = client, name, options \\ []) do
-    url_path = "/environments/#{URI.encode(name)}"
+    url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -179,7 +179,7 @@ defmodule AWS.MWAA do
   For example, `"Environment": "Staging"`.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -200,7 +200,7 @@ defmodule AWS.MWAA do
   An operation for publishing metrics from the customers to the Ops plane.
   """
   def publish_metrics(%Client{} = client, environment_name, input, options \\ []) do
-    url_path = "/metrics/environments/#{URI.encode(environment_name)}"
+    url_path = "/metrics/environments/#{AWS.Util.encode_uri(environment_name)}"
     headers = []
     query_params = []
 
@@ -222,7 +222,7 @@ defmodule AWS.MWAA do
   Airflow (MWAA) environment.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -246,7 +246,7 @@ defmodule AWS.MWAA do
   For example, `"Environment": "Staging"`.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -272,7 +272,7 @@ defmodule AWS.MWAA do
   Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
   """
   def update_environment(%Client{} = client, name, input, options \\ []) do
-    url_path = "/environments/#{URI.encode(name)}"
+    url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 

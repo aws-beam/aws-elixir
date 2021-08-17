@@ -81,7 +81,7 @@ defmodule AWS.IoTAnalytics do
         options \\ []
       ) do
     url_path =
-      "/pipelines/#{URI.encode(pipeline_name)}/reprocessing/#{URI.encode(reprocessing_id)}"
+      "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}/reprocessing/#{AWS.Util.encode_uri(reprocessing_id)}"
 
     headers = []
     query_params = []
@@ -155,7 +155,7 @@ defmodule AWS.IoTAnalytics do
   `containerAction` (executing a containerized application).
   """
   def create_dataset_content(%Client{} = client, dataset_name, input, options \\ []) do
-    url_path = "/datasets/#{URI.encode(dataset_name)}/content"
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
     headers = []
     query_params = []
 
@@ -226,7 +226,7 @@ defmodule AWS.IoTAnalytics do
   Deletes the specified channel.
   """
   def delete_channel(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_name)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
     query_params = []
 
@@ -250,7 +250,7 @@ defmodule AWS.IoTAnalytics do
   operation.
   """
   def delete_dataset(%Client{} = client, dataset_name, input, options \\ []) do
-    url_path = "/datasets/#{URI.encode(dataset_name)}"
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
     headers = []
     query_params = []
 
@@ -271,7 +271,7 @@ defmodule AWS.IoTAnalytics do
   Deletes the content of the specified dataset.
   """
   def delete_dataset_content(%Client{} = client, dataset_name, input, options \\ []) do
-    url_path = "/datasets/#{URI.encode(dataset_name)}/content"
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
     headers = []
 
     {query_params, input} =
@@ -297,7 +297,7 @@ defmodule AWS.IoTAnalytics do
   Deletes the specified data store.
   """
   def delete_datastore(%Client{} = client, datastore_name, input, options \\ []) do
-    url_path = "/datastores/#{URI.encode(datastore_name)}"
+    url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
     headers = []
     query_params = []
 
@@ -318,7 +318,7 @@ defmodule AWS.IoTAnalytics do
   Deletes the specified pipeline.
   """
   def delete_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
-    url_path = "/pipelines/#{URI.encode(pipeline_name)}"
+    url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
     query_params = []
 
@@ -339,7 +339,7 @@ defmodule AWS.IoTAnalytics do
   Retrieves information about a channel.
   """
   def describe_channel(%Client{} = client, channel_name, include_statistics \\ nil, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_name)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
     query_params = []
 
@@ -367,7 +367,7 @@ defmodule AWS.IoTAnalytics do
   Retrieves information about a dataset.
   """
   def describe_dataset(%Client{} = client, dataset_name, options \\ []) do
-    url_path = "/datasets/#{URI.encode(dataset_name)}"
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
     headers = []
     query_params = []
 
@@ -393,7 +393,7 @@ defmodule AWS.IoTAnalytics do
         include_statistics \\ nil,
         options \\ []
       ) do
-    url_path = "/datastores/#{URI.encode(datastore_name)}"
+    url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
     headers = []
     query_params = []
 
@@ -442,7 +442,7 @@ defmodule AWS.IoTAnalytics do
   Retrieves information about a pipeline.
   """
   def describe_pipeline(%Client{} = client, pipeline_name, options \\ []) do
-    url_path = "/pipelines/#{URI.encode(pipeline_name)}"
+    url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
     query_params = []
 
@@ -463,7 +463,7 @@ defmodule AWS.IoTAnalytics do
   Retrieves the contents of a data set as presigned URIs.
   """
   def get_dataset_content(%Client{} = client, dataset_name, version_id \\ nil, options \\ []) do
-    url_path = "/datasets/#{URI.encode(dataset_name)}/content"
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
     headers = []
     query_params = []
 
@@ -534,7 +534,7 @@ defmodule AWS.IoTAnalytics do
         scheduled_on_or_after \\ nil,
         options \\ []
       ) do
-    url_path = "/datasets/#{URI.encode(dataset_name)}/contents"
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/contents"
     headers = []
     query_params = []
 
@@ -773,7 +773,7 @@ defmodule AWS.IoTAnalytics do
         start_time \\ nil,
         options \\ []
       ) do
-    url_path = "/channels/#{URI.encode(channel_name)}/sample"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}/sample"
     headers = []
     query_params = []
 
@@ -815,7 +815,7 @@ defmodule AWS.IoTAnalytics do
   Starts the reprocessing of raw message data through the pipeline.
   """
   def start_pipeline_reprocessing(%Client{} = client, pipeline_name, input, options \\ []) do
-    url_path = "/pipelines/#{URI.encode(pipeline_name)}/reprocessing"
+    url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}/reprocessing"
     headers = []
     query_params = []
 
@@ -891,7 +891,7 @@ defmodule AWS.IoTAnalytics do
   Updates the settings of a channel.
   """
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
-    url_path = "/channels/#{URI.encode(channel_name)}"
+    url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
     query_params = []
 
@@ -912,7 +912,7 @@ defmodule AWS.IoTAnalytics do
   Updates the settings of a data set.
   """
   def update_dataset(%Client{} = client, dataset_name, input, options \\ []) do
-    url_path = "/datasets/#{URI.encode(dataset_name)}"
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
     headers = []
     query_params = []
 
@@ -933,7 +933,7 @@ defmodule AWS.IoTAnalytics do
   Updates the settings of a data store.
   """
   def update_datastore(%Client{} = client, datastore_name, input, options \\ []) do
-    url_path = "/datastores/#{URI.encode(datastore_name)}"
+    url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
     headers = []
     query_params = []
 
@@ -957,7 +957,7 @@ defmodule AWS.IoTAnalytics do
   many as 23 additional activities in the `pipelineActivities` array.
   """
   def update_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
-    url_path = "/pipelines/#{URI.encode(pipeline_name)}"
+    url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
     query_params = []
 

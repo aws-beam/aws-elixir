@@ -45,7 +45,7 @@ defmodule AWS.Honeycode do
   """
   def batch_create_table_rows(%Client{} = client, table_id, workbook_id, input, options \\ []) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/rows/batchcreate"
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(table_id)}/rows/batchcreate"
 
     headers = []
     query_params = []
@@ -71,7 +71,7 @@ defmodule AWS.Honeycode do
   """
   def batch_delete_table_rows(%Client{} = client, table_id, workbook_id, input, options \\ []) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/rows/batchdelete"
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(table_id)}/rows/batchdelete"
 
     headers = []
     query_params = []
@@ -100,7 +100,7 @@ defmodule AWS.Honeycode do
   """
   def batch_update_table_rows(%Client{} = client, table_id, workbook_id, input, options \\ []) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/rows/batchupdate"
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(table_id)}/rows/batchupdate"
 
     headers = []
     query_params = []
@@ -135,7 +135,7 @@ defmodule AWS.Honeycode do
   """
   def batch_upsert_table_rows(%Client{} = client, table_id, workbook_id, input, options \\ []) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/rows/batchupsert"
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(table_id)}/rows/batchupsert"
 
     headers = []
     query_params = []
@@ -165,7 +165,7 @@ defmodule AWS.Honeycode do
         options \\ []
       ) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/import/#{URI.encode(job_id)}"
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(table_id)}/import/#{AWS.Util.encode_uri(job_id)}"
 
     headers = []
     query_params = []
@@ -225,7 +225,7 @@ defmodule AWS.Honeycode do
         options \\ []
       ) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/apps/#{URI.encode(app_id)}/screens/#{URI.encode(screen_id)}/automations/#{URI.encode(screen_automation_id)}"
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/apps/#{AWS.Util.encode_uri(app_id)}/screens/#{AWS.Util.encode_uri(screen_id)}/automations/#{AWS.Util.encode_uri(screen_automation_id)}"
 
     headers = []
     query_params = []
@@ -254,7 +254,9 @@ defmodule AWS.Honeycode do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/columns"
+    url_path =
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(table_id)}/columns"
+
     headers = []
     query_params = []
 
@@ -283,7 +285,9 @@ defmodule AWS.Honeycode do
   in a workbook.
   """
   def list_table_rows(%Client{} = client, table_id, workbook_id, input, options \\ []) do
-    url_path = "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/rows/list"
+    url_path =
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(table_id)}/rows/list"
+
     headers = []
     query_params = []
 
@@ -311,7 +315,7 @@ defmodule AWS.Honeycode do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/workbooks/#{URI.encode(workbook_id)}/tables"
+    url_path = "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables"
     headers = []
     query_params = []
 
@@ -347,7 +351,9 @@ defmodule AWS.Honeycode do
   rows in a table.
   """
   def query_table_rows(%Client{} = client, table_id, workbook_id, input, options \\ []) do
-    url_path = "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(table_id)}/rows/query"
+    url_path =
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(table_id)}/rows/query"
+
     headers = []
     query_params = []
 
@@ -379,7 +385,7 @@ defmodule AWS.Honeycode do
         options \\ []
       ) do
     url_path =
-      "/workbooks/#{URI.encode(workbook_id)}/tables/#{URI.encode(destination_table_id)}/import"
+      "/workbooks/#{AWS.Util.encode_uri(workbook_id)}/tables/#{AWS.Util.encode_uri(destination_table_id)}/import"
 
     headers = []
     query_params = []

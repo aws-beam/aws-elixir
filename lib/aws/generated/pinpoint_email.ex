@@ -106,7 +106,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations"
+      "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
     query_params = []
@@ -226,7 +226,7 @@ defmodule AWS.PinpointEmail do
   applied to the email.
   """
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
-    url_path = "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}"
+    url_path = "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
     query_params = []
 
@@ -261,7 +261,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
+      "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
     query_params = []
@@ -283,7 +283,7 @@ defmodule AWS.PinpointEmail do
   Delete a dedicated IP pool.
   """
   def delete_dedicated_ip_pool(%Client{} = client, pool_name, input, options \\ []) do
-    url_path = "/v1/email/dedicated-ip-pools/#{URI.encode(pool_name)}"
+    url_path = "/v1/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
     headers = []
     query_params = []
 
@@ -307,7 +307,7 @@ defmodule AWS.PinpointEmail do
   An identity can be either an email address or a domain name.
   """
   def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
-    url_path = "/v1/email/identities/#{URI.encode(email_identity)}"
+    url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}"
     headers = []
     query_params = []
 
@@ -386,7 +386,7 @@ defmodule AWS.PinpointEmail do
   applied to the email.
   """
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
-    url_path = "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}"
+    url_path = "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
     query_params = []
 
@@ -420,7 +420,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations"
+      "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
     query_params = []
@@ -444,7 +444,7 @@ defmodule AWS.PinpointEmail do
   automatic warm-up process for the address.
   """
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
-    url_path = "/v1/email/dedicated-ips/#{URI.encode(ip)}"
+    url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
     headers = []
     query_params = []
 
@@ -546,7 +546,7 @@ defmodule AWS.PinpointEmail do
   Retrieve the results of a predictive inbox placement test.
   """
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
-    url_path = "/v1/email/deliverability-dashboard/test-reports/#{URI.encode(report_id)}"
+    url_path = "/v1/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
     headers = []
     query_params = []
 
@@ -571,7 +571,7 @@ defmodule AWS.PinpointEmail do
   (`PutDeliverabilityDashboardOption` operation).
   """
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
-    url_path = "/v1/email/deliverability-dashboard/campaigns/#{URI.encode(campaign_id)}"
+    url_path = "/v1/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
     headers = []
     query_params = []
 
@@ -599,7 +599,9 @@ defmodule AWS.PinpointEmail do
         start_date,
         options \\ []
       ) do
-    url_path = "/v1/email/deliverability-dashboard/statistics-report/#{URI.encode(domain)}"
+    url_path =
+      "/v1/email/deliverability-dashboard/statistics-report/#{AWS.Util.encode_uri(domain)}"
+
     headers = []
     query_params = []
 
@@ -636,7 +638,7 @@ defmodule AWS.PinpointEmail do
   authentication status, and its custom Mail-From settings.
   """
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
-    url_path = "/v1/email/identities/#{URI.encode(email_identity)}"
+    url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}"
     headers = []
     query_params = []
 
@@ -802,7 +804,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/deliverability-dashboard/domains/#{URI.encode(subscribed_domain)}/campaigns"
+      "/v1/email/deliverability-dashboard/domains/#{AWS.Util.encode_uri(subscribed_domain)}/campaigns"
 
     headers = []
     query_params = []
@@ -981,7 +983,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/delivery-options"
+      "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/delivery-options"
 
     headers = []
     query_params = []
@@ -1010,7 +1012,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/reputation-options"
+      "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/reputation-options"
 
     headers = []
     query_params = []
@@ -1038,7 +1040,9 @@ defmodule AWS.PinpointEmail do
         input,
         options \\ []
       ) do
-    url_path = "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/sending"
+    url_path =
+      "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/sending"
+
     headers = []
     query_params = []
 
@@ -1066,7 +1070,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/tracking-options"
+      "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/tracking-options"
 
     headers = []
     query_params = []
@@ -1094,7 +1098,7 @@ defmodule AWS.PinpointEmail do
   by using the `CreateDedicatedIpPool` operation.
   """
   def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
-    url_path = "/v1/email/dedicated-ips/#{URI.encode(ip)}/pool"
+    url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
     headers = []
     query_params = []
 
@@ -1112,7 +1116,7 @@ defmodule AWS.PinpointEmail do
   end
 
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
-    url_path = "/v1/email/dedicated-ips/#{URI.encode(ip)}/warmup"
+    url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
     headers = []
     query_params = []
 
@@ -1164,7 +1168,7 @@ defmodule AWS.PinpointEmail do
   Used to enable or disable DKIM authentication for an email identity.
   """
   def put_email_identity_dkim_attributes(%Client{} = client, email_identity, input, options \\ []) do
-    url_path = "/v1/email/identities/#{URI.encode(email_identity)}/dkim"
+    url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
     headers = []
     query_params = []
 
@@ -1205,7 +1209,7 @@ defmodule AWS.PinpointEmail do
         input,
         options \\ []
       ) do
-    url_path = "/v1/email/identities/#{URI.encode(email_identity)}/feedback"
+    url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/feedback"
     headers = []
     query_params = []
 
@@ -1232,7 +1236,7 @@ defmodule AWS.PinpointEmail do
         input,
         options \\ []
       ) do
-    url_path = "/v1/email/identities/#{URI.encode(email_identity)}/mail-from"
+    url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/mail-from"
     headers = []
     query_params = []
 
@@ -1356,7 +1360,7 @@ defmodule AWS.PinpointEmail do
         options \\ []
       ) do
     url_path =
-      "/v1/email/configuration-sets/#{URI.encode(configuration_set_name)}/event-destinations/#{URI.encode(event_destination_name)}"
+      "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
     query_params = []

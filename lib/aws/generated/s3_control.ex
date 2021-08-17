@@ -55,7 +55,7 @@ defmodule AWS.S3Control do
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
   """
   def create_access_point(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v20180820/accesspoint/#{URI.encode(name)}"
+    url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
 
     {headers, input} =
       [
@@ -94,7 +94,7 @@ defmodule AWS.S3Control do
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
   """
   def create_access_point_for_object_lambda(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
 
     {headers, input} =
       [
@@ -159,7 +159,7 @@ defmodule AWS.S3Control do
   [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html)
   """
   def create_bucket(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
 
     {headers, input} =
       [
@@ -264,7 +264,7 @@ defmodule AWS.S3Control do
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
   """
   def delete_access_point(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v20180820/accesspoint/#{URI.encode(name)}"
+    url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
 
     {headers, input} =
       [
@@ -300,7 +300,7 @@ defmodule AWS.S3Control do
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
   """
   def delete_access_point_for_object_lambda(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
 
     {headers, input} =
       [
@@ -343,7 +343,7 @@ defmodule AWS.S3Control do
   [GetAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html)
   """
   def delete_access_point_policy(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+    url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
 
     {headers, input} =
       [
@@ -376,7 +376,7 @@ defmodule AWS.S3Control do
   [PutAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html)
   """
   def delete_access_point_policy_for_object_lambda(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/policy"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/policy"
 
     {headers, input} =
       [
@@ -429,7 +429,7 @@ defmodule AWS.S3Control do
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
   def delete_bucket(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
 
     {headers, input} =
       [
@@ -491,7 +491,7 @@ defmodule AWS.S3Control do
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
   """
   def delete_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/lifecycleconfiguration"
 
     {headers, input} =
       [
@@ -557,7 +557,7 @@ defmodule AWS.S3Control do
   [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html)
   """
   def delete_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
 
     {headers, input} =
       [
@@ -612,7 +612,7 @@ defmodule AWS.S3Control do
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html)
   """
   def delete_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
 
     {headers, input} =
       [
@@ -653,7 +653,7 @@ defmodule AWS.S3Control do
   [PutJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html)
   """
   def delete_job_tagging(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+    url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
 
     {headers, input} =
       [
@@ -724,7 +724,7 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
   """
   def delete_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
-    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
+    url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
 
     {headers, input} =
       [
@@ -765,7 +765,7 @@ defmodule AWS.S3Control do
         input,
         options \\ []
       ) do
-    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}/tagging"
+    url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}/tagging"
 
     {headers, input} =
       [
@@ -805,7 +805,7 @@ defmodule AWS.S3Control do
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
   def describe_job(%Client{} = client, job_id, account_id, options \\ []) do
-    url_path = "/v20180820/jobs/#{URI.encode(job_id)}"
+    url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
 
     headers =
@@ -851,7 +851,7 @@ defmodule AWS.S3Control do
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
   """
   def get_access_point(%Client{} = client, name, account_id, options \\ []) do
-    url_path = "/v20180820/accesspoint/#{URI.encode(name)}"
+    url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
     headers = []
 
     headers =
@@ -891,7 +891,7 @@ defmodule AWS.S3Control do
         account_id,
         options \\ []
       ) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/configuration"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/configuration"
     headers = []
 
     headers =
@@ -929,7 +929,7 @@ defmodule AWS.S3Control do
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
   """
   def get_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ []) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
     headers = []
 
     headers =
@@ -964,7 +964,7 @@ defmodule AWS.S3Control do
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
   """
   def get_access_point_policy(%Client{} = client, name, account_id, options \\ []) do
-    url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+    url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
     headers = []
 
     headers =
@@ -1004,7 +1004,7 @@ defmodule AWS.S3Control do
         account_id,
         options \\ []
       ) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/policy"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/policy"
     headers = []
 
     headers =
@@ -1038,7 +1038,7 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
   """
   def get_access_point_policy_status(%Client{} = client, name, account_id, options \\ []) do
-    url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policyStatus"
+    url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policyStatus"
     headers = []
 
     headers =
@@ -1073,7 +1073,7 @@ defmodule AWS.S3Control do
         account_id,
         options \\ []
       ) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/policyStatus"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/policyStatus"
     headers = []
 
     headers =
@@ -1133,7 +1133,7 @@ defmodule AWS.S3Control do
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html)
   """
   def get_bucket(%Client{} = client, bucket, account_id, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
     headers = []
 
     headers =
@@ -1205,7 +1205,7 @@ defmodule AWS.S3Control do
   [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
   """
   def get_bucket_lifecycle_configuration(%Client{} = client, bucket, account_id, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/lifecycleconfiguration"
     headers = []
 
     headers =
@@ -1276,7 +1276,7 @@ defmodule AWS.S3Control do
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
   """
   def get_bucket_policy(%Client{} = client, bucket, account_id, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
     headers = []
 
     headers =
@@ -1340,7 +1340,7 @@ defmodule AWS.S3Control do
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html)
   """
   def get_bucket_tagging(%Client{} = client, bucket, account_id, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
     headers = []
 
     headers =
@@ -1383,7 +1383,7 @@ defmodule AWS.S3Control do
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
   """
   def get_job_tagging(%Client{} = client, job_id, account_id, options \\ []) do
-    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+    url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
     headers = []
 
     headers =
@@ -1458,7 +1458,7 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
   """
   def get_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ []) do
-    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
+    url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
     headers = []
 
     headers =
@@ -1501,7 +1501,7 @@ defmodule AWS.S3Control do
         account_id,
         options \\ []
       ) do
-    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}/tagging"
+    url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}/tagging"
     headers = []
 
     headers =
@@ -1873,7 +1873,7 @@ defmodule AWS.S3Control do
         input,
         options \\ []
       ) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/configuration"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/configuration"
 
     {headers, input} =
       [
@@ -1919,7 +1919,7 @@ defmodule AWS.S3Control do
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
   """
   def put_access_point_policy(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v20180820/accesspoint/#{URI.encode(name)}/policy"
+    url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
 
     {headers, input} =
       [
@@ -1955,7 +1955,7 @@ defmodule AWS.S3Control do
   [GetAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicyForObjectLambda.html)
   """
   def put_access_point_policy_for_object_lambda(%Client{} = client, name, input, options \\ []) do
-    url_path = "/v20180820/accesspointforobjectlambda/#{URI.encode(name)}/policy"
+    url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/policy"
 
     {headers, input} =
       [
@@ -2005,7 +2005,7 @@ defmodule AWS.S3Control do
   [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
   """
   def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/lifecycleconfiguration"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/lifecycleconfiguration"
 
     {headers, input} =
       [
@@ -2072,7 +2072,7 @@ defmodule AWS.S3Control do
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
   """
   def put_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/policy"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
 
     {headers, input} =
       [
@@ -2166,7 +2166,7 @@ defmodule AWS.S3Control do
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html)
   """
   def put_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/v20180820/bucket/#{URI.encode(bucket)}/tagging"
+    url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
 
     {headers, input} =
       [
@@ -2241,7 +2241,7 @@ defmodule AWS.S3Control do
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
   """
   def put_job_tagging(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/tagging"
+    url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
 
     {headers, input} =
       [
@@ -2311,7 +2311,7 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
   """
   def put_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
-    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}"
+    url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
 
     {headers, input} =
       [
@@ -2347,7 +2347,7 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
   """
   def put_storage_lens_configuration_tagging(%Client{} = client, config_id, input, options \\ []) do
-    url_path = "/v20180820/storagelens/#{URI.encode(config_id)}/tagging"
+    url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}/tagging"
 
     {headers, input} =
       [
@@ -2387,7 +2387,7 @@ defmodule AWS.S3Control do
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
   def update_job_priority(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/priority"
+    url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/priority"
 
     {headers, input} =
       [
@@ -2432,7 +2432,7 @@ defmodule AWS.S3Control do
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
   def update_job_status(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/v20180820/jobs/#{URI.encode(job_id)}/status"
+    url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/status"
 
     {headers, input} =
       [

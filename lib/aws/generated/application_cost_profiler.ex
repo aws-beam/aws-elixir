@@ -38,7 +38,7 @@ defmodule AWS.ApplicationCostProfiler do
   This stops the report from being generated.
   """
   def delete_report_definition(%Client{} = client, report_id, input, options \\ []) do
-    url_path = "/reportDefinition/#{URI.encode(report_id)}"
+    url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
     headers = []
     query_params = []
 
@@ -60,7 +60,7 @@ defmodule AWS.ApplicationCostProfiler do
   Profiler.
   """
   def get_report_definition(%Client{} = client, report_id, options \\ []) do
-    url_path = "/reportDefinition/#{URI.encode(report_id)}"
+    url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
     headers = []
     query_params = []
 
@@ -169,7 +169,7 @@ defmodule AWS.ApplicationCostProfiler do
   Updates existing report in AWS Application Cost Profiler.
   """
   def update_report_definition(%Client{} = client, report_id, input, options \\ []) do
-    url_path = "/reportDefinition/#{URI.encode(report_id)}"
+    url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
     headers = []
     query_params = []
 

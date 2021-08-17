@@ -41,7 +41,7 @@ defmodule AWS.IoTSiteWise do
   in the *IoT SiteWise User Guide*.
   """
   def associate_assets(%Client{} = client, asset_id, input, options \\ []) do
-    url_path = "/assets/#{URI.encode(asset_id)}/associate"
+    url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/associate"
     headers = []
     query_params = []
 
@@ -62,7 +62,7 @@ defmodule AWS.IoTSiteWise do
   Associates a group (batch) of assets with an IoT SiteWise Monitor project.
   """
   def batch_associate_project_assets(%Client{} = client, project_id, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_id)}/assets/associate"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/associate"
     headers = []
     query_params = []
 
@@ -83,7 +83,7 @@ defmodule AWS.IoTSiteWise do
   Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.
   """
   def batch_disassociate_project_assets(%Client{} = client, project_id, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_id)}/assets/disassociate"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/disassociate"
     headers = []
     query_params = []
 
@@ -323,7 +323,7 @@ defmodule AWS.IoTSiteWise do
   You can use this operation to revoke access to an IoT SiteWise Monitor resource.
   """
   def delete_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
-    url_path = "/access-policies/#{URI.encode(access_policy_id)}"
+    url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
     headers = []
 
     {query_params, input} =
@@ -356,7 +356,7 @@ defmodule AWS.IoTSiteWise do
   [DisassociateAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html).
   """
   def delete_asset(%Client{} = client, asset_id, input, options \\ []) do
-    url_path = "/assets/#{URI.encode(asset_id)}"
+    url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
     headers = []
 
     {query_params, input} =
@@ -389,7 +389,7 @@ defmodule AWS.IoTSiteWise do
   in the *IoT SiteWise User Guide*.
   """
   def delete_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
-    url_path = "/asset-models/#{URI.encode(asset_model_id)}"
+    url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
     headers = []
 
     {query_params, input} =
@@ -415,7 +415,7 @@ defmodule AWS.IoTSiteWise do
   Deletes a dashboard from IoT SiteWise Monitor.
   """
   def delete_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
-    url_path = "/dashboards/#{URI.encode(dashboard_id)}"
+    url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
     headers = []
 
     {query_params, input} =
@@ -444,7 +444,7 @@ defmodule AWS.IoTSiteWise do
   file system.
   """
   def delete_gateway(%Client{} = client, gateway_id, input, options \\ []) do
-    url_path = "/20200301/gateways/#{URI.encode(gateway_id)}"
+    url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
     headers = []
     query_params = []
 
@@ -465,7 +465,7 @@ defmodule AWS.IoTSiteWise do
   Deletes a portal from IoT SiteWise Monitor.
   """
   def delete_portal(%Client{} = client, portal_id, input, options \\ []) do
-    url_path = "/portals/#{URI.encode(portal_id)}"
+    url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
     headers = []
 
     {query_params, input} =
@@ -491,7 +491,7 @@ defmodule AWS.IoTSiteWise do
   Deletes a project from IoT SiteWise Monitor.
   """
   def delete_project(%Client{} = client, project_id, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_id)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
     headers = []
 
     {query_params, input} =
@@ -518,7 +518,7 @@ defmodule AWS.IoTSiteWise do
   SiteWise Monitor portal or project.
   """
   def describe_access_policy(%Client{} = client, access_policy_id, options \\ []) do
-    url_path = "/access-policies/#{URI.encode(access_policy_id)}"
+    url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
     headers = []
     query_params = []
 
@@ -539,7 +539,7 @@ defmodule AWS.IoTSiteWise do
   Retrieves information about an asset.
   """
   def describe_asset(%Client{} = client, asset_id, options \\ []) do
-    url_path = "/assets/#{URI.encode(asset_id)}"
+    url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
     headers = []
     query_params = []
 
@@ -560,7 +560,7 @@ defmodule AWS.IoTSiteWise do
   Retrieves information about an asset model.
   """
   def describe_asset_model(%Client{} = client, asset_model_id, options \\ []) do
-    url_path = "/asset-models/#{URI.encode(asset_model_id)}"
+    url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
     headers = []
     query_params = []
 
@@ -590,7 +590,9 @@ defmodule AWS.IoTSiteWise do
   [GetAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html).
   """
   def describe_asset_property(%Client{} = client, asset_id, property_id, options \\ []) do
-    url_path = "/assets/#{URI.encode(asset_id)}/properties/#{URI.encode(property_id)}"
+    url_path =
+      "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
+
     headers = []
     query_params = []
 
@@ -611,7 +613,7 @@ defmodule AWS.IoTSiteWise do
   Retrieves information about a dashboard.
   """
   def describe_dashboard(%Client{} = client, dashboard_id, options \\ []) do
-    url_path = "/dashboards/#{URI.encode(dashboard_id)}"
+    url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
     headers = []
     query_params = []
 
@@ -657,7 +659,7 @@ defmodule AWS.IoTSiteWise do
   Retrieves information about a gateway.
   """
   def describe_gateway(%Client{} = client, gateway_id, options \\ []) do
-    url_path = "/20200301/gateways/#{URI.encode(gateway_id)}"
+    url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
     headers = []
     query_params = []
 
@@ -691,7 +693,7 @@ defmodule AWS.IoTSiteWise do
         options \\ []
       ) do
     url_path =
-      "/20200301/gateways/#{URI.encode(gateway_id)}/capability/#{URI.encode(capability_namespace)}"
+      "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}/capability/#{AWS.Util.encode_uri(capability_namespace)}"
 
     headers = []
     query_params = []
@@ -734,7 +736,7 @@ defmodule AWS.IoTSiteWise do
   Retrieves information about a portal.
   """
   def describe_portal(%Client{} = client, portal_id, options \\ []) do
-    url_path = "/portals/#{URI.encode(portal_id)}"
+    url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
     headers = []
     query_params = []
 
@@ -755,7 +757,7 @@ defmodule AWS.IoTSiteWise do
   Retrieves information about a project.
   """
   def describe_project(%Client{} = client, project_id, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_id)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
     headers = []
     query_params = []
 
@@ -798,7 +800,7 @@ defmodule AWS.IoTSiteWise do
   defined in the parent asset's model.
   """
   def disassociate_assets(%Client{} = client, asset_id, input, options \\ []) do
-    url_path = "/assets/#{URI.encode(asset_id)}/disassociate"
+    url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/disassociate"
     headers = []
     query_params = []
 
@@ -1371,7 +1373,7 @@ defmodule AWS.IoTSiteWise do
         traversal_type,
         options \\ []
       ) do
-    url_path = "/assets/#{URI.encode(asset_id)}/assetRelationships"
+    url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/assetRelationships"
     headers = []
     query_params = []
 
@@ -1496,7 +1498,7 @@ defmodule AWS.IoTSiteWise do
         traversal_direction \\ nil,
         options \\ []
       ) do
-    url_path = "/assets/#{URI.encode(asset_id)}/hierarchies"
+    url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/hierarchies"
     headers = []
     query_params = []
 
@@ -1670,7 +1672,7 @@ defmodule AWS.IoTSiteWise do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/projects/#{URI.encode(project_id)}/assets"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets"
     headers = []
     query_params = []
 
@@ -1904,7 +1906,7 @@ defmodule AWS.IoTSiteWise do
   SiteWise Monitor portal or project resource.
   """
   def update_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
-    url_path = "/access-policies/#{URI.encode(access_policy_id)}"
+    url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
     headers = []
     query_params = []
 
@@ -1928,7 +1930,7 @@ defmodule AWS.IoTSiteWise do
   in the *IoT SiteWise User Guide*.
   """
   def update_asset(%Client{} = client, asset_id, input, options \\ []) do
-    url_path = "/assets/#{URI.encode(asset_id)}"
+    url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
     headers = []
     query_params = []
 
@@ -1964,7 +1966,7 @@ defmodule AWS.IoTSiteWise do
   You can't change the type or data type of an existing property.
   """
   def update_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
-    url_path = "/asset-models/#{URI.encode(asset_model_id)}"
+    url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
     headers = []
     query_params = []
 
@@ -1991,7 +1993,9 @@ defmodule AWS.IoTSiteWise do
   [DescribeAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html).
   """
   def update_asset_property(%Client{} = client, asset_id, property_id, input, options \\ []) do
-    url_path = "/assets/#{URI.encode(asset_id)}/properties/#{URI.encode(property_id)}"
+    url_path =
+      "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
+
     headers = []
     query_params = []
 
@@ -2012,7 +2016,7 @@ defmodule AWS.IoTSiteWise do
   Updates an IoT SiteWise Monitor dashboard.
   """
   def update_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
-    url_path = "/dashboards/#{URI.encode(dashboard_id)}"
+    url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
     headers = []
     query_params = []
 
@@ -2033,7 +2037,7 @@ defmodule AWS.IoTSiteWise do
   Updates a gateway's name.
   """
   def update_gateway(%Client{} = client, gateway_id, input, options \\ []) do
-    url_path = "/20200301/gateways/#{URI.encode(gateway_id)}"
+    url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
     headers = []
     query_params = []
 
@@ -2067,7 +2071,7 @@ defmodule AWS.IoTSiteWise do
         input,
         options \\ []
       ) do
-    url_path = "/20200301/gateways/#{URI.encode(gateway_id)}/capability"
+    url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}/capability"
     headers = []
     query_params = []
 
@@ -2088,7 +2092,7 @@ defmodule AWS.IoTSiteWise do
   Updates an IoT SiteWise Monitor portal.
   """
   def update_portal(%Client{} = client, portal_id, input, options \\ []) do
-    url_path = "/portals/#{URI.encode(portal_id)}"
+    url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
     headers = []
     query_params = []
 
@@ -2109,7 +2113,7 @@ defmodule AWS.IoTSiteWise do
   Updates an IoT SiteWise Monitor project.
   """
   def update_project(%Client{} = client, project_id, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_id)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
     headers = []
     query_params = []
 

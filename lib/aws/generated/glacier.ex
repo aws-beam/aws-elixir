@@ -86,7 +86,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads/#{AWS.Util.encode_uri(upload_id)}"
 
     headers = []
     query_params = []
@@ -124,7 +124,9 @@ defmodule AWS.Glacier do
   policy associated with the vault.
   """
   def abort_vault_lock(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy"
+
     headers = []
     query_params = []
 
@@ -151,7 +153,9 @@ defmodule AWS.Glacier do
   more information about tags, see [Tagging Amazon S3 Glacier Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
   def add_tags_to_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags?operation=add"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/tags?operation=add"
+
     headers = []
     query_params = []
 
@@ -225,7 +229,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads/#{AWS.Util.encode_uri(upload_id)}"
 
     {headers, input} =
       [
@@ -287,7 +291,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy/#{URI.encode(lock_id)}"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy/#{AWS.Util.encode_uri(lock_id)}"
 
     headers = []
     query_params = []
@@ -334,7 +338,7 @@ defmodule AWS.Glacier do
   the *Amazon Glacier Developer Guide*.
   """
   def create_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
+    url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
     headers = []
     query_params = []
 
@@ -389,7 +393,7 @@ defmodule AWS.Glacier do
   """
   def delete_archive(%Client{} = client, account_id, archive_id, vault_name, input, options \\ []) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives/#{URI.encode(archive_id)}"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/archives/#{AWS.Util.encode_uri(archive_id)}"
 
     headers = []
     query_params = []
@@ -434,7 +438,7 @@ defmodule AWS.Glacier do
   the *Amazon S3 Glacier Developer Guide*.
   """
   def delete_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
+    url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
     headers = []
     query_params = []
 
@@ -463,7 +467,9 @@ defmodule AWS.Glacier do
   access policies, see [Amazon Glacier Access Control with Vault Access Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
   def delete_vault_access_policy(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/access-policy"
+
     headers = []
     query_params = []
 
@@ -501,7 +507,7 @@ defmodule AWS.Glacier do
   """
   def delete_vault_notifications(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/notification-configuration"
 
     headers = []
     query_params = []
@@ -546,7 +552,7 @@ defmodule AWS.Glacier do
   """
   def describe_job(%Client{} = client, account_id, job_id, vault_name, options \\ []) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
     headers = []
     query_params = []
@@ -590,7 +596,7 @@ defmodule AWS.Glacier do
   the *Amazon Glacier Developer Guide*.
   """
   def describe_vault(%Client{} = client, account_id, vault_name, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}"
+    url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
     headers = []
     query_params = []
 
@@ -615,7 +621,7 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
   """
   def get_data_retrieval_policy(%Client{} = client, account_id, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/policies/data-retrieval"
+    url_path = "/#{AWS.Util.encode_uri(account_id)}/policies/data-retrieval"
     headers = []
     query_params = []
 
@@ -687,7 +693,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs/#{URI.encode(job_id)}/output"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/output"
 
     headers = []
 
@@ -735,7 +741,9 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
   def get_vault_access_policy(%Client{} = client, account_id, vault_name, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/access-policy"
+
     headers = []
     query_params = []
 
@@ -777,7 +785,9 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
   """
   def get_vault_lock(%Client{} = client, account_id, vault_name, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy"
+
     headers = []
     query_params = []
 
@@ -817,7 +827,7 @@ defmodule AWS.Glacier do
   """
   def get_vault_notifications(%Client{} = client, account_id, vault_name, options \\ []) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/notification-configuration"
 
     headers = []
     query_params = []
@@ -843,7 +853,9 @@ defmodule AWS.Glacier do
   underlying REST API [Initiate a Job](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html).
   """
   def initiate_job(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/jobs"
+
     headers = []
     query_params = []
 
@@ -910,7 +922,8 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
   """
   def initiate_multipart_upload(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads"
 
     {headers, input} =
       [
@@ -974,7 +987,9 @@ defmodule AWS.Glacier do
   a new vault lock policy.
   """
   def initiate_vault_lock(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/lock-policy"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy"
+
     headers = []
     query_params = []
 
@@ -1047,7 +1062,9 @@ defmodule AWS.Glacier do
         statuscode \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/jobs"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/jobs"
+
     headers = []
     query_params = []
 
@@ -1133,7 +1150,9 @@ defmodule AWS.Glacier do
         marker \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads"
+
     headers = []
     query_params = []
 
@@ -1202,7 +1221,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads/#{AWS.Util.encode_uri(upload_id)}"
 
     headers = []
     query_params = []
@@ -1239,7 +1258,7 @@ defmodule AWS.Glacier do
   account.
   """
   def list_provisioned_capacity(%Client{} = client, account_id, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/provisioned-capacity"
+    url_path = "/#{AWS.Util.encode_uri(account_id)}/provisioned-capacity"
     headers = []
     query_params = []
 
@@ -1263,7 +1282,9 @@ defmodule AWS.Glacier do
   about tags, see [Tagging Amazon S3 Glacier Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
   def list_tags_for_vault(%Client{} = client, account_id, vault_name, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/tags"
+
     headers = []
     query_params = []
 
@@ -1306,7 +1327,7 @@ defmodule AWS.Glacier do
   the *Amazon Glacier Developer Guide*.
   """
   def list_vaults(%Client{} = client, account_id, limit \\ nil, marker \\ nil, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults"
+    url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults"
     headers = []
     query_params = []
 
@@ -1341,7 +1362,7 @@ defmodule AWS.Glacier do
   This operation purchases a provisioned capacity unit for an AWS account.
   """
   def purchase_provisioned_capacity(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/provisioned-capacity"
+    url_path = "/#{AWS.Util.encode_uri(account_id)}/provisioned-capacity"
     headers = []
     query_params = []
 
@@ -1374,7 +1395,9 @@ defmodule AWS.Glacier do
   are no tags attached to the vault.
   """
   def remove_tags_from_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/tags?operation=remove"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/tags?operation=remove"
+
     headers = []
     query_params = []
 
@@ -1403,7 +1426,7 @@ defmodule AWS.Glacier do
   policies, see [Amazon Glacier Data Retrieval Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
   """
   def set_data_retrieval_policy(%Client{} = client, account_id, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/policies/data-retrieval"
+    url_path = "/#{AWS.Util.encode_uri(account_id)}/policies/data-retrieval"
     headers = []
     query_params = []
 
@@ -1431,7 +1454,9 @@ defmodule AWS.Glacier do
   policies, see [Amazon Glacier Access Control with Vault Access Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
   def set_vault_access_policy(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/access-policy"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/access-policy"
+
     headers = []
     query_params = []
 
@@ -1487,7 +1512,7 @@ defmodule AWS.Glacier do
   """
   def set_vault_notifications(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/notification-configuration"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/notification-configuration"
 
     headers = []
     query_params = []
@@ -1546,7 +1571,8 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
   """
   def upload_archive(%Client{} = client, account_id, vault_name, input, options \\ []) do
-    url_path = "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/archives"
+    url_path =
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/archives"
 
     {headers, input} =
       [
@@ -1638,7 +1664,7 @@ defmodule AWS.Glacier do
         options \\ []
       ) do
     url_path =
-      "/#{URI.encode(account_id)}/vaults/#{URI.encode(vault_name)}/multipart-uploads/#{URI.encode(upload_id)}"
+      "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads/#{AWS.Util.encode_uri(upload_id)}"
 
     {headers, input} =
       [

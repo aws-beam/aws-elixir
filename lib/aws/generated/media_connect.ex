@@ -32,7 +32,7 @@ defmodule AWS.MediaConnect do
   and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
   """
   def add_flow_media_streams(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/mediaStreams"
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams"
     headers = []
     query_params = []
 
@@ -55,7 +55,7 @@ defmodule AWS.MediaConnect do
   You can create up to 50 outputs per flow.
   """
   def add_flow_outputs(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/outputs"
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs"
     headers = []
     query_params = []
 
@@ -76,7 +76,7 @@ defmodule AWS.MediaConnect do
   Adds Sources to flow
   """
   def add_flow_sources(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/source"
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source"
     headers = []
     query_params = []
 
@@ -97,7 +97,7 @@ defmodule AWS.MediaConnect do
   Adds VPC interfaces to flow
   """
   def add_flow_vpc_interfaces(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/vpcInterfaces"
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces"
     headers = []
     query_params = []
 
@@ -144,7 +144,7 @@ defmodule AWS.MediaConnect do
   Before you can delete a flow, you must stop the flow.
   """
   def delete_flow(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}"
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
     query_params = []
 
@@ -168,7 +168,7 @@ defmodule AWS.MediaConnect do
   details about the source, outputs, and entitlements.
   """
   def describe_flow(%Client{} = client, flow_arn, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}"
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
     query_params = []
 
@@ -192,7 +192,7 @@ defmodule AWS.MediaConnect do
   price, and Amazon Resource Name (ARN).
   """
   def describe_offering(%Client{} = client, offering_arn, options \\ []) do
-    url_path = "/v1/offerings/#{URI.encode(offering_arn)}"
+    url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
     headers = []
     query_params = []
 
@@ -217,7 +217,7 @@ defmodule AWS.MediaConnect do
   duration, and outbound bandwidth).
   """
   def describe_reservation(%Client{} = client, reservation_arn, options \\ []) do
-    url_path = "/v1/reservations/#{URI.encode(reservation_arn)}"
+    url_path = "/v1/reservations/#{AWS.Util.encode_uri(reservation_arn)}"
     headers = []
     query_params = []
 
@@ -238,7 +238,7 @@ defmodule AWS.MediaConnect do
   Grants entitlements to an existing flow.
   """
   def grant_flow_entitlements(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/entitlements"
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements"
     headers = []
     query_params = []
 
@@ -411,7 +411,7 @@ defmodule AWS.MediaConnect do
   List all tags on an AWS Elemental MediaConnect resource
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -434,7 +434,7 @@ defmodule AWS.MediaConnect do
   If you already have an active reservation, you can't purchase another offering.
   """
   def purchase_offering(%Client{} = client, offering_arn, input, options \\ []) do
-    url_path = "/v1/offerings/#{URI.encode(offering_arn)}"
+    url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
     headers = []
     query_params = []
 
@@ -464,7 +464,9 @@ defmodule AWS.MediaConnect do
         input,
         options \\ []
       ) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/mediaStreams/#{URI.encode(media_stream_name)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams/#{AWS.Util.encode_uri(media_stream_name)}"
+
     headers = []
     query_params = []
 
@@ -490,7 +492,9 @@ defmodule AWS.MediaConnect do
   automatically removes the associated output.
   """
   def remove_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/outputs/#{URI.encode(output_arn)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
+
     headers = []
     query_params = []
 
@@ -513,7 +517,9 @@ defmodule AWS.MediaConnect do
   This request can be made only if there is more than one source on the flow.
   """
   def remove_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/source/#{URI.encode(source_arn)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
+
     headers = []
     query_params = []
 
@@ -545,7 +551,9 @@ defmodule AWS.MediaConnect do
         input,
         options \\ []
       ) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/vpcInterfaces/#{URI.encode(vpc_interface_name)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces/#{AWS.Util.encode_uri(vpc_interface_name)}"
+
     headers = []
     query_params = []
 
@@ -569,7 +577,9 @@ defmodule AWS.MediaConnect do
   subscriber and the associated output is removed.
   """
   def revoke_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/entitlements/#{URI.encode(entitlement_arn)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
+
     headers = []
     query_params = []
 
@@ -590,7 +600,7 @@ defmodule AWS.MediaConnect do
   Starts a flow.
   """
   def start_flow(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/start/#{URI.encode(flow_arn)}"
+    url_path = "/v1/flows/start/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
     query_params = []
 
@@ -611,7 +621,7 @@ defmodule AWS.MediaConnect do
   Stops a flow.
   """
   def stop_flow(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/stop/#{URI.encode(flow_arn)}"
+    url_path = "/v1/flows/stop/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
     query_params = []
 
@@ -636,7 +646,7 @@ defmodule AWS.MediaConnect do
   resource are deleted as well.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -657,7 +667,7 @@ defmodule AWS.MediaConnect do
   Deletes specified tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -683,7 +693,7 @@ defmodule AWS.MediaConnect do
   Updates flow
   """
   def update_flow(%Client{} = client, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}"
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
     query_params = []
 
@@ -707,7 +717,9 @@ defmodule AWS.MediaConnect do
   used by the subscribers that are removed.
   """
   def update_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/entitlements/#{URI.encode(entitlement_arn)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
+
     headers = []
     query_params = []
 
@@ -734,7 +746,9 @@ defmodule AWS.MediaConnect do
         input,
         options \\ []
       ) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/mediaStreams/#{URI.encode(media_stream_name)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams/#{AWS.Util.encode_uri(media_stream_name)}"
+
     headers = []
     query_params = []
 
@@ -755,7 +769,9 @@ defmodule AWS.MediaConnect do
   Updates an existing flow output.
   """
   def update_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/outputs/#{URI.encode(output_arn)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
+
     headers = []
     query_params = []
 
@@ -776,7 +792,9 @@ defmodule AWS.MediaConnect do
   Updates the source of a flow.
   """
   def update_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
-    url_path = "/v1/flows/#{URI.encode(flow_arn)}/source/#{URI.encode(source_arn)}"
+    url_path =
+      "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
+
     headers = []
     query_params = []
 

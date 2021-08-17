@@ -36,7 +36,7 @@ defmodule AWS.IoT1ClickDevices do
   received a claim code with the device(s).
   """
   def claim_devices_by_claim_code(%Client{} = client, claim_code, input, options \\ []) do
-    url_path = "/claims/#{URI.encode(claim_code)}"
+    url_path = "/claims/#{AWS.Util.encode_uri(claim_code)}"
     headers = []
     query_params = []
 
@@ -58,7 +58,7 @@ defmodule AWS.IoT1ClickDevices do
   details of the device.
   """
   def describe_device(%Client{} = client, device_id, options \\ []) do
-    url_path = "/devices/#{URI.encode(device_id)}"
+    url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
     headers = []
     query_params = []
 
@@ -84,7 +84,7 @@ defmodule AWS.IoT1ClickDevices do
   be published by simply clicking the device.
   """
   def finalize_device_claim(%Client{} = client, device_id, input, options \\ []) do
-    url_path = "/devices/#{URI.encode(device_id)}/finalize-claim"
+    url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/finalize-claim"
     headers = []
     query_params = []
 
@@ -105,7 +105,7 @@ defmodule AWS.IoT1ClickDevices do
   Given a device ID, returns the invokable methods associated with the device.
   """
   def get_device_methods(%Client{} = client, device_id, options \\ []) do
-    url_path = "/devices/#{URI.encode(device_id)}/methods"
+    url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/methods"
     headers = []
     query_params = []
 
@@ -131,7 +131,7 @@ defmodule AWS.IoT1ClickDevices do
   be published by simply clicking the device.
   """
   def initiate_device_claim(%Client{} = client, device_id, input, options \\ []) do
-    url_path = "/devices/#{URI.encode(device_id)}/initiate-claim"
+    url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/initiate-claim"
     headers = []
     query_params = []
 
@@ -156,7 +156,7 @@ defmodule AWS.IoT1ClickDevices do
   See the "Example POST" code snippet below.
   """
   def invoke_device_method(%Client{} = client, device_id, input, options \\ []) do
-    url_path = "/devices/#{URI.encode(device_id)}/methods"
+    url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/methods"
     headers = []
     query_params = []
 
@@ -186,7 +186,7 @@ defmodule AWS.IoT1ClickDevices do
         to_time_stamp,
         options \\ []
       ) do
-    url_path = "/devices/#{URI.encode(device_id)}/events"
+    url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/events"
     headers = []
     query_params = []
 
@@ -283,7 +283,7 @@ defmodule AWS.IoT1ClickDevices do
   Lists the tags associated with the specified resource ARN.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -308,7 +308,7 @@ defmodule AWS.IoT1ClickDevices do
   resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -329,7 +329,7 @@ defmodule AWS.IoT1ClickDevices do
   Disassociates a device from your AWS account using its device ID.
   """
   def unclaim_device(%Client{} = client, device_id, input, options \\ []) do
-    url_path = "/devices/#{URI.encode(device_id)}/unclaim"
+    url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/unclaim"
     headers = []
     query_params = []
 
@@ -351,7 +351,7 @@ defmodule AWS.IoT1ClickDevices do
   resource ARN.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -378,7 +378,7 @@ defmodule AWS.IoT1ClickDevices do
   enables or disables the device given a device ID.
   """
   def update_device_state(%Client{} = client, device_id, input, options \\ []) do
-    url_path = "/devices/#{URI.encode(device_id)}/state"
+    url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/state"
     headers = []
     query_params = []
 

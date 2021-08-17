@@ -58,7 +58,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
   """
   def bulk_publish(%Client{} = client, identity_pool_id, input, options \\ []) do
-    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/bulkpublish"
+    url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/bulkpublish"
     headers = []
     query_params = []
 
@@ -94,7 +94,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
     headers = []
     query_params = []
@@ -131,7 +131,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
     headers = []
     query_params = []
@@ -156,7 +156,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
   """
   def describe_identity_pool_usage(%Client{} = client, identity_pool_id, options \\ []) do
-    url_path = "/identitypools/#{URI.encode(identity_pool_id)}"
+    url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}"
     headers = []
     query_params = []
 
@@ -182,7 +182,7 @@ defmodule AWS.CognitoSync do
   """
   def describe_identity_usage(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}"
 
     headers = []
     query_params = []
@@ -207,7 +207,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
   """
   def get_bulk_publish_details(%Client{} = client, identity_pool_id, input, options \\ []) do
-    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/getBulkPublishDetails"
+    url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/getBulkPublishDetails"
     headers = []
     query_params = []
 
@@ -232,7 +232,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
   """
   def get_cognito_events(%Client{} = client, identity_pool_id, options \\ []) do
-    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/events"
+    url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
     headers = []
     query_params = []
 
@@ -256,7 +256,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
   """
   def get_identity_pool_configuration(%Client{} = client, identity_pool_id, options \\ []) do
-    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
+    url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
     headers = []
     query_params = []
 
@@ -293,7 +293,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets"
 
     headers = []
     query_params = []
@@ -393,7 +393,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/records"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/records"
 
     headers = []
     query_params = []
@@ -447,7 +447,7 @@ defmodule AWS.CognitoSync do
   """
   def register_device(%Client{} = client, identity_id, identity_pool_id, input, options \\ []) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identity/#{URI.encode(identity_id)}/device"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identity/#{AWS.Util.encode_uri(identity_id)}/device"
 
     headers = []
     query_params = []
@@ -476,7 +476,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
   """
   def set_cognito_events(%Client{} = client, identity_pool_id, input, options \\ []) do
-    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/events"
+    url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
     headers = []
     query_params = []
 
@@ -500,7 +500,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
   """
   def set_identity_pool_configuration(%Client{} = client, identity_pool_id, input, options \\ []) do
-    url_path = "/identitypools/#{URI.encode(identity_pool_id)}/configuration"
+    url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
     headers = []
     query_params = []
 
@@ -534,7 +534,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/subscriptions/#{AWS.Util.encode_uri(device_id)}"
 
     headers = []
     query_params = []
@@ -569,7 +569,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}/subscriptions/#{URI.encode(device_id)}"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/subscriptions/#{AWS.Util.encode_uri(device_id)}"
 
     headers = []
     query_params = []
@@ -614,7 +614,7 @@ defmodule AWS.CognitoSync do
         options \\ []
       ) do
     url_path =
-      "/identitypools/#{URI.encode(identity_pool_id)}/identities/#{URI.encode(identity_id)}/datasets/#{URI.encode(dataset_name)}"
+      "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
     {headers, input} =
       [

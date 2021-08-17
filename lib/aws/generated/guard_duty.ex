@@ -48,7 +48,7 @@ defmodule AWS.GuardDuty do
   Accepts the invitation to be monitored by a GuardDuty administrator account.
   """
   def accept_invitation(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/master"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
     headers = []
     query_params = []
 
@@ -72,7 +72,7 @@ defmodule AWS.GuardDuty do
   permission to archive findings from their accounts.
   """
   def archive_findings(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/findings/archive"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/archive"
     headers = []
     query_params = []
 
@@ -119,7 +119,7 @@ defmodule AWS.GuardDuty do
   Creates a filter using the specified finding criteria.
   """
   def create_filter(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/filter"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
     headers = []
     query_params = []
 
@@ -146,7 +146,7 @@ defmodule AWS.GuardDuty do
   account can use this operation.
   """
   def create_ip_set(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/ipset"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
     headers = []
     query_params = []
 
@@ -180,7 +180,7 @@ defmodule AWS.GuardDuty do
   ](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html).
   """
   def create_members(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
     headers = []
     query_params = []
 
@@ -203,7 +203,7 @@ defmodule AWS.GuardDuty do
   The resource to export findings to must exist before you use this operation.
   """
   def create_publishing_destination(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/publishingDestination"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination"
     headers = []
     query_params = []
 
@@ -227,7 +227,7 @@ defmodule AWS.GuardDuty do
   all supported finding types.
   """
   def create_sample_findings(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/findings/create"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/create"
     headers = []
     query_params = []
 
@@ -252,7 +252,7 @@ defmodule AWS.GuardDuty do
   use this operation.
   """
   def create_threat_intel_set(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/threatintelset"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
     headers = []
     query_params = []
 
@@ -295,7 +295,7 @@ defmodule AWS.GuardDuty do
   Deletes an Amazon GuardDuty detector that is specified by the detector ID.
   """
   def delete_detector(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
     headers = []
     query_params = []
 
@@ -316,7 +316,9 @@ defmodule AWS.GuardDuty do
   Deletes the filter specified by the filter name.
   """
   def delete_filter(%Client{} = client, detector_id, filter_name, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/filter/#{URI.encode(filter_name)}"
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
+
     headers = []
     query_params = []
 
@@ -361,7 +363,9 @@ defmodule AWS.GuardDuty do
   IPSets are called trusted IP lists in the console user interface.
   """
   def delete_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
+
     headers = []
     query_params = []
 
@@ -383,7 +387,7 @@ defmodule AWS.GuardDuty do
   account) specified by the account IDs.
   """
   def delete_members(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member/delete"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/delete"
     headers = []
     query_params = []
 
@@ -411,7 +415,7 @@ defmodule AWS.GuardDuty do
         options \\ []
       ) do
     url_path =
-      "/detector/#{URI.encode(detector_id)}/publishingDestination/#{URI.encode(destination_id)}"
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination/#{AWS.Util.encode_uri(destination_id)}"
 
     headers = []
     query_params = []
@@ -440,7 +444,7 @@ defmodule AWS.GuardDuty do
         options \\ []
       ) do
     url_path =
-      "/detector/#{URI.encode(detector_id)}/threatintelset/#{URI.encode(threat_intel_set_id)}"
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
 
     headers = []
     query_params = []
@@ -463,7 +467,7 @@ defmodule AWS.GuardDuty do
   for GuardDuty.
   """
   def describe_organization_configuration(%Client{} = client, detector_id, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/admin"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
     headers = []
     query_params = []
 
@@ -491,7 +495,7 @@ defmodule AWS.GuardDuty do
         options \\ []
       ) do
     url_path =
-      "/detector/#{URI.encode(detector_id)}/publishingDestination/#{URI.encode(destination_id)}"
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination/#{AWS.Util.encode_uri(destination_id)}"
 
     headers = []
     query_params = []
@@ -536,7 +540,7 @@ defmodule AWS.GuardDuty do
   account.
   """
   def disassociate_from_master_account(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/master/disassociate"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master/disassociate"
     headers = []
     query_params = []
 
@@ -558,7 +562,7 @@ defmodule AWS.GuardDuty do
   account) specified by the account IDs.
   """
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member/disassociate"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"
     headers = []
     query_params = []
 
@@ -601,7 +605,7 @@ defmodule AWS.GuardDuty do
   Retrieves an Amazon GuardDuty detector specified by the detectorId.
   """
   def get_detector(%Client{} = client, detector_id, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
     headers = []
     query_params = []
 
@@ -622,7 +626,9 @@ defmodule AWS.GuardDuty do
   Returns the details of the filter specified by the filter name.
   """
   def get_filter(%Client{} = client, detector_id, filter_name, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/filter/#{URI.encode(filter_name)}"
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
+
     headers = []
     query_params = []
 
@@ -643,7 +649,7 @@ defmodule AWS.GuardDuty do
   Describes Amazon GuardDuty findings specified by finding IDs.
   """
   def get_findings(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/findings/get"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/get"
     headers = []
     query_params = []
 
@@ -664,7 +670,7 @@ defmodule AWS.GuardDuty do
   Lists Amazon GuardDuty findings statistics for the specified detector ID.
   """
   def get_findings_statistics(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/findings/statistics"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/statistics"
     headers = []
     query_params = []
 
@@ -707,7 +713,9 @@ defmodule AWS.GuardDuty do
   Retrieves the IPSet specified by the `ipSetId`.
   """
   def get_ip_set(%Client{} = client, detector_id, ip_set_id, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
+
     headers = []
     query_params = []
 
@@ -729,7 +737,7 @@ defmodule AWS.GuardDuty do
   current GuardDuty member account.
   """
   def get_master_account(%Client{} = client, detector_id, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/master"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
     headers = []
     query_params = []
 
@@ -750,7 +758,7 @@ defmodule AWS.GuardDuty do
   Describes which data sources are enabled for the member account's detector.
   """
   def get_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member/detector/get"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/get"
     headers = []
     query_params = []
 
@@ -772,7 +780,7 @@ defmodule AWS.GuardDuty do
   account) specified by the account IDs.
   """
   def get_members(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member/get"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/get"
     headers = []
     query_params = []
 
@@ -794,7 +802,7 @@ defmodule AWS.GuardDuty do
   """
   def get_threat_intel_set(%Client{} = client, detector_id, threat_intel_set_id, options \\ []) do
     url_path =
-      "/detector/#{URI.encode(detector_id)}/threatintelset/#{URI.encode(threat_intel_set_id)}"
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
 
     headers = []
     query_params = []
@@ -822,7 +830,7 @@ defmodule AWS.GuardDuty do
   For more information see [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
   """
   def get_usage_statistics(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/usage/statistics"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/usage/statistics"
     headers = []
     query_params = []
 
@@ -846,7 +854,7 @@ defmodule AWS.GuardDuty do
   administrator account.
   """
   def invite_members(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member/invite"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/invite"
     headers = []
     query_params = []
 
@@ -908,7 +916,7 @@ defmodule AWS.GuardDuty do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/detector/#{URI.encode(detector_id)}/filter"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
     headers = []
     query_params = []
 
@@ -943,7 +951,7 @@ defmodule AWS.GuardDuty do
   Lists Amazon GuardDuty findings for the specified detector ID.
   """
   def list_findings(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/findings"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings"
     headers = []
     query_params = []
 
@@ -1009,7 +1017,7 @@ defmodule AWS.GuardDuty do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/detector/#{URI.encode(detector_id)}/ipset"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
     headers = []
     query_params = []
 
@@ -1052,7 +1060,7 @@ defmodule AWS.GuardDuty do
         only_associated \\ nil,
         options \\ []
       ) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
     headers = []
     query_params = []
 
@@ -1141,7 +1149,7 @@ defmodule AWS.GuardDuty do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/detector/#{URI.encode(detector_id)}/publishingDestination"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination"
     headers = []
     query_params = []
 
@@ -1180,7 +1188,7 @@ defmodule AWS.GuardDuty do
   operation returns all assigned tags for a given resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1210,7 +1218,7 @@ defmodule AWS.GuardDuty do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/detector/#{URI.encode(detector_id)}/threatintelset"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
     headers = []
     query_params = []
 
@@ -1248,7 +1256,7 @@ defmodule AWS.GuardDuty do
   with the `StopMonitoringMembers` operation.
   """
   def start_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member/start"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/start"
     headers = []
     query_params = []
 
@@ -1272,7 +1280,7 @@ defmodule AWS.GuardDuty do
   accounts.
   """
   def stop_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member/stop"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/stop"
     headers = []
     query_params = []
 
@@ -1293,7 +1301,7 @@ defmodule AWS.GuardDuty do
   Adds tags to a resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1314,7 +1322,7 @@ defmodule AWS.GuardDuty do
   Unarchives GuardDuty findings specified by the `findingIds`.
   """
   def unarchive_findings(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/findings/unarchive"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/unarchive"
     headers = []
     query_params = []
 
@@ -1335,7 +1343,7 @@ defmodule AWS.GuardDuty do
   Removes tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -1361,7 +1369,7 @@ defmodule AWS.GuardDuty do
   Updates the Amazon GuardDuty detector specified by the detectorId.
   """
   def update_detector(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
     headers = []
     query_params = []
 
@@ -1382,7 +1390,9 @@ defmodule AWS.GuardDuty do
   Updates the filter specified by the filter name.
   """
   def update_filter(%Client{} = client, detector_id, filter_name, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/filter/#{URI.encode(filter_name)}"
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
+
     headers = []
     query_params = []
 
@@ -1403,7 +1413,7 @@ defmodule AWS.GuardDuty do
   Marks the specified GuardDuty findings as useful or not useful.
   """
   def update_findings_feedback(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/findings/feedback"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/feedback"
     headers = []
     query_params = []
 
@@ -1424,7 +1434,9 @@ defmodule AWS.GuardDuty do
   Updates the IPSet specified by the IPSet ID.
   """
   def update_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/ipset/#{URI.encode(ip_set_id)}"
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
+
     headers = []
     query_params = []
 
@@ -1445,7 +1457,7 @@ defmodule AWS.GuardDuty do
   Contains information on member accounts to be updated.
   """
   def update_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/member/detector/update"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/update"
     headers = []
     query_params = []
 
@@ -1466,7 +1478,7 @@ defmodule AWS.GuardDuty do
   Updates the delegated administrator account with the values provided.
   """
   def update_organization_configuration(%Client{} = client, detector_id, input, options \\ []) do
-    url_path = "/detector/#{URI.encode(detector_id)}/admin"
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
     headers = []
     query_params = []
 
@@ -1495,7 +1507,7 @@ defmodule AWS.GuardDuty do
         options \\ []
       ) do
     url_path =
-      "/detector/#{URI.encode(detector_id)}/publishingDestination/#{URI.encode(destination_id)}"
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination/#{AWS.Util.encode_uri(destination_id)}"
 
     headers = []
     query_params = []
@@ -1524,7 +1536,7 @@ defmodule AWS.GuardDuty do
         options \\ []
       ) do
     url_path =
-      "/detector/#{URI.encode(detector_id)}/threatintelset/#{URI.encode(threat_intel_set_id)}"
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
 
     headers = []
     query_params = []

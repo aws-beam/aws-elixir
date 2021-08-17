@@ -53,7 +53,7 @@ defmodule AWS.S3 do
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
   def abort_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
@@ -166,7 +166,7 @@ defmodule AWS.S3 do
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
   def complete_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
@@ -355,7 +355,7 @@ defmodule AWS.S3 do
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html).
   """
   def copy_object(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
@@ -527,7 +527,7 @@ defmodule AWS.S3 do
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
   """
   def create_bucket(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
     {headers, input} =
       [
@@ -770,7 +770,7 @@ defmodule AWS.S3 do
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
   def create_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?uploads"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?uploads"
 
     {headers, input} =
       [
@@ -848,7 +848,7 @@ defmodule AWS.S3 do
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
   def delete_bucket(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
     {headers, input} =
       [
@@ -894,7 +894,7 @@ defmodule AWS.S3 do
   [PutBucketAnalyticsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html)
   """
   def delete_bucket_analytics_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?analytics"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
 
     {headers, input} =
       [
@@ -938,7 +938,7 @@ defmodule AWS.S3 do
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
   """
   def delete_bucket_cors(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?cors"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
     {headers, input} =
       [
@@ -983,7 +983,7 @@ defmodule AWS.S3 do
   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
   """
   def delete_bucket_encryption(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?encryption"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
 
     {headers, input} =
       [
@@ -1040,7 +1040,7 @@ defmodule AWS.S3 do
         input,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?intelligent-tiering"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering"
     headers = []
 
     {query_params, input} =
@@ -1084,7 +1084,7 @@ defmodule AWS.S3 do
   [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
   """
   def delete_bucket_inventory_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?inventory"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
 
     {headers, input} =
       [
@@ -1136,7 +1136,7 @@ defmodule AWS.S3 do
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html)
   """
   def delete_bucket_lifecycle(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?lifecycle"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
     {headers, input} =
       [
@@ -1185,7 +1185,7 @@ defmodule AWS.S3 do
   CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html)
   """
   def delete_bucket_metrics_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?metrics"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
 
     {headers, input} =
       [
@@ -1228,7 +1228,7 @@ defmodule AWS.S3 do
     * `PutBucketOwnershipControls`
   """
   def delete_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?ownershipControls"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
 
     {headers, input} =
       [
@@ -1278,7 +1278,7 @@ defmodule AWS.S3 do
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
   def delete_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?policy"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
     {headers, input} =
       [
@@ -1325,7 +1325,7 @@ defmodule AWS.S3 do
   [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html)
   """
   def delete_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?replication"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
 
     {headers, input} =
       [
@@ -1362,7 +1362,7 @@ defmodule AWS.S3 do
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
   """
   def delete_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?tagging"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
     {headers, input} =
       [
@@ -1409,7 +1409,7 @@ defmodule AWS.S3 do
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
   """
   def delete_bucket_website(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?website"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
     {headers, input} =
       [
@@ -1465,7 +1465,7 @@ defmodule AWS.S3 do
   [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
   """
   def delete_object(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
@@ -1525,7 +1525,7 @@ defmodule AWS.S3 do
   [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
   """
   def delete_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
 
     {headers, input} =
       [
@@ -1606,7 +1606,7 @@ defmodule AWS.S3 do
   [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
   """
   def delete_objects(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?delete"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?delete"
 
     {headers, input} =
       [
@@ -1659,7 +1659,7 @@ defmodule AWS.S3 do
   [GetBucketPolicyStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicyStatus.html)
   """
   def delete_public_access_block(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?publicAccessBlock"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
 
     {headers, input} =
       [
@@ -1720,7 +1720,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?accelerate"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?accelerate"
     headers = []
 
     headers =
@@ -1759,7 +1759,7 @@ defmodule AWS.S3 do
   [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html)
   """
   def get_bucket_acl(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?acl"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?acl"
     headers = []
 
     headers =
@@ -1815,7 +1815,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?analytics"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
     headers = []
 
     headers =
@@ -1863,7 +1863,7 @@ defmodule AWS.S3 do
   [DeleteBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html)
   """
   def get_bucket_cors(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?cors"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
     headers = []
 
     headers =
@@ -1915,7 +1915,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?encryption"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
     headers = []
 
     headers =
@@ -1969,7 +1969,7 @@ defmodule AWS.S3 do
   [ListBucketIntelligentTieringConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html)
   """
   def get_bucket_intelligent_tiering_configuration(%Client{} = client, bucket, id, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?intelligent-tiering"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering"
     headers = []
     query_params = []
 
@@ -2021,7 +2021,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?inventory"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
     headers = []
 
     headers =
@@ -2095,7 +2095,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?lifecycle"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
     headers = []
 
     headers =
@@ -2165,7 +2165,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?lifecycle"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
     headers = []
 
     headers =
@@ -2206,7 +2206,7 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
   def get_bucket_location(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?location"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?location"
     headers = []
 
     headers =
@@ -2244,7 +2244,7 @@ defmodule AWS.S3 do
   [PutBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html)
   """
   def get_bucket_logging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?logging"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
     headers = []
 
     headers =
@@ -2301,7 +2301,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?metrics"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
     headers = []
 
     headers =
@@ -2343,7 +2343,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?notification"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?notification"
     headers = []
 
     headers =
@@ -2394,7 +2394,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?notification"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?notification"
     headers = []
 
     headers =
@@ -2440,7 +2440,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?ownershipControls"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
     headers = []
 
     headers =
@@ -2490,7 +2490,7 @@ defmodule AWS.S3 do
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
   def get_bucket_policy(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?policy"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
     headers = []
 
     headers =
@@ -2543,7 +2543,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?policyStatus"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?policyStatus"
     headers = []
 
     headers =
@@ -2602,7 +2602,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?replication"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
     headers = []
 
     headers =
@@ -2644,7 +2644,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?requestPayment"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?requestPayment"
     headers = []
 
     headers =
@@ -2690,7 +2690,7 @@ defmodule AWS.S3 do
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
   """
   def get_bucket_tagging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?tagging"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
     headers = []
 
     headers =
@@ -2739,7 +2739,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?versioning"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?versioning"
     headers = []
 
     headers =
@@ -2783,7 +2783,7 @@ defmodule AWS.S3 do
   [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
   """
   def get_bucket_website(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?website"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
     headers = []
 
     headers =
@@ -2966,7 +2966,7 @@ defmodule AWS.S3 do
         sse_customer_key_md5 \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
     headers = []
 
     headers =
@@ -3186,7 +3186,7 @@ defmodule AWS.S3 do
         request_payer \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?acl"
     headers = []
 
     headers =
@@ -3248,7 +3248,9 @@ defmodule AWS.S3 do
         request_payer \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?legal-hold"
+
     headers = []
 
     headers =
@@ -3300,7 +3302,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?object-lock"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?object-lock"
     headers = []
 
     headers =
@@ -3341,7 +3343,9 @@ defmodule AWS.S3 do
         request_payer \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?retention"
+
     headers = []
 
     headers =
@@ -3413,7 +3417,7 @@ defmodule AWS.S3 do
         request_payer \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
     headers = []
 
     headers =
@@ -3486,7 +3490,7 @@ defmodule AWS.S3 do
         request_payer \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?torrent"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?torrent"
     headers = []
 
     headers =
@@ -3566,7 +3570,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?publicAccessBlock"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
     headers = []
 
     headers =
@@ -3610,7 +3614,7 @@ defmodule AWS.S3 do
   and [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
   """
   def head_bucket(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
     {headers, input} =
       [
@@ -3712,7 +3716,7 @@ defmodule AWS.S3 do
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
   def head_object(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
@@ -3824,7 +3828,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?analytics"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
     headers = []
 
     headers =
@@ -3890,7 +3894,7 @@ defmodule AWS.S3 do
         continuation_token \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?intelligent-tiering"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering"
     headers = []
     query_params = []
 
@@ -3951,7 +3955,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?inventory"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
     headers = []
 
     headers =
@@ -4023,7 +4027,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?metrics"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
     headers = []
 
     headers =
@@ -4128,7 +4132,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?uploads"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?uploads"
     headers = []
 
     headers =
@@ -4233,7 +4237,7 @@ defmodule AWS.S3 do
         expected_bucket_owner \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?versions"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?versions"
     headers = []
 
     headers =
@@ -4337,7 +4341,7 @@ defmodule AWS.S3 do
         request_payer \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}"
     headers = []
 
     headers =
@@ -4452,7 +4456,7 @@ defmodule AWS.S3 do
         request_payer \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?list-type=2"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?list-type=2"
     headers = []
 
     headers =
@@ -4577,7 +4581,7 @@ defmodule AWS.S3 do
         request_payer \\ nil,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
     headers = []
 
     headers =
@@ -4679,7 +4683,7 @@ defmodule AWS.S3 do
   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
   """
   def put_bucket_accelerate_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?accelerate"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?accelerate"
 
     {headers, input} =
       [
@@ -4844,7 +4848,7 @@ defmodule AWS.S3 do
   [GetObjectAcl](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html)
   """
   def put_bucket_acl(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?acl"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?acl"
 
     {headers, input} =
       [
@@ -4933,7 +4937,7 @@ defmodule AWS.S3 do
   [ListBucketAnalyticsConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html)
   """
   def put_bucket_analytics_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?analytics"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
 
     {headers, input} =
       [
@@ -5006,7 +5010,7 @@ defmodule AWS.S3 do
   [RESTOPTIONSobject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html)
   """
   def put_bucket_cors(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?cors"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
     {headers, input} =
       [
@@ -5061,7 +5065,7 @@ defmodule AWS.S3 do
   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
   """
   def put_bucket_encryption(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?encryption"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
 
     {headers, input} =
       [
@@ -5148,7 +5152,7 @@ defmodule AWS.S3 do
         input,
         options \\ []
       ) do
-    url_path = "/#{URI.encode(bucket)}?intelligent-tiering"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering"
     headers = []
 
     {query_params, input} =
@@ -5234,7 +5238,7 @@ defmodule AWS.S3 do
   [ListBucketInventoryConfigurations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html)
   """
   def put_bucket_inventory_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?inventory"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
 
     {headers, input} =
       [
@@ -5315,7 +5319,7 @@ defmodule AWS.S3 do
       * [Managing Access Permissions to your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html)
   """
   def put_bucket_lifecycle(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?lifecycle"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
     {headers, input} =
       [
@@ -5406,7 +5410,7 @@ defmodule AWS.S3 do
   [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
   """
   def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?lifecycle"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
     {headers, input} =
       [
@@ -5488,7 +5492,7 @@ defmodule AWS.S3 do
   [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html)
   """
   def put_bucket_logging(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?logging"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
 
     {headers, input} =
       [
@@ -5549,7 +5553,7 @@ defmodule AWS.S3 do
       * HTTP Status Code: HTTP 400 Bad Request
   """
   def put_bucket_metrics_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?metrics"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
 
     {headers, input} =
       [
@@ -5582,7 +5586,7 @@ defmodule AWS.S3 do
   operation.
   """
   def put_bucket_notification(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?notification"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?notification"
 
     {headers, input} =
       [
@@ -5660,7 +5664,7 @@ defmodule AWS.S3 do
   [GetBucketNotificationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html)
   """
   def put_bucket_notification_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?notification"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?notification"
 
     {headers, input} =
       [
@@ -5699,7 +5703,7 @@ defmodule AWS.S3 do
     * `DeleteBucketOwnershipControls`
   """
   def put_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?ownershipControls"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
 
     {headers, input} =
       [
@@ -5749,7 +5753,7 @@ defmodule AWS.S3 do
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
   """
   def put_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?policy"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
     {headers, input} =
       [
@@ -5831,7 +5835,7 @@ defmodule AWS.S3 do
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html)
   """
   def put_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?replication"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
 
     {headers, input} =
       [
@@ -5871,7 +5875,7 @@ defmodule AWS.S3 do
   [GetBucketRequestPayment](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html)
   """
   def put_bucket_request_payment(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?requestPayment"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?requestPayment"
 
     {headers, input} =
       [
@@ -5948,7 +5952,7 @@ defmodule AWS.S3 do
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
   """
   def put_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?tagging"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
     {headers, input} =
       [
@@ -6013,7 +6017,7 @@ defmodule AWS.S3 do
   [GetBucketVersioning](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html)
   """
   def put_bucket_versioning(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?versioning"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?versioning"
 
     {headers, input} =
       [
@@ -6108,7 +6112,7 @@ defmodule AWS.S3 do
   in the *Amazon S3 User Guide*.
   """
   def put_bucket_website(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?website"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
     {headers, input} =
       [
@@ -6206,7 +6210,7 @@ defmodule AWS.S3 do
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
   def put_object(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
@@ -6422,7 +6426,7 @@ defmodule AWS.S3 do
   [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
   """
   def put_object_acl(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?acl"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?acl"
 
     {headers, input} =
       [
@@ -6472,7 +6476,8 @@ defmodule AWS.S3 do
   This action is not supported by Amazon S3 on Outposts.
   """
   def put_object_legal_hold(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?legal-hold"
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?legal-hold"
 
     {headers, input} =
       [
@@ -6524,7 +6529,7 @@ defmodule AWS.S3 do
   turn on Object Lock for an existing bucket, contact AWS Support.
   """
   def put_object_lock_configuration(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?object-lock"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?object-lock"
 
     {headers, input} =
       [
@@ -6565,7 +6570,8 @@ defmodule AWS.S3 do
   This action is not supported by Amazon S3 on Outposts.
   """
   def put_object_retention(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?retention"
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?retention"
 
     {headers, input} =
       [
@@ -6650,7 +6656,7 @@ defmodule AWS.S3 do
   [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
   """
   def put_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?tagging"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
 
     {headers, input} =
       [
@@ -6715,7 +6721,7 @@ defmodule AWS.S3 do
   Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
   """
   def put_public_access_block(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}?publicAccessBlock"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
 
     {headers, input} =
       [
@@ -6957,7 +6963,7 @@ defmodule AWS.S3 do
   in the *Amazon S3 User Guide*
   """
   def restore_object(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?restore"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?restore"
 
     {headers, input} =
       [
@@ -7093,7 +7099,8 @@ defmodule AWS.S3 do
   [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html)
   """
   def select_object_content(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}?select&select-type=2"
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?select&select-type=2"
 
     {headers, input} =
       [
@@ -7214,7 +7221,7 @@ defmodule AWS.S3 do
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
   def upload_part(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
@@ -7382,7 +7389,7 @@ defmodule AWS.S3 do
   [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
   """
   def upload_part_copy(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path = "/#{URI.encode(bucket)}/#{AWS.Util.encode_uri(key, true)}"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [

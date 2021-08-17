@@ -56,7 +56,7 @@ defmodule AWS.Amplify do
   Creates a new backend environment for an Amplify app.
   """
   def create_backend_environment(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/backendenvironments"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments"
     headers = []
     query_params = []
 
@@ -77,7 +77,7 @@ defmodule AWS.Amplify do
   Creates a new branch for an Amplify app.
   """
   def create_branch(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches"
     headers = []
     query_params = []
 
@@ -100,7 +100,9 @@ defmodule AWS.Amplify do
   Manually deployed apps are not connected to a repository.
   """
   def create_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/deployments"
+    url_path =
+      "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/deployments"
+
     headers = []
     query_params = []
 
@@ -123,7 +125,7 @@ defmodule AWS.Amplify do
   This action associates a custom domain with the Amplify app
   """
   def create_domain_association(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/domains"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains"
     headers = []
     query_params = []
 
@@ -144,7 +146,7 @@ defmodule AWS.Amplify do
   Creates a new webhook on an Amplify app.
   """
   def create_webhook(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/webhooks"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/webhooks"
     headers = []
     query_params = []
 
@@ -165,7 +167,7 @@ defmodule AWS.Amplify do
   Deletes an existing Amplify app specified by an app ID.
   """
   def delete_app(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
     headers = []
     query_params = []
 
@@ -192,7 +194,9 @@ defmodule AWS.Amplify do
         input,
         options \\ []
       ) do
-    url_path = "/apps/#{URI.encode(app_id)}/backendenvironments/#{URI.encode(environment_name)}"
+    url_path =
+      "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments/#{AWS.Util.encode_uri(environment_name)}"
+
     headers = []
     query_params = []
 
@@ -213,7 +217,7 @@ defmodule AWS.Amplify do
   Deletes a branch for an Amplify app.
   """
   def delete_branch(%Client{} = client, app_id, branch_name, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
     headers = []
     query_params = []
 
@@ -234,7 +238,7 @@ defmodule AWS.Amplify do
   Deletes a domain association for an Amplify app.
   """
   def delete_domain_association(%Client{} = client, app_id, domain_name, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/domains/#{URI.encode(domain_name)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -256,7 +260,7 @@ defmodule AWS.Amplify do
   """
   def delete_job(%Client{} = client, app_id, branch_name, job_id, input, options \\ []) do
     url_path =
-      "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/jobs/#{URI.encode(job_id)}"
+      "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
     headers = []
     query_params = []
@@ -278,7 +282,7 @@ defmodule AWS.Amplify do
   Deletes a webhook.
   """
   def delete_webhook(%Client{} = client, webhook_id, input, options \\ []) do
-    url_path = "/webhooks/#{URI.encode(webhook_id)}"
+    url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
     headers = []
     query_params = []
 
@@ -299,7 +303,7 @@ defmodule AWS.Amplify do
   Returns the website access logs for a specific time range using a presigned URL.
   """
   def generate_access_logs(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/accesslogs"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/accesslogs"
     headers = []
     query_params = []
 
@@ -320,7 +324,7 @@ defmodule AWS.Amplify do
   Returns an existing Amplify app by appID.
   """
   def get_app(%Client{} = client, app_id, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
     headers = []
     query_params = []
 
@@ -341,7 +345,7 @@ defmodule AWS.Amplify do
   Returns the artifact info that corresponds to an artifact id.
   """
   def get_artifact_url(%Client{} = client, artifact_id, options \\ []) do
-    url_path = "/artifacts/#{URI.encode(artifact_id)}"
+    url_path = "/artifacts/#{AWS.Util.encode_uri(artifact_id)}"
     headers = []
     query_params = []
 
@@ -362,7 +366,9 @@ defmodule AWS.Amplify do
   Returns a backend environment for an Amplify app.
   """
   def get_backend_environment(%Client{} = client, app_id, environment_name, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/backendenvironments/#{URI.encode(environment_name)}"
+    url_path =
+      "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments/#{AWS.Util.encode_uri(environment_name)}"
+
     headers = []
     query_params = []
 
@@ -383,7 +389,7 @@ defmodule AWS.Amplify do
   Returns a branch for an Amplify app.
   """
   def get_branch(%Client{} = client, app_id, branch_name, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
     headers = []
     query_params = []
 
@@ -404,7 +410,7 @@ defmodule AWS.Amplify do
   Returns the domain information for an Amplify app.
   """
   def get_domain_association(%Client{} = client, app_id, domain_name, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/domains/#{URI.encode(domain_name)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -426,7 +432,7 @@ defmodule AWS.Amplify do
   """
   def get_job(%Client{} = client, app_id, branch_name, job_id, options \\ []) do
     url_path =
-      "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/jobs/#{URI.encode(job_id)}"
+      "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
     headers = []
     query_params = []
@@ -448,7 +454,7 @@ defmodule AWS.Amplify do
   Returns the webhook information that corresponds to a specified webhook ID.
   """
   def get_webhook(%Client{} = client, webhook_id, options \\ []) do
-    url_path = "/webhooks/#{URI.encode(webhook_id)}"
+    url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
     headers = []
     query_params = []
 
@@ -513,7 +519,7 @@ defmodule AWS.Amplify do
         options \\ []
       ) do
     url_path =
-      "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/jobs/#{URI.encode(job_id)}/artifacts"
+      "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/artifacts"
 
     headers = []
     query_params = []
@@ -556,7 +562,7 @@ defmodule AWS.Amplify do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/apps/#{URI.encode(app_id)}/backendenvironments"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments"
     headers = []
     query_params = []
 
@@ -604,7 +610,7 @@ defmodule AWS.Amplify do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches"
     headers = []
     query_params = []
 
@@ -645,7 +651,7 @@ defmodule AWS.Amplify do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/apps/#{URI.encode(app_id)}/domains"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains"
     headers = []
     query_params = []
 
@@ -687,7 +693,9 @@ defmodule AWS.Amplify do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/jobs"
+    url_path =
+      "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs"
+
     headers = []
     query_params = []
 
@@ -722,7 +730,7 @@ defmodule AWS.Amplify do
   Returns a list of tags for a specified Amazon Resource Name (ARN).
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -749,7 +757,7 @@ defmodule AWS.Amplify do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/apps/#{URI.encode(app_id)}/webhooks"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/webhooks"
     headers = []
     query_params = []
 
@@ -786,7 +794,9 @@ defmodule AWS.Amplify do
   Manually deployed apps are not connected to a repository.
   """
   def start_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/deployments/start"
+    url_path =
+      "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/deployments/start"
+
     headers = []
     query_params = []
 
@@ -807,7 +817,9 @@ defmodule AWS.Amplify do
   Starts a new job for a branch of an Amplify app.
   """
   def start_job(%Client{} = client, app_id, branch_name, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/jobs"
+    url_path =
+      "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs"
+
     headers = []
     query_params = []
 
@@ -829,7 +841,7 @@ defmodule AWS.Amplify do
   """
   def stop_job(%Client{} = client, app_id, branch_name, job_id, input, options \\ []) do
     url_path =
-      "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}/jobs/#{URI.encode(job_id)}/stop"
+      "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/stop"
 
     headers = []
     query_params = []
@@ -851,7 +863,7 @@ defmodule AWS.Amplify do
   Tags the resource with a tag key and value.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -872,7 +884,7 @@ defmodule AWS.Amplify do
   Untags a resource with a specified Amazon Resource Name (ARN).
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -898,7 +910,7 @@ defmodule AWS.Amplify do
   Updates an existing Amplify app.
   """
   def update_app(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
     headers = []
     query_params = []
 
@@ -919,7 +931,7 @@ defmodule AWS.Amplify do
   Updates a branch for an Amplify app.
   """
   def update_branch(%Client{} = client, app_id, branch_name, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/branches/#{URI.encode(branch_name)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
     headers = []
     query_params = []
 
@@ -940,7 +952,7 @@ defmodule AWS.Amplify do
   Creates a new domain association for an Amplify app.
   """
   def update_domain_association(%Client{} = client, app_id, domain_name, input, options \\ []) do
-    url_path = "/apps/#{URI.encode(app_id)}/domains/#{URI.encode(domain_name)}"
+    url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -961,7 +973,7 @@ defmodule AWS.Amplify do
   Updates a webhook.
   """
   def update_webhook(%Client{} = client, webhook_id, input, options \\ []) do
-    url_path = "/webhooks/#{URI.encode(webhook_id)}"
+    url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
     headers = []
     query_params = []
 

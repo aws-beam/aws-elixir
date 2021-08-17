@@ -60,7 +60,7 @@ defmodule AWS.Mobile do
   Delets a project in AWS Mobile Hub.
   """
   def delete_project(%Client{} = client, project_id, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_id)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
     headers = []
     query_params = []
 
@@ -81,7 +81,7 @@ defmodule AWS.Mobile do
   Get the bundle details for the requested bundle id.
   """
   def describe_bundle(%Client{} = client, bundle_id, options \\ []) do
-    url_path = "/bundles/#{URI.encode(bundle_id)}"
+    url_path = "/bundles/#{AWS.Util.encode_uri(bundle_id)}"
     headers = []
     query_params = []
 
@@ -138,7 +138,7 @@ defmodule AWS.Mobile do
   integrate mobile web or mobile app clients with backend AWS resources.
   """
   def export_bundle(%Client{} = client, bundle_id, input, options \\ []) do
-    url_path = "/bundles/#{URI.encode(bundle_id)}"
+    url_path = "/bundles/#{AWS.Util.encode_uri(bundle_id)}"
     headers = []
 
     {query_params, input} =
@@ -168,7 +168,7 @@ defmodule AWS.Mobile do
   they can only be shared successfully within the same AWS account.
   """
   def export_project(%Client{} = client, project_id, input, options \\ []) do
-    url_path = "/exports/#{URI.encode(project_id)}"
+    url_path = "/exports/#{AWS.Util.encode_uri(project_id)}"
     headers = []
     query_params = []
 

@@ -61,7 +61,7 @@ defmodule AWS.DataBrew do
   failure in the response.
   """
   def batch_delete_recipe_version(%Client{} = client, name, input, options \\ []) do
-    url_path = "/recipes/#{URI.encode(name)}/batchDeleteRecipeVersion"
+    url_path = "/recipes/#{AWS.Util.encode_uri(name)}/batchDeleteRecipeVersion"
     headers = []
     query_params = []
 
@@ -211,7 +211,7 @@ defmodule AWS.DataBrew do
   Deletes a dataset from DataBrew.
   """
   def delete_dataset(%Client{} = client, name, input, options \\ []) do
-    url_path = "/datasets/#{URI.encode(name)}"
+    url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -232,7 +232,7 @@ defmodule AWS.DataBrew do
   Deletes the specified DataBrew job.
   """
   def delete_job(%Client{} = client, name, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(name)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -253,7 +253,7 @@ defmodule AWS.DataBrew do
   Deletes an existing DataBrew project.
   """
   def delete_project(%Client{} = client, name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(name)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -274,7 +274,9 @@ defmodule AWS.DataBrew do
   Deletes a single version of a DataBrew recipe.
   """
   def delete_recipe_version(%Client{} = client, name, recipe_version, input, options \\ []) do
-    url_path = "/recipes/#{URI.encode(name)}/recipeVersion/#{URI.encode(recipe_version)}"
+    url_path =
+      "/recipes/#{AWS.Util.encode_uri(name)}/recipeVersion/#{AWS.Util.encode_uri(recipe_version)}"
+
     headers = []
     query_params = []
 
@@ -295,7 +297,7 @@ defmodule AWS.DataBrew do
   Deletes the specified DataBrew schedule.
   """
   def delete_schedule(%Client{} = client, name, input, options \\ []) do
-    url_path = "/schedules/#{URI.encode(name)}"
+    url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -316,7 +318,7 @@ defmodule AWS.DataBrew do
   Returns the definition of a specific DataBrew dataset.
   """
   def describe_dataset(%Client{} = client, name, options \\ []) do
-    url_path = "/datasets/#{URI.encode(name)}"
+    url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -337,7 +339,7 @@ defmodule AWS.DataBrew do
   Returns the definition of a specific DataBrew job.
   """
   def describe_job(%Client{} = client, name, options \\ []) do
-    url_path = "/jobs/#{URI.encode(name)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -358,7 +360,7 @@ defmodule AWS.DataBrew do
   Represents one run of a DataBrew job.
   """
   def describe_job_run(%Client{} = client, name, run_id, options \\ []) do
-    url_path = "/jobs/#{URI.encode(name)}/jobRun/#{URI.encode(run_id)}"
+    url_path = "/jobs/#{AWS.Util.encode_uri(name)}/jobRun/#{AWS.Util.encode_uri(run_id)}"
     headers = []
     query_params = []
 
@@ -379,7 +381,7 @@ defmodule AWS.DataBrew do
   Returns the definition of a specific DataBrew project.
   """
   def describe_project(%Client{} = client, name, options \\ []) do
-    url_path = "/projects/#{URI.encode(name)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -401,7 +403,7 @@ defmodule AWS.DataBrew do
   particular version.
   """
   def describe_recipe(%Client{} = client, name, recipe_version \\ nil, options \\ []) do
-    url_path = "/recipes/#{URI.encode(name)}"
+    url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -429,7 +431,7 @@ defmodule AWS.DataBrew do
   Returns the definition of a specific DataBrew schedule.
   """
   def describe_schedule(%Client{} = client, name, options \\ []) do
-    url_path = "/schedules/#{URI.encode(name)}"
+    url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -491,7 +493,7 @@ defmodule AWS.DataBrew do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/jobs/#{URI.encode(name)}/jobRuns"
+    url_path = "/jobs/#{AWS.Util.encode_uri(name)}/jobRuns"
     headers = []
     query_params = []
 
@@ -761,7 +763,7 @@ defmodule AWS.DataBrew do
   Lists all the tags for a DataBrew resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -782,7 +784,7 @@ defmodule AWS.DataBrew do
   Publishes a new version of a DataBrew recipe.
   """
   def publish_recipe(%Client{} = client, name, input, options \\ []) do
-    url_path = "/recipes/#{URI.encode(name)}/publishRecipe"
+    url_path = "/recipes/#{AWS.Util.encode_uri(name)}/publishRecipe"
     headers = []
     query_params = []
 
@@ -804,7 +806,7 @@ defmodule AWS.DataBrew do
   open.
   """
   def send_project_session_action(%Client{} = client, name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(name)}/sendProjectSessionAction"
+    url_path = "/projects/#{AWS.Util.encode_uri(name)}/sendProjectSessionAction"
     headers = []
     query_params = []
 
@@ -825,7 +827,7 @@ defmodule AWS.DataBrew do
   Runs a DataBrew job.
   """
   def start_job_run(%Client{} = client, name, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(name)}/startJobRun"
+    url_path = "/jobs/#{AWS.Util.encode_uri(name)}/startJobRun"
     headers = []
     query_params = []
 
@@ -847,7 +849,7 @@ defmodule AWS.DataBrew do
   project.
   """
   def start_project_session(%Client{} = client, name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(name)}/startProjectSession"
+    url_path = "/projects/#{AWS.Util.encode_uri(name)}/startProjectSession"
     headers = []
     query_params = []
 
@@ -868,7 +870,9 @@ defmodule AWS.DataBrew do
   Stops a particular run of a job.
   """
   def stop_job_run(%Client{} = client, name, run_id, input, options \\ []) do
-    url_path = "/jobs/#{URI.encode(name)}/jobRun/#{URI.encode(run_id)}/stopJobRun"
+    url_path =
+      "/jobs/#{AWS.Util.encode_uri(name)}/jobRun/#{AWS.Util.encode_uri(run_id)}/stopJobRun"
+
     headers = []
     query_params = []
 
@@ -890,7 +894,7 @@ defmodule AWS.DataBrew do
   job, or schedule.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -911,7 +915,7 @@ defmodule AWS.DataBrew do
   Removes metadata tags from a DataBrew resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -937,7 +941,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing DataBrew dataset.
   """
   def update_dataset(%Client{} = client, name, input, options \\ []) do
-    url_path = "/datasets/#{URI.encode(name)}"
+    url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -958,7 +962,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing profile job.
   """
   def update_profile_job(%Client{} = client, name, input, options \\ []) do
-    url_path = "/profileJobs/#{URI.encode(name)}"
+    url_path = "/profileJobs/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -979,7 +983,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing DataBrew project.
   """
   def update_project(%Client{} = client, name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(name)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -1000,7 +1004,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of the `LATEST_WORKING` version of a DataBrew recipe.
   """
   def update_recipe(%Client{} = client, name, input, options \\ []) do
-    url_path = "/recipes/#{URI.encode(name)}"
+    url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -1021,7 +1025,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing DataBrew recipe job.
   """
   def update_recipe_job(%Client{} = client, name, input, options \\ []) do
-    url_path = "/recipeJobs/#{URI.encode(name)}"
+    url_path = "/recipeJobs/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -1042,7 +1046,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing DataBrew schedule.
   """
   def update_schedule(%Client{} = client, name, input, options \\ []) do
-    url_path = "/schedules/#{URI.encode(name)}"
+    url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 

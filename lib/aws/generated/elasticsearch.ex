@@ -48,7 +48,7 @@ defmodule AWS.Elasticsearch do
         options \\ []
       ) do
     url_path =
-      "/2015-01-01/es/ccs/inboundConnection/#{URI.encode(cross_cluster_search_connection_id)}/accept"
+      "/2015-01-01/es/ccs/inboundConnection/#{AWS.Util.encode_uri(cross_cluster_search_connection_id)}/accept"
 
     headers = []
     query_params = []
@@ -95,7 +95,7 @@ defmodule AWS.Elasticsearch do
   """
   def associate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
-      "/2015-01-01/packages/associate/#{URI.encode(package_id)}/#{URI.encode(domain_name)}"
+      "/2015-01-01/packages/associate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
     headers = []
     query_params = []
@@ -210,7 +210,7 @@ defmodule AWS.Elasticsearch do
   Once a domain is deleted, it cannot be recovered.
   """
   def delete_elasticsearch_domain(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/2015-01-01/es/domain/#{URI.encode(domain_name)}"
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -265,7 +265,7 @@ defmodule AWS.Elasticsearch do
         options \\ []
       ) do
     url_path =
-      "/2015-01-01/es/ccs/inboundConnection/#{URI.encode(cross_cluster_search_connection_id)}"
+      "/2015-01-01/es/ccs/inboundConnection/#{AWS.Util.encode_uri(cross_cluster_search_connection_id)}"
 
     headers = []
     query_params = []
@@ -294,7 +294,7 @@ defmodule AWS.Elasticsearch do
         options \\ []
       ) do
     url_path =
-      "/2015-01-01/es/ccs/outboundConnection/#{URI.encode(cross_cluster_search_connection_id)}"
+      "/2015-01-01/es/ccs/outboundConnection/#{AWS.Util.encode_uri(cross_cluster_search_connection_id)}"
 
     headers = []
     query_params = []
@@ -316,7 +316,7 @@ defmodule AWS.Elasticsearch do
   Delete the package.
   """
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
-    url_path = "/2015-01-01/packages/#{URI.encode(package_id)}"
+    url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
     headers = []
     query_params = []
 
@@ -338,7 +338,7 @@ defmodule AWS.Elasticsearch do
   as Auto-Tune action type, description, severity, and scheduled date.
   """
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
-    url_path = "/2015-01-01/es/domain/#{URI.encode(domain_name)}/autoTunes"
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
     headers = []
     query_params = []
 
@@ -360,7 +360,7 @@ defmodule AWS.Elasticsearch do
   domain, including the domain ID, domain endpoint, and domain ARN.
   """
   def describe_elasticsearch_domain(%Client{} = client, domain_name, options \\ []) do
-    url_path = "/2015-01-01/es/domain/#{URI.encode(domain_name)}"
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
@@ -383,7 +383,7 @@ defmodule AWS.Elasticsearch do
   cluster options.
   """
   def describe_elasticsearch_domain_config(%Client{} = client, domain_name, options \\ []) do
-    url_path = "/2015-01-01/es/domain/#{URI.encode(domain_name)}/config"
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
     headers = []
     query_params = []
 
@@ -436,7 +436,7 @@ defmodule AWS.Elasticsearch do
         options \\ []
       ) do
     url_path =
-      "/2015-01-01/es/instanceTypeLimits/#{URI.encode(elasticsearch_version)}/#{URI.encode(instance_type)}"
+      "/2015-01-01/es/instanceTypeLimits/#{AWS.Util.encode_uri(elasticsearch_version)}/#{AWS.Util.encode_uri(instance_type)}"
 
     headers = []
     query_params = []
@@ -627,7 +627,7 @@ defmodule AWS.Elasticsearch do
   """
   def dissociate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
-      "/2015-01-01/packages/dissociate/#{URI.encode(package_id)}/#{URI.encode(domain_name)}"
+      "/2015-01-01/packages/dissociate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
     headers = []
     query_params = []
@@ -687,7 +687,7 @@ defmodule AWS.Elasticsearch do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-01-01/packages/#{URI.encode(package_id)}/history"
+    url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}/history"
     headers = []
     query_params = []
 
@@ -729,7 +729,7 @@ defmodule AWS.Elasticsearch do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-01-01/es/upgradeDomain/#{URI.encode(domain_name)}/history"
+    url_path = "/2015-01-01/es/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/history"
     headers = []
     query_params = []
 
@@ -765,7 +765,7 @@ defmodule AWS.Elasticsearch do
   that was performed on the domain.
   """
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
-    url_path = "/2015-01-01/es/upgradeDomain/#{URI.encode(domain_name)}/status"
+    url_path = "/2015-01-01/es/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
     headers = []
     query_params = []
 
@@ -814,7 +814,7 @@ defmodule AWS.Elasticsearch do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-01-01/packages/#{URI.encode(package_id)}/domains"
+    url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}/domains"
     headers = []
     query_params = []
 
@@ -857,7 +857,7 @@ defmodule AWS.Elasticsearch do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-01-01/es/instanceTypes/#{URI.encode(elasticsearch_version)}"
+    url_path = "/2015-01-01/es/instanceTypes/#{AWS.Util.encode_uri(elasticsearch_version)}"
     headers = []
     query_params = []
 
@@ -945,7 +945,7 @@ defmodule AWS.Elasticsearch do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-01-01/domain/#{URI.encode(domain_name)}/packages"
+    url_path = "/2015-01-01/domain/#{AWS.Util.encode_uri(domain_name)}/packages"
     headers = []
     query_params = []
 
@@ -1036,7 +1036,7 @@ defmodule AWS.Elasticsearch do
         options \\ []
       ) do
     url_path =
-      "/2015-01-01/es/ccs/inboundConnection/#{URI.encode(cross_cluster_search_connection_id)}/reject"
+      "/2015-01-01/es/ccs/inboundConnection/#{AWS.Util.encode_uri(cross_cluster_search_connection_id)}/reject"
 
     headers = []
     query_params = []
@@ -1101,7 +1101,7 @@ defmodule AWS.Elasticsearch do
   setting as setting the instance type and the number of instances.
   """
   def update_elasticsearch_domain_config(%Client{} = client, domain_name, input, options \\ []) do
-    url_path = "/2015-01-01/es/domain/#{URI.encode(domain_name)}/config"
+    url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
     headers = []
     query_params = []
 

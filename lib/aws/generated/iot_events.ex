@@ -103,7 +103,7 @@ defmodule AWS.IoTEvents do
   deleted. This action can't be undone.
   """
   def delete_alarm_model(%Client{} = client, alarm_model_name, input, options \\ []) do
-    url_path = "/alarm-models/#{URI.encode(alarm_model_name)}"
+    url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
     headers = []
     query_params = []
 
@@ -126,7 +126,7 @@ defmodule AWS.IoTEvents do
   Any active instances of the detector model are also deleted.
   """
   def delete_detector_model(%Client{} = client, detector_model_name, input, options \\ []) do
-    url_path = "/detector-models/#{URI.encode(detector_model_name)}"
+    url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
     headers = []
     query_params = []
 
@@ -147,7 +147,7 @@ defmodule AWS.IoTEvents do
   Deletes an input.
   """
   def delete_input(%Client{} = client, input_name, input, options \\ []) do
-    url_path = "/inputs/#{URI.encode(input_name)}"
+    url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
     headers = []
     query_params = []
 
@@ -176,7 +176,7 @@ defmodule AWS.IoTEvents do
         alarm_model_version \\ nil,
         options \\ []
       ) do
-    url_path = "/alarm-models/#{URI.encode(alarm_model_name)}"
+    url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
     headers = []
     query_params = []
 
@@ -212,7 +212,7 @@ defmodule AWS.IoTEvents do
         detector_model_version \\ nil,
         options \\ []
       ) do
-    url_path = "/detector-models/#{URI.encode(detector_model_name)}"
+    url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
     headers = []
     query_params = []
 
@@ -243,7 +243,7 @@ defmodule AWS.IoTEvents do
   hours to retrieve the analysis results.
   """
   def describe_detector_model_analysis(%Client{} = client, analysis_id, options \\ []) do
-    url_path = "/analysis/detector-models/#{URI.encode(analysis_id)}"
+    url_path = "/analysis/detector-models/#{AWS.Util.encode_uri(analysis_id)}"
     headers = []
     query_params = []
 
@@ -264,7 +264,7 @@ defmodule AWS.IoTEvents do
   Describes an input.
   """
   def describe_input(%Client{} = client, input_name, options \\ []) do
-    url_path = "/inputs/#{URI.encode(input_name)}"
+    url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
     headers = []
     query_params = []
 
@@ -315,7 +315,7 @@ defmodule AWS.IoTEvents do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/analysis/detector-models/#{URI.encode(analysis_id)}/results"
+    url_path = "/analysis/detector-models/#{AWS.Util.encode_uri(analysis_id)}/results"
     headers = []
     query_params = []
 
@@ -359,7 +359,7 @@ defmodule AWS.IoTEvents do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/alarm-models/#{URI.encode(alarm_model_name)}/versions"
+    url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}/versions"
     headers = []
     query_params = []
 
@@ -439,7 +439,7 @@ defmodule AWS.IoTEvents do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/detector-models/#{URI.encode(detector_model_name)}/versions"
+    url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}/versions"
     headers = []
     query_params = []
 
@@ -708,7 +708,7 @@ defmodule AWS.IoTEvents do
   created again as new data arrives.
   """
   def update_alarm_model(%Client{} = client, alarm_model_name, input, options \\ []) do
-    url_path = "/alarm-models/#{URI.encode(alarm_model_name)}"
+    url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
     headers = []
     query_params = []
 
@@ -732,7 +732,7 @@ defmodule AWS.IoTEvents do
   re-created as new inputs arrive.
   """
   def update_detector_model(%Client{} = client, detector_model_name, input, options \\ []) do
-    url_path = "/detector-models/#{URI.encode(detector_model_name)}"
+    url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
     headers = []
     query_params = []
 
@@ -753,7 +753,7 @@ defmodule AWS.IoTEvents do
   Updates an input.
   """
   def update_input(%Client{} = client, input_name, input, options \\ []) do
-    url_path = "/inputs/#{URI.encode(input_name)}"
+    url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
     headers = []
     query_params = []
 

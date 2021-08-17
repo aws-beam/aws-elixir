@@ -30,7 +30,7 @@ defmodule AWS.AmplifyBackend do
   """
   def clone_backend(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/environments/#{URI.encode(backend_environment_name)}/clone"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/environments/#{AWS.Util.encode_uri(backend_environment_name)}/clone"
 
     headers = []
     query_params = []
@@ -75,7 +75,7 @@ defmodule AWS.AmplifyBackend do
   Creates a new backend API resource.
   """
   def create_backend_api(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/api"
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/api"
     headers = []
     query_params = []
 
@@ -96,7 +96,7 @@ defmodule AWS.AmplifyBackend do
   Creates a new backend authentication resource.
   """
   def create_backend_auth(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/auth"
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/auth"
     headers = []
     query_params = []
 
@@ -117,7 +117,7 @@ defmodule AWS.AmplifyBackend do
   Creates a config object for a backend.
   """
   def create_backend_config(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/config"
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config"
     headers = []
     query_params = []
 
@@ -139,7 +139,7 @@ defmodule AWS.AmplifyBackend do
   Admin UI.
   """
   def create_token(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/challenge"
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/challenge"
     headers = []
     query_params = []
 
@@ -161,7 +161,7 @@ defmodule AWS.AmplifyBackend do
   """
   def delete_backend(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/environments/#{URI.encode(backend_environment_name)}/remove"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/environments/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
 
     headers = []
     query_params = []
@@ -189,7 +189,9 @@ defmodule AWS.AmplifyBackend do
         input,
         options \\ []
       ) do
-    url_path = "/backend/#{URI.encode(app_id)}/api/#{URI.encode(backend_environment_name)}/remove"
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
+
     headers = []
     query_params = []
 
@@ -217,7 +219,7 @@ defmodule AWS.AmplifyBackend do
         options \\ []
       ) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/auth/#{URI.encode(backend_environment_name)}/remove"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
 
     headers = []
     query_params = []
@@ -239,7 +241,9 @@ defmodule AWS.AmplifyBackend do
   Deletes the challenge token based on the given appId and sessionId.
   """
   def delete_token(%Client{} = client, app_id, session_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/challenge/#{URI.encode(session_id)}/remove"
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/challenge/#{AWS.Util.encode_uri(session_id)}/remove"
+
     headers = []
     query_params = []
 
@@ -267,7 +271,7 @@ defmodule AWS.AmplifyBackend do
         options \\ []
       ) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/api/#{URI.encode(backend_environment_name)}/generateModels"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}/generateModels"
 
     headers = []
     query_params = []
@@ -289,7 +293,7 @@ defmodule AWS.AmplifyBackend do
   Provides project-level details for your Amplify UI project.
   """
   def get_backend(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/details"
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/details"
     headers = []
     query_params = []
 
@@ -311,7 +315,7 @@ defmodule AWS.AmplifyBackend do
   """
   def get_backend_api(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/api/#{URI.encode(backend_environment_name)}/details"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}/details"
 
     headers = []
     query_params = []
@@ -340,7 +344,7 @@ defmodule AWS.AmplifyBackend do
         options \\ []
       ) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/api/#{URI.encode(backend_environment_name)}/getModels"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}/getModels"
 
     headers = []
     query_params = []
@@ -363,7 +367,7 @@ defmodule AWS.AmplifyBackend do
   """
   def get_backend_auth(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/auth/#{URI.encode(backend_environment_name)}/details"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}/details"
 
     headers = []
     query_params = []
@@ -386,7 +390,7 @@ defmodule AWS.AmplifyBackend do
   """
   def get_backend_job(%Client{} = client, app_id, backend_environment_name, job_id, options \\ []) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/job/#{URI.encode(backend_environment_name)}/#{URI.encode(job_id)}"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/job/#{AWS.Util.encode_uri(backend_environment_name)}/#{AWS.Util.encode_uri(job_id)}"
 
     headers = []
     query_params = []
@@ -408,7 +412,9 @@ defmodule AWS.AmplifyBackend do
   Gets the challenge token based on the given appId and sessionId.
   """
   def get_token(%Client{} = client, app_id, session_id, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/challenge/#{URI.encode(session_id)}"
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/challenge/#{AWS.Util.encode_uri(session_id)}"
+
     headers = []
     query_params = []
 
@@ -436,7 +442,7 @@ defmodule AWS.AmplifyBackend do
         options \\ []
       ) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/auth/#{URI.encode(backend_environment_name)}/import"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}/import"
 
     headers = []
     query_params = []
@@ -464,7 +470,9 @@ defmodule AWS.AmplifyBackend do
         input,
         options \\ []
       ) do
-    url_path = "/backend/#{URI.encode(app_id)}/job/#{URI.encode(backend_environment_name)}"
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/job/#{AWS.Util.encode_uri(backend_environment_name)}"
+
     headers = []
     query_params = []
 
@@ -485,7 +493,7 @@ defmodule AWS.AmplifyBackend do
   Removes all backend environments from your Amplify project.
   """
   def remove_all_backends(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/remove"
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/remove"
     headers = []
     query_params = []
 
@@ -506,7 +514,7 @@ defmodule AWS.AmplifyBackend do
   Removes the AWS resources required to access the Amplify Admin UI.
   """
   def remove_backend_config(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/config/remove"
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config/remove"
     headers = []
     query_params = []
 
@@ -533,7 +541,9 @@ defmodule AWS.AmplifyBackend do
         input,
         options \\ []
       ) do
-    url_path = "/backend/#{URI.encode(app_id)}/api/#{URI.encode(backend_environment_name)}"
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}"
+
     headers = []
     query_params = []
 
@@ -560,7 +570,9 @@ defmodule AWS.AmplifyBackend do
         input,
         options \\ []
       ) do
-    url_path = "/backend/#{URI.encode(app_id)}/auth/#{URI.encode(backend_environment_name)}"
+    url_path =
+      "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}"
+
     headers = []
     query_params = []
 
@@ -581,7 +593,7 @@ defmodule AWS.AmplifyBackend do
   Updates the AWS resources required to access the Amplify Admin UI.
   """
   def update_backend_config(%Client{} = client, app_id, input, options \\ []) do
-    url_path = "/backend/#{URI.encode(app_id)}/config/update"
+    url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config/update"
     headers = []
     query_params = []
 
@@ -610,7 +622,7 @@ defmodule AWS.AmplifyBackend do
         options \\ []
       ) do
     url_path =
-      "/backend/#{URI.encode(app_id)}/job/#{URI.encode(backend_environment_name)}/#{URI.encode(job_id)}"
+      "/backend/#{AWS.Util.encode_uri(app_id)}/job/#{AWS.Util.encode_uri(backend_environment_name)}/#{AWS.Util.encode_uri(job_id)}"
 
     headers = []
     query_params = []

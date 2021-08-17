@@ -63,7 +63,7 @@ defmodule AWS.DLM do
   the policy specified.
   """
   def delete_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_id)}/"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}/"
     headers = []
     query_params = []
 
@@ -150,7 +150,7 @@ defmodule AWS.DLM do
   Gets detailed information about the specified lifecycle policy.
   """
   def get_lifecycle_policy(%Client{} = client, policy_id, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_id)}/"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}/"
     headers = []
     query_params = []
 
@@ -171,7 +171,7 @@ defmodule AWS.DLM do
   Lists the tags for the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -192,7 +192,7 @@ defmodule AWS.DLM do
   Adds the specified tags to the specified resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -213,7 +213,7 @@ defmodule AWS.DLM do
   Removes the specified tags from the specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -239,7 +239,7 @@ defmodule AWS.DLM do
   Updates the specified lifecycle policy.
   """
   def update_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
-    url_path = "/policies/#{URI.encode(policy_id)}"
+    url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
     headers = []
     query_params = []
 

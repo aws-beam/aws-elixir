@@ -64,7 +64,7 @@ defmodule AWS.GreengrassV2 do
         options \\ []
       ) do
     url_path =
-      "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}/associateClientDevices"
+      "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/associateClientDevices"
 
     headers = []
     query_params = []
@@ -96,7 +96,7 @@ defmodule AWS.GreengrassV2 do
         options \\ []
       ) do
     url_path =
-      "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}/disassociateClientDevices"
+      "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/disassociateClientDevices"
 
     headers = []
     query_params = []
@@ -122,7 +122,7 @@ defmodule AWS.GreengrassV2 do
   anything for that device.
   """
   def cancel_deployment(%Client{} = client, deployment_id, input, options \\ []) do
-    url_path = "/greengrass/v2/deployments/#{URI.encode(deployment_id)}/cancel"
+    url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}/cancel"
     headers = []
     query_params = []
 
@@ -247,7 +247,7 @@ defmodule AWS.GreengrassV2 do
   the deployment or update the deployment to use a valid version.
   """
   def delete_component(%Client{} = client, arn, input, options \\ []) do
-    url_path = "/greengrass/v2/components/#{URI.encode(arn)}"
+    url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -274,7 +274,7 @@ defmodule AWS.GreengrassV2 do
   in the *AWS IoT API Reference*.
   """
   def delete_core_device(%Client{} = client, core_device_thing_name, input, options \\ []) do
-    url_path = "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}"
+    url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
     headers = []
     query_params = []
 
@@ -295,7 +295,7 @@ defmodule AWS.GreengrassV2 do
   Retrieves metadata for a version of a component.
   """
   def describe_component(%Client{} = client, arn, options \\ []) do
-    url_path = "/greengrass/v2/components/#{URI.encode(arn)}/metadata"
+    url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/metadata"
     headers = []
     query_params = []
 
@@ -319,7 +319,7 @@ defmodule AWS.GreengrassV2 do
   to install a component.
   """
   def get_component(%Client{} = client, arn, recipe_output_format \\ nil, options \\ []) do
-    url_path = "/greengrass/v2/components/#{URI.encode(arn)}"
+    url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -351,7 +351,7 @@ defmodule AWS.GreengrassV2 do
   """
   def get_component_version_artifact(%Client{} = client, arn, artifact_name, options \\ []) do
     url_path =
-      "/greengrass/v2/components/#{URI.encode(arn)}/artifacts/#{AWS.Util.encode_uri(artifact_name, true)}"
+      "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/artifacts/#{AWS.Util.encode_multi_segment_uri(artifact_name)}"
 
     headers = []
     query_params = []
@@ -373,7 +373,7 @@ defmodule AWS.GreengrassV2 do
   Retrieves metadata for a AWS IoT Greengrass core device.
   """
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
-    url_path = "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}"
+    url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
     headers = []
     query_params = []
 
@@ -396,7 +396,7 @@ defmodule AWS.GreengrassV2 do
   Deployments define the components that run on AWS IoT Greengrass core devices.
   """
   def get_deployment(%Client{} = client, deployment_id, options \\ []) do
-    url_path = "/greengrass/v2/deployments/#{URI.encode(deployment_id)}"
+    url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
     headers = []
     query_params = []
 
@@ -425,7 +425,7 @@ defmodule AWS.GreengrassV2 do
         options \\ []
       ) do
     url_path =
-      "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}/associatedClientDevices"
+      "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/associatedClientDevices"
 
     headers = []
     query_params = []
@@ -469,7 +469,7 @@ defmodule AWS.GreengrassV2 do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/greengrass/v2/components/#{URI.encode(arn)}/versions"
+    url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/versions"
     headers = []
     query_params = []
 
@@ -674,7 +674,7 @@ defmodule AWS.GreengrassV2 do
         options \\ []
       ) do
     url_path =
-      "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}/effectiveDeployments"
+      "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/effectiveDeployments"
 
     headers = []
     query_params = []
@@ -718,7 +718,7 @@ defmodule AWS.GreengrassV2 do
         options \\ []
       ) do
     url_path =
-      "/greengrass/v2/coreDevices/#{URI.encode(core_device_thing_name)}/installedComponents"
+      "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/installedComponents"
 
     headers = []
     query_params = []
@@ -754,7 +754,7 @@ defmodule AWS.GreengrassV2 do
   Retrieves the list of tags for an AWS IoT Greengrass resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -818,7 +818,7 @@ defmodule AWS.GreengrassV2 do
   value.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -839,7 +839,7 @@ defmodule AWS.GreengrassV2 do
   Removes a tag from an AWS IoT Greengrass resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

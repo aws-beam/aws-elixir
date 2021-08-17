@@ -60,7 +60,7 @@ defmodule AWS.IotDeviceAdvisor do
   Deletes a Device Advisor test suite.
   """
   def delete_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
-    url_path = "/suiteDefinitions/#{URI.encode(suite_definition_id)}"
+    url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
     headers = []
     query_params = []
 
@@ -86,7 +86,7 @@ defmodule AWS.IotDeviceAdvisor do
         suite_definition_version \\ nil,
         options \\ []
       ) do
-    url_path = "/suiteDefinitions/#{URI.encode(suite_definition_id)}"
+    url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
     headers = []
     query_params = []
 
@@ -115,7 +115,7 @@ defmodule AWS.IotDeviceAdvisor do
   """
   def get_suite_run(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
-      "/suiteDefinitions/#{URI.encode(suite_definition_id)}/suiteRuns/#{URI.encode(suite_run_id)}"
+      "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}"
 
     headers = []
     query_params = []
@@ -139,7 +139,7 @@ defmodule AWS.IotDeviceAdvisor do
   """
   def get_suite_run_report(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
-      "/suiteDefinitions/#{URI.encode(suite_definition_id)}/suiteRuns/#{URI.encode(suite_run_id)}/report"
+      "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/report"
 
     headers = []
     query_params = []
@@ -260,7 +260,7 @@ defmodule AWS.IotDeviceAdvisor do
   Lists the tags attached to an IoT Device Advisor resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -281,7 +281,7 @@ defmodule AWS.IotDeviceAdvisor do
   Starts a Device Advisor test suite run.
   """
   def start_suite_run(%Client{} = client, suite_definition_id, input, options \\ []) do
-    url_path = "/suiteDefinitions/#{URI.encode(suite_definition_id)}/suiteRuns"
+    url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns"
     headers = []
     query_params = []
 
@@ -303,7 +303,7 @@ defmodule AWS.IotDeviceAdvisor do
   """
   def stop_suite_run(%Client{} = client, suite_definition_id, suite_run_id, input, options \\ []) do
     url_path =
-      "/suiteDefinitions/#{URI.encode(suite_definition_id)}/suiteRuns/#{URI.encode(suite_run_id)}/stop"
+      "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/stop"
 
     headers = []
     query_params = []
@@ -325,7 +325,7 @@ defmodule AWS.IotDeviceAdvisor do
   Adds to and modifies existing tags of an IoT Device Advisor resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -346,7 +346,7 @@ defmodule AWS.IotDeviceAdvisor do
   Removes tags from an IoT Device Advisor resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -372,7 +372,7 @@ defmodule AWS.IotDeviceAdvisor do
   Updates a Device Advisor test suite.
   """
   def update_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
-    url_path = "/suiteDefinitions/#{URI.encode(suite_definition_id)}"
+    url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
     headers = []
     query_params = []
 

@@ -67,7 +67,7 @@ defmodule AWS.AuditManager do
         input,
         options \\ []
       ) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/associateToAssessmentReport"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/associateToAssessmentReport"
     headers = []
     query_params = []
 
@@ -94,7 +94,9 @@ defmodule AWS.AuditManager do
         input,
         options \\ []
       ) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/batchAssociateToAssessmentReport"
+    url_path =
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/batchAssociateToAssessmentReport"
+
     headers = []
     query_params = []
 
@@ -120,7 +122,7 @@ defmodule AWS.AuditManager do
         input,
         options \\ []
       ) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/delegations"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/delegations"
     headers = []
     query_params = []
 
@@ -146,7 +148,7 @@ defmodule AWS.AuditManager do
         input,
         options \\ []
       ) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/delegations"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/delegations"
     headers = []
     query_params = []
 
@@ -173,7 +175,9 @@ defmodule AWS.AuditManager do
         input,
         options \\ []
       ) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/batchDisassociateFromAssessmentReport"
+    url_path =
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/batchDisassociateFromAssessmentReport"
+
     headers = []
     query_params = []
 
@@ -203,7 +207,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/controls/#{URI.encode(control_id)}/evidence"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/controls/#{AWS.Util.encode_uri(control_id)}/evidence"
 
     headers = []
     query_params = []
@@ -267,7 +271,7 @@ defmodule AWS.AuditManager do
   Creates an assessment report for the specified assessment.
   """
   def create_assessment_report(%Client{} = client, assessment_id, input, options \\ []) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/reports"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/reports"
     headers = []
     query_params = []
 
@@ -309,7 +313,7 @@ defmodule AWS.AuditManager do
   Deletes an assessment in Audit Manager.
   """
   def delete_assessment(%Client{} = client, assessment_id, input, options \\ []) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
     headers = []
     query_params = []
 
@@ -330,7 +334,7 @@ defmodule AWS.AuditManager do
   Deletes a custom framework in Audit Manager.
   """
   def delete_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
-    url_path = "/assessmentFrameworks/#{URI.encode(framework_id)}"
+    url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
     headers = []
     query_params = []
 
@@ -358,7 +362,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/reports/#{URI.encode(assessment_report_id)}"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/reports/#{AWS.Util.encode_uri(assessment_report_id)}"
 
     headers = []
     query_params = []
@@ -380,7 +384,7 @@ defmodule AWS.AuditManager do
   Deletes a custom control in Audit Manager.
   """
   def delete_control(%Client{} = client, control_id, input, options \\ []) do
-    url_path = "/controls/#{URI.encode(control_id)}"
+    url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
     headers = []
     query_params = []
 
@@ -456,7 +460,9 @@ defmodule AWS.AuditManager do
         input,
         options \\ []
       ) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/disassociateFromAssessmentReport"
+    url_path =
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/disassociateFromAssessmentReport"
+
     headers = []
     query_params = []
 
@@ -498,7 +504,7 @@ defmodule AWS.AuditManager do
   Returns an assessment from Audit Manager.
   """
   def get_assessment(%Client{} = client, assessment_id, options \\ []) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
     headers = []
     query_params = []
 
@@ -519,7 +525,7 @@ defmodule AWS.AuditManager do
   Returns a framework from Audit Manager.
   """
   def get_assessment_framework(%Client{} = client, framework_id, options \\ []) do
-    url_path = "/assessmentFrameworks/#{URI.encode(framework_id)}"
+    url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
     headers = []
     query_params = []
 
@@ -546,7 +552,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/reports/#{URI.encode(assessment_report_id)}/url"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/reports/#{AWS.Util.encode_uri(assessment_report_id)}/url"
 
     headers = []
     query_params = []
@@ -576,7 +582,7 @@ defmodule AWS.AuditManager do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/changelogs"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/changelogs"
     headers = []
     query_params = []
 
@@ -625,7 +631,7 @@ defmodule AWS.AuditManager do
   Returns a control from Audit Manager.
   """
   def get_control(%Client{} = client, control_id, options \\ []) do
-    url_path = "/controls/#{URI.encode(control_id)}"
+    url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
     headers = []
     query_params = []
 
@@ -689,7 +695,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{URI.encode(evidence_folder_id)}/evidence/#{URI.encode(evidence_id)}"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/evidenceFolders/#{AWS.Util.encode_uri(evidence_folder_id)}/evidence/#{AWS.Util.encode_uri(evidence_id)}"
 
     headers = []
     query_params = []
@@ -720,7 +726,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{URI.encode(evidence_folder_id)}/evidence"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/evidenceFolders/#{AWS.Util.encode_uri(evidence_folder_id)}/evidence"
 
     headers = []
     query_params = []
@@ -763,7 +769,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/evidenceFolders/#{URI.encode(evidence_folder_id)}"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/evidenceFolders/#{AWS.Util.encode_uri(evidence_folder_id)}"
 
     headers = []
     query_params = []
@@ -791,7 +797,7 @@ defmodule AWS.AuditManager do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/evidenceFolders"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/evidenceFolders"
     headers = []
     query_params = []
 
@@ -836,7 +842,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/evidenceFolders-by-assessment-control/#{URI.encode(control_set_id)}/#{URI.encode(control_id)}"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/evidenceFolders-by-assessment-control/#{AWS.Util.encode_uri(control_set_id)}/#{AWS.Util.encode_uri(control_id)}"
 
     headers = []
     query_params = []
@@ -916,7 +922,7 @@ defmodule AWS.AuditManager do
   Returns the settings for the specified account.
   """
   def get_settings(%Client{} = client, attribute, options \\ []) do
-    url_path = "/settings/#{URI.encode(attribute)}"
+    url_path = "/settings/#{AWS.Util.encode_uri(attribute)}"
     headers = []
     query_params = []
 
@@ -1192,7 +1198,7 @@ defmodule AWS.AuditManager do
   Returns a list of tags for the specified resource in Audit Manager.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1256,7 +1262,7 @@ defmodule AWS.AuditManager do
   Tags the specified resource in Audit Manager.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1277,7 +1283,7 @@ defmodule AWS.AuditManager do
   Removes a tag from a resource in Audit Manager.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -1303,7 +1309,7 @@ defmodule AWS.AuditManager do
   Edits an Audit Manager assessment.
   """
   def update_assessment(%Client{} = client, assessment_id, input, options \\ []) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
     headers = []
     query_params = []
 
@@ -1332,7 +1338,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/controls/#{URI.encode(control_id)}"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/controls/#{AWS.Util.encode_uri(control_id)}"
 
     headers = []
     query_params = []
@@ -1361,7 +1367,7 @@ defmodule AWS.AuditManager do
         options \\ []
       ) do
     url_path =
-      "/assessments/#{URI.encode(assessment_id)}/controlSets/#{URI.encode(control_set_id)}/status"
+      "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/status"
 
     headers = []
     query_params = []
@@ -1383,7 +1389,7 @@ defmodule AWS.AuditManager do
   Updates a custom framework in Audit Manager.
   """
   def update_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
-    url_path = "/assessmentFrameworks/#{URI.encode(framework_id)}"
+    url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
     headers = []
     query_params = []
 
@@ -1404,7 +1410,7 @@ defmodule AWS.AuditManager do
   Updates the status of an assessment in Audit Manager.
   """
   def update_assessment_status(%Client{} = client, assessment_id, input, options \\ []) do
-    url_path = "/assessments/#{URI.encode(assessment_id)}/status"
+    url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/status"
     headers = []
     query_params = []
 
@@ -1425,7 +1431,7 @@ defmodule AWS.AuditManager do
   Updates a custom control in Audit Manager.
   """
   def update_control(%Client{} = client, control_id, input, options \\ []) do
-    url_path = "/controls/#{URI.encode(control_id)}"
+    url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
     headers = []
     query_params = []
 

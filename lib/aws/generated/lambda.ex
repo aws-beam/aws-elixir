@@ -52,7 +52,7 @@ defmodule AWS.Lambda do
         options \\ []
       ) do
     url_path =
-      "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy"
+      "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy"
 
     headers = []
 
@@ -96,7 +96,7 @@ defmodule AWS.Lambda do
   function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
   """
   def add_permission(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/policy"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
     headers = []
 
     {query_params, input} =
@@ -131,7 +131,7 @@ defmodule AWS.Lambda do
   invocation requests that it receives.
   """
   def create_alias(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases"
     headers = []
     query_params = []
 
@@ -310,7 +310,9 @@ defmodule AWS.Lambda do
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
   """
   def delete_alias(%Client{} = client, function_name, name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
+    url_path =
+      "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
+
     headers = []
     query_params = []
 
@@ -338,7 +340,7 @@ defmodule AWS.Lambda do
         input,
         options \\ []
       ) do
-    url_path = "/2020-04-22/code-signing-configs/#{URI.encode(code_signing_config_arn)}"
+    url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
     headers = []
     query_params = []
 
@@ -365,7 +367,7 @@ defmodule AWS.Lambda do
   not be completely deleted for several seconds.
   """
   def delete_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
-    url_path = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
+    url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
     headers = []
     query_params = []
 
@@ -394,7 +396,7 @@ defmodule AWS.Lambda do
   originally configured it.
   """
   def delete_function(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
     headers = []
 
     {query_params, input} =
@@ -420,7 +422,7 @@ defmodule AWS.Lambda do
   Removes the code signing configuration from the function.
   """
   def delete_function_code_signing_config(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2020-06-30/functions/#{URI.encode(function_name)}/code-signing-config"
+    url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
     headers = []
     query_params = []
 
@@ -441,7 +443,7 @@ defmodule AWS.Lambda do
   Removes a concurrent execution limit from a function.
   """
   def delete_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2017-10-31/functions/#{URI.encode(function_name)}/concurrency"
+    url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
     headers = []
     query_params = []
 
@@ -466,7 +468,7 @@ defmodule AWS.Lambda do
   `PutFunctionEventInvokeConfig`.
   """
   def delete_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
+    url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
 
     {query_params, input} =
@@ -497,7 +499,7 @@ defmodule AWS.Lambda do
   """
   def delete_layer_version(%Client{} = client, layer_name, version_number, input, options \\ []) do
     url_path =
-      "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}"
+      "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
     query_params = []
@@ -524,7 +526,9 @@ defmodule AWS.Lambda do
         input,
         options \\ []
       ) do
-    url_path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
+    url_path =
+      "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency"
+
     headers = []
 
     {query_params, input} =
@@ -574,7 +578,9 @@ defmodule AWS.Lambda do
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
   """
   def get_alias(%Client{} = client, function_name, name, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
+    url_path =
+      "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
+
     headers = []
     query_params = []
 
@@ -595,7 +601,7 @@ defmodule AWS.Lambda do
   Returns information about the specified code signing configuration.
   """
   def get_code_signing_config(%Client{} = client, code_signing_config_arn, options \\ []) do
-    url_path = "/2020-04-22/code-signing-configs/#{URI.encode(code_signing_config_arn)}"
+    url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
     headers = []
     query_params = []
 
@@ -619,7 +625,7 @@ defmodule AWS.Lambda do
   `ListEventSourceMappings`.
   """
   def get_event_source_mapping(%Client{} = client, uuid, options \\ []) do
-    url_path = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
+    url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
     headers = []
     query_params = []
 
@@ -644,7 +650,7 @@ defmodule AWS.Lambda do
   version are returned.
   """
   def get_function(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
     headers = []
     query_params = []
 
@@ -672,7 +678,7 @@ defmodule AWS.Lambda do
   Returns the code signing configuration for the specified function.
   """
   def get_function_code_signing_config(%Client{} = client, function_name, options \\ []) do
-    url_path = "/2020-06-30/functions/#{URI.encode(function_name)}/code-signing-config"
+    url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
     headers = []
     query_params = []
 
@@ -695,7 +701,7 @@ defmodule AWS.Lambda do
   To set a concurrency limit for a function, use `PutFunctionConcurrency`.
   """
   def get_function_concurrency(%Client{} = client, function_name, options \\ []) do
-    url_path = "/2019-09-30/functions/#{URI.encode(function_name)}/concurrency"
+    url_path = "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
     headers = []
     query_params = []
 
@@ -727,7 +733,7 @@ defmodule AWS.Lambda do
         qualifier \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"
     headers = []
     query_params = []
 
@@ -764,7 +770,7 @@ defmodule AWS.Lambda do
         qualifier \\ nil,
         options \\ []
       ) do
-    url_path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
+    url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
     query_params = []
 
@@ -794,7 +800,7 @@ defmodule AWS.Lambda do
   """
   def get_layer_version(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
-      "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}"
+      "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
     query_params = []
@@ -848,7 +854,7 @@ defmodule AWS.Lambda do
   """
   def get_layer_version_policy(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
-      "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy"
+      "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy"
 
     headers = []
     query_params = []
@@ -871,7 +877,7 @@ defmodule AWS.Lambda do
   for a function, version, or alias.
   """
   def get_policy(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/policy"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
     headers = []
     query_params = []
 
@@ -905,7 +911,9 @@ defmodule AWS.Lambda do
         qualifier,
         options \\ []
       ) do
-    url_path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
+    url_path =
+      "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency"
+
     headers = []
     query_params = []
 
@@ -972,7 +980,7 @@ defmodule AWS.Lambda do
   action.
   """
   def invoke(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/invocations"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/invocations"
 
     {headers, input} =
       [
@@ -1018,7 +1026,7 @@ defmodule AWS.Lambda do
   Invokes a function asynchronously.
   """
   def invoke_async(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2014-11-13/functions/#{URI.encode(function_name)}/invoke-async/"
+    url_path = "/2014-11-13/functions/#{AWS.Util.encode_uri(function_name)}/invoke-async/"
     headers = []
     query_params = []
 
@@ -1048,7 +1056,7 @@ defmodule AWS.Lambda do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases"
     headers = []
     query_params = []
 
@@ -1201,7 +1209,9 @@ defmodule AWS.Lambda do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config/list"
+    url_path =
+      "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config/list"
+
     headers = []
     query_params = []
 
@@ -1312,7 +1322,9 @@ defmodule AWS.Lambda do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2020-04-22/code-signing-configs/#{URI.encode(code_signing_config_arn)}/functions"
+    url_path =
+      "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}/functions"
+
     headers = []
     query_params = []
 
@@ -1357,7 +1369,7 @@ defmodule AWS.Lambda do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions"
+    url_path = "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions"
     headers = []
     query_params = []
 
@@ -1458,7 +1470,7 @@ defmodule AWS.Lambda do
         options \\ []
       ) do
     url_path =
-      "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency?List=ALL"
+      "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency?List=ALL"
 
     headers = []
     query_params = []
@@ -1497,7 +1509,7 @@ defmodule AWS.Lambda do
   You can also view tags with `GetFunction`.
   """
   def list_tags(%Client{} = client, resource, options \\ []) do
-    url_path = "/2017-03-31/tags/#{URI.encode(resource)}"
+    url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
     headers = []
     query_params = []
 
@@ -1528,7 +1540,7 @@ defmodule AWS.Lambda do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/versions"
     headers = []
     query_params = []
 
@@ -1570,7 +1582,7 @@ defmodule AWS.Lambda do
   `UpdateFunctionConfiguration`.
   """
   def publish_layer_version(%Client{} = client, layer_name, input, options \\ []) do
-    url_path = "/2018-10-31/layers/#{URI.encode(layer_name)}/versions"
+    url_path = "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions"
     headers = []
     query_params = []
 
@@ -1604,7 +1616,7 @@ defmodule AWS.Lambda do
   `CreateAlias`.
   """
   def publish_version(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/versions"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/versions"
     headers = []
     query_params = []
 
@@ -1628,7 +1640,7 @@ defmodule AWS.Lambda do
   to deploy a code package to the function.
   """
   def put_function_code_signing_config(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2020-06-30/functions/#{URI.encode(function_name)}/code-signing-config"
+    url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
     headers = []
     query_params = []
 
@@ -1661,7 +1673,7 @@ defmodule AWS.Lambda do
   per-function limit. For more information, see [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html).
   """
   def put_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2017-10-31/functions/#{URI.encode(function_name)}/concurrency"
+    url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
     headers = []
     query_params = []
 
@@ -1701,7 +1713,7 @@ defmodule AWS.Lambda do
   destinations in addition to or instead of a dead-letter queue.
   """
   def put_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
+    url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
 
     {query_params, input} =
@@ -1727,7 +1739,9 @@ defmodule AWS.Lambda do
   Adds a provisioned concurrency configuration to a function's alias or version.
   """
   def put_provisioned_concurrency_config(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2019-09-30/functions/#{URI.encode(function_name)}/provisioned-concurrency"
+    url_path =
+      "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency"
+
     headers = []
 
     {query_params, input} =
@@ -1763,7 +1777,7 @@ defmodule AWS.Lambda do
         options \\ []
       ) do
     url_path =
-      "/2018-10-31/layers/#{URI.encode(layer_name)}/versions/#{URI.encode(version_number)}/policy/#{URI.encode(statement_id)}"
+      "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy/#{AWS.Util.encode_uri(statement_id)}"
 
     headers = []
 
@@ -1794,7 +1808,7 @@ defmodule AWS.Lambda do
   """
   def remove_permission(%Client{} = client, function_name, statement_id, input, options \\ []) do
     url_path =
-      "/2015-03-31/functions/#{URI.encode(function_name)}/policy/#{URI.encode(statement_id)}"
+      "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy/#{AWS.Util.encode_uri(statement_id)}"
 
     headers = []
 
@@ -1823,7 +1837,7 @@ defmodule AWS.Lambda do
   function.
   """
   def tag_resource(%Client{} = client, resource, input, options \\ []) do
-    url_path = "/2017-03-31/tags/#{URI.encode(resource)}"
+    url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
     headers = []
     query_params = []
 
@@ -1845,7 +1859,7 @@ defmodule AWS.Lambda do
   function.
   """
   def untag_resource(%Client{} = client, resource, input, options \\ []) do
-    url_path = "/2017-03-31/tags/#{URI.encode(resource)}"
+    url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
     headers = []
 
     {query_params, input} =
@@ -1872,7 +1886,9 @@ defmodule AWS.Lambda do
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html).
   """
   def update_alias(%Client{} = client, function_name, name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/aliases/#{URI.encode(name)}"
+    url_path =
+      "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
+
     headers = []
     query_params = []
 
@@ -1901,7 +1917,7 @@ defmodule AWS.Lambda do
         input,
         options \\ []
       ) do
-    url_path = "/2020-04-22/code-signing-configs/#{URI.encode(code_signing_config_arn)}"
+    url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
     headers = []
     query_params = []
 
@@ -1945,7 +1961,7 @@ defmodule AWS.Lambda do
   concurrently.
   """
   def update_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
-    url_path = "/2015-03-31/event-source-mappings/#{URI.encode(uuid)}"
+    url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
     headers = []
     query_params = []
 
@@ -1976,7 +1992,7 @@ defmodule AWS.Lambda do
   does not automatically update the function.
   """
   def update_function_code(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/code"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/code"
     headers = []
     query_params = []
 
@@ -2013,7 +2029,7 @@ defmodule AWS.Lambda do
   permissions to an account or Amazon Web Services service, use `AddPermission`.
   """
   def update_function_configuration(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2015-03-31/functions/#{URI.encode(function_name)}/configuration"
+    url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"
     headers = []
     query_params = []
 
@@ -2038,7 +2054,7 @@ defmodule AWS.Lambda do
   `PutFunctionEventInvokeConfig`.
   """
   def update_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
-    url_path = "/2019-09-25/functions/#{URI.encode(function_name)}/event-invoke-config"
+    url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
 
     {query_params, input} =

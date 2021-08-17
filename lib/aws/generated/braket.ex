@@ -30,7 +30,7 @@ defmodule AWS.Braket do
   Cancels the specified task.
   """
   def cancel_quantum_task(%Client{} = client, quantum_task_arn, input, options \\ []) do
-    url_path = "/quantum-task/#{URI.encode(quantum_task_arn)}/cancel"
+    url_path = "/quantum-task/#{AWS.Util.encode_uri(quantum_task_arn)}/cancel"
     headers = []
     query_params = []
 
@@ -72,7 +72,7 @@ defmodule AWS.Braket do
   Retrieves the devices available in Amazon Braket.
   """
   def get_device(%Client{} = client, device_arn, options \\ []) do
-    url_path = "/device/#{URI.encode(device_arn)}"
+    url_path = "/device/#{AWS.Util.encode_uri(device_arn)}"
     headers = []
     query_params = []
 
@@ -93,7 +93,7 @@ defmodule AWS.Braket do
   Retrieves the specified quantum task.
   """
   def get_quantum_task(%Client{} = client, quantum_task_arn, options \\ []) do
-    url_path = "/quantum-task/#{URI.encode(quantum_task_arn)}"
+    url_path = "/quantum-task/#{AWS.Util.encode_uri(quantum_task_arn)}"
     headers = []
     query_params = []
 
@@ -114,7 +114,7 @@ defmodule AWS.Braket do
   Shows the tags associated with this resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -177,7 +177,7 @@ defmodule AWS.Braket do
   Add a tag to the specified resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -198,7 +198,7 @@ defmodule AWS.Braket do
   Remove tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

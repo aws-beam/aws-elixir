@@ -51,7 +51,7 @@ defmodule AWS.Finspace do
   Delete an FinSpace environment.
   """
   def delete_environment(%Client{} = client, environment_id, input, options \\ []) do
-    url_path = "/environment/#{URI.encode(environment_id)}"
+    url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
     query_params = []
 
@@ -72,7 +72,7 @@ defmodule AWS.Finspace do
   Returns the FinSpace environment object.
   """
   def get_environment(%Client{} = client, environment_id, options \\ []) do
-    url_path = "/environment/#{URI.encode(environment_id)}"
+    url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
     query_params = []
 
@@ -128,7 +128,7 @@ defmodule AWS.Finspace do
   A list of all tags for a resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -149,7 +149,7 @@ defmodule AWS.Finspace do
   Adds metadata tags to a FinSpace resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -170,7 +170,7 @@ defmodule AWS.Finspace do
   Removes metadata tags from a FinSpace resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -196,7 +196,7 @@ defmodule AWS.Finspace do
   Update your FinSpace environment.
   """
   def update_environment(%Client{} = client, environment_id, input, options \\ []) do
-    url_path = "/environment/#{URI.encode(environment_id)}"
+    url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
     query_params = []
 

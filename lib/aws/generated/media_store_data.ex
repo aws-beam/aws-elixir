@@ -33,7 +33,7 @@ defmodule AWS.MediaStoreData do
   Deletes an object at the specified path.
   """
   def delete_object(%Client{} = client, path, input, options \\ []) do
-    url_path = "/#{AWS.Util.encode_uri(path, true)}"
+    url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
     query_params = []
 
@@ -54,7 +54,7 @@ defmodule AWS.MediaStoreData do
   Gets the headers for an object at the specified path.
   """
   def describe_object(%Client{} = client, path, input, options \\ []) do
-    url_path = "/#{AWS.Util.encode_uri(path, true)}"
+    url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
     query_params = []
 
@@ -91,7 +91,7 @@ defmodule AWS.MediaStoreData do
   MediaStore downloads the object even if it’s still uploading the object.
   """
   def get_object(%Client{} = client, path, range \\ nil, options \\ []) do
-    url_path = "/#{AWS.Util.encode_uri(path, true)}"
+    url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
 
     headers =
@@ -193,7 +193,7 @@ defmodule AWS.MediaStoreData do
   streaming upload availability.
   """
   def put_object(%Client{} = client, path, input, options \\ []) do
-    url_path = "/#{AWS.Util.encode_uri(path, true)}"
+    url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 
     {headers, input} =
       [

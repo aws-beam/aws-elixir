@@ -47,7 +47,7 @@ defmodule AWS.Connect do
   Associates an approved origin to an Amazon Connect instance.
   """
   def associate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/approved-origin"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
     headers = []
     query_params = []
 
@@ -71,7 +71,7 @@ defmodule AWS.Connect do
   or Amazon Lex V2 bot.
   """
   def associate_bot(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/bot"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
     headers = []
     query_params = []
 
@@ -101,7 +101,7 @@ defmodule AWS.Connect do
   configuration, like an S3 bucket, exists when being used for association.
   """
   def associate_instance_storage_config(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/storage-config"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config"
     headers = []
     query_params = []
 
@@ -125,7 +125,7 @@ defmodule AWS.Connect do
   function.
   """
   def associate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/lambda-function"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
     headers = []
     query_params = []
 
@@ -149,7 +149,7 @@ defmodule AWS.Connect do
   bot.
   """
   def associate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/lex-bot"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
     headers = []
     query_params = []
 
@@ -179,7 +179,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/associate-quick-connects"
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/associate-quick-connects"
 
     headers = []
     query_params = []
@@ -208,7 +208,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/associate-queues"
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/associate-queues"
 
     headers = []
     query_params = []
@@ -232,7 +232,7 @@ defmodule AWS.Connect do
   Associates a security key to the instance.
   """
   def associate_security_key(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/security-key"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key"
     headers = []
     query_params = []
 
@@ -255,7 +255,7 @@ defmodule AWS.Connect do
   You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
   def create_contact_flow(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/contact-flows/#{URI.encode(instance_id)}"
+    url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -308,7 +308,7 @@ defmodule AWS.Connect do
   Create an AppIntegration association with an Amazon Connect instance.
   """
   def create_integration_association(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/integration-associations"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
     headers = []
     query_params = []
 
@@ -331,7 +331,7 @@ defmodule AWS.Connect do
   Creates a new queue for the specified Amazon Connect instance.
   """
   def create_queue(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/queues/#{URI.encode(instance_id)}"
+    url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -352,7 +352,7 @@ defmodule AWS.Connect do
   Creates a quick connect for the specified Amazon Connect instance.
   """
   def create_quick_connect(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/quick-connects/#{URI.encode(instance_id)}"
+    url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -373,7 +373,7 @@ defmodule AWS.Connect do
   Creates a new routing profile.
   """
   def create_routing_profile(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/routing-profiles/#{URI.encode(instance_id)}"
+    url_path = "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -401,7 +401,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/instance/#{URI.encode(instance_id)}/integration-associations/#{URI.encode(integration_association_id)}/use-cases"
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases"
 
     headers = []
     query_params = []
@@ -427,7 +427,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def create_user(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/users/#{URI.encode(instance_id)}"
+    url_path = "/users/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -448,7 +448,7 @@ defmodule AWS.Connect do
   Creates a new user hierarchy group.
   """
   def create_user_hierarchy_group(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/user-hierarchy-groups/#{URI.encode(instance_id)}"
+    url_path = "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -477,7 +477,7 @@ defmodule AWS.Connect do
   deleting instances in your account.
   """
   def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -507,7 +507,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/instance/#{URI.encode(instance_id)}/integration-associations/#{URI.encode(integration_association_id)}"
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}"
 
     headers = []
     query_params = []
@@ -535,7 +535,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/quick-connects/#{URI.encode(instance_id)}/#{URI.encode(quick_connect_id)}"
+    url_path =
+      "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
+
     headers = []
     query_params = []
 
@@ -564,7 +566,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/instance/#{URI.encode(instance_id)}/integration-associations/#{URI.encode(integration_association_id)}/use-cases/#{URI.encode(use_case_id)}"
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases/#{AWS.Util.encode_uri(use_case_id)}"
 
     headers = []
     query_params = []
@@ -590,7 +592,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def delete_user(%Client{} = client, instance_id, user_id, input, options \\ []) do
-    url_path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
+    url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
     headers = []
     query_params = []
 
@@ -620,7 +622,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/user-hierarchy-groups/#{URI.encode(instance_id)}/#{URI.encode(hierarchy_group_id)}"
+      "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hierarchy_group_id)}"
 
     headers = []
     query_params = []
@@ -644,7 +646,9 @@ defmodule AWS.Connect do
   You can also create and update contact flows using the [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
   """
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
-    url_path = "/contact-flows/#{URI.encode(instance_id)}/#{URI.encode(contact_flow_id)}"
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
+
     headers = []
     query_params = []
 
@@ -673,7 +677,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/hours-of-operations/#{URI.encode(instance_id)}/#{URI.encode(hours_of_operation_id)}"
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
 
     headers = []
     query_params = []
@@ -702,7 +706,7 @@ defmodule AWS.Connect do
   returned only for 24 hours after the CreateInstance API was invoked.
   """
   def describe_instance(%Client{} = client, instance_id, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -725,7 +729,9 @@ defmodule AWS.Connect do
   Describes the specified instance attribute.
   """
   def describe_instance_attribute(%Client{} = client, attribute_type, instance_id, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/attribute/#{URI.encode(attribute_type)}"
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/attribute/#{AWS.Util.encode_uri(attribute_type)}"
+
     headers = []
     query_params = []
 
@@ -755,7 +761,9 @@ defmodule AWS.Connect do
         resource_type,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/storage-config/#{URI.encode(association_id)}"
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
+
     headers = []
     query_params = []
 
@@ -785,7 +793,7 @@ defmodule AWS.Connect do
   Describes the specified queue.
   """
   def describe_queue(%Client{} = client, instance_id, queue_id, options \\ []) do
-    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}"
+    url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
     headers = []
     query_params = []
 
@@ -806,7 +814,9 @@ defmodule AWS.Connect do
   Describes the quick connect.
   """
   def describe_quick_connect(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
-    url_path = "/quick-connects/#{URI.encode(instance_id)}/#{URI.encode(quick_connect_id)}"
+    url_path =
+      "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
+
     headers = []
     query_params = []
 
@@ -827,7 +837,9 @@ defmodule AWS.Connect do
   Describes the specified routing profile.
   """
   def describe_routing_profile(%Client{} = client, instance_id, routing_profile_id, options \\ []) do
-    url_path = "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}"
+    url_path =
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
+
     headers = []
     query_params = []
 
@@ -852,7 +864,7 @@ defmodule AWS.Connect do
   IDs provided in the output.
   """
   def describe_user(%Client{} = client, instance_id, user_id, options \\ []) do
-    url_path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}"
+    url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
     headers = []
     query_params = []
 
@@ -879,7 +891,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/user-hierarchy-groups/#{URI.encode(instance_id)}/#{URI.encode(hierarchy_group_id)}"
+      "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hierarchy_group_id)}"
 
     headers = []
     query_params = []
@@ -901,7 +913,7 @@ defmodule AWS.Connect do
   Describes the hierarchy structure of the specified Amazon Connect instance.
   """
   def describe_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
-    url_path = "/user-hierarchy-structure/#{URI.encode(instance_id)}"
+    url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -924,7 +936,7 @@ defmodule AWS.Connect do
   Revokes access to integrated applications from Amazon Connect.
   """
   def disassociate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/approved-origin"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
     headers = []
 
     {query_params, input} =
@@ -953,7 +965,7 @@ defmodule AWS.Connect do
   Lex or Amazon Lex V2 bot.
   """
   def disassociate_bot(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/bot"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
     headers = []
     query_params = []
 
@@ -983,7 +995,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/storage-config/#{URI.encode(association_id)}"
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
+
     headers = []
 
     {query_params, input} =
@@ -1012,7 +1026,7 @@ defmodule AWS.Connect do
   contact flow blocks.
   """
   def disassociate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/lambda-function"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
     headers = []
 
     {query_params, input} =
@@ -1041,7 +1055,7 @@ defmodule AWS.Connect do
   Lex bot.
   """
   def disassociate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/instance/#{URI.encode(instance_id)}/lex-bot"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
     headers = []
 
     {query_params, input} =
@@ -1077,7 +1091,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/disassociate-quick-connects"
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/disassociate-quick-connects"
 
     headers = []
     query_params = []
@@ -1106,7 +1120,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/disassociate-queues"
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/disassociate-queues"
 
     headers = []
     query_params = []
@@ -1136,7 +1150,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/security-key/#{URI.encode(association_id)}"
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key/#{AWS.Util.encode_uri(association_id)}"
+
     headers = []
     query_params = []
 
@@ -1157,7 +1173,9 @@ defmodule AWS.Connect do
   Retrieves the contact attributes for the specified contact.
   """
   def get_contact_attributes(%Client{} = client, initial_contact_id, instance_id, options \\ []) do
-    url_path = "/contact/attributes/#{URI.encode(instance_id)}/#{URI.encode(initial_contact_id)}"
+    url_path =
+      "/contact/attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(initial_contact_id)}"
+
     headers = []
     query_params = []
 
@@ -1181,7 +1199,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def get_current_metric_data(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/metrics/current/#{URI.encode(instance_id)}"
+    url_path = "/metrics/current/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1208,7 +1226,7 @@ defmodule AWS.Connect do
   with Amazon Connect`
   """
   def get_federation_token(%Client{} = client, instance_id, options \\ []) do
-    url_path = "/user/federate/#{URI.encode(instance_id)}"
+    url_path = "/user/federate/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1232,7 +1250,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def get_metric_data(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/metrics/historical/#{URI.encode(instance_id)}"
+    url_path = "/metrics/historical/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1261,7 +1279,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/approved-origins"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origins"
     headers = []
     query_params = []
 
@@ -1306,7 +1324,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/bots"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bots"
     headers = []
     query_params = []
 
@@ -1361,7 +1379,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/contact-flows-summary/#{URI.encode(instance_id)}"
+    url_path = "/contact-flows-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1414,7 +1432,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/hours-of-operations-summary/#{URI.encode(instance_id)}"
+    url_path = "/hours-of-operations-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1457,7 +1475,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/attributes"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/attributes"
     headers = []
     query_params = []
 
@@ -1502,7 +1520,7 @@ defmodule AWS.Connect do
         resource_type,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/storage-configs"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-configs"
     headers = []
     query_params = []
 
@@ -1591,7 +1609,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/integration-associations"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
     headers = []
     query_params = []
 
@@ -1635,7 +1653,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/lambda-functions"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-functions"
     headers = []
     query_params = []
 
@@ -1679,7 +1697,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/lex-bots"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bots"
     headers = []
     query_params = []
 
@@ -1727,7 +1745,7 @@ defmodule AWS.Connect do
         phone_number_types \\ nil,
         options \\ []
       ) do
-    url_path = "/phone-numbers-summary/#{URI.encode(instance_id)}"
+    url_path = "/phone-numbers-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1783,7 +1801,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/prompts-summary/#{URI.encode(instance_id)}"
+    url_path = "/prompts-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1827,7 +1845,9 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/quick-connects"
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/quick-connects"
+
     headers = []
     query_params = []
 
@@ -1877,7 +1897,7 @@ defmodule AWS.Connect do
         queue_types \\ nil,
         options \\ []
       ) do
-    url_path = "/queues-summary/#{URI.encode(instance_id)}"
+    url_path = "/queues-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1927,7 +1947,7 @@ defmodule AWS.Connect do
         quick_connect_types \\ nil,
         options \\ []
       ) do
-    url_path = "/quick-connects/#{URI.encode(instance_id)}"
+    url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1977,7 +1997,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/queues"
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/queues"
 
     headers = []
     query_params = []
@@ -2024,7 +2044,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/routing-profiles-summary/#{URI.encode(instance_id)}"
+    url_path = "/routing-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -2067,7 +2087,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/security-keys"
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-keys"
     headers = []
     query_params = []
 
@@ -2112,7 +2132,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/security-profiles-summary/#{URI.encode(instance_id)}"
+    url_path = "/security-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -2150,7 +2170,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -2179,7 +2199,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/instance/#{URI.encode(instance_id)}/integration-associations/#{URI.encode(integration_association_id)}/use-cases"
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases"
 
     headers = []
     query_params = []
@@ -2225,7 +2245,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/user-hierarchy-groups-summary/#{URI.encode(instance_id)}"
+    url_path = "/user-hierarchy-groups-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -2267,7 +2287,7 @@ defmodule AWS.Connect do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/users-summary/#{URI.encode(instance_id)}"
+    url_path = "/users-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -2546,7 +2566,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -2567,7 +2587,7 @@ defmodule AWS.Connect do
   Removes the specified tags from the specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -2645,7 +2665,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/contact-flows/#{URI.encode(instance_id)}/#{URI.encode(contact_flow_id)}/content"
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/content"
+
     headers = []
     query_params = []
 
@@ -2674,7 +2696,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/contact-flows/#{URI.encode(instance_id)}/#{URI.encode(contact_flow_id)}/name"
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/name"
+
     headers = []
     query_params = []
 
@@ -2703,7 +2727,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/attribute/#{URI.encode(attribute_type)}"
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/attribute/#{AWS.Util.encode_uri(attribute_type)}"
+
     headers = []
     query_params = []
 
@@ -2732,7 +2758,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/instance/#{URI.encode(instance_id)}/storage-config/#{URI.encode(association_id)}"
+    url_path =
+      "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
+
     headers = []
 
     {query_params, input} =
@@ -2766,7 +2794,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/hours-of-operation"
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/hours-of-operation"
+
     headers = []
     query_params = []
 
@@ -2790,7 +2820,9 @@ defmodule AWS.Connect do
   considered full.
   """
   def update_queue_max_contacts(%Client{} = client, instance_id, queue_id, input, options \\ []) do
-    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/max-contacts"
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/max-contacts"
+
     headers = []
     query_params = []
 
@@ -2814,7 +2846,7 @@ defmodule AWS.Connect do
   must be provided.
   """
   def update_queue_name(%Client{} = client, instance_id, queue_id, input, options \\ []) do
-    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/name"
+    url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/name"
     headers = []
     query_params = []
 
@@ -2844,7 +2876,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/outbound-caller-config"
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/outbound-caller-config"
+
     headers = []
     query_params = []
 
@@ -2867,7 +2901,9 @@ defmodule AWS.Connect do
   Updates the status of the queue.
   """
   def update_queue_status(%Client{} = client, instance_id, queue_id, input, options \\ []) do
-    url_path = "/queues/#{URI.encode(instance_id)}/#{URI.encode(queue_id)}/status"
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/status"
+
     headers = []
     query_params = []
 
@@ -2894,7 +2930,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/quick-connects/#{URI.encode(instance_id)}/#{URI.encode(quick_connect_id)}/config"
+    url_path =
+      "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}/config"
+
     headers = []
     query_params = []
 
@@ -2924,7 +2962,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/quick-connects/#{URI.encode(instance_id)}/#{URI.encode(quick_connect_id)}/name"
+    url_path =
+      "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}/name"
+
     headers = []
     query_params = []
 
@@ -2953,7 +2993,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/concurrency"
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/concurrency"
 
     headers = []
     query_params = []
@@ -2982,7 +3022,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/default-outbound-queue"
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/default-outbound-queue"
 
     headers = []
     query_params = []
@@ -3014,7 +3054,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/name"
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/name"
 
     headers = []
     query_params = []
@@ -3043,7 +3083,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/routing-profiles/#{URI.encode(instance_id)}/#{URI.encode(routing_profile_id)}/queues"
+      "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/queues"
 
     headers = []
     query_params = []
@@ -3065,7 +3105,9 @@ defmodule AWS.Connect do
   Assigns the specified hierarchy group to the specified user.
   """
   def update_user_hierarchy(%Client{} = client, instance_id, user_id, input, options \\ []) do
-    url_path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/hierarchy"
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/hierarchy"
+
     headers = []
     query_params = []
 
@@ -3093,7 +3135,7 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path =
-      "/user-hierarchy-groups/#{URI.encode(instance_id)}/#{URI.encode(hierarchy_group_id)}/name"
+      "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hierarchy_group_id)}/name"
 
     headers = []
     query_params = []
@@ -3116,7 +3158,7 @@ defmodule AWS.Connect do
   levels.
   """
   def update_user_hierarchy_structure(%Client{} = client, instance_id, input, options \\ []) do
-    url_path = "/user-hierarchy-structure/#{URI.encode(instance_id)}"
+    url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -3145,7 +3187,9 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
   """
   def update_user_identity_info(%Client{} = client, instance_id, user_id, input, options \\ []) do
-    url_path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/identity-info"
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/identity-info"
+
     headers = []
     query_params = []
 
@@ -3166,7 +3210,9 @@ defmodule AWS.Connect do
   Updates the phone configuration settings for the specified user.
   """
   def update_user_phone_config(%Client{} = client, instance_id, user_id, input, options \\ []) do
-    url_path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/phone-config"
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/phone-config"
+
     headers = []
     query_params = []
 
@@ -3187,7 +3233,9 @@ defmodule AWS.Connect do
   Assigns the specified routing profile to the specified user.
   """
   def update_user_routing_profile(%Client{} = client, instance_id, user_id, input, options \\ []) do
-    url_path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/routing-profile"
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/routing-profile"
+
     headers = []
     query_params = []
 
@@ -3214,7 +3262,9 @@ defmodule AWS.Connect do
         input,
         options \\ []
       ) do
-    url_path = "/users/#{URI.encode(instance_id)}/#{URI.encode(user_id)}/security-profiles"
+    url_path =
+      "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/security-profiles"
+
     headers = []
     query_params = []
 

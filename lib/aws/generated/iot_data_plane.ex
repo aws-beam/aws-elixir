@@ -49,7 +49,7 @@ defmodule AWS.IoTDataPlane do
   in the AWS IoT Developer Guide.
   """
   def delete_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/shadow"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
 
     {query_params, input} =
@@ -79,7 +79,7 @@ defmodule AWS.IoTDataPlane do
   in the AWS IoT Developer Guide.
   """
   def get_thing_shadow(%Client{} = client, thing_name, shadow_name \\ nil, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/shadow"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
     query_params = []
 
@@ -113,7 +113,7 @@ defmodule AWS.IoTDataPlane do
         page_size \\ nil,
         options \\ []
       ) do
-    url_path = "/api/things/shadow/ListNamedShadowsForThing/#{URI.encode(thing_name)}"
+    url_path = "/api/things/shadow/ListNamedShadowsForThing/#{AWS.Util.encode_uri(thing_name)}"
     headers = []
     query_params = []
 
@@ -151,7 +151,7 @@ defmodule AWS.IoTDataPlane do
   in the AWS IoT Developer Guide.
   """
   def publish(%Client{} = client, topic, input, options \\ []) do
-    url_path = "/topics/#{URI.encode(topic)}"
+    url_path = "/topics/#{AWS.Util.encode_uri(topic)}"
     headers = []
 
     {query_params, input} =
@@ -181,7 +181,7 @@ defmodule AWS.IoTDataPlane do
   in the AWS IoT Developer Guide.
   """
   def update_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
-    url_path = "/things/#{URI.encode(thing_name)}/shadow"
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
 
     {query_params, input} =

@@ -99,7 +99,7 @@ defmodule AWS.ServerlessApplicationRepository do
         options \\ []
       ) do
     url_path =
-      "/applications/#{URI.encode(application_id)}/versions/#{URI.encode(semantic_version)}"
+      "/applications/#{AWS.Util.encode_uri(application_id)}/versions/#{AWS.Util.encode_uri(semantic_version)}"
 
     headers = []
     query_params = []
@@ -121,7 +121,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Creates an AWS CloudFormation change set for the given application.
   """
   def create_cloud_formation_change_set(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}/changesets"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/changesets"
     headers = []
     query_params = []
 
@@ -142,7 +142,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Creates an AWS CloudFormation template.
   """
   def create_cloud_formation_template(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}/templates"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/templates"
     headers = []
     query_params = []
 
@@ -163,7 +163,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Deletes the specified application.
   """
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 
@@ -184,7 +184,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Gets the specified application.
   """
   def get_application(%Client{} = client, application_id, semantic_version \\ nil, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 
@@ -212,7 +212,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Retrieves the policy for the application.
   """
   def get_application_policy(%Client{} = client, application_id, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}/policy"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
     headers = []
     query_params = []
 
@@ -233,7 +233,9 @@ defmodule AWS.ServerlessApplicationRepository do
   Gets the specified AWS CloudFormation template.
   """
   def get_cloud_formation_template(%Client{} = client, application_id, template_id, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}/templates/#{URI.encode(template_id)}"
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
+
     headers = []
     query_params = []
 
@@ -261,7 +263,7 @@ defmodule AWS.ServerlessApplicationRepository do
         semantic_version \\ nil,
         options \\ []
       ) do
-    url_path = "/applications/#{URI.encode(application_id)}/dependencies"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dependencies"
     headers = []
     query_params = []
 
@@ -309,7 +311,7 @@ defmodule AWS.ServerlessApplicationRepository do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/applications/#{URI.encode(application_id)}/versions"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/versions"
     headers = []
     query_params = []
 
@@ -384,7 +386,7 @@ defmodule AWS.ServerlessApplicationRepository do
   .
   """
   def put_application_policy(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}/policy"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
     headers = []
     query_params = []
 
@@ -407,7 +409,7 @@ defmodule AWS.ServerlessApplicationRepository do
   This operation can be called only from the organization's master account.
   """
   def unshare_application(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}/unshare"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/unshare"
     headers = []
     query_params = []
 
@@ -428,7 +430,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Updates the specified application.
   """
   def update_application(%Client{} = client, application_id, input, options \\ []) do
-    url_path = "/applications/#{URI.encode(application_id)}"
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 

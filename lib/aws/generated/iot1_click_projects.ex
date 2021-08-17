@@ -37,7 +37,7 @@ defmodule AWS.IoT1ClickProjects do
         options \\ []
       ) do
     url_path =
-      "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}/devices/#{URI.encode(device_template_name)}"
+      "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}/devices/#{AWS.Util.encode_uri(device_template_name)}"
 
     headers = []
     query_params = []
@@ -59,7 +59,7 @@ defmodule AWS.IoT1ClickProjects do
   Creates an empty placement.
   """
   def create_placement(%Client{} = client, project_name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_name)}/placements"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_name)}/placements"
     headers = []
     query_params = []
 
@@ -108,7 +108,9 @@ defmodule AWS.IoT1ClickProjects do
   When you delete a placement, all associated data becomes irretrievable.
   """
   def delete_placement(%Client{} = client, placement_name, project_name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}"
+    url_path =
+      "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
+
     headers = []
     query_params = []
 
@@ -133,7 +135,7 @@ defmodule AWS.IoT1ClickProjects do
   When you delete a project, all associated data becomes irretrievable.
   """
   def delete_project(%Client{} = client, project_name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_name)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
     headers = []
     query_params = []
 
@@ -154,7 +156,9 @@ defmodule AWS.IoT1ClickProjects do
   Describes a placement in a project.
   """
   def describe_placement(%Client{} = client, placement_name, project_name, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}"
+    url_path =
+      "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
+
     headers = []
     query_params = []
 
@@ -175,7 +179,7 @@ defmodule AWS.IoT1ClickProjects do
   Returns an object describing a project.
   """
   def describe_project(%Client{} = client, project_name, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_name)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
     headers = []
     query_params = []
 
@@ -204,7 +208,7 @@ defmodule AWS.IoT1ClickProjects do
         options \\ []
       ) do
     url_path =
-      "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}/devices/#{URI.encode(device_template_name)}"
+      "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}/devices/#{AWS.Util.encode_uri(device_template_name)}"
 
     headers = []
     query_params = []
@@ -227,7 +231,7 @@ defmodule AWS.IoT1ClickProjects do
   """
   def get_devices_in_placement(%Client{} = client, placement_name, project_name, options \\ []) do
     url_path =
-      "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}/devices"
+      "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}/devices"
 
     headers = []
     query_params = []
@@ -255,7 +259,7 @@ defmodule AWS.IoT1ClickProjects do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/projects/#{URI.encode(project_name)}/placements"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_name)}/placements"
     headers = []
     query_params = []
 
@@ -327,7 +331,7 @@ defmodule AWS.IoT1ClickProjects do
   resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -351,7 +355,7 @@ defmodule AWS.IoT1ClickProjects do
   more information, see [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/).
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -372,7 +376,7 @@ defmodule AWS.IoT1ClickProjects do
   Removes one or more tags (metadata key/value pairs) from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -400,7 +404,9 @@ defmodule AWS.IoT1ClickProjects do
   To clear an attribute, pass an empty value (i.e., "").
   """
   def update_placement(%Client{} = client, placement_name, project_name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_name)}/placements/#{URI.encode(placement_name)}"
+    url_path =
+      "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
+
     headers = []
     query_params = []
 
@@ -425,7 +431,7 @@ defmodule AWS.IoT1ClickProjects do
   are provided. To clear a value, pass the empty string (i.e., `""`).
   """
   def update_project(%Client{} = client, project_name, input, options \\ []) do
-    url_path = "/projects/#{URI.encode(project_name)}"
+    url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
     headers = []
     query_params = []
 

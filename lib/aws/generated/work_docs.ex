@@ -69,7 +69,8 @@ defmodule AWS.WorkDocs do
         input,
         options \\ []
       ) do
-    url_path = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
+    url_path =
+      "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
 
     {headers, input} =
       [
@@ -98,7 +99,7 @@ defmodule AWS.WorkDocs do
   Only active users can access Amazon WorkDocs.
   """
   def activate_user(%Client{} = client, user_id, input, options \\ []) do
-    url_path = "/api/v1/users/#{URI.encode(user_id)}/activation"
+    url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
 
     {headers, input} =
       [
@@ -128,7 +129,7 @@ defmodule AWS.WorkDocs do
   different permissions.
   """
   def add_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
-    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
+    url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
 
     {headers, input} =
       [
@@ -156,7 +157,7 @@ defmodule AWS.WorkDocs do
   """
   def create_comment(%Client{} = client, document_id, version_id, input, options \\ []) do
     url_path =
-      "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comment"
+      "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comment"
 
     {headers, input} =
       [
@@ -184,7 +185,7 @@ defmodule AWS.WorkDocs do
   document, or version).
   """
   def create_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
-    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/customMetadata"
+    url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
 
     {headers, input} =
       [
@@ -242,7 +243,7 @@ defmodule AWS.WorkDocs do
   Adds the specified list of labels to the given resource (a document or folder)
   """
   def create_labels(%Client{} = client, resource_id, input, options \\ []) do
-    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/labels"
+    url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
 
     {headers, input} =
       [
@@ -274,7 +275,7 @@ defmodule AWS.WorkDocs do
   in the *Amazon WorkDocs Developer Guide*.
   """
   def create_notification_subscription(%Client{} = client, organization_id, input, options \\ []) do
-    url_path = "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions"
+    url_path = "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions"
     headers = []
     query_params = []
 
@@ -326,7 +327,7 @@ defmodule AWS.WorkDocs do
   WorkDocs.
   """
   def deactivate_user(%Client{} = client, user_id, input, options \\ []) do
-    url_path = "/api/v1/users/#{URI.encode(user_id)}/activation"
+    url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
 
     {headers, input} =
       [
@@ -361,7 +362,7 @@ defmodule AWS.WorkDocs do
         options \\ []
       ) do
     url_path =
-      "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comment/#{URI.encode(comment_id)}"
+      "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comment/#{AWS.Util.encode_uri(comment_id)}"
 
     {headers, input} =
       [
@@ -388,7 +389,7 @@ defmodule AWS.WorkDocs do
   Deletes custom metadata from the specified resource.
   """
   def delete_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
-    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/customMetadata"
+    url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
 
     {headers, input} =
       [
@@ -421,7 +422,7 @@ defmodule AWS.WorkDocs do
   Permanently deletes the specified document and its associated metadata.
   """
   def delete_document(%Client{} = client, document_id, input, options \\ []) do
-    url_path = "/api/v1/documents/#{URI.encode(document_id)}"
+    url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
 
     {headers, input} =
       [
@@ -448,7 +449,7 @@ defmodule AWS.WorkDocs do
   Permanently deletes the specified folder and its contents.
   """
   def delete_folder(%Client{} = client, folder_id, input, options \\ []) do
-    url_path = "/api/v1/folders/#{URI.encode(folder_id)}"
+    url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
 
     {headers, input} =
       [
@@ -475,7 +476,7 @@ defmodule AWS.WorkDocs do
   Deletes the contents of the specified folder.
   """
   def delete_folder_contents(%Client{} = client, folder_id, input, options \\ []) do
-    url_path = "/api/v1/folders/#{URI.encode(folder_id)}/contents"
+    url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/contents"
 
     {headers, input} =
       [
@@ -502,7 +503,7 @@ defmodule AWS.WorkDocs do
   Deletes the specified list of labels from a resource.
   """
   def delete_labels(%Client{} = client, resource_id, input, options \\ []) do
-    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/labels"
+    url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
 
     {headers, input} =
       [
@@ -541,7 +542,7 @@ defmodule AWS.WorkDocs do
         options \\ []
       ) do
     url_path =
-      "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions/#{URI.encode(subscription_id)}"
+      "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions/#{AWS.Util.encode_uri(subscription_id)}"
 
     headers = []
     query_params = []
@@ -563,7 +564,7 @@ defmodule AWS.WorkDocs do
   Deletes the specified user from a Simple AD or Microsoft AD directory.
   """
   def delete_user(%Client{} = client, user_id, input, options \\ []) do
-    url_path = "/api/v1/users/#{URI.encode(user_id)}"
+    url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}"
 
     {headers, input} =
       [
@@ -704,7 +705,7 @@ defmodule AWS.WorkDocs do
         options \\ []
       ) do
     url_path =
-      "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}/comments"
+      "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}/comments"
 
     headers = []
 
@@ -759,7 +760,7 @@ defmodule AWS.WorkDocs do
         authentication_token \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/documents/#{URI.encode(document_id)}/versions"
+    url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions"
     headers = []
 
     headers =
@@ -833,7 +834,7 @@ defmodule AWS.WorkDocs do
         authentication_token \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/folders/#{URI.encode(folder_id)}/contents"
+    url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/contents"
     headers = []
 
     headers =
@@ -977,7 +978,7 @@ defmodule AWS.WorkDocs do
         marker \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/organizations/#{URI.encode(organization_id)}/subscriptions"
+    url_path = "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions"
     headers = []
     query_params = []
 
@@ -1020,7 +1021,7 @@ defmodule AWS.WorkDocs do
         authentication_token \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
+    url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
     headers = []
 
     headers =
@@ -1284,7 +1285,7 @@ defmodule AWS.WorkDocs do
         authentication_token \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/documents/#{URI.encode(document_id)}"
+    url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
     headers = []
 
     headers =
@@ -1334,7 +1335,7 @@ defmodule AWS.WorkDocs do
         authentication_token \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/documents/#{URI.encode(document_id)}/path"
+    url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/path"
     headers = []
 
     headers =
@@ -1392,7 +1393,9 @@ defmodule AWS.WorkDocs do
         authentication_token \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
+    url_path =
+      "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
+
     headers = []
 
     headers =
@@ -1441,7 +1444,7 @@ defmodule AWS.WorkDocs do
         authentication_token \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/folders/#{URI.encode(folder_id)}"
+    url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
     headers = []
 
     headers =
@@ -1491,7 +1494,7 @@ defmodule AWS.WorkDocs do
         authentication_token \\ nil,
         options \\ []
       ) do
-    url_path = "/api/v1/folders/#{URI.encode(folder_id)}/path"
+    url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/path"
     headers = []
 
     headers =
@@ -1642,7 +1645,7 @@ defmodule AWS.WorkDocs do
   Removes all the permissions from the specified resource.
   """
   def remove_all_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
-    url_path = "/api/v1/resources/#{URI.encode(resource_id)}/permissions"
+    url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
 
     {headers, input} =
       [
@@ -1676,7 +1679,7 @@ defmodule AWS.WorkDocs do
         options \\ []
       ) do
     url_path =
-      "/api/v1/resources/#{URI.encode(resource_id)}/permissions/#{URI.encode(principal_id)}"
+      "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions/#{AWS.Util.encode_uri(principal_id)}"
 
     {headers, input} =
       [
@@ -1710,7 +1713,7 @@ defmodule AWS.WorkDocs do
   applicable.
   """
   def update_document(%Client{} = client, document_id, input, options \\ []) do
-    url_path = "/api/v1/documents/#{URI.encode(document_id)}"
+    url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
 
     {headers, input} =
       [
@@ -1741,7 +1744,8 @@ defmodule AWS.WorkDocs do
   S3-presigned URL returned by `InitiateDocumentVersionUpload`.
   """
   def update_document_version(%Client{} = client, document_id, version_id, input, options \\ []) do
-    url_path = "/api/v1/documents/#{URI.encode(document_id)}/versions/#{URI.encode(version_id)}"
+    url_path =
+      "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}/versions/#{AWS.Util.encode_uri(version_id)}"
 
     {headers, input} =
       [
@@ -1771,7 +1775,7 @@ defmodule AWS.WorkDocs do
   applicable.
   """
   def update_folder(%Client{} = client, folder_id, input, options \\ []) do
-    url_path = "/api/v1/folders/#{URI.encode(folder_id)}"
+    url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
 
     {headers, input} =
       [
@@ -1799,7 +1803,7 @@ defmodule AWS.WorkDocs do
   administrative privileges to the Amazon WorkDocs site.
   """
   def update_user(%Client{} = client, user_id, input, options \\ []) do
-    url_path = "/api/v1/users/#{URI.encode(user_id)}"
+    url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}"
 
     {headers, input} =
       [

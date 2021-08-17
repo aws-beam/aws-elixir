@@ -50,7 +50,7 @@ defmodule AWS.Amp do
   Deletes an AMP workspace.
   """
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
-    url_path = "/workspaces/#{URI.encode(workspace_id)}"
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
 
     {query_params, input} =
@@ -76,7 +76,7 @@ defmodule AWS.Amp do
   Describes an existing AMP workspace.
   """
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
-    url_path = "/workspaces/#{URI.encode(workspace_id)}"
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
     query_params = []
 
@@ -145,7 +145,7 @@ defmodule AWS.Amp do
   Updates an AMP workspace alias.
   """
   def update_workspace_alias(%Client{} = client, workspace_id, input, options \\ []) do
-    url_path = "/workspaces/#{URI.encode(workspace_id)}/alias"
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alias"
     headers = []
     query_params = []
 

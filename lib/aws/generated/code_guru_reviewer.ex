@@ -114,7 +114,7 @@ defmodule AWS.CodeGuruReviewer do
   Returns the metadata associated with the code review along with its status.
   """
   def describe_code_review(%Client{} = client, code_review_arn, options \\ []) do
-    url_path = "/codereviews/#{URI.encode(code_review_arn)}"
+    url_path = "/codereviews/#{AWS.Util.encode_uri(code_review_arn)}"
     headers = []
     query_params = []
 
@@ -141,7 +141,7 @@ defmodule AWS.CodeGuruReviewer do
         user_id \\ nil,
         options \\ []
       ) do
-    url_path = "/feedback/#{URI.encode(code_review_arn)}"
+    url_path = "/feedback/#{AWS.Util.encode_uri(code_review_arn)}"
     headers = []
     query_params = []
 
@@ -178,7 +178,7 @@ defmodule AWS.CodeGuruReviewer do
   object that contains information about the requested repository association.
   """
   def describe_repository_association(%Client{} = client, association_arn, options \\ []) do
-    url_path = "/associations/#{URI.encode(association_arn)}"
+    url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
     headers = []
     query_params = []
 
@@ -199,7 +199,7 @@ defmodule AWS.CodeGuruReviewer do
   Removes the association between Amazon CodeGuru Reviewer and a repository.
   """
   def disassociate_repository(%Client{} = client, association_arn, input, options \\ []) do
-    url_path = "/associations/#{URI.encode(association_arn)}"
+    url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
     headers = []
     query_params = []
 
@@ -303,7 +303,7 @@ defmodule AWS.CodeGuruReviewer do
         user_ids \\ nil,
         options \\ []
       ) do
-    url_path = "/feedback/#{URI.encode(code_review_arn)}/RecommendationFeedback"
+    url_path = "/feedback/#{AWS.Util.encode_uri(code_review_arn)}/RecommendationFeedback"
     headers = []
     query_params = []
 
@@ -358,7 +358,7 @@ defmodule AWS.CodeGuruReviewer do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/codereviews/#{URI.encode(code_review_arn)}/Recommendations"
+    url_path = "/codereviews/#{AWS.Util.encode_uri(code_review_arn)}/Recommendations"
     headers = []
     query_params = []
 
@@ -476,7 +476,7 @@ defmodule AWS.CodeGuruReviewer do
   Returns the list of tags associated with an associated repository resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -521,7 +521,7 @@ defmodule AWS.CodeGuruReviewer do
   Adds one or more tags to an associated repository.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -542,7 +542,7 @@ defmodule AWS.CodeGuruReviewer do
   Removes a tag from an associated repository.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

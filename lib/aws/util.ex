@@ -2,39 +2,21 @@ defmodule AWS.Util do
   @moduledoc false
 
   @doc """
-  Create an HMAC-SHA256 for `key` and `message`.
+  Encodes URI preserving segments.
+
+  Segments are separated by a slash - "/".
   """
-  if System.otp_release() >= "22" do
-    def hmac_sha256(key, message) do
-      :crypto.mac(:hmac, :sha256, key, message)
-    end
-  else
-    def hmac_sha256(key, message) do
-      :crypto.hmac(:sha256, key, message)
-    end
+  def encode_multi_segment_uri(uri) do
+    uri
+    |> String.split("/")
+    |> Enum.map_join("/", &encode_uri/1)
   end
 
   @doc """
-  Create an HMAC-SHA256 hexdigest for `key` and `message`.
+  Encodes URI keeping unreserved chars untouched.
   """
-  def hmac_sha256_hexdigest(key, message) do
-    hmac_sha256(key, message) |> Base.encode16(case: :lower)
-  end
-
-  @doc """
-  Create a SHA256 hexdigest for `value`.
-  """
-  def sha256_hexdigest(value) do
-    :crypto.hash(:sha256, value) |> Base.encode16(case: :lower)
-  end
-
-  @doc """
-  Encode URI.
-  """
-  def encode_uri(value, true = _multi_segment) do
-    String.split(value, "/")
-    |> Enum.map(&URI.encode/1)
-    |> Enum.join("/")
+  def encode_uri(uri) do
+    URI.encode(uri, &URI.char_unreserved?/1)
   end
 
   @doc """

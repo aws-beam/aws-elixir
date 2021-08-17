@@ -29,7 +29,7 @@ defmodule AWS.LexModelsV2 do
   """
   def build_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/"
 
     headers = []
     query_params = []
@@ -78,7 +78,7 @@ defmodule AWS.LexModelsV2 do
   call the Amazon Lex bot.
   """
   def create_bot_alias(%Client{} = client, bot_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botaliases/"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/"
     headers = []
     query_params = []
 
@@ -103,7 +103,9 @@ defmodule AWS.LexModelsV2 do
   locale to a bot before you can add intents and slot types to the bot.
   """
   def create_bot_locale(%Client{} = client, bot_id, bot_version, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/"
+
     headers = []
     query_params = []
 
@@ -131,7 +133,7 @@ defmodule AWS.LexModelsV2 do
   Subsequent versions increment by 1.
   """
   def create_bot_version(%Client{} = client, bot_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botversions/"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/"
     headers = []
     query_params = []
 
@@ -212,7 +214,7 @@ defmodule AWS.LexModelsV2 do
   """
   def create_intent(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/"
 
     headers = []
     query_params = []
@@ -234,7 +236,7 @@ defmodule AWS.LexModelsV2 do
   Creates a new resource policy with the specified policy statements.
   """
   def create_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/policy/#{URI.encode(resource_arn)}/"
+    url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}/"
     headers = []
     query_params = []
 
@@ -260,7 +262,7 @@ defmodule AWS.LexModelsV2 do
   You can't create a resource policy statement that allows cross-account access.
   """
   def create_resource_policy_statement(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/policy/#{URI.encode(resource_arn)}/statements/"
+    url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}/statements/"
     headers = []
 
     {query_params, input} =
@@ -300,7 +302,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/#{URI.encode(intent_id)}/slots/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots/"
 
     headers = []
     query_params = []
@@ -326,7 +328,7 @@ defmodule AWS.LexModelsV2 do
   """
   def create_slot_type(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/slottypes/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes/"
 
     headers = []
     query_params = []
@@ -380,7 +382,7 @@ defmodule AWS.LexModelsV2 do
   set the `skipResourceInUseCheck` parameter to `true`.
   """
   def delete_bot(%Client{} = client, bot_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/"
     headers = []
 
     {query_params, input} =
@@ -406,7 +408,9 @@ defmodule AWS.LexModelsV2 do
   Deletes the specified bot alias.
   """
   def delete_bot_alias(%Client{} = client, bot_alias_id, bot_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botaliases/#{URI.encode(bot_alias_id)}/"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/#{AWS.Util.encode_uri(bot_alias_id)}/"
+
     headers = []
 
     {query_params, input} =
@@ -436,7 +440,7 @@ defmodule AWS.LexModelsV2 do
   """
   def delete_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/"
 
     headers = []
     query_params = []
@@ -460,7 +464,9 @@ defmodule AWS.LexModelsV2 do
   To delete all version of a bot, use the `DeleteBot` operation.
   """
   def delete_bot_version(%Client{} = client, bot_id, bot_version, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/"
+
     headers = []
 
     {query_params, input} =
@@ -486,7 +492,7 @@ defmodule AWS.LexModelsV2 do
   Removes a previous export and the associated files stored in an S3 bucket.
   """
   def delete_export(%Client{} = client, export_id, input, options \\ []) do
-    url_path = "/exports/#{URI.encode(export_id)}/"
+    url_path = "/exports/#{AWS.Util.encode_uri(export_id)}/"
     headers = []
     query_params = []
 
@@ -507,7 +513,7 @@ defmodule AWS.LexModelsV2 do
   Removes a previous import and the associated file stored in an S3 bucket.
   """
   def delete_import(%Client{} = client, import_id, input, options \\ []) do
-    url_path = "/imports/#{URI.encode(import_id)}/"
+    url_path = "/imports/#{AWS.Util.encode_uri(import_id)}/"
     headers = []
     query_params = []
 
@@ -539,7 +545,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/#{URI.encode(intent_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/"
 
     headers = []
     query_params = []
@@ -563,7 +569,7 @@ defmodule AWS.LexModelsV2 do
   If the resource doesn't have a policy attached, Amazon Lex returns an exception.
   """
   def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/policy/#{URI.encode(resource_arn)}/"
+    url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}/"
     headers = []
 
     {query_params, input} =
@@ -599,7 +605,9 @@ defmodule AWS.LexModelsV2 do
         input,
         options \\ []
       ) do
-    url_path = "/policy/#{URI.encode(resource_arn)}/statements/#{URI.encode(statement_id)}/"
+    url_path =
+      "/policy/#{AWS.Util.encode_uri(resource_arn)}/statements/#{AWS.Util.encode_uri(statement_id)}/"
+
     headers = []
 
     {query_params, input} =
@@ -635,7 +643,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/#{URI.encode(intent_id)}/slots/#{URI.encode(slot_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots/#{AWS.Util.encode_uri(slot_id)}/"
 
     headers = []
     query_params = []
@@ -670,7 +678,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/slottypes/#{URI.encode(slot_type_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes/#{AWS.Util.encode_uri(slot_type_id)}/"
 
     headers = []
 
@@ -697,7 +705,7 @@ defmodule AWS.LexModelsV2 do
   Provides metadata information about a bot.
   """
   def describe_bot(%Client{} = client, bot_id, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/"
     headers = []
     query_params = []
 
@@ -718,7 +726,9 @@ defmodule AWS.LexModelsV2 do
   Get information about a specific bot alias.
   """
   def describe_bot_alias(%Client{} = client, bot_alias_id, bot_id, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botaliases/#{URI.encode(bot_alias_id)}/"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/#{AWS.Util.encode_uri(bot_alias_id)}/"
+
     headers = []
     query_params = []
 
@@ -740,7 +750,7 @@ defmodule AWS.LexModelsV2 do
   """
   def describe_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/"
 
     headers = []
     query_params = []
@@ -762,7 +772,9 @@ defmodule AWS.LexModelsV2 do
   Provides metadata about a version of a bot.
   """
   def describe_bot_version(%Client{} = client, bot_id, bot_version, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/"
+
     headers = []
     query_params = []
 
@@ -783,7 +795,7 @@ defmodule AWS.LexModelsV2 do
   Gets information about a specific export.
   """
   def describe_export(%Client{} = client, export_id, options \\ []) do
-    url_path = "/exports/#{URI.encode(export_id)}/"
+    url_path = "/exports/#{AWS.Util.encode_uri(export_id)}/"
     headers = []
     query_params = []
 
@@ -804,7 +816,7 @@ defmodule AWS.LexModelsV2 do
   Gets information about a specific import.
   """
   def describe_import(%Client{} = client, import_id, options \\ []) do
-    url_path = "/imports/#{URI.encode(import_id)}/"
+    url_path = "/imports/#{AWS.Util.encode_uri(import_id)}/"
     headers = []
     query_params = []
 
@@ -833,7 +845,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/#{URI.encode(intent_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/"
 
     headers = []
     query_params = []
@@ -855,7 +867,7 @@ defmodule AWS.LexModelsV2 do
   Gets the resource policy and policy revision for a bot or bot alias.
   """
   def describe_resource_policy(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/policy/#{URI.encode(resource_arn)}/"
+    url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}/"
     headers = []
     query_params = []
 
@@ -885,7 +897,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/#{URI.encode(intent_id)}/slots/#{URI.encode(slot_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots/#{AWS.Util.encode_uri(slot_id)}/"
 
     headers = []
     query_params = []
@@ -915,7 +927,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/slottypes/#{URI.encode(slot_type_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes/#{AWS.Util.encode_uri(slot_type_id)}/"
 
     headers = []
     query_params = []
@@ -937,7 +949,7 @@ defmodule AWS.LexModelsV2 do
   Gets a list of aliases for the specified bot.
   """
   def list_bot_aliases(%Client{} = client, bot_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botaliases/"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/"
     headers = []
     query_params = []
 
@@ -958,7 +970,9 @@ defmodule AWS.LexModelsV2 do
   Gets a list of locales for the specified bot.
   """
   def list_bot_locales(%Client{} = client, bot_id, bot_version, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/"
+
     headers = []
     query_params = []
 
@@ -987,7 +1001,7 @@ defmodule AWS.LexModelsV2 do
   version.
   """
   def list_bot_versions(%Client{} = client, bot_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botversions/"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/"
     headers = []
     query_params = []
 
@@ -1034,7 +1048,7 @@ defmodule AWS.LexModelsV2 do
   `CreateIntent` operation. For more information, see `CreateIntent`.
   """
   def list_built_in_intents(%Client{} = client, locale_id, input, options \\ []) do
-    url_path = "/builtins/locales/#{URI.encode(locale_id)}/intents/"
+    url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/intents/"
     headers = []
     query_params = []
 
@@ -1055,7 +1069,7 @@ defmodule AWS.LexModelsV2 do
   Gets a list of built-in slot types that meet the specified criteria.
   """
   def list_built_in_slot_types(%Client{} = client, locale_id, input, options \\ []) do
-    url_path = "/builtins/locales/#{URI.encode(locale_id)}/slottypes/"
+    url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/slottypes/"
     headers = []
     query_params = []
 
@@ -1123,7 +1137,7 @@ defmodule AWS.LexModelsV2 do
   """
   def list_intents(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/"
 
     headers = []
     query_params = []
@@ -1146,7 +1160,7 @@ defmodule AWS.LexModelsV2 do
   """
   def list_slot_types(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/slottypes/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes/"
 
     headers = []
     query_params = []
@@ -1177,7 +1191,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/#{URI.encode(intent_id)}/slots/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots/"
 
     headers = []
     query_params = []
@@ -1201,7 +1215,7 @@ defmodule AWS.LexModelsV2 do
   Only bots, bot aliases, and bot channels can have tags associated with them.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1246,7 +1260,7 @@ defmodule AWS.LexModelsV2 do
   If a tag key already exists, the existing value is replaced with the new value.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -1267,7 +1281,7 @@ defmodule AWS.LexModelsV2 do
   Removes tags from a bot, bot alias, or bot channel.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -1293,7 +1307,7 @@ defmodule AWS.LexModelsV2 do
   Updates the configuration of an existing bot.
   """
   def update_bot(%Client{} = client, bot_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/"
+    url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/"
     headers = []
     query_params = []
 
@@ -1314,7 +1328,9 @@ defmodule AWS.LexModelsV2 do
   Updates the configuration of an existing bot alias.
   """
   def update_bot_alias(%Client{} = client, bot_alias_id, bot_id, input, options \\ []) do
-    url_path = "/bots/#{URI.encode(bot_id)}/botaliases/#{URI.encode(bot_alias_id)}/"
+    url_path =
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/#{AWS.Util.encode_uri(bot_alias_id)}/"
+
     headers = []
     query_params = []
 
@@ -1336,7 +1352,7 @@ defmodule AWS.LexModelsV2 do
   """
   def update_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/"
 
     headers = []
     query_params = []
@@ -1362,7 +1378,7 @@ defmodule AWS.LexModelsV2 do
   that is available at the pre-signed S3 URL provided by the operation.
   """
   def update_export(%Client{} = client, export_id, input, options \\ []) do
-    url_path = "/exports/#{URI.encode(export_id)}/"
+    url_path = "/exports/#{AWS.Util.encode_uri(export_id)}/"
     headers = []
     query_params = []
 
@@ -1392,7 +1408,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/#{URI.encode(intent_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/"
 
     headers = []
     query_params = []
@@ -1416,7 +1432,7 @@ defmodule AWS.LexModelsV2 do
   If the policy doesn't exist, Amazon Lex returns an exception.
   """
   def update_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/policy/#{URI.encode(resource_arn)}/"
+    url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}/"
     headers = []
 
     {query_params, input} =
@@ -1452,7 +1468,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/intents/#{URI.encode(intent_id)}/slots/#{URI.encode(slot_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots/#{AWS.Util.encode_uri(slot_id)}/"
 
     headers = []
     query_params = []
@@ -1483,7 +1499,7 @@ defmodule AWS.LexModelsV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botversions/#{URI.encode(bot_version)}/botlocales/#{URI.encode(locale_id)}/slottypes/#{URI.encode(slot_type_id)}/"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes/#{AWS.Util.encode_uri(slot_type_id)}/"
 
     headers = []
     query_params = []

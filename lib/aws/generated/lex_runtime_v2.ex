@@ -48,7 +48,7 @@ defmodule AWS.LexRuntimeV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botAliases/#{URI.encode(bot_alias_id)}/botLocales/#{URI.encode(locale_id)}/sessions/#{URI.encode(session_id)}"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
     headers = []
     query_params = []
@@ -78,7 +78,7 @@ defmodule AWS.LexRuntimeV2 do
   """
   def get_session(%Client{} = client, bot_alias_id, bot_id, locale_id, session_id, options \\ []) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botAliases/#{URI.encode(bot_alias_id)}/botLocales/#{URI.encode(locale_id)}/sessions/#{URI.encode(session_id)}"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
     headers = []
     query_params = []
@@ -111,7 +111,7 @@ defmodule AWS.LexRuntimeV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botAliases/#{URI.encode(bot_alias_id)}/botLocales/#{URI.encode(locale_id)}/sessions/#{URI.encode(session_id)}"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
     {headers, input} =
       [
@@ -167,7 +167,7 @@ defmodule AWS.LexRuntimeV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botAliases/#{URI.encode(bot_alias_id)}/botLocales/#{URI.encode(locale_id)}/sessions/#{URI.encode(session_id)}/text"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/text"
 
     headers = []
     query_params = []
@@ -227,7 +227,7 @@ defmodule AWS.LexRuntimeV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botAliases/#{URI.encode(bot_alias_id)}/botLocales/#{URI.encode(locale_id)}/sessions/#{URI.encode(session_id)}/utterance"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/utterance"
 
     {headers, input} =
       [
@@ -298,7 +298,7 @@ defmodule AWS.LexRuntimeV2 do
         options \\ []
       ) do
     url_path =
-      "/bots/#{URI.encode(bot_id)}/botAliases/#{URI.encode(bot_alias_id)}/botLocales/#{URI.encode(locale_id)}/sessions/#{URI.encode(session_id)}/conversation"
+      "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/conversation"
 
     {headers, input} =
       [

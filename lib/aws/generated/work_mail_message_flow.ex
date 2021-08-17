@@ -30,7 +30,7 @@ defmodule AWS.WorkMailMessageFlow do
   Retrieves the raw content of an in-transit email message, in MIME format.
   """
   def get_raw_message_content(%Client{} = client, message_id, options \\ []) do
-    url_path = "/messages/#{URI.encode(message_id)}"
+    url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
     headers = []
     query_params = []
 
@@ -63,7 +63,7 @@ defmodule AWS.WorkMailMessageFlow do
   returns an updated message.
   """
   def put_raw_message_content(%Client{} = client, message_id, input, options \\ []) do
-    url_path = "/messages/#{URI.encode(message_id)}"
+    url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
     headers = []
     query_params = []
 

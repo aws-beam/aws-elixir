@@ -69,7 +69,7 @@ defmodule AWS.Fis do
   Deletes the specified experiment template.
   """
   def delete_experiment_template(%Client{} = client, id, input, options \\ []) do
-    url_path = "/experimentTemplates/#{URI.encode(id)}"
+    url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -90,7 +90,7 @@ defmodule AWS.Fis do
   Gets information about the specified AWS FIS action.
   """
   def get_action(%Client{} = client, id, options \\ []) do
-    url_path = "/actions/#{URI.encode(id)}"
+    url_path = "/actions/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -111,7 +111,7 @@ defmodule AWS.Fis do
   Gets information about the specified experiment.
   """
   def get_experiment(%Client{} = client, id, options \\ []) do
-    url_path = "/experiments/#{URI.encode(id)}"
+    url_path = "/experiments/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -132,7 +132,7 @@ defmodule AWS.Fis do
   Gets information about the specified experiment template.
   """
   def get_experiment_template(%Client{} = client, id, options \\ []) do
-    url_path = "/experimentTemplates/#{URI.encode(id)}"
+    url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -263,7 +263,7 @@ defmodule AWS.Fis do
   Lists the tags for the specified resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -305,7 +305,7 @@ defmodule AWS.Fis do
   Stops the specified experiment.
   """
   def stop_experiment(%Client{} = client, id, input, options \\ []) do
-    url_path = "/experiments/#{URI.encode(id)}"
+    url_path = "/experiments/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -326,7 +326,7 @@ defmodule AWS.Fis do
   Applies the specified tags to the specified resource.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -347,7 +347,7 @@ defmodule AWS.Fis do
   Removes the specified tags from the specified resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -373,7 +373,7 @@ defmodule AWS.Fis do
   Updates the specified experiment template.
   """
   def update_experiment_template(%Client{} = client, id, input, options \\ []) do
-    url_path = "/experimentTemplates/#{URI.encode(id)}"
+    url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 

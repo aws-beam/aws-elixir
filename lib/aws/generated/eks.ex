@@ -46,7 +46,7 @@ defmodule AWS.EKS do
   security strategy without migrating applications to new Amazon EKS clusters.
   """
   def associate_encryption_config(%Client{} = client, cluster_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/encryption-config/associate"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/encryption-config/associate"
     headers = []
     query_params = []
 
@@ -75,7 +75,9 @@ defmodule AWS.EKS do
   the Kubernetes documentation.
   """
   def associate_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/identity-provider-configs/associate"
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/associate"
+
     headers = []
     query_params = []
 
@@ -102,7 +104,7 @@ defmodule AWS.EKS do
   feature, which is only available in Kubernetes 1.18 and later.
   """
   def create_addon(%Client{} = client, cluster_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/addons"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons"
     headers = []
     query_params = []
 
@@ -199,7 +201,7 @@ defmodule AWS.EKS do
   in the *Amazon EKS User Guide*.
   """
   def create_fargate_profile(%Client{} = client, cluster_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles"
     headers = []
     query_params = []
 
@@ -232,7 +234,7 @@ defmodule AWS.EKS do
   in the *Amazon EKS User Guide*.
   """
   def create_nodegroup(%Client{} = client, cluster_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/node-groups"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups"
     headers = []
     query_params = []
 
@@ -256,7 +258,9 @@ defmodule AWS.EKS do
   always manually start an add-on on the cluster using the Kubernetes API.
   """
   def delete_addon(%Client{} = client, addon_name, cluster_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/addons/#{URI.encode(addon_name)}"
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}"
+
     headers = []
     query_params = []
 
@@ -288,7 +292,7 @@ defmodule AWS.EKS do
   `DeleteFargateProfile`.
   """
   def delete_cluster(%Client{} = client, name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(name)}"
+    url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -326,7 +330,7 @@ defmodule AWS.EKS do
         options \\ []
       ) do
     url_path =
-      "/clusters/#{URI.encode(cluster_name)}/fargate-profiles/#{URI.encode(fargate_profile_name)}"
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles/#{AWS.Util.encode_uri(fargate_profile_name)}"
 
     headers = []
     query_params = []
@@ -348,7 +352,9 @@ defmodule AWS.EKS do
   Deletes an Amazon EKS node group for a cluster.
   """
   def delete_nodegroup(%Client{} = client, cluster_name, nodegroup_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}"
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}"
+
     headers = []
     query_params = []
 
@@ -369,7 +375,9 @@ defmodule AWS.EKS do
   Describes an Amazon EKS add-on.
   """
   def describe_addon(%Client{} = client, addon_name, cluster_name, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/addons/#{URI.encode(addon_name)}"
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}"
+
     headers = []
     query_params = []
 
@@ -453,7 +461,7 @@ defmodule AWS.EKS do
   the cluster reaches the `ACTIVE` state.
   """
   def describe_cluster(%Client{} = client, name, options \\ []) do
-    url_path = "/clusters/#{URI.encode(name)}"
+    url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
@@ -480,7 +488,7 @@ defmodule AWS.EKS do
         options \\ []
       ) do
     url_path =
-      "/clusters/#{URI.encode(cluster_name)}/fargate-profiles/#{URI.encode(fargate_profile_name)}"
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles/#{AWS.Util.encode_uri(fargate_profile_name)}"
 
     headers = []
     query_params = []
@@ -502,7 +510,7 @@ defmodule AWS.EKS do
   Returns descriptive information about an identity provider configuration.
   """
   def describe_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/identity-provider-configs/describe"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/describe"
     headers = []
     query_params = []
 
@@ -523,7 +531,9 @@ defmodule AWS.EKS do
   Returns descriptive information about an Amazon EKS node group.
   """
   def describe_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}"
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}"
+
     headers = []
     query_params = []
 
@@ -556,7 +566,7 @@ defmodule AWS.EKS do
         nodegroup_name \\ nil,
         options \\ []
       ) do
-    url_path = "/clusters/#{URI.encode(name)}/updates/#{URI.encode(update_id)}"
+    url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates/#{AWS.Util.encode_uri(update_id)}"
     headers = []
     query_params = []
 
@@ -600,7 +610,9 @@ defmodule AWS.EKS do
         input,
         options \\ []
       ) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/identity-provider-configs/disassociate"
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/disassociate"
+
     headers = []
     query_params = []
 
@@ -627,7 +639,7 @@ defmodule AWS.EKS do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/addons"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons"
     headers = []
     query_params = []
 
@@ -705,7 +717,7 @@ defmodule AWS.EKS do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/fargate-profiles"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles"
     headers = []
     query_params = []
 
@@ -746,7 +758,7 @@ defmodule AWS.EKS do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/identity-provider-configs"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs"
     headers = []
     query_params = []
 
@@ -790,7 +802,7 @@ defmodule AWS.EKS do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/node-groups"
+    url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups"
     headers = []
     query_params = []
 
@@ -825,7 +837,7 @@ defmodule AWS.EKS do
   List the tags for an Amazon EKS resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -855,7 +867,7 @@ defmodule AWS.EKS do
         nodegroup_name \\ nil,
         options \\ []
       ) do
-    url_path = "/clusters/#{URI.encode(name)}/updates"
+    url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates"
     headers = []
     query_params = []
 
@@ -911,7 +923,7 @@ defmodule AWS.EKS do
   propagate to the subnets and nodes associated with the cluster.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -932,7 +944,7 @@ defmodule AWS.EKS do
   Deletes specified tags from a resource.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -958,7 +970,9 @@ defmodule AWS.EKS do
   Updates an Amazon EKS add-on.
   """
   def update_addon(%Client{} = client, addon_name, cluster_name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(cluster_name)}/addons/#{URI.encode(addon_name)}/update"
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}/update"
+
     headers = []
     query_params = []
 
@@ -1005,7 +1019,7 @@ defmodule AWS.EKS do
   `Successful`), the cluster status moves to `Active`.
   """
   def update_cluster_config(%Client{} = client, name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(name)}/update-config"
+    url_path = "/clusters/#{AWS.Util.encode_uri(name)}/update-config"
     headers = []
     query_params = []
 
@@ -1039,7 +1053,7 @@ defmodule AWS.EKS do
   update the cluster to a new Kubernetes version.
   """
   def update_cluster_version(%Client{} = client, name, input, options \\ []) do
-    url_path = "/clusters/#{URI.encode(name)}/updates"
+    url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates"
     headers = []
     query_params = []
 
@@ -1072,7 +1086,7 @@ defmodule AWS.EKS do
         options \\ []
       ) do
     url_path =
-      "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}/update-config"
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}/update-config"
 
     headers = []
     query_params = []
@@ -1125,7 +1139,7 @@ defmodule AWS.EKS do
         options \\ []
       ) do
     url_path =
-      "/clusters/#{URI.encode(cluster_name)}/node-groups/#{URI.encode(nodegroup_name)}/update-version"
+      "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}/update-version"
 
     headers = []
     query_params = []

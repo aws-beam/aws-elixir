@@ -45,7 +45,7 @@ defmodule AWS.Signer do
   Adds cross-account permissions to a signing profile.
   """
   def add_profile_permission(%Client{} = client, profile_name, input, options \\ []) do
-    url_path = "/signing-profiles/#{URI.encode(profile_name)}/permissions"
+    url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
     headers = []
     query_params = []
 
@@ -70,7 +70,7 @@ defmodule AWS.Signer do
   cancelation.
   """
   def cancel_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
-    url_path = "/signing-profiles/#{URI.encode(profile_name)}"
+    url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
     query_params = []
 
@@ -94,7 +94,7 @@ defmodule AWS.Signer do
   `StartSigningJob` operation.
   """
   def describe_signing_job(%Client{} = client, job_id, options \\ []) do
-    url_path = "/signing-jobs/#{URI.encode(job_id)}"
+    url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
 
@@ -115,7 +115,7 @@ defmodule AWS.Signer do
   Returns information on a specific signing platform.
   """
   def get_signing_platform(%Client{} = client, platform_id, options \\ []) do
-    url_path = "/signing-platforms/#{URI.encode(platform_id)}"
+    url_path = "/signing-platforms/#{AWS.Util.encode_uri(platform_id)}"
     headers = []
     query_params = []
 
@@ -136,7 +136,7 @@ defmodule AWS.Signer do
   Returns information on a specific signing profile.
   """
   def get_signing_profile(%Client{} = client, profile_name, profile_owner \\ nil, options \\ []) do
-    url_path = "/signing-profiles/#{URI.encode(profile_name)}"
+    url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
     query_params = []
 
@@ -164,7 +164,7 @@ defmodule AWS.Signer do
   Lists the cross-account permissions associated with a signing profile.
   """
   def list_profile_permissions(%Client{} = client, profile_name, next_token \\ nil, options \\ []) do
-    url_path = "/signing-profiles/#{URI.encode(profile_name)}/permissions"
+    url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
     headers = []
     query_params = []
 
@@ -439,7 +439,7 @@ defmodule AWS.Signer do
   Returns a list of the tags associated with a signing profile resource.
   """
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -464,7 +464,7 @@ defmodule AWS.Signer do
   [http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html](http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html)
   """
   def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
-    url_path = "/signing-profiles/#{URI.encode(profile_name)}"
+    url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
     query_params = []
 
@@ -492,7 +492,7 @@ defmodule AWS.Signer do
         options \\ []
       ) do
     url_path =
-      "/signing-profiles/#{URI.encode(profile_name)}/permissions/#{URI.encode(statement_id)}"
+      "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions/#{AWS.Util.encode_uri(statement_id)}"
 
     headers = []
 
@@ -521,7 +521,7 @@ defmodule AWS.Signer do
   This indicates that the signature is no longer valid.
   """
   def revoke_signature(%Client{} = client, job_id, input, options \\ []) do
-    url_path = "/signing-jobs/#{URI.encode(job_id)}/revoke"
+    url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}/revoke"
     headers = []
     query_params = []
 
@@ -545,7 +545,7 @@ defmodule AWS.Signer do
   effective start date are no longer valid.
   """
   def revoke_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
-    url_path = "/signing-profiles/#{URI.encode(profile_name)}/revoke"
+    url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/revoke"
     headers = []
     query_params = []
 
@@ -616,7 +616,7 @@ defmodule AWS.Signer do
   pair.
   """
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -639,7 +639,7 @@ defmodule AWS.Signer do
   To remove the tags, specify a list of tag keys.
   """
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/tags/#{URI.encode(resource_arn)}"
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =

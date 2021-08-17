@@ -116,7 +116,7 @@ defmodule AWS.Mq do
   Add a tag to a resource.
   """
   def create_tags(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -137,7 +137,9 @@ defmodule AWS.Mq do
   Creates an ActiveMQ user.
   """
   def create_user(%Client{} = client, broker_id, username, input, options \\ []) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}/users/#{URI.encode(username)}"
+    url_path =
+      "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
+
     headers = []
     query_params = []
 
@@ -160,7 +162,7 @@ defmodule AWS.Mq do
   Note: This API is asynchronous.
   """
   def delete_broker(%Client{} = client, broker_id, input, options \\ []) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}"
+    url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
     headers = []
     query_params = []
 
@@ -181,7 +183,7 @@ defmodule AWS.Mq do
   Removes a tag from a resource.
   """
   def delete_tags(%Client{} = client, resource_arn, input, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
 
     {query_params, input} =
@@ -207,7 +209,9 @@ defmodule AWS.Mq do
   Deletes an ActiveMQ user.
   """
   def delete_user(%Client{} = client, broker_id, username, input, options \\ []) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}/users/#{URI.encode(username)}"
+    url_path =
+      "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
+
     headers = []
     query_params = []
 
@@ -228,7 +232,7 @@ defmodule AWS.Mq do
   Returns information about the specified broker.
   """
   def describe_broker(%Client{} = client, broker_id, options \\ []) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}"
+    url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
     headers = []
     query_params = []
 
@@ -361,7 +365,7 @@ defmodule AWS.Mq do
   Returns information about the specified configuration.
   """
   def describe_configuration(%Client{} = client, configuration_id, options \\ []) do
-    url_path = "/v1/configurations/#{URI.encode(configuration_id)}"
+    url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
     headers = []
     query_params = []
 
@@ -388,7 +392,7 @@ defmodule AWS.Mq do
         options \\ []
       ) do
     url_path =
-      "/v1/configurations/#{URI.encode(configuration_id)}/revisions/#{URI.encode(configuration_revision)}"
+      "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}/revisions/#{AWS.Util.encode_uri(configuration_revision)}"
 
     headers = []
     query_params = []
@@ -410,7 +414,9 @@ defmodule AWS.Mq do
   Returns information about an ActiveMQ user.
   """
   def describe_user(%Client{} = client, broker_id, username, options \\ []) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}/users/#{URI.encode(username)}"
+    url_path =
+      "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
+
     headers = []
     query_params = []
 
@@ -472,7 +478,7 @@ defmodule AWS.Mq do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/configurations/#{URI.encode(configuration_id)}/revisions"
+    url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}/revisions"
     headers = []
     query_params = []
 
@@ -547,7 +553,7 @@ defmodule AWS.Mq do
   Lists tags for a resource.
   """
   def list_tags(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/v1/tags/#{URI.encode(resource_arn)}"
+    url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
@@ -574,7 +580,7 @@ defmodule AWS.Mq do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}/users"
+    url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users"
     headers = []
     query_params = []
 
@@ -611,7 +617,7 @@ defmodule AWS.Mq do
   Note: This API is asynchronous.
   """
   def reboot_broker(%Client{} = client, broker_id, input, options \\ []) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}/reboot"
+    url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/reboot"
     headers = []
     query_params = []
 
@@ -632,7 +638,7 @@ defmodule AWS.Mq do
   Adds a pending configuration change to a broker.
   """
   def update_broker(%Client{} = client, broker_id, input, options \\ []) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}"
+    url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
     headers = []
     query_params = []
 
@@ -653,7 +659,7 @@ defmodule AWS.Mq do
   Updates the specified configuration.
   """
   def update_configuration(%Client{} = client, configuration_id, input, options \\ []) do
-    url_path = "/v1/configurations/#{URI.encode(configuration_id)}"
+    url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
     headers = []
     query_params = []
 
@@ -674,7 +680,9 @@ defmodule AWS.Mq do
   Updates the information for an ActiveMQ user.
   """
   def update_user(%Client{} = client, broker_id, username, input, options \\ []) do
-    url_path = "/v1/brokers/#{URI.encode(broker_id)}/users/#{URI.encode(username)}"
+    url_path =
+      "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
+
     headers = []
     query_params = []
 

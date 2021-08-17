@@ -285,7 +285,7 @@ defmodule AWS.EFS do
   action.
   """
   def create_tags(%Client{} = client, file_system_id, input, options \\ []) do
-    url_path = "/2015-02-01/create-tags/#{URI.encode(file_system_id)}"
+    url_path = "/2015-02-01/create-tags/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
     query_params = []
 
@@ -313,7 +313,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteAccessPoint` action.
   """
   def delete_access_point(%Client{} = client, access_point_id, input, options \\ []) do
-    url_path = "/2015-02-01/access-points/#{URI.encode(access_point_id)}"
+    url_path = "/2015-02-01/access-points/#{AWS.Util.encode_uri(access_point_id)}"
     headers = []
     query_params = []
 
@@ -350,7 +350,7 @@ defmodule AWS.EFS do
   action.
   """
   def delete_file_system(%Client{} = client, file_system_id, input, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
+    url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
     query_params = []
 
@@ -378,7 +378,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteFileSystemPolicy` action.
   """
   def delete_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
     headers = []
     query_params = []
 
@@ -422,7 +422,7 @@ defmodule AWS.EFS do
     * `ec2:DeleteNetworkInterface`
   """
   def delete_mount_target(%Client{} = client, mount_target_id, input, options \\ []) do
-    url_path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}"
+    url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}"
     headers = []
     query_params = []
 
@@ -453,7 +453,7 @@ defmodule AWS.EFS do
   action.
   """
   def delete_tags(%Client{} = client, file_system_id, input, options \\ []) do
-    url_path = "/2015-02-01/delete-tags/#{URI.encode(file_system_id)}"
+    url_path = "/2015-02-01/delete-tags/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
     query_params = []
 
@@ -556,7 +556,7 @@ defmodule AWS.EFS do
   Returns the backup policy for the specified EFS file system.
   """
   def describe_backup_policy(%Client{} = client, file_system_id, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
+    url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
     headers = []
     query_params = []
 
@@ -580,7 +580,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeFileSystemPolicy` action.
   """
   def describe_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
     headers = []
     query_params = []
 
@@ -690,7 +690,9 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeLifecycleConfiguration` operation.
   """
   def describe_lifecycle_configuration(%Client{} = client, file_system_id, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
+    url_path =
+      "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
+
     headers = []
     query_params = []
 
@@ -722,7 +724,7 @@ defmodule AWS.EFS do
   target's network interface.
   """
   def describe_mount_target_security_groups(%Client{} = client, mount_target_id, options \\ []) do
-    url_path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
+    url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
     headers = []
     query_params = []
 
@@ -832,7 +834,7 @@ defmodule AWS.EFS do
         max_items \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-02-01/tags/#{URI.encode(file_system_id)}/"
+    url_path = "/2015-02-01/tags/#{AWS.Util.encode_uri(file_system_id)}/"
     headers = []
     query_params = []
 
@@ -878,7 +880,7 @@ defmodule AWS.EFS do
         next_token \\ nil,
         options \\ []
       ) do
-    url_path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+    url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
     headers = []
     query_params = []
 
@@ -933,7 +935,7 @@ defmodule AWS.EFS do
         input,
         options \\ []
       ) do
-    url_path = "/2015-02-01/mount-targets/#{URI.encode(mount_target_id)}/security-groups"
+    url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
     headers = []
     query_params = []
 
@@ -974,7 +976,7 @@ defmodule AWS.EFS do
   Use this action to start or stop automatic backups of the file system.
   """
   def put_backup_policy(%Client{} = client, file_system_id, input, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/backup-policy"
+    url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
     headers = []
     query_params = []
 
@@ -1007,7 +1009,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:PutFileSystemPolicy` action.
   """
   def put_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/policy"
+    url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
     headers = []
     query_params = []
 
@@ -1056,7 +1058,9 @@ defmodule AWS.EFS do
   the encrypted file system.
   """
   def put_lifecycle_configuration(%Client{} = client, file_system_id, input, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}/lifecycle-configuration"
+    url_path =
+      "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
+
     headers = []
     query_params = []
 
@@ -1083,7 +1087,7 @@ defmodule AWS.EFS do
   action.
   """
   def tag_resource(%Client{} = client, resource_id, input, options \\ []) do
-    url_path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+    url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
     headers = []
     query_params = []
 
@@ -1110,7 +1114,7 @@ defmodule AWS.EFS do
   action.
   """
   def untag_resource(%Client{} = client, resource_id, input, options \\ []) do
-    url_path = "/2015-02-01/resource-tags/#{URI.encode(resource_id)}"
+    url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
     headers = []
 
     {query_params, input} =
@@ -1137,7 +1141,7 @@ defmodule AWS.EFS do
   existing file system.
   """
   def update_file_system(%Client{} = client, file_system_id, input, options \\ []) do
-    url_path = "/2015-02-01/file-systems/#{URI.encode(file_system_id)}"
+    url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
     query_params = []
 

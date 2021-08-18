@@ -102,7 +102,13 @@ defmodule AWS.SignatureTest do
     now = ~N[2015-05-14 16:50:05]
     method = "GET"
     url = "https://s3.us-east-1.amazonaws.com/bucket"
-    headers = [{"Host", "ec2.us-east-1.amazonaws.com"}, {"X-Amz-Expires", "86400"}]
+
+    headers = [
+      {"Host", "ec2.us-east-1.amazonaws.com"},
+      {"X-Amz-Expires", "86400"},
+      {"X-Amz-Date", NaiveDateTime.to_iso8601(now, :basic) <> "Z"}
+    ]
+
     actual = Signature.sign_v4_query(client, now, method, url, headers, "")
 
     expected = [
